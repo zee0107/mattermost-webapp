@@ -18,6 +18,7 @@ const mapStateToProps = (state: GlobalState) => {
     return ({
         isMarkdownPreviewEnabled: isFeatureEnabled(PreReleaseFeatures.MARKDOWN_PREVIEW, state),
         currentLocale: getCurrentLocale(state),
+        customEditors: state.plugins.components.CustomEditor,
     });
 };
 

@@ -792,4 +792,21 @@ export default class PluginRegistry {
     registerGlobalComponent(component) {
         return dispatchPluginComponentAction('Global', this.id, component);
     }
+
+    registerCustomEditorComponent(text, component) {
+        const id = generateId();
+
+        const data = {
+            id,
+            pluginId: this.id,
+            text,
+            component,
+        };
+
+        store.dispatch({
+            type: ActionTypes.RECEIVED_PLUGIN_COMPONENT,
+            name: 'CustomEditor',
+            data,
+        });
+    }
 }

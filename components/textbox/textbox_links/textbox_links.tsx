@@ -5,6 +5,8 @@ import React, {MouseEvent} from 'react';
 import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router-dom';
 
+import {PluginComponent} from 'types/store/plugins';
+
 type Props = {
     showPreview?: boolean;
     characterLimit: number;
@@ -13,6 +15,9 @@ type Props = {
     message?: string;
     isMarkdownPreviewEnabled: boolean;
     currentLocale: string;
+    customEditor?: PluginComponent;
+    customEditors?: Array<PluginComponent>;
+    setCustomEditor: (editor: PluginComponent) => void;
 };
 
 const TextboxLinks: React.FC<Props> = ({
@@ -23,10 +28,18 @@ const TextboxLinks: React.FC<Props> = ({
     message = '',
     isMarkdownPreviewEnabled,
     currentLocale,
+    customEditor,
+    customEditors,
+    setCustomEditor,
 }: Props) => {
-    const togglePreview = (e: MouseEvent) => {
+    const handleShowPreview = (e: MouseEvent) => {
         e.preventDefault();
-        updatePreview?.(!showPreview);
+        updatePreview?.(true);
+    };
+
+    const handleHidePreview = (e: MouseEvent) => {
+        e.preventDefault();
+        updatePreview?.(false);
     };
 
     const hasText = message && message.length > 0;
@@ -53,25 +66,46 @@ const TextboxLinks: React.FC<Props> = ({
         );
     }
 
-    let previewLink = null;
-    if (isMarkdownPreviewEnabled) {
-        previewLink = (
+    let editMessageLink = null;
+    if ((isMarkdownPreviewEnabled && showPreview) || customEditor) {
+        editMessageLink = (
             <button
                 id='previewLink'
-                onClick={togglePreview}
+                onClick={handleHidePreview}
                 className='style--none textbox-preview-link color--link'
             >
-                {showPreview ? (
-                    editHeader
-                ) : (
-                    <FormattedMessage
-                        id='textbox.preview'
-                        defaultMessage='Preview'
-                    />
-                )}
+                {editHeader}
             </button>
         );
     }
+
+    let previewLink = null;
+    if ((isMarkdownPreviewEnabled && !showPreview) || customEditor) {
+        previewLink = (
+            <button
+                id='previewLink'
+                onClick={handleShowPreview}
+                className='style--none textbox-preview-link color--link'
+            >
+                <FormattedMessage
+                    id='textbox.preview'
+                    defaultMessage='Preview'
+                />
+            </button>
+        );
+    }
+
+    const customEditorLinks = customEditors?.filter((pluggable) => (
+        pluggable.id !== customEditor?.id
+    )).map((pluggable) => (
+        <button
+            key={pluggable.id}
+            onClick={() => setCustomEditor(pluggable)}
+            className='style--none textbox-preview-link color--link'
+        >
+            {pluggable.text}
+        </button>
+    ));
 
     const helpText = (
         <div
@@ -124,7 +158,9 @@ const TextboxLinks: React.FC<Props> = ({
     return (
         <div className={'help__text ' + helpTextClass}>
             {helpText}
+            {editMessageLink}
             {previewLink}
+            {customEditorLinks}
             <Link
                 target='_blank'
                 rel='noopener noreferrer'

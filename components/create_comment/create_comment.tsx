@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import {FormattedMessage, injectIntl, IntlShape} from 'react-intl';
 
 import {ModalData} from 'types/actions.js';
+import {PluginComponent} from 'types/store/plugins';
 
 import {sortFileInfos} from 'mattermost-redux/utils/file_utils';
 
@@ -260,6 +261,7 @@ type State = {
     postError?: React.ReactNode;
     errorClass: string | null;
     serverError: (ServerError & {submittedMessage?: string}) | null;
+    customEditor?: PluginComponent;
 }
 
 class CreateComment extends React.PureComponent<Props, State> {
@@ -388,6 +390,12 @@ class CreateComment extends React.PureComponent<Props, State> {
 
     setShowPreview = (newPreviewValue: boolean) => {
         this.props.setShowPreview(newPreviewValue);
+        this.setState({customEditor: undefined});
+    }
+
+    setCustomEditor = (pluginComponent?: PluginComponent) => {
+        this.props.setShowPreview(false);
+        this.setState({customEditor: pluginComponent});
     }
 
     focusTextboxIfNecessary = (e: KeyboardEvent) => {
@@ -1242,6 +1250,8 @@ class CreateComment extends React.PureComponent<Props, State> {
                                 badConnection={this.props.badConnection}
                                 listenForMentionKeyClick={true}
                                 useChannelMentions={this.props.useChannelMentions}
+                                customEditor={this.state.customEditor}
+                                setCustomEditor={this.setCustomEditor}
                             />
                             <span
                                 ref={this.createCommentControlsRef}
@@ -1268,6 +1278,8 @@ class CreateComment extends React.PureComponent<Props, State> {
                                     characterLimit={this.props.maxPostSize}
                                     showPreview={this.props.shouldShowPreview}
                                     updatePreview={this.setShowPreview}
+                                    customEditor={this.state.customEditor}
+                                    setCustomEditor={this.setCustomEditor}
                                 />
                             </div>
                         </div>

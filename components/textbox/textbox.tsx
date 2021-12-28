@@ -20,6 +20,8 @@ import SuggestionBox from 'components/suggestion/suggestion_box';
 import SuggestionBoxComponent from 'components/suggestion/suggestion_box/suggestion_box';
 import SuggestionList from 'components/suggestion/suggestion_list.jsx';
 
+import {PluginComponent} from 'types/store/plugins';
+
 import * as Utils from 'utils/utils.jsx';
 
 type Props = {
@@ -62,6 +64,8 @@ type Props = {
     inputComponent?: ElementType;
     openWhenEmpty?: boolean;
     priorityProfiles?: UserProfile[];
+    customEditor?: PluginComponent;
+    setCustomEditor: (editorConfig?: PluginComponent) => void;
 };
 
 export default class Textbox extends React.PureComponent<Props> {
@@ -255,10 +259,13 @@ export default class Textbox extends React.PureComponent<Props> {
         if (this.props.badConnection) {
             textboxClassName += ' bad-connection';
         }
+
+        let hideTextbox = false;
         if (this.props.preview) {
             textboxClassName += ' custom-textarea--preview';
             textWrapperClass += ' textarea-wrapper--preview';
 
+            hideTextbox = true;
             preview = (
                 <div
                     tabIndex={this.props.tabIndex || 0}
@@ -279,17 +286,38 @@ export default class Textbox extends React.PureComponent<Props> {
             );
         }
 
+        let customEditor;
+        if(this.props.customEditor) {
+            hideTextbox = true;
+
+            const CustomEditor = this.props.customEditor.component as React.ElementType;
+            customEditor = (
+                <CustomEditor
+                    channelId={this.props.channelId}
+                    rootId={this.props.rootId}
+                    className={textboxClassName}
+                    onChange={this.handleChange}
+                    value={this.props.value}
+                    onConfirm={(text: string) => {
+                        this.handleChange({target: {value: text}} as any);
+                        this.props.setCustomEditor(undefined);
+                    }}
+                />
+            );
+        }
+
         return (
             <div
                 ref={this.wrapper}
                 className={textWrapperClass}
             >
+                {customEditor}
                 <SuggestionBox
                     id={this.props.id}
                     ref={this.message}
                     className={textboxClassName}
                     spellCheck='true'
-                    placeholder={this.props.createMessage}
+                    placeholder={customEditor ? '' : this.props.createMessage}
                     onChange={this.handleChange}
                     onKeyPress={this.props.onKeyPress}
                     onSelect={this.handleSelect}
@@ -299,7 +327,7 @@ export default class Textbox extends React.PureComponent<Props> {
                     onComposition={this.props.onComposition}
                     onBlur={this.handleBlur}
                     onHeightChange={this.handleHeightChange}
-                    style={{visibility: this.props.preview ? 'hidden' : 'visible'}}
+                    style={{visibility: this.props.preview ? 'hidden' : 'visible', display: customEditor ? 'none' : 'block'}}
                     inputComponent={this.props.inputComponent}
                     listComponent={this.props.suggestionList}
                     listPosition={this.props.suggestionListPosition}

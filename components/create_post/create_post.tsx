@@ -57,6 +57,7 @@ import {ModalData} from 'types/actions';
 import {FileInfo} from 'mattermost-redux/types/files';
 import {Emoji} from 'mattermost-redux/types/emojis';
 import {FilePreviewInfo} from 'components/file_preview/file_preview';
+import {PluginComponent} from 'types/store/plugins';
 
 import CreatePostTip from './create_post_tip';
 
@@ -317,6 +318,7 @@ type State = {
     errorClass: string | null;
     serverError: (ServerError & {submittedMessage?: string}) | null;
     postError?: React.ReactNode;
+    customEditor?: PluginComponent;
 }
 
 class CreatePost extends React.PureComponent<Props, State> {
@@ -429,6 +431,12 @@ class CreatePost extends React.PureComponent<Props, State> {
 
     setShowPreview = (newPreviewValue: boolean) => {
         this.props.actions.setShowPreview(newPreviewValue);
+        this.setState({customEditor: undefined});
+    }
+
+    setCustomEditor = (pluginComponent?: PluginComponent) => {
+        this.props.actions.setShowPreview(false);
+        this.setState({customEditor: pluginComponent});
     }
 
     setOrientationListeners = () => {
@@ -1490,6 +1498,8 @@ class CreatePost extends React.PureComponent<Props, State> {
                                 badConnection={this.props.badConnection}
                                 listenForMentionKeyClick={true}
                                 useChannelMentions={this.props.useChannelMentions}
+                                customEditor={this.state.customEditor}
+                                setCustomEditor={this.setCustomEditor}
                             />
                             <span
                                 ref={this.createPostControlsRef}
@@ -1535,6 +1545,8 @@ class CreatePost extends React.PureComponent<Props, State> {
                                 showPreview={this.props.shouldShowPreview}
                                 updatePreview={this.setShowPreview}
                                 message={readOnlyChannel ? '' : this.state.message}
+                                customEditor={this.state.customEditor}
+                                setCustomEditor={this.setCustomEditor}
                             />
                         </div>
                         <div>
