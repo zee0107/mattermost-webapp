@@ -2,6 +2,7 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+
 import styled from 'styled-components';
 
 import CenterControls from './center_controls/center_controls';
@@ -26,6 +27,7 @@ const GlobalHeaderContainer = styled.header`
     > * + * {
         margin-left: 12px;
     }
+
     @media screen and (max-width: 768px) {
         display: none;
     }
