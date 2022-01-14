@@ -7,22 +7,19 @@ import classNames from 'classnames';
 
 import {MenuItemProps} from './Menu.types';
 
-const MenuItemLabel = styled.span(
-    () => css`
-        font-size: 14px;
-        line-height: 20px;
-        margin: 0 8px 0 0;
-    `,
-);
+const MenuItemLabel = styled.span`
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 8px 0 0;
+`;
 
-const MenuItemDescription = styled.span(
-    () => css`
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 16px;
-        color: rgba(var(--center-channel-color-rgb), 0.56);
-    `,
-);
+const MenuItemDescription = styled.span`
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: rgba(var(--center-channel-color-rgb), 0.56);
+`;
+
 const LabelWrapper = styled.div<{leadingElement: boolean}>(
     ({leadingElement}) => css`
         display: flex;

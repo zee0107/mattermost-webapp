@@ -48,7 +48,6 @@ export interface MenuProps {
     submenuTitle?: string;
     trigger: React.RefObject<HTMLElement>;
     submenuTrigger?: React.RefObject<HTMLElement>;
-    hasSubmenu?: boolean;
     groups: MenuGroup[];
     submenuGroups?: MenuGroup[];
     placement?: Placement;

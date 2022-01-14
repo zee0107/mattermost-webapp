@@ -12,9 +12,9 @@ import {CSSTransition} from 'react-transition-group';
 
 import {useClickOutsideRef} from 'components/global_header/hooks';
 
-import MenuItem from './MenuItem';
 import MenuData from './MenuData';
 import styled, { css } from 'styled-components';
+import { MenuProps } from './Menu.types';
 
 const Overlay = styled.div(() => {
     return css`
@@ -99,93 +99,37 @@ function usePrevious<T extends unknown>(value: T): T | undefined {
     return ref.current;
 }
 
-interface MenuProps {}
-
-
 const Menu = (props: MenuProps): JSX.Element => {   
     const [open, setOpen] = useState(false);
     const [submenuOpen, setSubmenuOpen] = useState(false);
-    const buttonReference = useRef<HTMLButtonElement>(null);
     const menuRef = useRef(null);
     const submenuRef = useRef(null);
-    const menuItemReference = useRef(null);
     const prevOpen = usePrevious(open);
     const prevSubmenuOpen = usePrevious(submenuOpen);
     const isMobile = useIsMobile();
     const isOverlayVisible = isMobile && open;
+    const {trigger, title, submenuTitle, submenuTrigger, groups, submenuGroups, placement} = props;
 
     const closeMenu = useCallback(() => {
         setOpen(false);
         setSubmenuOpen(false);
     }, []);
 
-    useClickOutsideRef([buttonReference, menuRef, submenuRef], () => {
+    useClickOutsideRef([trigger, menuRef, submenuRef], () => {
         if (!open || isMobile) {
             return;
         }
         closeMenu();
     });
 
-    const closeSubmenuDown = Boolean(prevOpen && prevSubmenuOpen && !submenuOpen && !open);
-
-    const menuTitle = 'Parent Menu';
-    const submenuTitle = 'sub Menu title';
-    const menuGroup = [
-        {
-            menuItems: [
-                <MenuItem
-                    ref={menuItemReference}
-                    description={'Opens submenu'}
-                    onClick={() => setSubmenuOpen(!submenuOpen)}
-                    label='Open Submenu'
-                    leadingElement={<i className='icon-plus' />}
-                    trailingElementLabel='selected'
-                    trailingElement={<i className='icon-chevron-right'/>}
-                />,
-                <MenuItem
-                    destructive={true}
-                    label='Join Mattermost'
-                    leadingElement={
-                        <i className='icon-sort-alphabetical-ascending'/>
-                    }
-                />,
-                <MenuItem
-                    disabled
-                    label='Category Mattermost'
-                    leadingElement={
-                        <i className='icon-account-multiple-outline'/>
-                    }
-                />,
-            ],
-        },
-    ];
-
-    const submenuGroup = [
-        {
-            menuItems: [
-                <MenuItem
-                    label='Leave Mattermost'
-                    leadingElement={
-                        <i className='icon-sort-alphabetical-ascending'/>
-                    }
-                />,
-                <MenuItem
-                    label='Open Mattermost'
-                    leadingElement={
-                        <i className='icon-account-multiple-outline'/>
-                    }
-                />,
-            ],
-        },
-    ];
+    const closeSubmenuDown = prevOpen && prevSubmenuOpen && !submenuOpen && !open;
 
     return (
         <>
             <button
                 onClick={() => setOpen(!open)}
-                ref={buttonReference}
+                ref={trigger}
             >
-                {'trigger'}
             </button>
             <CSSTransition
                 timeout={300}
@@ -196,28 +140,28 @@ const Menu = (props: MenuProps): JSX.Element => {
                 <Overlay onClick={closeMenu}/>
             </CSSTransition>
             <MenuData
-                menuTitle={menuTitle}
+                menuTitle={title}
                 ref={menuRef}
-                groups={menuGroup}
-                trigger={buttonReference}
+                groups={groups}
+                trigger={trigger}
                 open={open}
                 active={open && !submenuOpen}
-                placement={'right-start'}
+                placement={placement || 'right-start'}
                 isMobile={isMobile}
             />
-            <MenuData
+            {submenuTrigger && submenuGroups && <MenuData
                 menuTitle={submenuTitle}
                 ref={submenuRef}
-                trigger={menuItemReference}
+                trigger={submenuTrigger}
                 open={submenuOpen}
                 isSubmenu={true}
                 closeSubmenu={() => setSubmenuOpen(false)}
                 closeSubmenuDown={closeSubmenuDown}
                 active={submenuOpen}
-                groups={submenuGroup}
+                groups={submenuGroups}
                 placement={'right-start'}
                 isMobile={isMobile}
-            />
+            />}
         </>
     );
 };
