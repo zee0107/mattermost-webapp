@@ -8,8 +8,8 @@ import {FormattedMessage} from 'react-intl';
 import {getAnnouncementBarCount} from 'selectors/views/announcement_bar';
 import {AddChannelButtonTreatments} from 'mattermost-redux/constants/config';
 
-import TutorialTip from 'components/tutorial/tutorial_tip';
-import {useMeasurePunchouts} from 'components/tutorial_tour_tip/hooks';
+import TutorialTip from 'components/tutorial/tutorial_tip_legacy';
+import {useMeasurePunchoutsDepricated} from 'components/tutorial/tutorial_tip_legacy/hooks';
 
 import FormattedMarkdownMessage from 'components/formatted_markdown_message.jsx';
 import {Constants} from 'utils/constants';
@@ -89,7 +89,7 @@ export default function ChannelTutorialTip(props: Props) {
             screen={screen}
             stopPropagation={true}
             overlayClass={overlayClass}
-            punchOut={useMeasurePunchouts(['lhsNavigator', 'sidebar-header-container'], [isAnnouncementBarOpen])}
+            punchOut={useMeasurePunchoutsDepricated(['lhsNavigator', 'sidebar-header-container'], [isAnnouncementBarOpen])}
             telemetryTag='tutorial_tip_add_channels'
         />
     );
