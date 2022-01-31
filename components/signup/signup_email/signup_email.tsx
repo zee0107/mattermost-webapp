@@ -339,6 +339,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
             >
                 <FormattedMessage
                     id='signup_user_completed.emailHelp'
+                    className='color--light'
                     defaultMessage='Valid email required for sign-up'
                 />
             </span>
@@ -358,6 +359,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
             >
                 <FormattedMessage
                     id='signup_user_completed.userHelp'
+                    className='color--light'
                     defaultMessage='You can use lowercase letters, numbers, periods, dashes, and underscores.'
                 />
             </span>
@@ -381,6 +383,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
             yourEmailIs = (
                 <FormattedMarkdownMessage
                     id='signup_user_completed.emailIs'
+                    className='color--light'
                     defaultMessage="Your email address is **{email}**. You'll use this address to sign in to {siteName}."
                     values={{
                         email: this.state.email,
