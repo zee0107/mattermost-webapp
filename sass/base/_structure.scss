@@ -8,7 +8,8 @@ body {
 body {
     position: relative;
     width: 100%;
-    background: $bg--gray;
+    background: $dark-gray;
+    color: $white;
 
     &.announcement-bar--fixed {
         padding-top: $announcement-bar-height;

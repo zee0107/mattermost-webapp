@@ -43,11 +43,13 @@ button {
     &.btn-primary {
         border-color: transparent;
         background: $primary-color;
+        color: #000;
 
         &:hover,
         &:focus,
         &:active {
             background: $primary-color--hover;
+            color: #000;
         }
     }
 
