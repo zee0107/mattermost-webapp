@@ -577,29 +577,29 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                 />
                                 <br />
                                 <div onClick={event => window.location.href = '/signup_email'} className="col-sm-12 ButtonSignup">
-                                    <div className="row">
-                                        <div className="col-sm-2">
-                                            <img src={polygonImage}></img>
+                                    <div className="d-flex">
+                                        <div className="col-sm-3">
+                                            <img src={polygonImage} className='imagePadding'></img>
                                         </div>
-                                        <div className="col-sm-8">
+                                        <div className="col-sm-6">
                                             <h5>Individual</h5>
                                             <h6>Personal account to manage all your activities.</h6>
                                         </div>
-                                        <div className="col-sm-2">
+                                        <div className="col-sm-3">
                                             
                                         </div>
                                     </div>
                                 </div>
                                 <div onClick={event => window.location.href = '/signup_business'} className="col-sm-12 ButtonSignup">
-                                    <div className="row">
-                                        <div className="col-sm-2">
-                                            <img src={polygonImage}></img>
+                                    <div className="d-flex">
+                                        <div className="col-sm-3">
+                                            <img src={polygonImage} className='imagePadding'></img>
                                         </div>
-                                        <div className="col-sm-8">
+                                        <div className="col-sm-6">
                                             <h5>Business</h5>
                                             <h6>Own or belong to a company, this is for you.</h6>
                                         </div>
-                                        <div className="col-sm-2">
+                                        <div className="col-sm-3">
                                             
                                         </div>
                                     </div>
