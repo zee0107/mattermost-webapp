@@ -404,10 +404,11 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                     <div className={emailContainerStyle}>
                         <h5 id='email_label'>
                             <strong>
-                                <FormattedMessage
+                                {/*<FormattedMessage
                                     id='signup_user_completed.whatis'
                                     defaultMessage="What's your email address?"
-                                />
+                                />*/}
+                                Email address*
                             </strong>
                         </h5>
                         <div className={emailDivStyle}>
@@ -431,10 +432,11 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                     <div className='mt-8'>
                         <h5 id='name_label'>
                             <strong>
-                                <FormattedMessage
+                                {/*<FormattedMessage
                                     id='signup_user_completed.chooseUser'
                                     defaultMessage='Choose your username'
-                                />
+                                />*/}
+                                Username*
                             </strong>
                         </h5>
                         <div className={nameDivStyle}>
@@ -455,10 +457,11 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                     <div className='mt-8'>
                         <h5 id='password_label'>
                             <strong>
-                                <FormattedMessage
+                                {/*<FormattedMessage
                                     id='signup_user_completed.choosePwd'
                                     defaultMessage='Choose your password'
-                                />
+                                />*/}
+                                Password*
                             </strong>
                         </h5>
                         <div className={passwordDivStyle}>
@@ -479,7 +482,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                             id='createAccountButton'
                             type='submit'
                             onClick={this.handleSubmit}
-                            className='btn-primary btn'
+                            className='btn buttonBgGreen fullWidth'
                             disabled={this.state.isSubmitting}
                         >
                             <FormattedMessage
