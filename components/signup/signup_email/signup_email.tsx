@@ -553,50 +553,59 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                 {hasAccounts && <BackButton onClick={() => trackEvent('signup_email', 'click_back')}/>}
                 <div
                     id='signup_email_section'
-                    className='col-sm-12'
+                    className='col-sm-12 bodyBgElipse'
                 >
-                    <div className='signup-team__container padding--less'>
-                        <img
-                            alt={'signup team logo'}
-                            className='signup-team-logo'
-                            src={logoImage}
-                        />
-                        <SiteNameAndDescription
-                            customDescriptionText={customDescriptionText}
-                            siteName={siteName}
-                        />
-                        <h4
-                            id='create_account'
-                            className='color--light'
-                        >
-                            <FormattedMessage
-                                id='signup_user_completed.lets'
-                                defaultMessage="Let's create your account"
-                            />
-                        </h4>
-                        <span
-                            id='signin_account'
-                            className='color--light'
-                        >
-                            <FormattedMessage
-                                id='signup_user_completed.haveAccount'
-                                defaultMessage='Already have an account?'
-                            />
-                            {' '}
-                            <Link
-                                id='signin_account_link'
-                                to={'/login' + location!.search}
-                                onClick={() => trackEvent('signup_email', 'click_signin_account')}
-                            >
-                                <FormattedMessage
-                                    id='signup_user_completed.signIn'
-                                    defaultMessage='Click here to sign in.'
+                    <div className='row'>
+                        <div className='col-sm-5 divfullheight'>
+                            <br />
+                            <div className="divLogo"></div>
+                        </div>
+                        <div className='col-sm-7'>
+                            <div className='signup-team__container padding--less'>
+                                <img
+                                    alt={'signup team logo'}
+                                    className='signup-team-logo'
+                                    src={logoImage}
                                 />
-                            </Link>
-                        </span>
-                        {emailSignup}
-                        {serverError}
-                        {terms}
+                                <SiteNameAndDescription
+                                    customDescriptionText={customDescriptionText}
+                                    siteName="Register Individual Account!"
+                                />
+                                <h4
+                                    id='create_account'
+                                    className='color--light'
+                                >
+                                    <FormattedMessage
+                                        id='signup_user_completed.lets'
+                                        defaultMessage="Let's create your account"
+                                    />
+                                </h4>
+                                <span
+                                    id='signin_account'
+                                    className='color--light'
+                                >
+                                    <FormattedMessage
+                                        id='signup_user_completed.haveAccount'
+                                        defaultMessage='Already have an account?'
+                                    />
+                                    {' '}
+                                    <Link
+                                        id='signin_account_link'
+                                        to={'/login' + location!.search}
+                                        onClick={() => trackEvent('signup_email', 'click_signin_account')}
+                                    >
+                                        <FormattedMessage
+                                            id='signup_user_completed.signIn'
+                                            defaultMessage='Click here to sign in.'
+                                        />
+                                    </Link>
+                                </span>
+                                <hr className='bg-white' />
+                                {emailSignup}
+                                {serverError}
+                                {terms}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
