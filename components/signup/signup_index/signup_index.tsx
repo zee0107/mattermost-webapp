@@ -576,7 +576,9 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                 />
                                 <br />
                                 <a href="/signup_email" className="btn btn-primary">Individual</a>
+                                <br />
                                 <a href="/signup_business" className="btn btn-primary">Business</a>
+                                <br />
                                 <br />
                                 <span
                                     id='signin_account'
