@@ -116,7 +116,9 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
                                     defaultMessage='Password Reset'
                                 />*/}
                                 <p>
-                                    <a href='/login'><i className='chevronleft'></i> Back</a>
+                                    <a href='/login' className='removeTextDecor'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                                    </svg> Back</a>
                                 </p>
                                 <hr className='bg-white'/>
                                 <h1>Forgot Password</h1>
@@ -125,14 +127,16 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
                                     onSubmit={this.handleSendLink}
                                     ref={this.resetForm}
                                 >
-                                    <p>
+                                    <h5>
                                     For the purpose of industry regulation, your details are required.
                                         {/*<FormattedMessage
                                             id='password_send.description'
                                             defaultMessage=''
                                         />*/}
                                     </p>
+                                    <br />
                                     <div className={formClass}>
+                                        <label>Email Address*</label>
                                         <LocalizedInput
                                             id='passwordResetEmailInput'
                                             type='email'
