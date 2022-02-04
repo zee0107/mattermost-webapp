@@ -890,7 +890,7 @@ class LoginController extends React.PureComponent {
                                 <div className='signup__content'>
                                     <SiteNameAndDescription
                                         customDescriptionText={customDescriptionText}
-                                        siteName={siteName}
+                                        siteName='Login Your Account!'
                                     />
                                     <hr className="bg-white"/>
                                     {content}
