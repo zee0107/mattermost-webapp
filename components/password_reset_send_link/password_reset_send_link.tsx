@@ -102,8 +102,7 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
 
         return (
             <div>
-                <BackButton/>
-                <div className='col-sm-12'>
+                <div className='col-sm-12 bodyBgElipse'>
                     <div className='signup-team__container'>
                         <FormattedMessage
                             id='password_send.title'
@@ -118,7 +117,7 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
                             <p>
                                 <FormattedMessage
                                     id='password_send.description'
-                                    defaultMessage='To reset your password, enter the email address you used to sign up'
+                                    defaultMessage='For the purpose of industry regulation, your details are required.'
                                 />
                             </p>
                             <div className={formClass}>
@@ -140,7 +139,7 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
                             <button
                                 id='passwordResetButton'
                                 type='submit'
-                                className='btn btn-primary'
+                                className='btn buttonBgGreen fullWidth'
                             >
                                 <FormattedMessage
                                     id='password_send.reset'
