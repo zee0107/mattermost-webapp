@@ -571,18 +571,13 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                                     customDescriptionText={customDescriptionText}
                                     siteName="Register Individual Account!"
                                 />
-                                <h4
-                                    id='create_account'
-                                    className='color--light'
-                                >
-                                    <FormattedMessage
-                                        id='signup_user_completed.lets'
-                                        defaultMessage="Let's create your account"
-                                    />
-                                </h4>
+                                
+                                <hr className='bg-white' />
+                                {emailSignup}
+                                {serverError}
                                 <span
                                     id='signin_account'
-                                    className='color--light'
+                                    className='text-white'
                                 >
                                     <FormattedMessage
                                         id='signup_user_completed.haveAccount'
@@ -600,10 +595,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                                         />
                                     </Link>
                                 </span>
-                                <hr className='bg-white' />
-                                {emailSignup}
-                                {serverError}
-                                {terms}
+                                {/*terms*/}
                             </div>
                         </div>
                     </div>
