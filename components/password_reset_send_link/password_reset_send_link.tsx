@@ -133,7 +133,7 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
                                             id='password_send.description'
                                             defaultMessage=''
                                         />*/}
-                                    </p>
+                                    </h5>
                                     <br />
                                     <div className={formClass}>
                                         <label>Email Address*</label>
