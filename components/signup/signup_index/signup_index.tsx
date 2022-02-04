@@ -567,7 +567,7 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                             <br />
                             <div className="divLogo"></div>
                         </div>
-                        <div className='col-sm-7'>
+                        <div className='col-sm-7 divMarginTop'>
                             <div className='signup-team__container padding--less'>
                                 <img
                                     alt={'signup team logo'}
