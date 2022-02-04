@@ -115,3 +115,17 @@ img {
     min-height: 60px;
     height: 60px;
 }
+
+.ButtonSignup{
+    width: 100%;
+    height: 138px;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.ButtonSignup:hover{
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 233, 109, 0.6);
+}
+
+.ButtonSignup:focus{
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 233, 109, 0.6);
+}
