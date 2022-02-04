@@ -596,9 +596,9 @@ class LoginController extends React.PureComponent {
                         <div
                             id='login_forgot'
                             key='forgotPassword'
-                            className='form-group'
+                            className='form-group text-right'
                         >
-                            <Link to={'/reset_password'} className='text-right'>
+                            <Link to={'/reset_password'}>
                                 <FormattedMessage
                                     id='login.forgot'
                                     defaultMessage='Forgot Password'
@@ -609,7 +609,8 @@ class LoginController extends React.PureComponent {
                             <button
                                 id='loginButton'
                                 type='submit'
-                                className='btn btn-primary maxWidth'
+                                className='btn btn-primary'
+                                style='width: 100%;'
                             >
                                 <LoadingWrapper
                                     id='login_button_signing'
