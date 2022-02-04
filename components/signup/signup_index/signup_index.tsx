@@ -577,12 +577,13 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                 <br />
                                 <a href="/signup_email" className="btn btn-primary">Individual</a>
                                 <br />
+                                <br />
                                 <a href="/signup_business" className="btn btn-primary">Business</a>
                                 <br />
                                 <br />
-                                <span
+                                <h5
                                     id='signin_account'
-                                    className='text-white'
+                                    className='text-white text-center'
                                 >
                                     <FormattedMessage
                                         id='signup_user_completed.haveAccount'
@@ -600,7 +601,7 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                         />*/}
                                         Sign in
                                     </Link>
-                                </span>
+                                </h5>
                                 {/*terms*/}
                             </div>
                         </div>
