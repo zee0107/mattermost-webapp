@@ -46,6 +46,7 @@ const LazyPasswordResetSendLink = React.lazy(() => import('components/password_r
 const LazyPasswordResetForm = React.lazy(() => import('components/password_reset_form'));
 const LazySignupController = React.lazy(() => import('components/signup/signup_controller'));
 const LazySignupEmail = React.lazy(() => import('components/signup/signup_email'));
+const LazySignupBusiness = React.lazy(() => import('components/signup/signup_business'));
 const LazyTermsOfService = React.lazy(() => import('components/terms_of_service'));
 const LazyShouldVerifyEmail = React.lazy(() => import('components/should_verify_email'));
 const LazyDoVerifyEmail = React.lazy(() => import('components/do_verify_email'));
@@ -79,6 +80,7 @@ const PasswordResetSendLink = makeAsyncComponent('PasswordResedSendLink', LazyPa
 const PasswordResetForm = makeAsyncComponent('PasswordResetForm', LazyPasswordResetForm);
 const SignupController = makeAsyncComponent('SignupController', LazySignupController);
 const SignupEmail = makeAsyncComponent('SignupEmail', LazySignupEmail);
+const SignupBusiness = makeAsyncComponent('SignupBusiness', LazySignupBusiness);
 const ShouldVerifyEmail = makeAsyncComponent('ShouldVerifyEmail', LazyShouldVerifyEmail);
 const DoVerifyEmail = makeAsyncComponent('DoVerifyEmail', LazyDoVerifyEmail);
 const ClaimController = makeAsyncComponent('ClaimController', LazyClaimController);
@@ -387,6 +389,10 @@ export default class Root extends React.PureComponent {
                     <Route
                         path={'/signup_user_complete'}
                         component={SignupController}
+                    />
+                    <Route
+                        path={'/signup_business'}
+                        component={SignupBusiness}
                     />
                     <Route
                         path={'/signup_email'}
