@@ -398,7 +398,7 @@ export default class Root extends React.PureComponent {
                     />
                     <Route
                         path={'/signup_index'}
-                        component={SignupBusiness}
+                        component={SignupIndex}
                     />
                     <Route
                         path={'/signup_email'}
