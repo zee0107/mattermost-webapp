@@ -399,49 +399,56 @@ export default class SignupController extends React.PureComponent {
 
         return (
             <div>
-                <AnnouncementBar/>
-                <BackButton/>
-                <div className='col-sm-12'>
-                    <div className='signup-team__container'>
-                        <img
-                            alt={'signup team logo'}
-                            className='signup-team-logo'
-                            src={logoImage}
-                        />
-                        <div className='signup__content'>
-                            <h1>{this.props.siteName}</h1>
-                            <h4 className='color--light'>
-                                <FormattedMessage
-                                    id='web.root.signup_info'
-                                />
-                            </h4>
-                            <div className='mt-8'>
-                                <h5><strong>
-                                    <FormattedMessage
-                                        id='signup.title'
-                                        defaultMessage='Create an account with:'
-                                    />
-                                </strong></h5>
-                            </div>
-                            {signupControls}
-                            {serverError}
+                <div className='col-sm-12 bodyBgElipse'>
+                    <div className='row'>
+                        <div className='col-sm-5 divfullheight'>
+                            <br />
+                            <div className="divLogo"></div>
                         </div>
-                        <span className='color--light'>
-                            <FormattedMessage
-                                id='signup_user_completed.haveAccount'
-                                defaultMessage='Already have an account?'
-                            />
-                            {' '}
-                            <Link
-                                to={'/login' + this.props.location.search}
-                            >
-                                <FormattedMessage
-                                    id='signup_user_completed.signIn'
-                                    defaultMessage='Click here to sign in.'
+                        <div className='col-sm-7'>
+                            <div className='signup-team__container'>
+                                <img
+                                    alt={'signup team logo'}
+                                    className='signup-team-logo'
+                                    src={logoImage}
                                 />
-                            </Link>
-                        </span>
+                                <div className='signup__content'>
+                                    <h1>{this.props.siteName}</h1>
+                                    <h4 className='color--light'>
+                                        <FormattedMessage
+                                            id='web.root.signup_info'
+                                        />
+                                    </h4>
+                                    <div className='mt-8'>
+                                        <h5><strong>
+                                            <FormattedMessage
+                                                id='signup.title'
+                                                defaultMessage='Create an account with:'
+                                            />
+                                        </strong></h5>
+                                    </div>
+                                    {signupControls}
+                                    {serverError}
+                                </div>
+                                <span className='color--light'>
+                                    <FormattedMessage
+                                        id='signup_user_completed.haveAccount'
+                                        defaultMessage='Already have an account?'
+                                    />
+                                    {' '}
+                                    <Link
+                                        to={'/login' + this.props.location.search}
+                                    >
+                                        <FormattedMessage
+                                            id='signup_user_completed.signIn'
+                                            defaultMessage='Click here to sign in.'
+                                        />
+                                    </Link>
+                                </span>
+                            </div>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
         );
