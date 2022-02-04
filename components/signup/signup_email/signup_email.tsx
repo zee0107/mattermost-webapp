@@ -445,7 +445,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                                 type='text'
                                 ref={this.nameRef}
                                 className='form-control'
-                                placeholder='Username
+                                placeholder='Username'
                                 maxLength={Constants.MAX_USERNAME_LENGTH}
                                 spellCheck='false'
                                 autoCapitalize='off'
