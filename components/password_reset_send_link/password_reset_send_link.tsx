@@ -110,21 +110,27 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
                         </div>
                         <div className="col-sm-7">
                             <div className='signup-team__container'>
-                                <FormattedMessage
+                                {/*<FormattedMessage
                                     id='password_send.title'
                                     tagName='h1'
                                     defaultMessage='Password Reset'
-                                />
+                                />*/}
+                                <p>
+                                    <a href='/login'><i className='chevronleft'></i> Back</a>
+                                </p>
+                                <hr className='bg-white'/>
+                                <h1>Forgot Password</h1>
                                 {this.state.updateText}
                                 <form
                                     onSubmit={this.handleSendLink}
                                     ref={this.resetForm}
                                 >
                                     <p>
-                                        <FormattedMessage
+                                    For the purpose of industry regulation, your details are required.
+                                        {/*<FormattedMessage
                                             id='password_send.description'
-                                            defaultMessage='For the purpose of industry regulation, your details are required.'
-                                        />
+                                            defaultMessage=''
+                                        />*/}
                                     </p>
                                     <div className={formClass}>
                                         <LocalizedInput
