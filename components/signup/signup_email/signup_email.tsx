@@ -418,14 +418,14 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                                 ref={this.emailRef}
                                 className='form-control'
                                 defaultValue={this.state.email}
-                                placeholder=''
+                                placeholder='Email'
                                 maxLength={128}
                                 autoFocus={true}
                                 spellCheck='false'
                                 autoCapitalize='off'
                             />
                             {emailError}
-                            {emailHelpText}
+                            {/*emailHelpText*/}
                         </div>
                     </div>
                     {yourEmailIs}
@@ -445,13 +445,13 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                                 type='text'
                                 ref={this.nameRef}
                                 className='form-control'
-                                placeholder=''
+                                placeholder='Username
                                 maxLength={Constants.MAX_USERNAME_LENGTH}
                                 spellCheck='false'
                                 autoCapitalize='off'
                             />
                             {nameError}
-                            {nameHelpText}
+                            {/*nameHelpText*/}
                         </div>
                     </div>
                     <div className='mt-8'>
@@ -470,7 +470,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                                 type='password'
                                 ref={this.passwordRef}
                                 className='form-control'
-                                placeholder=''
+                                placeholder='Password'
                                 maxLength={128}
                                 spellCheck='false'
                             />
