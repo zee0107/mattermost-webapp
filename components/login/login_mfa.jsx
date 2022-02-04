@@ -97,7 +97,7 @@ export default class LoginMfa extends React.PureComponent {
                             onChange={this.handleChange}
                         />
                     </div>
-                    <div className='form-group'>
+                    {/*<div className='form-group'>
                         <SaveButton
                             saving={this.state.saving}
                             disabled={this.state.saving}
@@ -105,7 +105,7 @@ export default class LoginMfa extends React.PureComponent {
                             defaultMessage={localizeMessage('login_mfa.submit', 'Submit')}
                             savingMessage={localizeMessage('login_mfa.submitting', 'Submitting...')}
                         />
-                    </div>
+                    </div>*/}
                 </div>
             </form>
         );
