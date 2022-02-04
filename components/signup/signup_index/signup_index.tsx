@@ -575,19 +575,34 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                     siteName="Join us!"
                                 />
                                 <br />
-                                <a href="/signup_email" className="ButtonSignup">
-                                    <span>Individual</span>
-                                    <br />
-                                    <span>Personal account to manage all your activities.</span>
-                                </a>
-                                <br />
-                                <br />
-                                <a href="/signup_business" className="ButtonSignup">
-                                    <span>Business</span>
-                                    <br />
-                                    <span>Own or belong to a company, this is for you.</span>
-                                </a>
-                                <br />
+                                <div onClick={event => window.location.href = '/signup_email'} className="col-sm-12 ButtonSignup">
+                                    <div className="row">
+                                        <div className="col-sm-2">
+
+                                        </div>
+                                        <div className="col-sm-8">
+                                            <h5>Individual</h5>
+                                            <h6>Personal account to manage all your activities.</h6>
+                                        </div>
+                                        <div className="col-sm-2">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div onClick={event => window.location.href = '/signup_business'} className="col-sm-12 ButtonSignup">
+                                    <div className="row">
+                                        <div className="col-sm-2">
+
+                                        </div>
+                                        <div className="col-sm-8">
+                                            <h5>Business</h5>
+                                            <h6>Own or belong to a company, this is for you.</h6>
+                                        </div>
+                                        <div className="col-sm-2">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
                                 <br />
                                 <h5
                                     id='signin_account'
