@@ -874,26 +874,32 @@ class LoginController extends React.PureComponent {
                 <br />
                 <div
                     id='login_section'
-                    className='col-sm-12'
-                >
-                    <div className={'signup-team__container ' + customClass}>
-                        <div className='signup__markdown'>
-                            {customContent}
+                    className='col-sm-12'>
+                    <div className='row'>
+                        <div className='col-sm-5'>
+                            <div className='signup__markdown'>
+                                {customContent}
+                            </div>
                         </div>
-                        <img
-                            alt={'signup team logo'}
-                            className='signup-team-logo'
-                            src={logoImage}
-                        />
-                        <div className='signup__content'>
-                            <SiteNameAndDescription
-                                customDescriptionText={customDescriptionText}
-                                siteName={siteName}
-                            />
-                            <hr className="bg-white"/>
-                            {content}
+                        <div className='col-sm-7'>
+                            <div className={'signup-team__container ' + customClass}>
+                                <img
+                                    alt={'signup team logo'}
+                                    className='signup-team-logo'
+                                    src={logoImage}
+                                />
+                                <div className='signup__content'>
+                                    <SiteNameAndDescription
+                                        customDescriptionText={customDescriptionText}
+                                        siteName={siteName}
+                                    />
+                                    <hr className="bg-white"/>
+                                    {content}
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         );
