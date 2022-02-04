@@ -593,6 +593,18 @@ class LoginController extends React.PureComponent {
                                 spellCheck='false'
                             />
                         </div>
+                        <div
+                            id='login_forgot'
+                            key='forgotPassword'
+                            className='form-group'
+                        >
+                            <Link to={'/reset_password'}>
+                                <FormattedMessage
+                                    id='login.forgot'
+                                    defaultMessage='Forgot Password'
+                                />
+                            </Link>
+                        </div>
                         <div className='form-group'>
                             <button
                                 id='loginButton'
@@ -642,7 +654,7 @@ class LoginController extends React.PureComponent {
             );
         }
 
-        if (usernameSigninEnabled || emailSigninEnabled) {
+        /*if (usernameSigninEnabled || emailSigninEnabled) {
             loginControls.push(
                 <div
                     id='login_forgot'
@@ -657,7 +669,7 @@ class LoginController extends React.PureComponent {
                     </Link>
                 </div>,
             );
-        }
+        }*/
 
         if ((emailSigninEnabled || usernameSigninEnabled || ldapEnabled) && (gitlabSigninEnabled || googleSigninEnabled || samlSigninEnabled || office365SigninEnabled || openIdSigninEnabled)) {
             loginControls.push(
