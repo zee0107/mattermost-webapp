@@ -19,6 +19,7 @@ import Constants, {ValidationErrors} from 'utils/constants';
 import * as Utils from 'utils/utils.jsx';
 
 import logoImage from 'images/logo.png';
+import polygonImage from 'images/polygon.svg';
 
 import BackButton from 'components/common/back_button';
 import LoadingScreen from 'components/loading_screen';
@@ -578,7 +579,7 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                 <div onClick={event => window.location.href = '/signup_email'} className="col-sm-12 ButtonSignup">
                                     <div className="row">
                                         <div className="col-sm-2">
-
+                                            <img src={polygonImage}></img>
                                         </div>
                                         <div className="col-sm-8">
                                             <h5>Individual</h5>
@@ -592,7 +593,7 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                 <div onClick={event => window.location.href = '/signup_business'} className="col-sm-12 ButtonSignup">
                                     <div className="row">
                                         <div className="col-sm-2">
-
+                                            <img src={polygonImage}></img>
                                         </div>
                                         <div className="col-sm-8">
                                             <h5>Business</h5>
