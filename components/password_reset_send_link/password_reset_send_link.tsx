@@ -103,50 +103,57 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
         return (
             <div>
                 <div className='col-sm-12 bodyBgElipse'>
-                    <div className='signup-team__container'>
-                        <FormattedMessage
-                            id='password_send.title'
-                            tagName='h1'
-                            defaultMessage='Password Reset'
-                        />
-                        {this.state.updateText}
-                        <form
-                            onSubmit={this.handleSendLink}
-                            ref={this.resetForm}
-                        >
-                            <p>
+                    <div class="row">
+                        <div class="col-sm-5 divfullheight">
+                            <img src='/images/logo.png'></img>
+                        </div>
+                        <div class="col-sm-7">
+                            <div className='signup-team__container'>
                                 <FormattedMessage
-                                    id='password_send.description'
-                                    defaultMessage='For the purpose of industry regulation, your details are required.'
+                                    id='password_send.title'
+                                    tagName='h1'
+                                    defaultMessage='Password Reset'
                                 />
-                            </p>
-                            <div className={formClass}>
-                                <LocalizedInput
-                                    id='passwordResetEmailInput'
-                                    type='email'
-                                    className='form-control'
-                                    name='email'
-                                    placeholder={{
-                                        id: t('password_send.email'),
-                                        defaultMessage: 'Email',
-                                    }}
-                                    ref={this.emailInput}
-                                    spellCheck='false'
-                                    autoFocus={true}
-                                />
+                                {this.state.updateText}
+                                <form
+                                    onSubmit={this.handleSendLink}
+                                    ref={this.resetForm}
+                                >
+                                    <p>
+                                        <FormattedMessage
+                                            id='password_send.description'
+                                            defaultMessage='For the purpose of industry regulation, your details are required.'
+                                        />
+                                    </p>
+                                    <div className={formClass}>
+                                        <LocalizedInput
+                                            id='passwordResetEmailInput'
+                                            type='email'
+                                            className='form-control'
+                                            name='email'
+                                            placeholder={{
+                                                id: t('password_send.email'),
+                                                defaultMessage: 'Email',
+                                            }}
+                                            ref={this.emailInput}
+                                            spellCheck='false'
+                                            autoFocus={true}
+                                        />
+                                    </div>
+                                    {error}
+                                    <button
+                                        id='passwordResetButton'
+                                        type='submit'
+                                        className='btn buttonBgGreen fullWidth'
+                                    >
+                                        <FormattedMessage
+                                            id='password_send.reset'
+                                            defaultMessage='Reset my password'
+                                        />
+                                    </button>
+                                </form>
                             </div>
-                            {error}
-                            <button
-                                id='passwordResetButton'
-                                type='submit'
-                                className='btn buttonBgGreen fullWidth'
-                            >
-                                <FormattedMessage
-                                    id='password_send.reset'
-                                    defaultMessage='Reset my password'
-                                />
-                            </button>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
