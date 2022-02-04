@@ -609,7 +609,7 @@ class LoginController extends React.PureComponent {
                             <button
                                 id='loginButton'
                                 type='submit'
-                                className='btn btn-primary'
+                                className='btn buttonBgGreen fullWidth'
                             >
                                 <LoadingWrapper
                                     id='login_button_signing'
