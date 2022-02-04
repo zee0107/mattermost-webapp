@@ -870,14 +870,13 @@ class LoginController extends React.PureComponent {
             <div>
                 <AnnouncementBar/>
                 {backButton}
-                <br />
-                <br />
                 <div
                     id='login_section'
                     className='col-sm-12'>
                     <div className='row'>
                         <div className='col-sm-5 divfullheight'>
                             <div className='signup__markdown'>
+                                <br />
                                 {customContent}
                             </div>
                         </div>
