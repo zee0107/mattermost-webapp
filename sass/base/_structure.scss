@@ -136,6 +136,7 @@ img {
 
 .imagePadding{
     padding-top: 22px;
+    position: relative;
 }
 
 .imagearrowPadding{
@@ -143,5 +144,13 @@ img {
 }
 
 .imageCasePadding{
-    padding-top: -5px;
+    position: absolute;
+    left: 30px;
+    top: 38px;
+}
+
+.imagePeoplePadding{
+    position: absolute;
+    left: 30px;
+    top: 38px;
 }

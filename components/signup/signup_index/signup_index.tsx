@@ -22,7 +22,7 @@ import logoImage from 'images/logo.png';
 import polygonImage from 'images/polygon.svg';
 import arrowImage from 'images/arrow-right.svg';
 import briefcaseImage from 'images/briefcase.svg';
-import peopleImage from 'images/briefcase.svg';
+import peopleImage from 'images/people.svg';
 
 import BackButton from 'components/common/back_button';
 import LoadingScreen from 'components/loading_screen';
@@ -583,7 +583,7 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                     <div className="d-flex">
                                         <div className="col-sm-3">
                                             <img src={polygonImage} className='imagePadding'></img>
-                                            <img src={peopleImage} className='imageCasePadding'></img>
+                                            <img src={peopleImage} className='imagePeoplePadding'></img>
                                         </div>
                                         <div className="col-sm-7">
                                             <h5>Individual</h5>
