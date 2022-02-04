@@ -105,7 +105,8 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
                 <div className='col-sm-12 bodyBgElipse'>
                     <div className="row">
                         <div className="col-sm-5 divfullheight">
-                            <img src='/images/logo.png'></img>
+                            <br />
+                            <img src='./images/logo.png'></img>
                         </div>
                         <div className="col-sm-7">
                             <div className='signup-team__container'>
