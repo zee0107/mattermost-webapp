@@ -868,6 +868,8 @@ class LoginController extends React.PureComponent {
             <div>
                 <AnnouncementBar/>
                 {backButton}
+                <br />
+                <br />
                 <div
                     id='login_section'
                     className='col-sm-12'
@@ -886,6 +888,7 @@ class LoginController extends React.PureComponent {
                                 customDescriptionText={customDescriptionText}
                                 siteName={siteName}
                             />
+                            <hr className="bg-white"/>
                             {content}
                         </div>
                     </div>
