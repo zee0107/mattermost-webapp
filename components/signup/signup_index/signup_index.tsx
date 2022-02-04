@@ -575,10 +575,18 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                     siteName="Join us!"
                                 />
                                 <br />
-                                <a href="/signup_email" className="btn ButtonSignup">Individual</a>
+                                <a href="/signup_email" className="ButtonSignup">
+                                    <span>Individual</span>
+                                    <br />
+                                    <span>Personal account to manage all your activities.</span>
+                                </a>
                                 <br />
                                 <br />
-                                <a href="/signup_business" className="btn ButtonSignup">Business</a>
+                                <a href="/signup_business" className="ButtonSignup">
+                                    <span>Business</span>
+                                    <br />
+                                    <span>Own or belong to a company, this is for you.</span>
+                                </a>
                                 <br />
                                 <br />
                                 <h5
