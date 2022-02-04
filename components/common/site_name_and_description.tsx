@@ -33,7 +33,7 @@ export default class SiteNameAndDescription extends React.PureComponent<Props> {
 
         return (
             <React.Fragment>
-                <h3 id='site_name'>{siteName}</h1>
+                <h3 id='site_name'>{siteName}</h3>
                 <h5
                     id='site_description'
                     className='color--light'
