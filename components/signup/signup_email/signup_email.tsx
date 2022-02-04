@@ -550,7 +550,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
 
         return (
             <div>
-                {hasAccounts && <BackButton onClick={() => trackEvent('signup_email', 'click_back')}/>}
+                {/*hasAccounts && <BackButton onClick={() => trackEvent('signup_email', 'click_back')}/>*/}
                 <div
                     id='signup_email_section'
                     className='col-sm-12 bodyBgElipse'
