@@ -574,8 +574,10 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                     customDescriptionText='To begin this journey, tell us what type of account you’d be opening.'
                                     siteName="Join us!"
                                 />
-                                
-                                <hr className='bg-white' />
+                                <br />
+                                <a href="/signup_email" className="btn btn-primary">Individual</a>
+                                <a href="/signup_business" className="btn btn-primary">Business</a>
+                                <br />
                                 <span
                                     id='signin_account'
                                     className='text-white'
@@ -590,10 +592,11 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                         to={'/login' + location!.search}
                                         onClick={() => trackEvent('signup_email', 'click_signin_account')}
                                     >
-                                        <FormattedMessage
+                                        {/*<FormattedMessage
                                             id='signup_user_completed.signIn'
-                                            defaultMessage='Click here to sign in.'
-                                        />
+                                            defaultMessage='Sign in.'
+                                        />*/}
+                                        Sign in
                                     </Link>
                                 </span>
                                 {/*terms*/}
