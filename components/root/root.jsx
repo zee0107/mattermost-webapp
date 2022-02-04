@@ -372,39 +372,39 @@ export default class Root extends React.PureComponent {
                         path={'/error'}
                         component={ErrorPage}
                     />
-                    <HFTRoute
+                    <Route
                         path={'/login'}
                         component={LoginController}
                     />
-                    <HFTRoute
+                    <Route
                         path={'/reset_password'}
                         component={PasswordResetSendLink}
                     />
-                    <HFTRoute
+                    <Route
                         path={'/reset_password_complete'}
                         component={PasswordResetForm}
                     />
-                    <HFTRoute
+                    <Route
                         path={'/signup_user_complete'}
                         component={SignupController}
                     />
-                    <HFTRoute
+                    <Route
                         path={'/signup_email'}
                         component={SignupEmail}
                     />
-                    <HFTRoute
+                    <Route
                         path={'/should_verify_email'}
                         component={ShouldVerifyEmail}
                     />
-                    <HFTRoute
+                    <Route
                         path={'/do_verify_email'}
                         component={DoVerifyEmail}
                     />
-                    <HFTRoute
+                    <Route
                         path={'/claim'}
                         component={ClaimController}
                     />
-                    <HFTRoute
+                    <Route
                         path={'/help'}
                         component={HelpController}
                     />
