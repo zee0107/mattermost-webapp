@@ -20,6 +20,7 @@ import * as Utils from 'utils/utils.jsx';
 
 import logoImage from 'images/logo.png';
 import polygonImage from 'images/polygon.svg';
+import arrowImage from 'images/arrow-right.svg';
 
 import BackButton from 'components/common/back_button';
 import LoadingScreen from 'components/loading_screen';
@@ -581,12 +582,12 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                         <div className="col-sm-3">
                                             <img src={polygonImage} className='imagePadding'></img>
                                         </div>
-                                        <div className="col-sm-6">
+                                        <div className="col-sm-7">
                                             <h5>Individual</h5>
                                             <h6>Personal account to manage all your activities.</h6>
                                         </div>
-                                        <div className="col-sm-3">
-                                            
+                                        <div className="col-sm-2">
+                                            <img src={arrowImage} className='imagePadding'></img>
                                         </div>
                                     </div>
                                 </div>
@@ -595,15 +596,16 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                         <div className="col-sm-3">
                                             <img src={polygonImage} className='imagePadding'></img>
                                         </div>
-                                        <div className="col-sm-6">
+                                        <div className="col-sm-7">
                                             <h5>Business</h5>
                                             <h6>Own or belong to a company, this is for you.</h6>
                                         </div>
-                                        <div className="col-sm-3">
-                                            
+                                        <div className="col-sm-2">
+                                            <img src={arrowImage} className='imagePadding'></img>
                                         </div>
                                     </div>
                                 </div>
+                                <br />
                                 <br />
                                 <h5
                                     id='signin_account'
