@@ -103,11 +103,11 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
         return (
             <div>
                 <div className='col-sm-12 bodyBgElipse'>
-                    <div class="row">
-                        <div class="col-sm-5 divfullheight">
+                    <div className="row">
+                        <div className="col-sm-5 divfullheight">
                             <img src='/images/logo.png'></img>
                         </div>
-                        <div class="col-sm-7">
+                        <div className="col-sm-7">
                             <div className='signup-team__container'>
                                 <FormattedMessage
                                     id='password_send.title'
