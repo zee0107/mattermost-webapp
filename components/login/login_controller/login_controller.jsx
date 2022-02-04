@@ -565,6 +565,7 @@ class LoginController extends React.PureComponent {
                             margin={true}
                         />
                         <div className={'form-group' + errorClass}>
+                            <label>Email or Username*</label>
                             <input
                                 id='loginId'
                                 className='form-control'
@@ -579,6 +580,7 @@ class LoginController extends React.PureComponent {
                             />
                         </div>
                         <div className={'form-group' + errorClass}>
+                            <label>Password*</label>
                             <LocalizedInput
                                 id='loginPassword'
                                 type='password'
