@@ -583,7 +583,7 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                     <div className="d-flex">
                                         <div className="col-sm-3">
                                             <img src={polygonImage} className='imagePadding'></img>
-                                            <img src={peopleImage} className='imagePadding'></img>
+                                            <img src={peopleImage} className='imageCasePadding'></img>
                                         </div>
                                         <div className="col-sm-7">
                                             <h5>Individual</h5>
@@ -598,7 +598,7 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                     <div className="d-flex">
                                         <div className="col-sm-3">
                                             <img src={polygonImage} className='imagePadding'></img>
-                                            <img src={briefcaseImage} className='imagePadding'></img>
+                                            <img src={briefcaseImage} className='imageCasePadding'></img>
                                         </div>
                                         <div className="col-sm-7">
                                             <h5>Business</h5>
