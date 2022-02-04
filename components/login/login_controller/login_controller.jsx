@@ -884,7 +884,7 @@ class LoginController extends React.PureComponent {
                 {backButton}
                 <div
                     id='login_section'
-                    className='col-sm-12'>
+                    className='col-sm-12 bodyBgElipse'>
                     <div className='row'>
                         <div className='col-sm-5 divfullheight'>
                             <div className='signup__markdown'>

@@ -7,8 +7,6 @@ body {
         }
     }
 
-    background-image: url('/images/ellipse-green.png');
-    background-size: cover;
     color: $white;
 }
 
@@ -651,4 +649,10 @@ body {
     background-image: url('/images/button-bg.png');
     background-size: cover;
     color: #ffffff;
+}
+
+.bodyBgElipse{
+    background-image: url('/images/ellipse-ligthgreen.png'),url('/images/ellipse-green.png');
+    background-position: left top, right top;
+    background-repeat: no-repeat, no-repeat;
 }
