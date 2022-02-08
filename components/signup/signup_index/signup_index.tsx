@@ -19,6 +19,7 @@ import Constants, {ValidationErrors} from 'utils/constants';
 import * as Utils from 'utils/utils.jsx';
 
 import logoImage from 'images/logo.png';
+import logoImageWhite from 'images/logoWhite.png';
 import polygonImage from 'images/polygon.svg';
 import arrowImage from 'images/arrow-right.svg';
 import briefcaseImage from 'images/briefcase.svg';
@@ -565,7 +566,9 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                     <div className='row'>
                         <div className='col-sm-5 divfullheight'>
                             <br />
-                            <div className="divLogo"></div>
+                            <a href='/'>
+                                <img src={logoImageWhite}></img>
+                            </a>
                         </div>
                         <div className='col-sm-7 divMarginTop'>
                             <div className='signup-team__container padding--less'>

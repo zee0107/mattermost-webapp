@@ -19,6 +19,7 @@ import Constants, {ValidationErrors} from 'utils/constants';
 import * as Utils from 'utils/utils.jsx';
 
 import logoImage from 'images/logo.png';
+import logoImageWhite from 'images/logoWhite.png';
 
 import BackButton from 'components/common/back_button';
 import LoadingScreen from 'components/loading_screen';
@@ -561,7 +562,9 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                     <div className='row'>
                         <div className='col-sm-5 divfullheight'>
                             <br />
-                            <div className="divLogo"></div>
+                            <a href='/'>
+                                <img src={logoImageWhite}></img>
+                            </a>
                         </div>
                         <div className='col-sm-7'>
                             <div className='signup-team__container padding--less'>
