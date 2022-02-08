@@ -369,12 +369,12 @@ class LoginController extends React.PureComponent {
 
             return (
                 <div>
-                    <img
+                    <a href='/'><img
                         alt={'brand image'}
                         src={brandImageUrl}
                         onError={this.handleBrandImageError}
                         style={brandImageStyle}
-                    />
+                    /></a>
                     <div>
                         <Markdown
                             message={text}

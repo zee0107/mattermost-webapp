@@ -6,6 +6,7 @@ import {FormattedMessage} from 'react-intl';
 
 import {ServerError} from 'mattermost-redux/types/errors';
 import {isEmail} from 'mattermost-redux/utils/helpers';
+import logoImage from 'images/logoWhite.png';
 
 import BackButton from 'components/common/back_button';
 import LocalizedInput from 'components/localized_input/localized_input';
@@ -84,6 +85,7 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
             });
         }
     };
+    
 
     render() {
         let error = null;
@@ -106,7 +108,10 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
                     <div className="row">
                         <div className="col-sm-5 divfullheight">
                             <br />
-                            <div className="divLogo"></div>
+                            {/*<div className="divLogo"></div>*/}
+                            <a href='/'>
+                                <img src={logoImage}></img>
+                            </a>
                         </div>
                         <div className="col-sm-7">
                             <div className='signup-team__container'>
