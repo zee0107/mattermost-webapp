@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import {FormattedMessage} from 'react-intl';
 import FaAlignRight from 'images/icons/toggleIcon.svg';
+import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import {ClientConfig} from 'mattermost-redux/types/config';
 import logoLight from 'images/logoLight.png';
@@ -127,20 +129,18 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
 
         return (
             <div className='inner-wrap'>
-                <div className="navBar">
-                    <button className="buttonToggle" onClick={this.Toggle}>
-                        <img src={FaAlignRight}></img>
-                    </button>
-                    
-                    <ul className={this.state.toggle ? "nav-links show-nav" : "nav-links"}>
-                        <li className="nav-item" href="#">About Us</li>
-                        <li className="nav-item" href="#">Docs</li>
-                        <li className="nav-item" href="#">Help</li>
-                        <li className="nav-item" href="#">Contact Us</li>
-                        <li className="nav-item" href="/signup_index">Register</li>
-                        <li className="nav-item" href="/login">Login</li>
-                    </ul>
-              </div>
+                <Router>
+                <Navbar />
+                {/*<Switch>
+                    <Route path='/' exact component={Home} />
+                    <Route path='/about' component={About} />
+                    <Route path='/events' component={Events} />
+                    <Route path='/annual' component={AnnualReport} />
+                    <Route path='/team' component={Teams} />
+                    <Route path='/blogs' component={Blogs} />
+                    <Route path='/sign-up' component={SignUp} />
+                </Switch>*/}
+                </Router>
 
                 <div className='row content'>
                     {this.props.children}
