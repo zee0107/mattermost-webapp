@@ -1,6 +1,6 @@
 import * as S from './styles';
 
-import Logo from 'assets/logoLight.png';
+import Logo from 'images/logoLight.png';
 import Burger from './Burger';
 
 type Props = {
