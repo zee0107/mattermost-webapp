@@ -7,6 +7,7 @@ import {FormattedMessage} from 'react-intl';
 import {ServerError} from 'mattermost-redux/types/errors';
 import {isEmail} from 'mattermost-redux/utils/helpers';
 import logoImage from 'images/logoWhite.png';
+import homeImage from 'images/homeFeed.png';
 
 import BackButton from 'components/common/back_button';
 import LocalizedInput from 'components/localized_input/localized_input';
@@ -110,6 +111,9 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                             <h1 className="headerText">The Social Network for Crypto Enthusiasts</h1>
                             <h4>The first social media platform for crypto to launch the revolutionary Engage-to-Earn reward system. Enjoy $BUSD rewards while holding $CRYPT tokens.</h4>
                             <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Getting Started</a>
+                        </div>
+                        <div className="text-center">
+                            <img src={homeImage}></img>
                         </div>
                     </div>
                 </div>
