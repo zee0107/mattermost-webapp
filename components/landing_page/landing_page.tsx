@@ -104,7 +104,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
 
         return (
             <div>
-                <div className='col-sm-12 bodyBgElipse'>
+                <div className='col-sm-12 bodyBgElipse bgGrey'>
                     <div className="inner-wrap-section">
                         <div className="col-sm-8 text-center">
                             <h1 className="headerText">The Social Network for Crypto Enthusiasts</h1>
