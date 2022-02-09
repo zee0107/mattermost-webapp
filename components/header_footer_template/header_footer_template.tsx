@@ -129,7 +129,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
             <div className='inner-wrap'>
                 <div className="navBar">
                     <button className="buttonToggle" onClick={this.Toggle}>
-                        <FaAlignRight />
+                        <img src={FaAlignRight}></img>
                     </button>
                     <ul className={this.state.toggle ? "nav-links show-nav" : "nav-links"}>
                         <li className="nav-item" href="#">About Us</li>
