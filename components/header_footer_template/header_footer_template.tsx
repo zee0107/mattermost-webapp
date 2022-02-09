@@ -131,20 +131,28 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                 <p className="footerText">The first social media platform for crypto to launch the revolutionary Engage-to-Earn reward system. Enjoy $BUSD rewards while holding $CRYPT tokens.</p>
                                 <div className="d-flex">
                                     <div className="col-lg-3">
-                                        <img src={fillCircle}></img>
-                                        <img src={Google}></img>
+                                        <div className="parent">
+                                            <img src={fillCircle} className="image1"></img>
+                                            <img src={Google} className="image2"></img>
+                                        </div>
                                     </div>
                                     <div className="col-lg-3">
-                                        <img src={fillCircle}></img>
-                                        <img src={Twitter}></img>
+                                        <div className="parent">
+                                            <img src={fillCircle} className="image1"></img>
+                                            <img src={Twitter} className="image2"></img>
+                                        </div>
                                     </div>
                                     <div className="col-lg-3">
-                                        <img src={fillCircle}></img>
-                                        <img src={Instagram}></img>
+                                        <div className="parent">
+                                            <img src={fillCircle} className="image1"></img>
+                                            <img src={Instagram} className="image2"></img>
+                                        </div>
                                     </div>
                                     <div className="col-lg-3">
-                                        <img src={fillCircle}></img>
-                                        <img src={LinkedIn}></img>
+                                        <div className="parent">
+                                            <img src={fillCircle} className="image1"></img>
+                                            <img src={LinkedIn} className="image2"></img>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
