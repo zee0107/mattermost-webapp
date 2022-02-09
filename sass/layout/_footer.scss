@@ -6,7 +6,6 @@
     background-position: left top, right top;
     background-repeat: no-repeat, no-repeat;
     background-size: inherit;
-    height: 100vh;
     .footer-link {
         padding: 0 1.5em;
 
@@ -26,9 +25,25 @@
 
 .footer,
 .footer-pane, {
-    height: 89px;
+    width: 100%;
 }
 
 .footerText{
     margin: 15px;
+}
+
+.parent {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+.image1 {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.image2 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }

@@ -189,8 +189,10 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                         </div>
                         <br />
                         <div className="col-lg-12 text-center">
-                            <img src={fillCircle}></img>
-                            <img src={Heart}></img>
+                            <div className="parent">
+                                <img src={fillCircle} className="image1"></img>
+                                <img src={Heart} className="image2"></img>
+                            </div>
                             <h5>Copyright {'\u00A9'} Crypter.io </h5>
                         </div>
                     </div>
