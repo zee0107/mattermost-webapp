@@ -58,7 +58,7 @@ function RightNav(props: Props) {
         </NavLink>
 
         <NavLink
-          to='#'
+          to='/signup_index'
           activeStyle={{
             fontWeight: 'bold',
             color: '#0DADEA',
@@ -70,7 +70,7 @@ function RightNav(props: Props) {
         </NavLink>
 
         <NavLink
-          to='#'
+          to='/login'
           activeStyle={{
             fontWeight: 'bold',
             color: '#0DADEA',
@@ -81,15 +81,9 @@ function RightNav(props: Props) {
       </S.Ul>
 
       <Switch>
-        <Route exact path='#'>
-          <S.Icon>
-            {/*<S.Image src={IconReact} alt='React' />*/}
-          </S.Icon>
+        <Route exact path='/signup_index'>
         </Route>
-        <Route exact path='#'>
-          <S.Icon>
-            {/*<S.Image src={IconMegamen} alt='Megamen' />*/}
-          </S.Icon>
+        <Route exact path='/login'>
         </Route>
         <Route exact path='#'>
           <S.Icon>

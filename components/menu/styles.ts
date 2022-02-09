@@ -86,7 +86,7 @@ export const Ul = styled.ul<INav>`
     top: -16px;
     right: 0;
     height: 100%;
-    width: 180px;
+    width: 300px;
     padding-top: 3.5rem;
     transition: transform 0.3s ease-in-out;
     z-index: 9;
