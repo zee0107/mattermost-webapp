@@ -117,6 +117,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                 </div>
                 <div className='row footer'>
                     <div id='footer_section' className='footer-pane col-xs-12'>
+                        <br />
                         <div className="row">
                             <div className="col-lg-2"></div>
                             <div className="col-lg-2">
@@ -175,6 +176,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                 </div>
                             </div>
                         </div>
+                        <br />
                         <div className="col-lg-12 text-center">
                             <img src={fillCircle}></img>
                             <h5>Copyright {'\u00A9'} Crypter.io </h5>
