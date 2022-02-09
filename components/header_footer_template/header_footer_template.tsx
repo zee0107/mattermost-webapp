@@ -4,6 +4,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import {FormattedMessage} from 'react-intl';
+import Menu from './components/menu/Navbar';
 
 import {ClientConfig} from 'mattermost-redux/types/config';
 import logoLight from 'images/logoLight.png';
@@ -126,6 +127,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
 
         return (
             <div className='inner-wrap'>
+                <Menu />
                 <div className='row content'>
                     {this.props.children}
                 </div>
