@@ -113,63 +113,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                             
                         </div>
                         <div className="col-sm-7">
-                            <div className='signup-team__container'>
-                                {/*<FormattedMessage
-                                    id='password_send.title'
-                                    tagName='h1'
-                                    defaultMessage='Password Reset'
-                                />*/}
-                                <h3>
-                                    <a href='/login' className='removeTextDecor'><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="#000" className="bi bi-chevron-left" viewBox="0 0 16 16">
-                                    <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-                                    </svg> Back</a>
-                                </h3>
-                                <br />
-                                <hr className='bg-white'/>
-                                <h1>Forgot Password</h1>
-                                {this.state.updateText}
-                                <form
-                                    onSubmit={this.handleSendLink}
-                                    ref={this.resetForm}
-                                >
-                                    <h5>
-                                    For the purpose of industry regulation, your details are required.
-                                        {/*<FormattedMessage
-                                            id='password_send.description'
-                                            defaultMessage=''
-                                        />*/}
-                                    </h5>
-                                    <br />
-                                    <div className={formClass}>
-                                        <label>Email address*</label>
-                                        <LocalizedInput
-                                            id='passwordResetEmailInput'
-                                            type='email'
-                                            className='form-control'
-                                            name='email'
-                                            placeholder={{
-                                                id: t('password_send.email'),
-                                                defaultMessage: 'Email',
-                                            }}
-                                            ref={this.emailInput}
-                                            spellCheck='false'
-                                            autoFocus={true}
-                                        />
-                                    </div>
-                                    {error}
-                                    <br />
-                                    <button
-                                        id='passwordResetButton'
-                                        type='submit'
-                                        className='btn buttonBgGreen fullWidth'
-                                    >
-                                        <FormattedMessage
-                                            id='password_send.reset'
-                                            defaultMessage='Reset my password'
-                                        />
-                                    </button>
-                                </form>
-                            </div>
+
                         </div>
                     </div>
                 </div>

@@ -7,7 +7,7 @@ import {MemoryRouter} from 'react-router';
 
 import {mountWithIntl} from 'tests/helpers/intl-test-helper';
 
-import LandingPage from './landing_page';
+import LandingPage from './landing_./landing_page
 
 describe('components/landing_page', () => {
     const baseProps = {

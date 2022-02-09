@@ -8,7 +8,7 @@ import {sendPasswordResetEmail} from 'mattermost-redux/actions/users';
 import {GenericAction, ActionFunc} from 'mattermost-redux/types/actions';
 import {ServerError} from 'mattermost-redux/types/errors';
 
-import LandingPage from './landing_page';
+import LandingPage from './landing_page'
 
 type Actions = {
     sendPasswordResetEmail: (emal: string) => Promise<{data: any; error: ServerError}>;
