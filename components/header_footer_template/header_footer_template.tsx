@@ -131,6 +131,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                     <button className="buttonToggle" onClick={this.Toggle}>
                         <img src={FaAlignRight}></img>
                     </button>
+                    
                     <ul className={this.state.toggle ? "nav-links show-nav" : "nav-links"}>
                         <li className="nav-item" href="#">About Us</li>
                         <li className="nav-item" href="#">Docs</li>
@@ -184,19 +185,19 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                 <div className="d-flex">
                                     <div className="col-lg-6">
                                         <h4>Company</h4>
-                                        <p>About Us</p>
-                                        <p>News</p>
-                                        <p>Events</p>
-                                        <p>Careers</p>
-                                        <p>Contact Us</p>
+                                        <a href="#">About Us</a>
+                                        <a href="#">News</a>
+                                        <a href="#">Events</a>
+                                        <a href="#">Careers</a>
+                                        <a href="#">Contact Us</a>
                                     </div>
                                     <div className="col-lg-6">
                                         <h4>Platform</h4>
-                                        <p>Social Network</p>
-                                        <p>Platform Overview</p>
-                                        <p>Security</p>
-                                        <p>Block Chain</p>
-                                        <p>NFT</p>
+                                        <a href="#">Social Network</a>
+                                        <a href="#">Platform Overview</a>
+                                        <a href="#">Security</a>
+                                        <a href="#">Block Chain</a>
+                                        <a href="#">NFT</a>
                                     </div>
                                 </div>
                             </div>
@@ -204,16 +205,16 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                 <div className="d-flex">
                                     <div className="col-lg-6">
                                         <h4>Documentation</h4>
-                                        <p>Deployment</p>
-                                        <p>Admin</p>
-                                        <p>API Reference</p>
-                                        <p>All Docs</p>
+                                        <a href="#">Deployment</a>
+                                        <a href="#">Admin</a>
+                                        <a href="#">API Reference</a>
+                                        <a href="#">All Docs</a>
                                     </div>
                                     <div className="col-lg-6">
                                         <h4>Support</h4>
-                                        <p>Forums</p>
-                                        <p>Help Center</p>
-                                        <p>Terms</p>
+                                        <a href="#">Forums</a>
+                                        <a href="#">Help Center</a>
+                                        <a href="#">Terms</a>
                                     </div>
                                 </div>
                             </div>
