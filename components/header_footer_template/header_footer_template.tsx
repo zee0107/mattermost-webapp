@@ -119,7 +119,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         return (
             <div className='inner-wrap'>
                 <header>
-                    <nav class="navbar navbar-expand-lg navbar-light nav-menu-desktop">
+                    <nav id="navbar-wrapper" class="navbar">
                         <div class="container">
                             <a class="navbar-toggler" data-toggle="collapse" href="#"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -181,7 +181,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                         </div>
                     </nav>
 
-                    <nav class="navbar navbar-expand-lg navbar-light nav-menu-mobile">
+                    {/*<nav class="navbar navbar-expand-lg navbar-light nav-menu-mobile">
                         <div class="container">
 
                             <div class="btn-group group-padding-mobile-menu" role="group" aria-label="Group mobile">
@@ -245,7 +245,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                 </ul>
                             </div>
                         </div>
-                    </nav>
+                    </nav>*/}
                 </header>
 
                 <div className='row content'>
