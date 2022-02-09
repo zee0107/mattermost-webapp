@@ -61,7 +61,7 @@ export const Ul = styled.ul<INav>`
   position: absolute;
   width: 90%;
   top: 0;
-  justify-content: flex-end;
+  justify-content: center;
   margin-top: 0px;
   align-items: center;
   font-size: 18px;
@@ -109,7 +109,7 @@ export const Li = styled.li`
 `
 
 export const Logo = styled.img`
-  margin: 20px 50px 20px 7%;
+  margin: 20px 50px 20px 17%;
   width: 160px;
   height: 70px;
   object-fit: contain;
