@@ -121,7 +121,6 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                 <header>
                     <nav class="navbar navbar-expand-lg navbar-light nav-menu-desktop">
                         <div class="container">
-
                             <a class="navbar-toggler" data-toggle="collapse" href="#"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -139,7 +138,6 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                     </div>
                                 </div>
                                 <ul class="navbar-nav mb-2 mb-lg-0 text-center" id="home_nav">
-                                    <li class="nav-item nav-item-divider  ms-4">
                                     <li class="nav-item d-flex align-items-center ms-1" id="hiw_emp">
                                         <a class="nav-link nav_list_emp active" aria-current="page" href="#">
                                             About Us
@@ -159,8 +157,6 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                         <a class="nav-link nav_list_emp" href="#">
                                             Contact Us
                                         </a>
-                                    </li>
-                                    <li class="nav-item nav-item-divider  ms-4">
                                     </li>
                                     <li class="nav-item d-flex align-items-center" id="discover">
                                         <a class="nav-link nav_list_emp" href="#">
@@ -182,7 +178,6 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                     </li>
                                 </ul>
                             </div>
-
                         </div>
                     </nav>
 
@@ -229,7 +224,6 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                             Contact Us
                                         </a>
                                     </li>
-                                    <li class="nav-item nav-item-divider">
                                     <li class="nav-item d-flex align-items-center">
                                         <a class="nav-link" href="#">
                                             En
