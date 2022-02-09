@@ -140,27 +140,44 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                             <div className="col-lg-4">
                                 <div className="d-flex">
                                     <div className="col-lg-6">
-                                        <h4>Menu 1</h4>
+                                        <h4>Company</h4>
+                                        <p>About Us</p>
+                                        <p>News</p>
+                                        <p>Events</p>
+                                        <p>Careers</p>
+                                        <p>Contact Us</p>
                                     </div>
                                     <div className="col-lg-6">
-                                        <h4>Menu 2</h4>
+                                        <h4>Platform</h4>
+                                        <p>Social Network</p>
+                                        <p>Platform Overview</p>
+                                        <p>Security</p>
+                                        <p>Block Chain</p>
+                                        <p>NFT</p>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-lg-4">
                             <div className="d-flex">
                                     <div className="col-lg-6">
-                                        <h4>Menu 3</h4>
+                                        <h4>Documentation</h4>
+                                        <p>Deployment</p>
+                                        <p>Admin</p>
+                                        <p>API Reference</p>
+                                        <p>All Docs</p>
                                     </div>
                                     <div className="col-lg-6">
-                                        <h4>Menu 4</h4>
+                                        <h4>Support</h4>
+                                        <p>Forums</p>
+                                        <p>Help Center</p>
+                                        <p>Terms</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-12">
+                        <div className="col-lg-12 text-center">
                             <img src={fillCircle}></img>
-                            <h5>Heart</h5>
+                            <h5>Copyright {'\u00A9'} Crypter.io </h4>
                         </div>
                     </div>
                 </div>
