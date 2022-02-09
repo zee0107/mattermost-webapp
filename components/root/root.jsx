@@ -58,6 +58,7 @@ const LazySelectTeam = React.lazy(() => import('components/select_team'));
 const LazyAuthorize = React.lazy(() => import('components/authorize'));
 const LazyCreateTeam = React.lazy(() => import('components/create_team'));
 const LazyMfa = React.lazy(() => import('components/mfa/mfa_controller'));
+const LazyLandingPage = React.lazy(() => import('components/landing_page'));
 
 import store from 'stores/redux_store.jsx';
 import {getSiteURL} from 'utils/url';
@@ -70,6 +71,7 @@ import TeamSidebar from 'components/team_sidebar';
 import {applyLuxonDefaults} from './effects';
 
 import RootRedirect from './root_redirect';
+import landing_page from 'components/landing_page';
 
 const CreateTeam = makeAsyncComponent('CreateTeam', LazyCreateTeam);
 const ErrorPage = makeAsyncComponent('ErrorPage', LazyErrorPage);
@@ -91,6 +93,7 @@ const LinkingLandingPage = makeAsyncComponent('LinkingLandingPage', LazyLinkingL
 const SelectTeam = makeAsyncComponent('SelectTeam', LazySelectTeam);
 const Authorize = makeAsyncComponent('Authorize', LazyAuthorize);
 const Mfa = makeAsyncComponent('Mfa', LazyMfa);
+const LandingPage = makeAsyncComponent('LandingPage', LazyLandingPage);
 
 const LoggedInRoute = ({component: Component, ...rest}) => (
     <Route
@@ -399,6 +402,10 @@ export default class Root extends React.PureComponent {
                     <Route
                         path={'/signup_index'}
                         component={SignupIndex}
+                    />
+                    <Route
+                        path={'/home'}
+                        component={LandingPage}
                     />
                     <Route
                         path={'/signup_email'}
