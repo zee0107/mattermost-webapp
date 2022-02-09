@@ -27,9 +27,18 @@
     margin: 15px;
 }
 
+.footerUl{
+    list-style-type: none;
+    padding-left: 0px;
+}
+
 .footer-pane{
     border-top: 1px solid #20f120;
     padding-top: 20px;
+}
+
+.footer-links{
+    margin-top: 10px;
 }
 
 .parent {

@@ -185,19 +185,46 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                 <div className="d-flex">
                                     <div className="col-lg-6">
                                         <h4>Company</h4>
-                                        <a href="#">About Us</a>
-                                        <a href="#">News</a>
-                                        <a href="#">Events</a>
-                                        <a href="#">Careers</a>
-                                        <a href="#">Contact Us</a>
+                                        <ul className="footerUl">
+                                            <li className="footerText">
+                                                <a href="#">About Us</a>
+                                            </li>
+                                            <li className="footerText">
+                                                <a href="#">News</a>
+                                            </li>
+                                            <li className="footerText">
+                                                <a href="#">Events</a>
+                                            </li>
+                                            <li className="footerText">
+                                                <a href="#">Careers</a>
+                                            </li>
+                                            <li className="footerText">
+                                                <a href="#">Contact Us</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                     <div className="col-lg-6">
                                         <h4>Platform</h4>
-                                        <a href="#">Social Network</a>
-                                        <a href="#">Platform Overview</a>
-                                        <a href="#">Security</a>
-                                        <a href="#">Block Chain</a>
-                                        <a href="#">NFT</a>
+                                        <ul className="footerUl">
+                                            <li className="footerText">
+                                                <a href="#">Social Network</a>
+                                            </li>
+                                            <li className="footerText">
+                                                <a href="#">Platform Overview</a>
+                                            </li>
+                                            <li className="footerText">
+                                                <a href="#">Security</a>
+                                            </li>
+                                            <li className="footerText">
+                                                <a href="#">Security</a>
+                                            </li>
+                                            <li className="footerText">
+                                                <a href="#">Block Chain</a>
+                                            </li>
+                                            <li className="footerText">
+                                                <a href="#">NFT</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -205,16 +232,34 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                 <div className="d-flex">
                                     <div className="col-lg-6">
                                         <h4>Documentation</h4>
-                                        <a href="#">Deployment</a>
-                                        <a href="#">Admin</a>
-                                        <a href="#">API Reference</a>
-                                        <a href="#">All Docs</a>
+                                        <ul className="footerUl">
+                                            <li className="footerText">
+                                                <a href="#">Deployment</a>
+                                            </li>
+                                            <li className="footerText">
+                                                <a href="#">Admin</a>
+                                            </li>
+                                            <li className="footerText">
+                                                <a href="#">API Reference</a>
+                                            </li>
+                                            <li className="footerText">
+                                                <a href="#">All Docs</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                     <div className="col-lg-6">
                                         <h4>Support</h4>
-                                        <a href="#">Forums</a>
-                                        <a href="#">Help Center</a>
-                                        <a href="#">Terms</a>
+                                        <ul className="footerUl">
+                                            <li className="footerText">
+                                                <a href="#">Forums</a>
+                                            </li>
+                                            <li className="footerText">
+                                                <a href="#">Help Center</a>
+                                            </li>
+                                            <li className="footerText">
+                                                <a href="#">Terms</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
