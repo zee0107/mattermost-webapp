@@ -62,6 +62,7 @@ function RightNav(props: Props) {
             fontWeight: 'bold',
             color: '#0DADEA',
           }}
+          style={{margin-right=100}}
         >
           <S.Li>
               <a href="/signup_index" className="btn buttonBgGreen">Register</a>
