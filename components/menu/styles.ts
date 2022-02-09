@@ -95,7 +95,7 @@ export const Ul = styled.ul<INav>`
 `
 
 export const Li = styled.li`
-  padding: 18px 10px;
+  padding: 18px 30px;
   outline: none;
 
   @media (max-width: 768px) {
