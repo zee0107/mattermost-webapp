@@ -119,18 +119,18 @@ img {
     border-radius: 7px;
     width: 100%;
     height: 90px;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: $white;
     margin-bottom: 30px;
 }
 
 .ButtonSignup:hover{
     border: 2px solid green;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 233, 109, 0.6);
+    box-shadow: inset 0 1px 1px rgba(47, 204, 15, 0.438), 0 0 8px rgba(102, 233, 109, 0.6);
 }
 
 .ButtonSignup:focus{
     border: 2px solid green;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 233, 109, 0.6);
+    box-shadow: inset 0 1px 1px rgba(47, 204, 15, 0.438), 0 0 8px rgba(102, 233, 109, 0.6);
 }
 
 .imagePadding{
