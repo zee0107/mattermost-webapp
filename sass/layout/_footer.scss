@@ -2,8 +2,10 @@
 
 .footer-pane {
     padding-bottom: 1em;
-    background: #202020;
-
+    background-image: url('/images/ellipse-ligthgreen.svg'),url('/images/ellipse-green.svg');
+    background-position: left top, right top;
+    background-repeat: no-repeat, no-repeat;
+    
     .footer-link {
         padding: 0 1.5em;
 
