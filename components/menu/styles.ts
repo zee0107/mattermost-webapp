@@ -48,7 +48,7 @@ export const Nav = styled.nav`
   background-color: #fdfdfdfa;
   align-items: center;
   position: relative;
-
+  height: 70px;
   @media (max-width: 678px) {
     width: 100vw;
   }
@@ -65,7 +65,6 @@ export const Ul = styled.ul<INav>`
   margin-top: 0px;
   align-items: center;
   font-size: 18px;
-  height: 110px;
   margin-left: 20px;
 
   a {
