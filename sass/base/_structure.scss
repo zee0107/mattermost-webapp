@@ -10,6 +10,9 @@ body {
     width: 100%;
     background: #ffffffe7;
 
+    &body::before{
+        opacity: 0.75;
+    }
     &.announcement-bar--fixed {
         padding-top: $announcement-bar-height;
     }
