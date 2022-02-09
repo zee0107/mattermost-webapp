@@ -13,7 +13,6 @@ export const StyledBurger = styled.div<INav>`
   z-index: 20;
   display: none;
   cursor: pointer;
-  font-family: 'Zilla Slab', sans-serif;
 
   @media (max-width: 768px) {
     display: flex;
@@ -44,7 +43,6 @@ export const Menus = styled.div<INav>`
 `
 
 export const Nav = styled.nav`
-  font-family: 'Zilla Slab', sans-serif;
   display: flex;
   justify-content: space-between;
   background-color: #fdfdfdfa;
@@ -57,7 +55,6 @@ export const Nav = styled.nav`
 `
 
 export const Ul = styled.ul<INav>`
-  font-family: 'Zilla Slab', sans-serif;
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
