@@ -10,6 +10,12 @@ import logoLight from 'images/logoLight.png';
 import fillCircle from 'images/fill.svg';
 import logoDark from 'images/logoWhite.png';
 
+import Google from 'images/icons/google.svg';
+import Twitter from 'images/icons/twitter.svg';
+import LinkedIn from 'images/icons/linkedin.svg';
+import Instagram from 'images/icons/instagram.svg';
+import Heart from 'images/icons/heart-fill.svg';
+
 type Props = {
     config: Partial<ClientConfig> | undefined;
 }
@@ -126,15 +132,19 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                 <div className="d-flex">
                                     <div className="col-lg-3">
                                         <img src={fillCircle}></img>
+                                        <img src={Google}></img>
                                     </div>
                                     <div className="col-lg-3">
                                         <img src={fillCircle}></img>
+                                        <img src={Twitter}></img>
                                     </div>
                                     <div className="col-lg-3">
                                         <img src={fillCircle}></img>
+                                        <img src={Instagram}></img>
                                     </div>
                                     <div className="col-lg-3">
                                         <img src={fillCircle}></img>
+                                        <img src={LinkedIn}></img>
                                     </div>
                                 </div>
                             </div>
@@ -180,6 +190,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                         <br />
                         <div className="col-lg-12 text-center">
                             <img src={fillCircle}></img>
+                            <img src={Heart}></img>
                             <h5>Copyright {'\u00A9'} Crypter.io </h5>
                         </div>
                     </div>
