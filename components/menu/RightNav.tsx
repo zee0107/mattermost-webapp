@@ -56,6 +56,9 @@ function RightNav(props: Props) {
           <S.Li>Contact Us</S.Li>
         </NavLink>
 
+        
+      </S.Ul>
+      <S.Ul>
         <NavLink
           to='/signup_index'
           activeStyle={{
