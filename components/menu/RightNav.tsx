@@ -16,8 +16,7 @@ type Props = {
 
 function RightNav(props: Props) {
   return (
-    <Router>
-      <S.Ul open={props.open}>
+    <S.Ul open={props.open}>
         <S.LogoUl src={Logo} alt={'Crypter'} />
 
         <NavLink
@@ -79,6 +78,8 @@ function RightNav(props: Props) {
           <S.Li><a href="/login" className="btn buttonBgGreen">Login</a></S.Li>
         </NavLink>
       </S.Ul>
+    /*<Router>
+      
 
       <Switch>
         <Route exact path='/signup_index'>
@@ -87,18 +88,18 @@ function RightNav(props: Props) {
         </Route>
         <Route exact path='#'>
           <S.Icon>
-            {/*<S.Image src={IconMario} alt='Mario' />*/}
+            <S.Image src={IconMario} alt='Mario' />
           </S.Icon>
         </Route>
         <Route exact path='#'>
           <S.Icon>
-            {/*<S.Image src={IconTurtle} alt='Turtle' />*/}
+            <S.Image src={IconTurtle} alt='Turtle' />
           </S.Icon>
         </Route>
 
         <Redirect to='/home' />
       </Switch>
-    </Router>
+    </Router>*/
   );
 }
 
