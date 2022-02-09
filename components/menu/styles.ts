@@ -45,7 +45,6 @@ export const Menus = styled.div<INav>`
 
 export const Nav = styled.nav`
   font-family: 'Zilla Slab', sans-serif;
-  height: 100%;
   display: flex;
   justify-content: space-between;
   background-color: #fdfdfdfa;
