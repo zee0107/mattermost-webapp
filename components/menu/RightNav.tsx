@@ -20,7 +20,7 @@ function RightNav(props: Props) {
         <S.LogoUl src={Logo} alt={'Crypter'} />
 
         <NavLink
-          to='#'
+          to='/about'
           activeStyle={{
             fontWeight: 'bold',
             color: '#0DADEA',
@@ -29,7 +29,7 @@ function RightNav(props: Props) {
           <S.Li>About Us</S.Li>
         </NavLink>
         <NavLink
-          to='#'
+          to='/docs'
           activeStyle={{
             fontWeight: 'bold',
             color: '#0DADEA',
@@ -38,7 +38,7 @@ function RightNav(props: Props) {
           <S.Li>Docs</S.Li>
         </NavLink>
         <NavLink
-          to='#'
+          to='/help'
           activeStyle={{
             fontWeight: 'bold',
             color: '#0DADEA',
@@ -47,7 +47,7 @@ function RightNav(props: Props) {
           <S.Li>Help</S.Li>
         </NavLink>
         <NavLink
-          to='#'
+          to='/contact_us'
           activeStyle={{
             fontWeight: 'bold',
             color: '#0DADEA',
