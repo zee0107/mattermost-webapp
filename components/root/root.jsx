@@ -403,7 +403,7 @@ export default class Root extends React.PureComponent {
                         path={'/signup_index'}
                         component={SignupIndex}
                     />
-                    <Route
+                    <HFTRoute
                         path={'/home'}
                         component={LandingPage}
                     />
