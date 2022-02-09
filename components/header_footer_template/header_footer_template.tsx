@@ -4,9 +4,6 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import {FormattedMessage} from 'react-intl';
-import FaAlignRight from 'images/icons/toggleIcon.svg';
-import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import {ClientConfig} from 'mattermost-redux/types/config';
 import logoLight from 'images/logoLight.png';
@@ -129,19 +126,6 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
 
         return (
             <div className='inner-wrap'>
-                <Router>
-                <Navbar />
-                {/*<Switch>
-                    <Route path='/' exact component={Home} />
-                    <Route path='/about' component={About} />
-                    <Route path='/events' component={Events} />
-                    <Route path='/annual' component={AnnualReport} />
-                    <Route path='/team' component={Teams} />
-                    <Route path='/blogs' component={Blogs} />
-                    <Route path='/sign-up' component={SignUp} />
-                </Switch>*/}
-                </Router>
-
                 <div className='row content'>
                     {this.props.children}
                 </div>
