@@ -133,7 +133,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                 <div class="row">
                                     <div class="col-2">
                                         <a href="/home" target="_self">
-                                            <img src={logoLight}>
+                                            <img src={logoLight} />
                                            
                                         </a>
                                     </div>
@@ -191,7 +191,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
 
                             <div class="btn-group group-padding-mobile-menu" role="group" aria-label="Group mobile">
                                 <a href="/home" target="_self" class="img-logo-mobile">
-                                    <img src={logoLight}>
+                                    <img src={logoLight} />
                                 </a>
                             </div>
 
