@@ -106,9 +106,11 @@ export default class LandingPage extends React.PureComponent<Props, State> {
             <div>
                 <div className='col-sm-12 bodyBgElipse'>
                     <div className="inner-wrap-section">
-                        <h1>The Social Network for Crypto Enthusiasts</h1>
-                        <p>The first social media platform for crypto to launch the revolutionary Engage-to-Earn reward system. Enjoy $BUSD rewards while holding $CRYPT tokens.</p>
-                        <button className="btn btn-primary">Getting Started</button>
+                        <div className="col-sm-8">
+                            <h1 className="headerText">The Social Network for Crypto Enthusiasts</h1>
+                            <h4>The first social media platform for crypto to launch the revolutionary Engage-to-Earn reward system. Enjoy $BUSD rewards while holding $CRYPT tokens.</h4>
+                            <button className="btn btn-primary">Getting Started</button>
+                        </div>
                     </div>
                 </div>
             </div>

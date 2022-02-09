@@ -3,4 +3,10 @@
     margin-right: auto;
     display: flex;
     flex-direction: column;
+    max-width: 1000px;
+    align-items: center;
+}
+
+.headerText{
+    color: #0d3d36;
 }
