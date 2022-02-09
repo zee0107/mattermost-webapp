@@ -4,7 +4,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import { FaAlignRight } from 'react-icons/fa';
+import FaAlignRight from 'images/icons/toggleIcon.svg';
 
 import {ClientConfig} from 'mattermost-redux/types/config';
 import logoLight from 'images/logoLight.png';
@@ -38,7 +38,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
     state = {
         toggle:false
     }
-    
+
     Toggle = () => {
         this.setState({toggle:!this.state.toggle})
     }
