@@ -104,17 +104,11 @@ export default class LandingPage extends React.PureComponent<Props, State> {
 
         return (
             <div>
-                <nav>
-                    <logoImage></logoImage>
-                </nav>
                 <div className='col-sm-12 bodyBgElipse'>
-                    <div className="row">
-                        <div className="col-sm-5">
-                            
-                        </div>
-                        <div className="col-sm-7">
-
-                        </div>
+                    <div className="text-center">
+                        <h1>The Social Network for Crypto Enthusiasts</h1>
+                        <p>The first social media platform for crypto to launch the revolutionary Engage-to-Earn reward system. Enjoy $BUSD rewards while holding $CRYPT tokens.</p>
+                        <button className="btn btn-primary">Getting Started</button>
                     </div>
                 </div>
             </div>
