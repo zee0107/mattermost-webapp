@@ -122,7 +122,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                             <div className="col-lg-2"></div>
                             <div className="col-lg-2">
                                 <img src={logoLight}></img>
-                                <p>The first social media platform for crypto to launch the revolutionary Engage-to-Earn reward system. Enjoy $BUSD rewards while holding $CRYPT tokens.</p>
+                                <p className="footerText">The first social media platform for crypto to launch the revolutionary Engage-to-Earn reward system. Enjoy $BUSD rewards while holding $CRYPT tokens.</p>
                                 <div className="d-flex">
                                     <div className="col-lg-3">
                                         <img src={fillCircle}></img>
@@ -138,7 +138,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-lg-4">
+                            <div className="col-lg-3">
                                 <div className="d-flex">
                                     <div className="col-lg-6">
                                         <h4>Company</h4>
@@ -158,23 +158,25 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-lg-4">
-                            <div className="d-flex">
-                                    <div className="col-lg-6">
-                                        <h4>Documentation</h4>
-                                        <p>Deployment</p>
-                                        <p>Admin</p>
-                                        <p>API Reference</p>
-                                        <p>All Docs</p>
-                                    </div>
-                                    <div className="col-lg-6">
-                                        <h4>Support</h4>
-                                        <p>Forums</p>
-                                        <p>Help Center</p>
-                                        <p>Terms</p>
+                            <div className="col-lg-3">
+                                <div className="d-flex">
+                                        <div className="col-lg-6">
+                                            <h4>Documentation</h4>
+                                            <p>Deployment</p>
+                                            <p>Admin</p>
+                                            <p>API Reference</p>
+                                            <p>All Docs</p>
+                                        </div>
+                                        <div className="col-lg-6">
+                                            <h4>Support</h4>
+                                            <p>Forums</p>
+                                            <p>Help Center</p>
+                                            <p>Terms</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div className="col-lg-2"></div>
                         </div>
                         <br />
                         <div className="col-lg-12 text-center">
