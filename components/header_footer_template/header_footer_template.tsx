@@ -4,6 +4,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import { FaAlignRight } from 'react-icons/fa';
 
 import {ClientConfig} from 'mattermost-redux/types/config';
 import logoLight from 'images/logoLight.png';
@@ -33,6 +34,14 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
          */
         config: PropTypes.object,
     };
+
+    state = {
+        toggle:false
+    }
+    
+    Toggle = () => {
+        this.setState({toggle:!this.state.toggle})
+    }
 
     componentDidMount() {
         document.body.classList.add('sticky');
@@ -118,135 +127,19 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
 
         return (
             <div className='inner-wrap'>
-                <header>
-                    <nav id="navbar-wrapper" class="navbar">
-                        <div class="container">
-                            <a class="navbar-toggler" data-toggle="collapse" href="#"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon">
-                                </span>
-                            </a>
-
-                            <div class="collapse navbar-collapse">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <a href="/home" target="_self">
-                                            <img src={logoLight} />
-                                           
-                                        </a>
-                                    </div>
-                                </div>
-                                <ul class="navbar-nav mb-2 mb-lg-0 text-center" id="home_nav">
-                                    <li class="nav-item d-flex align-items-center ms-1" id="hiw_emp">
-                                        <a class="nav-link nav_list_emp active" aria-current="page" href="#">
-                                            About Us
-                                        </a>
-                                    </li>
-                                    <li class="nav-item d-flex align-items-center" id="ts_emp">
-                                        <a class="nav-link nav_list_emp" href="#">
-                                            Docs
-                                        </a>
-                                    </li>
-                                    <li class="nav-item d-flex align-items-center" id="affi">
-                                        <a class="nav-link nav_list_emp" href="#">
-                                            Help
-                                        </a>
-                                    </li>
-                                    <li class="nav-item d-flex align-items-center" id="pr_emp">
-                                        <a class="nav-link nav_list_emp" href="#">
-                                            Contact Us
-                                        </a>
-                                    </li>
-                                    <li class="nav-item d-flex align-items-center" id="discover">
-                                        <a class="nav-link nav_list_emp" href="#">
-                                            EN
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center" id="account_nav">
-                                    <li class="nav-item d-flex align-items-center me-3" id="signin">
-                                        <a class="nav-link nav_list_emp" aria-current="page" href="/signup_index">
-                                            Register
-                                        </a>
-                                    </li>
-                                    <li class="nav-item d-flex align-items-center me-3" id="signin">
-                                        <a class="nav-link nav_list_emp" aria-current="page" href="/login">
-                                            Login
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-
-                    {/*<nav class="navbar navbar-expand-lg navbar-light nav-menu-mobile">
-                        <div class="container">
-
-                            <div class="btn-group group-padding-mobile-menu" role="group" aria-label="Group mobile">
-                                <a href="/home" target="_self" class="img-logo-mobile">
-                                    <img src={logoLight} />
-                                </a>
-                            </div>
-
-                            <a class="navbar-toggler onClickmobilenavbar" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </a>
-
-                            <a class="navbar-toggler onClickmobilenavbarclose" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                                <span class="bi-arrow-up bi-arrow-up-padding"></span>
-                            </a>
-
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav mb-2 mb-lg-0">
-                                    <li class="nav-item d-flex align-items-center">
-                                        <a class="nav-link nav_list_emp" href="#">
-                                            About Us
-                                        </a>
-                                    </li>
-                                    <li class="nav-item d-flex align-items-center">
-                                        <a class="nav-link" href="#">
-                                            Docs
-                                        </a>
-                                    </li>
-                                    <li class="nav-item d-flex align-items-center">
-                                        <a class="nav-link" href="#">
-                                            Help
-                                        </a>
-                                    </li>
-                                    <li class="nav-item d-flex align-items-center">
-                                        <a class="nav-link" href="#">
-                                            Contact Us
-                                        </a>
-                                    </li>
-                                    <li class="nav-item d-flex align-items-center">
-                                        <a class="nav-link" href="#">
-                                            En
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                                    <li class="nav-item d-flex align-items-center">
-                                        <a class="nav-link" href="/signup_index">
-                                            Register
-                                        </a>
-                                    </li>
-                                    <li class="nav-item d-flex align-items-center">
-                                        <a class="nav-link" href="/login">
-                                            Login
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>*/}
-                </header>
+                <div className="navBar">
+                    <button className="buttonToggle" onClick={this.Toggle}>
+                        <FaAlignRight />
+                    </button>
+                    <ul className={this.state.toggle ? "nav-links show-nav" : "nav-links"}>
+                        <li className="nav-item" href="#">About Us</li>
+                        <li className="nav-item" href="#">Docs</li>
+                        <li className="nav-item" href="#">Help</li>
+                        <li className="nav-item" href="#">Contact Us</li>
+                        <li className="nav-item" href="/signup_index">Register</li>
+                        <li className="nav-item" href="/login">Login</li>
+                    </ul>
+              </div>
 
                 <div className='row content'>
                     {this.props.children}
