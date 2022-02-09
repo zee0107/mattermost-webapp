@@ -56,6 +56,28 @@ function RightNav(props: Props) {
         >
           <S.Li>Contact Us</S.Li>
         </NavLink>
+
+        <NavLink
+          to='#'
+          activeStyle={{
+            fontWeight: 'bold',
+            color: '#0DADEA',
+          }}
+        >
+          <S.Li>
+              <a href="/signup_index" className="btn buttonBgGreen">Register</a>
+          </S.Li>
+        </NavLink>
+
+        <NavLink
+          to='#'
+          activeStyle={{
+            fontWeight: 'bold',
+            color: '#0DADEA',
+          }}
+        >
+          <S.Li><a href="/login" className="btn buttonBgGreen">Login</a></S.Li>
+        </NavLink>
       </S.Ul>
 
       <Switch>
@@ -80,7 +102,7 @@ function RightNav(props: Props) {
           </S.Icon>
         </Route>
 
-        <Redirect to='/' />
+        <Redirect to='/home' />
       </Switch>
     </Router>
   );

@@ -105,14 +105,14 @@ export default class LandingPage extends React.PureComponent<Props, State> {
 
         return (
             <div>
-                <div className='col-sm-12 bodyBgElipse bgGrey'>
+                <div className='col-sm-12 bodyBgElipseLanding bgGrey'>
                     <div className="inner-wrap-section">
                         <div className="col-sm-8 text-center">
                             <h1 className="headerText">The Social Network for Crypto Enthusiasts</h1>
                             <h4>The first social media platform for crypto to launch the revolutionary Engage-to-Earn reward system. Enjoy $BUSD rewards while holding $CRYPT tokens.</h4>
                             <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Getting Started</a>
                         </div>
-                        <div className="text-center">
+                        <div className="col-lg-12 text-center homeImage">
                             <img src={homeImage}></img>
                         </div>
                     </div>
