@@ -186,19 +186,19 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                     <div className="col-lg-6">
                                         <h4>Company</h4>
                                         <ul className="footerUl">
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">About Us</a>
                                             </li>
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">News</a>
                                             </li>
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">Events</a>
                                             </li>
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">Careers</a>
                                             </li>
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">Contact Us</a>
                                             </li>
                                         </ul>
@@ -206,22 +206,22 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                     <div className="col-lg-6">
                                         <h4>Platform</h4>
                                         <ul className="footerUl">
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">Social Network</a>
                                             </li>
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">Platform Overview</a>
                                             </li>
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">Security</a>
                                             </li>
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">Security</a>
                                             </li>
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">Block Chain</a>
                                             </li>
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">NFT</a>
                                             </li>
                                         </ul>
@@ -233,16 +233,16 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                     <div className="col-lg-6">
                                         <h4>Documentation</h4>
                                         <ul className="footerUl">
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">Deployment</a>
                                             </li>
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">Admin</a>
                                             </li>
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">API Reference</a>
                                             </li>
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">All Docs</a>
                                             </li>
                                         </ul>
@@ -250,13 +250,13 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                     <div className="col-lg-6">
                                         <h4>Support</h4>
                                         <ul className="footerUl">
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">Forums</a>
                                             </li>
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">Help Center</a>
                                             </li>
-                                            <li className="footerText">
+                                            <li className="ulLinks">
                                                 <a href="#">Terms</a>
                                             </li>
                                         </ul>
