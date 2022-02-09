@@ -6,6 +6,9 @@ import React from 'react';
 import {FormattedMessage} from 'react-intl';
 
 import {ClientConfig} from 'mattermost-redux/types/config';
+import logoLight from 'images/logoLight.png';
+import fillCircle from 'images/fill.svg';
+import logoDark from 'images/logoWhite.png';
 
 type Props = {
     config: Partial<ClientConfig> | undefined;
@@ -113,28 +116,51 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                     {this.props.children}
                 </div>
                 <div className='row footer'>
-                    <div
-                        id='footer_section'
-                        className='footer-pane col-xs-12'
-                    >
-                        <div className='col-xs-12'>
-                            <span
-                                id='company_name'
-                                className='pull-right footer-site-name'
-                            >
-                                {'Mattermost'}
-                            </span>
+                    <div id='footer_section' className='footer-pane col-xs-12'>
+                        <div className="row">
+                            <div className="col-lg-2"></div>
+                            <div className="col-lg-2">
+                                <img src={logoLight}></img>
+                                <p>The first social media platform for crypto to launch the revolutionary Engage-to-Earn reward system. Enjoy $BUSD rewards while holding $CRYPT tokens.</p>
+                                <div className="d-flex">
+                                    <div className="col-lg-3">
+                                        <img src={fillCircle}></img>
+                                    </div>
+                                    <div className="col-lg-3">
+                                        <img src={fillCircle}></img>
+                                    </div>
+                                    <div className="col-lg-3">
+                                        <img src={fillCircle}></img>
+                                    </div>
+                                    <div className="col-lg-3">
+                                        <img src={fillCircle}></img>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-lg-4">
+                                <div className="d-flex">
+                                    <div className="col-lg-6">
+                                        <h4>Menu 1</h4>
+                                    </div>
+                                    <div className="col-lg-6">
+                                        <h4>Menu 2</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-lg-4">
+                            <div className="d-flex">
+                                    <div className="col-lg-6">
+                                        <h4>Menu 3</h4>
+                                    </div>
+                                    <div className="col-lg-6">
+                                        <h4>Menu 4</h4>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div className='col-xs-12'>
-                            <span
-                                id='copyright'
-                                className='pull-right footer-link copyright'
-                            >
-                                {`© 2015-${new Date().getFullYear()} Mattermost, Inc.`}
-                            </span>
-                            <span className='pull-right'>
-                                {content}
-                            </span>
+                        <div className="col-lg-12">
+                            <img src={fillCircle}></img>
+                            <h5>Heart</h5>
                         </div>
                     </div>
                 </div>
