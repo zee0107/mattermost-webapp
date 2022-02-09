@@ -57,7 +57,7 @@ function RightNav(props: Props) {
           <S.Li>Contact Us</S.Li>
         </NavLink>
 
-        {/*<NavLink
+        <NavLink
           to='#'
           activeStyle={{
             fontWeight: 'bold',
@@ -77,7 +77,7 @@ function RightNav(props: Props) {
           }}
         >
           <S.Li><a href="/login" className="btn buttonBgGreen">Login</a></S.Li>
-        </NavLink>*/}
+        </NavLink>
       </S.Ul>
 
       <Switch>
