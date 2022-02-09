@@ -109,7 +109,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                         <div className="col-sm-8 text-center">
                             <h1 className="headerText">The Social Network for Crypto Enthusiasts</h1>
                             <h4>The first social media platform for crypto to launch the revolutionary Engage-to-Earn reward system. Enjoy $BUSD rewards while holding $CRYPT tokens.</h4>
-                            <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Getting Started</button>
+                            <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Getting Started</a>
                         </div>
                     </div>
                 </div>
