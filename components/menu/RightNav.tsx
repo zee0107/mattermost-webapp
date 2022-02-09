@@ -1,10 +1,6 @@
 import * as S from './styles';
 
-import Logo from '../../assets/logo.png';
-import IconReact from '../../assets/react.svg';
-import IconMegamen from '../../assets/megamen.png';
-import IconMario from '../../assets/mario.png';
-import IconTurtle from '../../assets/turtle.png';
+import Logo from 'assets/logoLight.png';
 
 import {
   BrowserRouter as Router,
@@ -22,7 +18,7 @@ function RightNav(props: Props) {
   return (
     <Router>
       <S.Ul open={props.open}>
-        <S.LogoUl src={Logo} alt={'Gustavo Scarpim'} />
+        <S.LogoUl src={Logo} alt={'Crypter'} />
 
         <NavLink
           to='/menu1'
@@ -63,28 +59,28 @@ function RightNav(props: Props) {
       </S.Ul>
 
       <Switch>
-        <Route exact path='/menu1'>
+        <Route exact path='#'>
           <S.Icon>
-            <S.Image src={IconReact} alt='React' />
+            {/*<S.Image src={IconReact} alt='React' />*/}
           </S.Icon>
         </Route>
-        <Route exact path='/menu2'>
+        <Route exact path='#'>
           <S.Icon>
-            <S.Image src={IconMegamen} alt='Megamen' />
+            {/*<S.Image src={IconMegamen} alt='Megamen' />*/}
           </S.Icon>
         </Route>
-        <Route exact path='/menu3'>
+        <Route exact path='#'>
           <S.Icon>
-            <S.Image src={IconMario} alt='Mario' />
+            {/*<S.Image src={IconMario} alt='Mario' />*/}
           </S.Icon>
         </Route>
-        <Route exact path='/menu4'>
+        <Route exact path='#'>
           <S.Icon>
-            <S.Image src={IconTurtle} alt='Turtle' />
+            {/*<S.Image src={IconTurtle} alt='Turtle' />*/}
           </S.Icon>
         </Route>
 
-        <Redirect to='/menu1' />
+        <Redirect to='/' />
       </Switch>
     </Router>
   );
