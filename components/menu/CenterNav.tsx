@@ -14,29 +14,46 @@ type Props = {
   open: boolean;
 };
 
-function RightNav(props: Props) {
+function CenterNav(props: Props) {
   return (
     <S.Ul open={props.open}>
-        <NavLink
-          to='/signup_index'
-          activeStyle={{
-            fontWeight: 'bold',
-            color: '#0DADEA',
-          }}
-        >
-          <S.Li>
-              <a href="/signup_index" className="btn buttonBgGreen">Register</a>
-          </S.Li>
-        </NavLink>
+        <S.LogoUl src={Logo} alt={'Crypter'} />
 
         <NavLink
-          to='/login'
+          to='/about'
           activeStyle={{
             fontWeight: 'bold',
             color: '#0DADEA',
           }}
         >
-          <S.Li><a href="/login" className="btn buttonBgGreen">Login</a></S.Li>
+          <S.Li>About Us</S.Li>
+        </NavLink>
+        <NavLink
+          to='/docs'
+          activeStyle={{
+            fontWeight: 'bold',
+            color: '#0DADEA',
+          }}
+        >
+          <S.Li>Docs</S.Li>
+        </NavLink>
+        <NavLink
+          to='/help'
+          activeStyle={{
+            fontWeight: 'bold',
+            color: '#0DADEA',
+          }}
+        >
+          <S.Li>Help</S.Li>
+        </NavLink>
+        <NavLink
+          to='/contact_us'
+          activeStyle={{
+            fontWeight: 'bold',
+            color: '#0DADEA',
+          }}
+        >
+          <S.Li>Contact Us</S.Li>
         </NavLink>
     </S.Ul>
 
@@ -65,4 +82,4 @@ function RightNav(props: Props) {
   );
 }
 
-export default RightNav;
+export default CenterNav;
