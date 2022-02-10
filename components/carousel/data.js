@@ -1,4 +1,4 @@
-import profile1 from 'images/icons/profile1.png';
+import profile1 from 'images/profiles/profile1.png';
 
 export const data = [
   {
