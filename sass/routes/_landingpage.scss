@@ -112,6 +112,10 @@
     padding-right: 0px;
 }
 
+.removePaddingRight{
+    padding-right: 0px;
+}
+
 .btnGettingStartedText{
     padding: 20px;
     font-size: 16px;
@@ -242,9 +246,6 @@
   }
   
   .card img {
-    height: 15rem;
-    width: 10rem;
-  
     object-fit: cover;
     object-position: top;
   

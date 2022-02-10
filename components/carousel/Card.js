@@ -16,7 +16,7 @@ const Card = ({ handlePointerEvent, name, img,feed, cardStyle }) => {
         <br></br>
         <div className="col-lg-12">
           <div className="d-flex">
-            <div className="col-lg-2">
+            <div className="col-lg-2 removePaddingRight">
               <img src={img} alt={name} />
             </div>
             <div className="col-lg-10">
