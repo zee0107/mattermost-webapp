@@ -180,14 +180,14 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                         <br></br>
                     </div>
                     <div>
-                        <div className="col-lg-12">
+                        <div className="col-lg-12 learnmoreBox">
                             <div className="d-flex">
                                 <div className="col-lg-9">
                                     <h3>New In Cryptocurrency?</h3>
                                     <h4>We'll tell you what cryptocurrencies are, how they work and why you should own one right now. So let's do it.</h4>
                                 </div>
                                 <div className="col-lg-3">
-                                    <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Learn &amp; Explore Now</a>
+                                    <a href="/signup_index" className="btn buttonBgGreen btnLearnText">Learn &amp; Explore Now</a>
                                 </div>
                             </div>
                         </div>
@@ -202,27 +202,27 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="col-lg-12">
-                                        <div className="d-flex">
+                                        <div className="d-flex gettingstartedBox">
                                             <div className="col-lg-3">
-                                                <img src={createImage}></img>
+                                                <img src={createImage} className="gettingstartedImg"></img>
                                             </div>
                                             <div className="col-lg-9">
                                                 <h2>Create Your Account</h2>
                                                 <h3>Your account and personal identity are guaranteed safe.</h3>
                                             </div>
                                         </div>
-                                        <div className="d-flex">
+                                        <div className="d-flex gettingstartedBox">
                                             <div className="col-lg-3">
-                                                <img src={bankImage}></img>
+                                                <img src={bankImage} className="gettingstartedImg"></img>
                                             </div>
                                             <div className="col-lg-9">
                                                 <h2>Connect Bank Account</h2>
                                                 <h3>Connect the bank account to start transactions.</h3>
                                             </div>
                                         </div>
-                                        <div className="d-flex">
+                                        <div className="d-flex gettingstartedBox">
                                             <div className="col-lg-3">
-                                                <img src={createImage}></img>
+                                                <img src={createImage} className="gettingstartedImg"></img>
                                             </div>
                                             <div className="col-lg-9">
                                                 <h2>Start Build Portfolio</h2>
