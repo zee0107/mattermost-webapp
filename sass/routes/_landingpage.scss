@@ -331,6 +331,12 @@
   .textPaddingCard{
       padding-left: 15px;
   }
+
+  .nameTextCard{
+      color: #66d338;
+      font-size: 16px;
+      font-weight: bold;
+  }
   @media screen and (max-width: 425px) {
     .container {
       width: 100%;

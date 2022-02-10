@@ -1,8 +1,9 @@
+import profile1 from 'images/icons/profile1.png';
 
 export const data = [
   {
     name: "John Simons",
-    img: "./images/profiles/profile1.png",
+    img: {profile1},
     feed: "Crypter’s Portfolio Tracker provides a simple overview of the current value of your DeFi cryptocurrency tokens in one location.",
   },
   {

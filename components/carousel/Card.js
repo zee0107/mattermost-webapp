@@ -19,7 +19,7 @@ const Card = ({ handlePointerEvent, name, img,feed, cardStyle }) => {
               <img src={img} alt={name} />
             </div>
             <div className="col-lg-10">
-              <p>{name}</p>
+              <p className="nameTextCard">{name}</p>
             </div>
           </div>
         </div>
