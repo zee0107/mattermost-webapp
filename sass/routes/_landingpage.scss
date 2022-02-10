@@ -101,10 +101,31 @@
     padding: 20px;
     font-size: 16px;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .headerTextGettingStarted{
     color: #0d3d36;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
+}
+
+.removePadding{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.btnGettingStartedText{
+    padding: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.inner-wrap-feedback{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    align-items: center;
+    background-color: white;
 }

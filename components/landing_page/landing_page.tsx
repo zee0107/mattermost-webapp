@@ -179,7 +179,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                         </div>
                         <br></br>
                     </div>
-                    <div>
+                    <div className="inner-wrap-knowmore">
                         <div className="col-lg-12 learnmoreBox">
                             <div className="d-flex">
                                 <div className="col-lg-9">
@@ -192,16 +192,16 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div className="inner-wrap-knowmore">
                         <div className="col-lg-12">
                             <div className="row">
                                 <div className="col-lg-6">
                                     <h1 className="headerTextGettingStarted">How To Get Started</h1>
-                                    <h3>Simple and easy way to start your investment in cryptocurrency</h3>
-                                    <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Getting Started</a>
+                                    <h4>Simple and easy way to start your investment in cryptocurrency</h3>
+                                    <a href="/signup_index" className="btn buttonBgGreen btnGettingStartedText">Getting Started</a>
                                 </div>
                                 <div className="col-lg-6">
-                                    <div className="col-lg-12">
+                                    <div className="col-lg-12 removePadding">
                                         <div className="d-flex gettingstartedBox">
                                             <div className="col-lg-2 text-center">
                                                 <img src={createImage} className="gettingstartedImg"></img>
@@ -230,6 +230,19 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="inner-wrap-feedback">
+                        <div className="col-lg-12">
+                            <div className="row">
+                                <div className="col-lg-6">
+                                    <h1>Engage to Earn</h1>
+                                    <h4>Crypter is the first project to launch the revolutionary Engage-to-Earn system that rewards members who engage with their friends and with the community; imagine getting paid for every like, post, comment you make on your Crypter profile.</h4>
+                                </div>
+                                <div className="col-lg-6">
+                                    
                                 </div>
                             </div>
                         </div>
