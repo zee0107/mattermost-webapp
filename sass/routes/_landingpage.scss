@@ -49,3 +49,12 @@
 .knowmore-box:focus{
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 233, 109, 0.6);
 }
+
+.inner-wrap-knowmore{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    align-items: center;
+}
