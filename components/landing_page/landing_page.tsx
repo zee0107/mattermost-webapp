@@ -15,6 +15,7 @@ import playImage from 'images/icons/playicon.png';
 import createImage from 'images/icons/get-started-icon-1.png';
 import bankImage from 'images/icons/get-started-icon-2.png';
 import buildImage from 'images/icons/get-started-icon-3.png';
+import profilesImage from 'images/profiles.svg';
 
 import BackButton from 'components/common/back_button';
 import LocalizedInput from 'components/localized_input/localized_input';
@@ -112,7 +113,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
 
         return (
             <div>
-                <div className='col-sm-12 bodyBgElipseLanding bgGrey'>
+                <div className='col-sm-12 bodyBgElipseLanding bgGrey removePadding'>
                     <div className="inner-wrap-section">
                         <div className="col-sm-8 text-center">
                             <h1 className="headerText">The Social Network for Crypto Enthusiasts</h1>
@@ -137,7 +138,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                         <h4 className="textBold">Portfolio Tracker</h4>
                                         <p>Crypter’s Portfolio Tracker provides a simple overview of the current value of your DeFi cryptocurrency tokens in one location. </p>
                                         <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 -5 16 16">
-                                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                            <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                         </svg></a>
                                         <br></br>
                                     </div>
@@ -148,7 +149,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                         <h4 className="textBold">Social Network</h4>
                                         <p>A Facebook-like platform for crypto enthusiasts. Share your gains and losses, flex your NFTs, or create private groups chat with friends.</p>
                                         <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 -5 16 16">
-                                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                            <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                         </svg></a>
                                         <br></br>
                                     </div>
@@ -159,7 +160,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                         <h4 className="textBold">Crypter Wallet</h4>
                                         <p>The development of our own wallet will start early next year. This will have features unique to Crypter: P2P service, and more.</p>
                                         <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 -5 16 16">
-                                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                            <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                         </svg></a>
                                         <br></br>
                                     </div>
@@ -170,7 +171,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                         <h4 className="textBold">Crypter Marketplace</h4>
                                         <p>The development of Crypter Pay will be a major part of this project: It will become a payment that can be used on Wordpress and Shopify.</p>
                                         <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 -5 16 16">
-                                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                            <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                         </svg></a>
                                         <br></br>
                                     </div>
@@ -222,7 +223,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className="d-flex gettingstartedBox">
                                             <div className="col-lg-2 text-center">
-                                                <img src={createImage} className="gettingstartedImg"></img>
+                                                <img src={buildImage} className="gettingstartedImg"></img>
                                             </div>
                                             <div className="col-lg-10">
                                                 <h3>Start Build Portfolio</h3>
@@ -239,12 +240,27 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                             <div className="col-lg-12 marginTopBottom">
                                 <div className="row">
                                     <div className="col-lg-6">
-                                        <h1 className="headerText">Engage to Earn</h1>
+                                        <h1 className="headerFeedbackText">Engage to Earn</h1>
                                         <h4>Crypter is the first project to launch the revolutionary Engage-to-Earn system that rewards members who engage with their friends and with the community; imagine getting paid for every like, post, comment you make on your Crypter profile.</h4>
                                     </div>
                                     <div className="col-lg-6">
                                         
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="inner-wrap-knowmore">
+                        <div className="col-lg-12 marginTopBottom">
+                            <div className="d-flex joinusBox">
+                                <div className="col-lg-4">
+                                    <h1>Join the largest social Crypto community</h1>
+                                    <p>Join with more 2.5M+ Global Users</p>
+                                    <a href="#"><img src={profilesImage}></img> and others</a>
+                                </div>
+                                <div className="col-lg-4"></div>
+                                <div className="col-lg-4">
+                                    <a href="/signup_index" className="btn buttonBgWhite">Register Now</a>
                                 </div>
                             </div>
                         </div>
