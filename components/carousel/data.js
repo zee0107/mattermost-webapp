@@ -12,42 +12,42 @@ import profile9 from 'images/profiles/profile9.png';
 export const data = [
   {
     name: "John Simons",
-    img: {profile1},
+    img: profile1,
     feed: "Crypter’s Portfolio Tracker provides a simple overview of the current value of your DeFi cryptocurrency tokens in one location.",
   },
   {
     name: "Neo Vlance",
-    img: {profile2},
+    img: profile2,
     feed: "Crypter’s Portfolio Tracker provides a simple overview of the current value of your DeFi cryptocurrency tokens in one location.",
   },
   {
     name: "Morphues Kit",
-    img: {profile3},
+    img: profile3,
     feed: "Crypter’s Portfolio Tracker provides a simple overview of the current value of your DeFi cryptocurrency tokens in one location.",
   },
   {
     name: "Trinity Gulo",
-    img: {profile4},
+    img: profile4,
     feed: "Crypter’s Portfolio Tracker provides a simple overview of the current value of your DeFi cryptocurrency tokens in one location.",
   },
   {
     name: "Alex Gonsala",
-    img: {profile5},
+    img: profile5,
     feed: "Crypter’s Portfolio Tracker provides a simple overview of the current value of your DeFi cryptocurrency tokens in one location.",
   },
   {
     name: "Mike Tan",
-    img: {profile6},
+    img: profile6,
     feed: "Crypter’s Portfolio Tracker provides a simple overview of the current value of your DeFi cryptocurrency tokens in one location.",
   },
   {
     name: "Michael Ben",
-    img: {profile7},
+    img: profile7,
     feed: "Crypter’s Portfolio Tracker provides a simple overview of the current value of your DeFi cryptocurrency tokens in one location.",
   },
   {
     name: "Mika Salamat",
-    img: {profile8},
+    img: profile8,
     feed: "Crypter’s Portfolio Tracker provides a simple overview of the current value of your DeFi cryptocurrency tokens in one location.",
   },
 ];
