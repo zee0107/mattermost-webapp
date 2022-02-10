@@ -78,8 +78,6 @@
 }
 
 .gettingstartedImg{
-    padding-top: 30px;
-    padding-bottom: 20px;
     width: 80px;
 }
 
@@ -101,7 +99,6 @@
     padding: 20px;
     font-size: 16px;
     font-weight: bold;
-    margin-top: 15px;
 }
 
 .headerTextGettingStarted{
@@ -157,6 +154,18 @@
     font-size: 16px;
     font-weight: bold;
     margin-top: 15px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.relativePostion{
+    position: relative;
+}
+
+.displayCenter{
+    display: flex;
+    align-items: center;
 }
 
 .btnNowBgWhite:hover{
