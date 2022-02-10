@@ -1,5 +1,6 @@
 import { Feedback } from "react-bootstrap/lib/FormControl";
 import starsImage from 'images/stars.png';
+
 const Card = ({ handlePointerEvent, name, img,feed, cardStyle }) => {
   return (
     <article className={cardStyle}>
