@@ -4,11 +4,6 @@ import Card from "./Card";
 import Paginator from "./Paginator";
 
 import { data } from "./data";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
 
 function carousel() {
   const [index, setIndex] = useState(0);
@@ -120,16 +115,14 @@ function carousel() {
             handlePageChange={handlePageChange}
           />
           <div className="background-block"></div>
-          <FontAwesomeIcon
+          <button
             onClick={slideLeft}
             className="leftBtn"
-            icon={faChevronLeft}
-          />
-          <FontAwesomeIcon
+          >left</button>
+          <button
             onClick={slideRight}
             className="rightBtn"
-            icon={faChevronRight}
-          />
+          ></button>
           {data.map((person, n) => {
             let position =
               n > index ? "nextCard" : n === index ? "activeCard" : "prevCard";
