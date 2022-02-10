@@ -2,9 +2,9 @@ import * as React from "react";
 import { Navbar, Nav, NavItem, NavDropdown, Container, MenuItem } from "react-bootstrap";
 import Logo from 'images/logoLight.png';
 
-export interface NavProps { compiler: string; framework: string; }
+export interface Props { compiler: string; framework: string; }
 
-export class NavBarMenu extends React.Component<NavProps, {}> {
+export class NavBarMenu extends React.PureComponent<Props,{}> {
     render(){
         return(
             <Navbar collapseOnSelect expand="lg" bg="light">
