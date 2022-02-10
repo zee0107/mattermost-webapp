@@ -9,7 +9,7 @@ const Card = ({ handlePointerEvent, name, img,feed, cardStyle }) => {
           onTouchStart={handlePointerEvent}
       >
         <div className="col-lg-12">
-          <h4>{feed}</h4>
+          <p>{feed}</p>
         </div>
         <div className="col-lg-12">
           <div className="d-flex">
@@ -17,7 +17,7 @@ const Card = ({ handlePointerEvent, name, img,feed, cardStyle }) => {
               <img src={img} alt={name} />
             </div>
             <div className="col-lg-10">
-              <h4>{name}</h4>
+              <p>{name}</p>
             </div>
           </div>
         </div>
