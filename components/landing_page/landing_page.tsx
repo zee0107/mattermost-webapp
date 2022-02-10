@@ -19,6 +19,7 @@ import profilesImage from 'images/profiles.svg';
 
 import BackButton from 'components/common/back_button';
 import LocalizedInput from 'components/localized_input/localized_input';
+import Carousel from 'components/carousel/carousel'
 
 import {t} from 'utils/i18n.jsx';
 
@@ -244,7 +245,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                         <h4>Crypter is the first project to launch the revolutionary Engage-to-Earn system that rewards members who engage with their friends and with the community; imagine getting paid for every like, post, comment you make on your Crypter profile.</h4>
                                     </div>
                                     <div className="col-lg-6">
-                                        
+                                        <Carousel />
                                     </div>
                                 </div>
                             </div>
