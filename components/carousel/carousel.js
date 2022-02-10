@@ -106,11 +106,9 @@ function carousel() {
   };
 
   return (
-    <div className="App">
-      <div className="container">
-        <div className="card-container">
-          <div className="background-block"></div>
-          <button
+    <div className="card-container">
+      <div className="background-block"></div>
+        <button
             onClick={slideLeft}
             className="leftBtn"
           >left</button>
@@ -135,8 +133,6 @@ function carousel() {
             activeIndex={index}
             handlePageChange={handlePageChange}
           />
-        </div>
-      </div>
     </div>
   );
 }
