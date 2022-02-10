@@ -27,7 +27,7 @@ export default function RootRedirect(props: Props) {
         <Redirect
             to={{
                 ...props.location,
-                pathname: '/signup_index',
+                pathname: '/home',
             }}
         />
     );
