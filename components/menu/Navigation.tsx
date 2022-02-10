@@ -1,6 +1,6 @@
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container,NavDropdown  } from 'react-bootstrap';
 
-export default function MenuNav() {
+export default function Navigation() {
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg="light">
