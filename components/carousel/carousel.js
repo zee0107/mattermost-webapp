@@ -128,12 +128,12 @@ function carousel() {
               />
             );
           })}
-          <Paginator
-            dataLength={data.length}
-            activeIndex={index}
-            handlePageChange={handlePageChange}
-          />
     </div>
+     <Paginator
+     dataLength={data.length}
+     activeIndex={index}
+     handlePageChange={handlePageChange}
+   />
   );
 }
 
