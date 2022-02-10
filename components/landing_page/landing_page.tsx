@@ -12,6 +12,9 @@ import cImage from 'images/icons/cicon.png';
 import safeImage from 'images/icons/safeicon.png';
 import btcImage from 'images/icons/bitcoinicon.png';
 import playImage from 'images/icons/playicon.png';
+import createImage from 'images/icons/get-started-icon-1.png';
+import bankImage from 'images/icons/get-started-icon-2.png';
+import buildImage from 'images/icons/get-started-icon-3.png';
 
 import BackButton from 'components/common/back_button';
 import LocalizedInput from 'components/localized_input/localized_input';
@@ -175,6 +178,61 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                             </div>
                         </div>
                         <br></br>
+                    </div>
+                    <div>
+                        <div className="col-lg-12">
+                            <div className="d-flex">
+                                <div className="col-lg-9">
+                                    <h3>New In Cryptocurrency?</h3>
+                                    <h4>We'll tell you what cryptocurrencies are, how they work and why you should own one right now. So let's do it.</h4>
+                                </div>
+                                <div className="col-lg-3">
+                                    <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Learn &amp; Explore Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="col-lg-12">
+                            <div className="row">
+                                <div className="col-lg-6">
+                                    <h1 className="headerText">How To Get Started</h1>
+                                    <h3>Simple and easy way to start your investment in cryptocurrency</h3>
+                                    <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Getting Started</a>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="col-lg-12">
+                                        <div className="d-flex">
+                                            <div className="col-lg-3">
+                                                <img src={createImage}></img>
+                                            </div>
+                                            <div className="col-lg-9">
+                                                <h2>Create Your Account</h2>
+                                                <h3>Your account and personal identity are guaranteed safe.</h3>
+                                            </div>
+                                        </div>
+                                        <div className="d-flex">
+                                            <div className="col-lg-3">
+                                                <img src={bankImage}></img>
+                                            </div>
+                                            <div className="col-lg-9">
+                                                <h2>Connect Bank Account</h2>
+                                                <h3>Connect the bank account to start transactions.</h3>
+                                            </div>
+                                        </div>
+                                        <div className="d-flex">
+                                            <div className="col-lg-3">
+                                                <img src={createImage}></img>
+                                            </div>
+                                            <div className="col-lg-9">
+                                                <h2>Start Build Portfolio</h2>
+                                                <h3>Buy and sell popular currencies and keep track of them.</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
