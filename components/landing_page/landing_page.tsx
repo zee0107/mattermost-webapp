@@ -137,7 +137,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                         <img src={cImage} className="imgIcons-knowmore"></img>
                                         <h4 className="textBold">Portfolio Tracker</h4>
                                         <p>Crypter’s Portfolio Tracker provides a simple overview of the current value of your DeFi cryptocurrency tokens in one location. </p>
-                                        <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 -5 16 16">
+                                        <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 -5 16 16">
                                             <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                         </svg></a>
                                         <br></br>
@@ -148,7 +148,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                         <img src={safeImage} className="imgIcons-knowmore"></img>
                                         <h4 className="textBold">Social Network</h4>
                                         <p>A Facebook-like platform for crypto enthusiasts. Share your gains and losses, flex your NFTs, or create private groups chat with friends.</p>
-                                        <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 -5 16 16">
+                                        <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 -5 16 16">
                                             <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                         </svg></a>
                                         <br></br>
@@ -159,7 +159,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                         <img src={btcImage} className="imgIcons-knowmore"></img>
                                         <h4 className="textBold">Crypter Wallet</h4>
                                         <p>The development of our own wallet will start early next year. This will have features unique to Crypter: P2P service, and more.</p>
-                                        <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 -5 16 16">
+                                        <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 -5 16 16">
                                             <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                         </svg></a>
                                         <br></br>
@@ -170,7 +170,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                         <img src={playImage} className="imgIcons-knowmore"></img>
                                         <h4 className="textBold">Crypter Marketplace</h4>
                                         <p>The development of Crypter Pay will be a major part of this project: It will become a payment that can be used on Wordpress and Shopify.</p>
-                                        <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 -5 16 16">
+                                        <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 -5 16 16">
                                             <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                         </svg></a>
                                         <br></br>
