@@ -184,7 +184,7 @@
 //Carousel
 .card-container {
     position: relative;
-    height: 300px;
+    height: 210px;
   }
   
   .background-block {
@@ -290,6 +290,7 @@
     width: 30%;
     max-width: 30rem;
     height: 2rem;
+    margin-left: 45px;
   }
   
   .hr {
@@ -321,7 +322,15 @@
     box-shadow: 0 0 0 4px #36c953;
     background-color: white;
   }
-  
+
+  .starImage{
+      width: 8em;
+      height: 5rem;
+      object-fit: contain;
+  }
+  .textPaddingCard{
+      padding-left: 15px;
+  }
   @media screen and (max-width: 425px) {
     .container {
       width: 100%;
