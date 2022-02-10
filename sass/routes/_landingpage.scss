@@ -39,7 +39,6 @@
     border: 1px solid #adadad;
     border-radius: 7px;
     background-color: transparent;
-    height: 100px;
 }
 
 .knowmore-box:hover{
@@ -60,4 +59,9 @@
     flex-direction: column;
     max-width: 1000px;
     align-items: center;
+}
+
+.marginTopBottom{
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
