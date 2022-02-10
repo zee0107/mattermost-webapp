@@ -70,11 +70,10 @@ export const Ul = styled.ul<INav>`
   a {
     text-decoration: none;
     text-transform: none;
-    color: #000;
     cursor: pointer;
 
     &:hover {
-      color: #0DADEA;
+      color: #41cb4d;
     }
   }
 
@@ -103,7 +102,7 @@ export const Li = styled.li`
     margin-right: 34px;
     padding-bottom: 0px;
     &:hover {
-      color: #0DADEA;
+      color: #41cb4d;
     }
 }
 `
