@@ -11,7 +11,9 @@ export default function Navbar(props: Props) {
   return (
     <>
       <S.Nav>
-        <S.Logo src={Logo} alt='Crypter' />
+        <a href="/home">
+          <S.Logo src={Logo} alt='Crypter' />
+        </a>
       </S.Nav>
       <Burger />
       {props.children}
