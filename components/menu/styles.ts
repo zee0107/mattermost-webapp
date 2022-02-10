@@ -59,7 +59,7 @@ export const Ul = styled.ul<INav>`
   display: flex;
   flex-flow: row nowrap;
   position: absolute;
-  width: 90%;
+  width: 115%;
   top: 0;
   justify-content: center;
   margin-top: 0px;
@@ -101,7 +101,7 @@ export const Li = styled.li`
   @media (max-width: 768px) {
     color: #000;
     margin-right: 34px;
-
+    padding-bottom: 0px;
     &:hover {
       color: #0DADEA;
     }
@@ -143,6 +143,16 @@ export const Li2 = styled.li`
 
   @media (max-width: 768px) {
     color: #000;
+    padding-bottom: 0px;
+    margin-right: 34px;
+}
+`
+export const Li3 = styled.li`
+  margin-left: 170px;
+
+  @media (max-width: 768px) {
+    color: #000;
+    padding-bottom: 0px;
     margin-right: 34px;
 }
 `
