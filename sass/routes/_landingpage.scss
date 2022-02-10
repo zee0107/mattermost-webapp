@@ -325,10 +325,17 @@
   }
 
   .starImage{
+      margin-top: 0.8em !important;
       width: 8em !important;
       height: 5rem !important;
       object-fit: contain !important;
   }
+
+  .qouteImage{
+    width: 3.5em !important;
+    height: 3.5rem !important;
+    object-fit: contain !important;
+}
   .textPaddingCard{
       padding-left: 15px;
   }

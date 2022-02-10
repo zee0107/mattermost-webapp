@@ -12,7 +12,7 @@ const Card = ({ handlePointerEvent, name, img,feed, cardStyle }) => {
       >
         <div className="col-lg-12">
           <div className="d-flex">
-            <img src={qouteImage} className="starImage"></img>
+            <img src={qouteImage} className="qouteImage"></img>
             <img src={starsImage} className="starImage"></img>
           </div>
           
