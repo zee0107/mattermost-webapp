@@ -4,7 +4,6 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import {FormattedMessage} from 'react-intl';
-import Menu from 'components/menu/NavBarMenu';
 import { Navbar, Nav, Container,NavDropdown  } from 'react-bootstrap';
 
 import {ClientConfig} from 'mattermost-redux/types/config';
