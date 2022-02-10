@@ -193,7 +193,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                     <div className="inner-wrap-knowmore">
-                        <div className="col-lg-12">
+                        <div className="col-lg-12 marginTopBottom">
                             <div className="row">
                                 <div className="col-lg-6">
                                     <h1 className="headerTextGettingStarted">How To Get Started</h1>
@@ -235,7 +235,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                     <div className="inner-wrap-feedback">
-                        <div className="col-lg-12">
+                        <div className="col-lg-12 marginTopBottom">
                             <div className="row">
                                 <div className="col-lg-6">
                                     <h1>Engage to Earn</h1>
