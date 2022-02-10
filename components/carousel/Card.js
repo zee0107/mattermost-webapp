@@ -1,5 +1,5 @@
 import { Feedback } from "react-bootstrap/lib/FormControl";
-
+import starsImage from 'images/stars.png';
 const Card = ({ handlePointerEvent, name, img,feed, cardStyle }) => {
   return (
     <article className={cardStyle}>
@@ -9,6 +9,7 @@ const Card = ({ handlePointerEvent, name, img,feed, cardStyle }) => {
           onTouchStart={handlePointerEvent}
       >
         <div className="col-lg-12">
+          <img src={starsImage} style={{width=30}}></img>
           <p>{feed}</p>
         </div>
         <div className="col-lg-12">

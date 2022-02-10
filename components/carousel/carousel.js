@@ -109,14 +109,14 @@ function carousel() {
     <div>
     <div className="card-container">
       <div className="background-block"></div>
-        <button
+       {/* <button
             onClick={slideLeft}
             className="leftBtn"
           >left</button>
           <button
             onClick={slideRight}
             className="rightBtn"
-          >Right</button>
+       >Right</button>*/}
           {data.map((person, n) => {
             let position =
               n > index ? "nextCard" : n === index ? "activeCard" : "prevCard";
