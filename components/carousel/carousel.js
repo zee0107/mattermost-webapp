@@ -117,7 +117,7 @@ function carousel() {
           <button
             onClick={slideRight}
             className="rightBtn"
-          ></button>
+          >Right</button>
           {data.map((person, n) => {
             let position =
               n > index ? "nextCard" : n === index ? "activeCard" : "prevCard";
