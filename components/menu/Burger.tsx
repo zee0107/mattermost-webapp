@@ -15,7 +15,6 @@ const Burger = () => {
         <S.Menus open={open} />
       </S.StyledBurger>
       <CenterNav open={open} />
-      <RightNav open={open} />
     </>
   );
 };

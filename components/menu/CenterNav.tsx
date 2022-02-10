@@ -55,6 +55,8 @@ function CenterNav(props: Props) {
         >
           <S.Li>Contact Us</S.Li>
         </NavLink>
+        <S.Li2><a href="/signup_index" className="btn buttonBgGreen">Register</a></S.Li2>
+        <S.Li2><a href="/login" className="btn buttonBgGreen">Login</a></S.Li2>
     </S.Ul>
 
     /*<Router>
