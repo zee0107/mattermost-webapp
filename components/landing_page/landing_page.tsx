@@ -196,37 +196,37 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                         <div className="col-lg-12">
                             <div className="row">
                                 <div className="col-lg-6">
-                                    <h1 className="headerText">How To Get Started</h1>
+                                    <h1 className="headerTextGettingStarted">How To Get Started</h1>
                                     <h3>Simple and easy way to start your investment in cryptocurrency</h3>
                                     <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Getting Started</a>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="col-lg-12">
                                         <div className="d-flex gettingstartedBox">
-                                            <div className="col-lg-3">
+                                            <div className="col-lg-2 text-center">
                                                 <img src={createImage} className="gettingstartedImg"></img>
                                             </div>
-                                            <div className="col-lg-9">
-                                                <h2>Create Your Account</h2>
-                                                <h3>Your account and personal identity are guaranteed safe.</h3>
+                                            <div className="col-lg-10">
+                                                <h3>Create Your Account</h3>
+                                                <h4>Your account and personal identity are guaranteed safe.</h4>
                                             </div>
                                         </div>
                                         <div className="d-flex gettingstartedBox">
-                                            <div className="col-lg-3">
+                                            <div className="col-lg-2 text-center">
                                                 <img src={bankImage} className="gettingstartedImg"></img>
                                             </div>
-                                            <div className="col-lg-9">
-                                                <h2>Connect Bank Account</h2>
-                                                <h3>Connect the bank account to start transactions.</h3>
+                                            <div className="col-lg-10">
+                                                <h3>Connect Bank Account</h3>
+                                                <h4>Connect the bank account to start transactions.</h4>
                                             </div>
                                         </div>
                                         <div className="d-flex gettingstartedBox">
-                                            <div className="col-lg-3">
+                                            <div className="col-lg-2 text-center">
                                                 <img src={createImage} className="gettingstartedImg"></img>
                                             </div>
-                                            <div className="col-lg-9">
-                                                <h2>Start Build Portfolio</h2>
-                                                <h3>Buy and sell popular currencies and keep track of them.</h3>
+                                            <div className="col-lg-10">
+                                                <h3>Start Build Portfolio</h3>
+                                                <h4>Buy and sell popular currencies and keep track of them.</h4>
                                             </div>
                                         </div>
                                     </div>
