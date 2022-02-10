@@ -13,10 +13,9 @@ const Burger = () => {
         {/*<S.Menus open={open} />
         <S.Menus open={open} />
         <S.Menus open={open} />*/}
-        <CenterNav open={open} />
-        <RightNav open={open} />
       </S.StyledBurger>
-      
+      <CenterNav open={open} />
+      <RightNav open={open} />
     </>
   );
 };

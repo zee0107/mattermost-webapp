@@ -121,17 +121,6 @@ export const Ul2 = styled.ul<INav>`
   font-size: 18px;
   margin-left: 20px;
 
-  a {
-    text-decoration: none;
-    text-transform: none;
-    color: #000;
-    cursor: pointer;
-
-    &:hover {
-      color: #0DADEA;
-    }
-  }
-
   @media (max-width: 768px) {
     flex-flow: column nowrap;
     background-color: #fdfdfdfa;
@@ -155,10 +144,6 @@ export const Li2 = styled.li`
   @media (max-width: 768px) {
     color: #000;
     margin-right: 34px;
-
-    &:hover {
-      color: #0DADEA;
-    }
 }
 `
 
