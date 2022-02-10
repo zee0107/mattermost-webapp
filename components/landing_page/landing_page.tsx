@@ -197,7 +197,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <h1 className="headerTextGettingStarted">How To Get Started</h1>
-                                    <h4>Simple and easy way to start your investment in cryptocurrency</h3>
+                                    <h4>Simple and easy way to start your investment in cryptocurrency</h4>
                                     <a href="/signup_index" className="btn buttonBgGreen btnGettingStartedText">Getting Started</a>
                                 </div>
                                 <div className="col-lg-6">
