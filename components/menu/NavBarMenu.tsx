@@ -5,7 +5,7 @@ type Props = {
     children?: ChildNode;
 };
 
-export default function Navigation(props: Props) {
+export default function NavBarMenu(props: Props) {
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg="light">

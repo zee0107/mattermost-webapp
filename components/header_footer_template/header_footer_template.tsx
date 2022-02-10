@@ -4,7 +4,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import {FormattedMessage} from 'react-intl';
-import Menu from 'components/menu/Navigation';
+import Menu from 'components/menu/NavBarMenu';
 
 import {ClientConfig} from 'mattermost-redux/types/config';
 import logoLight from 'images/logoLight.png';
