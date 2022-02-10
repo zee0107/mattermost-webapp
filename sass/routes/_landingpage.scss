@@ -307,12 +307,12 @@
   }
   
   .dot {
-    height: 1rem;
-    width: 1rem;
+    height: 0.5rem;
+    width: 0.5rem;
   
     border-radius: 50%;
   
-    background-color: gray;
+    background-color: #36c953;
     z-index: 1;
   
     transition: all 1s;
@@ -323,7 +323,7 @@
   }
   
   .dot.active {
-    box-shadow: 0 0 0 4px grey;
+    box-shadow: 0 0 0 4px #36c953;
     background-color: white;
   }
   

@@ -109,11 +109,6 @@ function carousel() {
     <div className="App">
       <div className="container">
         <div className="card-container">
-          <Paginator
-            dataLength={data.length}
-            activeIndex={index}
-            handlePageChange={handlePageChange}
-          />
           <div className="background-block"></div>
           <button
             onClick={slideLeft}
@@ -135,6 +130,11 @@ function carousel() {
               />
             );
           })}
+          <Paginator
+            dataLength={data.length}
+            activeIndex={index}
+            handlePageChange={handlePageChange}
+          />
         </div>
       </div>
     </div>

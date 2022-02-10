@@ -13,7 +13,6 @@ const Paginator = ({ dataLength, activeIndex, handlePageChange }) => {
   }
   return (
     <div className="paginator">
-      <div className="hr"></div>
       {dots.map((dot) => dot)}
     </div>
   );
