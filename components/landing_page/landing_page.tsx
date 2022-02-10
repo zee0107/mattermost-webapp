@@ -251,7 +251,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                     <div className="inner-wrap-knowmore">
-                        <div className="col-lg-12">
+                        <div className="col-lg-12 marginBottom">
                             <div className="d-flex joinusBox">
                                 <div className="col-lg-5">
                                     <h1>Join the largest social Crypto community</h1>
