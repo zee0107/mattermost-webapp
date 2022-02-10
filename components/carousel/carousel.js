@@ -106,6 +106,7 @@ function carousel() {
   };
 
   return (
+    <div>
     <div className="card-container">
       <div className="background-block"></div>
         <button
@@ -128,12 +129,14 @@ function carousel() {
               />
             );
           })}
+          
     </div>
-     <Paginator
-     dataLength={data.length}
-     activeIndex={index}
-     handlePageChange={handlePageChange}
-   />
+    <Paginator
+            dataLength={data.length}
+            activeIndex={index}
+            handlePageChange={handlePageChange}
+          />
+    </div>
   );
 }
 
