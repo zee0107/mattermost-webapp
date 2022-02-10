@@ -126,8 +126,11 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         }
 
         return (
-            <div className='inner-wrap'>
+            <div className="row">
                 <Menu />
+            </div>
+            <div className='inner-wrap'>
+                
                 <div className='row content'>
                     {this.props.children}
                 </div>
