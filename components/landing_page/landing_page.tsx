@@ -146,6 +146,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                         </div>
+                        <br></br>
                     </div>
                 </div>
             </div>
