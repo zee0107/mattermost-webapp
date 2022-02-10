@@ -130,34 +130,38 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                             <div className="row">
                                 <div className="col-lg-3">
                                     <div className="col-lg-12 knowmore-box">
-                                        <img src={cImage}></img>
-                                        <h5>Portfolio Tracker</h5>
+                                        <img src={cImage} className="imgIcons-knowmore"></img>
+                                        <h4 className="textBold">Portfolio Tracker</h4>
                                         <p>Crypter’s Portfolio Tracker provides a simple overview of the current value of your DeFi cryptocurrency tokens in one location. </p>
                                         <a href="#">Know More</a>
+                                        <br></br>
                                     </div>
                                 </div>
                                 <div className="col-lg-3">
                                     <div className="col-lg-12 knowmore-box">
-                                        <img src={safeImage}></img>
-                                        <h5>Social Network</h5>
+                                        <img src={safeImage} className="imgIcons-knowmore"></img>
+                                        <h4 className="textBold">Social Network</h4>
                                         <p>A Facebook-like platform for crypto enthusiasts. Share your gains and losses, flex your NFTs, or create private groups and chat with your crypto friends: Crypter is the place to do it all. Some dapps will also be integrated on this platform.</p>
                                         <a href="#">Know More</a>
+                                        <br></br>
                                     </div>
                                 </div>
                                 <div className="col-lg-3">
                                     <div className="col-lg-12 knowmore-box">
-                                        <img src={btcImage}></img>
-                                        <h5>Crypter Wallet</h5>
+                                        <img src={btcImage} className="imgIcons-knowmore"></img>
+                                        <h4 className="textBold">Crypter Wallet</h4>
                                         <p>The development of our own wallet will start early next year. This will have features unique to Crypter: an NFT tracker, a P2P service, and many more. A physical debit card connected to this wallet is also an option that is currently being evaluated.</p>
                                         <a href="#">Know More</a>
+                                        <br></br>
                                     </div>
                                 </div>
                                 <div className="col-lg-3">
                                     <div className="col-lg-12 knowmore-box">
-                                        <img src={playImage}></img>
-                                        <h5>Crypter Marketplace</h5>
+                                        <img src={playImage} className="imgIcons-knowmore"></img>
+                                        <h4 className="textBold">Crypter Marketplace</h4>
                                         <p>This will essentially be an online marketplace, where CRYPT or any other token can be used as payment. The development of Crypter Pay will be a major part of this project: Crypter Pay will become a payment processor that can be used on Wordpress and Shopify sites.</p>
                                         <a href="#">Know More</a>
+                                        <br></br>
                                     </div>
                                 </div>
                             </div>

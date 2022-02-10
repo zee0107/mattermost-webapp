@@ -27,7 +27,6 @@
 .bodyBgElipseLanding {
     background-image: url('/images/ellipse-ligthgreen.svg'),url('/images/ellipse-green.svg');
     background-position: left top, right top;
-    background-repeat: no-repeat, no-repeat;
 }
 
 .homeImage{
@@ -50,9 +49,6 @@
 }
 
 .inner-wrap-knowmore{
-    background-image: url('/images/ellipse-ligthgreen.svg');
-    background-position: left;
-    background-repeat: no-repeat;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -64,4 +60,14 @@
 .marginTopBottom{
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+.imgIcons-knowmore{
+    width: 30%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.textBold{
+    font-weight: bold;
 }
