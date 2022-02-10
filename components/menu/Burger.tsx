@@ -10,12 +10,13 @@ const Burger = () => {
   return (
     <>
       <S.StyledBurger open={open} onClick={() => setOpen(!open)}>
+        {/*<S.Menus open={open} />
         <S.Menus open={open} />
-        <S.Menus open={open} />
-        <S.Menus open={open} />
+        <S.Menus open={open} />*/}
+        <CenterNav open={open} />
+        <RightNav open={open} />
       </S.StyledBurger>
-      <CenterNav open={open} />
-      <RightNav open={open} />
+      
     </>
   );
 };

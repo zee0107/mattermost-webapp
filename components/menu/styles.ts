@@ -113,7 +113,7 @@ export const Ul2 = styled.ul<INav>`
   display: flex;
   flex-flow: row nowrap;
   position: absolute;
-  width: 90%;
+  width: 80%;
   top: 0;
   justify-content: flex-end;
   margin-top: 0px;
