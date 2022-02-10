@@ -139,11 +139,13 @@
     margin-bottom: 30px;
     margin-top: 50px;
 }
-
+s
 .joinusBox{
     background-image: url('/images/bgProfiles.png');
     border-radius: 7px;
     padding: 40px;
+    color:white;
+    margin-bottom: 50px;
 }
 
 .btnNowBgWhite{
@@ -164,4 +166,8 @@
 
 .btnNowBgWhite:focus{
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 233, 109, 0.6);
+}
+
+.linkText{
+    color: white;
 }
