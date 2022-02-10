@@ -1,13 +1,12 @@
-import { Navbar, Nav, Container,NavDropdown  } from 'react-bootstrap';
+import * as React from "react";
+import { Navbar, Nav, NavItem, NavDropdown, Container, MenuItem } from "react-bootstrap";
 import Logo from 'images/logoLight.png';
 
-type Props = {
-    children?: ChildNode;
-};
+export interface NavProps { compiler: string; framework: string; }
 
-export default function NavBarMenu(props: Props) {
-    return (
-        <>
+export class NavBarMenu extends React.Component<NavProps, {}> {
+    render(){
+        return(
             <Navbar collapseOnSelect expand="lg" bg="light">
             <Container>
                 <Navbar.Brand href="#home"><img src={Logo} /></Navbar.Brand>
@@ -33,7 +32,6 @@ export default function NavBarMenu(props: Props) {
                 </Navbar.Collapse>
             </Container>
             </Navbar>
-        </>
-        
-    );
-  }
+        )
+    }
+}
