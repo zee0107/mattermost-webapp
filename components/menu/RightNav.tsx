@@ -16,7 +16,7 @@ type Props = {
 
 function RightNav(props: Props) {
   return (
-    <S.Ul open={props.open}>
+    <S.Ul2 open={props.open}>
         <NavLink
           to='/signup_index'
           activeStyle={{
@@ -24,9 +24,9 @@ function RightNav(props: Props) {
             color: '#0DADEA',
           }}
         >
-          <S.Li>
+          <S.Li2>
               <a href="/signup_index" className="btn buttonBgGreen">Register</a>
-          </S.Li>
+          </S.Li2>
         </NavLink>
 
         <NavLink
@@ -36,9 +36,9 @@ function RightNav(props: Props) {
             color: '#0DADEA',
           }}
         >
-          <S.Li><a href="/login" className="btn buttonBgGreen">Login</a></S.Li>
+          <S.Li2><a href="/login" className="btn buttonBgGreen">Login</a></S.Li2>
         </NavLink>
-    </S.Ul>
+    </S.Ul2>
 
     /*<Router>
       

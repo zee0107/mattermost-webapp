@@ -108,6 +108,60 @@ export const Li = styled.li`
 }
 `
 
+export const Ul2 = styled.ul<INav>`
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  position: absolute;
+  width: 90%;
+  top: 0;
+  justify-content: flex-end;
+  margin-top: 0px;
+  align-items: center;
+  font-size: 18px;
+  margin-left: 20px;
+
+  a {
+    text-decoration: none;
+    text-transform: none;
+    color: #000;
+    cursor: pointer;
+
+    &:hover {
+      color: #0DADEA;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-flow: column nowrap;
+    background-color: #fdfdfdfa;
+    position: fixed;
+    transform: ${(props) => props.open ? 'translateX(0)' : 'translateX(100%)'};
+    top: -16px;
+    right: 0;
+    height: 100%;
+    width: 300px;
+    padding-top: 3.5rem;
+    transition: transform 0.3s ease-in-out;
+    z-index: 9;
+    justify-content: normal;
+  }
+`
+
+export const Li2 = styled.li`
+  padding: 18px 5px;
+  outline: none;
+
+  @media (max-width: 768px) {
+    color: #000;
+    margin-right: 34px;
+
+    &:hover {
+      color: #0DADEA;
+    }
+}
+`
+
 export const Logo = styled.img`
   margin: 20px 50px 20px 17%;
   width: 160px;
