@@ -557,7 +557,7 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
         }
 
         return (
-            <div>
+            <div data-theme='dark'>
                 {/*hasAccounts && <BackButton onClick={() => trackEvent('signup_email', 'click_back')}/>*/}
                 <div
                     id='signup_email_section'

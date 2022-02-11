@@ -879,7 +879,7 @@ class LoginController extends React.PureComponent {
         }
 
         return (
-            <div>
+            <div data-theme='dark'>
                 <AnnouncementBar/>
                 {backButton}
                 <div
