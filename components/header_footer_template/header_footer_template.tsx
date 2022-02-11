@@ -20,8 +20,6 @@ import Heart from 'images/icons/heart-fill.svg';
 type Props = {
     config: Partial<ClientConfig> | undefined;
 }
-/*const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;*/
-const [isDark, setIsDark] = useState(localStorage.getItem("theme") === false ? 'dark' : 'light');
 
 export default class NotLoggedIn extends React.PureComponent<Props> {
     static propTypes = {
@@ -126,7 +124,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         }
 
         return (
-            <div className='inner-wrap' data-theme={isDark}>
+            <div className='inner-wrap' data-theme='light'>
                 <Menu />
                 <div className='row content'>
                     {this.props.children}
