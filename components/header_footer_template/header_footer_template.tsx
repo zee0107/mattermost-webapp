@@ -64,8 +64,8 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
     render() {
         const content = [];
 
-        const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const [isDark, setIsDark] = useState(localStorage.getItem("theme") === defaultDark ? 'dark' : 'light');
+        /*const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;*/
+        const [isDark, setIsDark] = useState(localStorage.getItem("theme") === true ? 'dark' : 'light');
 
         const darkModeToggle = () => {
             const newThemeValue = isDark === 'light' ? 'dark' : 'light';
@@ -269,7 +269,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                 <img src={Heart} className="image3"></img>
                             </div>
                             <h5>Copyright {'\u00A9'} Crypter.io </h5>
-                            <button onClick={darkModeToggle}>Switch</button>
+                            <button>Switch</button>
                         </div>
                     </div>
                 </div>
