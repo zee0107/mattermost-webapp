@@ -35,9 +35,6 @@ interface State {
     updateText: React.ReactNode;
 }
 
-/*const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');*/
-
 export default class LandingPage extends React.PureComponent<Props, State> {
     state = {
         error: null,
@@ -46,11 +43,6 @@ export default class LandingPage extends React.PureComponent<Props, State> {
 
     resetForm = React.createRef<HTMLFormElement>();
     emailInput = React.createRef<HTMLInputElement>();
-
-    /*switchTheme(){
-        const newTheme = theme === 'light' ? 'dark' : 'light';
-        setTheme(newTheme);
-    }*/
 
     handleSendLink = async (e: React.FormEvent) => {
         e.preventDefault();

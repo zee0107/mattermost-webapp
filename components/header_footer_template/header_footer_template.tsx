@@ -41,7 +41,10 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
          * Mattermost configuration
          */
         config: PropTypes.object,
+        darkmode: PropTypes.string,
     };
+
+    
 
     componentDidMount() {
         document.body.classList.add('sticky');
@@ -60,6 +63,14 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
 
     render() {
         const content = [];
+
+        const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const [isDark, setIsDark] = useState(localStorage.getItem("theme") === defaultDark ? 'dark' : 'light');
+
+        const darkModeToggle = () => {
+            const newThemeValue = isDark === 'light' ? 'dark' : 'light';
+            setIsDark(newThemeValue);
+        }
 
         if (!this.props.config) {
             return null;
@@ -126,7 +137,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         }
 
         return (
-            <div className='inner-wrap' data-theme='light'>
+            <div className='inner-wrap' data-theme={isDark}>
                 <Menu />
                 <div className='row content'>
                     {this.props.children}
@@ -258,7 +269,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                 <img src={Heart} className="image3"></img>
                             </div>
                             <h5>Copyright {'\u00A9'} Crypter.io </h5>
-                            <button>Switch</button>
+                            <button onClick={darkModeToggle}>Switch</button>
                         </div>
                     </div>
                 </div>
