@@ -10,11 +10,13 @@ type Props = {
 export default function Navbar(props: Props) {
   return (
     <>
-      <S.Nav>
-          <S.Logo src={Logo} alt='Crypter' />
-      </S.Nav>
-      <Burger />
-      {props.children}
+      <div className='row navBg'>
+        <S.Nav>
+            <S.Logo src={Logo} alt='Crypter' />
+        </S.Nav>
+        <Burger />
+        {props.children}
+      </div>
     </>
   );
 }
