@@ -20,6 +20,8 @@ import Heart from 'images/icons/heart-fill.svg';
 type Props = {
     config: Partial<ClientConfig> | undefined;
 }
+const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const [isDark, setIsDark] = useState(localStorage.getItem("theme") === defaultDark ? 'dark' : 'light');
 
 export default class NotLoggedIn extends React.PureComponent<Props> {
     static propTypes = {
@@ -35,14 +37,10 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         config: PropTypes.object,
     };
 
-    state = {
-        toggle:false
+    darkModeToggle(){
+        const newThemeValue = isDark === 'light' ? 'dark' : 'light';
+        setIsDark(newThemeValue);
     }
-
-    Toggle = () => {
-        this.setState({toggle:!this.state.toggle})
-    }
-
     componentDidMount() {
         document.body.classList.add('sticky');
         const rootElement: HTMLElement | null = document.getElementById('root');
@@ -126,7 +124,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         }
 
         return (
-            <div className='inner-wrap' data-theme='dark'>
+            <div className='inner-wrap' data-theme={isDark}>
                 <Menu />
                 <div className='row content'>
                     {this.props.children}
@@ -258,6 +256,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                 <img src={Heart} className="image3"></img>
                             </div>
                             <h5>Copyright {'\u00A9'} Crypter.io </h5>
+                            <button onClick={darkModeToggle}>Switch</button>
                         </div>
                     </div>
                 </div>

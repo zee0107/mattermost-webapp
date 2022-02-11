@@ -8,6 +8,7 @@ import {ServerError} from 'mattermost-redux/types/errors';
 import {isEmail} from 'mattermost-redux/utils/helpers';
 import logoImage from 'images/logoWhite.png';
 import homeImage from 'images/homeFeed.png';
+import homedarkImage from 'images/homeFeed-dark.png';
 import cImage from 'images/icons/cicon.png';
 import safeImage from 'images/icons/safeicon.png';
 import btcImage from 'images/icons/bitcoinicon.png';
