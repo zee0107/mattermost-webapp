@@ -21,6 +21,14 @@ type Props = {
     config: Partial<ClientConfig> | undefined;
 }
 
+const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const [isDark, setIsDark] = useState(localStorage.getItem("theme") === defaultDark ? 'dark' : 'light');
+
+const darkModeToggle = () => {
+    const newThemeValue = isDark === 'light' ? 'dark' : 'light';
+    setIsDark(newThemeValue);
+}
+
 export default class NotLoggedIn extends React.PureComponent<Props> {
     static propTypes = {
 
@@ -35,12 +43,6 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         config: PropTypes.object,
     };
 
-    
-
-    darkModeToggle(){
-        const newThemeValue = isDark === 'light' ? 'dark' : 'light';
-        setIsDark(newThemeValue);
-    }
     componentDidMount() {
         document.body.classList.add('sticky');
         const rootElement: HTMLElement | null = document.getElementById('root');
@@ -124,7 +126,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         }
 
         return (
-            <div className='inner-wrap' data-theme='light'>
+            <div className='inner-wrap' data-theme={isDark}>
                 <Menu />
                 <div className='row content'>
                     {this.props.children}
