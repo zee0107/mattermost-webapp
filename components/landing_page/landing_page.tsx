@@ -123,7 +123,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
         }
 
         return (
-            <div data-theme={theme}>
+            <div>
                 <div className='col-sm-12 bodyBgElipseLanding bgGrey removePadding'>
                     <div className="inner-wrap-section">
                         <div className="col-sm-8 text-center">
