@@ -20,6 +20,7 @@ import * as Utils from 'utils/utils.jsx';
 
 import logoImage from 'images/logo.png';
 import logoImageWhite from 'images/logoWhite.png';
+import logoImageBlack from 'images/logoBlack.png';
 
 import BackButton from 'components/common/back_button';
 import LoadingScreen from 'components/loading_screen';
@@ -67,6 +68,7 @@ export type State = {
     passwordError?: React.ReactNode;
     serverError?: React.ReactNode;
     isDark?: string;
+    img_path?:string;
 };
 
 export default class SignupBusiness extends React.PureComponent<Props, State> {
@@ -98,7 +100,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         const token = (new URLSearchParams(this.props.location!.search)).get('t');
         const inviteId = (new URLSearchParams(this.props.location!.search)).get('id');
 
-        this.state = {loading: false,isDark: 'light',};
+        this.state = {loading: false,isDark: 'light',img_path:'',};
         if (token && token.length > 0) {
             this.state = this.getTokenData(token, data!);
         } else if (inviteId && inviteId.length > 0) {
@@ -116,6 +118,13 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
     darkModeToggle = () => {
         const newThemeValue = this.state.isDark === 'light' ? 'dark' : 'light';
         window.localStorage.setItem('theme', newThemeValue);
+        const theme = this.state.isDark === 'dark' ? true : false;
+        if(theme){
+            this.setState({img_path: logoImageWhite});
+        }
+        else{
+            this.setState({img_path: logoImageBlack});
+        }
         this.setState({isDark: newThemeValue});
     }
 
@@ -124,7 +133,6 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
 
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
-
 
         this.setDocumentTitle(this.props.siteName!);
 
@@ -574,7 +582,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
                         <div className='col-sm-5 divfullheight'>
                             <br />
                             <a href='/'>
-                                <img src={logoImageWhite}></img>
+                                <img src={this.state.img_path}></img>
                             </a>
                         </div>
                         <div className='col-sm-7'>
@@ -621,9 +629,9 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
                                 {/*terms*/}
                             </div>
                         </div>
+                        <button className='buttonTogglePostion' onClick={this.darkModeToggle}>Switch</button>
                     </div>
                 </div>
-                <button className='buttonTogglePostion' onClick={this.darkModeToggle}>Switch</button>
             </div>
         );
     }
