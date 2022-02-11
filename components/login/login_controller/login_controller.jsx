@@ -31,6 +31,7 @@ import SuccessIcon from 'components/widgets/icons/fa_success_icon';
 import WarningIcon from 'components/widgets/icons/fa_warning_icon';
 import LocalizedInput from 'components/localized_input/localized_input';
 import Markdown from 'components/markdown';
+import logoImageWhite from 'images/logoWhite.png';
 import logoImageBlack from 'images/logoBlack.png';
 
 import LoginMfa from '../login_mfa.jsx';
