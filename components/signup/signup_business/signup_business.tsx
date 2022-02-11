@@ -69,6 +69,7 @@ export type State = {
     serverError?: React.ReactNode;
     isDark?: string;
     img_path?:string;
+    isMobile: boolean;
 };
 
 export default class SignupBusiness extends React.PureComponent<Props, State> {
@@ -100,7 +101,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         const token = (new URLSearchParams(this.props.location!.search)).get('t');
         const inviteId = (new URLSearchParams(this.props.location!.search)).get('id');
 
-        this.state = {loading: false,isDark: 'light',img_path:'',};
+        this.state = {loading: false,isDark: 'light',img_path:'',isMobile: window.matchMedia("(min-width: 768px)").matches};
         if (token && token.length > 0) {
             this.state = this.getTokenData(token, data!);
         } else if (inviteId && inviteId.length > 0) {
@@ -119,8 +120,15 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         const newThemeValue = this.state.isDark === 'light' ? 'dark' : 'light';
         window.localStorage.setItem('theme', newThemeValue);
         const theme = this.state.isDark === 'dark' ? true : false;
+        const handler = e => this.setState({matches: e.matches});
+        window.matchMedia("(min-width: 768px)").addEventListener('change', handler);
         if(theme){
-            this.setState({img_path: logoImageBlack});
+            if(this.state.isMobile){
+                this.setState({img_path: logoImageBlack});
+            }
+            else{
+                this.setState({img_path: logoImageWhite});
+            }
         }
         else{
             this.setState({img_path: logoImageWhite});
@@ -133,7 +141,21 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
 
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
-
+        const theme = this.state.isDark === 'dark' ? true : false;
+        const handler = e => this.setState({matches: e.matches});
+        window.matchMedia("(min-width: 768px)").addEventListener('change', handler);
+        if(theme){
+            if(this.state.isMobile){
+                this.setState({img_path: logoImageBlack});
+            }
+            else{
+                this.setState({img_path: logoImageWhite});
+            }
+        }
+        else{
+            this.setState({img_path: logoImageWhite});
+        }
+        
         this.setDocumentTitle(this.props.siteName!);
 
         const {inviteId} = this.state;
