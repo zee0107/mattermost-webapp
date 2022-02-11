@@ -69,7 +69,7 @@ export type State = {
     serverError?: React.ReactNode;
     isDark?: string;
     img_path?:string;
-    isMobile: boolean;
+    isMatchWidth: boolean;
 };
 
 export default class SignupBusiness extends React.PureComponent<Props, State> {
@@ -101,7 +101,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         const token = (new URLSearchParams(this.props.location!.search)).get('t');
         const inviteId = (new URLSearchParams(this.props.location!.search)).get('id');
 
-        this.state = {loading: false,isDark: 'light',img_path:'',isMobile: window.matchMedia("(min-width: 768px)").matches};
+        this.state = {loading: false,isDark: 'light',img_path:'',isMatchWidth: window.matchMedia("(min-width: 768px)").matches};
         if (token && token.length > 0) {
             this.state = this.getTokenData(token, data!);
         } else if (inviteId && inviteId.length > 0) {
@@ -122,7 +122,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         this.setState({isDark: newThemeValue});
         const theme = this.state.isDark === 'dark' ? true : false;
         if(theme){
-            if(this.state.isMobile){
+            if(this.state.isMatchWidth){
                 this.setState({img_path: logoImageWhite});
             }
             else{
@@ -140,10 +140,12 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
         const theme = this.state.isDark === 'dark' ? true : false;
-        const handler = e => this.setState({matches: e.matches});
+
+        const handler = e => this.setState({isMatchWidth: e.isMatchWidth});
         window.matchMedia("(min-width: 768px)").addEventListener('change', handler);
+
         if(theme){
-            if(this.state.isMobile){
+            if(this.state.isMatchWidth){
                 this.setState({img_path: logoImageWhite});
             }
             else{
