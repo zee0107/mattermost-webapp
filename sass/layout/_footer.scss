@@ -6,6 +6,8 @@
     background-position: left top, right top;
     background-repeat: no-repeat, no-repeat;
     background-size: inherit;
+    background-color: var(--background);
+    color: var(--text-primary);
     .footer-link {
         padding: 0 1.5em;
 
