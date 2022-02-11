@@ -120,10 +120,8 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         const newThemeValue = this.state.isDark === 'light' ? 'dark' : 'light';
         window.localStorage.setItem('theme', newThemeValue);
         const theme = this.state.isDark === 'dark' ? true : false;
-        const handler = e => this.setState({matches: e.matches});
-        window.matchMedia("(min-width: 768px)").addEventListener('change', handler);
         if(theme){
-            if(this.state.isMobile){
+            if(!this.state.isMobile){
                 this.setState({img_path: logoImageBlack});
             }
             else{
@@ -145,7 +143,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         const handler = e => this.setState({matches: e.matches});
         window.matchMedia("(min-width: 768px)").addEventListener('change', handler);
         if(theme){
-            if(this.state.isMobile){
+            if(!this.state.isMobile){
                 this.setState({img_path: logoImageBlack});
             }
             else{
