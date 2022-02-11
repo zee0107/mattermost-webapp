@@ -52,7 +52,9 @@ export default class LandingPage extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+    }
 
+    componentDidUpdate(){
         if(this.state.isDark === 'dark'){
             this.setState({img_path: homedarkImage});
         }
