@@ -625,7 +625,7 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                 <br />
                                 <div onClick={event => window.location.href = '/signup_email'} className="col-sm-12 ButtonSignup">
                                     <div className="d-flex">
-                                        <div className="col-sm-3">
+                                        <div className="col-sm-3 parent-icons">
                                             <img src={polygonImage} className='imagePadding'></img>
                                             <img src={peopleImage} className='imagePeoplePadding'></img>
                                         </div>
@@ -640,7 +640,7 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                 </div>
                                 <div onClick={event => window.location.href = '/signup_business'} className="col-sm-12 ButtonSignup">
                                     <div className="d-flex">
-                                        <div className="col-sm-3">
+                                        <div className="col-sm-3 parent-icons">
                                             <img src={polygonImage} className='imagePadding'></img>
                                             <img src={briefcaseImage} className='imageCasePadding'></img>
                                         </div>
