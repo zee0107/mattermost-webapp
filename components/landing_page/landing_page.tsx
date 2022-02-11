@@ -34,6 +34,8 @@ interface Props {
 interface State {
     error: React.ReactNode;
     updateText: React.ReactNode;
+    isDark: string;
+    img_path: string;
 }
 
 export default class LandingPage extends React.PureComponent<Props, State> {

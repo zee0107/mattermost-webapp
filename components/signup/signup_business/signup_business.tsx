@@ -68,7 +68,7 @@ export type State = {
     passwordError?: React.ReactNode;
     serverError?: React.ReactNode;
     isDark?: string;
-    img_path?:string;
+    img_path?: string;
     isMatchWidth: boolean;
 };
 
