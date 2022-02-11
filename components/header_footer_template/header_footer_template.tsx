@@ -45,7 +45,12 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
     };
 
     state = {
-        currentTheme: '',
+        isDark: 'light',
+    }
+
+    darkModeToggle = () => {
+        const newThemeValue = this.state.isDark === 'light' ? 'dark' : 'light';
+        this.setState({isDark: newThemeValue});
     }
 
     componentDidMount() {
@@ -67,7 +72,13 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         const content = [];
 
         const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const [darkMode, setDarkMode] = React.useState(false);
+
+        if(defaultDark){
+            this.setState({isDark: 'dark'})
+        }
+        else{
+            this.setState({isDark: 'light'})
+        }
 
         if (!this.props.config) {
             return null;
@@ -134,7 +145,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         }
 
         return (
-            <div className='inner-wrap' data-theme='dark'>
+            <div className='inner-wrap' data-theme={this.state.isDark}>
                 <Menu />
                 <div className='row content'>
                     {this.props.children}
