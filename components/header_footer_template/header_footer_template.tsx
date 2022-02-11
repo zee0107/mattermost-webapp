@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import {FormattedMessage} from 'react-intl';
 import Menu from 'components/menu/Navbar';
+import {useDarkMode} from 'components/dark_mode/useDarkMode';
 
 import {ClientConfig} from 'mattermost-redux/types/config';
 import logoLight from 'images/logoLight.png';
@@ -45,18 +46,9 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
 
     componentDidMount() {
         document.body.classList.add('sticky');
-        const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const [isDark, setIsDark] = useState(defaultDark ? 'dark' : 'light');
         const rootElement: HTMLElement | null = document.getElementById('root');
         if (rootElement) {
             rootElement.classList.add('container-fluid');
-        }
-
-        if(defaultDark){
-            rootElement?.setAttribute('data-theme','dark');
-        }
-        else{
-            rootElement?.setAttribute('data-theme','light');
         }
     }
     componentWillUnmount() {
@@ -77,6 +69,9 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
             const newThemeValue = isDark === 'light' ? 'dark' : 'light';
             setIsDark(newThemeValue);
         }*/
+
+        const [theme, themeToggler] = useDarkMode();
+        const themeMode = theme === 'light' ? 'light' : 'dark';
 
         if (!this.props.config) {
             return null;
@@ -145,7 +140,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         }
 
         return (
-            <div className='inner-wrap' data-theme='light'>
+            <div className='inner-wrap' data-theme={themeMode}>
                 <Menu />
                 <div className='row content'>
                     {this.props.children}
@@ -277,7 +272,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                 <img src={Heart} className="image3"></img>
                             </div>
                             <h5>Copyright {'\u00A9'} Crypter.io </h5>
-                            <button>Switch</button>
+                            <Toggle theme={theme} toggleTheme={themeToggler} />
                         </div>
                     </div>
                 </div>
