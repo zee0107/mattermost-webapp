@@ -130,7 +130,7 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
 
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
-        
+
         const {inviteId} = this.state;
         if (inviteId && inviteId.length > 0) {
             this.getInviteInfo(inviteId);
@@ -567,7 +567,7 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
         }
 
         return (
-            <div data-theme='dark'>
+            <div data-theme={this.state.isDark}>
                 {/*hasAccounts && <BackButton onClick={() => trackEvent('signup_email', 'click_back')}/>*/}
                 <div
                     id='signup_email_section'

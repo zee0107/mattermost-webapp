@@ -125,6 +125,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
 
+
         this.setDocumentTitle(this.props.siteName!);
 
         const {inviteId} = this.state;
@@ -563,7 +564,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         }
 
         return (
-            <div>
+            <div data-theme={this.state.isDark}>
                 {/*hasAccounts && <BackButton onClick={() => trackEvent('signup_email', 'click_back')}/>*/}
                 <div
                     id='signup_email_section'
