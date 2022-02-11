@@ -13,6 +13,7 @@ export const StyledBurger = styled.div<INav>`
   z-index: 20;
   display: none;
   cursor: pointer;
+  background-color: var(--background);
 
   @media (max-width: 768px) {
     display: flex;
@@ -29,6 +30,7 @@ export const Menus = styled.div<INav>`
     transform-origin: 1px;
     transition: all 0.3s linear;
     cursor: pointer;
+    background-color: var(--background);
 
     &:nth-child(1) {
       transform: ${(props) => props.open ? 'rotate(45deg)' : 'rotate(0)'};
@@ -45,7 +47,7 @@ export const Menus = styled.div<INav>`
 export const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-  background-color: #fdfdfdfa;
+  background-color: var(--background);
   align-items: center;
   position: relative;
   height: 70px;
@@ -66,7 +68,8 @@ export const Ul = styled.ul<INav>`
   align-items: center;
   font-size: 18px;
   margin-left: 20px;
-
+  background-color: var(--background);
+  
   a {
     text-decoration: none;
     text-transform: none;
