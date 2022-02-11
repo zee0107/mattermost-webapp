@@ -40,7 +40,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
     state = {
         error: null,
         updateText: null,
-        isDark:'light';
+        isDark:'light',
         img_path: '',
     };
 
