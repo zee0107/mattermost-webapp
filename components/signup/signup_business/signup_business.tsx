@@ -119,6 +119,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
     darkModeToggle = () => {
         const newThemeValue = this.state.isDark === 'light' ? 'dark' : 'light';
         window.localStorage.setItem('theme', newThemeValue);
+        this.setState({isDark: newThemeValue});
         const theme = this.state.isDark === 'dark' ? true : false;
         if(theme){
             if(!this.state.isMobile){
@@ -131,7 +132,6 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         else{
             this.setState({img_path: logoImageWhite});
         }
-        this.setState({isDark: newThemeValue});
     }
 
     componentDidMount() {
