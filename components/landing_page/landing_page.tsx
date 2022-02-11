@@ -23,6 +23,7 @@ import LocalizedInput from 'components/localized_input/localized_input';
 import Carousel from 'components/carousel/carousel'
 
 import {t} from 'utils/i18n.jsx';
+import { ThemeConsumer } from 'styled-components';
 
 interface Props {
     actions: {
@@ -39,10 +40,17 @@ export default class LandingPage extends React.PureComponent<Props, State> {
     state = {
         error: null,
         updateText: null,
+        isDark:'light';
+        img_path: '',
     };
 
     resetForm = React.createRef<HTMLFormElement>();
     emailInput = React.createRef<HTMLInputElement>();
+
+    componentDidMount(){
+        const ThemeValue = window.localStorage.getItem("theme");
+        this.setState({isDark: ThemeValue});
+    }
 
     handleSendLink = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -101,6 +109,15 @@ export default class LandingPage extends React.PureComponent<Props, State> {
 
     render() {
         let error = null;
+        let themeValue = window.localStorage.getItem('theme');
+
+        if(this.state.isDark === 'dark'){
+            this.setState({img_path: homedarkImage});
+        }
+        else{
+            this.setState({img_path: homeImage});
+        }
+
         if (this.state.error) {
             error = (
                 <div className='form-group has-error'>
@@ -124,7 +141,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                             <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Getting Started</a>
                         </div>
                         <div className="col-lg-12 text-center homeImage">
-                            <img src={homeImage}></img>
+                            <img src={this.state.img_path}></img>
                         </div>
                         
                     </div>

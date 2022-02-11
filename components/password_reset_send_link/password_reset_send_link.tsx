@@ -22,15 +22,28 @@ interface Props {
 interface State {
     error: React.ReactNode;
     updateText: React.ReactNode;
+    isDark: string;
 }
 
 export default class PasswordResetSendLink extends React.PureComponent<Props, State> {
     state = {
         error: null,
         updateText: null,
+        isDark:'light',
     };
     resetForm = React.createRef<HTMLFormElement>();
     emailInput = React.createRef<HTMLInputElement>();
+
+    darkModeToggle = () => {
+        const newThemeValue = this.state.isDark === 'light' ? 'dark' : 'light';
+        window.localStorage.setItem('theme', newThemeValue);
+        this.setState({isDark: newThemeValue});
+    }
+
+    componentDidMount(){
+        const ThemeValue = window.localStorage.getItem("theme");
+        this.setState({isDark: ThemeValue});
+    }
 
     handleSendLink = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -89,6 +102,7 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
 
     render() {
         let error = null;
+        
         if (this.state.error) {
             error = (
                 <div className='form-group has-error'>
@@ -103,7 +117,7 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
         }
 
         return (
-            <div>
+            <div data-theme={this.state.isDark}>
                 <div className='col-sm-12 bodyBgElipse'>
                     <div className="row">
                         <div className="col-sm-5 divfullheight">
@@ -174,6 +188,7 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
                         </div>
                     </div>
                 </div>
+                <button className='buttonTogglePostion' onClick={this.darkModeToggle}>Switch</button>
             </div>
         );
     }

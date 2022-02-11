@@ -919,8 +919,8 @@ class LoginController extends React.PureComponent {
                                 </div>
                             </div>
                         </div>
+                        <button className='buttonTogglePostion' onClick={this.darkModeToggle}>Switch</button>
                     </div>
-                    <button onClick={this.darkModeToggle}>Switch</button>
                 </div>
             </div>
         );

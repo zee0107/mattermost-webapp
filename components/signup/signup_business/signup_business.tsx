@@ -66,6 +66,7 @@ export type State = {
     emailError?: React.ReactNode;
     passwordError?: React.ReactNode;
     serverError?: React.ReactNode;
+    isDark?: string;
 };
 
 export default class SignupBusiness extends React.PureComponent<Props, State> {
@@ -97,7 +98,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         const token = (new URLSearchParams(this.props.location!.search)).get('t');
         const inviteId = (new URLSearchParams(this.props.location!.search)).get('id');
 
-        this.state = {loading: false};
+        this.state = {loading: false,isDark: 'light',};
         if (token && token.length > 0) {
             this.state = this.getTokenData(token, data!);
         } else if (inviteId && inviteId.length > 0) {
@@ -112,8 +113,17 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         this.passwordRef = React.createRef();
     }
 
+    darkModeToggle = () => {
+        const newThemeValue = this.state.isDark === 'light' ? 'dark' : 'light';
+        window.localStorage.setItem('theme', newThemeValue);
+        this.setState({isDark: newThemeValue});
+    }
+
     componentDidMount() {
         trackEvent('signup', 'signup_user_01_welcome');
+
+        const ThemeValue = window.localStorage.getItem("theme");
+        this.setState({isDark: ThemeValue});
 
         this.setDocumentTitle(this.props.siteName!);
 
@@ -612,6 +622,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                 </div>
+                <button className='buttonTogglePostion' onClick={this.darkModeToggle}>Switch</button>
             </div>
         );
     }
