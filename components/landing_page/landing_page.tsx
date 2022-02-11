@@ -50,6 +50,13 @@ export default class LandingPage extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+
+        if(this.state.isDark === 'dark'){
+            this.setState({img_path: homedarkImage});
+        }
+        else{
+            this.setState({img_path: homeImage});
+        }
     }
 
     handleSendLink = async (e: React.FormEvent) => {
@@ -111,12 +118,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
         let error = null;
         let themeValue = window.localStorage.getItem('theme');
 
-        if(this.state.isDark === 'dark'){
-            this.setState({img_path: homedarkImage});
-        }
-        else{
-            this.setState({img_path: homeImage});
-        }
+        
 
         if (this.state.error) {
             error = (
