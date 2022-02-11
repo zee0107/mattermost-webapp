@@ -71,7 +71,8 @@ export const Ul = styled.ul<INav>`
     text-decoration: none;
     text-transform: none;
     cursor: pointer;
-
+    color: var(--text-primary);
+    
     &:hover {
       color: #41cb4d;
     }
@@ -90,6 +91,8 @@ export const Ul = styled.ul<INav>`
     transition: transform 0.3s ease-in-out;
     z-index: 9;
     justify-content: normal;
+    background-color: var(--bgDiv) !important;
+
   }
 `
 
