@@ -120,10 +120,10 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         window.localStorage.setItem('theme', newThemeValue);
         const theme = this.state.isDark === 'dark' ? true : false;
         if(theme){
-            this.setState({img_path: logoImageWhite});
+            this.setState({img_path: logoImageBlack});
         }
         else{
-            this.setState({img_path: logoImageBlack});
+            this.setState({img_path: logoImageWhite});
         }
         this.setState({isDark: newThemeValue});
     }
