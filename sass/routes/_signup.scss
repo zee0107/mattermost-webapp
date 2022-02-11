@@ -82,7 +82,11 @@ body {
     }
 
     &.padding--less {
-        padding-top: 0px;
+        padding-top: 70px;
+
+        @media (max-width: 768px){
+            padding-top: 0px;
+        }
     }
 
     &.terms-of-service__container {

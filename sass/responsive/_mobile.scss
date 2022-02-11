@@ -930,7 +930,7 @@
     }
 
     .signup-team__container {
-        padding: 30px 10px 0;
+        padding: 60px 10px 0;
         margin-bottom: 30px;
         font-size: 0.9em;
 
@@ -947,6 +947,12 @@
             .fa {
                 margin-right: 6px;
             }
+        }
+
+        @media (max-width: 768px){
+            padding: 30px 10px 0;
+        }
+            
         }
     }
 
