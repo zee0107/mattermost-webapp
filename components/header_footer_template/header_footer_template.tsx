@@ -63,13 +63,13 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
     render() {
         const content = [];
 
-        /*const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;*/
-        /*const isDark = useState(localStorage.getItem("theme") === true ? 'dark' : 'light');*/
+        const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const [isDark, setIsDark] = useState(defaultDark ? 'dark' : 'light');
 
-        /*const darkModeToggle = () => {
+        const darkModeToggle = () => {
             const newThemeValue = isDark === 'light' ? 'dark' : 'light';
             setIsDark(newThemeValue);
-        }*/
+        }
 
         if (!this.props.config) {
             return null;
