@@ -41,29 +41,22 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
          * Mattermost configuration
          */
         config: PropTypes.object,
-        darkmode: PropTypes.string,
     };
 
     
 
     componentDidMount() {
         document.body.classList.add('sticky');
-        const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const isDark = useState(localStorage.getItem("theme") === defaultDark ? 'dark' : 'light');
         const rootElement: HTMLElement | null = document.getElementById('root');
         if (rootElement) {
             rootElement.classList.add('container-fluid');
-            rootElement.setAttribute('data-theme', isDark);
         }
     }
     componentWillUnmount() {
         document.body.classList.remove('sticky');
-        const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const isDark = useState(localStorage.getItem("theme") === defaultDark ? 'dark' : 'light');
         const rootElement: HTMLElement | null = document.getElementById('root');
         if (rootElement) {
             rootElement.classList.remove('container-fluid');
-            rootElement.setAttribute('data-theme', isDark);
         }
     }
 
@@ -143,7 +136,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         }
 
         return (
-            <div className='inner-wrap'>
+            <div className='inner-wrap' data-theme='light'>
                 <Menu />
                 <div className='row content'>
                     {this.props.children}
