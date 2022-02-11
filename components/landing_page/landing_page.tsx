@@ -252,7 +252,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <h1 className="headerFeedbackText">Engage to Earn</h1>
-                                        <h4>Crypter is the first project to launch the revolutionary Engage-to-Earn system that rewards members who engage with their friends and with the community; imagine getting paid for every like, post, comment you make on your Crypter profile.</h4>
+                                        <h4 className='getSecondaryText'>Crypter is the first project to launch the revolutionary Engage-to-Earn system that rewards members who engage with their friends and with the community; imagine getting paid for every like, post, comment you make on your Crypter profile.</h4>
                                     </div>
                                     <div className="col-lg-6">
                                         <Carousel />
