@@ -27,6 +27,12 @@
     --secondary-blue: #22406d;
     --denim-status-online: #3db887;
 
+    --background:  grey;
+    --text-primary: #000;
+    --text-secondary: #44cc4b;
+    --bgDiv: #fff;
+    --border-div: #adadad;
+
     // Default RGB values to be replaced by applyTheme() (do not add opacity mutations here)
     // these are define to prevent flashes of unstyled content
     --away-indicator-rgb: 255, 188, 66;
@@ -74,4 +80,12 @@
     --global-header-text: var(--sidebar-header-text-color);
     --global-header-background-rgb: var(--sidebar-teambar-bg-rgb);
     --global-header-text-rgb: var(--sidebar-header-text-color-rgb);
+}
+
+[data-theme='dark'] {
+    --background: #000;
+    --text-primary: #fff;
+    --text-secondary: grey;
+    --bgDiv: rgba(0, 0, 0, 0.719);
+    --border-div: #44cc4b;
 }

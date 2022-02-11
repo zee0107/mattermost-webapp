@@ -3,6 +3,7 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import useLocalStorage from 'use-local-storage'
 
 import {ServerError} from 'mattermost-redux/types/errors';
 import {isEmail} from 'mattermost-redux/utils/helpers';
@@ -34,13 +35,22 @@ interface State {
     updateText: React.ReactNode;
 }
 
+const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
+
 export default class LandingPage extends React.PureComponent<Props, State> {
     state = {
         error: null,
         updateText: null,
     };
+
     resetForm = React.createRef<HTMLFormElement>();
     emailInput = React.createRef<HTMLInputElement>();
+
+    const switchTheme = () => {
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+    }
 
     handleSendLink = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -113,7 +123,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
         }
 
         return (
-            <div>
+            <div data-theme={theme}>
                 <div className='col-sm-12 bodyBgElipseLanding bgGrey removePadding'>
                     <div className="inner-wrap-section">
                         <div className="col-sm-8 text-center">
