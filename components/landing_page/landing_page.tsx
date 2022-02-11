@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import useLocalStorage from 'use-local-storage';
 
 import {ServerError} from 'mattermost-redux/types/errors';
 import {isEmail} from 'mattermost-redux/utils/helpers';
@@ -35,8 +34,8 @@ interface State {
     updateText: React.ReactNode;
 }
 
-const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
+/*const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');*/
 
 export default class LandingPage extends React.PureComponent<Props, State> {
     state = {
@@ -47,10 +46,10 @@ export default class LandingPage extends React.PureComponent<Props, State> {
     resetForm = React.createRef<HTMLFormElement>();
     emailInput = React.createRef<HTMLInputElement>();
 
-    switchTheme(){
+    /*switchTheme(){
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
-    }
+    }*/
 
     handleSendLink = async (e: React.FormEvent) => {
         e.preventDefault();
