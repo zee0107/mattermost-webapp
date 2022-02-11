@@ -277,7 +277,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                 <img src={Heart} className="image3"></img>
                             </div>
                             <h5>Copyright {'\u00A9'} Crypter.io </h5>
-                            <button onClick={darkModeToggle}>Switch</button>
+                            <button onClick={this.darkModeToggle}>Switch</button>
                         </div>
                     </div>
                 </div>
