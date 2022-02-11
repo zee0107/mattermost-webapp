@@ -71,13 +71,16 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         }*/
 
         const [theme, themeToggler] = useDarkMode();
-        const themeMode = theme === 'light' ? 'light' : 'dark';
+        let themeMode;
+        if(theme == 'light'){
+            themeMode = 'light';
+        }else{
+            themeMode = 'dark';
+        }
 
         if (!this.props.config) {
             return null;
         }
-
-        
 
         if (this.props.config.AboutLink) {
             content.push(
@@ -272,7 +275,6 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                 <img src={Heart} className="image3"></img>
                             </div>
                             <h5>Copyright {'\u00A9'} Crypter.io </h5>
-                            <Toggle theme={theme} toggleTheme={themeToggler} />
                         </div>
                     </div>
                 </div>
