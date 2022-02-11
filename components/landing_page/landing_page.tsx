@@ -127,7 +127,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                     <div className="inner-wrap-section">
                         <div className="col-sm-8 text-center">
                             <h1 className="headerText">The Social Network for Crypto Enthusiasts</h1>
-                            <h4>The first social media platform for crypto to launch the revolutionary Engage-to-Earn reward system. Enjoy $BUSD rewards while holding $CRYPT tokens.</h4>
+                            <h4 className='getSecondaryText'>The first social media platform for crypto to launch the revolutionary Engage-to-Earn reward system. Enjoy $BUSD rewards while holding $CRYPT tokens.</h4>
                             <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Getting Started</a>
                         </div>
                         <div className="col-lg-12 text-center homeImage">
@@ -138,7 +138,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                     <div className="inner-wrap-knowmore">
                         <div className="col-sm-8 text-center">
                                 <h1 className="headerText">BRINGING THE DEFI COMMUNITY TOGETHER</h1>
-                                <h4>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences. Our goal is to establish a community where everyone looks out for each other, while users who are sharing scam projects will be banned permanently.</h4>
+                                <h4 className='getSecondaryText'>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences. Our goal is to establish a community where everyone looks out for each other, while users who are sharing scam projects will be banned permanently.</h4>
                         </div>
                         <div className="col-lg-12 marginTopBottom">
                             <div className="row">
@@ -195,7 +195,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                             <div className="d-flex">
                                 <div className="col-lg-9">
                                     <h3>New In Cryptocurrency?</h3>
-                                    <h4>We'll tell you what cryptocurrencies are, how they work and why you should own one right now. So let's do it.</h4>
+                                    <h4 className='getSecondaryText'>We'll tell you what cryptocurrencies are, how they work and why you should own one right now. So let's do it.</h4>
                                 </div>
                                 <div className="col-lg-3 displayCenter">
                                     <a href="/signup_index" className="btn buttonBgGreen btnLearnText">Learn &amp; Explore Now</a>
@@ -208,7 +208,8 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <h1 className="headerTextGettingStarted">How To Get Started</h1>
-                                    <h4>Simple and easy way to start your investment in cryptocurrency</h4>
+                                    <h4 className='getSecondaryText'>Simple and easy way to start your investment in cryptocurrency</h4>
+                                    <br />
                                     <a href="/signup_index" className="btn buttonBgGreen btnGettingStartedText">Getting Started</a>
                                 </div>
                                 <div className="col-lg-6">
@@ -218,8 +219,8 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                                 <img src={createImage} className="gettingstartedImg"></img>
                                             </div>
                                             <div className="col-lg-10">
-                                                <h3>Create Your Account</h3>
-                                                <h4>Your account and personal identity are guaranteed safe.</h4>
+                                                <h3 className='getStartPrimaryText'>Create Your Account</h3>
+                                                <h5 className='getSecondaryText'>Your account and personal identity are guaranteed safe.</h5>
                                             </div>
                                         </div>
                                         <div className="d-flex gettingstartedBox">
@@ -227,8 +228,8 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                                 <img src={bankImage} className="gettingstartedImg"></img>
                                             </div>
                                             <div className="col-lg-10">
-                                                <h3>Connect Bank Account</h3>
-                                                <h4>Connect the bank account to start transactions.</h4>
+                                                <h3 className='getStartPrimaryText'>Connect Bank Account</h3>
+                                                <h5 className='getSecondaryText'>Connect the bank account to start transactions.</h5>
                                             </div>
                                         </div>
                                         <div className="d-flex gettingstartedBox">
@@ -236,8 +237,8 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                                 <img src={buildImage} className="gettingstartedImg"></img>
                                             </div>
                                             <div className="col-lg-10">
-                                                <h3>Start Build Portfolio</h3>
-                                                <h4>Buy and sell popular currencies and keep track of them.</h4>
+                                                <h3 className='getStartPrimaryText'>Start Build Portfolio</h3>
+                                                <h5 className='getSecondaryText'>Buy and sell popular currencies and keep track of them.</h5>
                                             </div>
                                         </div>
                                     </div>

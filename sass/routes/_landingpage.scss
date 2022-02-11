@@ -338,6 +338,7 @@
 }
   .textPaddingCard{
       padding-left: 15px;
+      color: var(--seconday-headers);
   }
 
   .nameTextCard{
@@ -362,4 +363,12 @@
     .nextCard {
       left: 135%;
     }
+  }
+
+  .getStartPrimaryText{
+    color: var(--text-primary);
+  }
+
+  .getSecondaryText{
+    color: var(--seconday-headers);
   }
