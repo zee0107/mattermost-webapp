@@ -58,7 +58,8 @@ export default class LandingPage extends React.PureComponent<Props, State> {
         if(this.state.isDark === 'dark'){
             this.setState({img_path: homedarkImage});
         }
-        else{
+        
+        if(this.state.isDark === 'light'){
             this.setState({img_path: homeImage});
         }
     }
