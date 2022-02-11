@@ -62,22 +62,6 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
     render() {
         const content = [];
 
-        /*const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;*/
-        /*const [isDark, setIsDark] = useState(defaultDark ? 'dark' : 'light');
-
-        const darkModeToggle = () => {
-            const newThemeValue = isDark === 'light' ? 'dark' : 'light';
-            setIsDark(newThemeValue);
-        }*/
-
-        const [theme, themeToggler] = useDarkMode();
-        let themeMode;
-        if(theme == 'light'){
-            themeMode = 'light';
-        }else{
-            themeMode = 'dark';
-        }
-
         if (!this.props.config) {
             return null;
         }
@@ -143,7 +127,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         }
 
         return (
-            <div className='inner-wrap' data-theme={themeMode}>
+            <div className='inner-wrap' data-theme='dark'>
                 <Menu />
                 <div className='row content'>
                     {this.props.children}
