@@ -101,7 +101,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         const token = (new URLSearchParams(this.props.location!.search)).get('t');
         const inviteId = (new URLSearchParams(this.props.location!.search)).get('id');
 
-        this.state = {loading: false,isDark: 'light',img_path:'',isMobile: window.matchMedia("(max-width: 768px)").matches};
+        this.state = {loading: false,isDark: 'light',img_path:'',isMobile: window.matchMedia("(min-width: 768px)").matches};
         if (token && token.length > 0) {
             this.state = this.getTokenData(token, data!);
         } else if (inviteId && inviteId.length > 0) {
@@ -121,7 +121,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         window.localStorage.setItem('theme', newThemeValue);
         const theme = this.state.isDark === 'dark' ? true : false;
         const handler = e => this.setState({matches: e.matches});
-        window.matchMedia("(max-width: 768px)").addEventListener('change', handler);
+        window.matchMedia("(min-width: 768px)").addEventListener('change', handler);
         if(theme){
             if(!this.state.isMobile){
                 this.setState({img_path: logoImageBlack});
@@ -143,9 +143,9 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         this.setState({isDark: ThemeValue});
         const theme = this.state.isDark === 'dark' ? true : false;
         const handler = e => this.setState({matches: e.matches});
-        window.matchMedia("(max-width: 768px)").addEventListener('change', handler);
+        window.matchMedia("(min-width: 768px)").addEventListener('change', handler);
         if(theme){
-            if(this.state.isMobile){
+            if(!this.state.isMobile){
                 this.setState({img_path: logoImageBlack});
             }
             else{
