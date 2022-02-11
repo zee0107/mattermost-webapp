@@ -72,7 +72,7 @@ export const Ul = styled.ul<INav>`
     text-transform: none;
     cursor: pointer;
     color: var(--text-primary);
-    
+
     &:hover {
       color: #41cb4d;
     }
@@ -101,7 +101,6 @@ export const Li = styled.li`
   outline: none;
 
   @media (max-width: 768px) {
-    color: #000;
     margin-right: 34px;
     padding-bottom: 0px;
     &:hover {
