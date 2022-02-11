@@ -45,10 +45,17 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
 
     componentDidMount() {
         document.body.classList.add('sticky');
-        const theme = this.state.currentTheme
+        const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const rootElement: HTMLElement | null = document.getElementById('root');
         if (rootElement) {
             rootElement.classList.add('container-fluid');
+        }
+
+        if(defaultDark){
+            rootElement?.setAttribute('data-theme','dark');
+        }
+        else{
+            rootElement?.setAttribute('data-theme','light');
         }
     }
     componentWillUnmount() {
@@ -58,11 +65,11 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
             rootElement.classList.remove('container-fluid');
         }
     }
-
+    
     render() {
         const content = [];
 
-        const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        /*const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;*/
         /*const [isDark, setIsDark] = useState(defaultDark ? 'dark' : 'light');
 
         const darkModeToggle = () => {
@@ -73,6 +80,8 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         if (!this.props.config) {
             return null;
         }
+
+        
 
         if (this.props.config.AboutLink) {
             content.push(
