@@ -21,10 +21,9 @@ type Props = {
     config: Partial<ClientConfig> | undefined;
 }
 /*const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;*/
-
+const [isDark, setIsDark] = useState(localStorage.getItem("theme") === 'light' ? 'dark' : 'light');
 
 export default class NotLoggedIn extends React.PureComponent<Props> {
-    const [isDark, setIsDark] = useState(localStorage.getItem("theme") === 'light' ? 'dark' : 'light');
     static propTypes = {
 
         /*
