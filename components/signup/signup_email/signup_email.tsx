@@ -20,6 +20,7 @@ import * as Utils from 'utils/utils.jsx';
 
 import logoImage from 'images/logo.png';
 import logoImageWhite from 'images/logoWhite.png';
+import logoImageBlack from 'images/logoBlack.png';
 
 import BackButton from 'components/common/back_button';
 import LoadingScreen from 'components/loading_screen';
@@ -67,6 +68,8 @@ export type State = {
     passwordError?: React.ReactNode;
     serverError?: React.ReactNode;
     isDark?: string;
+    img_path?: string;
+    isMatchWidth: boolean;
 };
 
 export default class SignupEmail extends React.PureComponent<Props, State> {
@@ -98,7 +101,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
         const token = (new URLSearchParams(this.props.location!.search)).get('t');
         const inviteId = (new URLSearchParams(this.props.location!.search)).get('id');
 
-        this.state = {loading: false,isDark:'light'};
+        this.state = {loading: false,isDark:'light',img_path:'',isMatchWidth: window.matchMedia("(min-width: 768px)").matches};
         if (token && token.length > 0) {
             this.state = this.getTokenData(token, data!);
         } else if (inviteId && inviteId.length > 0) {
@@ -117,6 +120,20 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
         const newThemeValue = this.state.isDark === 'light' ? 'dark' : 'light';
         window.localStorage.setItem('theme', newThemeValue);
         this.setState({isDark: newThemeValue});
+        const theme = this.state.isDark === 'dark' ? true : false;
+        const handler = e => this.setState({isMatchWidth: e.matches});
+        window.matchMedia("(min-width: 768px)").addEventListener('change', handler);
+        if(theme){
+            if(!this.state.isMatchWidth){
+                this.setState({img_path: logoImageBlack});
+            }
+            else{
+                this.setState({img_path: logoImageWhite});
+            }
+        }
+        else{
+            this.setState({img_path: logoImageWhite});
+        }
     }
 
     componentDidMount() {
@@ -124,6 +141,20 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
 
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+        const theme = this.state.isDark === 'dark' ? true : false;
+        const handler = e => this.setState({isMatchWidth: e.matches});
+        window.matchMedia("(min-width: 768px)").addEventListener('change', handler);
+        if(theme){
+            if(!this.state.isMatchWidth){
+                this.setState({img_path: logoImageBlack});
+            }
+            else{
+                this.setState({img_path: logoImageWhite});
+            }
+        }
+        else{
+            this.setState({img_path: logoImageWhite});
+        }
 
         this.setDocumentTitle(this.props.siteName!);
 
@@ -573,7 +604,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                         <div className='col-sm-5 divfullheight'>
                             <br />
                             <a href='/'>
-                                <img src={logoImageWhite}></img>
+                                <img src={this.state.img_path}></img>
                             </a>
                         </div>
                         <div className='col-sm-7'>
@@ -620,9 +651,9 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                                 {/*terms*/}
                             </div>
                         </div>
+                        <button className='btn buttonBgGreen buttonTogglePostion' onClick={this.darkModeToggle}>Switch Theme</button>
                     </div>
                 </div>
-                <button className='buttonTogglePostion' onClick={this.darkModeToggle}>Switch</button>
             </div>
         );
     }

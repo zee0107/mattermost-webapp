@@ -31,6 +31,7 @@ import SuccessIcon from 'components/widgets/icons/fa_success_icon';
 import WarningIcon from 'components/widgets/icons/fa_warning_icon';
 import LocalizedInput from 'components/localized_input/localized_input';
 import Markdown from 'components/markdown';
+import logoImageBlack from 'images/logoBlack.png';
 
 import LoginMfa from '../login_mfa.jsx';
 
@@ -89,6 +90,8 @@ class LoginController extends React.PureComponent {
             sessionExpired: false,
             brandImageError: false,
             isDark: 'light',
+            img_path:'',
+            isMatchWidth: window.matchMedia("(min-width: 768px)").matches
         };
 
         this.loginIdInput = React.createRef();
@@ -99,6 +102,20 @@ class LoginController extends React.PureComponent {
         const newThemeValue = this.state.isDark === 'light' ? 'dark' : 'light';
         window.localStorage.setItem('theme', newThemeValue);
         this.setState({isDark: newThemeValue});
+        const theme = this.state.isDark === 'dark' ? true : false;
+        const handler = e => this.setState({isMatchWidth: e.matches});
+        window.matchMedia("(min-width: 768px)").addEventListener('change', handler);
+        if(theme){
+            if(!this.state.isMatchWidth){
+                this.setState({img_path: logoImageBlack});
+            }
+            else{
+                this.setState({img_path: logoImageWhite});
+            }
+        }
+        else{
+            this.setState({img_path: logoImageWhite});
+        }
     }
 
     componentDidMount() {
@@ -106,6 +123,20 @@ class LoginController extends React.PureComponent {
 
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+        const theme = this.state.isDark === 'dark' ? true : false;
+        const handler = e => this.setState({isMatchWidth: e.matches});
+        window.matchMedia("(min-width: 768px)").addEventListener('change', handler);
+        if(theme){
+            if(!this.state.isMatchWidth){
+                this.setState({img_path: logoImageBlack});
+            }
+            else{
+                this.setState({img_path: logoImageWhite});
+            }
+        }
+        else{
+            this.setState({img_path: logoImageWhite});
+        }
 
         if (this.props.currentUser) {
             GlobalActions.redirectUserToDefaultTeam();
@@ -381,7 +412,7 @@ class LoginController extends React.PureComponent {
                 <div>
                     <a href='/'><img
                         alt={'brand image'}
-                        src={brandImageUrl}
+                        src={this.state.img_path}
                         onError={this.handleBrandImageError}
                         style={brandImageStyle}
                     /></a>
@@ -907,7 +938,7 @@ class LoginController extends React.PureComponent {
                                 <img
                                     alt={'signup team logo'}
                                     className='signup-team-logo'
-                                    src={logoImage}
+                                    src={this.state.img_path}
                                 />
                                 <div className='signup__content'>
                                     <SiteNameAndDescription
@@ -919,7 +950,7 @@ class LoginController extends React.PureComponent {
                                 </div>
                             </div>
                         </div>
-                        <button className='buttonTogglePostion' onClick={this.darkModeToggle}>Switch</button>
+                        <button className='btn buttonBgGreen buttonTogglePostion' onClick={this.darkModeToggle}>Switch Theme</button>
                     </div>
                 </div>
             </div>

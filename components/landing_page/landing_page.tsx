@@ -54,16 +54,6 @@ export default class LandingPage extends React.PureComponent<Props, State> {
         this.setState({isDark: ThemeValue});
     }
 
-    componentDidUpdate(){
-        if(this.state.isDark === 'dark'){
-            this.setState({img_path: homedarkImage});
-        }
-        
-        if(this.state.isDark === 'light'){
-            this.setState({img_path: homeImage});
-        }
-    }
-
     handleSendLink = async (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -148,7 +138,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                             <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Getting Started</a>
                         </div>
                         <div className="col-lg-12 text-center homeImage">
-                            <img src={this.state.img_path}></img>
+                            <img src={homeImage}></img>
                         </div>
                         
                     </div>

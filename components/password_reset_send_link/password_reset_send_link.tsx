@@ -6,7 +6,8 @@ import {FormattedMessage} from 'react-intl';
 
 import {ServerError} from 'mattermost-redux/types/errors';
 import {isEmail} from 'mattermost-redux/utils/helpers';
-import logoImage from 'images/logoWhite.png';
+import logoImageWhite from 'images/logoWhite.png';
+import logoImageBlack from 'images/logoBlack.png';
 
 import BackButton from 'components/common/back_button';
 import LocalizedInput from 'components/localized_input/localized_input';
@@ -23,6 +24,8 @@ interface State {
     error: React.ReactNode;
     updateText: React.ReactNode;
     isDark: string;
+    img_path?: string;
+    isMatchWidth: boolean;
 }
 
 export default class PasswordResetSendLink extends React.PureComponent<Props, State> {
@@ -30,6 +33,8 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
         error: null,
         updateText: null,
         isDark:'light',
+        img_path:'',
+        isMatchWidth: window.matchMedia("(min-width: 768px)").matches
     };
     resetForm = React.createRef<HTMLFormElement>();
     emailInput = React.createRef<HTMLInputElement>();
@@ -38,11 +43,41 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
         const newThemeValue = this.state.isDark === 'light' ? 'dark' : 'light';
         window.localStorage.setItem('theme', newThemeValue);
         this.setState({isDark: newThemeValue});
+        const theme = this.state.isDark === 'dark' ? true : false;
+        const handler = e => this.setState({isMatchWidth: e.matches});
+        window.matchMedia("(min-width: 768px)").addEventListener('change', handler);
+        if(theme){
+            if(!this.state.isMatchWidth){
+                this.setState({img_path: logoImageBlack});
+            }
+            else{
+                this.setState({img_path: logoImageWhite});
+            }
+        }
+        else{
+            this.setState({img_path: logoImageWhite});
+        }
+
+
     }
 
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+        const theme = this.state.isDark === 'dark' ? true : false;
+        const handler = e => this.setState({isMatchWidth: e.matches});
+        window.matchMedia("(min-width: 768px)").addEventListener('change', handler);
+        if(theme){
+            if(!this.state.isMatchWidth){
+                this.setState({img_path: logoImageBlack});
+            }
+            else{
+                this.setState({img_path: logoImageWhite});
+            }
+        }
+        else{
+            this.setState({img_path: logoImageWhite});
+        }
     }
 
     handleSendLink = async (e: React.FormEvent) => {
@@ -124,7 +159,7 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
                             <br />
                             {/*<div className="divLogo"></div>*/}
                             <a href='/'>
-                                <img src={logoImage}></img>
+                                <img src={this.state.img_path}></img>
                             </a>
                         </div>
                         <div className="col-sm-7">
@@ -186,9 +221,9 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
                                 </form>
                             </div>
                         </div>
+                        <button className='btn buttonBgGreen buttonTogglePostion' onClick={this.darkModeToggle}>Switch Theme</button>
                     </div>
                 </div>
-                <button className='buttonTogglePostion' onClick={this.darkModeToggle}>Switch</button>
             </div>
         );
     }
