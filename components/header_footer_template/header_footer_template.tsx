@@ -50,11 +50,14 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
 
     darkModeToggle = () => {
         const newThemeValue = this.state.isDark === 'light' ? 'dark' : 'light';
+        window.localStorage.setItem('theme', newThemeValue);
         this.setState({isDark: newThemeValue});
     }
 
     componentDidMount() {
         document.body.classList.add('sticky');
+        const ThemeValue = window.localStorage.getItem("theme");
+        this.setState({isDark: ThemeValue});
         const rootElement: HTMLElement | null = document.getElementById('root');
         if (rootElement) {
             rootElement.classList.add('container-fluid');

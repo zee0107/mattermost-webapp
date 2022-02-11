@@ -88,14 +88,24 @@ class LoginController extends React.PureComponent {
             loading: false,
             sessionExpired: false,
             brandImageError: false,
+            isDark: 'light',
         };
 
         this.loginIdInput = React.createRef();
         this.passwordInput = React.createRef();
     }
 
+    darkModeToggle = () => {
+        const newThemeValue = this.state.isDark === 'light' ? 'dark' : 'light';
+        window.localStorage.setItem('theme', newThemeValue);
+        this.setState({isDark: newThemeValue});
+    }
+
     componentDidMount() {
         this.configureTitle();
+
+        const ThemeValue = window.localStorage.getItem("theme");
+        this.setState({isDark: ThemeValue});
 
         if (this.props.currentUser) {
             GlobalActions.redirectUserToDefaultTeam();
@@ -879,7 +889,7 @@ class LoginController extends React.PureComponent {
         }
 
         return (
-            <div data-theme='dark'>
+            <div data-theme={this.state.isDark}>
                 <AnnouncementBar/>
                 {backButton}
                 <div
@@ -910,7 +920,7 @@ class LoginController extends React.PureComponent {
                             </div>
                         </div>
                     </div>
-                    
+                    <button onClick={this.darkModeToggle}>Switch</button>
                 </div>
             </div>
         );
