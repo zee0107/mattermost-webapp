@@ -125,10 +125,10 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         window.matchMedia("(min-width: 768px)").addEventListener('change', handler);
         if(theme){
             if(this.state.isMatchWidth){
-                this.setState({img_path: logoImageWhite});
+                this.setState({img_path: logoImageBlack});
             }
             else{
-                this.setState({img_path: logoImageBlack});
+                this.setState({img_path: logoImageWhite});
             }
         }
         else{
@@ -148,10 +148,10 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
 
         if(theme){
             if(this.state.isMatchWidth){
-                this.setState({img_path: logoImageWhite});
+                this.setState({img_path: logoImageBlack});
             }
             else{
-                this.setState({img_path: logoImageBlack});
+                this.setState({img_path: logoImageWhite});
             }
         }
         else{
