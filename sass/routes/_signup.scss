@@ -677,12 +677,12 @@ body {
 
 .removeTextDecor{
     text-decoration: none;
-    color: #000;
+    color: var(--text-primary);
 }
 
 .removeTextDecor:hover{
     text-decoration: none;
-    color: #000;
+    color: var(--text-secondary);
 }
 
 .marginBottom{
