@@ -46,6 +46,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
     componentDidMount() {
         document.body.classList.add('sticky');
         const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const [isDark, setIsDark] = useState(defaultDark ? 'dark' : 'light');
         const rootElement: HTMLElement | null = document.getElementById('root');
         if (rootElement) {
             rootElement.classList.add('container-fluid');
