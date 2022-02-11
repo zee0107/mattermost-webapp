@@ -47,7 +47,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
     resetForm = React.createRef<HTMLFormElement>();
     emailInput = React.createRef<HTMLInputElement>();
 
-    const switchTheme = () => {
+    switchTheme(){
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
     }
