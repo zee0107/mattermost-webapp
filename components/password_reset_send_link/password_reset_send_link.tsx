@@ -153,7 +153,7 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
 
         return (
             <div data-theme={this.state.isDark}>
-                <div className='col-sm-12 bodyBgElipse'>
+                <div className='col-sm-12 bodyBgElipseSignin'>
                     <div className="row">
                         <div className="col-sm-5 divfullheight">
                             <br />

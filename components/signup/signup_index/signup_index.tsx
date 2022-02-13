@@ -602,7 +602,7 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                 {/*hasAccounts && <BackButton onClick={() => trackEvent('signup_email', 'click_back')}/>*/}
                 <div
                     id='signup_email_section'
-                    className='col-sm-12 bodyBgElipse'
+                    className='col-sm-12 bodyBgElipseSignin'
                 >
                     <div className='row'>
                         <div className='col-sm-5 divfullheight'>

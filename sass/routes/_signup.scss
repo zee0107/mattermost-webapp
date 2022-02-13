@@ -675,6 +675,15 @@ body {
     height: 100%;
 }
 
+.bodyBgElipseSignin{
+    background-image: url('/images/ellipse-ligthgreen.svg'),url('/images/ellipse-green.svg');
+    background-position: left top, right top;
+    background-repeat: no-repeat, no-repeat;
+    background-color: var(--background);
+    color: var(--text-primary);
+    height: 100vh;
+}
+
 .chevronleft{
     background-image: url('/images/chevron-left.png');
 }
