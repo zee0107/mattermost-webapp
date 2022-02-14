@@ -91,9 +91,10 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
         }).isRequired,
     }
 
-    private emailRef: React.RefObject<HTMLInputElement>;
-    private nameRef: React.RefObject<HTMLInputElement>;
-    private passwordRef: React.RefObject<HTMLInputElement>;
+    private codeRef: React.RefObject<HTMLInputElement>;
+    private phoneRef: React.RefObject<HTMLInputElement>;
+    private addressRef: React.RefObject<HTMLInputElement>;
+    private locationRef: React.RefObject<HTMLInputElement>;
 
     constructor(props: Props) {
         super(props);
@@ -112,9 +113,10 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
             };
         }
 
-        this.emailRef = React.createRef();
-        this.nameRef = React.createRef();
-        this.passwordRef = React.createRef();
+        this.codeRef = React.createRef();
+        this.phoneRef = React.createRef();
+        this.addressRef = React.createRef();
+        this.locationRef = React.createRef();
     }
 
     darkModeToggle = () => {
@@ -216,7 +218,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
 
     handleSignupSuccess = (user: UserProfile, data: UserProfile) => {
         trackEvent('signup', 'signup_user_02_complete');
-        if (this.state.reminderInterval) {
+        /*if (this.state.reminderInterval) {
             trackEvent('signup', 'signup_from_reminder_' + this.state.reminderInterval, {user: user.id});
         }
         const redirectTo = (new URLSearchParams(this.props.location!.search)).get('redirect_to');
@@ -251,11 +253,11 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
             } else {
                 GlobalActions.redirectUserToDefaultTeam();
             }
-        });
+        });*/
     }
 
     isUserValid = () => {
-        const providedEmail = this.emailRef.current?.value.trim();
+        /*const providedEmail = this.emailRef.current?.value.trim();
         if (!providedEmail) {
             this.setState({
                 nameError: '',
@@ -327,14 +329,15 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                 serverError: '',
             });
             return false;
-        }
+        }*/
 
         return true;
     }
 
     handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
-        trackEvent('signup_email', 'click_create_account');
+        browserHistory.push('/login');
+       /* trackEvent('signup_email', 'click_create_account');
 
         // bail out if a submission is already in progress
         if (this.state.isSubmitting) {
@@ -370,7 +373,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
 
                 this.handleSignupSuccess(user, result.data);
             });
-        }
+        }*/
     }
 
     renderEmailSignup = () => {
@@ -672,7 +675,6 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                                 <input
                                     id='email'
                                     type='number'
-                                    ref={this.emailRef}
                                     className='form-control phoneInput'
                                     defaultValue={this.state.email}
                                     placeholder='ex. 09091234567'
@@ -699,10 +701,8 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                             <input
                                 id='address'
                                 type='text'
-                                ref={this.nameRef}
                                 className='form-control'
                                 placeholder='Please enter address'
-                                maxLength={Constants.MAX_USERNAME_LENGTH}
                                 spellCheck='false'
                                 autoCapitalize='off'
                             />
@@ -721,7 +721,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                             </strong>
                         </h5>
                         <div className={passwordDivStyle}>
-                            <select id='location' ref={this.passwordRef} className='form-control'>
+                            <select id='location' className='form-control'>
                                 <option selected>Please select</option>
                                 <option value="AF">Afghanistan</option>
                                 <option value="AL">Albania</option>
