@@ -217,7 +217,9 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
 
     handleSignupSuccess = (user: UserProfile, data: UserProfile) => {
         trackEvent('signup', 'signup_user_02_complete');
-        if (this.state.reminderInterval) {
+        const redirectTo = '/completeprofile';
+        browserHistory.push(redirectTo);
+        /*if (this.state.reminderInterval) {
             trackEvent('signup', 'signup_from_reminder_' + this.state.reminderInterval, {user: user.id});
         }
         const redirectTo = (new URLSearchParams(this.props.location!.search)).get('redirect_to');
@@ -252,7 +254,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
             } else {
                 GlobalActions.redirectUserToDefaultTeam();
             }
-        });
+        });*/
     }
 
     isUserValid = () => {
