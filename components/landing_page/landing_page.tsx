@@ -198,14 +198,16 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                         <br></br>
                     </div>
                     <div className="inner-wrap-knowmore">
-                        <div className="col-lg-12 learnmoreBox">
-                            <div className="d-flex">
-                                <div className="col-lg-9">
-                                    <h3>New In Cryptocurrency?</h3>
-                                    <h4 className='getSecondaryText'>We'll tell you what cryptocurrencies are, how they work and why you should own one right now. So let's do it.</h4>
-                                </div>
-                                <div className="col-lg-3 displayCenter">
-                                    <a href="/signup_index" className="btn buttonBgGreen btnLearnText">Learn &amp; Explore Now</a>
+                        <div className="col-lg-12">
+                            <div className='col-lg-12 learnmoreBox'>
+                                <div className='row'>
+                                    <div className="col-lg-9">
+                                        <h3>New In Cryptocurrency?</h3>
+                                        <h4 className='getSecondaryText'>We'll tell you what cryptocurrencies are, how they work and why you should own one right now. So let's do it.</h4>
+                                    </div>
+                                    <div className="col-lg-3 displayCenter">
+                                        <a href="/signup_index" className="btn buttonBgGreen btnLearnText">Learn &amp; Explore Now</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

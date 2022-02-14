@@ -227,7 +227,7 @@
     position: absolute;
   
     height: 20rem;
-    width: 33em;
+    //width: 33em;
   
     margin: 1rem;
   
@@ -250,7 +250,7 @@
   .card img {
     object-fit: cover;
     object-position: top;
-  
+    width: 50px;
     pointer-events: none;
   }
   

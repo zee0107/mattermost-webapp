@@ -59,7 +59,7 @@ export const Ul = styled.ul<INav>`
   display: flex;
   flex-flow: row nowrap;
   position: absolute;
-  width: 115%;
+  width: 90%;
   top: 0;
   justify-content: center;
   margin-top: 0px;
