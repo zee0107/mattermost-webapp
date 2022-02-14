@@ -188,7 +188,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-lg-3">
+                            <div className="col-lg-3 footer-menu-mobile">
                                 <div className="d-flex">
                                     <div className="col-lg-6 footer-menu">
                                         <h4>Company</h4>

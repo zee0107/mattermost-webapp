@@ -42,8 +42,13 @@
 .footer-menu{
     @media (max-width: 1200px) {
         width: 50%;   
-        text-align: center;
         margin-top: 20px;
+    }
+}
+
+.footer-menu-mobile{
+    @media (max-width: 1200px) {
+        margin-top: 50px;
     }
 }
 
