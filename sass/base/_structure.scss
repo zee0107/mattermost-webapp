@@ -117,6 +117,10 @@ img {
     background-repeat: no-repeat;
     min-height: 60px;
     height: 60px;
+
+    @media (max-width: 768px) {
+        background-image: var(--logo-div);
+    }
 }
 
 .ButtonSignup{

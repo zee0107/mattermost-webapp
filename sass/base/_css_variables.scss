@@ -33,6 +33,7 @@
     --bgDiv: #fff;
     --border-div: #adadad;
     --secondary-headers: #000000e8;
+    --logo-div: url('/images/logoBlack.png')
 
     // Default RGB values to be replaced by applyTheme() (do not add opacity mutations here)
     // these are define to prevent flashes of unstyled content
@@ -90,4 +91,5 @@
     --bgDiv:  #000000e9;
     --border-div: #000000e7;
     --seconday-headers: #ffffffb5;
+    --logo-div: url('/images/logoBlack.png')
 }
