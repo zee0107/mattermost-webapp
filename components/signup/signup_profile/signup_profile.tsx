@@ -508,11 +508,11 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                                     id='signup_user_completed.choosePwd'
                                     defaultMessage='Choose your password'
                                 />*/}
-                                Password*
+                                Country of residence
                             </strong>
                         </h5>
                         <div className={passwordDivStyle}>
-                            <select id='location' ref={this.passwordRef} className='fomr-control'>
+                            <select id='location' ref={this.passwordRef} className='form-control'>
                                 <option selected>Please select</option>
                                 <option value='PH'>Philippines</option>
                             </select>
