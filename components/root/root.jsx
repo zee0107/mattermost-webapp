@@ -48,6 +48,7 @@ const LazySignupController = React.lazy(() => import('components/signup/signup_c
 const LazySignupEmail = React.lazy(() => import('components/signup/signup_email'));
 const LazySignupBusiness = React.lazy(() => import('components/signup/signup_business'));
 const LazySignupIndex = React.lazy(() => import('components/signup/signup_index'));
+const LazySignupProfile = React.lazy(() => import('components/signup/signup_profile'));
 const LazyTermsOfService = React.lazy(() => import('components/terms_of_service'));
 const LazyShouldVerifyEmail = React.lazy(() => import('components/should_verify_email'));
 const LazyDoVerifyEmail = React.lazy(() => import('components/do_verify_email'));
@@ -85,6 +86,7 @@ const SignupController = makeAsyncComponent('SignupController', LazySignupContro
 const SignupEmail = makeAsyncComponent('SignupEmail', LazySignupEmail);
 const SignupBusiness = makeAsyncComponent('SignupBusiness', LazySignupBusiness);
 const SignupIndex = makeAsyncComponent('SignupIndex', LazySignupIndex);
+const SignupProfile = makeAsyncComponent('SignupProfile', LazySignupProfile);
 const ShouldVerifyEmail = makeAsyncComponent('ShouldVerifyEmail', LazyShouldVerifyEmail);
 const DoVerifyEmail = makeAsyncComponent('DoVerifyEmail', LazyDoVerifyEmail);
 const ClaimController = makeAsyncComponent('ClaimController', LazyClaimController);
@@ -402,6 +404,10 @@ export default class Root extends React.PureComponent {
                     <Route
                         path={'/signup_index'}
                         component={SignupIndex}
+                    />
+                    <Route
+                        path={'/completeprofile'}
+                        component={SignupProfile}
                     />
                     <HFTRoute
                         path={'/home'}
