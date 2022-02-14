@@ -104,10 +104,6 @@ export const Li = styled.li`
     &:hover {
       color: #41cb4d;
     }
-
-  @media (max-width: 1150px){
-    padding: 18px 9px;
-  }
 }
 `
 
@@ -152,7 +148,7 @@ export const Li2 = styled.li`
 }
 `
 export const Li3 = styled.li`
-  margin-left: 170px;
+  margin-left: 10%;
 
   @media (max-width: 768px) {
     color: #000;
