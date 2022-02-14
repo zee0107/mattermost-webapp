@@ -190,7 +190,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                             </div>
                             <div className="col-lg-3">
                                 <div className="d-flex">
-                                    <div className="col-lg-6">
+                                    <div className="col-lg-6 footer-menu">
                                         <h4>Company</h4>
                                         <ul className="footerUl">
                                             <li className="ulLinks">
@@ -210,7 +210,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                             </li>
                                         </ul>
                                     </div>
-                                    <div className="col-lg-6">
+                                    <div className="col-lg-6 footer-menu">
                                         <h4>Platform</h4>
                                         <ul className="footerUl">
                                             <li className="ulLinks">
@@ -237,7 +237,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                             </div>
                             <div className="col-lg-3">
                                 <div className="d-flex">
-                                    <div className="col-lg-6">
+                                    <div className="col-lg-6 footer-menu">
                                         <h4>Documentation</h4>
                                         <ul className="footerUl">
                                             <li className="ulLinks">
@@ -254,7 +254,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                                             </li>
                                         </ul>
                                     </div>
-                                    <div className="col-lg-6">
+                                    <div className="col-lg-6 footer-menu">
                                         <h4>Support</h4>
                                         <ul className="footerUl">
                                             <li className="ulLinks">
