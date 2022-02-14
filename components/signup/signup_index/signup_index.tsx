@@ -607,9 +607,7 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                     <div className='row'>
                         <div className='col-sm-5 divfullheight'>
                             <br />
-                            <a href='/'>
-                                <img src={this.state.img_path}></img>
-                            </a>
+                            <a href='/' className="divLogo"></a>
                         </div>
                         <div className='col-sm-7 divMarginTop'>
                             <div className='signup-team__container padding--less'>

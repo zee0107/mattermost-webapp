@@ -158,8 +158,7 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
                         <div className="col-sm-5 divfullheight">
                             <br />
                             {/*<div className="divLogo"></div>*/}
-                            <a href='/' className="divLogo">
-                            </a>
+                            <a href='/' className="divLogo"></a>
                         </div>
                         <div className="col-sm-7">
                             <div className='signup-team__container'>

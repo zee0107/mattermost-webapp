@@ -931,7 +931,7 @@ class LoginController extends React.PureComponent {
                         <div className='col-sm-5 divfullheight'>
                             <div className='signup__markdown'>
                                 <br />
-                                {customContent}
+                                <a href='/' className="divLogo"></a>
                             </div>
                         </div>
                         <div className='col-sm-7'>
