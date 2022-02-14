@@ -7,9 +7,9 @@ interface INav {
 export const StyledBurger = styled.div<INav>`
   width: 2rem;
   height: 2rem;
-  position: fixed;
-  top: 15px;
-  right: 20px;
+  position: relative;
+  top: -45px;
+  left: 90%;
   z-index: 20;
   display: none;
   cursor: pointer;
@@ -63,6 +63,7 @@ export const Ul = styled.ul<INav>`
   align-items: center;
   font-size: 18px;
   margin-left: 20px;
+  padding-left: 25%;
 
   a {
     text-decoration: none;
@@ -94,7 +95,7 @@ export const Ul = styled.ul<INav>`
 `
 
 export const Li = styled.li`
-  padding: 18px 30px;
+  padding: 18px 20px;
   outline: none;
 
   @media (max-width: 768px) {
@@ -103,6 +104,10 @@ export const Li = styled.li`
     &:hover {
       color: #41cb4d;
     }
+
+  @media (max-width: 1150px){
+    padding: 18px 9px;
+  }
 }
 `
 
@@ -118,6 +123,7 @@ export const Ul2 = styled.ul<INav>`
   align-items: center;
   font-size: 18px;
   margin-left: 20px;
+  padding-left: 25%;
 
   @media (max-width: 768px) {
     flex-flow: column nowrap;
