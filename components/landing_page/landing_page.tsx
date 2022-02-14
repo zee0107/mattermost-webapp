@@ -258,13 +258,15 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                     <div className="whiteBackground">
                         <div className="inner-wrap-feedback">
                             <div className="col-lg-12 marginTopBottom">
-                                <div className="row">
-                                    <div className="col-lg-6">
-                                        <h1 className="headerFeedbackText">Engage to Earn</h1>
-                                        <h4 className='getSecondaryText'>Crypter is the first project to launch the revolutionary Engage-to-Earn system that rewards members who engage with their friends and with the community; imagine getting paid for every like, post, comment you make on your Crypter profile.</h4>
-                                    </div>
-                                    <div className="col-lg-6">
-                                        <Carousel />
+                                <div className='col-lg-12'>
+                                    <div className="row">
+                                        <div className="col-lg-6 feedback-box">
+                                            <h1 className="headerFeedbackText">Engage to Earn</h1>
+                                            <h4 className='getSecondaryText'>Crypter is the first project to launch the revolutionary Engage-to-Earn system that rewards members who engage with their friends and with the community; imagine getting paid for every like, post, comment you make on your Crypter profile.</h4>
+                                        </div>
+                                        <div className="col-lg-6 feedback-box">
+                                            <Carousel />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -272,15 +274,17 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                     </div>
                     <div className="inner-wrap-knowmore">
                         <div className="col-lg-12 marginBottom">
-                            <div className="row joinusBox">
-                                <div className="col-lg-5">
-                                    <h1>Join the largest social Crypto community</h1>
-                                    <p>Join with more 2.5M+ Global Users</p>
-                                    <a href="#" className="linkText"><img src={profilesImage}></img> and others</a>
-                                </div>
-                                <div className="col-lg-4"></div>
-                                <div className="col-lg-3">
-                                    <a href="/signup_index" className="btn btnNowBgWhite">Register Now</a>
+                            <div className='col-lg-12 joinusBox'>
+                                <div className="row">
+                                    <div className="col-lg-5">
+                                        <h1>Join the largest social Crypto community</h1>
+                                        <p>Join with more 2.5M+ Global Users</p>
+                                        <a href="#" className="linkText"><img src={profilesImage}></img> and others</a>
+                                    </div>
+                                    <div className="col-lg-4"></div>
+                                    <div className="col-lg-3">
+                                        <a href="/signup_index" className="btn btnNowBgWhite">Register Now</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

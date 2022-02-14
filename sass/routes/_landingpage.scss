@@ -136,6 +136,10 @@
 .whiteBackground{
     background-color: var(--bgDiv);
     margin-bottom: 50px;
+
+    @media (max-width: 768px) {
+      background-color: transparent;      
+    }
 }
 
 .headerFeedbackText{
@@ -187,6 +191,13 @@
     color: white;
 }
 
+.feedback-box{
+  @media (max-width: 768px) {
+    border-radius: 7px;
+    background-color: var(--bgDiv);
+    margin-top: 20px;
+  }
+}
 //Carousel
 .card-container {
     position: relative;
@@ -294,6 +305,10 @@
     max-width: 30rem;
     height: 2rem;
     margin-left: 45px;
+
+    @media (max-width: 768px) {
+      margin-top: 50px;
+    }
   }
   
   .hr {
