@@ -175,8 +175,11 @@
 }
 
 .displayCenter{
-    display: flex;
-    align-items: center;
+    margin-top: 2%;
+
+    @media (max-width: 768px) {
+      margin-bottom: 20px;
+    }
 }
 
 .btnNowBgWhite:hover{
@@ -196,6 +199,7 @@
     border-radius: 7px;
     background-color: var(--bgDiv);
     margin-top: 20px;
+    padding: 20px;
   }
 }
 //Carousel
