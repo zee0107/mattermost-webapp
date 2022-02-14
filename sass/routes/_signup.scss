@@ -712,10 +712,10 @@ body {
 .codeInput{
     width: 25%;
     border-right: 0px;
-    border-radius: 8px 0px 0px 8px;
+    border-radius: 8px 0px 0px 8px !important;
 }
 
 .phoneInput{
     border-left: 0px;
-    border-radius: 0px 8px 8px 0px;
+    border-radius: 0px 8px 8px 0px !important;
 }
