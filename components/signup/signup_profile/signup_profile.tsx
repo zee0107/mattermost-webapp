@@ -454,21 +454,23 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                             </strong>
                         </h5>
                         <div className={emailDivStyle}>
-                            <select id='PhoneCode' className='form-select'>
-                                <option selected>+63</option>
-                            </select>
-                            <input
-                                id='email'
-                                type='number'
-                                ref={this.emailRef}
-                                className='form-control'
-                                defaultValue={this.state.email}
-                                placeholder='ex. 09091234567'
-                                maxLength={128}
-                                autoFocus={true}
-                                spellCheck='false'
-                                autoCapitalize='off'
-                            />
+                            <div className='d-flex'>
+                                <select id='PhoneCode' className='form-control'>
+                                    <option selected>+63</option>
+                                </select>
+                                <input
+                                    id='email'
+                                    type='number'
+                                    ref={this.emailRef}
+                                    className='form-control'
+                                    defaultValue={this.state.email}
+                                    placeholder='ex. 09091234567'
+                                    maxLength={128}
+                                    autoFocus={true}
+                                    spellCheck='false'
+                                    autoCapitalize='off'
+                                />
+                            </div>
                             {emailError}
                             {/*emailHelpText*/}
                         </div>
@@ -510,7 +512,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                             </strong>
                         </h5>
                         <div className={passwordDivStyle}>
-                            <select id='location' ref={this.passwordRef} className='fomr-select'>
+                            <select id='location' ref={this.passwordRef} className='fomr-control'>
                                 <option selected>Please select</option>
                                 <option value='PH'>Philippines</option>
                             </select>
@@ -621,11 +623,11 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                                     className='signup-team-logo'
                                     src={logoImage}
                                 />
-                                <h3>
+                                {/*<h3>
                                     <a href='javascript:history.go(-1)' className='removeTextDecor'><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="var(--text-primary)" className="bi bi-chevron-left" viewBox="0 0 16 16">
                                     <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" fill='#000'/>
                                     </svg> Back</a>
-                                </h3>
+                                </h3>*/}
                                 <br />
                                 <SiteNameAndDescription
                                     customDescriptionText={customDescriptionText}
@@ -635,7 +637,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                                 <hr className='bg-white' />
                                 {emailSignup}
                                 {serverError}
-                                <span
+                                {/*<span
                                     id='signin_account'
                                     className='text-white'
                                 >
@@ -654,7 +656,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                                             defaultMessage='Click here to sign in.'
                                         />
                                     </Link>
-                                </span>
+                                </span>*/}
                                 {/*terms*/}
                             </div>
                         </div>
