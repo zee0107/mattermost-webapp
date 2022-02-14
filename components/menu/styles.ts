@@ -162,6 +162,11 @@ export const Logo = styled.img`
   width: 160px;
   height: 70px;
   object-fit: contain;
+
+  @media (max-width: 1250px) {
+    margin: 20px 50px 20px 5%;
+  }
+
 `
 
 export const LogoUl = styled.img`
