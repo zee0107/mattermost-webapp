@@ -439,15 +439,15 @@ export default class Root extends React.PureComponent {
                         path={'/admin_console'}
                         component={AdminConsole}
                     />
-                    <LoggedInHFTRoute
+                    <LoggedInRoute
                         path={'/select_team'}
                         component={SelectTeam}
                     />
-                    <LoggedInHFTRoute
+                    <LoggedInRoute
                         path={'/oauth/authorize'}
                         component={Authorize}
                     />
-                    <LoggedInHFTRoute
+                    <LoggedInRoute
                         path={'/create_team'}
                         component={CreateTeam}
                     />
