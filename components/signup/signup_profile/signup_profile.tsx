@@ -21,6 +21,7 @@ import * as Utils from 'utils/utils.jsx';
 import logoImage from 'images/logo.png';
 import logoImageWhite from 'images/logoWhite.png';
 import logoImageBlack from 'images/logoBlack.png';
+import lockIcon from 'images/icons/lock_icon.svg';
 
 import BackButton from 'components/common/back_button';
 import LoadingScreen from 'components/loading_screen';
@@ -1076,6 +1077,8 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                                 <hr className='bg-white' />
                                 {emailSignup}
                                 {serverError}
+                                <br></br>
+                                <span className='small getSecondaryText'><img src={lockIcon}></img>Your Info is safely secured</span>
                                 {/*<span
                                     id='signin_account'
                                     className='text-white'
