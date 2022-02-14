@@ -708,3 +708,14 @@ body {
     bottom: 0;
     margin: 10px;
 }
+
+.codeInput{
+    width: 25%;
+    border-right: 0px;
+    border-radius: 8px 0px 0px 8px;
+}
+
+.phoneInput{
+    border-left: 0px;
+    border-radius: 0px 8px 8px 0px;
+}

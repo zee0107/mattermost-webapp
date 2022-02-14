@@ -450,25 +450,23 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                                     id='signup_user_completed.whatis'
                                     defaultMessage="What's your email address?"
                                 />*/}
-                                Phone Number*
+                                Phone Number
                             </strong>
                         </h5>
                         <div className={emailDivStyle}>
                             <div className='d-flex'>
-                                <select id='PhoneCode' className='form-control'>
+                                <select id='PhoneCode' className='form-control codeInput'>
                                     <option selected>+63</option>
                                 </select>
                                 <input
                                     id='email'
                                     type='number'
                                     ref={this.emailRef}
-                                    className='form-control'
+                                    className='form-control phoneInput'
                                     defaultValue={this.state.email}
                                     placeholder='ex. 09091234567'
                                     maxLength={128}
                                     autoFocus={true}
-                                    spellCheck='false'
-                                    autoCapitalize='off'
                                 />
                             </div>
                             {emailError}
