@@ -10,7 +10,6 @@ type Props = {
 };
 
 export default function Navbar(props: Props) {
-  console.log(mode);
   return (
     <>
       <div className='row navBg'>
