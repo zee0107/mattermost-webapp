@@ -150,7 +150,8 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
             <div className='inner-wrap' data-theme={this.state.isDark}>
                 <Menu />
                 <div className='row content'>
-                    {this.props.children}
+                    {React.cloneElement(this.props.children, {mode: this.state.isDark})}
+                    {/*this.props.children*/}
                 </div>
 
                 <div className='row footer border-top'>

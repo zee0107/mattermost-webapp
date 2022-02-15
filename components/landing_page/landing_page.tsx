@@ -116,6 +116,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
     render() {
         let error = null;
         let themeValue = window.localStorage.getItem('theme');
+        console.log(this.props);
 
         if (this.state.error) {
             error = (
