@@ -9,7 +9,7 @@ type Props = {
   children?: ChildNode;
 };
 
-export default function Navbar(props: Props, mode) {
+export default function Navbar(props: Props, { mode }) {
   console.log(mode);
   return (
     <>
