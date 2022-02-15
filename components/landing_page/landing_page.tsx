@@ -53,8 +53,11 @@ export default class LandingPage extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
 
-        if(ThemeValue === 'dark'){
+        if(this.props.mode === 'dark'){
             this.setState({img_path: homedarkImage});
+        }
+        else{
+            this.setState({img_path: homeImage});
         }
     }
 
@@ -115,14 +118,16 @@ export default class LandingPage extends React.PureComponent<Props, State> {
 
     render() {
         let error = null;
-        let themeValue = window.localStorage.getItem('theme');
-        console.log(this.props.mode);
 
-        if(this.props.mode === 'dark'){
-            this.setState({img_path: homedarkImage})
+        /*if(this.props.mode === 'dark'){
+            imgFeed = (
+                <img src={homedarkImage}></img>
+            );
         }else{
-            this.setState({img_path: homeImage})
-        }
+            imgFeed = (
+                <img src={homeImage}></img>
+            );
+        }*/
 
         if (this.state.error) {
             error = (
