@@ -66,14 +66,13 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
         if(this.state.isDark === 'dark'){
-            this.setState({logo_img: logoLight});
-        }
-        else if(this.state.isDark === ''){
-            this.setState({logo_img: logoLight});
-        }
-        else{
             this.setState({logo_img: logoDark});
         }
+
+        if(this.state.isDark === 'light'){
+            this.setState({logo_img: logoLight});
+        }
+
         const rootElement: HTMLElement | null = document.getElementById('root');
         if (rootElement) {
             rootElement.classList.add('container-fluid');
