@@ -43,7 +43,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
         error: null,
         updateText: null,
         isDark:'light',
-        img_path: '',
+        img_path: homeImage,
     };
 
     resetForm = React.createRef<HTMLFormElement>();
@@ -52,6 +52,10 @@ export default class LandingPage extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+
+        if(ThemeValue === 'dark'){
+            this.setState({img_path: homedarkImage});
+        }
     }
 
     handleSendLink = async (e: React.FormEvent) => {
@@ -113,8 +117,6 @@ export default class LandingPage extends React.PureComponent<Props, State> {
         let error = null;
         let themeValue = window.localStorage.getItem('theme');
 
-        
-
         if (this.state.error) {
             error = (
                 <div className='form-group has-error'>
@@ -138,7 +140,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                             <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Getting Started</a>
                         </div>
                         <div className="col-lg-12 text-center homeImage">
-                            <img src={homeImage}></img>
+                            <img src={this.state.img_path}></img>
                         </div>
                         
                     </div>
