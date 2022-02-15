@@ -54,10 +54,10 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         this.setState({isDark: newThemeValue});
 
         if(this.state.isDark === 'dark'){
-            this.setState({logo_img: logoDark});
+            this.setState({logo_img: logoLight});
         }
         else{
-            this.setState({logo_img: logoLight});
+            this.setState({logo_img: logoDark});
         }
     }
 
@@ -66,12 +66,11 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
         if(this.state.isDark === 'dark'){
-            this.setState({logo_img: logoDark});
-        }
-        else{
             this.setState({logo_img: logoLight});
         }
-
+        else{
+            this.setState({logo_img: logoDark});
+        }
         const rootElement: HTMLElement | null = document.getElementById('root');
         if (rootElement) {
             rootElement.classList.add('container-fluid');
