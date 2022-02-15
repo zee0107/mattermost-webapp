@@ -45,7 +45,7 @@ export const Menus = styled.div<INav>`
 export const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-  background-color: var(--background);
+  background-color: var(--bgDiv);
   align-items: center;
   position: relative;
   height: 70px;
