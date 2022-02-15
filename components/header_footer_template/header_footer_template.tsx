@@ -68,6 +68,9 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
         if(this.state.isDark === 'dark'){
             this.setState({logo_img: logoLight});
         }
+        if(this.state.isDark ==== ''){
+            this.setState({logo_img: logoLight});
+        }
         else{
             this.setState({logo_img: logoDark});
         }
