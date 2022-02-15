@@ -14,7 +14,7 @@ export default function Navbar(props: Props) {
     <>
       <div className='row navBg'>
         <S.Nav>
-          <S.Logo src={Logo} alt='Crypter' />
+          <S.Logo src={Logo} alt='Crypter.io' />
         </S.Nav>
         <Burger />
         {props.children}
