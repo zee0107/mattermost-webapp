@@ -154,7 +154,9 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                             <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Getting Started</a>
                         </div>
                         <div className="col-lg-12 text-center homeImage">
-                            <img src={this.state.img_path}></img>
+                            {this.props.mode !== "dark" && <img src={homeImage}></img>}
+                            {this.props.mode === "dark" && <img src={homedarkImage}></img>}
+                            {/*<img src={this.state.img_path}></img>*/}
                         </div>
                         
                     </div>
