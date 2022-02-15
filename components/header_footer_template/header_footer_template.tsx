@@ -45,18 +45,33 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
 
     state = {
         isDark: 'light',
+        logo_img: logoLight,
     }
 
     darkModeToggle = () => {
         const newThemeValue = this.state.isDark === 'light' ? 'dark' : 'light';
         window.localStorage.setItem('theme', newThemeValue);
         this.setState({isDark: newThemeValue});
+
+        if(this.state.isDark === 'dark'){
+            this.setState({logo_img: logoDark});
+        }
+        else{
+            this.setState({logo_img: logoLight});
+        }
     }
 
     componentDidMount() {
         document.body.classList.add('sticky');
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+        if(this.state.isDark === 'dark'){
+            this.setState({logo_img: logoDark});
+        }
+        else{
+            this.setState({logo_img: logoLight});
+        }
+
         const rootElement: HTMLElement | null = document.getElementById('root');
         if (rootElement) {
             rootElement.classList.add('container-fluid');
@@ -160,7 +175,7 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
                         <div className="row">
                             <div className="col-lg-2"></div>
                             <div className="col-lg-2">
-                                <img src={logoLight}></img>
+                                <img src={this.state.logo_img}></img>
                                 <p className="footerText">The first social media platform for crypto to launch the revolutionary Engage-to-Earn reward system. Enjoy $BUSD rewards while holding $CRYPT tokens.</p>
                                 <div className="d-flex">
                                     <div className="col-lg-3">
