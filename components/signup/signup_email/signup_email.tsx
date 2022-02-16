@@ -460,7 +460,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                                 id='email'
                                 type='email'
                                 ref={this.emailRef}
-                                className='form-control'
+                                className='form-control custom-input'
                                 defaultValue={this.state.email}
                                 placeholder='Email'
                                 maxLength={128}
@@ -488,7 +488,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                                 id='name'
                                 type='text'
                                 ref={this.nameRef}
-                                className='form-control'
+                                className='form-control custom-input'
                                 placeholder='Username'
                                 maxLength={Constants.MAX_USERNAME_LENGTH}
                                 spellCheck='false'
@@ -513,7 +513,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                                 id='password'
                                 type='password'
                                 ref={this.passwordRef}
-                                className='form-control'
+                                className='form-control custom-input'
                                 placeholder='Password'
                                 maxLength={128}
                                 spellCheck='false'
