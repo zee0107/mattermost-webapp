@@ -459,7 +459,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                         </h5>
                         <div className={emailDivStyle}>
                             <div className='d-flex'>
-                                <select id='PhoneCode' className='form-control codeInput'>
+                                <select id='PhoneCode' className='form-control codeInput custom-input'>
                                 <option value="213">+213</option>
                                 <option value="376">+376</option>
                                 <option value="244">+244</option>
@@ -675,7 +675,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                                 <input
                                     id='email'
                                     type='number'
-                                    className='form-control phoneInput'
+                                    className='form-control phoneInput custom-input'
                                     defaultValue={this.state.email}
                                     placeholder='ex. 09091234567'
                                     maxLength={128}
@@ -701,7 +701,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                             <input
                                 id='address'
                                 type='text'
-                                className='form-control'
+                                className='form-control custom-input'
                                 placeholder='Please enter address'
                                 spellCheck='false'
                                 autoCapitalize='off'
@@ -721,7 +721,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                             </strong>
                         </h5>
                         <div className={passwordDivStyle}>
-                            <select id='location' className='form-control'>
+                            <select id='location' className='form-control custom-input'>
                                 <option selected>Please select</option>
                                 <option value="AF">Afghanistan</option>
                                 <option value="AL">Albania</option>

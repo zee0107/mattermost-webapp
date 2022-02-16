@@ -610,7 +610,7 @@ class LoginController extends React.PureComponent {
                             <label>Email or Username*</label>
                             <input
                                 id='loginId'
-                                className='form-control'
+                                className='form-control custom-input'
                                 ref={this.loginIdInput}
                                 name='loginId'
                                 value={this.state.loginId}
@@ -626,7 +626,7 @@ class LoginController extends React.PureComponent {
                             <LocalizedInput
                                 id='loginPassword'
                                 type='password'
-                                className='form-control'
+                                className='form-control custom-input'
                                 ref={this.passwordInput}
                                 name='password'
                                 value={this.state.password}

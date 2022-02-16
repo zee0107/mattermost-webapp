@@ -193,7 +193,7 @@ export default class PasswordResetSendLink extends React.PureComponent<Props, St
                                         <LocalizedInput
                                             id='passwordResetEmailInput'
                                             type='email'
-                                            className='form-control'
+                                            className='form-control custom-input'
                                             name='email'
                                             placeholder={{
                                                 id: t('password_send.email'),
