@@ -37,6 +37,7 @@
     --logo-div: url(/images/logoBlack.png);
     --input-color: #fff;
     --input-focus: #fff;
+    --input-color-text: #000;
 
     // Default RGB values to be replaced by applyTheme() (do not add opacity mutations here)
     // these are define to prevent flashes of unstyled content
@@ -98,4 +99,5 @@
     --logo-div: url(/images/logoWhite.png);
     --input-color: transparent;
     --input-focus: #1F2128;
+    --input-color-text: #fff;
 }

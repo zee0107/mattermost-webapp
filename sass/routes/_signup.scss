@@ -732,8 +732,10 @@ body {
 
 .custom-input{
     background: var(--input-color);
+    color: var(--input-color-text);
 }
 
 .custom-input:focus{
-    background: var(input-focus);
+    background: var(--input-focus);
+    color: var(--input-color-text);
 }
