@@ -521,7 +521,10 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                             {passwordError}
                         </div>
                     </div>
-                    <p className='mt-5'>
+                    <div className='mt-8'>
+                        <label><input type='checkbox' className='form-control' /> I agree to terms &amp; conditions</label>
+                    </div>
+                    <p className='mt-8'>
                         <button
                             id='createAccountButton'
                             type='submit'
