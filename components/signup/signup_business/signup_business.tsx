@@ -524,7 +524,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                     <div className='mt-8'>
-                        <label><input type='checkbox' className='form-control' /> I agree to terms &amp; conditions</label>
+                        <label><input type='checkbox' className='form-check' /> I agree to terms &amp; conditions</label>
                     </div>
                     <p className='mt-8'>
                         <button
