@@ -722,10 +722,10 @@ body {
 
 .terms-checkbox{
     vertical-align: text-top;
-    padding-right: 8px;
+    margin-right: 8px;
 }
 
-.terms-checkbox:checked{
-    background-color: #44cc4b;
-    background-image: linear-gradient(to right,#44cc4b,#00ff0d);
+.terms-checkbox:checked:after{
+    background-color: #44cc4b;  
+    background-image: linear-gradient(to bottom right,#44cc4b,#00ff0d);
 }
