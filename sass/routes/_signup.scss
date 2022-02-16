@@ -722,10 +722,15 @@ body {
 
 .terms-checkbox{
     vertical-align: text-top;
-    //margin-right: 8px !important;
+    margin-right: 8px !important;
 }
 
-.terms-checkbox[type="checkbox"]:checked:after{
+.terms-checkbox:checked{
+    background-color: #44cc4b;  
+    background-image: linear-gradient(to bottom right,#44cc4b,#00ff0d);
+}
+
+/*.terms-checkbox[type="checkbox"]:checked:after{
     background-color: #44cc4b;  
     background-image: linear-gradient(to bottom right,#44cc4b,#00ff0d);
 }
@@ -733,9 +738,9 @@ body {
 .terms-checkbox[type="checkbox"]:not(:disabled):checked:hover:after{
     background-color: #44cc4b;  
     background-image: linear-gradient(to bottom right,#44cc4b,#00ff0d);
-}
+}*/
 
-.terms-div input[type=checkbox]{
+/*.terms-div input[type=checkbox]{
     vertical-align: text-top;
     margin-right: 8px !important;
 }
@@ -753,4 +758,4 @@ body {
 .terms-div input[type=checkbox]:checked::after{
     background-color: #44cc4b;  
     background-image: linear-gradient(to bottom right,#44cc4b,#00ff0d);
-}
+}*/
