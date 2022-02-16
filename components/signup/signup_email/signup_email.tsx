@@ -618,11 +618,19 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                                     className='signup-team-logo'
                                     src={logoImage}
                                 />
-                                <h3>
-                                    <a href='/signup_index' className='removeTextDecor'><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="var(--text-primary)" className="bi bi-chevron-left" viewBox="0 0 16 16">
-                                    <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" fill='#000'/>
-                                    </svg> Back</a>
-                                </h3>
+                                <div className='d-flex'>
+                                    <div className='col-sm-6'>
+                                        <h3>
+                                            <a href='/signup_index' className='removeTextDecor'><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="var(--text-primary)" className="bi bi-chevron-left" viewBox="0 0 16 16">
+                                            <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" fill='#000'/>
+                                            </svg> Back</a>
+                                        </h3>
+                                    </div>
+                                    <div className='col-sm-6 text-end'>
+                                        <h3>Personal Info</h3>
+                                    </div>
+                                </div>
+                               
                                 <br />
                                 <SiteNameAndDescription
                                     customDescriptionText={customDescriptionText}
