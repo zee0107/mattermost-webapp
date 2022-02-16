@@ -631,7 +631,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
                                         </h3>
                                     </div>
                                     <div className='col-sm-6 text-end'>
-                                        <h3>Residency Info</h3>
+                                        <h5 className='info-text'>Residency Info</h5>
                                     </div>
                                 </div>
                                 <br />
