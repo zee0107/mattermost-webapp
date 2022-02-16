@@ -722,10 +722,15 @@ body {
 
 .terms-checkbox{
     vertical-align: text-top;
-    margin-right: 8px;
+    margin-right: 8px !important;
 }
 
-.terms-checkbox:checked:after{
+.terms-checkbox[type="checkbox"]:checked:after{
+    background-color: #44cc4b;  
+    background-image: linear-gradient(to bottom right,#44cc4b,#00ff0d);
+}
+
+.terms-checkbox[type="checkbox"]:not(:disabled):checked:hover:after{
     background-color: #44cc4b;  
     background-image: linear-gradient(to bottom right,#44cc4b,#00ff0d);
 }
