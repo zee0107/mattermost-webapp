@@ -719,3 +719,13 @@ body {
     border-left: 0px;
     border-radius: 0px 8px 8px 0px !important;
 }
+
+.terms-checkbox{
+    vertical-align: text-top;
+    padding-right: 8px;
+}
+
+.terms-checkbox:checked{
+    background-color: #44cc4b;
+    background-image: linear-gradient(to right,#44cc4b,#00ff0d);
+}
