@@ -43,5 +43,6 @@ export class Hello extends React.Component<IHelloProps, {}> {
             </Navbar.Collapse>
             </Navbar>                                                                                                                                                          
         </div>
-    )
+        )
+    }
 };
