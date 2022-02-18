@@ -1,31 +1,47 @@
-import React from 'react';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import * as React from "react";
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
 
-export default class NavLoginBootstrap extends React.Component {
-    render(){
+export interface IHelloProps { compiler: string; framework: string; }
+
+// 'helloProps' describes the shape of props.
+// state is never set so we use the '{}' type.
+export class Hello extends React.Component<IHelloProps, {}> {
+    render() {
         return(
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="mr-auto">
-                <Nav.Link href="#features">Features</Nav.Link>
-                <Nav.Link href="#pricing">Pricing</Nav.Link>
-                <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+        <div>
+            <Navbar inverse>
+            <Navbar.Header>
+                <Navbar.Brand>  
+                <a href="#brand">React-Bootstrap</a>
+                </Navbar.Brand>
+                <Navbar.Toggle />
+            </Navbar.Header>
+            <Navbar.Collapse>
+                <Nav>
+                <NavItem eventKey={1} href="#">
+                    Link
+                </NavItem>
+                <NavItem eventKey={2} href="#">
+                    Link
+                </NavItem>
+                <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+                    <MenuItem eventKey={3.1}>Action</MenuItem>
+                    <MenuItem eventKey={3.2}>Another action</MenuItem>
+                    <MenuItem eventKey={3.3}>Something else here</MenuItem>
+                    <MenuItem divider />
+                    <MenuItem eventKey={3.3}>Separated link</MenuItem>
                 </NavDropdown>
-              </Nav>
-              <Nav>
-                <Nav.Link href="#deets">More deets</Nav.Link>
-                <Nav.Link eventKey={2} href="#memes">
-                  Dank memes
-                </Nav.Link>
-              </Nav>
+                </Nav>
+                <Nav pullRight>
+                <NavItem eventKey={1} href="#">
+                    Link Right
+                </NavItem>
+                <NavItem eventKey={2} href="#">
+                    Link Right
+                </NavItem>
+                </Nav>
             </Navbar.Collapse>
-          </Navbar>
-        );
-    }
+            </Navbar>                                                                                                                                                          
+        </div>
+    )
 };
