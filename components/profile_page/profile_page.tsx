@@ -10,6 +10,7 @@ import logoImage from 'images/logoWhite.png';
 import homeImage from 'images/homeFeed.png';
 import homedarkImage from 'images/homeFeed-dark.png';
 import coverImage from 'images/cover-photo.png';
+import profPic from 'images/profiles/user-profile-1.png'
 import cImage from 'images/icons/cicon.png';
 import safeImage from 'images/icons/safeicon.png';
 import btcImage from 'images/icons/bitcoinicon.png';
@@ -18,6 +19,7 @@ import createImage from 'images/icons/get-started-icon-1.png';
 import bankImage from 'images/icons/get-started-icon-2.png';
 import buildImage from 'images/icons/get-started-icon-3.png';
 import profilesImage from 'images/profiles.svg';
+
 
 import BackButton from 'components/common/back_button';
 import LocalizedInput from 'components/localized_input/localized_input';
@@ -149,10 +151,22 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             <div>
                 <div className='col-sm-12 bodyBgElipseLanding bgGrey removePadding'>
                     <div className="inner-wrap-section">
-                        <div className="col-lg-12 text-center homeImage">
-                            <img src={coverImage}></img>
+                        <div className='d-flex'>
+
                         </div>
-                        
+                        <div className="col-lg-12">
+                            <img className='img-cover' src={coverImage}></img>
+                        </div>
+                        <div className='col-lg-12'>
+                            <div className='row'>
+                                <div className='col-lg-4'>
+                                    <img src={profPic}></img>
+                                </div>
+                                <div className='col-lg-8'>
+                                    <p>Menus</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     {/*<div className="inner-wrap-knowmore">
                         <div className="col-sm-8 text-center">
