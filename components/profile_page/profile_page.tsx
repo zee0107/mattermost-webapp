@@ -147,7 +147,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         return (
             <div>
                 <div className='col-sm-12 bodyBgElipseLanding bgGrey removePadding'>
-                    <div className="inner-wrap-section">
+                    {/*<div className="inner-wrap-section">
                         <div className="col-sm-8 text-center">
                             <h1 className="headerText">The Social Network for Crypto Enthusiasts</h1>
                             <h4 className='getSecondaryText'>The first social media platform for crypto to launch the revolutionary Engage-to-Earn reward system. Enjoy $BUSD rewards while holding $CRYPT tokens.</h4>
@@ -156,7 +156,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         <div className="col-lg-12 text-center homeImage">
                             {this.props.mode !== "dark" && <img src={homeImage}></img>}
                             {this.props.mode === "dark" && <img src={homedarkImage}></img>}
-                            {/*<img src={this.state.img_path}></img>*/}
                         </div>
                         
                     </div>
@@ -306,7 +305,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>*/}
                 </div>
             </div>
         );
