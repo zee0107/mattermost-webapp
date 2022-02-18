@@ -9,6 +9,7 @@ import {isEmail} from 'mattermost-redux/utils/helpers';
 import logoImage from 'images/logoWhite.png';
 import homeImage from 'images/homeFeed.png';
 import homedarkImage from 'images/homeFeed-dark.png';
+import coverImage from 'images/cover-photo.png';
 import cImage from 'images/icons/cicon.png';
 import safeImage from 'images/icons/safeicon.png';
 import btcImage from 'images/icons/bitcoinicon.png';
@@ -147,19 +148,13 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         return (
             <div>
                 <div className='col-sm-12 bodyBgElipseLanding bgGrey removePadding'>
-                    {/*<div className="inner-wrap-section">
-                        <div className="col-sm-8 text-center">
-                            <h1 className="headerText">The Social Network for Crypto Enthusiasts</h1>
-                            <h4 className='getSecondaryText'>The first social media platform for crypto to launch the revolutionary Engage-to-Earn reward system. Enjoy $BUSD rewards while holding $CRYPT tokens.</h4>
-                            <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Getting Started</a>
-                        </div>
+                    <div className="inner-wrap-section">
                         <div className="col-lg-12 text-center homeImage">
-                            {this.props.mode !== "dark" && <img src={homeImage}></img>}
-                            {this.props.mode === "dark" && <img src={homedarkImage}></img>}
+                            <img src={coverImage}></img>
                         </div>
                         
                     </div>
-                    <div className="inner-wrap-knowmore">
+                    {/*<div className="inner-wrap-knowmore">
                         <div className="col-sm-8 text-center">
                                 <h1 className="headerText">BRINGING THE DEFI COMMUNITY TOGETHER</h1>
                                 <h4 className='getSecondaryText'>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences. Our goal is to establish a community where everyone looks out for each other, while users who are sharing scam projects will be banned permanently.</h4>
