@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
-export default class NavLoginBootstrap extends React.PureComponent<Props> {
+export default class NavLoginBootstrap extends React.Component {
     render(){
         return(
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
