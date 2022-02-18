@@ -4,8 +4,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import {FormattedMessage} from 'react-intl';
-//import Menu from 'components/menu/Navbar';
-import Menu from 'components/nav_login/nav_login';
+import Menu from 'components/menu/Navbar';
 
 import {ClientConfig} from 'mattermost-redux/types/config';
 import logoLight from 'images/logoLight.png';
@@ -30,7 +29,7 @@ const darkModeToggle = () => {
     setIsDark(newThemeValue);
 }*/
 
-export default class NotLoggedIn extends React.PureComponent<Props> {
+export default class LoggedInHFT extends React.PureComponent<Props> {
     static propTypes = {
 
         /*

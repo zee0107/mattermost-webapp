@@ -24,7 +24,8 @@ import {makeAsyncComponent} from 'components/async_load';
 import CompassThemeProvider from 'components/compass_theme_provider/compass_theme_provider';
 import GlobalHeader from 'components/global_header/global_header';
 import ModalController from 'components/modal_controller';
-import {HFTRoute, LoggedInHFTRoute} from 'components/header_footer_template_route';
+import {HFTRoute} from 'components/header_footer_template_route';
+import {LoggedInHFTRoute} from 'components/header_footer_login_route',
 import IntlProvider from 'components/intl_provider';
 import NeedsTeam from 'components/needs_team';
 
