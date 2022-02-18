@@ -4,7 +4,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import {FormattedMessage} from 'react-intl';
-import Menu from 'components/menu/Navbar';
+import GlobalHeader from 'components/global_header/global_header';
 
 import {ClientConfig} from 'mattermost-redux/types/config';
 import logoLight from 'images/logoLight.png';
@@ -164,7 +164,7 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
 
         return (
             <div className='inner-wrap' data-theme={this.state.isDark}>
-                <Menu />
+                <GlobalHeader />
                 <div className='row content'>
                     {React.cloneElement(this.props.children, {mode: this.state.isDark})}
                     {/*this.props.children*/}
