@@ -25,7 +25,7 @@ import CompassThemeProvider from 'components/compass_theme_provider/compass_them
 import GlobalHeader from 'components/global_header/global_header';
 import ModalController from 'components/modal_controller';
 import {HFTRoute} from 'components/header_footer_template_route';
-import {LoggedInHFTRoute} from 'components/header_footer_login',
+import {LoggedInHFTRoute} from 'components/header_footer_login';
 import IntlProvider from 'components/intl_provider';
 import NeedsTeam from 'components/needs_team';
 
