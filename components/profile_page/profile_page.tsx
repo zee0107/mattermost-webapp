@@ -152,18 +152,27 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                 <div className='col-sm-12 bodyBgElipseLanding bgGrey removePadding'>
                     <div className="inner-wrap-section">
                         <div className='d-flex'>
-
-                        </div>
-                        <div className="col-lg-12">
-                            <img className='img-cover' src={coverImage}></img>
-                        </div>
-                        <div className='col-lg-12'>
-                            <div className='row'>
-                                <div className='col-lg-4'>
-                                    <img src={profPic}></img>
-                                </div>
-                                <div className='col-lg-8'>
-                                    <p>Menus</p>
+                            <div className="col-lg-12">
+                                <img className='img-cover' src={coverImage}></img>
+                            </div>
+                            <div className='col-lg-12 profile-div'>
+                                <div className='row'>
+                                    <div className='col-lg-4 profile-details-box'>
+                                        <div className='d-flex'>
+                                            <div className='col-lg-4'>
+                                                <img src={profPic}></img>
+                                            </div>
+                                            <div className='col-lg-8'>
+                                                <h3>Evan Yates</h3>
+                                                <h4>&amp;evanyates</h4>
+                                                <h5>New york City, Ny</h5>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div className='col-lg-8'>
+                                        <p>Menus</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
