@@ -25,7 +25,7 @@ import CompassThemeProvider from 'components/compass_theme_provider/compass_them
 import GlobalHeader from 'components/global_header/global_header';
 import ModalController from 'components/modal_controller';
 import {HFTRoute,LoggedInHFTRoute} from 'components/header_footer_template_route';
-import {HFTRouteLog,loginHFTRoute} from 'components/header_footer_template_route';
+import {HFTRouteLog,LoginHFTRoute} from 'components/header_footer_template_route';
 import IntlProvider from 'components/intl_provider';
 import NeedsTeam from 'components/needs_team';
 
@@ -416,7 +416,7 @@ export default class Root extends React.PureComponent {
                         path={'/home'}
                         component={LandingPage}
                     />
-                    <loginHFTRoute
+                    <LoginHFTRoute
                         path={'/profile'}
                         component={ProfilePage}
                     />

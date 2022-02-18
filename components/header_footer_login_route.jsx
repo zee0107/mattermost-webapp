@@ -20,7 +20,7 @@ export const HFTRouteLog = ({component: Component, ...rest}) => (
     />
 );
 
-export const loginHFTRoute = ({component: Component, ...rest}) => (
+export const LoginHFTRoute = ({component: Component, ...rest}) => (
     <Route
         {...rest}
         render={(props) => (
