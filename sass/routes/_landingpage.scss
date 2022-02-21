@@ -556,15 +556,19 @@
 
   .share-div{
     background: var(--bgDiv);
-    border: 1px solid var(--border-div);
     border-radius: 7px;
     padding: 5px;
     margin-top: 5px;
   }
 
+  .share-div-input{
+    background: #7c787815;
+    border-radius: 7px;
+    margin-top: 5px;
+  }
+
   .share-select{
-    background: var(--bgDiv);
-    border: 1px solid var(--border-div);
+    background: #7c787815;
     border-radius: 7px;
     padding: 8px;
     color: var(--text-primary);
