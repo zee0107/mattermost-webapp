@@ -172,7 +172,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='col-lg-1'></div>
                                     <div className='col-lg-7'>
-                                        <div className='col-lg-12'>
+                                        <div className='col-lg-12 profile-count-box'>
                                             <div className='d-flex'>
                                                 <div className='col-lg-3'>
                                                 </div>
