@@ -11,12 +11,12 @@ import homeImage from 'images/homeFeed.png';
 import homedarkImage from 'images/homeFeed-dark.png';
 import coverImage from 'images/cover-photo.png';
 import profPic from 'images/profiles/user-profile-1.png'
-import cImage from 'images/icons/cicon.png';
-import safeImage from 'images/icons/safeicon.png';
-import btcImage from 'images/icons/bitcoinicon.png';
-import playImage from 'images/icons/playicon.png';
-import createImage from 'images/icons/get-started-icon-1.png';
-import bankImage from 'images/icons/get-started-icon-2.png';
+import ImgIcon from 'images/profiles/image.svg';
+import LayoutIcon from 'images/profiles/columns-gap.svg';
+import MusicIcon from 'images/profiles/music-note-beamed.svg';
+import VideoIcon from 'images/profiles/camera-video.svg';
+import GeoIcon from 'images/profiles/geo-alt.svg';
+import AttachIcon from 'images/profiles/paperclip.svg';
 import buildImage from 'images/icons/get-started-icon-3.png';
 import profilesImage from 'images/profiles.svg';
 
@@ -158,21 +158,64 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <div className='col-lg-6 profile-div'>
                                 <div className='row'>
                                     <div className='col-lg-4 profile-details-box'>
-                                        <div className='d-flex'>
+                                        <div className='row'>
                                             <div className='col-lg-4'>
                                                 <img src={profPic}></img>
                                             </div>
                                             
                                             <div className='col-lg-8'>
                                                 <h3>Evan Yates</h3>
-                                                <h4>&amp;evanyates</h4>
+                                                <h5>&amp;evanyates</h4>
                                                 <h5>New york City, Ny</h5>
                                             </div>
                                         </div>
                                     </div>
                                     <div className='col-lg-1'></div>
                                     <div className='col-lg-7 profile-details-box'>
-                                        <p>Menus</p>
+                                        <div className='col-lg-12'>
+                                            <div className='d-flex'>
+                                                <div className='col-lg-3'>
+                                                </div>
+                                                <div className='col-lg-3'>
+                                                    <h3>Post</h3>
+                                                    <h2>2.0k</h2>
+                                                </div>
+                                                <div className='col-lg-3'>
+                                                    <h3>Following</h3>
+                                                    <h2>2.0k</h2>
+                                                </div>
+                                                <div className='col-lg-3'>
+                                                    <h3>Followers</h3>
+                                                    <h2>2.0k</h2>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div className='col-lg-12'>
+                                            <div className='d-flex'>
+                                                <div className='col-lg-1'>
+                                                    <a href='#'><img src={LayoutIcon}></img></a>
+                                                </div>
+                                                <div className='col-lg-2'>
+                                                    <a href='#'><img src={ImgIcon}></img></a>
+                                                </div>
+                                                <div className='col-lg-2'>
+                                                    <a href='#'><img src={ImgIcon}></img></a>
+                                                </div>
+                                                <div className='col-lg-2'>
+                                                    <a href='#'><img src={VideoIcon}></img></a>
+                                                </div>
+                                                <div className='col-lg-2'>
+                                                    <a href='#'><img src={MusicIcon}></img></a>
+                                                </div>
+                                                <div className='col-lg-2'>
+                                                    <a href='#'><img src={AttachIcon}></img></a>
+                                                </div>
+                                                <div className='col-lg-1'>
+                                                    <a href='#'><img src={GeoIcon}></img></a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
