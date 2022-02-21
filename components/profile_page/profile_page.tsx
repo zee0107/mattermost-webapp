@@ -231,7 +231,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         
                                     </div>
                                     <br />
-                                    <div className='col-lg-12 chat-box'>
+                                    <div className='col-lg-12 chat-box removePadding'>
                                         <div className='d-flex'>
                                             <div className='col-lg-4'>
                                                 <a href='#' title='Personal Chat'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" class="bi bi-person" viewBox="0 0 16 16">
