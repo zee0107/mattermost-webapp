@@ -233,7 +233,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                         <img src={profPic} className='chat-img'></img>
                                                     </div>
                                                     <div className='col-sm-7 removePadding'>
-                                                        <input className='form-control' />
+                                                        <input className='form-control' placeholder='Whats going on, Evan?' />
                                                     </div>
                                                     <div className='col-sm-3 removePadding'>
                                                         
