@@ -411,6 +411,7 @@
 
   .img-cover{
     height: 300px;
+    border-radius: 7px;
   }
 
   .profile-div{
@@ -488,10 +489,16 @@
     border: 1px solid var(--border-div);
     border-radius: 7px;
     background-color: var(--bgDiv);
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .chat-img{
     width: 100%;
     max-width: 45px;
     height: auto;
+  }
+
+  .chat-setting{
+    text-align: end;
   }
