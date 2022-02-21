@@ -409,6 +409,10 @@
     position: absolute;
     left: 25%;
     top: 61%;
+
+    @media (max-width: 768px) {
+        text-align: center;
+    }
   }
 
   .profile-details-box{
