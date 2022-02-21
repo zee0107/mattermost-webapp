@@ -65,8 +65,8 @@
     margin-bottom: 50px;
 }
 
-.margin-top-50{
-  margin-top: 50px;
+.margin-top-30{
+  margin-top: 30px;
 }
 
 .marginTopImg{
@@ -562,14 +562,13 @@
   }
 
   .share-div-input{
-    background: #7c787815;
-    border-radius: 7px;
-    margin-top: 5px;
+    margin-top: 10px;
   }
 
   .share-select{
     background: #7c787815;
     border-radius: 7px;
+    border-color: transparent;
     padding: 8px;
     color: var(--text-primary);
   }
