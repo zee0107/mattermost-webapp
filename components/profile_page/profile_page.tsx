@@ -264,7 +264,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <br></br>
-                                    <div className='col-lg-12 post-div margin-top-50'>
+                                    <div className='col-lg-12 post-div margin-top-30'>
                                         <div className='d-flex'>
                                             <div className='col-lg-2 text-center removePaddingRight'>
                                                 <img src={postPic} className='post-img'></img>
