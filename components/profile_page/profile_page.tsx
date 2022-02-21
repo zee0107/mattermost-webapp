@@ -224,11 +224,11 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         <div className='col-lg-12'>
                             <div className='row'>
                                 <div className='col-lg-9'>
-                                    
+                                    <h1>No Post</h1>
                                 </div>
                                 <div className='col-lg-3'>
                                     <div className='col-lg-12'>
-                                        <h1>No Post</h1>
+                                        
                                     </div>
                                     <br />
                                     <div className='col-lg-12 chat-box'>
