@@ -292,29 +292,29 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
                                         </div>
                                         <br></br>
-                                        <div className='d-flex'>
+                                        <div className='d-flex margin-top-10'>
                                             <div className='done-div'>
                                                 <img src={DoneIcon}></img>
                                             </div>
-                                            <h5 className='getStartPrimaryText remove-margin-top'>Add Your Photo</h5>
+                                            <h5 className='getStartPrimaryText margin-top-4'>Add Your Photo</h5>
                                         </div>
-                                        <div className='d-flex'>
+                                        <div className='d-flex margin-top-10'>
                                             <div className='done-div'>
                                                 <img src={DoneIcon}></img>
                                             </div>
-                                            <h5 className='getStartPrimaryText remove-margin-top'>Add Your Name</h5>
+                                            <h5 className='getStartPrimaryText margin-top-4'>Add Your Name</h5>
                                         </div>
+                                        <div className='d-flex margin-top-10'>
                                             <div className='done-div'>
                                                 <img src={DoneIcon}></img>
                                             </div>
-                                        <div className='d-flex'>
-                                            <h5 className='getStartPrimaryText remove-margin-top'>Add Your Workspace</h5>
+                                            <h5 className='getStartPrimaryText margin-top-4'>Add Your Workspace</h5>
                                         </div>
-                                        <div className='d-flex'>
+                                        <div className='d-flex margin-top-10'>
                                             <div className='undone-div'>
                                                 <img className='undone-img' src={UndoneIcon}></img>
                                             </div>
-                                            <h5 className='getStartPrimaryText remove-margin-top'>Add Your Address</h5>
+                                            <h5 className='getStartPrimaryText margin-top-4'>Add Your Address</h5>
                                         </div>
                                     </div>
                                     <br />
