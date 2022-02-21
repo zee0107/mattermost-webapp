@@ -416,7 +416,7 @@ export default class Root extends React.PureComponent {
                         path={'/home'}
                         component={LandingPage}
                     />
-                    <LoginHFTRoute
+                    <HFTRouteLog
                         path={'/profile'}
                         component={ProfilePage}
                     />
