@@ -413,19 +413,19 @@
     @media (max-width: 1150px) {
       text-align: center;
       left: 33%;
-      top: 5%;
+      top: 3%;
     }
 
     @media (max-width: 768px) {
         text-align: center;
         left: 33%;
-        top: 5%;
+        top: 3%;
     }
 
     @media (max-width: 600px) {
       text-align: center;
       left: 13%;
-      top: 5%;
+      top: 3%;
     }
   }
 
@@ -449,5 +449,29 @@
 
   .profile-count-box{
     color: #ffffff;
-    text-align: left;
+    text-align: right;
+  }
+
+  .profile-img-box{
+    border: 1px solid blue;
+    border-radius: 50%;
+    width: 100%;
+    max-width: 70px;
+  }
+
+  .profile-img-div{
+    padding-top: 6%;
+    padding-left: 6%;
+
+    @media (max-width: 1150px) {
+      padding-top: 0%;
+    }
+
+    @media (max-width: 768px) {
+      padding-top: 0%;
+    }
+
+    @media (max-width: 600px) {
+      padding-top: 0%;
+    }
   }
