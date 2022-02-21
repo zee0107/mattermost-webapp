@@ -220,6 +220,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             </div>
                         </div>
                     </div>
+                    <br />
                     <div className='inner-wrap-knowmore'>
                         <div className='col-lg-12'>
                             <div className='row'>
@@ -228,13 +229,13 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <div className='row'>
                                             <div className='col-lg-6'>
                                                 <div className='d-flex'>
-                                                    <div className='col-sm-2'>
+                                                    <div className='col-sm-2 removePadding'>
                                                         <img src={profPic} className='chat-img'></img>
                                                     </div>
-                                                    <div className='col-sm-7'>
+                                                    <div className='col-sm-7 removePadding'>
                                                         <input className='form-control' />
                                                     </div>
-                                                    <div className='col-sm-3'>
+                                                    <div className='col-sm-3 removePadding'>
                                                         
                                                     </div>
                                                 </div>
@@ -247,9 +248,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </select>
                                             </div>
                                             <div className='col-lg-2'>
-                                                <a href='#' className='btn buttonBgGreen'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" class="bi bi-camera-video" viewBox="0 0 16 16">
-                                                    <path fillRule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z"/>
-                                                </svg>Live</a>
+                                                <a href='#' className='btn buttonBgWhite'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-camera-video" viewBox="0 0 16 16">
+                                                    <path fillRule="var(--text-primary)" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z"/>
+                                                </svg> Live</a>
                                             </div>
                                             <div className='col-lg-2'>
                                                 <a href='#' className='btn buttonBgGreen'>Share</a>
