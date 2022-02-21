@@ -223,10 +223,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     <div className='inner-wrap-knowmore'>
                         <div className='col-lg-12'>
                             <div className='row'>
-                                <div className='col-lg-9'>
+                                <div className='col-lg-8'>
                                     <h1>No Post</h1>
                                 </div>
-                                <div className='col-lg-3'>
+                                <div className='col-lg-4'>
                                     <div className='col-lg-12'>
                                         
                                     </div>
@@ -252,7 +252,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </svg></a>
                                             </div>
                                         </div>
-                                        <div className='col-lg-12'>
+                                        <div className='col-lg-12 removePadding'>
                                             <div className='d-flex'>
                                                 <div className='col-lg-4'>
                                                     <img src={profPic}></img>
@@ -270,7 +270,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             </div>
                                             <p>A Facebook-like platform for crypto enthusiasts.</p>
                                         </div>
-                                        <div className='col-lg-12'>
+                                        <div className='col-lg-12 removePadding'>
                                             <div className='d-flex'>
                                                 <div className='col-lg-4'>
                                                     <img src={profPic}></img>
@@ -288,7 +288,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='col-lg-12'>
+                                        <div className='col-lg-12 removePadding'>
                                             <div className='d-flex'>
                                                 <div className='col-lg-4'>
                                                     <img src={profPic}></img>
