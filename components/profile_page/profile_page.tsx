@@ -18,6 +18,8 @@ import VideoIcon from 'images/profiles/camera-video.svg';
 import GeoIcon from 'images/profiles/geo-alt.svg';
 import AttachIcon from 'images/profiles/paperclip.svg';
 import SplitIcon from 'images/profiles/menu-icon.svg';
+import postImage from 'images/post-1.png';
+import postPic from 'images/profiles/user-profile-2.png'
 import profilesImage from 'images/profiles.svg';
 
 
@@ -254,16 +256,30 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </select>
                                             </div>
                                             <div className='col-md-3 removePaddingRight margin-top-share'>
-                                                <a href='#' className='btn buttonBgWhite btn-margin-right'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-camera-video" viewBox="0 0 16 16">
+                                                <a href='#' className='btn buttonBgWhite btn-margin-right'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#44cc4b" className="bi bi-camera-video" viewBox="0 -2 16 16">
                                                     <path fillRule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z" fill="var(--text-primary)"/>
                                                 </svg> Live</a>
                                                 <a href='#' className='btn buttonBgGreen btn-padding'>Share</a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col-lg-12'>
+                                    <div className='col-lg-12 post-div'>
                                         <div className='d-flex'>
-
+                                            <div className='col-lg-3'>
+                                                <img src={postPic} className='chat-img'></img>
+                                            </div>
+                                            <div className='col-lg-7'>
+                                                <h4 className='getStartPrimaryText'>Cody Fisher</h4>
+                                                <h5 className='getSecondaryText'>New york City, Ny</h5>
+                                            </div>
+                                            <div className='col-lg-2'>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" fill='var(--text-primary)'/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div className='col-lg-12'>
+                                            <img src={postImage}></img>
                                         </div>
                                     </div>
                                 </div>
