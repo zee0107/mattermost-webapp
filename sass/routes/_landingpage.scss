@@ -65,6 +65,10 @@
     margin-bottom: 50px;
 }
 
+.marginTopImg{
+  margin-top: 4%;
+}
+
 .imgIcons-knowmore{
     width: 57px;
     padding-top: 15px;
@@ -484,4 +488,10 @@
     border: 1px solid var(--border-div);
     border-radius: 7px;
     background-color: var(--bgDiv);
+  }
+
+  .chat-img{
+    width: 100%;
+    max-width: 45px;
+    height: auto;
   }
