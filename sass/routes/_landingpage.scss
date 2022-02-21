@@ -593,3 +593,17 @@
     max-width: 60px;
     height: auto;
   }
+
+  .done-div{
+    width: 80px;
+    height: 80px;
+    background-color: #31dd4871;
+    border-radius: 50%;
+  }
+
+  .undone-div{
+    width: 80px;
+    height: 80px;
+    background-color: #31dd48;
+    border-radius: 50%;
+  }

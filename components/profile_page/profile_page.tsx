@@ -18,6 +18,8 @@ import VideoIcon from 'images/profiles/camera-video.svg';
 import GeoIcon from 'images/profiles/geo-alt.svg';
 import AttachIcon from 'images/profiles/paperclip.svg';
 import SplitIcon from 'images/profiles/menu-icon.svg';
+import DoneIcon from 'images/profiles/done.svg';
+import UndoneIcon from 'images/profiles/undone.svg';
 import postImage from 'images/post-1.png';
 import postPic from 'images/profiles/user-profile-2.png'
 import profilesImage from 'images/profiles.svg';
@@ -285,8 +287,29 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
-                                    <div className='col-lg-12'>
+                                    <div className='col-lg-12 chat-box removePadding'>
+                                        <div className='d-flex'>
 
+                                        </div>
+                                        <br></br>
+                                        <div className='d-flex'>
+                                            <div className='done-div'>
+                                                <img src={DoneIcon}></img>
+                                            </div>
+                                            <h4 className='getStartPrimaryText'>Add Your Photo</h4>
+                                        </div>
+                                        <div className='d-flex'>
+                                            <h4 className='getStartPrimaryText'>Add Your Name</h4>
+                                        </div>
+                                        <div className='d-flex'>
+                                            <h4 className='getStartPrimaryText'>Add Your Workspace</h4>
+                                        </div>
+                                        <div className='d-flex'>
+                                            <div>
+                                                <img className='undone-div' src={UndoneIcon}></img>
+                                            </div>
+                                            <h4 className='getStartPrimaryText'>Add Your Address</h4>
+                                        </div>
                                     </div>
                                     <br />
                                     <div className='col-lg-12 chat-box removePadding'>
