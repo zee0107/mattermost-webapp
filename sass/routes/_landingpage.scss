@@ -448,11 +448,15 @@
     border-radius: 8px;
     background: linear-gradient(45deg, #424242cc, #303466b5);
     color: #ffffff;
-    padding: 10px;
     text-align: center;
   }
 
-  .profile-menu-box div:hover{
+  .profile-menu-icon{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .profile-menu-icon:hover{
     background: linear-gradient(45deg, #363535dc, #303466b5);
   }
 
@@ -505,6 +509,6 @@
 
   .chat-hover:hover{
     border-radius: 7px;
-    border-right: 2px solid greenyellow;
-    background-color: #7c787860;
+    border-right: 2px solid #2fff43;
+    background-color: #7c78782b;
   }
