@@ -171,27 +171,26 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-lg-1'></div>
-                                    <div className='col-lg-7 profile-details-box'>
+                                    <div className='col-lg-7'>
                                         <div className='col-lg-12'>
                                             <div className='d-flex'>
                                                 <div className='col-lg-3'>
                                                 </div>
                                                 <div className='col-lg-3'>
-                                                    <h3>Post</h3>
-                                                    <h2>2.0k</h2>
+                                                    <h5>Post</h5>
+                                                    <h4>2.0k</h4>
                                                 </div>
                                                 <div className='col-lg-3'>
-                                                    <h3>Following</h3>
-                                                    <h2>2.0k</h2>
+                                                    <h5>Following</h5>
+                                                    <h4>2.0k</h4>
                                                 </div>
                                                 <div className='col-lg-3'>
-                                                    <h3>Followers</h3>
-                                                    <h2>2.0k</h2>
+                                                    <h5>Followers</h5>
+                                                    <h4>2.0k</h4>
                                                 </div>
                                             </div>
-                                            
                                         </div>
-                                        <div className='col-lg-12'>
+                                        <div className='col-lg-12 profile-details-box'>
                                             <div className='d-flex'>
                                                 <div className='col-lg-1'>
                                                     <a href='#'><img src={LayoutIcon}></img></a>
