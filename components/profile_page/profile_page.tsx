@@ -169,7 +169,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <h5>New york City, Ny</h5>
                                             </div>
                                         </div>
-                                        
                                     </div>
                                     <div className='col-lg-8 profile-details-box'>
                                         <p>Menus</p>
