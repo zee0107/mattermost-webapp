@@ -412,7 +412,7 @@
   }
 
   .profile-details-box{
-    border: 1px solid #fafafa;
     border-radius: 8px;
-    background-color: #fafafa77;
+    background: linear-gradient(45deg, #424242cc, #303466b5);
+    color: var(--text-primary);
   }
