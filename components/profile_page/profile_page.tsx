@@ -224,10 +224,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         <div className='col-lg-12'>
                             <div className='row'>
                                 <div className='col-lg-8'>
-                                    <h1>No Post</h1>
-                                </div>
-                                <div className='col-lg-4'>
-                                    <div className='col-lg-12'>
+                                <div className='col-lg-12'>
                                         <div className='row'>
                                             <div className='col-lg-6'>
                                                 <div className='d-flex'>
@@ -258,6 +255,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <a href='#' className='btn buttonBgGreen'>Share</a>
                                             </div>
                                         </div>
+                                    </div>
+                                    <h1>No Post</h1>
+                                </div>
+                                <div className='col-lg-4'>
+                                    <div className='col-lg-12'>
+                                        
                                     </div>
                                     <br />
                                     <div className='col-lg-12 chat-box removePadding'>
