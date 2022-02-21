@@ -416,3 +416,20 @@
     background: linear-gradient(45deg, #424242cc, #303466b5);
     color: #ffffff;
   }
+
+  .profile-menu-box{
+    border-radius: 8px;
+    background: linear-gradient(45deg, #424242cc, #303466b5);
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .profile-menu-box a:hover{
+    background: linear-gradient(45deg, #363535dc, #303466b5);
+  }
+
+  .profile-menu-box{
+    color: #ffffff;
+    text-align: left;
+  }

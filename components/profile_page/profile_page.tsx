@@ -165,7 +165,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             
                                             <div className='col-lg-8'>
                                                 <h3>Evan Yates</h3>
-                                                <h5>&amp;evanyates</h5>
+                                                <h5>@evanyates</h5>
                                                 <h5>New york City, Ny</h5>
                                             </div>
                                         </div>
@@ -190,7 +190,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='col-lg-12 profile-details-box'>
+                                        <div className='col-lg-12 profile-menu-box'>
                                             <div className='d-flex'>
                                                 <div className='col-lg-1'>
                                                     <a href='#'><img src={LayoutIcon}></img></a>
