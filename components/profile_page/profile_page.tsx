@@ -329,13 +329,13 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <div className='col-lg-9 removePaddingLeft'>
                                                     <div className='d-flex'>
                                                         <div className='col-sm-6 removePaddingLeft'>
-                                                            <h6>Allysa Kate</h6>
+                                                            <h6 className='getStartPrimaryText'>Allysa Kate</h6>
                                                         </div>
                                                         <div className='col-sm-6 removePaddingLeft text-end small'>
-                                                            <h6>Today, 12:04</h6>
+                                                            <h6 className='getStartPrimaryText'>Today, 12:04</h6>
                                                         </div>
                                                     </div>
-                                                    <h6>A Facebook-like platform...</h6>
+                                                    <h6 className='getSecondaryText'>A Facebook-like platform...</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -347,13 +347,13 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <div className='col-lg-9 removePaddingLeft'>
                                                     <div className='d-flex'>
                                                         <div className='col-sm-6 removePaddingLeft'>
-                                                            <h6>Mark Olympus</h6>
+                                                            <h6 className='getStartPrimaryText'>Mark Olympus</h6>
                                                         </div>
                                                         <div className='col-sm-6 removePaddingLeft text-end small'>
-                                                            <h6>Today, 12:04</h6>
+                                                            <h6 className='getStartPrimaryText'>Today, 12:04</h6>
                                                         </div>
                                                     </div>
-                                                    <h6>A Facebook-like platform...</h6>
+                                                    <h6 className='getSecondaryText'>A Facebook-like platform...</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -365,13 +365,13 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <div className='col-lg-9 removePaddingLeft'>
                                                     <div className='d-flex'>
                                                         <div className='col-sm-6 removePaddingLeft'>
-                                                            <h6>Janine Tenoso</h6>
+                                                            <h6 className='getStartPrimaryText'>Janine Tenoso</h6>
                                                         </div>
                                                         <div className='col-sm-6 removePaddingLeft text-end small'>
-                                                            <h6>Today, 12:04</h6>
+                                                            <h6 className='getStartPrimaryText'>Today, 12:04</h6>
                                                         </div>
                                                     </div>
-                                                    <h6>A Facebook-like platform...</h6>
+                                                    <h6 className='getSecondaryText'>A Facebook-like platform...</h6>
                                                 </div>
                                             </div>
                                         </div>
