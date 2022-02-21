@@ -266,9 +266,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                             Today, 12:04
                                                         </div>
                                                     </div>
+                                                    <h6>A Facebook-like platform for crypto enthusiasts.</h6>
                                                 </div>
                                             </div>
-                                            <p>A Facebook-like platform for crypto enthusiasts.</p>
                                         </div>
                                         <div className='col-lg-12 removePadding'>
                                             <div className='d-flex'>
@@ -284,7 +284,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                                 Today, 12:04
                                                         </div>
                                                     </div>
-                                                    <p>A Facebook-like platform for crypto enthusiasts.</p>
+                                                    <h6>A Facebook-like platform for crypto enthusiasts.</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -302,7 +302,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                         Today, 12:04
                                                         </div>
                                                     </div>
-                                                    <p>A Facebook-like platform for crypto enthusiasts.</p>
+                                                    <h6>A Facebook-like platform for crypto enthusiasts.</h6>
                                                 </div>
                                             </div>
                                         </div>
