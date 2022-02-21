@@ -502,3 +502,9 @@
   .chat-setting{
     text-align: end;
   }
+
+  .chat-hover:hover{
+    border-radius: 7px;
+    border-right: 2px solid greenyellow;
+    background-color: #7c787860;
+  }

@@ -263,7 +263,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             </div>
                                         </div>
                                         <br />
-                                        <div className='col-lg-12 removePadding'>
+                                        <div className='col-lg-12 chat-hover removePadding'>
                                             <div className='d-flex'>
                                                 <div className='col-lg-3 marginTopImg'>
                                                     <img src={profPic} className='chat-img'></img>
@@ -281,7 +281,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='col-lg-12 removePadding'>
+                                        <div className='col-lg-12 chat-hover removePadding'>
                                             <div className='d-flex'>
                                                 <div className='col-lg-3 marginTopImg'>
                                                     <img src={profPic} className='chat-img'></img>
@@ -289,7 +289,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <div className='col-lg-9 removePaddingLeft'>
                                                     <div className='d-flex'>
                                                         <div className='col-sm-6 removePaddingLeft'>
-                                                            <h5>Mark Olympus</h5>
+                                                            <h6>Mark Olympus</h6>
                                                             </div>
                                                             <div className='col-sm-6 removePaddingLeft text-end small'>
                                                                <h6>Today, 12:04</h6>
@@ -299,7 +299,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='col-lg-12 removePadding'>
+                                        <div className='col-lg-12 chat-hover removePadding'>
                                             <div className='d-flex'>
                                                 <div className='col-lg-3 marginTopImg'>
                                                     <img src={profPic} className='chat-img'></img>
