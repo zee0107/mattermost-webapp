@@ -230,7 +230,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
                                     </div>
                                     <br />
-                                    <div className='col-lg-12'>
+                                    <div className='col-lg-12 chat-box'>
                                         <div className='col-lg-12'>
                                             <div className='d-flex'>
                                                 <div className='col-lg-4'>
@@ -253,7 +253,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='col-lg-12 chat-box'>
+                                        <div className='col-lg-12'>
                                             <div className='col-lg-12'>
                                                 <div className='d-flex'>
                                                     <div className='col-lg-4'>
