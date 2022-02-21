@@ -192,7 +192,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-lg-12 profile-menu-box'>
                                             <div className='d-flex'>
-                                                <div className='col-lg-1'>
+                                                <div className='col-lg-2'>
                                                     <a href='#'><img src={LayoutIcon}></img></a>
                                                 </div>
                                                 <div className='col-lg-2'>
@@ -210,7 +210,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <div className='col-lg-2'>
                                                     <a href='#'><img src={AttachIcon}></img></a>
                                                 </div>
-                                                <div className='col-lg-1'>
+                                                <div className='col-lg-2'>
                                                     <a href='#'><img src={GeoIcon}></img></a>
                                                 </div>
                                             </div>
