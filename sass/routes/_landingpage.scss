@@ -595,15 +595,25 @@
   }
 
   .done-div{
-    width: 80px;
-    height: 80px;
+    width: 30px;
+    height: 30px;
     background-color: #31dd4871;
     border-radius: 50%;
+    position: relative;
+    vertical-align: middle;
+    display: flex;
+    margin-left: 40px;
+    margin-right: 15px;
   }
 
   .undone-div{
-    width: 80px;
-    height: 80px;
+    width: 30px;
+    height: 30px;
     background-color: #31dd48;
     border-radius: 50%;
+    position: relative;
+    vertical-align: middle;
+    display: flex;
+    margin-left: 40px;
+    margin-right: 15px;
   }
