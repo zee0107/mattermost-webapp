@@ -219,12 +219,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                         </div>
+                        <br />
                     </div>
-                    <br />
-                    <div className='inner-wrap-knowmore'>
-                        <div className='col-lg-12'>
-                            <div className='row'>
-                                <div className='col-lg-8'>
+                    <div className="inner-wrap-knowmore">
+                        <div className="col-lg-12 marginTopBottom">
+                            <div className="row">
+                                <div className="col-lg-8">
                                     <div className='col-lg-12'>
                                         <div className='row'>
                                             <div className='col-md-7 removePaddingRight'>
@@ -260,7 +260,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <h1>No Post</h1>
                                     </div>
                                 </div>
-                                <div className='col-lg-4'>
+                                <div className="col-lg-4">
                                     
                                 </div>
                             </div>
