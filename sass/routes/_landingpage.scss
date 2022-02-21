@@ -475,3 +475,9 @@
       padding-top: 1%;
     }
   }
+
+  .chat-box{
+    border: 1px solid var(--border-div);
+    border-radius: 7px;
+    background-color: var(--bgDiv);
+  }
