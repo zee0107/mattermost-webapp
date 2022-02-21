@@ -257,7 +257,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <div className='col-lg-4'>
                                                     <img src={profPic}></img>
                                                 </div>
-                                                <div className='col-lg-8'>
+                                                <div className='col-lg-8 removePaddingLeft'>
                                                     <div className='d-flex'>
                                                         <div className='col-sm-6'>
                                                             <h6>Allysa Kate</h6>
@@ -275,7 +275,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <div className='col-lg-4'>
                                                     <img src={profPic}></img>
                                                 </div>
-                                                <div className='col-lg-8'>
+                                                <div className='col-lg-8 removePaddingLeft'>
                                                     <div className='d-flex'>
                                                         <div className='col-sm-6'>
                                                             <h6>Mark Olympus</h6>
@@ -293,7 +293,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <div className='col-lg-4'>
                                                     <img src={profPic}></img>
                                                 </div>
-                                                <div className='col-lg-8'>
+                                                <div className='col-lg-8 removePaddingLeft'>
                                                     <div className='d-flex'>
                                                         <div className='col-sm-6'>
                                                             <h6>Janine Tenoso</h6>
