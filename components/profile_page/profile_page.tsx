@@ -296,29 +296,29 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='done-div'>
                                                 <img src={DoneIcon}></img>
                                             </div>
-                                            <h5 className='getStartPrimaryText'>Add Your Photo</h5>
+                                            <h5 className='getStartPrimaryText remove-margin-top'>Add Your Photo</h5>
                                         </div>
                                         <div className='d-flex'>
                                             <div className='done-div'>
                                                 <img src={DoneIcon}></img>
                                             </div>
-                                            <h5 className='getStartPrimaryText'>Add Your Name</h5>
+                                            <h5 className='getStartPrimaryText remove-margin-top'>Add Your Name</h5>
                                         </div>
                                             <div className='done-div'>
                                                 <img src={DoneIcon}></img>
                                             </div>
                                         <div className='d-flex'>
-                                            <h5 className='getStartPrimaryText'>Add Your Workspace</h5>
+                                            <h5 className='getStartPrimaryText remove-margin-top'>Add Your Workspace</h5>
                                         </div>
                                         <div className='d-flex'>
                                             <div className='undone-div'>
                                                 <img className='undone-img' src={UndoneIcon}></img>
                                             </div>
-                                            <h5 className='getStartPrimaryText'>Add Your Address</h5>
+                                            <h5 className='getStartPrimaryText remove-margin-top'>Add Your Address</h5>
                                         </div>
                                     </div>
                                     <br />
-                                    <div className='col-lg-12 chat-box removePadding'>
+                                    <div className='col-lg-12 chat-box removePadding margin-top-30'>
                                         <div className='d-flex'>
                                             <div className='col-lg-4'>
                                                 <div className='d-flex'>

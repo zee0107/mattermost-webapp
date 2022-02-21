@@ -595,25 +595,34 @@
   }
 
   .done-div{
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background-color: #31dd4871;
     border-radius: 50%;
     position: relative;
     vertical-align: middle;
     display: flex;
-    margin-left: 40px;
+    margin-left: 35px;
     margin-right: 15px;
   }
 
   .undone-div{
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background-color: #31dd48;
     border-radius: 50%;
     position: relative;
     vertical-align: middle;
     display: flex;
-    margin-left: 40px;
+    margin-left: 35px;
     margin-right: 15px;
+  }
+
+  .undone-img{
+    border-radius: 50%;
+    padding-left: 3px;
+  }
+
+  .remove-margin-top{
+    margin-top: 0px;
   }
