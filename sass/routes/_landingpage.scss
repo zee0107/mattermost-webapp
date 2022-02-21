@@ -523,3 +523,31 @@
   .btn-margin-right{
     margin-right: 9px;
   }
+
+  .padding-top-share{
+    padding-top: 5px;
+  }
+
+  .margin-top-share{
+    padding-top: 5px;
+  }
+
+  .padding-top-share-icons{
+    padding-top: 12px;
+  }
+
+  .icon-margin-right{
+    margin-right: 8px;
+  }
+
+  .share-input{
+    border-color: transparent;
+    background-color: transparent;
+    color: var(--text-primary);
+  }
+
+  .share-div{
+    background: var(--bgDiv-transparent);
+    border: 1px solid var(--border-div);
+    border-radius: 7px;
+  }
