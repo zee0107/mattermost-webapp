@@ -159,7 +159,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 <div className='row'>
                                     <div className='col-lg-4 profile-details-box'>
                                         <div className='row'>
-                                            <div className='col-lg-4'>
+                                            <div className='col-lg-4 profile-img-div'>
                                                 <img src={profPic} className='profile-img-box'></img>
                                             </div>
                                             
