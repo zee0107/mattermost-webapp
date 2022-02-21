@@ -410,8 +410,22 @@
     left: 25%;
     top: 61%;
 
+    @media (max-width: 1150px) {
+      text-align: center;
+      left: 33%;
+      top: 5%;
+    }
+
     @media (max-width: 768px) {
         text-align: center;
+        left: 33%;
+        top: 5%;
+    }
+
+    @media (max-width: 600px) {
+      text-align: center;
+      left: 13%;
+      top: 5%;
     }
   }
 
