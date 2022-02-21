@@ -17,7 +17,7 @@ import MusicIcon from 'images/profiles/music-note-beamed.svg';
 import VideoIcon from 'images/profiles/camera-video.svg';
 import GeoIcon from 'images/profiles/geo-alt.svg';
 import AttachIcon from 'images/profiles/paperclip.svg';
-import buildImage from 'images/icons/get-started-icon-3.png';
+import SplitIcon from 'images/profiles/menu-icon.svg';
 import profilesImage from 'images/profiles.svg';
 
 
@@ -196,7 +196,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                     <a href='#'><img src={LayoutIcon}></img></a>
                                                 </div>
                                                 <div className='col-lg-2 profile-menu-icon'>
-                                                    <a href='#'><img src={ImgIcon}></img></a>
+                                                    <a href='#'><img src={SplitIcon}></img></a>
                                                 </div>
                                                 <div className='col-lg-2 profile-menu-icon'>
                                                     <a href='#'><img src={ImgIcon}></img></a>
@@ -236,11 +236,14 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                         <input className='form-control' placeholder='Whats going on, Evan?' />
                                                     </div>
                                                     <div className='col-sm-3 removePadding'>
-                                                    
+                                                        <h6><svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M3.03033 12.4859H10.4389V14.3381H3.03033V12.4859ZM3.03033 16.1902H10.4389V18.0423H3.03033V16.1902ZM3.03033 8.78166H10.4389V10.6338H3.03033V8.78166ZM3.03033 5.07739H10.4389V6.92953H3.03033V5.07739ZM17.8474 6.92953V16.1902H14.1431V6.92953H17.8474ZM19.6995 5.07739H12.291V18.0423H19.6995V5.07739Z" fill="#FF8D08"/>
+                                                        </svg></h6>
+                                                        <h6></h6>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className='col-md-5 removePaddingRight'>
+                                            <div className='col-lg-2'>
                                                 <select className='form-control'>
                                                     <option value='Everyone'><i class="bi bi-globe"></i> Everyone</option>
                                                     <option value='Friends'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-people" viewBox="0 0 16 16">
@@ -250,6 +253,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                                                     </svg> Private</option>
                                                 </select>
+                                            </div>
+                                            <div className='col-md-5 removePaddingRight'>
                                                 <a href='#' className='btn buttonBgWhite'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-camera-video" viewBox="0 0 16 16">                                                        <path fillRule="var(--text-primary)" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z"/>
                                                 </svg> Live</a>
                                                 <a href='#' className='btn buttonBgGreen'>Share</a>
