@@ -259,10 +259,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </div>
                                                 <div className='col-lg-8 removePaddingLeft'>
                                                     <div className='d-flex'>
-                                                        <div className='col-sm-6'>
+                                                        <div className='col-sm-6 removePaddingLeft'>
                                                             <h6>Allysa Kate</h6>
                                                         </div>
-                                                        <div className='col-sm-6 text-end small'>
+                                                        <div className='col-sm-6 removePaddingLeft text-end small'>
                                                             Today, 12:04
                                                         </div>
                                                     </div>
@@ -277,10 +277,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </div>
                                                 <div className='col-lg-8 removePaddingLeft'>
                                                     <div className='d-flex'>
-                                                        <div className='col-sm-6'>
+                                                        <div className='col-sm-6 removePaddingLeft'>
                                                             <h6>Mark Olympus</h6>
                                                             </div>
-                                                            <div className='col-sm-6 text-end small'>
+                                                            <div className='col-sm-6 removePaddingLeft text-end small'>
                                                                 Today, 12:04
                                                         </div>
                                                     </div>
@@ -295,10 +295,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </div>
                                                 <div className='col-lg-8 removePaddingLeft'>
                                                     <div className='d-flex'>
-                                                        <div className='col-sm-6'>
+                                                        <div className='col-sm-6 removePaddingLeft'>
                                                             <h6>Janine Tenoso</h6>
                                                         </div>
-                                                        <div className='col-sm-6 text-end small'>
+                                                        <div className='col-sm-6 removePaddingLeft text-end small'>
                                                         Today, 12:04
                                                         </div>
                                                     </div>
