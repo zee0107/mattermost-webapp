@@ -247,7 +247,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </div>
                                             </div>
                                             <div className='col-lg-3 removePaddingRight margin-top-share'>
-                                                <select className='share-div'>
+                                                <select className='share-select'>
                                                     <option value='Everyone'>Everyone</option>
                                                     <option value='Friends'>Friends Only</option>
                                                     <option value='Private'>Private</option>

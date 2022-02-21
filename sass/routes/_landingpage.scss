@@ -547,7 +547,14 @@
   }
 
   .share-div{
-    background: var(--bgDiv-transparent);
+    background: var(--bgDiv);
     border: 1px solid var(--border-div);
     border-radius: 7px;
+  }
+
+  .share-select{
+    background: var(--bgDiv);
+    border: 1px solid var(--border-div);
+    border-radius: 7px;
+    padding: 5px;
   }
