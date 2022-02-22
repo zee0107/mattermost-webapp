@@ -301,7 +301,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                     <a href='#' className='btn-margin-right'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#44cc4b" className="bi bi-camera-video" viewBox="0 -2 16 16">
                                                         <path fillRule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z" fill="var(--text-primary)"/>
                                                     </svg></a>
-                                                    <a href='#' className='btn-padding'><svg id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 16 16" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M352,377.9H102.4V198.2h57.5c0,0,14.1-19.7,42.7-38.2H83.2c-10.6,0-19.2,8.5-19.2,19.1v217.9c0,10.5,8.6,19.1,19.2,19.1   h288c10.6,0,19.2-8.5,19.2-19.1V288L352,319.4V377.9z M320,224v63.9l128-95.5L320,96v59.7C165.2,155.7,160,320,160,320   C203.8,248.5,236,224,320,224z"/></g></svg></a>
+                                                    <a href='#' className='btn-padding'>Share</a>
                                                 </div>
                                             </div>
                                         </div>
