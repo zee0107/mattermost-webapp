@@ -147,6 +147,17 @@ export const Li2 = styled.li`
     margin-right: 34px;
 }
 `
+export const Li4 = styled.li`
+  padding: 18px 5px;
+  outline: none;
+  width: 100%;
+  
+  @media (max-width: 768px) {
+    color: #000;
+    padding-bottom: 0px;
+    margin-right: 34px;
+}
+`
 export const Li3 = styled.li`
   margin-left: 10%;
 
