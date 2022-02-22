@@ -772,3 +772,10 @@
     width: 100%;    
   }
 }
+
+.btn-logout{
+  background-color: transparent;
+  border: transparent;
+  color: var(--text-primary);
+  font-size: 14px;
+}
