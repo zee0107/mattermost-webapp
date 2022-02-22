@@ -465,6 +465,13 @@
     text-align: center;
   }
 
+  .profile-menu-box-mobile{
+    border-radius: 8px;
+    background:var(--bgDiv);
+    color: #ffffff;
+    text-align: center;
+  }
+
   .profile-menu-icon{
     padding-top: 10px;
     padding-bottom: 10px;
@@ -673,6 +680,10 @@
   #profileMenuMobile{
     display: block;
   } 
+
+  .width-100{
+    width: 100%;
+  }
 }
 
 @media (min-width: 769px) {
