@@ -542,6 +542,10 @@
   .btn-margin-right{
     margin-right: 9px;
     padding: 9px;
+
+    @media (max-width: 768px) {
+      padding: 0px;
+    }
   }
 
   .btn-padding{
@@ -671,6 +675,10 @@
   top: 50%;
   transform: translate(0%, -50%);
   color: #ffffff;
+
+  @media (max-width: 768px) {
+    width: 100%;    
+  }
 }
 
 .completion-div-box{
@@ -709,6 +717,7 @@
 
   #buttonsMobile{
     display: block;
+    margin-top: 9px;
   } 
 
   #buttonsDesktop{
