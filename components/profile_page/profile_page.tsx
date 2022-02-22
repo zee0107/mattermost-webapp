@@ -21,7 +21,9 @@ import SplitIcon from 'images/profiles/menu-icon.svg';
 import DoneIcon from 'images/profiles/done.svg';
 import UndoneIcon from 'images/profiles/undone.svg';
 import postImage from 'images/post-1.png';
-import postPic from 'images/profiles/user-profile-2.png'
+import postPic from 'images/profiles/user-profile-2.png';
+import completion from 'images/profiles/completion.png';
+
 import profilesImage from 'images/profiles.svg';
 
 
@@ -289,6 +291,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 <div className="col-lg-4">
                                     <div className='col-lg-12 chat-box removePadding'>
                                         <div className='d-flex'>
+                                            <div>
+                                                <img src={completion}></img>
+                                            </div>
                                             <h5 className='getStartPrimaryText margin-top-4'>Profile Completion</h5>
                                         </div>
                                         <br></br>
