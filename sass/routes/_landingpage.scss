@@ -501,7 +501,6 @@
   .chat-box{
     border-radius: 7px;
     background-color: var(--bgDiv);
-    padding-top: 10px;
     padding-bottom: 10px;
   }
 
@@ -629,3 +628,24 @@
     margin-top: 10px;
   }
 
+.completion-box-bg{
+  background: #cafdc086;
+  position: relative;
+}
+
+.completion-img{
+  border-radius: 8px 0px 0px 0px;
+}
+
+.completion-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+}
+
+.competion-text-percent{
+  color: #43cc4c;
+  text-align: end;
+}

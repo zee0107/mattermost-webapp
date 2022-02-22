@@ -290,11 +290,13 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className="col-lg-4">
                                     <div className='col-lg-12 chat-box removePadding'>
-                                        <div className='d-flex'>
-                                            <div>
-                                                <img src={completion}></img>
+                                        <div className='d-flex completion-box-bg'>
+                                            <img src={completion} className='completion-img'></img>
+                                            <div className='d-flex'>
+                                                <h5 className='completion-text margin-top-4'>Profile Completion</h5>
+                                                <h4 className='competion-text-percent'>80%</h4>
                                             </div>
-                                            <h5 className='getStartPrimaryText margin-top-4'>Profile Completion</h5>
+                                            
                                         </div>
                                         <br></br>
                                         <div className='d-flex margin-top-10'>
