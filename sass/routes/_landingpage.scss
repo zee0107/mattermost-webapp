@@ -785,7 +785,7 @@
 }
 
 .search-div{
-  background-color: var(--bgDiv);
+  background-color: #6868683b;
   border-radius: 7px;
 }
 
@@ -797,5 +797,7 @@
 
 .bg-icons{
   color: var(--text-primary);
-  background-color: #6868687a;
+  background-color: #6868683b;
+  padding: 5px 10px 7px 10px;
+  border-radius: 7px;
 }
