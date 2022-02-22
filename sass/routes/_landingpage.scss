@@ -575,6 +575,10 @@
     border-radius: 7px;
     padding: 5px;
     margin-top: 5px;
+
+    @media (max-width: 768px) {
+      margin-top: 30px;
+    }
   }
 
   .share-div-input{
@@ -660,6 +664,7 @@
 .completion-img{
   border-radius: 8px 0px 0px 0px;
 }
+
 
 .completion-text{
   position: absolute;
