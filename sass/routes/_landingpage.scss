@@ -787,13 +787,20 @@
 .search-div{
   background-color: #6868683b;
   border-radius: 7px;
-  padding: 10px;
+  padding: 5px;
+  align-items: center;
 }
 
 .search-input{
   background-color: transparent;
   border: transparent;
   color: var(--text-primary);
+}
+
+.search-icon{
+  vertical-align: bottom;
+  margin-right: 10px;
+  margin-left: 5px;
 }
 
 .bg-icons{
