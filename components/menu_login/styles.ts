@@ -150,8 +150,8 @@ export const Li2 = styled.li`
 export const Li4 = styled.li`
   padding: 18px 5px;
   outline: none;
-  width: 100%;
-  
+  width: 30%;
+
   @media (max-width: 768px) {
     color: #000;
     padding-bottom: 0px;
