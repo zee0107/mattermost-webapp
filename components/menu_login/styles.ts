@@ -90,7 +90,7 @@ export const Ul = styled.ul<INav>`
     z-index: 9;
     justify-content: normal;
     background-color: var(--bgDiv) !important;
-    padding-left: auto;
+    padding-left: 0%;
   }
 `
 
