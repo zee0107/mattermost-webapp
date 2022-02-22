@@ -521,7 +521,7 @@
     border-radius: 7px;
     background-color: var(--bgDiv);
     padding-bottom: 10px;
-  }
+  }.
 
   .chat-img{
     width: 100%;
@@ -664,6 +664,16 @@
   color: #ffffff;
 }
 
+.completion-div-box{
+  border-radius: 7px;
+  background-color: var(--bgDiv);
+  padding-bottom: 10px;
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+  }
+}
+
 .competion-text-percent{
   color: #43cc4c;
   text-align: end;
@@ -688,6 +698,22 @@
     display: block;
   } 
 
+  #buttonsMobile{
+    display: block;
+  } 
+
+  #buttonsDesktop{
+    display: none;
+  } 
+
+  #selectMobile{
+    display: block;
+  } 
+
+  #selectDesktop{
+    display: none;
+  } 
+
   .width-100{
     width: 100%;
   }
@@ -699,6 +725,22 @@
   } 
 
   #profileMenu{
+    display: block;
+  } 
+
+  #buttonsMobile{
+    display: none;
+  } 
+
+  #buttonsDesktop{
+    display: block;
+  } 
+
+  #selectMobile{
+    display: none;
+  } 
+
+  #selectDesktop{
     display: block;
   } 
 }
