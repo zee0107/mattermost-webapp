@@ -416,6 +416,10 @@
   .img-cover{
     height: 300px;
     border-radius: 7px;
+
+    @media (max-width: 768px) {
+      height: 250px;      
+    }
   }
 
   .profile-div{
@@ -424,19 +428,16 @@
     top: 13.5em;
 
     @media (max-width: 1150px) {
-      text-align: center;
       left: 33%;
       top: 1%;
     }
 
     @media (max-width: 768px) {
-        text-align: center;
         left: 33%;
         top: 1%;
     }
 
     @media (max-width: 600px) {
-      text-align: center;
       left: 13%;
       top: 1%;
     }
@@ -451,6 +452,10 @@
     border-radius: 8px;
     background: linear-gradient(45deg, #424242cc, #303466b5);
     color: #ffffff;
+
+    @media (max-width: 768px) {
+      margin-bottom: 10px;
+    }
   }
 
   .profile-menu-box{
@@ -487,14 +492,14 @@
 
     @media (max-width: 1150px) {
       padding-top: 1%;
+      display: flex;
+      align-items: center;
     }
 
     @media (max-width: 768px) {
       padding-top: 1%;
-    }
-
-    @media (max-width: 600px) {
-      padding-top: 1%;
+      display: flex;
+      align-items: center;
     }
   }
 
