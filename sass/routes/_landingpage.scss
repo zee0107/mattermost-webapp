@@ -783,3 +783,19 @@
 .logout-icon{
   vertical-align: bottom;
 }
+
+.search-div{
+  background-color: var(--bgDiv);
+  border-radius: 7px;
+}
+
+.search-input{
+  background-color: transparent;
+  border: transparent;
+  color: var(--text-primary);
+}
+
+.bg-icons{
+  color: var(--text-primary);
+  background-color: #6868687a;
+}

@@ -158,7 +158,7 @@ export const Li3 = styled.li`
 `
 
 export const Logo = styled.img`
-  margin: 20px 50px 20px 25%;
+  margin: 20px 50px 20px 20%;
   width: 160px;
   height: 70px;
   object-fit: contain;
