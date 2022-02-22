@@ -336,7 +336,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <img src={completion} className='completion-img'></img>
                                             <div className='col-lg-12 completion-text'>
                                                 <div className='d-flex'>
-                                                    <div className='col-lg-9'>
+                                                    <div className='col-lg-9 width-100'>
                                                         <h5>Profile Completion</h5>
                                                     </div>
                                                     <div className='col-lg-3'>
@@ -411,10 +411,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </div>
                                                 <div className='col-lg-9 width-100 removePaddingLeft'>
                                                     <div className='d-flex'>
-                                                        <div className='col-sm-6 removePaddingLeft'>
+                                                        <div className='col-sm-6 width-100 removePaddingLeft'>
                                                             <h6 className='getStartPrimaryText'>Allysa Kate</h6>
                                                         </div>
-                                                        <div className='col-sm-6 removePaddingLeft text-end small'>
+                                                        <div className='col-sm-6 removePaddingLeft chat-text'>
                                                             <h6 className='getStartPrimaryText'>Today, 12:04</h6>
                                                         </div>
                                                     </div>
@@ -429,10 +429,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </div>
                                                 <div className='col-lg-9 width-100 removePaddingLeft'>
                                                     <div className='d-flex'>
-                                                        <div className='col-sm-6 removePaddingLeft'>
+                                                        <div className='col-sm-6 width-100 removePaddingLeft'>
                                                             <h6 className='getStartPrimaryText'>Mark Olympus</h6>
                                                         </div>
-                                                        <div className='col-sm-6 removePaddingLeft text-end small'>
+                                                        <div className='col-sm-6 removePaddingLeft chat-text'>
                                                             <h6 className='getStartPrimaryText'>Today, 12:04</h6>
                                                         </div>
                                                     </div>
@@ -447,10 +447,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </div>
                                                 <div className='col-lg-9 width-100 removePaddingLeft'>
                                                     <div className='d-flex'>
-                                                        <div className='col-sm-6 removePaddingLeft'>
+                                                        <div className='col-sm-6 width-100 removePaddingLeft'>
                                                             <h6 className='getStartPrimaryText'>Janine Tenoso</h6>
                                                         </div>
-                                                        <div className='col-sm-6 removePaddingLeft text-end small'>
+                                                        <div className='col-sm-6 removePaddingLeft chat-text'>
                                                             <h6 className='getStartPrimaryText'>Today, 12:04</h6>
                                                         </div>
                                                     </div>
