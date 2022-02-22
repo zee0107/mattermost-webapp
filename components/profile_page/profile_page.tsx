@@ -162,7 +162,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 <img className='img-cover' src={coverImage}></img>
                             </div>
                             <div className='col-lg-6 profile-div'>
-                                <div className='row'>
+                                <div className='d-flex'>
                                     <div className='col-lg-4 profile-details-box'>
                                         <div className='row'>
                                             <div className='col-lg-4 profile-img-div'>
@@ -229,6 +229,31 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     </div>
                     <br></br>
                     <div className="inner-wrap-profile">
+                        <div id='profileMenuMobile' className='col-lg-12 profile-menu-box'>
+                            <div className='d-flex'>
+                                <div className='col-lg-2 profile-menu-icon'>
+                                    <a href='#'><img src={LayoutIcon}></img></a>
+                                </div>
+                                <div className='col-lg-2 profile-menu-icon'>
+                                    <a href='#'><img src={SplitIcon}></img></a>
+                                </div>
+                                <div className='col-lg-2 profile-menu-icon'>
+                                    <a href='#'><img src={ImgIcon}></img></a>
+                                </div>
+                                <div className='col-lg-2 profile-menu-icon'>
+                                    <a href='#'><img src={VideoIcon}></img></a>
+                                </div>
+                                <div className='col-lg-2 profile-menu-icon'>
+                                    <a href='#'><img src={MusicIcon}></img></a>
+                                </div>
+                                <div className='col-lg-2 profile-menu-icon'>
+                                    <a href='#'><img src={AttachIcon}></img></a>
+                                </div>
+                                <div className='col-lg-2 profile-menu-icon'>
+                                <a href='#'><img src={GeoIcon}></img></a>
+                                </div>
+                            </div>
+                        </div>
                         <div className="col-lg-12">
                             <div className="row">
                                 <div className="col-lg-8">

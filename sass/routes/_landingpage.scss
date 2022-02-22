@@ -454,7 +454,7 @@
     color: #ffffff;
 
     @media (max-width: 768px) {
-      margin-bottom: 10px;
+      margin-bottom: 40px;
     }
   }
 
@@ -668,5 +668,19 @@
 @media (max-width: 768px) {
   #profileMenu{
     display: none;
-  }  
+  } 
+  
+  #profileMenuMobile{
+    display: block;
+  } 
+}
+
+@media (min-width: 769px) {
+  #profileMenuMobile{
+    display: none;
+  } 
+
+  #profileMenu{
+    display: block;
+  } 
 }
