@@ -173,7 +173,7 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
                 <div className='row footer border-top'>
                     <div id='footer_section' className='footer-pane col-xs-12'>
                         <br />
-                        <div className="row">
+                        {/*<div className="row">
                             <div className="col-lg-2"></div>
                             <div className="col-lg-2">
                                 <img src={this.state.logo_img}></img>
@@ -289,7 +289,7 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
                             </div>
                             <div className="col-lg-2"></div>
                         </div>
-                        <br />
+                        <br />*/}
                         <div className="col-lg-12 text-center">
                             <div className="parent">
                                 <img src={fillCircle} className="image1"></img>

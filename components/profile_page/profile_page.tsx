@@ -228,7 +228,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         <br />
                     </div>
                     <br></br>
-                    <div className="inner-wrap-knowmore">
+                    <div className="inner-wrap-profile">
                         <div className="col-lg-12">
                             <div className="row">
                                 <div className="col-lg-8">
