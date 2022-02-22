@@ -3,7 +3,7 @@ import * as S from './styles';
 import Logo from 'images/logoLight.png';
 import profPic from 'images/profiles/user-profile-1.png'
 import * as GlobalActions from 'actions/global_actions';
-import StatusDropdown from '../status_dropdown';
+import StatusDropdown from 'component/status_dropdown';
 
 import {
   BrowserRouter as Router,
