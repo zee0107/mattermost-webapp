@@ -156,6 +156,7 @@ export const Li4 = styled.li`
     color: #000;
     padding-bottom: 0px;
     margin-right: 34px;
+    width: auto;
 }
 `
 export const Li3 = styled.li`
