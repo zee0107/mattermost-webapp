@@ -416,10 +416,7 @@ export default class Root extends React.PureComponent {
                         path={'/home'}
                         component={LandingPage}
                     />
-                    <LoginHFTRoute
-                        path={'/profile'}
-                        component={ProfilePage}
-                    />
+                    
                     <Route
                         path={'/signup_email'}
                         component={SignupEmail}
@@ -476,7 +473,6 @@ export default class Root extends React.PureComponent {
                         from={'/_redirect/pl/:postid'}
                         to={`/${this.props.permalinkRedirectTeamName}/pl/:postid`}
                     />
-                    
                     <CompassThemeProvider theme={this.props.theme}>
                         <ModalController/>
                         <GlobalHeader/>
