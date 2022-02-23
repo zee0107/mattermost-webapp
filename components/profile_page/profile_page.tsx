@@ -56,12 +56,12 @@ type Props = {
     userId: string;
     profilePicture: string;
     autoResetPref?: string;
-    actions: {
+    /*actions: {
         openModal: <P>(modalData: ModalData<P>) => void;
         setStatus: (status: UserStatus) => ActionFunc;
         unsetCustomStatus: () => ActionFunc;
         setStatusDropdown: (open: boolean) => void;
-    };
+    };*/
     customStatus?: UserCustomStatus;
     currentUser: UserProfile;
     isCustomStatusEnabled: boolean;
