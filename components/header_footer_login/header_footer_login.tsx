@@ -150,7 +150,7 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
         return (
             <div className='inner-wrap' data-theme={this.state.isDark}>
                 <ModalController/>
-                <GlobalHeader/>
+                <Menu/>
                 <div className='row content'>
                     {React.cloneElement(this.props.children, {mode: this.state.isDark})}
                 </div>

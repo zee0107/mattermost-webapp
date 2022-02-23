@@ -61,4 +61,5 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
         }, dispatch),
     };
 }
+
 export default connect(makeMapStateToProps, mapDispatchToProps)(LoggedInHFT);
