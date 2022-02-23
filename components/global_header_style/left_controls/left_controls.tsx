@@ -8,6 +8,7 @@ import {isDesktopApp} from 'utils/user_agent';
 
 import HistoryButtons from './history_buttons';
 import ProductMenu from './product_menu';
+import Logo from 'images/logoLight.png';
 
 const LeftControlsContainer = styled.div`
     display: flex;
@@ -22,8 +23,9 @@ const LeftControlsContainer = styled.div`
 
 const LeftControls = (): JSX.Element => (
     <LeftControlsContainer>
-        <ProductMenu/>
-        {isDesktopApp() && <HistoryButtons/>}
+        <img src={Logo} alt='Crypter.io' />
+        {/*<ProductMenu/>
+        {isDesktopApp() && <HistoryButtons/>}*/}
     </LeftControlsContainer>
 );
 
