@@ -62,6 +62,15 @@
         font-size: 44px;
     }
 
+    &.Avatar-mxl {
+        width: 70px;
+        min-width: 70px;
+        height: 70px;
+        font-size: 44px;
+        border-radius: 50%;
+        border: 1px solid rgba(0, 0, 255, 0.808);
+    }
+
     &.Avatar-plain {
         position: relative;
         display: inline-flex;

@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import './avatar.scss';
 
-export type TAvatarSizeToken = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+export type TAvatarSizeToken = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'mxl';
 
 type Props = {
     url?: string;
