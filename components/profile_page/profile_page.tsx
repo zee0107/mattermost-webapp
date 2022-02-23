@@ -62,14 +62,14 @@ type Props = {
         unsetCustomStatus: () => ActionFunc;
         setStatusDropdown: (open: boolean) => void;
     };*/
-    customStatus?: UserCustomStatus;
+    /*customStatus?: UserCustomStatus;*/
     currentUser: UserProfile;
-    isCustomStatusEnabled: boolean;
+    /*isCustomStatusEnabled: boolean;
     isCustomStatusExpired: boolean;
     isMilitaryTime: boolean;
     isStatusDropdownOpen: boolean;
     showCustomStatusPulsatingDot: boolean;
-    timezone?: string;
+    timezone?: string;*/
     globalHeader?: boolean;
 }
 
