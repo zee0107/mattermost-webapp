@@ -834,3 +834,11 @@
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 233, 109, 0.6);
   color: #ffffff !important;
 }
+
+.modal-header-bg{
+  background-color: var(--bgDiv);
+}
+
+.modal-text{
+  color: var(--text-primary);
+}

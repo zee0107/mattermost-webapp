@@ -21,18 +21,18 @@ export interface Props {
 export default function UserSettingsSidebar(props: Props): JSX.Element {
     return (
         <div>
-            <div className='modal-header'>
+            <div className='modal-header modal-header-bg'>
                 <button
                     id='closeButton'
                     type='button'
-                    className='close'
+                    className='close modal-text'
                     data-dismiss='modal'
                     aria-label='Close'
                     onClick={props.closeModal}
                 >
                     <span aria-hidden='true'>{'×'}</span>
                 </button>
-                <h4 className='modal-title'>
+                <h4 className='modal-title modal-text'>
                     <div
                         className='modal-back'
                         onClick={props.collapseModal}
