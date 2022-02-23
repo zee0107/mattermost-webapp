@@ -150,132 +150,14 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
         return (
             <div className='inner-wrap' data-theme={this.state.isDark}>
                 <ModalController/>
-                <GlobalHeader/>
+                <Menu/>
                 <div className='row content'>
                     {React.cloneElement(this.props.children, {mode: this.state.isDark})}
-                    {/*this.props.children*/}
                 </div>
 
                 <div className='row footer border-top'>
                     <div id='footer_section' className='footer-pane col-xs-12'>
                         <br />
-                        {/*<div className="row">
-                            <div className="col-lg-2"></div>
-                            <div className="col-lg-2">
-                                <img src={this.state.logo_img}></img>
-                                <p className="footerText">The first social media platform for crypto to launch the revolutionary Engage-to-Earn reward system. Enjoy $BUSD rewards while holding $CRYPT tokens.</p>
-                                <div className="d-flex">
-                                    <div className="col-lg-3">
-                                        <div className="parent-icons">
-                                            <img src={fillCircle} className="image1"></img>
-                                            <img src={Google} className="image2"></img>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-3">
-                                        <div className="parent-icons">
-                                            <img src={fillCircle} className="image1"></img>
-                                            <img src={Twitter} className="image2"></img>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-3">
-                                        <div className="parent-icons">
-                                            <img src={fillCircle} className="image1"></img>
-                                            <img src={Instagram} className="image2"></img>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-3">
-                                        <div className="parent-icons">
-                                            <img src={fillCircle} className="image1"></img>
-                                            <img src={LinkedIn} className="image2"></img>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 footer-menu-mobile">
-                                <div className="d-flex">
-                                    <div className="col-lg-6 footer-menu">
-                                        <h4>Company</h4>
-                                        <ul className="footerUl">
-                                            <li className="ulLinks">
-                                                <a href="#">About Us</a>
-                                            </li>
-                                            <li className="ulLinks">
-                                                <a href="#">News</a>
-                                            </li>
-                                            <li className="ulLinks">
-                                                <a href="#">Events</a>
-                                            </li>
-                                            <li className="ulLinks">
-                                                <a href="#">Careers</a>
-                                            </li>
-                                            <li className="ulLinks">
-                                                <a href="#">Contact Us</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div className="col-lg-6 footer-menu">
-                                        <h4>Platform</h4>
-                                        <ul className="footerUl">
-                                            <li className="ulLinks">
-                                                <a href="#">Social Network</a>
-                                            </li>
-                                            <li className="ulLinks">
-                                                <a href="#">Platform Overview</a>
-                                            </li>
-                                            <li className="ulLinks">
-                                                <a href="#">Security</a>
-                                            </li>
-                                            <li className="ulLinks">
-                                                <a href="#">Security</a>
-                                            </li>
-                                            <li className="ulLinks">
-                                                <a href="#">Block Chain</a>
-                                            </li>
-                                            <li className="ulLinks">
-                                                <a href="#">NFT</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3">
-                                <div className="d-flex">
-                                    <div className="col-lg-6 footer-menu">
-                                        <h4>Documentation</h4>
-                                        <ul className="footerUl">
-                                            <li className="ulLinks">
-                                                <a href="#">Deployment</a>
-                                            </li>
-                                            <li className="ulLinks">
-                                                <a href="#">Admin</a>
-                                            </li>
-                                            <li className="ulLinks">
-                                                <a href="#">API Reference</a>
-                                            </li>
-                                            <li className="ulLinks">
-                                                <a href="#">All Docs</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div className="col-lg-6 footer-menu">
-                                        <h4>Support</h4>
-                                        <ul className="footerUl">
-                                            <li className="ulLinks">
-                                                <a href="#">Forums</a>
-                                            </li>
-                                            <li className="ulLinks">
-                                                <a href="#">Help Center</a>
-                                            </li>
-                                            <li className="ulLinks">
-                                                <a href="#">Terms</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-2"></div>
-                        </div>
-                        <br />*/}
                         <div className="col-lg-12 text-center">
                             <div className="parent">
                                 <img src={fillCircle} className="image1"></img>

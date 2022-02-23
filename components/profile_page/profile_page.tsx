@@ -21,7 +21,10 @@ import UndoneIcon from 'images/profiles/undone.svg';
 import postImage from 'images/post-1.png';
 import postPic from 'images/profiles/user-profile-2.png';
 import completion from 'images/profiles/completion.png';
-import { ThemeConsumer } from 'styled-components';
+
+import UserSettingsModal from 'components/user_settings/modal';
+import {ModalData} from 'types/actions';
+import {ModalIdentifiers} from 'utils/constants';
 
 type Props = {
     status?: string;
@@ -114,7 +117,18 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <h5>{currentUser.position}}</h5>
                                             </div>
                                             <div className='col-lg-2'>
-                                                <button type='button' className='btn btneditProfile'>Edit</button>
+                                                {/*<button type='button' className='btn btneditProfile'>Edit</button>*/}
+                                                <ToggleModalButtonRedux
+                                                    id='accountSettings'
+                                                    ariaLabel='Profile'
+                                                    modalId={ModalIdentifiers.USER_SETTINGS}
+                                                    dialogType={UserSettingsModal}
+                                                    dialogProps={{isContentProductSettings: false}}
+                                                    className={'btn btneditProfile'}
+                                                    showUnread={false}
+                                                >
+                                                    Edit
+                                                </ToggleModalButtonRedux>
                                             </div>
                                         </div>
                                     </div>
