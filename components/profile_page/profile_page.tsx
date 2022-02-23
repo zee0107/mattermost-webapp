@@ -20,6 +20,9 @@ import CustomStatusText from 'components/custom_status/custom_status_text';
 import ExpiryTime from 'components/custom_status/expiry_time';
 import DndCustomTimePicker from 'components/dnd_custom_time_picker_modal';
 import LocalizedIcon from 'components/localized_icon';
+import UserSettingsModal from 'components/user_settings/modal';
+import Menu from 'components/widgets/menu/menu';
+import {ModalIdentifiers, UserStatuses} from 'utils/constants';
 
 import {ServerError} from 'mattermost-redux/types/errors';
 import {isEmail} from 'mattermost-redux/utils/helpers';
@@ -142,7 +145,15 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <h5>New york City, Ny</h5>
                                             </div>
                                             <div className='col-lg-2'>
-                                                <button type='button' className='btn btneditProfile'>Edit</button>
+                                                {/*<button type='button' className='btn btneditProfile'>Edit</button>*/}
+                                                <Menu.ItemToggleModalRedux
+                                                    id='accountSettings'
+                                                    ariaLabel='Profile'
+                                                    modalId={ModalIdentifiers.USER_SETTINGS}
+                                                    dialogType={UserSettingsModal}
+                                                    dialogProps={{isContentProductSettings: false}}
+                                                    text={'Edit'}
+                                                />
                                             </div>
                                         </div>
                                     </div>
