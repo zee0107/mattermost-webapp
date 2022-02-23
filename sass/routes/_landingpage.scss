@@ -427,7 +427,7 @@
 
   .profile-div{
     position: absolute;
-    left: 25%;
+    left: 25.5%;
     top: 13.5em;
 
     @media (max-width: 1150px) {
@@ -441,7 +441,7 @@
     }
 
     @media (max-width: 600px) {
-      left: 13%;
+      left: 18%;
       top: 1%;
     }
   }
@@ -455,6 +455,7 @@
     border-radius: 8px;
     background: linear-gradient(45deg, #424242cc, #303466b5);
     color: #ffffff;
+    margin-top: 16px;
 
     @media (max-width: 768px) {
       margin-bottom: 40px;
@@ -504,7 +505,7 @@
   }
 
   .profile-img-div{
-    padding-top: 6%;
+    padding-top: 3%;
     padding-left: 0%;
     margin-right: 5px;
 
