@@ -23,6 +23,7 @@ import {trackLoadTime} from 'actions/telemetry_actions.jsx';
 import {makeAsyncComponent} from 'components/async_load';
 import CompassThemeProvider from 'components/compass_theme_provider/compass_theme_provider';
 import GlobalHeader from 'components/global_header/global_header';
+import GlobalHeaderStyle from 'components/global_header_style/global_header';
 import ModalController from 'components/modal_controller';
 import {HFTRoute,LoggedInHFTRoute} from 'components/header_footer_template_route';
 import {HFTRouteLog,LoginHFTRoute} from 'components/header_footer_login_route';
@@ -475,8 +476,7 @@ export default class Root extends React.PureComponent {
                     />
                     <CompassThemeProvider theme={this.props.theme}>
                         <ModalController/>
-                        <GlobalHeader/>
-                            <TeamSidebar/>
+                        <GlobalHeaderStyle/>
                             <Switch>
                                 <LoginHFTRoute
                                     path={'/profile'}
