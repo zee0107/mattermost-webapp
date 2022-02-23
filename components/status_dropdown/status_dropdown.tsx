@@ -361,7 +361,7 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
                 })}
             >
                 <div
-                    className={classNames('status-wrapper', {
+                    className={classNames('status-wrapper bg-icons', {
                         'status-selector': !globalHeader,
                     })}
                 >
@@ -374,7 +374,7 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
                         />
                     }
                     {this.renderProfilePicture(globalHeader ? 'sm' : 'lg')}
-                    {' ' + ` ${currentUser.username}`}
+                    <h5 className='addPaddingLeft'></h5>{' ' + ` ${currentUser.username}`}
                     <button
                         className='style--none'
                         aria-label={localizeMessage('status_dropdown.menuAriaLabel', 'Set a status')}
