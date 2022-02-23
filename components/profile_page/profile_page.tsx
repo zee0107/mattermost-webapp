@@ -138,20 +138,22 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='col-lg-2'>
                                                 {/*<button type='button' className='btn btneditProfile'>Edit</button>*/}
                                                 <MenuWrapper>
-                                                    <Menu.ItemToggleModalRedux
-                                                        id='accountSettings'
-                                                        ariaLabel='Profile'
-                                                        modalId={ModalIdentifiers.USER_SETTINGS}
-                                                        dialogType={UserSettingsModal}
-                                                        dialogProps={{isContentProductSettings: false}}
-                                                        text={localizeMessage('navbar_dropdown.accountSettings', 'Profile')}
-                                                        icon={globalHeader ? (
-                                                            <Icon
-                                                                size={16}
-                                                                glyph={'account-outline'}
-                                                            />
-                                                        ) : <i className='fa fa-cog'/>}
-                                                    />
+                                                    <Menu>
+                                                        <Menu.ItemToggleModalRedux
+                                                            id='accountSettings'
+                                                            ariaLabel='Profile'
+                                                            modalId={ModalIdentifiers.USER_SETTINGS}
+                                                            dialogType={UserSettingsModal}
+                                                            dialogProps={{isContentProductSettings: false}}
+                                                            text={localizeMessage('navbar_dropdown.accountSettings', 'Profile')}
+                                                            icon={globalHeader ? (
+                                                                <Icon
+                                                                    size={16}
+                                                                    glyph={'account-outline'}
+                                                                />
+                                                            ) : <i className='fa fa-cog'/>}
+                                                        />
+                                                    </Menu>
                                                 </MenuWrapper>
                                             </div>
                                         </div>
