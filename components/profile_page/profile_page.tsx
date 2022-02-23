@@ -62,7 +62,7 @@ type Props = {
         unsetCustomStatus: () => ActionFunc;
         setStatusDropdown: (open: boolean) => void;
     };
-    customStatus?: UserCustomStatus;*/
+    customStatus?: UserCustomStatus;
     currentUser: UserProfile;
     isCustomStatusEnabled: boolean;
     isCustomStatusExpired: boolean;
@@ -104,7 +104,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
     }
-    
+
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
             return null;
