@@ -56,20 +56,20 @@ type Props = {
     userId: string;
     profilePicture: string;
     autoResetPref?: string;
-    /*actions: {
+    actions: {
         openModal: <P>(modalData: ModalData<P>) => void;
         setStatus: (status: UserStatus) => ActionFunc;
         unsetCustomStatus: () => ActionFunc;
         setStatusDropdown: (open: boolean) => void;
-    };*/
-    /*customStatus?: UserCustomStatus;*/
+    };
+    customStatus?: UserCustomStatus;*/
     currentUser: UserProfile;
-    /*isCustomStatusEnabled: boolean;
+    isCustomStatusEnabled: boolean;
     isCustomStatusExpired: boolean;
     isMilitaryTime: boolean;
     isStatusDropdownOpen: boolean;
     showCustomStatusPulsatingDot: boolean;
-    timezone?: string;*/
+    timezone?: string;
     globalHeader?: boolean;
 }
 
@@ -104,9 +104,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
     }
-
     
-
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
             return null;

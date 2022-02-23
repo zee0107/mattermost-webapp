@@ -1,23 +1,62 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
-
-import {bindActionCreators, Dispatch, ActionCreatorsMapObject} from 'redux';
 import {connect} from 'react-redux';
+import {bindActionCreators, Dispatch} from 'redux';
 
-import {sendPasswordResetEmail} from 'mattermost-redux/actions/users';
-import {GenericAction, ActionFunc} from 'mattermost-redux/types/actions';
-import {ServerError} from 'mattermost-redux/types/errors';
+import {setStatus, unsetCustomStatus} from 'mattermost-redux/actions/users';
+import {Client4} from 'mattermost-redux/client';
+import {Preferences} from 'mattermost-redux/constants';
+
+import {get, getBool} from 'mattermost-redux/selectors/entities/preferences';
+import {getCurrentUser, getStatusForUserId} from 'mattermost-redux/selectors/entities/users';
+
+import {openModal} from 'actions/views/modals';
+import {setStatusDropdown} from 'actions/views/status_dropdown';
+
+import {getCurrentUserTimezone} from 'selectors/general';
+import {makeGetCustomStatus, isCustomStatusEnabled, showStatusDropdownPulsatingDot, isCustomStatusExpired} from 'selectors/views/custom_status';
+import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
+import {GenericAction} from 'mattermost-redux/types/actions';
+import {GlobalState} from 'types/store';
 
 import ProfilPage from './profile_page'
 
-type Actions = {
-    sendPasswordResetEmail: (emal: string) => Promise<{data: any; error: ServerError}>;
+function makeMapStateToProps() {
+    const getCustomStatus = makeGetCustomStatus();
+
+    return function mapStateToProps(state: GlobalState) {
+        const currentUser = getCurrentUser(state);
+
+        const userId = currentUser?.id;
+        const customStatus = getCustomStatus(state, userId);
+        const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
+        return {
+            userId,
+            profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
+            autoResetPref: get(state, Preferences.CATEGORY_AUTO_RESET_MANUAL_STATUS, userId, ''),
+            status: getStatusForUserId(state, userId),
+            customStatus,
+            currentUser,
+            isCustomStatusEnabled: isCustomStatusEnabled(state),
+            isCustomStatusExpired: isCustomStatusExpired(state, customStatus),
+            isMilitaryTime,
+            isStatusDropdownOpen: isStatusDropdownOpen(state),
+            showCustomStatusPulsatingDot: showStatusDropdownPulsatingDot(state),
+            timezone: getCurrentUserTimezone(state),
+        };
+    };
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<GenericAction>) => ({
-    actions: bindActionCreators<ActionCreatorsMapObject<ActionFunc>, Actions>({
-        sendPasswordResetEmail,
-    }, dispatch),
-});
+function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
+    return {
+        actions: bindActionCreators({
+            openModal,
+            setStatus,
+            unsetCustomStatus,
+            setStatusDropdown,
+        }, dispatch),
+    };
+}
 
-export default connect(null, mapDispatchToProps)(ProfilPage);
+
+export default connect(makeMapStateToProps, mapDispatchToProps)(ProfilPage);
