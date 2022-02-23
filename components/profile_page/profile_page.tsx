@@ -23,7 +23,8 @@ import LocalizedIcon from 'components/localized_icon';
 import UserSettingsModal from 'components/user_settings/modal';
 import Menu from 'components/widgets/menu/menu';
 import {ModalIdentifiers, UserStatuses} from 'utils/constants';
-import MenuWrapper from 'components/widgets/menu/menu_wrapper';
+import ToggleModalButtonRedux from 'components/toggle_modal_button_redux';
+
 
 import {ServerError} from 'mattermost-redux/types/errors';
 import {isEmail} from 'mattermost-redux/utils/helpers';
@@ -147,14 +148,16 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             </div>
                                             <div className='col-lg-2'>
                                                 {/*<button type='button' className='btn btneditProfile'>Edit</button>*/}
-                                                <Menu.ItemToggleModalRedux
-                                                    id='accountSettings'
+                                                <ToggleModalButtonRedux
                                                     ariaLabel='Profile'
                                                     modalId={ModalIdentifiers.USER_SETTINGS}
                                                     dialogType={UserSettingsModal}
                                                     dialogProps={{isContentProductSettings: false}}
-                                                    text={'Edit'}
-                                                />
+                                                    className='btn btneditProfile'
+                                                    showUnread={false}
+                                                >
+                                                    Edit
+                                                </ToggleModalButtonRedux>
                                             </div>
                                         </div>
                                     </div>
