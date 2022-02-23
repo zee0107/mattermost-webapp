@@ -2,31 +2,9 @@
 // See LICENSE.txt for license information.
 
 import React, {ReactNode} from 'react';
-import {FormattedMessage} from 'react-intl';
-import PulsatingDot from 'components/widgets/pulsating_dot';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
-import Icon from '@mattermost/compass-components/foundations/icon/Icon';
-import {CustomStatusDuration, UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
-import {TUserStatus} from '@mattermost/compass-components/shared';
-
-import classNames from 'classnames';
-
-import {FormattedDate, FormattedTime} from 'react-intl';
-
-import * as GlobalActions from 'actions/global_actions';
-import CustomStatusEmoji from 'components/custom_status/custom_status_emoji';
-import CustomStatusModal from 'components/custom_status/custom_status_modal';
-import CustomStatusText from 'components/custom_status/custom_status_text';
-import ExpiryTime from 'components/custom_status/expiry_time';
-import DndCustomTimePicker from 'components/dnd_custom_time_picker_modal';
-import LocalizedIcon from 'components/localized_icon';
-import UserSettingsModal from 'components/user_settings/modal';
-import Menu from 'components/widgets/menu/menu';
-import MenuWrapper from 'components/widgets/menu/menu_wrapper';
-import {ModalIdentifiers, UserStatuses} from 'utils/constants';
-import ToggleModalButtonRedux from 'components/toggle_modal_button_redux';
-import {localizeMessage} from 'utils/utils.jsx';
+import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 
 import homeImage from 'images/homeFeed.png';
 import coverImage from 'images/cover-photo.png';
@@ -133,26 +111,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='col-lg-8'>
                                                 <h4>{`${currentUser.first_name} ${currentUser.last_name}`}</h4>
                                                 <h5>{'@' + currentUser.username}</h5>
-                                                <h5>New york City, Ny</h5>
+                                                <h5>{currentUser.position}}</h5>
                                             </div>
                                             <div className='col-lg-2'>
-                                                {/*<button type='button' className='btn btneditProfile'>Edit</button>*/}
-                                                    <Menu>
-                                                        <Menu.ItemToggleModalRedux
-                                                            id='accountSettings'
-                                                            ariaLabel='Profile'
-                                                            modalId={ModalIdentifiers.USER_SETTINGS}
-                                                            dialogType={UserSettingsModal}
-                                                            dialogProps={{isContentProductSettings: false}}
-                                                            text={localizeMessage('navbar_dropdown.accountSettings', 'Profile')}
-                                                            icon={globalHeader ? (
-                                                                <Icon
-                                                                    size={16}
-                                                                    glyph={'account-outline'}
-                                                                />
-                                                            ) : <i className='fa fa-cog'/>}
-                                                        />
-                                                    </Menu>
+                                                <button type='button' className='btn btneditProfile'>Edit</button>
                                             </div>
                                         </div>
                                     </div>

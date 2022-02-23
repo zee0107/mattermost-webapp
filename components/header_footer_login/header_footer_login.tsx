@@ -10,6 +10,8 @@ import {ClientConfig} from 'mattermost-redux/types/config';
 import logoLight from 'images/logoLight.png';
 import fillCircle from 'images/fill.svg';
 import logoDark from 'images/logoWhite.png';
+import ModalController from 'components/modal_controller';
+import GlobalHeader from 'components/global_header/global_header';
 
 import Google from 'images/icons/google.svg';
 import Twitter from 'images/icons/twitter.svg';
@@ -20,14 +22,6 @@ import Heart from 'images/icons/heart-fill.svg';
 type Props = {
     config: Partial<ClientConfig> | undefined;
 }
-
-/*const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-const [isDark, setIsDark] = useState(localStorage.getItem("theme") === defaultDark ? 'dark' : 'light');
-
-const darkModeToggle = () => {
-    const newThemeValue = isDark === 'light' ? 'dark' : 'light';
-    setIsDark(newThemeValue);
-}*/
 
 export default class LoggedInHFT extends React.PureComponent<Props> {
     static propTypes = {
@@ -88,15 +82,6 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
     
     render() {
         const content = [];
-
-        /*const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        if(defaultDark){
-            this.setState({isDark: 'dark'})
-        }
-        else{
-            this.setState({isDark: 'light'})
-        }*/
 
         if (!this.props.config) {
             return null;
@@ -164,7 +149,8 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
 
         return (
             <div className='inner-wrap' data-theme={this.state.isDark}>
-                <Menu />
+                <ModalController/>
+                <GlobalHeader/>
                 <div className='row content'>
                     {React.cloneElement(this.props.children, {mode: this.state.isDark})}
                     {/*this.props.children*/}
