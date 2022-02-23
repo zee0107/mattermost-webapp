@@ -23,6 +23,7 @@ import LocalizedIcon from 'components/localized_icon';
 import UserSettingsModal from 'components/user_settings/modal';
 import Menu from 'components/widgets/menu/menu';
 import {ModalIdentifiers, UserStatuses} from 'utils/constants';
+import MenuWrapper from 'components/widgets/menu/menu_wrapper';
 
 import {ServerError} from 'mattermost-redux/types/errors';
 import {isEmail} from 'mattermost-redux/utils/helpers';
