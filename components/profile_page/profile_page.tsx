@@ -132,7 +132,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     <div className='col-lg-4 profile-details-box'>
                                         <div className='d-flex'>
                                             <div className='col-lg-4 profile-img-div'>
-                                                {this.renderProfilePicture('lg')}
+                                                {this.renderProfilePicture('xxl')}
                                                 {/*<img src={} className='profile-img-box'></img>*/}
                                             </div>
                                             
@@ -229,7 +229,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='col-md-6 share-div-input removePaddingRight'>
                                                 <div className='d-flex'>
                                                     <div className='col-sm-2 removePadding'>
-                                                        {this.renderProfilePicture('sm')}
+                                                        {this.renderProfilePicture('md')}
                                                         {/*<img src={profPic} className='share-img'></img>*/}
                                                     </div>
                                                     <div className='col-sm-8 removePadding'>
