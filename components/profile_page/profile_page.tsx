@@ -229,10 +229,11 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='col-md-6 share-div-input removePaddingRight'>
                                                 <div className='d-flex'>
                                                     <div className='col-sm-2 removePadding'>
-                                                        <img src={profPic} className='share-img'></img>
+                                                        {this.renderProfilePicture('sm')}
+                                                        {/*<img src={profPic} className='share-img'></img>*/}
                                                     </div>
                                                     <div className='col-sm-8 removePadding'>
-                                                        <input className='share-input' placeholder='Whats going on, Evan?' />
+                                                        <input className='share-input' placeholder={'Whats going on ' + `${currentUser.first_name}` + '?'} />
                                                     </div>
                                                     <div className='col-sm-2 removePadding padding-top-share-icons'>
                                                         <a href='#' className='icon-margin-right'><svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
