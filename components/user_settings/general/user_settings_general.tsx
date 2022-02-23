@@ -890,13 +890,13 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
 
                 extraInfo = (
                     <span>
-                        <FormattedMessage
+                        {/*<FormattedMessage
                             id='user.settings.general.notificationsExtra'
                             defaultMessage='By default, you will receive mention notifications when someone types your first name. Go to {notify} settings to change this default.'
                             values={{
                                 notify: (notifLink),
                             }}
-                        />
+                        />*/}
                     </span>
                 );
 

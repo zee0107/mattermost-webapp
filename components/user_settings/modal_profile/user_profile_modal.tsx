@@ -93,7 +93,7 @@ type State = {
     resendStatus: string;
 }
 
-class UserSettingsModal extends React.PureComponent<Props, State> {
+class UserProfileModal extends React.PureComponent<Props, State> {
     private requireConfirm: boolean;
     private customConfirmAction: ((handleConfirm: () => void) => void) | null;
     private modalBodyRef: React.RefObject<Modal>;
@@ -279,7 +279,7 @@ class UserSettingsModal extends React.PureComponent<Props, State> {
             tabs.push({name: 'sidebar', uiName: formatMessage(holders.sidebar), icon: 'icon fa fa-columns', iconTitle: Utils.localizeMessage('user.settings.sidebar.icon', 'Sidebar Settings Icon')});
             tabs.push({name: 'advanced', uiName: formatMessage(holders.advanced), icon: 'icon fa fa-list-alt', iconTitle: Utils.localizeMessage('user.settings.advance.icon', 'Advanced Settings Icon')});
         } else {
-            tabs.push({name: 'profile', uiName: formatMessage(holders.profile), icon: 'icon fa fa-gear', iconTitle: Utils.localizeMessage('user.settings.profile.icon', 'Profile Settings Icon')});
+            tabs.push({name: 'profile', uiName: formatMessage(holders.profile), icon: 'icon fa fa-user', iconTitle: Utils.localizeMessage('user.settings.profile.icon', 'Profile Settings Icon')});
             tabs.push({name: 'security', uiName: formatMessage(holders.security), icon: 'icon fa fa-lock', iconTitle: Utils.localizeMessage('user.settings.security.icon', 'Security Settings Icon')});
         }
 
@@ -364,4 +364,4 @@ class UserSettingsModal extends React.PureComponent<Props, State> {
     }
 }
 
-export default injectIntl(UserSettingsModal);
+export default injectIntl(UserProfileModal);
