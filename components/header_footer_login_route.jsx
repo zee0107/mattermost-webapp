@@ -21,7 +21,7 @@ export const HFTRouteLog = ({component: Component, ...rest}) => (
 );
 
 export const LoginHFTRoute = ({component: Component, ...rest}) => (
-    {/*<Route
+    <Route
         {...rest}
         render={(props) => (
             <React.Suspense fallback={null}>
@@ -34,18 +34,5 @@ export const LoginHFTRoute = ({component: Component, ...rest}) => (
                 </LoggedIn>
             </React.Suspense>
         )}
-    />*/}
-    <Route
-        key={product.id}
-        path={product.baseURL}
-        render={(props) => (
-        <LoggedIn {...props}>
-             <React.Suspense fallback={null}>
-                <HeaderFooterTemplate {...props}>
-                    <Component {...props}/>
-                </HeaderFooterTemplate>
-            </React.Suspense>
-        </LoggedIn>
-    )}
     />
 );

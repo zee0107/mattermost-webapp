@@ -512,6 +512,10 @@ export default class Root extends React.PureComponent {
                                         )}
                                     />
                                 ))}
+                                <LoginHFTRoute
+                                    path={'/profile'}
+                                    component={ProfilePage}
+                                />
                                 <LoggedInRoute
                                     path={'/:team'}
                                     component={NeedsTeam}
