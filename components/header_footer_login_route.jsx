@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {Route} from 'react-router-dom';
-import GlobalHeader from 'components/global_header/global_header';
 
 const HeaderFooterTemplate = React.lazy(() => import('components/header_footer_login'));
 const LoggedIn = React.lazy(() => import('components/logged_in'));
@@ -22,7 +21,6 @@ export const HFTRouteLog = ({component: Component, ...rest}) => (
 );
 
 export const LoginHFTRoute = ({component: Component, ...rest}) => (
-        <GlobalHeader />
          <Route
             {...rest}
             render={(props) => (
