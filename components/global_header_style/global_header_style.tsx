@@ -18,7 +18,7 @@ const GlobalHeaderContainer = styled.header`
     align-items: center;
     justify-content: space-between;
     height: 70px;
-    background: var(--global-header-background);
+    background: var(--bgDiv);
     color: var(--text-primary);
     padding: 0 12px;
     z-index: 100;
