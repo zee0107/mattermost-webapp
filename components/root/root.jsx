@@ -476,16 +476,6 @@ export default class Root extends React.PureComponent {
                     />
                     <CompassThemeProvider theme={this.props.theme}>
                         <ModalController/>
-                        <GlobalHeaderStyle/>
-                            <Switch>
-                                <LoginHFTRoute
-                                    path={'/profile'}
-                                    component={ProfilePage}
-                                />
-                            </Switch>
-                    </CompassThemeProvider>
-                    <CompassThemeProvider theme={this.props.theme}>
-                        <ModalController/>
                         <GlobalHeader/>
                         <div className='mainContentRow d-flex flex-row'>
                             <TeamSidebar/>
@@ -528,6 +518,17 @@ export default class Root extends React.PureComponent {
                             </Switch>
                         </div>
                         <Pluggable pluggableName='Global'/>
+                    </CompassThemeProvider>
+
+                    <CompassThemeProvider theme={this.props.theme}>
+                        <ModalController/>
+                        <GlobalHeaderStyle/>
+                            <Switch>
+                                <LoginHFTRoute
+                                    path={'/profile'}
+                                    component={ProfilePage}
+                                />
+                            </Switch>
                     </CompassThemeProvider>
                 </Switch>
             </IntlProvider>
