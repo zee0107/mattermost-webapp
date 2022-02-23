@@ -129,14 +129,14 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             </div>
                             <div className='col-lg-6 profile-div'>
                                 <div className='row'>
-                                    <div className='col-lg-4 profile-details-box'>
+                                    <div className='col-lg-5 profile-details-box'>
                                         <div className='d-flex'>
-                                            <div className='col-lg-4 profile-img-div'>
+                                            <div className='col-lg-3 profile-img-div'>
                                                 {this.renderProfilePicture('xxl')}
                                                 {/*<img src={} className='profile-img-box'></img>*/}
                                             </div>
                                             
-                                            <div className='col-lg-8'>
+                                            <div className='col-lg-7'>
                                                 <h3>{`${currentUser.first_name} ${currentUser.last_name}`}</h3>
                                                 <h5>{'@' + currentUser.username}</h5>
                                                 <h5>New york City, Ny</h5>
@@ -144,7 +144,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-lg-1'></div>
-                                    <div className='col-lg-7'>
+                                    <div className='col-lg-6'>
                                         <div className='col-lg-12 profile-count-box'>
                                             <div className='d-flex'>
                                                 <div className='col-lg-3'>
