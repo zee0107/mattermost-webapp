@@ -836,9 +836,9 @@
 }
 
 .modal-header-bg{
-  background-color: var(--bgDiv);
+  background-color: var(--bgDiv) !important;
 }
 
 .modal-text{
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
 }
