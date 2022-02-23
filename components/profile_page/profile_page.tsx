@@ -134,11 +134,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     <div className='col-lg-4 profile-details-box'>
                                         <div className='d-flex'>
                                             <div className='col-lg-4 profile-img-div'>
-                                                <img src={this.renderProfilePicture('lg')} className='profile-img-box'></img>
+                                                {this.renderProfilePicture('lg')}
+                                                {/*<img src={} className='profile-img-box'></img>*/}
                                             </div>
                                             
                                             <div className='col-lg-8'>
-                                                <h3>{`${currentUser.first_name} ${currentUser.last_name}`}</h3>
+                                                <h3>{'User'/*`${currentUser.first_name} ${currentUser.last_name}`*/}</h3>
                                                 <h5>{'@' + currentUser.username}</h5>
                                                 <h5>New york City, Ny</h5>
                                             </div>
