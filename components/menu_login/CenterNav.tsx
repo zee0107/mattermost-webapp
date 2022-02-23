@@ -3,7 +3,7 @@ import * as S from './styles';
 import Logo from 'images/logoLight.png';
 import profPic from 'images/profiles/user-profile-1.png'
 import * as GlobalActions from 'actions/global_actions';
-import StatusDropdown from '../status_dropdown';
+import StatusDropdown from 'components/status_dropdown';
 
 import {
   BrowserRouter as Router,
@@ -45,7 +45,7 @@ function CenterNav(props: Props) {
         <S.Li2><a href="/notification" className="bg-icons"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-bell menu-align" viewBox="0 0 16 16">
           <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
         </svg></a></S.Li2>
-        <S.Li2>{/*<StatusDropdown globalHeader={true}/>*/}<a href="/profile" className="bg-icons"><img className='img-profile' src={profPic}></img>Evan Yates</a></S.Li2>
+        <S.Li2><StatusDropdown globalHeader={true}/>{/*<a href="/profile" className="bg-icons"><img className='img-profile' src={profPic}></img>Evan Yates</a>*/}</S.Li2>
         <S.Li2><button onClick={handleEmitUserLoggedOutEvent} className='btn-logout'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-box-arrow-in-right logout-icon" viewBox="0 0 16 16">
           <path fillRule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" fill='var(--text-primary)'/>
           <path fillRule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" fill='var(--text-primary)'/>
