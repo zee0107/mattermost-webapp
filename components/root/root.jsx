@@ -476,6 +476,10 @@ export default class Root extends React.PureComponent {
                         from={'/_redirect/pl/:postid'}
                         to={`/${this.props.permalinkRedirectTeamName}/pl/:postid`}
                     />
+                    <LoginHFTRoute
+                        path={'/profile'}
+                        component={ProfilePage}
+                    />
                     <CompassThemeProvider theme={this.props.theme}>
                         <ModalController/>
                         <GlobalHeader/>
@@ -512,10 +516,7 @@ export default class Root extends React.PureComponent {
                                         )}
                                     />
                                 ))}
-                                <LoginHFTRoute
-                                    path={'/profile'}
-                                    component={ProfilePage}
-                                />
+                                
                                 <LoggedInRoute
                                     path={'/:team'}
                                     component={NeedsTeam}
