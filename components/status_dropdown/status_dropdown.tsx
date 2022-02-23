@@ -473,12 +473,10 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
                         />
                     </Menu.Group>
                     <Menu.Group>
-                        <Menu.ItemToggleModalRedux
+                        <Menu.ItemLink
                             id='accountSettings'
                             ariaLabel='Profile'
-                            modalId={ModalIdentifiers.USER_SETTINGS}
-                            dialogType={UserSettingsModal}
-                            dialogProps={{isContentProductSettings: false}}
+                            to='/profile'
                             text={localizeMessage('navbar_dropdown.accountSettings', 'Profile')}
                             icon={globalHeader ? (
                                 <Icon
@@ -506,10 +504,12 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
         );
     }
 }
-{/*<Menu.ItemLink
+{/*<Menu.ItemToggleModalRedux
                             id='accountSettings'
                             ariaLabel='Profile'
-                            to='/profile'
+                            modalId={ModalIdentifiers.USER_SETTINGS}
+                            dialogType={UserSettingsModal}
+                            dialogProps={{isContentProductSettings: false}}
                             text={localizeMessage('navbar_dropdown.accountSettings', 'Profile')}
                             icon={globalHeader ? (
                                 <Icon
