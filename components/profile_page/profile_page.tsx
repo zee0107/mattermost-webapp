@@ -6,6 +6,7 @@ import {FormattedMessage} from 'react-intl';
 import PulsatingDot from 'components/widgets/pulsating_dot';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
+import Icon from '@mattermost/compass-components/foundations/icon/Icon';
 import {CustomStatusDuration, UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import {TUserStatus} from '@mattermost/compass-components/shared';
 
@@ -24,6 +25,7 @@ import UserSettingsModal from 'components/user_settings/modal';
 import Menu from 'components/widgets/menu/menu';
 import {ModalIdentifiers, UserStatuses} from 'utils/constants';
 import ToggleModalButtonRedux from 'components/toggle_modal_button_redux';
+import {localizeMessage} from 'utils/utils.jsx';
 
 import homeImage from 'images/homeFeed.png';
 import coverImage from 'images/cover-photo.png';
@@ -109,7 +111,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {currentUser} = this.props;
+        const {globalHeader, currentUser} = this.props;
         return (
             <div>
                 <div className='col-sm-12 bodyBgElipseProfile bgGrey removePadding'>
