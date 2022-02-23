@@ -142,7 +142,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <h5>New york City, Ny</h5>
                                             </div>
                                             <div className='col-lg-2'>
-                                                <button type='button' className='btn buttonBgGreen'>Edit</button>
+                                                <button type='button' className='btn btn-editProfile'>Edit</button>
                                             </div>
                                         </div>
                                     </div>
