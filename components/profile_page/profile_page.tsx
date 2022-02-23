@@ -3,6 +3,25 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import PulsatingDot from 'components/widgets/pulsating_dot';
+import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
+import {ActionFunc} from 'mattermost-redux/types/actions';
+import {CustomStatusDuration, UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
+import {TUserStatus} from '@mattermost/compass-components/shared';
+
+import classNames from 'classnames';
+
+import React, {ReactNode} from 'react';
+
+import {FormattedDate, FormattedTime} from 'react-intl';
+
+import * as GlobalActions from 'actions/global_actions';
+import CustomStatusEmoji from 'components/custom_status/custom_status_emoji';
+import CustomStatusModal from 'components/custom_status/custom_status_modal';
+import CustomStatusText from 'components/custom_status/custom_status_text';
+import ExpiryTime from 'components/custom_status/expiry_time';
+import DndCustomTimePicker from 'components/dnd_custom_time_picker_modal';
+import LocalizedIcon from 'components/localized_icon';
 
 import {ServerError} from 'mattermost-redux/types/errors';
 import {isEmail} from 'mattermost-redux/utils/helpers';
@@ -34,125 +53,76 @@ import Carousel from 'components/carousel/carousel'
 import {t} from 'utils/i18n.jsx';
 import { ThemeConsumer } from 'styled-components';
 
-interface Props {
+type Props = {
+    status?: string;
+    userId: string;
+    profilePicture: string;
+    autoResetPref?: string;
     actions: {
-        sendPasswordResetEmail: (email: string) => Promise<{data: any; error: ServerError}>;
+        openModal: <P>(modalData: ModalData<P>) => void;
+        setStatus: (status: UserStatus) => ActionFunc;
+        unsetCustomStatus: () => ActionFunc;
+        setStatusDropdown: (open: boolean) => void;
     };
+    customStatus?: UserCustomStatus;
+    currentUser: UserProfile;
+    isCustomStatusEnabled: boolean;
+    isCustomStatusExpired: boolean;
+    isMilitaryTime: boolean;
+    isStatusDropdownOpen: boolean;
+    showCustomStatusPulsatingDot: boolean;
+    timezone?: string;
+    globalHeader?: boolean;
 }
 
-interface State {
-    error: React.ReactNode;
-    updateText: React.ReactNode;
+type State = {
+    openUp: boolean;
+    width: number;
+    isStatusSet: boolean;
     isDark: string;
     img_path: string;
-}
+};
 
 export default class ProfilPage extends React.PureComponent<Props, State> {
-    state = {
-        error: null,
-        updateText: null,
-        isDark:'light',
-        img_path: homeImage,
-    };
+    static defaultProps = {
+        userId: '',
+        profilePicture: '',
+        status: UserStatuses.OFFLINE,
+    }
 
-    resetForm = React.createRef<HTMLFormElement>();
-    emailInput = React.createRef<HTMLInputElement>();
+    constructor(props: Props) {
+        super(props);
+
+        this.state = {
+            openUp: false,
+            width: 0,
+            isStatusSet: false,
+            isDark:'light',
+            img_path: homeImage,
+        };
+    }
 
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
     }
 
-    componentDidUpdate(){
-        if(this.props.mode === 'dark'){
-            this.setState({img_path: homedarkImage});
-        }
-        else{
-            this.setState({img_path: homeImage});
-        }
-    }
-
-    handleSendLink = async (e: React.FormEvent) => {
-        e.preventDefault();
-
-        const email = this.emailInput.current!.value.trim().toLowerCase();
-        if (!email || !isEmail(email)) {
-            this.setState({
-                error: (
-                    <FormattedMessage
-                        id='password_send.error'
-                        defaultMessage='Please enter a valid email address.'
-                    />
-                ),
-            });
-            return;
-        }
-
-        // End of error checking clear error
-        this.setState({error: null});
-
-        const {data, error} = await this.props.actions.sendPasswordResetEmail(email);
-        if (data) {
-            this.setState({
-                error: null,
-                updateText: (
-                    <div
-                        id='passwordResetEmailSent'
-                        className='reset-form alert alert-success'
-                    >
-                        <FormattedMessage
-                            id='password_send.link'
-                            defaultMessage='If the account exists, a password reset email will be sent to:'
-                        />
-                        <div>
-                            <b>{email}</b>
-                        </div>
-                        <br/>
-                        <FormattedMessage
-                            id='password_send.checkInbox'
-                            defaultMessage='Please check your inbox.'
-                        />
-                    </div>
-                ),
-            });
-            if (this.resetForm.current) {
-                this.resetForm.current.hidden = true;
-            }
-        } else if (error) {
-            this.setState({
-                error: error.message,
-                updateText: null,
-            });
-        }
-    };
     
 
+    renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
+        if (!this.props.profilePicture) {
+            return null;
+        }
+        return (
+            <Avatar
+                size={size}
+                url={this.props.profilePicture}
+            />
+        );
+    }
+
     render() {
-        let error = null;
-
-        /*if(this.props.mode === 'dark'){
-            imgFeed = (
-                <img src={homedarkImage}></img>
-            );
-        }else{
-            imgFeed = (
-                <img src={homeImage}></img>
-            );
-        }*/
-
-        if (this.state.error) {
-            error = (
-                <div className='form-group has-error'>
-                    <label className='control-label'>{this.state.error}</label>
-                </div>
-            );
-        }
-
-        let formClass = 'form-group';
-        if (error) {
-            formClass += ' has-error';
-        }
-
+        const {status, customStatus, isCustomStatusExpired, globalHeader, currentUser} = this.props;
         return (
             <div>
                 <div className='col-sm-12 bodyBgElipseProfile bgGrey removePadding'>
@@ -166,12 +136,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     <div className='col-lg-4 profile-details-box'>
                                         <div className='d-flex'>
                                             <div className='col-lg-4 profile-img-div'>
-                                                <img src={profPic} className='profile-img-box'></img>
+                                                <img src={this.renderProfilePicture('lg')} className='profile-img-box'></img>
                                             </div>
                                             
                                             <div className='col-lg-8'>
-                                                <h3>Evan Yates</h3>
-                                                <h5>@evanyates</h5>
+                                                <h3>{`${currentUser.first_name} ${currentUser.last_name}`}</h3>
+                                                <h5>{'@' + currentUser.username}</h5>
                                                 <h5>New york City, Ny</h5>
                                             </div>
                                         </div>
