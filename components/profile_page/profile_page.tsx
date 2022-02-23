@@ -85,7 +85,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
     static defaultProps = {
         userId: '',
         profilePicture: '',
-        status: UserStatuses.OFFLINE,
+        /*status: UserStatuses.OFFLINE,*/
     }
 
     constructor(props: Props) {
@@ -120,7 +120,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
     }
 
     render() {
-        const {status, customStatus, isCustomStatusExpired, globalHeader, currentUser} = this.props;
+        const {currentUser} = this.props;
         return (
             <div>
                 <div className='col-sm-12 bodyBgElipseProfile bgGrey removePadding'>
