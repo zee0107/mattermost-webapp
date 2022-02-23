@@ -47,4 +47,5 @@ export const LoginHFTRoute = ({component: Component, ...rest}) => (
             </React.Suspense>
         </LoggedIn>
     )}
+    />
 );
