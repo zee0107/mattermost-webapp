@@ -23,6 +23,7 @@ import DndCustomTimePicker from 'components/dnd_custom_time_picker_modal';
 import LocalizedIcon from 'components/localized_icon';
 import UserSettingsModal from 'components/user_settings/modal';
 import Menu from 'components/widgets/menu/menu';
+import MenuWrapper from 'components/widgets/menu/menu_wrapper';
 import {ModalIdentifiers, UserStatuses} from 'utils/constants';
 import ToggleModalButtonRedux from 'components/toggle_modal_button_redux';
 import {localizeMessage} from 'utils/utils.jsx';
@@ -136,20 +137,22 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             </div>
                                             <div className='col-lg-2'>
                                                 {/*<button type='button' className='btn btneditProfile'>Edit</button>*/}
-                                                <Menu.ItemToggleModalRedux
-                                                    id='accountSettings'
-                                                    ariaLabel='Profile'
-                                                    modalId={ModalIdentifiers.USER_SETTINGS}
-                                                    dialogType={UserSettingsModal}
-                                                    dialogProps={{isContentProductSettings: false}}
-                                                    text={localizeMessage('navbar_dropdown.accountSettings', 'Profile')}
-                                                    icon={globalHeader ? (
-                                                        <Icon
-                                                            size={16}
-                                                            glyph={'account-outline'}
-                                                        />
-                                                    ) : <i className='fa fa-cog'/>}
-                                                />
+                                                <MenuWrapper>
+                                                    <Menu.ItemToggleModalRedux
+                                                        id='accountSettings'
+                                                        ariaLabel='Profile'
+                                                        modalId={ModalIdentifiers.USER_SETTINGS}
+                                                        dialogType={UserSettingsModal}
+                                                        dialogProps={{isContentProductSettings: false}}
+                                                        text={localizeMessage('navbar_dropdown.accountSettings', 'Profile')}
+                                                        icon={globalHeader ? (
+                                                            <Icon
+                                                                size={16}
+                                                                glyph={'account-outline'}
+                                                            />
+                                                        ) : <i className='fa fa-cog'/>}
+                                                    />
+                                                </MenuWrapper>
                                             </div>
                                         </div>
                                     </div>
