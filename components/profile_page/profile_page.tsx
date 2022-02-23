@@ -1,7 +1,7 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {FormattedMessage} from 'react-intl';
 import PulsatingDot from 'components/widgets/pulsating_dot';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
@@ -10,8 +10,6 @@ import {CustomStatusDuration, UserCustomStatus, UserProfile, UserStatus} from 'm
 import {TUserStatus} from '@mattermost/compass-components/shared';
 
 import classNames from 'classnames';
-
-import React, {ReactNode} from 'react';
 
 import {FormattedDate, FormattedTime} from 'react-intl';
 
