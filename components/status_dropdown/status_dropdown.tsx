@@ -374,14 +374,15 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
                         />
                     }
                     {this.renderProfilePicture(globalHeader ? 'sm' : 'lg')}
+                    {' ' + `${currentUser.first_name} ${currentUser.last_name}`}
                     <button
                         className='status style--none'
                         aria-label={localizeMessage('status_dropdown.menuAriaLabel', 'Set a status')}
                     >
-                        <StatusIcon
+                        {/*<StatusIcon
                             size={'sm'}
                             status={(this.props.status || 'offline') as TUserStatus}
-                        />
+                        />*/}
                     </button>
                     <span className={'status status-edit edit'}>
                         {!globalHeader && dropdownIcon}
