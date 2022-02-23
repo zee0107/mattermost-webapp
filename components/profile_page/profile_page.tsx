@@ -119,7 +119,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         );
     }
 
-    render() {
+    render= (): JSX.Element => {
         const {currentUser} = this.props;
         return (
             <div>
