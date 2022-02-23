@@ -125,7 +125,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                     modalId={ModalIdentifiers.USER_SETTINGS}
                                                     dialogType={UserSettingsModal}
                                                     dialogProps={{isContentProductSettings: false}}
-                                                    className={'btneditProfile'}
+                                                    className={'btn btneditProfile'}
                                                     showUnread={false}
                                                 >
                                                     Edit
