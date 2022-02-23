@@ -137,7 +137,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             </div>
                                             <div className='col-lg-2'>
                                                 {/*<button type='button' className='btn btneditProfile'>Edit</button>*/}
-                                                <MenuWrapper>
                                                     <Menu>
                                                         <Menu.ItemToggleModalRedux
                                                             id='accountSettings'
@@ -154,7 +153,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                             ) : <i className='fa fa-cog'/>}
                                                         />
                                                     </Menu>
-                                                </MenuWrapper>
                                             </div>
                                         </div>
                                     </div>
