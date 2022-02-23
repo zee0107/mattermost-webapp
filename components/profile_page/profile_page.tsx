@@ -25,12 +25,7 @@ import Menu from 'components/widgets/menu/menu';
 import {ModalIdentifiers, UserStatuses} from 'utils/constants';
 import ToggleModalButtonRedux from 'components/toggle_modal_button_redux';
 
-
-import {ServerError} from 'mattermost-redux/types/errors';
-import {isEmail} from 'mattermost-redux/utils/helpers';
-import logoImage from 'images/logoWhite.png';
 import homeImage from 'images/homeFeed.png';
-import homedarkImage from 'images/homeFeed-dark.png';
 import coverImage from 'images/cover-photo.png';
 import profPic from 'images/profiles/user-profile-1.png'
 import ImgIcon from 'images/profiles/image.svg';
@@ -45,15 +40,6 @@ import UndoneIcon from 'images/profiles/undone.svg';
 import postImage from 'images/post-1.png';
 import postPic from 'images/profiles/user-profile-2.png';
 import completion from 'images/profiles/completion.png';
-
-import profilesImage from 'images/profiles.svg';
-
-
-import BackButton from 'components/common/back_button';
-import LocalizedInput from 'components/localized_input/localized_input';
-import Carousel from 'components/carousel/carousel'
-
-import {t} from 'utils/i18n.jsx';
 import { ThemeConsumer } from 'styled-components';
 
 type Props = {
@@ -148,17 +134,20 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             </div>
                                             <div className='col-lg-2'>
                                                 {/*<button type='button' className='btn btneditProfile'>Edit</button>*/}
-                                                <ToggleModalButtonRedux
+                                                <Menu.ItemToggleModalRedux
                                                     id='accountSettings'
                                                     ariaLabel='Profile'
                                                     modalId={ModalIdentifiers.USER_SETTINGS}
                                                     dialogType={UserSettingsModal}
                                                     dialogProps={{isContentProductSettings: false}}
-                                                    className='btn btneditProfile'
-                                                    showUnread={true}
-                                                >
-                                                    Edit
-                                                </ToggleModalButtonRedux>
+                                                    text={localizeMessage('navbar_dropdown.accountSettings', 'Profile')}
+                                                    icon={globalHeader ? (
+                                                        <Icon
+                                                            size={16}
+                                                            glyph={'account-outline'}
+                                                        />
+                                                    ) : <i className='fa fa-cog'/>}
+                                                />
                                             </div>
                                         </div>
                                     </div>
