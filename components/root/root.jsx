@@ -401,10 +401,6 @@ export default class Root extends React.PureComponent {
                         path={'/signup_user_complete'}
                         component={SignupController}
                     />
-                    <LoginHFTRoute
-                        path={'/profile'}
-                        component={ProfilePage}
-                    />
                     <Route
                         path={'/signup_business'}
                         component={SignupBusiness}
@@ -514,7 +510,10 @@ export default class Root extends React.PureComponent {
                                         )}
                                     />
                                 ))}
-                                
+                                <LoginHFTRoute
+                                    path={'/profile'}
+                                    component={ProfilePage}
+                                />
                                 <LoggedInRoute
                                     path={'/:team'}
                                     component={NeedsTeam}
