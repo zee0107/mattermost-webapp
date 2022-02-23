@@ -296,12 +296,10 @@ class UserProfileModal extends React.PureComponent<Props, State> {
             >
                 <Modal.Header
                     id='accountSettingsHeader'
-                    className='modal-header-bg modal-text'
                     closeButton={true}
                 >
                     <Modal.Title
                         componentClass='h1'
-                        className='modal-text'
                         id='accountSettingsModalLabel'
                     >
                         {this.props.isContentProductSettings ? (
