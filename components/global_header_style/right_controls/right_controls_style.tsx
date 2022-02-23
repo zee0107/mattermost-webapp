@@ -29,7 +29,7 @@ export type Props = {
     productId?: string | null;
 }
 
-const RightControls = ({productId = null}: Props): JSX.Element => {
+const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
 
     return (
@@ -53,4 +53,4 @@ const RightControls = ({productId = null}: Props): JSX.Element => {
     );
 };
 
-export default RightControls;
+export default RightControlsStyle;

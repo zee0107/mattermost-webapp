@@ -21,7 +21,7 @@ const LeftControlsContainer = styled.div`
     }
 `;
 
-const LeftControls = (): JSX.Element => (
+const LeftControlsStyle = (): JSX.Element => (
     <LeftControlsContainer>
         <img src={Logo} alt='Crypter.io' />
         {/*<ProductMenu/>
@@ -29,4 +29,4 @@ const LeftControls = (): JSX.Element => (
     </LeftControlsContainer>
 );
 
-export default LeftControls;
+export default LeftControlsStyle;

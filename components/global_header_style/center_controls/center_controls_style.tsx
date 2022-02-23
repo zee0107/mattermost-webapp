@@ -25,7 +25,7 @@ export type Props = {
     productId?: string | null;
 }
 
-const CenterControls = ({productId = null}: Props): JSX.Element => {
+const CenterControlsStyle = ({productId = null}: Props): JSX.Element => {
     return (
         <CenterControlsContainer>
             {productId === null ? (
@@ -44,4 +44,4 @@ const CenterControls = ({productId = null}: Props): JSX.Element => {
     );
 };
 
-export default CenterControls;
+export default CenterControlsStyle;

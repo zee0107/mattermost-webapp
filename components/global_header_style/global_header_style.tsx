@@ -5,9 +5,9 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import CenterControls from './center_controls/center_controls';
-import LeftControls from './left_controls/left_controls';
-import RightControls from './right_controls/right_controls';
+import CenterControls from './center_controls/center_controls_style';
+import LeftControls from './left_controls/left_controls_Style';
+import RightControls from './right_controls/right_controls_style';
 
 import {useCurrentProductId, useIsLoggedIn, useProducts} from './hooks';
 
@@ -32,7 +32,7 @@ const GlobalHeaderContainer = styled.header`
     }
 `;
 
-const GlobalHeader = (): JSX.Element | null => {
+const GlobalHeaderStyle = (): JSX.Element | null => {
     const isLoggedIn = useIsLoggedIn();
     const products = useProducts();
     const currentProductID = useCurrentProductId(products);
@@ -50,4 +50,4 @@ const GlobalHeader = (): JSX.Element | null => {
     );
 };
 
-export default GlobalHeader;
+export default GlobalHeaderStyle;
