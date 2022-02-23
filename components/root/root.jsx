@@ -483,7 +483,6 @@ export default class Root extends React.PureComponent {
                                     component={ProfilePage}
                                 />
                             </Switch>
-                        <Pluggable pluggableName='Global'/>
                     </CompassThemeProvider>
                     <CompassThemeProvider theme={this.props.theme}>
                         <ModalController/>
