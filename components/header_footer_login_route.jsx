@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {Route} from 'react-router-dom';
-import CompassThemeProvider from 'components/compass_theme_provider/compass_theme_provider';
 import GlobalHeader from 'components/global_header/global_header';
 
 const HeaderFooterTemplate = React.lazy(() => import('components/header_footer_login'));
@@ -23,7 +22,6 @@ export const HFTRouteLog = ({component: Component, ...rest}) => (
 );
 
 export const LoginHFTRoute = ({component: Component, ...rest}) => (
-    <CompassThemeProvider theme={this.props.theme}>
         <GlobalHeader />
          <Route
             {...rest}
@@ -38,7 +36,5 @@ export const LoginHFTRoute = ({component: Component, ...rest}) => (
                     </LoggedIn>
                 </React.Suspense>
             )}
-        />
-    </CompassThemeProvider>
-   
+        />   
 );
