@@ -137,7 +137,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             </div>
                                             
                                             <div className='col-lg-8'>
-                                                <h3>{'User'/*`${currentUser.first_name} ${currentUser.last_name}`*/}</h3>
+                                                <h3>{`${currentUser.first_name} ${currentUser.last_name}`}</h3>
                                                 <h5>{'@' + currentUser.username}</h5>
                                                 <h5>New york City, Ny</h5>
                                             </div>
