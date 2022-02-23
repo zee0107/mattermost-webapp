@@ -15,7 +15,7 @@ const LeftControlsContainer = styled.div`
     align-items: center;
     height: 40px;
     flex-shrink: 0;
-
+    margin-left: 20%;
     > * + * {
         margin-left: 12px;
     }
@@ -23,7 +23,7 @@ const LeftControlsContainer = styled.div`
 
 const LeftControlsStyle = (): JSX.Element => (
     <LeftControlsContainer>
-        <img src={Logo} alt='Crypter.io' />
+        <img src={Logo} className='logo-width-nav' alt='Crypter.io' />
         {/*<ProductMenu/>
         {isDesktopApp() && <HistoryButtons/>}*/}
     </LeftControlsContainer>
