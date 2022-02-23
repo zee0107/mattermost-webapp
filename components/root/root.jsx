@@ -510,6 +510,10 @@ export default class Root extends React.PureComponent {
                                         )}
                                     />
                                 ))}
+                                <LoginHFTRoute
+                                    path={'/profile'}
+                                    component={ProfilePage}
+                                />
                                 <LoggedInRoute
                                     path={'/:team'}
                                     component={NeedsTeam}
@@ -518,17 +522,6 @@ export default class Root extends React.PureComponent {
                             </Switch>
                         </div>
                         <Pluggable pluggableName='Global'/>
-                    </CompassThemeProvider>
-
-                    <CompassThemeProvider theme={this.props.theme}>
-                        <ModalController/>
-                        <GlobalHeaderStyle/>
-                            <Switch>
-                                <LoginHFTRoute
-                                    path={'/profile'}
-                                    component={ProfilePage}
-                                />
-                            </Switch>
                     </CompassThemeProvider>
                 </Switch>
             </IntlProvider>
