@@ -513,7 +513,6 @@ export default class Root extends React.PureComponent {
                                     />
                                 ))}
                                 <LoginHFTRoute
-                                    key={plugin.id}
                                     path={'/profile'}
                                     component={ProfilePage}
                                 />
