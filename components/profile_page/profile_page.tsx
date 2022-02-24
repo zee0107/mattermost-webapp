@@ -26,7 +26,7 @@ import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
 import UserSettingsModal from 'components/user_settings/modal_profile';
 import {ModalData} from 'types/actions';
 import {ModalIdentifiers} from 'utils/constants';
-import MobileHeader from 'components/channel_header_mobile';
+import ChannelHeader from 'components/channel_header';
 
 type Props = {
     status?: string;
@@ -98,7 +98,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         const {globalHeader, currentUser} = this.props;
         return (
             <div>
-                <MobileHeader />
+                <ChannelHeader
+                    {...this.props}
+                />
                 <div className='col-sm-12 bodyBgElipseProfile bgGrey removePadding'>
                     <div className="inner-wrap-section">
                         <div className='d-flex'>
