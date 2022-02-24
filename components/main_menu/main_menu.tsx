@@ -196,7 +196,7 @@ export class MainMenu extends React.PureComponent<Props> {
             >
                 <Menu.Group>
                     <Menu.Header>
-                        {this.renderProfilePicture('lg')}
+                        {this.renderProfilePicture('md')}
                         <div className={'username-wrapper addPaddingLeft'}>
                             <Text margin={'none'}>{`${currentUser.first_name} ${currentUser.last_name}`}</Text>
                             <Text
