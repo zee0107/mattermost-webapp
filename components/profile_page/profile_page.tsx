@@ -26,7 +26,7 @@ import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
 import UserSettingsModal from 'components/user_settings/modal_profile';
 import {ModalData} from 'types/actions';
 import {ModalIdentifiers} from 'utils/constants';
-import ChannelHeader from 'components/channel_header';
+import ChannelHeader from 'components/channel_header_mobile';
 
 type Props = {
     status?: string;
