@@ -1352,7 +1352,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
 
             coverPictureSection = (
                 <SettingPicture
-                    title={formatMessage(holders.profilePicture)}
+                    title={'Cover Photo'}
                     onSubmit={submit}
                     onSetDefault={setDefault}
                     src={imgSrc}
@@ -1396,7 +1396,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
             }
             coverPictureSection = (
                 <SettingItemMin
-                    title={formatMessage(holders.profilePicture)}
+                    title={'Cover Photo'}
                     describe={minMessage}
                     section={'cover'}
                     updateSection={this.updateSection}
