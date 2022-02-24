@@ -91,7 +91,7 @@ export default class ChannelHeaderMobile extends React.PureComponent<Props> {
         return (
             <nav
                 id='navbar'
-                className='navbar navbar-default navbar-fixed-top'
+                className={'navbar navbar-default navbar-fixed-top ' + `${this.props.classes}`}
                 role='navigation'
             >
                 <div className='container-fluid theme'>

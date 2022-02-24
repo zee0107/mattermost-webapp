@@ -9,8 +9,8 @@
     height: 100%;
     padding: 0 0 2em;
     border-right: $border-gray;
-    background: var(--sidebar-bg);
-    color: rgba(var(--sidebar-text-rgb), 0.8);
+    background: var(--bgDiv);
+    color: var(--text-primary);
     -webkit-overflow-scrolling: touch;
 
     .icon {
