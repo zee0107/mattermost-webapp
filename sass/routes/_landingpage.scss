@@ -441,7 +441,17 @@
     }
 
     @media (max-width: 600px) {
+      left: 15%;
+      top: 1%;
+    }
+
+    @media (max-width: 460px) {
       left: 10%;
+      top: 1%;
+    }
+
+    @media (max-width: 410px) {
+      left: 5%;
       top: 1%;
     }
   }
