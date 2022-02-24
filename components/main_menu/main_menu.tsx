@@ -25,6 +25,7 @@ import TeamMembersModal from 'components/team_members_modal';
 import TeamSettingsModal from 'components/team_settings_modal';
 import AboutBuildModal from 'components/about_build_modal';
 import AddGroupsToTeamModal from 'components/add_groups_to_team_modal';
+import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 
 import Menu from 'components/widgets/menu/menu';
 import TeamGroupsManageModal from 'components/team_groups_manage_modal';
@@ -44,6 +45,7 @@ export type Props = {
     teamName?: string;
     siteName?: string;
     currentUser?: UserProfile;
+    profilePicture: string;
     appDownloadLink?: string;
     enableCommands: boolean;
     enableIncomingWebhooks: boolean;
@@ -80,6 +82,7 @@ export class MainMenu extends React.PureComponent<Props> {
     static defaultProps = {
         teamType: '',
         mobile: false,
+        profilePicture: '',
         pluginMenuItems: [],
     };
 
@@ -122,6 +125,18 @@ export class MainMenu extends React.PureComponent<Props> {
     unhideNextStepsAndNavigateToTipsView = () => {
         this.props.actions.unhideNextSteps();
         browserHistory.push(`${this.props.teamUrl}/tips`);
+    }
+
+    renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
+        if (!this.props.profilePicture) {
+            return null;
+        }
+        return (
+            <Avatar
+                size={size}
+                url={this.props.profilePicture}
+            />
+        );
     }
 
     render() {
@@ -178,6 +193,18 @@ export class MainMenu extends React.PureComponent<Props> {
                 id={this.props.id}
                 ariaLabel={formatMessage({id: 'navbar_dropdown.menuAriaLabel', defaultMessage: 'main menu'})}
             >
+                <Menu.Group>
+                    {this.renderProfilePicture('lg')}
+                    <div className={'username-wrapper'}>
+                        <Text margin={'none'}>{`${currentUser.first_name} ${currentUser.last_name}`}</Text>
+                        <Text
+                            margin={'none'}
+                            color={!currentUser.first_name && !currentUser.last_name ? 'secondary' : 'disabled'}
+                        >
+                        {'@' + currentUser.username}
+                        </Text>
+                    </div>
+                </Menu.Group>
                 {/*<Menu.Group>
                     <SystemPermissionGate
                         permissions={[Permissions.SYSCONSOLE_WRITE_BILLING]}
@@ -211,14 +238,21 @@ export class MainMenu extends React.PureComponent<Props> {
                     />
                 </Menu.Group>*/}
                 <Menu.Group>
-                    <Menu.ItemToggleModalRedux
+                    <Menu.ItemLink
+                        id='accountSettings'
+                        ariaLabel='Profile'
+                        to='/profile'
+                        text={formatMessage({id: 'navbar_dropdown.accountSettings', defaultMessage: 'Profile'})}
+                        icon={<i className='fa fa-user'/>}
+                    />
+                    {/*<Menu.ItemToggleModalRedux
                         id='accountSettings'
                         modalId={ModalIdentifiers.USER_SETTINGS}
                         dialogType={UserSettingsModal}
                         dialogProps={{isContentProductSettings: true}}
                         text={formatMessage({id: 'navbar_dropdown.accountSettings', defaultMessage: 'Profile'})}
-                        icon={<i className='fa fa-cog'/>}
-                    />
+                        icon={<i className='fa fa-person'/>}
+                    />*/}
                 </Menu.Group>
                 {/*<Menu.Group>
                     <TeamPermissionGate
