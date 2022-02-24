@@ -1457,8 +1457,8 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
                     <div className='divider-light'/>
                     {pictureSection}
                     <div className='divider-dark'/>
-                    {coverPictureSection}
-                    <div className='divider-dark'/>
+                    {/*{coverPictureSection}
+                    <div className='divider-dark'/>*/}
                 </div>
             </div>
         );
