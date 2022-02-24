@@ -29,6 +29,10 @@ import {ModalData} from 'types/actions';
 import {ModalIdentifiers} from 'utils/constants';
 import ChannelHeaderMobile from 'components/channel_header_mobile';
 
+import Sidebar from 'components/sidebar';
+import SidebarRight from 'components/sidebar_right';
+import SidebarRightMenu from 'components/sidebar_right_menu';
+
 type Props = {
     status?: string;
     userId: string;
@@ -102,6 +106,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         const {globalHeader, currentUser} = this.props;
         return (
             <div>
+                <SidebarRight/>
+                <SidebarRightMenu/>
+                <Sidebar/>
                 <div
                     key='inner-wrap'
                     className={classNames('inner-wrap', 'channel__wrap', {
