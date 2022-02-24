@@ -117,14 +117,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         'move--left-small': this.props.rhsMenuOpen,
                     })}
                 >
-                    <div className='col-sm-12 bodyBgElipseProfile bgGrey removePadding'>
-                        <div className='row header'>
-                            <div id='navbar_wrapper'>
-                                <ChannelHeaderMobile classes={'removeMargin'}/>
-                            </div>
+                    <div className='row header'>
+                        <div id='navbar_wrapper'>
+                            <ChannelHeaderMobile classes={'removeMargin'}/>
                         </div>
-
-                    
+                    </div>
+                    <div className='col-sm-12 bodyBgElipseProfile bgGrey removePadding'>
                         <div className="inner-wrap-section">
                             <div className='d-flex'>
                                 <div className="col-lg-12">
