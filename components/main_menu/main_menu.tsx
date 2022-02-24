@@ -26,6 +26,7 @@ import TeamSettingsModal from 'components/team_settings_modal';
 import AboutBuildModal from 'components/about_build_modal';
 import AddGroupsToTeamModal from 'components/add_groups_to_team_modal';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
+import Text from '@mattermost/compass-components/components/text';
 
 import Menu from 'components/widgets/menu/menu';
 import TeamGroupsManageModal from 'components/team_groups_manage_modal';
