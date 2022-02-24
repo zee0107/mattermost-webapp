@@ -97,12 +97,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
         return (
-            <div className='row header'>
-                <div id='navbar_wrapper'>
-                    <ChannelHeaderMobile/>
-                </div>
-            </div>
             <div>
+                <div className='row header'>
+                    <div id='navbar_wrapper'>
+                        <ChannelHeaderMobile/>
+                    </div>
+                </div>
                 <div className='col-sm-12 bodyBgElipseProfile bgGrey removePadding'>
                     <div className="inner-wrap-section">
                         <div className='d-flex'>
