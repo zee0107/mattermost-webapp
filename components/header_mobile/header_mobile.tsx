@@ -93,14 +93,14 @@ export default class HeaderMobile extends React.PureComponent<Props> {
                             <a href='/'><img src={Logo} className='logo-width-nav' alt='Crypter.io' /></a>
                         </div>
                         <div className='spacer'/>
-                        {channel && (
+                        {/*channel && (
                             <ChannelInfoButton
                                 channel={channel}
                                 isReadOnly={isReadOnly}
                                 isRHSOpen={isRHSOpen}
                                 currentRelativeTeamUrl={currentRelativeTeamUrl}
                             />
-                        )}
+                        )*/}
                         <ShowSearchButton/>
                         {/*channel && (
                             <MobileChannelHeaderPlug
