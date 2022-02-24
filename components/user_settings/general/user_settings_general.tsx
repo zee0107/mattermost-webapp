@@ -1321,6 +1321,89 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
             );
         }
 
+        let coverPictureSection;
+        if (this.props.activeSection === 'cover') {
+            let submit = null;
+            let setDefault = null;
+            let helpText = null;
+            let imgSrc = null;
+
+            if ((this.props.user.auth_service === Constants.LDAP_SERVICE || this.props.user.auth_service === Constants.SAML_SERVICE) && this.props.ldapPictureAttributeSet) {
+                helpText = (
+                    <span>
+                        <FormattedMessage
+                            id='user.settings.general.field_handled_externally'
+                            defaultMessage='This field is handled through your login provider. If you want to change it, you need to do so through your login provider.'
+                        />
+                    </span>
+                );
+            } else {
+                submit = this.submitPicture;
+                setDefault = user.last_picture_update > 0 ? this.setDefaultProfilePicture : null;
+                imgSrc = Utils.imageURLForUser(user.id, user.last_picture_update);
+                helpText = (
+                    <FormattedMessage
+                        id={'setting_picture.help.profile'}
+                        defaultMessage='Upload a picture in BMP, JPG, JPEG, or PNG format. Maximum file size: {max}'
+                        values={{max: Utils.fileSizeToString(this.props.maxFileSize)}}
+                    />
+                );
+            }
+
+            coverPictureSection = (
+                <SettingPicture
+                    title={formatMessage(holders.profilePicture)}
+                    onSubmit={submit}
+                    onSetDefault={setDefault}
+                    src={imgSrc}
+                    defaultImageSrc={Utils.defaultImageURLForUser(user.id)}
+                    serverError={serverError}
+                    clientError={clientError}
+                    updateSection={(e: MouseEvent) => {
+                        this.updateSection('');
+                        e.preventDefault();
+                    }}
+                    file={this.state.pictureFile}
+                    onFileChange={this.updatePicture}
+                    submitActive={this.submitActive}
+                    loadingPicture={this.state.loadingPicture}
+                    maxFileSize={this.props.maxFileSize}
+                    helpText={helpText}
+                />
+            );
+        } else {
+            let minMessage: JSX.Element|string = formatMessage(holders.uploadImage);
+            if (Utils.isMobile()) {
+                minMessage = formatMessage(holders.uploadImageMobile);
+            }
+            if (user.last_picture_update) {
+                minMessage = (
+                    <FormattedMessage
+                        id='user.settings.general.imageUpdated'
+                        defaultMessage='Image last updated {date}'
+                        values={{
+                            date: (
+                                <FormattedDate
+                                    value={new Date(user.last_picture_update)}
+                                    day='2-digit'
+                                    month='short'
+                                    year='numeric'
+                                />
+                            ),
+                        }}
+                    />
+                );
+            }
+            coverPictureSection = (
+                <SettingItemMin
+                    title={formatMessage(holders.profilePicture)}
+                    describe={minMessage}
+                    section={'cover'}
+                    updateSection={this.updateSection}
+                />
+            );
+        }
+
         return (
             <div id='generalSettings'>
                 <div className='modal-header'>
@@ -1373,6 +1456,8 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
                     {emailSection}
                     <div className='divider-light'/>
                     {pictureSection}
+                    <div className='divider-dark'/>
+                    {coverPictureSection}
                     <div className='divider-dark'/>
                 </div>
             </div>
