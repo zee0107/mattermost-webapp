@@ -48,6 +48,9 @@ type Props = {
     showCustomStatusPulsatingDot: boolean;
     timezone?: string;
     globalHeader?: boolean;
+    lhsOpen: boolean;
+    rhsOpen: boolean;
+    rhsMenuOpen: boolean;
 }
 
 type State = {
@@ -98,9 +101,18 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         const {globalHeader, currentUser} = this.props;
         return (
             <div>
-                <div className='row header'>
-                    <div id='navbar_wrapper'>
-                        <ChannelHeaderMobile/>
+                <div
+                    key='inner-wrap'
+                    className={classNames('inner-wrap', 'channel__wrap', {
+                        'move--right': this.props.lhsOpen,
+                        'move--left': this.props.rhsOpen,
+                        'move--left-small': this.props.rhsMenuOpen,
+                    })}
+                >
+                    <div className='row header'>
+                        <div id='navbar_wrapper'>
+                            <ChannelHeaderMobile/>
+                        </div>
                     </div>
                 </div>
                 <div className='col-sm-12 bodyBgElipseProfile bgGrey removePadding'>
