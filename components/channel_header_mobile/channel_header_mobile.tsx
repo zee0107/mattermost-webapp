@@ -17,6 +17,7 @@ import CollapseRhsButton from './collapse_rhs_button';
 import ChannelInfoButton from './channel_info_button';
 import ShowSearchButton from './show_search_button';
 import UnmuteChannelButton from './unmute_channel_button';
+import Logo from 'images/logoLight.png';
 
 type Props = {
     channel?: Channel;
@@ -96,24 +97,24 @@ export default class ChannelHeaderMobile extends React.PureComponent<Props> {
                     <div className='navbar-header'>
                         <CollapseLhsButton/>
                         <div className={classNames('navbar-brand', {GlobalThreads___title: inGlobalThreads})}>
-                            {heading}
+                            <a href='/'><img src={Logo} className='logo-width-nav' alt='Crypter.io' /></a>
                         </div>
                         <div className='spacer'/>
-                        {channel && (
+                        {/*channel && (
                             <ChannelInfoButton
                                 channel={channel}
                                 isReadOnly={isReadOnly}
                                 isRHSOpen={isRHSOpen}
                                 currentRelativeTeamUrl={currentRelativeTeamUrl}
                             />
-                        )}
+                        )*/}
                         <ShowSearchButton/>
-                        {channel && (
+                        {/*channel && (
                             <MobileChannelHeaderPlug
                                 channel={channel}
                                 isDropdown={false}
                             />
-                        )}
+                        )*/}
                         <CollapseRhsButton/>
                     </div>
                 </div>
