@@ -107,7 +107,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         return (
             <div>
                 {/*<SidebarRight/>*/}
-                <SidebarRightMenu/>
+                
                 {/*<Sidebar/>*/}
                 <div
                     key='inner-wrap'
@@ -123,6 +123,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                     <div className='col-sm-12 bodyBgElipseProfile bgGrey removePadding'>
+                        <SidebarRightMenu/>
                         <div className="inner-wrap-section">
                             <div className='d-flex'>
                                 <div className="col-lg-12">
