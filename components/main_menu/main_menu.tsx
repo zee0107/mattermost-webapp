@@ -195,16 +195,18 @@ export class MainMenu extends React.PureComponent<Props> {
                 ariaLabel={formatMessage({id: 'navbar_dropdown.menuAriaLabel', defaultMessage: 'main menu'})}
             >
                 <Menu.Group>
-                    {this.renderProfilePicture('lg')}
-                    <div className={'username-wrapper'}>
-                        <Text margin={'none'}>{`${currentUser.first_name} ${currentUser.last_name}`}</Text>
-                        <Text
-                            margin={'none'}
-                            color={!currentUser.first_name && !currentUser.last_name ? 'secondary' : 'disabled'}
-                        >
-                        {'@' + currentUser.username}
-                        </Text>
-                    </div>
+                    <Menu.Header>
+                        {this.renderProfilePicture('lg')}
+                        <div className={'username-wrapper'}>
+                            <Text margin={'none'}>{`${currentUser.first_name} ${currentUser.last_name}`}</Text>
+                            <Text
+                                margin={'none'}
+                                color={!currentUser.first_name && !currentUser.last_name ? 'secondary' : 'disabled'}
+                            >
+                            {'@' + currentUser.username}
+                            </Text>
+                        </div>
+                    </Menu.Header>
                 </Menu.Group>
                 {/*<Menu.Group>
                     <SystemPermissionGate

@@ -4,6 +4,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators, Dispatch} from 'redux';
 import {withRouter} from 'react-router-dom';
+import {Client4} from 'mattermost-redux/client';
 
 import {GenericAction} from 'mattermost-redux/types/actions';
 
@@ -40,7 +41,7 @@ function mapStateToProps(state: GlobalState) {
     const config = getConfig(state);
     const currentTeam = getCurrentTeam(state);
     const currentUser = getCurrentUser(state);
-
+    const userId = currentUser?.id;
     const appDownloadLink = config.AppDownloadLink;
     const enableCommands = config.EnableCommands === 'true';
     const siteName = config.SiteName;
@@ -82,6 +83,7 @@ function mapStateToProps(state: GlobalState) {
         showGettingStarted: showOnboarding(state),
         showDueToStepsNotFinished: showNextSteps(state),
         teamUrl: getCurrentRelativeTeamUrl(state),
+        profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
     };
 }
 
