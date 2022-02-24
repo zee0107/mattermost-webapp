@@ -106,9 +106,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         const {globalHeader, currentUser} = this.props;
         return (
             <div>
-                <SidebarRight/>
+                {/*<SidebarRight/>*/}
                 <SidebarRightMenu/>
-                <Sidebar/>
+                {/*<Sidebar/>*/}
                 <div
                     key='inner-wrap'
                     className={classNames('inner-wrap', 'channel__wrap', {
