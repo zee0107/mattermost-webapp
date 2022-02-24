@@ -98,9 +98,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         const {globalHeader, currentUser} = this.props;
         return (
             <div>
-                <MobileHeader
-                    {...this.props}
-                />
+                <MobileHeader />
                 <div className='col-sm-12 bodyBgElipseProfile bgGrey removePadding'>
                     <div className="inner-wrap-section">
                         <div className='d-flex'>
