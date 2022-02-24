@@ -244,6 +244,29 @@ export class MainMenu extends React.PureComponent<Props> {
                     <Menu.ItemLink
                         id='accountSettings'
                         ariaLabel='Profile'
+                        to='/social'
+                        text={formatMessage({id: 'social', defaultMessage: 'Social'})}
+                        icon={<i className='fa fa-user-plus'/>}
+                    />
+                     <Menu.ItemLink
+                        id='accountSettings'
+                        ariaLabel='Profile'
+                        to='/messages'
+                        text={formatMessage({id: 'messages', defaultMessage: 'Messages'})}
+                        icon={<i className='fa fa-commenting'/>}
+                    />
+                     <Menu.ItemLink
+                        id='accountSettings'
+                        ariaLabel='Profile'
+                        to='/notification'
+                        text={formatMessage({id: 'notification', defaultMessage: 'Notification'})}
+                        icon={<i className='fa fa-bell'/>}
+                    />
+                </Menu.Group>
+                <Menu.Group>
+                    <Menu.ItemLink
+                        id='accountSettings'
+                        ariaLabel='Profile'
                         to='/profile'
                         text={formatMessage({id: 'navbar_dropdown.accountSettings', defaultMessage: 'Profile'})}
                         icon={<i className='fa fa-user'/>}
