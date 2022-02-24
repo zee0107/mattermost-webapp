@@ -38,6 +38,7 @@ type Props = {
         closeRhs: () => void;
         closeRhsMenu: () => void;
     };
+    classes: string;
 }
 
 export default class ChannelHeaderMobile extends React.PureComponent<Props> {
@@ -63,7 +64,7 @@ export default class ChannelHeaderMobile extends React.PureComponent<Props> {
     }
 
     render() {
-        const {user, channel, isMuted, isReadOnly, isRHSOpen, currentRelativeTeamUrl, inGlobalThreads} = this.props;
+        const {classes,user, channel, isMuted, isReadOnly, isRHSOpen, currentRelativeTeamUrl, inGlobalThreads} = this.props;
 
         let heading;
         if (inGlobalThreads) {
@@ -94,7 +95,7 @@ export default class ChannelHeaderMobile extends React.PureComponent<Props> {
                 role='navigation'
             >
                 <div className='container-fluid theme'>
-                    <div className='navbar-header'>
+                    <div className={'navbar-header ' + `${this.props.classes}`}>
                         {/*<CollapseLhsButton/>*/}
                         <div className={classNames('navbar-brand', {GlobalThreads___title: inGlobalThreads})}>
                             <a href='/'><img src={Logo} className='logo-width-nav' alt='Crypter.io' /></a>

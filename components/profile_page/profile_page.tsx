@@ -120,7 +120,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     <div className='col-sm-12 bodyBgElipseProfile bgGrey removePadding'>
                         <div className='row header'>
                             <div id='navbar_wrapper'>
-                                <ChannelHeaderMobile/>
+                                <ChannelHeaderMobile classes={'removeMargin'}/>
                             </div>
                         </div>
 
