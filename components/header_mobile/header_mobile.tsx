@@ -17,15 +17,9 @@ import CollapseRhsButton from './collapse_rhs_button';
 import ChannelInfoButton from './channel_info_button';
 import ShowSearchButton from './show_search_button';
 import UnmuteChannelButton from './unmute_channel_button';
+import Logo from 'images/logoLight.png';
 
 type Props = {
-    channel?: Channel;
-
-    /**
-     * Relative url for the team, used to redirect if a link in the channel header is clicked
-     */
-    currentRelativeTeamUrl?: string;
-
     inGlobalThreads?: boolean;
     isMobileView: boolean;
     isMuted?: boolean;
@@ -39,7 +33,7 @@ type Props = {
     };
 }
 
-export default class ChannelHeaderMobile extends React.PureComponent<Props> {
+export default class HeaderMobile extends React.PureComponent<Props> {
     componentDidMount() {
         document.querySelector('.inner-wrap')?.addEventListener('click', this.hideSidebars);
     }
@@ -62,9 +56,9 @@ export default class ChannelHeaderMobile extends React.PureComponent<Props> {
     }
 
     render() {
-        const {user, channel, isMuted, isReadOnly, isRHSOpen, currentRelativeTeamUrl, inGlobalThreads} = this.props;
+        const {user, isMuted, isReadOnly, isRHSOpen, inGlobalThreads} = this.props;
 
-        let heading;
+        /*let heading;
         if (inGlobalThreads) {
             heading = (
                 <FormattedMessage
@@ -84,7 +78,7 @@ export default class ChannelHeaderMobile extends React.PureComponent<Props> {
                     )}
                 </>
             );
-        }
+        }*/
 
         return (
             <nav
@@ -94,9 +88,9 @@ export default class ChannelHeaderMobile extends React.PureComponent<Props> {
             >
                 <div className='container-fluid theme'>
                     <div className='navbar-header'>
-                        <CollapseLhsButton/>
-                        <div className={classNames('navbar-brand', {GlobalThreads___title: inGlobalThreads})}>
-                            {heading}
+                        {/*<CollapseLhsButton/>*/}
+                        <div className={classNames('navbar-brand')}>
+                            <a href='/'><img src={Logo} className='logo-width-nav' alt='Crypter.io' /></a>
                         </div>
                         <div className='spacer'/>
                         {channel && (
@@ -108,12 +102,12 @@ export default class ChannelHeaderMobile extends React.PureComponent<Props> {
                             />
                         )}
                         <ShowSearchButton/>
-                        {channel && (
+                        {/*channel && (
                             <MobileChannelHeaderPlug
                                 channel={channel}
                                 isDropdown={false}
                             />
-                        )}
+                        )*/}
                         <CollapseRhsButton/>
                     </div>
                 </div>
