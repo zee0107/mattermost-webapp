@@ -52,6 +52,7 @@ const LazySignupBusiness = React.lazy(() => import('components/signup/signup_bus
 const LazySignupIndex = React.lazy(() => import('components/signup/signup_index'));
 const LazySignupProfile = React.lazy(() => import('components/signup/signup_profile'));
 const LazyProfilePage = React.lazy(() => import('components/profile_page'));
+const LazyLaunchPad = React.lazy(() => import('components/launch_pad'));
 const LazyTermsOfService = React.lazy(() => import('components/terms_of_service'));
 const LazyShouldVerifyEmail = React.lazy(() => import('components/should_verify_email'));
 const LazyDoVerifyEmail = React.lazy(() => import('components/do_verify_email'));
@@ -91,6 +92,7 @@ const SignupBusiness = makeAsyncComponent('SignupBusiness', LazySignupBusiness);
 const SignupIndex = makeAsyncComponent('SignupIndex', LazySignupIndex);
 const SignupProfile = makeAsyncComponent('SignupProfile', LazySignupProfile);
 const ProfilePage = makeAsyncComponent('ProfilePage', LazyProfilePage);
+const LaunchPad = makeAsyncComponent('LaunchPad', LazyLaunchPad);
 const ShouldVerifyEmail = makeAsyncComponent('ShouldVerifyEmail', LazyShouldVerifyEmail);
 const DoVerifyEmail = makeAsyncComponent('DoVerifyEmail', LazyDoVerifyEmail);
 const ClaimController = makeAsyncComponent('ClaimController', LazyClaimController);
@@ -513,6 +515,10 @@ export default class Root extends React.PureComponent {
                                 <LoginHFTRoute
                                     path={'/profile'}
                                     component={ProfilePage}
+                                />
+                                 <LoginHFTRoute
+                                    path={'/launchpad'}
+                                    component={LaunchPad}
                                 />
                                 <LoggedInRoute
                                     path={'/:team'}
