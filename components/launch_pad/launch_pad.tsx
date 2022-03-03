@@ -90,6 +90,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
 
+        const proxyUrl = "http://localhost:8065/"
         let apiKey = "5b439fd8-90e5-467c-b61a-c586252c7e2c";
         let sendData={
             start: 1,
