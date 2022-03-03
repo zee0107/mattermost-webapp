@@ -160,8 +160,8 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                 <div className='col-sm-12 bodyBgElipseLanding bgGrey removePadding'>
                     <div className="inner-wrap-section">
                         <div className="col-sm-8 text-center">
-                            <h1 className="headerText">The Social Network for Crypto Enthusiasts</h1>
-                            <h4 className='getSecondaryText'>The first social media platform for crypto to launch the revolutionary Engage-to-Earn reward system. Enjoy $BUSD rewards while holding $CRYPT tokens.</h4>
+                            <h1 className="headerText">WELCOME</h1>
+                            <h4 className='getSecondaryText'>Connect with your crypto friends all over the world. The largest social network for crypto enthusiasts.</h4>
                             <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Getting Started</a>
                         </div>
                         <div className="col-lg-12 text-center homeImage">
@@ -181,8 +181,8 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                 <div className="col-lg-3">
                                     <div className="col-lg-12 knowmore-box">
                                         <img src={cImage} className="imgIcons-knowmore"></img>
-                                        <h4 className="textBold">Portfolio Tracker</h4>
-                                        <p>Crypter’s Portfolio Tracker provides a simple overview of the current value of your DeFi cryptocurrency tokens in one location. </p>
+                                        <h4 className="textBold">SHARE</h4>
+                                        <p>Share your calls, flex your gains and your losses to your friends.</p>
                                         <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 -5 16 16">
                                             <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                         </svg></a>
@@ -192,8 +192,8 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                 <div className="col-lg-3">
                                     <div className="col-lg-12 knowmore-box">
                                         <img src={safeImage} className="imgIcons-knowmore"></img>
-                                        <h4 className="textBold">Social Network</h4>
-                                        <p>A Facebook-like platform for crypto enthusiasts. Share your gains and losses, flex your NFTs, or create private groups chat with friends.</p>
+                                        <h4 className="textBold">100% PRIVACY</h4>
+                                        <p>Unlike other platforms, we don’t track our user data.</p>
                                         <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 -5 16 16">
                                             <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                         </svg></a>
@@ -203,8 +203,8 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                 <div className="col-lg-3">
                                     <div className="col-lg-12 knowmore-box">
                                         <img src={btcImage} className="imgIcons-knowmore"></img>
-                                        <h4 className="textBold">Crypter Wallet</h4>
-                                        <p>The development of our own wallet will start early next year. This will have features unique to Crypter: P2P service, and more.</p>
+                                        <h4 className="textBold">DISCOVER</h4>
+                                        <p>Create new connections, discover new projects.</p>
                                         <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 -5 16 16">
                                             <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                         </svg></a>
@@ -214,8 +214,8 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                 <div className="col-lg-3">
                                     <div className="col-lg-12 knowmore-box">
                                         <img src={playImage} className="imgIcons-knowmore"></img>
-                                        <h4 className="textBold">Crypter Marketplace</h4>
-                                        <p>The development of Crypter Pay will be a major part of this project: It will become a payment that can be used on Wordpress and Shopify.</p>
+                                        <h4 className="textBold">PLAY WITH YOUR FRIENDS</h4>
+                                        <p>Play your favorite games while communicating with your friends.</p>
                                         <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 -5 16 16">
                                             <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                         </svg></a>
