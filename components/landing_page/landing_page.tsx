@@ -172,7 +172,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                         
                     </div>
                     <div className="inner-wrap-knowmore">
-                        <div className="col-sm-8 text-center">
+                        <div className="col-sm-12 text-center">
                                 <h1 className="headerText">BRINGING THE DEFI COMMUNITY TOGETHER</h1>
                                 <h2 className='getSecondaryText'>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences.</h2>
                         </div>
