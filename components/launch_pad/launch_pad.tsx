@@ -94,7 +94,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         let myHeaders = { "X-CMC_PRO_API_KEY": apiKey,
             "Accept": "application/json"
         };
-        fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', { method: "GET", mode: "no-cors", headers: myHeaders })
+        fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', { method: "GET", headers: myHeaders })
         .then(response => response.json())
         .then(value => this.setState({data: value.data}));
     }
