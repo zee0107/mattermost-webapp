@@ -99,6 +99,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         let config = {
             method: "GET",
             data: JSON.stringify(sendData),
+            mode: "cors",
             headers: {
                 "Access-Control-Allow-Origin": "http://localhost:8065/",
                 "Accepts": "application/json",
