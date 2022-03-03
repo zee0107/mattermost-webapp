@@ -40,6 +40,19 @@
     margin-top: 20px;
     padding-bottom: 15px;
     color: var(--text-primary);
+    height: 238px;
+
+    .knowmore-box br{
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      height: auto;
+
+      .knowmore-box br{
+        display: none;
+      }
+    }
 }
 
 .knowmore-box:hover{
