@@ -23,14 +23,6 @@ type Props = {
     config: Partial<ClientConfig> | undefined;
 }
 
-/*const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-const [isDark, setIsDark] = useState(localStorage.getItem("theme") === defaultDark ? 'dark' : 'light');
-
-const darkModeToggle = () => {
-    const newThemeValue = isDark === 'light' ? 'dark' : 'light';
-    setIsDark(newThemeValue);
-}*/
-
 export default class NotLoggedIn extends React.PureComponent<Props> {
     static propTypes = {
 
@@ -90,15 +82,6 @@ export default class NotLoggedIn extends React.PureComponent<Props> {
     
     render() {
         const content = [];
-
-        /*const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        if(defaultDark){
-            this.setState({isDark: 'dark'})
-        }
-        else{
-            this.setState({isDark: 'light'})
-        }*/
 
         if (!this.props.config) {
             return null;

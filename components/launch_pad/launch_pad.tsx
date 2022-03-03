@@ -111,6 +111,12 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         .then(value => this.setState({data: value.data}));
     }
 
+    setDocumentTitle = (siteName: string) => {
+        if (siteName) {
+            document.title = siteName;
+        }
+    }
+
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
             return null;

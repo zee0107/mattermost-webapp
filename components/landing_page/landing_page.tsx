@@ -36,6 +36,7 @@ interface State {
     updateText: React.ReactNode;
     isDark: string;
     img_path: string;
+    siteName: string;
 }
 
 export default class LandingPage extends React.PureComponent<Props, State> {
@@ -44,6 +45,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
         updateText: null,
         isDark:'light',
         img_path: homeImage,
+        siteName: 'Crypter'
     };
 
     resetForm = React.createRef<HTMLFormElement>();
@@ -52,6 +54,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+        this.setDocumentTitle(this.state.siteName);
     }
 
     componentDidUpdate(){
@@ -60,6 +63,14 @@ export default class LandingPage extends React.PureComponent<Props, State> {
         }
         else{
             this.setState({img_path: homeImage});
+        }
+
+        this.setDocumentTitle(this.state.siteName);
+    }
+
+    setDocumentTitle = (siteName: string) => {
+        if (siteName) {
+            document.title = siteName;
         }
     }
 
