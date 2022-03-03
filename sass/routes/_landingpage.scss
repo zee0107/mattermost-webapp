@@ -42,14 +42,14 @@
     color: var(--text-primary);
     height: 245px !important;
 
-    .knowmore-box br{
+    br{
       display: block;
     }
 
     @media (max-width: 768px) {
       height: auto;
 
-      .knowmore-box br{
+      br{
         display: none;
       }
     }
