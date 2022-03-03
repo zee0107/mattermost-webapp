@@ -47,7 +47,7 @@
     }
 
     @media (max-width: 768px) {
-      height: auto;
+      height: auto !important;
 
       br{
         display: none;
