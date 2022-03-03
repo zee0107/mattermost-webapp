@@ -93,6 +93,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         let apiKey = "5b439fd8-90e5-467c-b61a-c586252c7e2c";
         let config = {
             method: "GET",
+            mode: "no-cors",
             headers: {
                 "X-CMC_PRO_API_KEY": apiKey,
                 "Access-Control-Allow-Origin": '*',
