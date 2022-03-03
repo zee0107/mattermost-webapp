@@ -100,7 +100,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             method: "GET",
             data: JSON.stringify(sendData),
             headers: {
-                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Origin": "http://localhost:8065/",
                 "Accepts": "application/json",
                 "X-CMC_PRO_API_KEY": apiKey
             }
