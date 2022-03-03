@@ -90,7 +90,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
 
-        const headers = { 'Access-Control-Allow-Origin': '*','X-CMC_PRO_API_KEY':'5b439fd8-90e5-467c-b61a-c586252c7e2c','Content-Type': 'application/json'};
+        const headers = { 'X-CMC_PRO_API_KEY':'5b439fd8-90e5-467c-b61a-c586252c7e2c','Content-Type': 'application/json'};
         fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', { method: "GET", mode: "no-cors", headers: headers })
         .then(response => response.json())
         .then(value => this.setState({data: value.data}));
