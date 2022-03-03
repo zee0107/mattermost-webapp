@@ -82,12 +82,18 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             isStatusSet: false,
             isDark:'light',
             img_path: homeImage,
+            data: [],
         };
     }
 
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+
+        const headers = { 'X-CMC_PRO_API_KEY':'5b439fd8-90e5-467c-b61a-c586252c7e2c','Content-Type': 'application/json'};
+        fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', { headers })
+        .then(response => response.json())
+        .then(value => this.setState({data: value.data}));
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -104,6 +110,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
+        const list = this.state.data.map((item, i) => {
+            return <li key={i}>{item}</li>
+          });
+          console.log(this.state.data);
         return (
             <div className='div-bg'>
                 {/*<SidebarRight/>*/}
@@ -120,6 +130,25 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                     <div className='row header'>
                         <div id='navbar_wrapper'>
                             <ChannelHeaderMobile classes={'removeMargin'}/>
+                        </div>
+                    </div>
+                    <div className='col-lg-12 bodyBgElipseProfile bgGrey removePadding'>
+                        <div className='row'>
+                            <div className='col-sm-3'>
+                                <div className='col-sm-12'>
+                                    <div>
+                                        <ul>
+                                            {list}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='col-sm-6'>
+                                
+                            </div>
+                            <div className='col-sm-3'>
+                                
+                            </div>
                         </div>
                     </div>
                     {/*<div className='col-sm-12 bodyBgElipseProfile bgGrey removePadding'>
