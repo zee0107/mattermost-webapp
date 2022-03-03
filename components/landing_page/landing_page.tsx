@@ -183,6 +183,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                         <img src={cImage} className="imgIcons-knowmore"></img>
                                         <h4 className="textBold">SHARE</h4>
                                         <p>Share your calls, flex your gains and your losses to your friends.</p>
+                                        <br></br>
                                         <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 -5 16 16">
                                             <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                         </svg></a>
@@ -194,6 +195,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                         <img src={safeImage} className="imgIcons-knowmore"></img>
                                         <h4 className="textBold">100% PRIVACY</h4>
                                         <p>Unlike other platforms, we don’t track our user data.</p>
+                                        <br></br>
                                         <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 -5 16 16">
                                             <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                         </svg></a>
@@ -205,6 +207,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                         <img src={btcImage} className="imgIcons-knowmore"></img>
                                         <h4 className="textBold">DISCOVER</h4>
                                         <p>Create new connections, discover new projects.</p>
+                                        <br></br>
                                         <a href="#" className="link-knowmore">Know More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 -5 16 16">
                                             <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                         </svg></a>
