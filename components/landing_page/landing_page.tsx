@@ -160,8 +160,8 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                 <div className='col-sm-12 bodyBgElipseLanding bgGrey removePadding'>
                     <div className="inner-wrap-section">
                         <div className="col-sm-8 text-center">
-                            <h1 className="headerText">WELCOME</h1>
-                            <h4 className='getSecondaryText'>Connect with your crypto friends all over the world. The largest social network for crypto enthusiasts.</h4>
+                            <h2 className="headerText">WELCOME</h2>
+                            <h2 className='getSecondaryText'>Connect with your crypto friends all over the world. The largest social network for crypto enthusiasts.</h2>
                             <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Getting Started</a>
                         </div>
                         <div className="col-lg-12 text-center homeImage">
@@ -174,7 +174,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                     <div className="inner-wrap-knowmore">
                         <div className="col-sm-8 text-center">
                                 <h1 className="headerText">BRINGING THE DEFI COMMUNITY TOGETHER</h1>
-                                <h4 className='getSecondaryText'>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences. Our goal is to establish a community where everyone looks out for each other, while users who are sharing scam projects will be banned permanently.</h4>
+                                <h2 className='getSecondaryText'>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences.</h2>
                         </div>
                         <div className="col-lg-12 marginTopBottom">
                             <div className="row">
