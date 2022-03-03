@@ -101,9 +101,9 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             mode: "no-cors",
             data: JSON.stringify(sendData),
             headers: {
-                "X-CMC_PRO_API_KEY": apiKey,
                 "Access-Control-Allow-Origin": "*",
-                "Content-Type": "application/json"
+                "Accepts": "application/json",
+                "X-CMC_PRO_API_KEY": apiKey
             }
         }
 
