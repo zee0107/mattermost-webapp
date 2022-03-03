@@ -99,6 +99,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         let config = {
             method: "GET",
             mode: "no-cors",
+            data: JSON.stringify(sendData),
             headers: {
                 "X-CMC_PRO_API_KEY": apiKey,
                 "Access-Control-Allow-Origin": "*",
@@ -106,7 +107,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             }
         }
 
-        fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',sendData,config)
+        fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',config)
         .then(response => response.json())
         .then(value => this.setState({data: value.data}));
     }
