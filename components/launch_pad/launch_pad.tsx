@@ -90,7 +90,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
 
-        let apiKey = "b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c";//"5b439fd8-90e5-467c-b61a-c586252c7e2c";
+        let apiKey = "5b439fd8-90e5-467c-b61a-c586252c7e2c";
         let sendData={
             start: 1,
             limit: 5000,
@@ -101,11 +101,12 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             mode: "no-cors",
             headers: {
                 "X-CMC_PRO_API_KEY": apiKey,
+                "Access-Control-Allow-Origin": "*",
                 "Content-Type": "application/json"
             }
         }
-        
-        fetch('https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',sendData,config)
+
+        fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',sendData,config)
         .then(response => response.json())
         .then(value => this.setState({data: value.data}));
     }
