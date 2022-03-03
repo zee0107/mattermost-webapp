@@ -38,6 +38,7 @@
     --input-color: #fff;
     --input-focus: #fff;
     --input-color-text: #000;
+    --header-text-color: #59d040;
 
     // Default RGB values to be replaced by applyTheme() (do not add opacity mutations here)
     // these are define to prevent flashes of unstyled content
@@ -100,4 +101,5 @@
     --input-color: transparent;
     --input-focus: #1F2128;
     --input-color-text: #fff;
+    --header-text-color: #CAFDC0;
 }
