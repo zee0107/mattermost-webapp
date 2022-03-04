@@ -1070,6 +1070,14 @@ input[type="checkbox"]:checked ~ ul{
   color: var(--text-primary);
 }
 
+.text-secondary{
+  color: var(--seconday-headers);
+}
+
+.small-font{
+  font-size: 12px;
+}
+
 .label-title{
   width: 70%;
 }
@@ -1084,4 +1092,8 @@ input[type="checkbox"]:checked ~ ul{
   color: gray;
   width: 30%;
   text-align: end;
+}
+
+.view-all-box:hover{
+  color: gray;
 }

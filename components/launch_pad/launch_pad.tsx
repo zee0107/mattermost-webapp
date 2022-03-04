@@ -230,13 +230,40 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
                                                 <div className='d-flex'>
+                                                    <div className='col-sm-2'>
 
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        <label className='text-primary'>GXCHAIN</label>
+                                                        <p className='text-secondary small-font'>GXS</p>
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        
+                                                    </div>
                                                 </div>
                                                 <div className='d-flex'>
-                                                    
+                                                    <div className='col-sm-2'>
+
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        <label className='text-primary'>DigiByte</label>
+                                                        <p className='text-secondary small-font'>DGB</p>
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        
+                                                    </div>
                                                 </div>
                                                 <div className='d-flex'>
-                                                    
+                                                    <div className='col-sm-2'>
+
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        <label className='text-primary'>Icon</label>
+                                                        <p className='text-secondary small-font'>ICX</p>
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -247,13 +274,40 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
                                                 <div className='d-flex'>
+                                                    <div className='col-sm-2'>
 
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        <label className='text-primary'>Apollo</label>
+                                                        <p className='text-secondary small-font'>APL</p>
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        
+                                                    </div>
                                                 </div>
                                                 <div className='d-flex'>
-                                                    
+                                                    <div className='col-sm-2'>
+
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        <label className='text-primary'>CloakCoin</label>
+                                                        <p className='text-secondary small-font'>Cloak</p>
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        
+                                                    </div>
                                                 </div>
                                                 <div className='d-flex'>
-                                                    
+                                                    <div className='col-sm-2'>
+
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        <label className='text-primary'>LiteCoin</label>
+                                                        <p className='text-secondary small-font'>LCC</p>
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -264,13 +318,40 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
                                                 <div className='d-flex'>
+                                                    <div className='col-sm-2'>
 
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        <label className='text-primary'>GXCHAIN</label>
+                                                        <p className='text-secondary small-font'>GXS</p>
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        
+                                                    </div>
                                                 </div>
                                                 <div className='d-flex'>
-                                                    
+                                                    <div className='col-sm-2'>
+
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        <label className='text-primary'>GXCHAIN</label>
+                                                        <p className='text-secondary small-font'>GXS</p>
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        
+                                                    </div>
                                                 </div>
                                                 <div className='d-flex'>
-                                                    
+                                                    <div className='col-sm-2'>
+
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        <label className='text-primary'>GXCHAIN</label>
+                                                        <p className='text-secondary small-font'>GXS</p>
+                                                    </div>
+                                                    <div className='col-sm-5'>
+                                                        
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
