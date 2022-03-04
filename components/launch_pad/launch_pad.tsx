@@ -222,21 +222,20 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <li className='sidemenu-padding'><a href="#" className='list-sidemenu-a'>Docs</a></li>
                                                 </ul>
                                             </div>
+                                        </div>
+                                        <div className='col-sm-12'>
+                                            <div className='sidemenuBox'>
+                                                <div className='col-sm-12'>
+                                                    <label className='text-primary'><img src={fireImage} className='fire-img'></img>Trending Now<a href='#' className='view-all'>View all</a></label>
+                                                </div>
+                                                <div className='d-flex'>
 
-                                            <div className='col-sm-12'>
-                                                <div className='sidemenuBox'>
-                                                    <div className='col-sm-12'>
-                                                        <label><img src={fireImage}></img>Trending Now<a href='#'>View all</a></label>
-                                                    </div>
-                                                    <div className='d-flex'>
-
-                                                    </div>
-                                                    <div className='d-flex'>
-                                                        
-                                                    </div>
-                                                    <div className='d-flex'>
-                                                        
-                                                    </div>
+                                                </div>
+                                                <div className='d-flex'>
+                                                    
+                                                </div>
+                                                <div className='d-flex'>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
