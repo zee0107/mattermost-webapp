@@ -927,7 +927,6 @@
 .collapsible-label-title{
   display: block;
   cursor: pointer;
-  padding-left: 10px;
   /*border: 1px solid #fff;*/
   border-bottom: none;
   background: -webkit-linear-gradient(135deg,#00ff36, rgb(0 255 53 / 70%), #00ff36);
@@ -1032,4 +1031,14 @@ input[type="checkbox"]:checked ~ ul{
 
 .sidemenu-title-img{
   margin-right: 10px;
+}
+
+.view-all{
+  color: gray;
+  width: 50%;
+  text-align: end;
+}
+
+.view-all:hover{
+  color: gray;
 }
