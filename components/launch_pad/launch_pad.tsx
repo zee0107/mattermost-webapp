@@ -8,6 +8,7 @@ import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/
 import classNames from 'classnames';
 
 import homeImage from 'images/homeFeed.png';
+import rocketImage from 'images/rocket.svg';
 import coverImage from 'images/cover-photo.png';
 import profPic from 'images/profiles/user-profile-1.png'
 import ImgIcon from 'images/profiles/image.svg';
@@ -188,7 +189,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                         <div className='col-sm-12'>
                                             <div className='menu-wrapper-collapse sidemenuBox'>
                                                 <input type="checkbox" id="list-item-1"></input>
-                                                <label htmlFor="list-item-1" className="first collapsible-label-title">Launchpad</label>
+                                                <label htmlFor="list-item-1" className="first collapsible-label-title"><img src={rocketImage}></img>Launchpad</label>
                                                 <ul className='ul-collapse'>
                                                     <li className='sidemenu-padding'><a href="#" className='list-sidemenu-a'>Create Launchpad</a></li>
                                                     <li className='sidemenu-padding'>
