@@ -924,6 +924,17 @@
   color: var(--text-primary);
 }
 
+.collapsible-label-title{
+  display: block;
+  cursor: pointer;
+  padding-left: 10px;
+  /*border: 1px solid #fff;*/
+  border-bottom: none;
+  background: -webkit-linear-gradient(135deg,#5ef67e3b, rgb(0 255 53 / 70%), #5ef67e3b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /*.collapsible-label:hover{
   background: #26C281;
 }

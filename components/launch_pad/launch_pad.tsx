@@ -188,7 +188,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                         <div className='col-sm-12'>
                                             <div className='menu-wrapper-collapse sidemenuBox'>
                                                 <input type="checkbox" id="list-item-1"></input>
-                                                <label htmlFor="list-item-1" className="first collapsible-label">Launchpad</label>
+                                                <label htmlFor="list-item-1" className="first collapsible-label-title">Launchpad</label>
                                                 <ul className='ul-collapse'>
                                                     <li className='sidemenu-padding'><a href="#" className='list-sidemenu-a'>Create Launchpad</a></li>
                                                     <li className='sidemenu-padding'>
