@@ -93,21 +93,21 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         const proxyUrl = "http://localhost:8065/";
         const uri = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
         let apiKey = "5b439fd8-90e5-467c-b61a-c586252c7e2c";
-        let sendData={
+        const sendData={
             start: 1,
             limit: 5000,
             convert: "USD"
         }
         const config = {
             method: "GET",
-            data: JSON.stringify(sendData),
+            data: sendData,
             headers: {
-                "Accepts": "application/json",
+                Accepts: "application/json",
                 "X-CMC_PRO_API_KEY": apiKey
             }
         }
 
-        fetch(uri,proxyUrl,config)
+        fetch(uri,config)
         .then(response => response.json())
         .then(value => this.setState({data: value.data}));
     }
