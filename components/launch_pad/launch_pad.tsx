@@ -190,26 +190,26 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                 <input type="checkbox" id="list-item-1"></input>
                                                 <label htmlFor="list-item-1" className="first collapsible-label">Launchpad</label>
                                                 <ul className='ul-collapse'>
-                                                    <li className='sidemenu-padding list-sidemenu'>Create Launchpad</li>
+                                                    <li className='sidemenu-padding list-sidemenu'><a href="#" className='list-sidemenu-a'>Create Launchpad</a></li>
                                                     <li className='sidemenu-padding'>
                                                         <input type="checkbox" id="list-item-2"></input>
                                                         <label htmlFor="list-item-2" className="first collapsible-label">Projects</label>
                                                         <ul className='ul-collapse'>
-                                                            <li className='list-sidemenu'>Live</li>
-                                                            <li className='list-sidemenu'>Upcoming</li>
+                                                            <li className='list-sidemenu'><a href="#" className='list-sidemenu-a'>Live</a></li>
+                                                            <li className='list-sidemenu'><a href="#" className='list-sidemenu-a'>Upcoming</a></li>
                                                         </ul>
                                                     </li>
                                                     <li className='sidemenu-padding'>
                                                         <input type="checkbox" id="list-item-3"></input>
                                                         <label htmlFor="list-item-3" className="first collapsible-label">Crypter Lock</label>
                                                         <ul className='ul-collapse'>
-                                                            <li className='list-sidemenu'>Create Lock</li>
-                                                            <li className='list-sidemenu'>Token</li>
-                                                            <li className='list-sidemenu'>Liquidity</li>
+                                                            <li className='list-sidemenu'><a href="#" className='list-sidemenu-a'>Create Lock</a></li>
+                                                            <li className='list-sidemenu'><a href="#" className='list-sidemenu-a'>Token</a></li>
+                                                            <li className='list-sidemenu'><a href="#" className='list-sidemenu-a'>Liquidity</a></li>
                                                         </ul>
                                                     </li>
-                                                    <li className='sidemenu-padding list-sidemenu'>KYC &amp; Audit</li>
-                                                    <li className='sidemenu-padding list-sidemenu'>Docs</li>
+                                                    <li className='sidemenu-padding list-sidemenu'><a href="#" className='list-sidemenu-a'>KYC &amp; Audit</a></li>
+                                                    <li className='sidemenu-padding list-sidemenu'><a href="#" className='list-sidemenu-a'>Docs</a></li>
                                                 </ul>
                                             </div>
                                         </div>

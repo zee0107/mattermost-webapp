@@ -905,6 +905,7 @@
 
 .menu-wrapper-collapse{
   margin: 10% auto;
+  padding: 15px;
 }
 
 .ul-collapse{
@@ -920,6 +921,7 @@
   border: 1px solid #fff;*/
   border-bottom: none;
   font-weight: 400 !important;
+  color: var(--text-primary);
 }
 
 /*.collapsible-label:hover{
@@ -1001,5 +1003,9 @@ input[type="checkbox"]:checked ~ ul{
   color: var(--text-primary);
   border-radius: 10px;
   width: 100%;
-  background: linear-gradient(40deg, #5bf67c,#bff7cb );
+  background: linear-gradient(135deg,#5ef67e3b, rgb(0 255 53 / 70%), #5ef67e3b);
+}
+
+.list-sidemenu-a{
+  padding-left: 10px;
 }
