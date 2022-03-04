@@ -1054,4 +1054,18 @@ input[type="checkbox"]:checked ~ ul{
 
 .fill-text{
   color: #ffffff;
+  position: absolute;
+  left: 25px;
+  top: 23px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.fill-img{
+  margin-top: 21px;
+  width: 30px;
+}
+
+.text-primary{
+  color: var(--text-primary);
 }
