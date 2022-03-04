@@ -1037,8 +1037,21 @@ input[type="checkbox"]:checked ~ ul{
   color: gray;
   width: 50%;
   text-align: end;
+  padding: 5px;
 }
 
 .view-all:hover{
   color: gray;
+}
+
+.show-div{
+  display: block;
+}
+
+.hide-div{
+  display: none;
+}
+
+.fill-text{
+  color: #ffffff;
 }

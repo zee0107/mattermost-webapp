@@ -9,6 +9,7 @@ import classNames from 'classnames';
 
 import homeImage from 'images/homeFeed.png';
 import rocketImage from 'images/rocket.svg';
+import fillImage from 'images/fill.svg';
 import coverImage from 'images/cover-photo.png';
 import profPic from 'images/profiles/user-profile-1.png'
 import ImgIcon from 'images/profiles/image.svg';
@@ -221,7 +222,20 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-sm-6'>
-                                        test
+                                        <div id="createToken" className='col-lg-12'>
+                                            <div className='d-flex'>
+                                                <div className='col-lg-2'>
+                                                    <div className='d-flex'>
+                                                        <img src={fillImage}></img>
+                                                        <h1 className='fill-text'>1</h1>
+                                                    </div>
+                                                </div>
+                                                <div className='col-lg-10'>
+                                                    <h3>Verify Token</h3>
+                                                    <p>Please enter your verification token from your account.</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div className='col-sm-3'>
                                         test
