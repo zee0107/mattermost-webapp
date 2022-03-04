@@ -10,6 +10,9 @@ import classNames from 'classnames';
 import homeImage from 'images/homeFeed.png';
 import rocketImage from 'images/rocket.svg';
 import fillImage from 'images/fill.svg';
+import trendImage from 'images/trending-up.svg';
+import fireImage from 'images/fire.png';
+import clockImage from 'images/clock.svg';
 import coverImage from 'images/cover-photo.png';
 import profPic from 'images/profiles/user-profile-1.png'
 import ImgIcon from 'images/profiles/image.svg';
@@ -218,6 +221,23 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <li className='sidemenu-padding'><a href="#" className='list-sidemenu-a'>KYC &amp; Audit</a></li>
                                                     <li className='sidemenu-padding'><a href="#" className='list-sidemenu-a'>Docs</a></li>
                                                 </ul>
+                                            </div>
+
+                                            <div className='col-sm-12'>
+                                                <div className='sidemenuBox'>
+                                                    <div className='col-sm-12'>
+                                                        <label><img src={trendImage}></img>Trending Now<a href='#'>View all</a></label>
+                                                    </div>
+                                                    <div className='d-flex'>
+
+                                                    </div>
+                                                    <div className='d-flex'>
+                                                        
+                                                    </div>
+                                                    <div className='d-flex'>
+                                                        
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
