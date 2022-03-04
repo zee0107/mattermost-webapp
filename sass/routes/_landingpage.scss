@@ -1070,6 +1070,10 @@ input[type="checkbox"]:checked ~ ul{
   color: var(--text-primary);
 }
 
+.label-title{
+  width: 70%;
+}
+
 .fire-img{
   width: 15px;
   margin-right: 5px;
@@ -1078,6 +1082,6 @@ input[type="checkbox"]:checked ~ ul{
 
 .view-all-box{
   color: gray;
-  width: 50%;
+  width: 30%;
   text-align: end;
 }
