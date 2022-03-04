@@ -492,6 +492,7 @@
   .bodyBgElipseProfile {
     background-image: url('/images/ellipse-ligthgreen.svg'),url('/images/ellipse-green.svg');
     background-position: left top, right top;
+    padding-bottom: 30px;
   }
 
   .profile-details-box{
@@ -1096,4 +1097,8 @@ input[type="checkbox"]:checked ~ ul{
 
 .view-all-box:hover{
   color: gray;
+}
+
+.currency-value-text{
+  color: #00ff36;
 }
