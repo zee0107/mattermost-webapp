@@ -190,28 +190,26 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                 <input type="checkbox" id="list-item-1"></input>
                                                 <label htmlFor="list-item-1" className="first collapsible-label">Launchpad</label>
                                                 <ul className='ul-collapse'>
-                                                    <li className='sidemenu-padding'>Create Launchpad</li>
+                                                    <li className='sidemenu-padding list-sidemenu'>Create Launchpad</li>
                                                     <li className='sidemenu-padding'>
                                                         <input type="checkbox" id="list-item-2"></input>
                                                         <label htmlFor="list-item-2" className="first collapsible-label">Projects</label>
                                                         <ul className='ul-collapse'>
-                                                            <li>Live</li>
-                                                            <li>Upcoming</li>
+                                                            <li className='list-sidemenu'>Live</li>
+                                                            <li className='list-sidemenu'>Upcoming</li>
                                                         </ul>
                                                     </li>
                                                     <li className='sidemenu-padding'>
                                                         <input type="checkbox" id="list-item-3"></input>
                                                         <label htmlFor="list-item-3" className="first collapsible-label">Crypter Lock</label>
                                                         <ul className='ul-collapse'>
-                                                            <li>Create Lock</li>
-                                                            <li>Token</li>
-                                                            <li>Liquidity</li>
-                                                            <li>Lora</li>
-                                                            <li>Meriweather</li>
+                                                            <li className='list-sidemenu'>Create Lock</li>
+                                                            <li className='list-sidemenu'>Token</li>
+                                                            <li className='list-sidemenu'>Liquidity</li>
                                                         </ul>
                                                     </li>
-                                                    <li className='sidemenu-padding'>KYC &amp; Audit</li>
-                                                    <li className='sidemenu-padding'>Docs</li>
+                                                    <li className='sidemenu-padding list-sidemenu'>KYC &amp; Audit</li>
+                                                    <li className='sidemenu-padding list-sidemenu'>Docs</li>
                                                 </ul>
                                             </div>
                                         </div>

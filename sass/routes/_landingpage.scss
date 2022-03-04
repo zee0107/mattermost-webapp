@@ -966,7 +966,6 @@ input[type="checkbox"]:checked ~ ul{
 .sidemenu-item1:hover{
   color: rgb(255, 141, 8);
   border-radius: 10px;
-  background-color: rgba(128, 128, 128, 0.377);
 }
 
 .sidemenu-item2{
@@ -977,7 +976,6 @@ input[type="checkbox"]:checked ~ ul{
 .sidemenu-item2:hover{
   color: #3F8CFF;
   border-radius: 10px;
-  background-color: rgba(128, 128, 128, 0.377);
 }
 
 
@@ -989,9 +987,19 @@ input[type="checkbox"]:checked ~ ul{
 .sidemenu-item3:hover{
   color: #2CD889;
   border-radius: 10px;
-  background-color: rgba(128, 128, 128, 0.377);
 }
 
 .sidemenu-padding{
   padding: 10px 0px;
+}
+
+.list-sidemenu{
+  color: var(--text-primary);
+}
+
+.list-sidemenu:hover{
+  color: var(--text-primary);
+  border-radius: 10px;
+  width: 100%;
+  background: linear-gradient(40deg, #5bf67c,#bff7cb );
 }
