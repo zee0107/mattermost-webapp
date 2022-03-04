@@ -445,6 +445,10 @@
     vertical-align: middle;
   }
 
+  .side-menu-align{
+    vertical-align: bottom;
+  }
+
   .img-cover{
     height: 300px;
     border-radius: 7px;
@@ -956,6 +960,7 @@ input[type="checkbox"]:checked ~ ul{
 
 .sidemenu-item1{
   color: rgb(255, 141, 8);
+  padding: 5px;
 }
 
 .sidemenu-item1:hover{
@@ -965,22 +970,24 @@ input[type="checkbox"]:checked ~ ul{
 }
 
 .sidemenu-item2{
-  color: blue;
+  color: #3F8CFF;
+  padding: 5px;
 }
 
 .sidemenu-item2:hover{
-  color: blue;
+  color: #3F8CFF;
   border-radius: 10px;
   background-color: rgba(128, 128, 128, 0.377);
 }
 
 
 .sidemenu-item3{
-  color: green;
+  color: #2CD889;
+  padding: 5px;
 }
 
 .sidemenu-item3:hover{
-  color: green;
+  color: #2CD889;
   border-radius: 10px;
   background-color: rgba(128, 128, 128, 0.377);
 }
