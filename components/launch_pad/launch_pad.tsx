@@ -171,12 +171,12 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                 <div className='col-sm-12'>
                                     <div className='menu-wrapper-collapse'>
                                         <input type="checkbox" id="list-item-1"></input>
-                                        <label for="list-item-1" class="first collapsible-label">Launchpad</label>
+                                        <label htmlFor="list-item-1" className="first collapsible-label">Launchpad</label>
                                         <ul className='ul-collapse'>
                                             <li>Create Launchpad</li>
                                             <li>
                                                 <input type="checkbox" id="list-item-2"></input>
-                                                <label for="list-item-2" class="first collapsible-label">Projects</label>
+                                                <label htmlFor="list-item-2" className="first collapsible-label">Projects</label>
                                                 <ul className='ul-collapse'>
                                                     <li>Live</li>
                                                     <li>Upcoming</li>
@@ -184,7 +184,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                             </li>
                                             <li>
                                                 <input type="checkbox" id="list-item-3"></input>
-                                                <label for="list-item-3" class="first collapsible-label">Crypter Lock</label>
+                                                <label htmlFor="list-item-3" className="first collapsible-label">Crypter Lock</label>
                                                 <ul className='ul-collapse'>
                                                     <li>Create Lock</li>
                                                     <li>Token</li>
