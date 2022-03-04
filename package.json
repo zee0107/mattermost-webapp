@@ -3,6 +3,7 @@
   "browser": {
     "./client/web_client.jsx": "./client/browser_web_client.jsx"
   },
+  "proxy": "http://localhost:8065/",
   "version": "5.36.0-0",
   "private": true,
   "dependencies": {

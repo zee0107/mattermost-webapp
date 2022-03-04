@@ -99,14 +99,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             convert: "USD"
         }
         const config = {
-            crossDomain:true,
-            mode: "cors",
             method: "GET",
             data: sendData,
             headers: {
                 Accepts: "application/json",
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "GET",
                 "X-CMC_PRO_API_KEY": apiKey
             }
         }
