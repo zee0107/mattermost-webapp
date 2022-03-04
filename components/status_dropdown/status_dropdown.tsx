@@ -480,7 +480,7 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
                             to='/launchpad'
                             text={localizeMessage('navbar_dropdown', 'Launchpad')}
                             icon={globalHeader ? (
-                                <i className='fa fa-rocket'/>
+                                <i className='fa fa-cog'/>
                             ) : <i className='fa fa-cog'/>}
                         />
                     </Menu.Group>
