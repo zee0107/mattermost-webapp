@@ -66,6 +66,7 @@
 
 .knowmore-box:hover{
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 233, 109, 0.6);
+    
 }
 
 .knowmore-box:focus{
@@ -979,6 +980,7 @@ input[type="checkbox"]:checked ~ ul{
 .sidemenu-item1:hover{
   color: rgb(255, 141, 8);
   border-radius: 10px;
+  text-decoration: none;
 }
 
 .sidemenu-item2{
@@ -989,6 +991,7 @@ input[type="checkbox"]:checked ~ ul{
 .sidemenu-item2:hover{
   color: #3F8CFF;
   border-radius: 10px;
+  text-decoration: none;
 }
 
 
@@ -1000,6 +1003,7 @@ input[type="checkbox"]:checked ~ ul{
 .sidemenu-item3:hover{
   color: #2CD889;
   border-radius: 10px;
+  text-decoration: none;
 }
 
 .sidemenu-padding{
@@ -1109,4 +1113,8 @@ input[type="checkbox"]:checked ~ ul{
 
 .text-percent{
   color: #00ff36;
+}
+
+.current-conversion-img{
+  width: 40px;
 }
