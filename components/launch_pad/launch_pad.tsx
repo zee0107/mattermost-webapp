@@ -232,7 +232,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
                                                 <div className='d-flex'>
-                                                    <div className='col-sm-2'>
+                                                    <div className='col-sm-2 removePadding'>
                                                         <img src={digiImage}></img>
                                                     </div>
                                                     <div className='col-sm-5'>
@@ -240,11 +240,12 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <p className='text-secondary small-font'>GXS</p>
                                                     </div>
                                                     <div className='col-sm-5'>
-                                                        <label className='currency-value-text'>&#36; 0.00065</label>
+                                                        <br></br>
+                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
                                                     </div>
                                                 </div>
                                                 <div className='d-flex'>
-                                                    <div className='col-sm-2'>
+                                                    <div className='col-sm-2 removePadding'>
                                                         <img src={digiImage}></img>
                                                     </div>
                                                     <div className='col-sm-5'>
@@ -252,19 +253,21 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <p className='text-secondary small-font'>DGB</p>
                                                     </div>
                                                     <div className='col-sm-5'>
-                                                        <label className='currency-value-text'>&#36; 0.00065</label>
+                                                        <br></br>
+                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
                                                     </div>
                                                 </div>
                                                 <div className='d-flex'>
-                                                    <div className='col-sm-2'>
+                                                    <div className='col-sm-2 removePadding'>
                                                         <img src={digiImage}></img>
                                                     </div>
-                                                    <div className='col-sm-5'>
+                                                    <div className='col-sm-5 removePadding'>
                                                         <label className='text-primary'>Icon</label>
                                                         <p className='text-secondary small-font'>ICX</p>
                                                     </div>
                                                     <div className='col-sm-5'>
-                                                        <label className='currency-value-text'>&#36; 0.00065</label>
+                                                        <br></br>
+                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -276,7 +279,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
                                                 <div className='d-flex'>
-                                                    <div className='col-sm-2'>
+                                                    <div className='col-sm-2 removePadding'>
                                                         <img src={digiImage}></img>
                                                     </div>
                                                     <div className='col-sm-5'>
@@ -284,11 +287,12 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <p className='text-secondary small-font'>APL</p>
                                                     </div>
                                                     <div className='col-sm-5'>
-                                                        <label className='currency-value-text'>&#36; 0.00065</label>
+                                                        <br></br>
+                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
                                                     </div>
                                                 </div>
                                                 <div className='d-flex'>
-                                                    <div className='col-sm-2'>
+                                                    <div className='col-sm-2 removePadding'>
                                                         <img src={digiImage}></img>
                                                     </div>
                                                     <div className='col-sm-5'>
@@ -296,11 +300,12 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <p className='text-secondary small-font'>Cloak</p>
                                                     </div>
                                                     <div className='col-sm-5'>
-                                                        <label className='currency-value-text'>&#36; 0.00065</label>
+                                                        <br></br>
+                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
                                                     </div>
                                                 </div>
                                                 <div className='d-flex'>
-                                                    <div className='col-sm-2'>
+                                                    <div className='col-sm-2 removePadding'>
                                                         <img src={digiImage}></img>
                                                     </div>
                                                     <div className='col-sm-5'>
@@ -308,7 +313,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <p className='text-secondary small-font'>LCC</p>
                                                     </div>
                                                     <div className='col-sm-5'>
-                                                        <label className='currency-value-text'>&#36; 0.00065</label>
+                                                        <br></br>
+                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -320,7 +326,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
                                                 <div className='d-flex'>
-                                                    <div className='col-sm-2'>
+                                                    <div className='col-sm-2 removePadding'>
                                                         <img src={digiImage}></img>
                                                     </div>
                                                     <div className='col-sm-5'>
@@ -328,11 +334,12 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <p className='text-secondary small-font'>GXS</p>
                                                     </div>
                                                     <div className='col-sm-5'>
-                                                        <label className='currency-value-text'>&#36; 0.00065</label>
+                                                        <br></br>
+                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
                                                     </div>
                                                 </div>
                                                 <div className='d-flex'>
-                                                    <div className='col-sm-2'>
+                                                    <div className='col-sm-2 removePadding'>
                                                         <img src={digiImage}></img>
                                                     </div>
                                                     <div className='col-sm-5'>
@@ -340,11 +347,12 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <p className='text-secondary small-font'>DGB</p>
                                                     </div>
                                                     <div className='col-sm-5'>
-                                                        <label className='currency-value-text'>&#36; 0.00065</label>
+                                                        <br></br>
+                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
                                                     </div>
                                                 </div>
                                                 <div className='d-flex'>
-                                                    <div className='col-sm-2'>
+                                                    <div className='col-sm-2 removePadding'>
                                                         <img src={digiImage}></img>
                                                     </div>
                                                     <div className='col-sm-5'>
@@ -352,7 +360,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <p className='text-secondary small-font'>ICX</p>
                                                     </div>
                                                     <div className='col-sm-5'>
-                                                        <label className='currency-value-text'>&#36; 0.00065</label>
+                                                        <br></br>
+                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
                                                     </div>
                                                 </div>
                                             </div>
