@@ -14,21 +14,12 @@ import trendImage from 'images/trending-up.svg';
 import fireImage from 'images/fire.png';
 import clockImage from 'images/clock.svg';
 import digiImage from 'images/currency-icons/digibyte.svg';
+import btcImage from 'images/currency-icons/btc.svg';
+import ltcImage from 'images/currency-icons/ltc.svg';
+import bnbImage from 'images/currency-icons/bnb.svg';
+import ethImage from 'images/currency-icons/ltc.svg';
 import lccImage from 'images/currency-icons/litecoin.svg';
-import coverImage from 'images/cover-photo.png';
-import profPic from 'images/profiles/user-profile-1.png'
-import ImgIcon from 'images/profiles/image.svg';
-import LayoutIcon from 'images/profiles/columns-gap.svg';
-import MusicIcon from 'images/profiles/music-note-beamed.svg';
-import VideoIcon from 'images/profiles/camera-video.svg';
-import GeoIcon from 'images/profiles/geo-alt.svg';
-import AttachIcon from 'images/profiles/paperclip.svg';
-import SplitIcon from 'images/profiles/menu-icon.svg';
-import DoneIcon from 'images/profiles/done.svg';
-import UndoneIcon from 'images/profiles/undone.svg';
-import postImage from 'images/post-1.png';
-import postPic from 'images/profiles/user-profile-2.png';
-import completion from 'images/profiles/completion.png';
+
 
 import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
 import UserSettingsModal from 'components/user_settings/modal_profile';
@@ -420,7 +411,23 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-sm-3'>
-                                        test
+                                    <div className='col-sm-12'>
+                                            <div className='sidemenuBox'>
+                                                <div className='d-flex'>
+                                                    <div className='col-lg-6'>
+                                                        <img src={btcImage}></img>
+                                                        <h3 className='text-primary'>BTC <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
+                                                        <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
+                                                        </svg> USD</h3>
+                                                        <h2>9784.79</h2>
+                                                        <p className='text-percent'><img src={trendImage}></img> 7.2%</p>
+                                                    </div>
+                                                    <div className='col-lg-6'>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
