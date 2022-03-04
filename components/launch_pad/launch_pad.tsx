@@ -157,54 +157,56 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                     </div>
                     <div className='col-lg-12 bodyBgElipseProfile bgGrey removePadding'>
                         <div className='inner-wrap-section'>
-                            <div className='row'>
-                                <div className='col-sm-3'>
-                                    <div className='col-sm-12'>
-                                        <div className='sidemenuBox'>
-                                            <ul>
-                                                <li><a href='#'>New Feed</a></li>
-                                                <li><a href='#'>Albums</a></li>
-                                                <li><a href='#'>My Groups</a></li>
-                                                <li><a href='#'>My Pages</a><a href="#">View all</a></li>
-                                            </ul>
+                            <div className='col-lg-12'>
+                                <div className='row'>
+                                    <div className='col-sm-3'>
+                                        <div className='col-sm-12'>
+                                            <div className='sidemenuBox'>
+                                                <ul>
+                                                    <li><a href='#'>New Feed</a></li>
+                                                    <li><a href='#'>Albums</a></li>
+                                                    <li><a href='#'>My Groups</a></li>
+                                                    <li><a href='#'>My Pages</a><a href="#">View all</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div className='col-sm-12'>
+                                            <div className='menu-wrapper-collapse sidemenuBox'>
+                                                <input type="checkbox" id="list-item-1"></input>
+                                                <label htmlFor="list-item-1" className="first collapsible-label">Launchpad</label>
+                                                <ul className='ul-collapse'>
+                                                    <li>Create Launchpad</li>
+                                                    <li>
+                                                        <input type="checkbox" id="list-item-2"></input>
+                                                        <label htmlFor="list-item-2" className="first collapsible-label">Projects</label>
+                                                        <ul className='ul-collapse'>
+                                                            <li>Live</li>
+                                                            <li>Upcoming</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" id="list-item-3"></input>
+                                                        <label htmlFor="list-item-3" className="first collapsible-label">Crypter Lock</label>
+                                                        <ul className='ul-collapse'>
+                                                            <li>Create Lock</li>
+                                                            <li>Token</li>
+                                                            <li>Liquidity</li>
+                                                            <li>Lora</li>
+                                                            <li>Meriweather</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>KYC &amp; Audit</li>
+                                                    <li>Docs</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className='col-sm-12'>
-                                        <div className='menu-wrapper-collapse sidemenuBox'>
-                                            <input type="checkbox" id="list-item-1"></input>
-                                            <label htmlFor="list-item-1" className="first collapsible-label">Launchpad</label>
-                                            <ul className='ul-collapse'>
-                                                <li>Create Launchpad</li>
-                                                <li>
-                                                    <input type="checkbox" id="list-item-2"></input>
-                                                    <label htmlFor="list-item-2" className="first collapsible-label">Projects</label>
-                                                    <ul className='ul-collapse'>
-                                                        <li>Live</li>
-                                                        <li>Upcoming</li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <input type="checkbox" id="list-item-3"></input>
-                                                    <label htmlFor="list-item-3" className="first collapsible-label">Crypter Lock</label>
-                                                    <ul className='ul-collapse'>
-                                                        <li>Create Lock</li>
-                                                        <li>Token</li>
-                                                        <li>Liquidity</li>
-                                                        <li>Lora</li>
-                                                        <li>Meriweather</li>
-                                                    </ul>
-                                                </li>
-                                                <li>KYC &amp; Audit</li>
-                                                <li>Docs</li>
-                                            </ul>
-                                        </div>
+                                    <div className='col-sm-6'>
+                                        test
                                     </div>
-                                </div>
-                                <div className='col-sm-6'>
-                                    test
-                                </div>
-                                <div className='col-sm-3'>
-                                    test
+                                    <div className='col-sm-3'>
+                                        test
+                                    </div>
                                 </div>
                             </div>
                         </div>
