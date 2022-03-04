@@ -420,7 +420,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <h5 className='text-primary'>BTC <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
                                                         <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
                                                         </svg> USD</h5>
-                                                        <h3>9784.79</h3>
+                                                        <h3 className='text-secondary'>9784.79</h3>
                                                         <p className='text-percent'><img src={trendImage}></img> 7.2%</p>
                                                     </div>
                                                     <div className='col-lg-6 removePaddingRight'>
@@ -437,7 +437,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <h5 className='text-primary'>LTC <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
                                                         <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
                                                         </svg> USD</h5>
-                                                        <h3>8741.79</h3>
+                                                        <h3 className='text-secondary'>8741.79</h3>
                                                         <p className='text-percent'><img src={trendImage}></img> 5.2%</p>
                                                     </div>
                                                     <div className='col-lg-6 removePaddingRight'>
@@ -454,7 +454,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <h5 className='text-primary'>ETH <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
                                                         <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
                                                         </svg> USD</h5>
-                                                        <h3>4567.16</h3>
+                                                        <h3 className='text-secondary'>4567.16</h3>
                                                         <p className='text-percent'><img src={trendImage}></img> 6.2%</p>
                                                     </div>
                                                     <div className='col-lg-6 removePaddingRight'>
@@ -471,7 +471,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <h5 className='text-primary'>BNB <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
                                                         <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
                                                         </svg> USD</h5>
-                                                        <h3>6547.79</h3>
+                                                        <h3 className='text-secondary'>6547.79</h3>
                                                         <p className='text-percent'><img src={trendImage}></img> 9.5%</p>
                                                     </div>
                                                     <div className='col-lg-6 removePaddingRight'>
