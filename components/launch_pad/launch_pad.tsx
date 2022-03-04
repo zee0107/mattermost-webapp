@@ -201,10 +201,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className='col-sm-6'>
-                                    
+                                    test
                                 </div>
                                 <div className='col-sm-3'>
-                                    
+                                    test
                                 </div>
                             </div>
                         </div>
