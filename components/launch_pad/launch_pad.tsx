@@ -18,7 +18,7 @@ import btcImage from 'images/currency-icons/btc.svg';
 import ltcImage from 'images/currency-icons/ltc.svg';
 import bnbImage from 'images/currency-icons/bnb.svg';
 import ethImage from 'images/currency-icons/eth.svg';
-import graphImage from 'images/currency-icons/graph-up.svg';
+import graphImage from 'images/currency-icons/graph-up.png';
 import lccImage from 'images/currency-icons/litecoin.svg';
 
 
