@@ -90,7 +90,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
 
-        const proxyUrl = "http://localhost:8065/";
+        /*const proxyUrl = "http://localhost:8065/";
         const uri = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
         let apiKey = "5b439fd8-90e5-467c-b61a-c586252c7e2c";
         const sendData={
@@ -110,7 +110,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
         fetch(uri,config)
         .then(response => response.json())
-        .then(value => this.setState({data: value.data}));
+        .then(value => this.setState({data: value.data}));*/
     }
 
     setDocumentTitle = (siteName: string) => {
@@ -160,8 +160,41 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                             <div className='col-sm-3'>
                                 <div className='col-sm-12'>
                                     <div>
-                                        <ul>
-                                            {list}
+                                    <ul>
+                                        <li><a href='#'>New Feed</a></li>
+                                        <li><a href='#'>Albums</a></li>
+                                        <li><a href='#'>My Groups</a></li>
+                                        <li><a href='#'>My Pages</a><a href="#">View all</a></li>
+                                    </ul>
+                                    </div>
+                                </div>
+                                <div className='col-sm-12'>
+                                    <div className='menu-wrapper-collapse'>
+                                        <input type="checkbox" id="list-item-1"></input>
+                                        <label for="list-item-1" class="first collapsible-label">Launchpad</label>
+                                        <ul className='ul-collapse'>
+                                            <li>Create Launchpad</li>
+                                            <li>
+                                                <input type="checkbox" id="list-item-2"></input>
+                                                <label for="list-item-2" class="first collapsible-label">Projects</label>
+                                                <ul className='ul-collapse'>
+                                                    <li>Live</li>
+                                                    <li>Upcoming</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="list-item-3"></input>
+                                                <label for="list-item-3" class="first collapsible-label">Crypter Lock</label>
+                                                <ul className='ul-collapse'>
+                                                    <li>Create Lock</li>
+                                                    <li>Token</li>
+                                                    <li>Liquidity</li>
+                                                    <li>Lora</li>
+                                                    <li>Meriweather</li>
+                                                </ul>
+                                            </li>
+                                            <li>KYC &amp; Audit</li>
+                                            <li>Docs</li>
                                         </ul>
                                     </div>
                                 </div>
