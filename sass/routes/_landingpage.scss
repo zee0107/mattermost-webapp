@@ -1012,7 +1012,7 @@ input[type="checkbox"]:checked ~ ul{
 
 .list-sidemenu-a:hover{
   color: var(--text-primary);
-  border-radius: 10px;
+  border-radius: 20px;
   width: 100%;
   background: linear-gradient(135deg,#5ef67e3b, rgb(0 255 53 / 70%), #5ef67e3b);
 }
@@ -1024,7 +1024,7 @@ input[type="checkbox"]:checked ~ ul{
 
 .list-sidemenu-b:hover{
   color: var(--text-primary);
-  border-radius: 10px;
+  border-radius: 20px;
   width: 100%;
   background: linear-gradient(135deg,#5ef67e3b, rgb(0 255 53 / 70%), #5ef67e3b);
 }
