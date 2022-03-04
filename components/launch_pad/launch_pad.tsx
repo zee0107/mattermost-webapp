@@ -17,7 +17,8 @@ import digiImage from 'images/currency-icons/digibyte.svg';
 import btcImage from 'images/currency-icons/btc.svg';
 import ltcImage from 'images/currency-icons/ltc.svg';
 import bnbImage from 'images/currency-icons/bnb.svg';
-import ethImage from 'images/currency-icons/ltc.svg';
+import ethImage from 'images/currency-icons/eth.svg';
+import graphImage from 'images/currency-icons/graph-up.svg';
 import lccImage from 'images/currency-icons/litecoin.svg';
 
 
@@ -423,7 +424,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <p className='text-percent'><img src={trendImage}></img> 7.2%</p>
                                                     </div>
                                                     <div className='col-lg-6'>
-                                                        
+                                                        <img src={graphImage}></img>
                                                     </div>
                                                 </div>
                                             </div>
@@ -432,7 +433,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                             <div className='sidemenuBox'>
                                                 <div className='d-flex'>
                                                     <div className='col-lg-6 removePaddingLeft'>
-                                                        <img src={lccImage} className="current-conversion-img"></img>
+                                                        <img src={ltcImage} className="current-conversion-img"></img>
                                                         <h5 className='text-primary'>LTC <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
                                                         <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
                                                         </svg> USD</h5>
