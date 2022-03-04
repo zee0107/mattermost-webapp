@@ -226,8 +226,42 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                         <div className='col-sm-12'>
                                             <div className='sidemenuBox'>
                                                 <div className='d-flex'>
-                                                    <label className='text-primary'><img src={fireImage} className='fire-img'></img>Trending Now</label>
-                                                    <a href='#' className='view-all'>View all</a>
+                                                    <label className='text-primary'><img src={fireImage} className='fire-img'></img>Trending</label>
+                                                    <a href='#' className='view-all-box'>View all</a>
+                                                </div>
+                                                <div className='d-flex'>
+
+                                                </div>
+                                                <div className='d-flex'>
+                                                    
+                                                </div>
+                                                <div className='d-flex'>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='col-sm-12'>
+                                            <div className='sidemenuBox'>
+                                                <div className='d-flex'>
+                                                    <label className='text-primary'><img src={trendImage} className='fire-img'></img>Biggest Gainers</label>
+                                                    <a href='#' className='view-all-box'>View all</a>
+                                                </div>
+                                                <div className='d-flex'>
+
+                                                </div>
+                                                <div className='d-flex'>
+                                                    
+                                                </div>
+                                                <div className='d-flex'>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='col-sm-12'>
+                                            <div className='sidemenuBox'>
+                                                <div className='d-flex'>
+                                                    <label className='text-primary'><img src={clockImage} className='fire-img'></img>Recently Added</label>
+                                                    <a href='#' className='view-all-box'>View all</a>
                                                 </div>
                                                 <div className='d-flex'>
 
