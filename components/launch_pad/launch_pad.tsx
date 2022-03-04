@@ -160,7 +160,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                             <div className='row'>
                                 <div className='col-sm-3'>
                                     <div className='col-sm-12'>
-                                        <div className='gettingstartedBox'>
+                                        <div className='sidemenuBox'>
                                             <ul>
                                                 <li><a href='#'>New Feed</a></li>
                                                 <li><a href='#'>Albums</a></li>
@@ -170,7 +170,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-sm-12'>
-                                        <div className='menu-wrapper-collapse gettingstartedBox'>
+                                        <div className='menu-wrapper-collapse sidemenuBox'>
                                             <input type="checkbox" id="list-item-1"></input>
                                             <label htmlFor="list-item-1" className="first collapsible-label">Launchpad</label>
                                             <ul className='ul-collapse'>
