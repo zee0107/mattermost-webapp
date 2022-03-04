@@ -995,17 +995,25 @@ input[type="checkbox"]:checked ~ ul{
   padding: 10px 0px;
 }
 
-.list-sidemenu{
+.list-sidemenu-a{
   color: var(--text-primary);
 }
 
-.list-sidemenu:hover{
+.list-sidemenu-a:hover{
   color: var(--text-primary);
   border-radius: 10px;
   width: 100%;
   background: linear-gradient(135deg,#5ef67e3b, rgb(0 255 53 / 70%), #5ef67e3b);
 }
 
-.list-sidemenu-a{
+.list-sidemenu-b{
+  color: var(--text-primary);
   padding-left: 10px;
+}
+
+.list-sidemenu-b:hover{
+  color: var(--text-primary);
+  border-radius: 10px;
+  width: 100%;
+  background: linear-gradient(135deg,#5ef67e3b, rgb(0 255 53 / 70%), #5ef67e3b);
 }
