@@ -226,7 +226,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                             <div className='col-sm-12'>
                                                 <div className='sidemenuBox'>
                                                     <div className='col-sm-12'>
-                                                        <label><img src={trendImage}></img>Trending Now<a href='#'>View all</a></label>
+                                                        <label><img src={fireImage}></img>Trending Now<a href='#'>View all</a></label>
                                                     </div>
                                                     <div className='d-flex'>
 
