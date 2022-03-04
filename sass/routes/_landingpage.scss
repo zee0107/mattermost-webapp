@@ -7,6 +7,15 @@
     align-items: center;
 }
 
+.wrap-launchpad-section{
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 1100px;
+  align-items: center;
+}
+
 .headerText{
     color: var(--header-text-color);
     margin-bottom: 50px;
@@ -944,4 +953,35 @@ input[type="checkbox"]:checked ~ ul{
   background: #26C281;
   border-bottom: 1px solid #fff;
 }*/
+
+.sidemenu-item1{
+  color: rgb(255, 141, 8);
+}
+
+.sidemenu-item1:hover{
+  color: rgb(255, 141, 8);
+  border-radius: 10px;
+  background-color: rgba(128, 128, 128, 0.377);
+}
+
+.sidemenu-item2{
+  color: blue;
+}
+
+.sidemenu-item2:hover{
+  color: blue;
+  border-radius: 10px;
+  background-color: rgba(128, 128, 128, 0.377);
+}
+
+
+.sidemenu-item3{
+  color: green;
+}
+
+.sidemenu-item3:hover{
+  color: green;
+  border-radius: 10px;
+  background-color: rgba(128, 128, 128, 0.377);
+}
 
