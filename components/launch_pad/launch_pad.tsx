@@ -91,7 +91,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         this.setState({isDark: ThemeValue});
 
         const proxyUrl = "http://localhost:8065/";
-        const uri = "http://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
+        const uri = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
         let apiKey = "5b439fd8-90e5-467c-b61a-c586252c7e2c";
         const sendData={
             start: 1,
@@ -99,6 +99,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             convert: "USD"
         }
         const config = {
+            crossDomain:true,
             method: "GET",
             data: sendData,
             headers: {
