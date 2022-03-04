@@ -917,8 +917,8 @@
 .collapsible-label{
   display: block;
   cursor: pointer;
-  /*padding: 10px;
-  border: 1px solid #fff;*/
+  padding-left: 10px;
+  /*border: 1px solid #fff;*/
   border-bottom: none;
   font-weight: 400 !important;
   color: var(--text-primary);
@@ -997,6 +997,7 @@ input[type="checkbox"]:checked ~ ul{
 
 .list-sidemenu-a{
   color: var(--text-primary);
+  padding: 10px;
 }
 
 .list-sidemenu-a:hover{
@@ -1008,7 +1009,7 @@ input[type="checkbox"]:checked ~ ul{
 
 .list-sidemenu-b{
   color: var(--text-primary);
-  padding-left: 10px;
+  padding: 10px;
 }
 
 .list-sidemenu-b:hover{
