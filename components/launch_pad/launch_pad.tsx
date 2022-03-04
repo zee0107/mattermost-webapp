@@ -90,14 +90,15 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
 
-        const proxyUrl = "http://localhost:8065/"
+        const proxyUrl = "http://localhost:8065/";
+        const uri = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
         let apiKey = "5b439fd8-90e5-467c-b61a-c586252c7e2c";
         let sendData={
             start: 1,
             limit: 5000,
             convert: "USD"
         }
-        let config = {
+        const config = {
             method: "GET",
             data: JSON.stringify(sendData),
             headers: {
@@ -106,7 +107,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             }
         }
 
-        fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',config)
+        fetch(uri,proxyUrl,config)
         .then(response => response.json())
         .then(value => this.setState({data: value.data}));
     }
