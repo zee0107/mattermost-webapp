@@ -423,8 +423,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <h3>9784.79</h3>
                                                         <p className='text-percent'><img src={trendImage}></img> 7.2%</p>
                                                     </div>
-                                                    <div className='col-lg-6'>
-                                                        <img src={graphImage}></img>
+                                                    <div className='col-lg-6 removePaddingRight'>
+                                                        <img src={graphImage} className="graph-img"></img>
                                                     </div>
                                                 </div>
                                             </div>
@@ -440,8 +440,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <h3>8741.79</h3>
                                                         <p className='text-percent'><img src={trendImage}></img> 5.2%</p>
                                                     </div>
-                                                    <div className='col-lg-6'>
-                                                        
+                                                    <div className='col-lg-6 removePaddingRight'>
+                                                        <img src={graphImage} className="graph-img"></img>
                                                     </div>
                                                 </div>
                                             </div>
@@ -457,8 +457,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <h3>4567.16</h3>
                                                         <p className='text-percent'><img src={trendImage}></img> 6.2%</p>
                                                     </div>
-                                                    <div className='col-lg-6'>
-                                                        
+                                                    <div className='col-lg-6 removePaddingRight'>
+                                                        <img src={graphImage} className="graph-img"></img>
                                                     </div>
                                                 </div>
                                             </div>
@@ -474,8 +474,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <h3>6547.79</h3>
                                                         <p className='text-percent'><img src={trendImage}></img> 9.5%</p>
                                                     </div>
-                                                    <div className='col-lg-6'>
-                                                        
+                                                    <div className='col-lg-6 removePaddingRight'>
+                                                        <img src={graphImage} className="graph-img"></img>
                                                     </div>
                                                 </div>
                                             </div>
