@@ -100,6 +100,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         }
         const config = {
             crossDomain:true,
+            mode: "cors",
             method: "GET",
             data: sendData,
             headers: {
