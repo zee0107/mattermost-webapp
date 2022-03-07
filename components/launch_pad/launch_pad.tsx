@@ -101,11 +101,11 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         uri.search = new URLSearchParams(sendData).toString();
         const config = {
             method: "GET",
-            mode: "cors",
+            mode: "no-cors",
             headers: {
                 Accepts: "application/json",
                 "Content-Type":"application/json",
-                'Access-Control-Allow-Origin' : 'http://localhost:8065/',
+                'Access-Control-Allow-Origin' : '*',
                 'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
             }
         }
