@@ -98,7 +98,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         }
         const config = {
             method: "GET",
-            mode: "no-cors",
             data: JSON.stringify(sendData),
             headers: {
                 Accepts: "application/json",
