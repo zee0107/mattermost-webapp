@@ -88,7 +88,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
-        const uri = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
+        const uri = new URL("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest");
+        
         let apiKey = "5b439fd8-90e5-467c-b61a-c586252c7e2c";
         const sendData={
             start: "1",
@@ -96,10 +97,11 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             convert: "USD",
             CMC_PRO_API_KEY: apiKey
         }
+
+        uri.search = new URLSearchParams(sendData).toString();
         const config = {
-            method: "GET",
+            //method: "GET",
             mode:"no-cors",
-            body: sendData,
             headers: {
                 Accepts: "application/json",
                 /*"Access-Control-Allow-Origin": "*",
