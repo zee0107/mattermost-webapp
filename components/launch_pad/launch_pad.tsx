@@ -91,15 +91,15 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         const uri = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
         let apiKey = "5b439fd8-90e5-467c-b61a-c586252c7e2c";
         const sendData={
-            start: 1,
-            limit: 5000,
+            start: "1",
+            limit: "5000",
             convert: "USD",
-            CMC_PRO_API_KEY : apiKey
+            CMC_PRO_API_KEY : "5b439fd8-90e5-467c-b61a-c586252c7e2c"
         }
         const config = {
             method: "GET",
             mode:"no-cors",
-            data: JSON.stringify(sendData),
+            data: sendData,
             headers: {
                 Accepts: "application/json",
             }
