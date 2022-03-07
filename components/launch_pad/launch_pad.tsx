@@ -105,7 +105,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             headers: {
                 Accepts: "application/json",
                 "Content-Type":"application/json",
-                "Access-Control-Allow-Origin":"*"
+                'Access-Control-Allow-Origin' : '*',
+                'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
             }
         }
 
