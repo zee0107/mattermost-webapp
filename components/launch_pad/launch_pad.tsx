@@ -109,7 +109,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
         fetch(uri,config)
         .then(response => response.json())
-        .then(response => console.log(response.data))
         .then(response => {
             let tmpArray = [];
             for (var i = 0; i < response.data.length; i++) {
