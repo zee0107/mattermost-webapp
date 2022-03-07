@@ -145,7 +145,15 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         /*const list = this.state.data.map((item, i) => {
             return <li key={i}>{item}</li>
           });*/
-          console.log(this.state.data);
+
+          const btc = this.state.data.filter(t => t.symbol === "BTC");
+          const ltc = this.state.data.filter(t => t.symbol === "LTC");
+          const eth = this.state.data.filter(t => t.symbol === "ETH");
+          const bnb = this.state.data.filter(t => t.symbol === "BNB");
+          console.log(btc);
+          console.log(ltc);
+          console.log(eth);
+          console.log(bnb.qoute.USD.price);
         return (
             <div className='div-bg'>
                 {/*<SidebarRight/>*/}
