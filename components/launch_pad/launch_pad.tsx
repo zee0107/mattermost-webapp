@@ -137,9 +137,9 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
-        const list = this.state.data.map((item, i) => {
+        /*const list = this.state.data.map((item, i) => {
             return <li key={i}>{item}</li>
-          });
+          });*/
           console.log(this.state.data);
         return (
             <div className='div-bg'>
