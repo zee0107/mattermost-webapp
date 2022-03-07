@@ -94,7 +94,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             start: "1",
             limit: "5000",
             convert: "USD",
-            CMC_PRO_API_KEY": apiKey
+            CMC_PRO_API_KEY: apiKey
         }
         const config = {
             method: "GET",
