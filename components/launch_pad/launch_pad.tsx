@@ -95,7 +95,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             start: "1",
             limit: "5000",
             convert: "USD",
-            CMC_PRO_API_KEY:"5b439fd8-90e5-467c-b61a-c586252c7e2c"
+            CMC_PRO_API_KEY:"0cab8df8-2234-4f2f-a53a-4b12f0617bec"
         }
 
         uri.search = new URLSearchParams(sendData).toString();
@@ -110,7 +110,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         fetch(uri,config)
         .then(response => response.json())
         .then(response => console.log(response))
-        .then(value => this.setState({data: value.data}))
+        .then(response => this.setState({data: response}))
         .catch(function(error) {
             console.log(error);
         });
