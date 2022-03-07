@@ -430,7 +430,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                                 <h4 className='text-secondary'>
                                                                     {parseFloat(btcFiltered.quote.USD.price).toFixed(2)}
                                                                 </h4>
-                                                                <p className='text-percent'><img src={trendImage}></img> {parseFloat(btcFiltered.quote.USD.percent_change_24h)*100}</p>
+                                                                <p className='text-percent'><img src={trendImage}></img> {parseFloat(btcFiltered.quote.USD.percent_change_24h).toFixed(2)}%</p>
                                                             </div>
                                                         ))}
 
@@ -454,7 +454,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                                 <h4 className='text-secondary'>
                                                                     {parseFloat(ltcFiltered.quote.USD.price).toFixed(2)}
                                                                 </h4>
-                                                                <p className='text-percent'><img src={trendImage}></img> {parseFloat(ltcFiltered.quote.USD.percent_change_24h)*100}</p>
+                                                                <p className='text-percent'><img src={trendImage}></img> {parseFloat(ltcFiltered.quote.USD.percent_change_24h).toFixed(2)}%</p>
                                                             </div>
                                                         ))}
                                                     </div>
@@ -477,7 +477,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                                 <h4 className='text-secondary'>
                                                                     {parseFloat(ethFiltered.quote.USD.price).toFixed(2)}
                                                                 </h4>
-                                                                <p className='text-percent'><img src={trendImage}></img> {parseFloat(ethFiltered.quote.USD.percent_change_24h)*100}</p>
+                                                                <p className='text-percent'><img src={trendImage}></img> {parseFloat(ethFiltered.quote.USD.percent_change_24h).toFixed(2)}%</p>
                                                             </div>
                                                         ))}
                                                     </div>
@@ -500,7 +500,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                                 <h4 className='text-secondary'>
                                                                     {parseFloat(bnbFiltered.quote.USD.price).toFixed(2)}
                                                                 </h4>
-                                                                <p className='text-percent'><img src={trendImage}></img> {parseFloat(bnbFiltered.quote.USD.percent_change_24h)*100}</p>
+                                                                <p className='text-percent'><img src={trendImage}></img> {parseFloat(bnbFiltered.quote.USD.percent_change_24h).toFixed(2)}%</p>
                                                             </div>
                                                         ))}
                                                     </div>
