@@ -100,7 +100,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             data: sendData,
             headers: {
                 Accepts: "application/json",
-                "Access-Control-Allow-Origin": "https://pro-api.coinmarketcap.com",
+                "Access-Control-Allow-Origin": "*",
                 "X-CMC_PRO_API_KEY": apiKey
             }
         }
