@@ -88,7 +88,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
-        const uri = new URL("https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest");
+        const uri = new URL("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest");
         
         let apiKey = "5b439fd8-90e5-467c-b61a-c586252c7e2c";
         const sendData={
@@ -100,6 +100,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         uri.search = new URLSearchParams(sendData).toString();
         const config = {
             method: "GET",
+            origin: "http://localhost:8065/",
             mode: "cors",
             headers: {
                 Accepts: "application/json",
