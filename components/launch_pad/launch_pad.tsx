@@ -95,7 +95,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             start: "1",
             limit: "5000",
             convert: "USD",
-            CMC_PRO_API_KEY:"0cab8df8-2234-4f2f-a53a-4b12f0617bec"
+            CMC_PRO_API_KEY:"5be1995b-b120-4f4d-84fa-00f386879ef1"
         }
 
         uri.search = new URLSearchParams(sendData).toString();
