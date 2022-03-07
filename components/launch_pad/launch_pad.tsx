@@ -94,17 +94,16 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         const sendData={
             start: "1",
             limit: "5000",
-            convert: "USD"
+            convert: "USD",
+            CMC_PRO_API_KEY:apiKey
         }
 
         uri.search = new URLSearchParams(sendData).toString();
         const config = {
             method: "GET",
-            origin: "http://localhost:8065/",
             headers: {
                 Accepts: "application/json",
                 "Content-Type":"application/json",
-                "X-CMC_PRO_API_KEY":apiKey
             }
         }
 
