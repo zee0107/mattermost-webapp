@@ -109,7 +109,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
         fetch(uri,config)
         .then(response => response.json())
-        .then(response => console.log(response))
+        .then(response => console.log(response.data))
         .then(response => this.setState({data: response}))
         .catch(function(error) {
             console.log(error);
