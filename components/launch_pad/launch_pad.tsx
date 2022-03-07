@@ -114,7 +114,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             for (var i = 0; i < response.data.length; i++) {
                 tmpArray.push(response.data[i]);
             }
-            console.log("this is the result :" + tmpArray);
             this.setState({data: tmpArray});
         })
         .catch(function(error) {
@@ -154,7 +153,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
           console.log(btc);
           console.log(ltc);
           console.log(eth.qoute);
-          console.log(bnbQoute.usd.price);
+          console.log(bnbQoute);
         return (
             <div className='div-bg'>
                 {/*<SidebarRight/>*/}
