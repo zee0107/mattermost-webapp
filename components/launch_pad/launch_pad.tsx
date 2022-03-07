@@ -100,12 +100,15 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
         uri.search = new URLSearchParams(sendData).toString();
         const config = {
-            //method: "GET",
-            mode:"no-cors",
+            method: "GET",
             headers: {
                 Accepts: "application/json",
-                /*"Access-Control-Allow-Origin": "*",
-                "X-CMC_PRO_API_KEY": apiKey*/
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+                "Access-Control-Allow-Headers": "X-CMC_PRO_API_KEY, Content-Type",
+                "Access-Control-Max-Age": 86400,
+                "Content-Type":"application/json",
+                "X-CMC_PRO_API_KEY": apiKey
             }
         }
 
