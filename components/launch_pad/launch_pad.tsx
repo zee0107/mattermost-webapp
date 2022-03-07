@@ -153,7 +153,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
           console.log(btc);
           console.log(ltc);
           console.log(eth);
-          console.log(bnb.qoute.USD.price);
+          console.log(bnb);
         return (
             <div className='div-bg'>
                 {/*<SidebarRight/>*/}
