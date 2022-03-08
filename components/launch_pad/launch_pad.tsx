@@ -414,23 +414,25 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                             <div className='sidemenuBox'>
                                                 <div className='row'>
                                                     <div className='col-lg-6'>
-                                                        <img src={btcImage} className="current-conversion-img"></img>
+                                                        <div className='btc-icon'>
+                                                            <img src={btcImage} className="current-conversion-img"></img>
+                                                        </div>
                                                         <h5 className='text-primary'>BTC <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
                                                         <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
                                                         </svg> USD</h5>
                                                         {this.state.data.filter(t => t.symbol === "BTC").map(btcFiltered => {
                                                             if(parseFloat(btcFiltered.quote.USD.percent_change_24h) > 0){
                                                                 return (<div>
-                                                                    <h4 className='text-secondary'>
+                                                                    <h3 className='text-secondary'>
                                                                         {parseFloat(btcFiltered.quote.USD.price).toFixed(2)}
-                                                                    </h4>
+                                                                    </h3>
                                                                     <p className='text-percent'><img src={trendImage}></img> {parseFloat(btcFiltered.quote.USD.percent_change_24h).toFixed(2)}%</p>
                                                                 </div>)
                                                             }else{
                                                                 return (<div>
-                                                                    <h4 className='text-secondary'>
+                                                                    <h3 className='text-secondary'>
                                                                         {parseFloat(btcFiltered.quote.USD.price).toFixed(2)}
-                                                                    </h4>
+                                                                    </h3>
                                                                     <p className='text-percent-down'><img src={trenddownImage}></img> {parseFloat(btcFiltered.quote.USD.percent_change_24h).toFixed(2)*(-1)}%</p>
                                                                 </div>)
                                                             }
@@ -449,23 +451,25 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                             <div className='sidemenuBox'>
                                                 <div className='row'>
                                                     <div className='col-lg-6'>
-                                                        <img src={ltcImage} className="current-conversion-img"></img>
+                                                        <div className='ltc-icon'>
+                                                            <img src={ltcImage} className="current-conversion-img"></img>
+                                                        </div>
                                                         <h5 className='text-primary'>LTC <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
                                                         <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
                                                         </svg> USD</h5>
                                                         {this.state.data.filter(t => t.symbol === "LTC").map(ltcFiltered => {
                                                             if(parseFloat(ltcFiltered.quote.USD.percent_change_24h) > 0){
                                                                 return (<div>
-                                                                    <h4 className='text-secondary'>
+                                                                    <h3 className='text-secondary'>
                                                                         {parseFloat(ltcFiltered.quote.USD.price).toFixed(2)}
-                                                                    </h4>
+                                                                    </h3>
                                                                     <p className='text-percent'><img src={trendImage}></img> {parseFloat(ltcFiltered.quote.USD.percent_change_24h).toFixed(2)}%</p>
                                                                 </div>)
                                                             }else{
                                                                 return (<div>
-                                                                    <h4 className='text-secondary'>
+                                                                    <h3 className='text-secondary'>
                                                                         {parseFloat(ltcFiltered.quote.USD.price).toFixed(2)}
-                                                                    </h4>
+                                                                    </h3>
                                                                     <p className='text-percent-down'><img src={trenddownImage}></img> {parseFloat(ltcFiltered.quote.USD.percent_change_24h).toFixed(2)*(-1)}%</p>
                                                                 </div>)
                                                             }
@@ -484,23 +488,25 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                             <div className='sidemenuBox'>
                                                 <div className='row'>
                                                     <div className='col-lg-6'>
-                                                        <img src={ethImage} className="current-conversion-img"></img>
+                                                        <div className='eth-icon'>
+                                                            <img src={ethImage} className="current-conversion-img"></img>
+                                                        </div>
                                                         <h5 className='text-primary'>ETH <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
                                                         <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
                                                         </svg> USD</h5>
                                                         {this.state.data.filter(t => t.symbol === "ETH").map(ethFiltered => {
                                                             if(parseFloat(ethFiltered.quote.USD.percent_change_24h) > 0){
                                                                 return (<div>
-                                                                    <h4 className='text-secondary'>
+                                                                    <h3 className='text-secondary'>
                                                                         {parseFloat(ethFiltered.quote.USD.price).toFixed(2)}
-                                                                    </h4>
+                                                                    </h3>
                                                                     <p className='text-percent'><img src={trendImage}></img> {parseFloat(ethFiltered.quote.USD.percent_change_24h).toFixed(2)}%</p>
                                                                 </div>)
                                                             }else{
                                                                 return (<div>
-                                                                    <h4 className='text-secondary'>
+                                                                    <h3 className='text-secondary'>
                                                                         {parseFloat(ethFiltered.quote.USD.price).toFixed(2)}
-                                                                    </h4>
+                                                                    </h3>
                                                                     <p className='text-percent-down'><img src={trenddownImage}></img> {parseFloat(ethFiltered.quote.USD.percent_change_24h).toFixed(2)*(-1)}%</p>
                                                                 </div>)
                                                             }
@@ -519,26 +525,25 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                             <div className='sidemenuBox'>
                                                 <div className='row'>
                                                     <div className='col-lg-6'>
-                                                        <div className='d-flex'>
+                                                        <div className='bnb-icon'>
                                                             <img src={bnbImage} className="current-conversion-img"></img>
                                                         </div>
-                                                        
                                                         <h5 className='text-primary'>BNB <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
                                                         <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
                                                         </svg> USD</h5>
                                                         {this.state.data.filter(t => t.symbol === "BNB").map(bnbFiltered => {
                                                             if(parseFloat(bnbFiltered.quote.USD.percent_change_24h) > 0){
                                                                 return (<div>
-                                                                    <h4 className='text-secondary'>
+                                                                    <h3 className='text-secondary'>
                                                                         {parseFloat(bnbFiltered.quote.USD.price).toFixed(2)}
-                                                                    </h4>
+                                                                    </h3>
                                                                     <p className='text-percent'><img src={trendImage}></img> {parseFloat(bnbFiltered.quote.USD.percent_change_24h).toFixed(2)}%</p>
                                                                 </div>)
                                                             }else{
                                                                 return (<div>
-                                                                    <h4 className='text-secondary'>
+                                                                    <h3 className='text-secondary'>
                                                                         {parseFloat(bnbFiltered.quote.USD.price).toFixed(2)}
-                                                                    </h4>
+                                                                    </h3>
                                                                     <p className='text-percent-down'><img src={trenddownImage}></img> {parseFloat(bnbFiltered.quote.USD.percent_change_24h).toFixed(2)*(-1)}%</p>
                                                                 </div>)
                                                             }

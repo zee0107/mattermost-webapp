@@ -1130,3 +1130,51 @@ input[type="checkbox"]:checked ~ ul{
 .graph-img{
   margin-top: 40px;
 }
+
+.btc-icon{
+  height: 40px;
+  display: flex;
+  padding: 8px 11px;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-width: 40px;
+  background-color: #ffcc40;
+  border-radius: 8px;
+}
+
+.ltc-icon{
+  height: 40px;
+  display: flex;
+  padding: 8px 11px;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-width: 40px;
+  background-color: #783efd;
+  border-radius: 8px;
+}
+
+.eth-icon{
+  height: 40px;
+  display: flex;
+  padding: 8px 11px;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-width: 40px;
+  background-color: #fe8f66;
+  border-radius: 8px;
+}
+
+.bnb-icon{
+  height: 40px;
+  display: flex;
+  padding: 8px 11px;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-width: 40px;
+  background-color: #311d05;
+  border-radius: 8px;
+}
