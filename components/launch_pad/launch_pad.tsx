@@ -19,7 +19,8 @@ import btcImage from 'images/currency-icons/btc.svg';
 import ltcImage from 'images/currency-icons/ltc.svg';
 import bnbImage from 'images/currency-icons/bnb.svg';
 import ethImage from 'images/currency-icons/eth.svg';
-import graphImage from 'images/currency-icons/graph-up.png';
+import graphImage from 'images/graph-up.svg';
+import graphdownImage from 'images/graph-down.svg';
 import lccImage from 'images/currency-icons/litecoin.svg';
 
 
@@ -70,27 +71,18 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     static defaultProps = {
         userId: '',
         profilePicture: '',
-        /*status: UserStatuses.OFFLINE,*/
     }
 
     constructor(props: Props) {
         super(props);
-
-        this.state = {
-            openUp: false,
-            width: 0,
-            isStatusSet: false,
-            isDark:'light',
-            img_path: homeImage,
-            data: [],
-        };
+        this.state = {openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,data: [],};
     }
 
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
         const uri = new URL("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest");
-        
+    
         let apiKey = "5b439fd8-90e5-467c-b61a-c586252c7e2c";
         const sendData={
             start: "1",
@@ -142,7 +134,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
-        
         return (
             <div className='div-bg'>
                 {/*<SidebarRight/>*/}
@@ -421,7 +412,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                     <div className='col-sm-3'>
                                         <div className='col-sm-12'>
                                             <div className='sidemenuBox'>
-                                                <div className='d-flex'>
+                                                <div className='row'>
                                                     <div className='col-lg-6 removePaddingLeft'>
                                                         <img src={btcImage} className="current-conversion-img"></img>
                                                         <h5 className='text-primary'>BTC <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
@@ -444,17 +435,19 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                                 </div>)
                                                             }
                                                         })}
-
                                                     </div>
                                                     <div className='col-lg-6 removePaddingRight'>
-                                                        <img src={graphImage} className="graph-img"></img>
+                                                    {this.state.data.filter(t => t.symbol === "BTC").map(btcFiltered => {
+                                                        if(parseFloat(btcFiltered.quote.USD.percent_change_24h) > 0){ return (<img src={graphImage} className="graph-img"></img>) }
+                                                        else{ return (<img src={graphdownImage} className="graph-img"></img>) }
+                                                    })}
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className='col-sm-12'>
                                             <div className='sidemenuBox'>
-                                                <div className='d-flex'>
+                                                <div className='row'>
                                                     <div className='col-lg-6 removePaddingLeft'>
                                                         <img src={ltcImage} className="current-conversion-img"></img>
                                                         <h5 className='text-primary'>LTC <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
@@ -479,14 +472,17 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         })}
                                                     </div>
                                                     <div className='col-lg-6 removePaddingRight'>
-                                                        <img src={graphImage} className="graph-img"></img>
+                                                    {this.state.data.filter(t => t.symbol === "LTC").map(ltcFiltered => {
+                                                        if(parseFloat(ltcFiltered.quote.USD.percent_change_24h) > 0){ return (<img src={graphImage} className="graph-img"></img>) }
+                                                        else{ return (<img src={graphdownImage} className="graph-img"></img>) }
+                                                    })}
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className='col-sm-12'>
                                             <div className='sidemenuBox'>
-                                                <div className='d-flex'>
+                                                <div className='row'>
                                                     <div className='col-lg-6 removePaddingLeft'>
                                                         <img src={ethImage} className="current-conversion-img"></img>
                                                         <h5 className='text-primary'>ETH <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
@@ -511,14 +507,17 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         })}
                                                     </div>
                                                     <div className='col-lg-6 removePaddingRight'>
-                                                        <img src={graphImage} className="graph-img"></img>
+                                                    {this.state.data.filter(t => t.symbol === "ETH").map(ethFiltered => {
+                                                        if(parseFloat(ethFiltered.quote.USD.percent_change_24h) > 0){ return (<img src={graphImage} className="graph-img"></img>) }
+                                                        else{ return (<img src={graphdownImage} className="graph-img"></img>) }
+                                                    })}
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className='col-sm-12'>
                                             <div className='sidemenuBox'>
-                                                <div className='d-flex'>
+                                                <div className='row'>
                                                     <div className='col-lg-6 removePaddingLeft'>
                                                         <img src={bnbImage} className="current-conversion-img"></img>
                                                         <h5 className='text-primary'>BNB <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
@@ -543,7 +542,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         })}
                                                     </div>
                                                     <div className='col-lg-6 removePaddingRight'>
-                                                        <img src={graphImage} className="graph-img"></img>
+                                                    {this.state.data.filter(t => t.symbol === "BNB").map(bnbFiltered => {
+                                                        if(parseFloat(bnbFiltered.quote.USD.percent_change_24h) > 0){ return (<img src={graphImage} className="graph-img"></img>) }
+                                                        else{ return (<img src={graphdownImage} className="graph-img"></img>) }
+                                                    })}
                                                     </div>
                                                 </div>
                                             </div>
