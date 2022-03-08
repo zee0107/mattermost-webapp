@@ -15,7 +15,7 @@ const LeftControlsContainer = styled.div`
     align-items: center;
     height: 40px;
     flex-shrink: 0;
-    margin-left: 20%;
+    margin-left: 18%;
     > * + * {
         margin-left: 12px;
     }
