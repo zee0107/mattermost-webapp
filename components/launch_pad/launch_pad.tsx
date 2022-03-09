@@ -361,7 +361,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='col-sm-6'>
                                         <div id="createToken" className='col-lg-12'>
-                                            <div className='d-flex margin-top-30'>
+                                            <div className='d-flex margin-top-30-responsive'>
                                                 <div className='col-lg-2'>
                                                     <div className='d-flex'>
                                                         <img src={fillImage} className='fill-img'></img>
@@ -371,22 +371,21 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                 <div className='col-lg-10 removePaddingLeft'>
                                                     <h3 className='text-primary'>Verify Token</h3>
                                                     <p className='text-primary'>Please enter your verification token from your account.</p>
-
-                                                    <div className='create-token-box'>
-                                                        <h4>* Token Address</h4>
-                                                        <input type='text' className='form-control custom-token-input' placeholder='Ex. PinkMoon'></input>
-                                                        <div className='d-flex padding-top'>
-                                                            <div className='col-md-6'>
-                                                                <label className='currency-value-text small'>Create Pool Fee: 1 BNB</label>
-                                                            </div>
-                                                            <div className='col-md-6 token-buttom-div'>
-                                                                <button type='button' className='btn buttonBgWhite'>Create Token</button>
-                                                            </div>
-                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div className='create-token-box'>
+                                                <h4>* Token Address</h4>
+                                                <input type='text' className='form-control custom-token-input' placeholder='Ex. PinkMoon'></input>
+                                                <div className='d-flex padding-top'>
+                                                    <div className='col-md-6'>
+                                                        <label className='currency-value-text small'>Create Pool Fee: 1 BNB</label>
+                                                    </div>
+                                                    <div className='col-md-6 token-buttom-div'>
+                                                        <button type='button' className='btn buttonBgWhite'>Create Token</button>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className='d-flex margin-top-30'>
+                                            <div className='d-flex margin-top-30-responsive'>
                                                 <div className='col-lg-2'>
                                                     <div className='d-flex'>
                                                         <img src={fillImage} className="fill-img"></img>
@@ -398,7 +397,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <p className='text-primary'>Fill in your defi launchpad information</p>
                                                 </div>
                                             </div>
-                                            <div className='d-flex margin-top-30'>
+                                            <div className='d-flex margin-top-30-responsive'>
                                                 <div className='col-lg-2'>
                                                     <div className='d-flex'>
                                                         <img src={fillImage} className="fill-img"></img>
@@ -410,7 +409,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <p className='text-primary'>Othre information.</p>
                                                 </div>
                                             </div>
-                                            <div className='d-flex margin-top-30'>
+                                            <div className='d-flex margin-top-30-responsive'>
                                                 <div className='col-lg-2'>
                                                     <div className='d-flex'>
                                                         <img src={fillImage} className="fill-img"></img>
@@ -421,6 +420,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <h3 className='text-primary'>Finish</h3>
                                                     <p className='text-primary'>Save all information to your launchpad.</p>
                                                 </div>
+                                            </div>
+
+                                            <div className='col-lg-12 text-center'>
+                                                <label className='text-secondary small'>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences.</label>
                                             </div>
                                         </div>
                                     </div>
