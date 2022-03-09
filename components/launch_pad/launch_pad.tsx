@@ -361,49 +361,49 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                     <div className='col-sm-6'>
                                         <div id="createToken" className='col-lg-12'>
                                             <div className='d-flex margin-top-30'>
-                                                <div className='col-lg-2 removePaddingRight'>
+                                                <div className='col-lg-1'>
                                                     <div className='d-flex'>
                                                         <img src={fillImage} className='fill-img'></img>
                                                         <p className='fill-text'>1</p>
                                                     </div>
                                                 </div>
-                                                <div className='col-lg-10 removePaddingLeft'>
+                                                <div className='col-lg-11 removePaddingLeft'>
                                                     <h3 className='text-primary'>Verify Token</h3>
                                                     <p className='text-primary'>Please enter your verification token from your account.</p>
                                                 </div>
                                             </div>
                                             <div className='d-flex margin-top-30'>
-                                                <div className='col-lg-2 removePaddingRight'>
+                                                <div className='col-lg-1'>
                                                     <div className='d-flex'>
                                                         <img src={fillImage} className="fill-img"></img>
                                                         <p className='fill-text'>2</p>
                                                     </div>
                                                 </div>
-                                                <div className='col-lg-10 removePaddingLeft'>
+                                                <div className='col-lg-11 removePaddingLeft'>
                                                     <h3 className='text-primary'>Defi Launchpad Info</h3>
                                                     <p className='text-primary'>Fill in your defi launchpad information</p>
                                                 </div>
                                             </div>
                                             <div className='d-flex margin-top-30'>
-                                                <div className='col-lg-2 removePaddingRight'>
+                                                <div className='col-lg-1'>
                                                     <div className='d-flex'>
                                                         <img src={fillImage} className="fill-img"></img>
                                                         <p className='fill-text'>3</p>
                                                     </div>
                                                 </div>
-                                                <div className='col-lg-10 removePaddingLeft'>
+                                                <div className='col-lg-11 removePaddingLeft'>
                                                     <h3 className='text-primary'>Additional Info</h3>
                                                     <p className='text-primary'>Othre information.</p>
                                                 </div>
                                             </div>
                                             <div className='d-flex margin-top-30'>
-                                                <div className='col-lg-2 removePaddingRight'>
+                                                <div className='col-lg-1'>
                                                     <div className='d-flex'>
                                                         <img src={fillImage} className="fill-img"></img>
                                                         <p className='fill-text'>4</p>
                                                     </div>
                                                 </div>
-                                                <div className='col-lg-10 removePaddingLeft'>
+                                                <div className='col-lg-11 removePaddingLeft'>
                                                     <h3 className='text-primary'>Finish</h3>
                                                     <p className='text-primary'>Save all information to your launchpad.</p>
                                                 </div>
