@@ -157,7 +157,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                         <div className='wrap-launchpad-section'>
                             <div className='col-lg-12 removePadding'>
                                 <div className='row'>
-                                    <div className='col-sm-3'>
+                                    <div className='col-sm-3' id="side_menu_left">
                                         <div className='col-sm-12'>
                                             <div className='sidemenuBox'>
                                                 <ul className='ul-collapse'>
@@ -410,7 +410,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col-sm-3'>
+                                    <div className='col-sm-3' id="side_menu_right">
                                         <div className='col-sm-12'>
                                             <div className='sidemenuBox'>
                                                 <div className='row'>

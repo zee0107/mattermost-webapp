@@ -766,6 +766,14 @@
   #profileMenu{
     display: none;
   } 
+
+  #side_menu_left{
+    display: none;
+  } 
+
+  #side_menu_right{
+    display: none;
+  } 
   
   #profileMenuMobile{
     display: block;
@@ -804,6 +812,14 @@
   } 
 
   #profileMenu{
+    display: block;
+  } 
+
+  #side_menu_left{
+    display: block;
+  } 
+
+  #side_menu_right{
     display: block;
   } 
 
