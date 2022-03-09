@@ -1196,14 +1196,24 @@ input[type="checkbox"]:checked ~ ul{
 }
 
 .create-token-box{
+  border: 1px solid var(--border-div);
   border-radius: 8px;
   background-color: var(--bgDiv);
-  margin-top: 20px;
-  padding-bottom: 15px;
-  color: var(--text-primary);
+  margin-top: 10px;
+  padding: 10px;
 }
 
 .custom-token-input{
   background: var(--background);
   color: var(--input-color-text);
+}
+
+.token-buttom-div{
+  width: 45%;
+  text-align: end;
+  padding-right: 0px;
+}
+
+.padding-top{
+  padding-top: 10px;
 }

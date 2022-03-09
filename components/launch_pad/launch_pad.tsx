@@ -374,12 +374,12 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
                                                     <div className='create-token-box'>
                                                         <h4>* Token Address</h4>
-                                                        <input type='text' className='form-control custom-token-input'></input>
-                                                        <div className='row'>
+                                                        <input type='text' className='form-control custom-token-input' placeholder='Ex. PinkMoon'></input>
+                                                        <div className='d-flex padding-top'>
                                                             <div className='col-md-6'>
                                                                 <label>Create Pool Fee: 1 BNB</label>
                                                             </div>
-                                                            <div className='col-md-6'>
+                                                            <div className='col-md-6 token-buttom-div'>
                                                                 <button type='button' className='btn buttonBgWhite'>Create Token</button>
                                                             </div>
                                                         </div>
