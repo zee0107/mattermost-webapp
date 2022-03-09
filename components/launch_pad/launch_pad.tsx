@@ -374,10 +374,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                 </div>
                                             </div>
                                             <div className='create-token-box'>
-                                                <h4>* Token Address</h4>
+                                                <h4 className='text-primary'>* Token Address</h4>
                                                 <input type='text' className='form-control custom-token-input' placeholder='Ex. PinkMoon'></input>
                                                 <div className='d-flex padding-top'>
-                                                    <div className='col-md-6'>
+                                                    <div className='col-md-6 width-50'>
                                                         <label className='currency-value-text small'>Create Pool Fee: 1 BNB</label>
                                                     </div>
                                                     <div className='col-md-6 token-buttom-div'>
@@ -422,7 +422,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                 </div>
                                             </div>
 
-                                            <div className='col-lg-12 text-center'>
+                                            <div className='col-lg-12 text-center margin-top-30-responsive'>
                                                 <label className='text-secondary small'>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences.</label>
                                             </div>
                                         </div>
