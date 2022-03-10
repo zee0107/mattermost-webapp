@@ -158,8 +158,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             this.setState({logo_url: tmpArray});
         }).catch(function(error) {console.log(error);});
 
-        this.state.logo_url.map((item,i) => {
-            return(<img src={item.getItem(id).logo} key={currency}></img>);
+        this.state.logo_url.findIndexOf(id).map((item,i) => {
+            return(<img src={item.logo} key={currency}></img>);
         })
     }
 
