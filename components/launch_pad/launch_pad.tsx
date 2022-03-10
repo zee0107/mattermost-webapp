@@ -137,6 +137,9 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             this.setState({trendListing: tmpArray});
         }).catch(function(error) {console.log(error);});
 
+        /*let currencyArr = [];
+        this.state.data.map(e => { currencyArr.push(e.symbol)});
+        var currString = currencyArr.join();*/
         
     }
 
@@ -153,7 +156,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
         fetch(uri,config).then(response => response.json()).then(response => {
             let tmpArray = [];
-            tmpArray.push(response.data[0]);
+            tmpArray.push(response.data);
             console.log(tmpArray);
             this.setState({logo_url: tmpArray});
         }).catch(function(error) {console.log(error);});
