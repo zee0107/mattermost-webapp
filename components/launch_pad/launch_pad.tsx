@@ -152,10 +152,11 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             }
             console.log(tmpArray);
             value = tmpArray;
+            console.log(value);
         }).catch(function(error) {console.log(error);});
 
         value.map((item,i) => {
-            return(<img src={item.1.logo} key={currency}></img>);
+            return(<img src={item} key={currency}></img>);
         })
     }
 
@@ -219,7 +220,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                       {this.renderLogo(filtered.symbol)}
+                       {/*this.renderLogo(filtered.symbol)*/}
                     </div>
                     <div className='col-sm-5'>
                         <label className='text-primary' key={i+"-gainer-name"}>{filtered.name}</label>
@@ -265,7 +266,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                        {this.renderLogo(filtered.symbol)}
+                        {/*this.renderLogo(filtered.symbol)*/}
                     </div>
                     <div className='col-sm-5'>
                         <label className='text-primary' key={i}>{filtered.name}</label>
