@@ -74,7 +74,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, data: [], newListing: [], trendListing: [], gainerListing:[]};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,logo_url, data: [], newListing: [], trendListing: [], gainerListing:[]};
     }
 
     componentDidMount(){
@@ -139,6 +139,26 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         }).catch(function(error) {console.log(error);});
     }
 
+    renderLogo = (currency: string) =>{
+        const uri = "https://pro-api.coinmarketcap.com/v2/cryptocurrency/info";
+        let startupApiKey = "813046b6-001a-4064-83bb-1604c47beffa";
+        let value = [];
+        const sendData={symbol: currency,aux: "logo",CMC_PRO_API_KEY:startupApiKey};
+        uri.search = new URLSearchParams(sendData).toString();
+        fetch(uriTrending,config).then(response => response.json()).then(response => {
+            let tmpArray = [];
+            for (var i = 0; i < response.data.length; i++) {
+                tmpArray.push(response.data[i]);
+            }
+            console.log(tmpArray);
+            value = tmpArray;
+        }).catch(function(error) {console.log(error);});
+
+        value.map((item,i) => {
+            return(<img src={item.logo} key={currency}></img>);
+        })
+    }
+
     setDocumentTitle = (siteName: string) => {
         if (siteName) {
             document.title = siteName;
@@ -194,20 +214,23 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     gainer_render = (i: int) => {
         const slicedArray = this.state.gainerListing.slice(0,3);
+        slicedArray.map((item,i) => {
+            if(parseFloat(filtered.quote.USD.percent_change_24h))
+        })
         return(
             <div>
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                        <img src={digiImage}></img>
+                       {this.renderLogo(filtered.symbol)}
                     </div>
                     <div className='col-sm-5'>
-                        <label className='text-primary' key={i}>{filtered.name}</label>
-                        <p className='text-secondary small-font' key={i}>{filtered.symbol}</p>
+                        <label className='text-primary' key={i+"-gainer-name"}>{filtered.name}</label>
+                        <p className='text-secondary small-font' key={i+"-gainer-symbol"}>{filtered.symbol}</p>
                     </div>
                     <div className='col-sm-5 removePadding text-end'>
                         <br></br>
-                        <label className='currency-value-text small-font' key={i}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                        <label className='currency-value-text small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
                     </div>
                 </div>
                 ))}
@@ -222,7 +245,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                        <img src={digiImage}></img>
+                        {this.renderLogo(filtered.symbol)}
                     </div>
                     <div className='col-sm-5'>
                         <label className='text-primary' key={i}>{filtered.name}</label>
@@ -245,7 +268,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                        <img src={digiImage}></img>
+                        {this.renderLogo(filtered.symbol)}
                     </div>
                     <div className='col-sm-5'>
                         <label className='text-primary' key={i}>{filtered.name}</label>
