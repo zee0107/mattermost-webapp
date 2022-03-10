@@ -138,7 +138,9 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         }).catch(function(error) {console.log(error);});
 
         let currencyArr = [];
-        this.state.data.map(e => { currencyArr.push(e.symbol)});
+        for(var i = 0; i < this.state.data.length; i++){
+            currencyArr.push(this.state.data[i].sysmbol);
+        }
         var currString = currencyArr.join();
         console.log(currString);
         this.renderLogo(currString);
