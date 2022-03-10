@@ -139,7 +139,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         }).catch(function(error) {console.log(error);});
     }
 
-    renderLogo = (currency: string) =>{
+    renderLogo = (currency: string,id: int) =>{
         const uri = new URL("https://pro-api.coinmarketcap.com/v2/cryptocurrency/info");
         let startupApiKey = "813046b6-001a-4064-83bb-1604c47beffa";
         let value = [];
@@ -149,14 +149,14 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             let tmpArray = [];
             for (var i = 0; i < response.data.length; i++) {
                 tmpArray.push(response.data[i]);
-            }
+            }   
             console.log(tmpArray);
             value = tmpArray;
             console.log(value);
         }).catch(function(error) {console.log(error);});
 
         value.map((item,i) => {
-            return(<img src={item} key={currency}></img>);
+            return(<img src={item.getItem(id).logo} key={currency}></img>);
         })
     }
 
@@ -243,7 +243,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                        {this.renderLogo(filtered.symbol)}
+                        {/*this.renderLogo(filtered.symbol)*/}
                     </div>
                     <div className='col-sm-5'>
                         <label className='text-primary' key={i}>{filtered.name}</label>
@@ -266,7 +266,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                        {/*this.renderLogo(filtered.symbol)*/}
+                        {this.renderLogo(filtered.symbol,filtered.id)}
                     </div>
                     <div className='col-sm-5'>
                         <label className='text-primary' key={i}>{filtered.name}</label>
