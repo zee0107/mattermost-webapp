@@ -74,7 +74,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, data: [], newListing: [], trendListing: [], gainerListing:[]};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, logo_url: [], data: [], newListing: [], trendListing: [], gainerListing:[]};
     }
 
     componentDidMount(){
@@ -141,8 +141,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     renderLogo = (currency: string,id: int) =>{
         const uri = new URL("https://pro-api.coinmarketcap.com/v2/cryptocurrency/info");
         let startupApiKey = "813046b6-001a-4064-83bb-1604c47beffa";
-        const value = [];
-        
         const config = {
             method: "GET",
             headers: {Accepts: "application/json","Content-Type":"application/json","Access-Control-Allow-Origin": "*"}
@@ -157,11 +155,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 tmpArray.push(response.data[i]);
             }   
             console.log(tmpArray);
-            value = tmpArray;
-            console.log(value);
+            this.setState({logo_url: tmpArray});
         }).catch(function(error) {console.log(error);});
 
-        value.map((item,i) => {
+        this.state.logo_url.map((item,i) => {
             return(<img src={item.getItem(id).logo} key={currency}></img>);
         })
     }
