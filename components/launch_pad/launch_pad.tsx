@@ -134,13 +134,17 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             for (var i = 0; i < response.data.length; i++) {
                 tmpArray.push(response.data[i]);
             }
-            console.log(tmpArray);
             this.setState({trendListing: tmpArray});
         }).catch(function(error) {console.log(error);});
     }
 
     renderLogo = (currency: string,id: int) =>{
         const uri = new URL("https://pro-api.coinmarketcap.com/v2/cryptocurrency/info");
+        const config = {
+            method: "GET",
+            headers: {Accepts: "application/json","Content-Type":"application/json","Access-Control-Allow-Origin": "*"}
+        }
+        
         let startupApiKey = "813046b6-001a-4064-83bb-1604c47beffa";
         let value = [];
         const sendData={symbol: currency,aux: "logo",CMC_PRO_API_KEY:startupApiKey};
@@ -246,12 +250,12 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                         {/*this.renderLogo(filtered.symbol)*/}
                     </div>
                     <div className='col-sm-5'>
-                        <label className='text-primary' key={i}>{filtered.name}</label>
-                        <p className='text-secondary small-font' key={i}>{filtered.symbol}</p>
+                        <label className='text-primary' key={i+"-new-name"}>{filtered.name}</label>
+                        <p className='text-secondary small-font' key={i+"-new-symbol"}>{filtered.symbol}</p>
                     </div>
                     <div className='col-sm-5 removePadding text-end'>
                         <br></br>
-                        <label className='currency-value-text small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                        <label className='currency-value-text small-font' key={i+"-new-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
                     </div>
                 </div>
                 ))}
@@ -269,12 +273,12 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                         {this.renderLogo(filtered.symbol,filtered.id)}
                     </div>
                     <div className='col-sm-5'>
-                        <label className='text-primary' key={i}>{filtered.name}</label>
-                        <p className='text-secondary small-font' key={i}>{filtered.symbol}</p>
+                        <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
+                        <p className='text-secondary small-font' key={i+"trend-symbol"}>{filtered.symbol}</p>
                     </div>
                     <div className='col-sm-5 removePadding text-end'>
                         <br></br>
-                        <label className='currency-value-text small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                        <label className='currency-value-text small-font' key={i+"-trend-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
                     </div>
                 </div>
                 ))}
