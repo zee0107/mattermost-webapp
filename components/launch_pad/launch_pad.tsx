@@ -35,7 +35,6 @@ import SidebarRight from 'components/sidebar_right';
 import SidebarRightMenu from 'components/sidebar_right_menu';
 import { ButtonGroup } from 'react-bootstrap';
 import { filter } from 'lodash';
-import { string } from 'prop-types';
 
 type Props = {
     status?: string;
@@ -138,7 +137,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             this.setState({trendListing: tmpArray});
         }).catch(function(error) {console.log(error);});
 
-        let currencyArr = string[];
+        const currencyArr = [];
         for(var i = 0; i < this.state.data.length; i++){
             currencyArr.push(this.state.data[i].sysmbol);
             console.log(this.state.data[i].sysmbol);
