@@ -140,15 +140,17 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     renderLogo = (currency: string,id: int) =>{
         const uri = new URL("https://pro-api.coinmarketcap.com/v2/cryptocurrency/info");
+        let startupApiKey = "813046b6-001a-4064-83bb-1604c47beffa";
+        const value = [];
+        
         const config = {
             method: "GET",
             headers: {Accepts: "application/json","Content-Type":"application/json","Access-Control-Allow-Origin": "*"}
-        }
+        };
         
-        let startupApiKey = "813046b6-001a-4064-83bb-1604c47beffa";
-        let value = [];
         const sendData={symbol: currency,aux: "logo",CMC_PRO_API_KEY:startupApiKey};
         uri.search = new URLSearchParams(sendData).toString();
+
         fetch(uri,config).then(response => response.json()).then(response => {
             let tmpArray = [];
             for (var i = 0; i < response.data.length; i++) {
@@ -196,13 +198,13 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                             {this.state.data.filter(t => t.symbol === code).map((Filtered,i) => {
                             if(parseFloat(Filtered.quote.USD.percent_change_24h) > 0){
                                 return (<div>
-                                            <h3 className='text-secondary' key={i}>{parseFloat(Filtered.quote.USD.price).toFixed(2)}</h3>
-                                            <p className='text-percent' key={i}><img src={trendImage}></img> {parseFloat(Filtered.quote.USD.percent_change_24h).toFixed(2)}%</p>
+                                            <h3 className='text-secondary' key={i+Filtered.symbol+"_price"}>{parseFloat(Filtered.quote.USD.price).toFixed(2)}</h3>
+                                            <p className='text-percent' key={i+Filtered.symbol+"_24h"}><img src={trendImage}></img> {parseFloat(Filtered.quote.USD.percent_change_24h).toFixed(2)}%</p>
                                         </div>)
                             }else{
                                 return (<div>
-                                            <h3 className='text-secondary' key={i}>{parseFloat(Filtered.quote.USD.price).toFixed(2)}</h3>
-                                            <p className='text-percent-down' key={i}><img src={trenddownImage}></img> {parseFloat(Filtered.quote.USD.percent_change_24h).toFixed(2)*(-1)}%</p>
+                                            <h3 className='text-secondary' key={i+Filtered.symbol+"_price"}>{parseFloat(Filtered.quote.USD.price).toFixed(2)}</h3>
+                                            <p className='text-percent-down' key={i+Filtered.symbol+"_24h"}><img src={trenddownImage}></img> {parseFloat(Filtered.quote.USD.percent_change_24h).toFixed(2)*(-1)}%</p>
                                         </div>)
                             }})}
                         </div>
