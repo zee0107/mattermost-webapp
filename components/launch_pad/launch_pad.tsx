@@ -113,7 +113,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             this.setState({data: tmpArray});
         }).catch(function(error) {console.log(error);});
 
-        fetch(uriNew,config).then(response => response.json()).then(response => {
+        /*fetch(uriNew,config).then(response => response.json()).then(response => {
             let tmpArray = [];
             for (var i = 0; i < response.data.length; i++) {
                 tmpArray.push(response.data[i]);
@@ -127,7 +127,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 tmpArray.push(response.data[i]);
             }
             this.setState({gainerListing: tmpArray});
-        }).catch(function(error) {console.log(error);});
+        }).catch(function(error) {console.log(error);});*/
 
         fetch(uriTrending,config).then(response => response.json()).then(response => {
             let tmpArray = [];
@@ -194,7 +194,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     gainer_render = (i: int) => {
         return(
             <div>
-                {this.state.gainerListing.findIndex(i).map(filtered => (
+                {this.state.gainerListing[i].map(filtered => (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
                         <img src={digiImage}></img>
@@ -216,7 +216,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     new_render = (i: int) => {
         return(
             <div>
-                {this.state.newListing.findIndex(i).map(filtered => (
+                {this.state.newListing[i].map(filtered => (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
                         <img src={digiImage}></img>
@@ -238,7 +238,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     trend_render = (i: int) => {
         return(
             <div>
-                {this.state.trendListing.findIndex(i).map(filtered => (
+                {this.state.trendListing[i].map(filtered => (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
                         <img src={digiImage}></img>
@@ -397,9 +397,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <label className='text-primary label-title'><img src={trendImage} className='fire-img'></img>Biggest Gainers</label>
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
-                                                {this.gainer_render(0)}
-                                                {this.gainer_render(1)}
-                                                {this.gainer_render(2)}
                                                 {/*<div className='d-flex'>
                                                     <div className='col-sm-2 removePadding'>
                                                         <img src={digiImage}></img>
@@ -447,9 +444,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <label className='text-primary label-title'><img src={clockImage} className='fire-img'></img>Recently Added</label>
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
-                                                {this.new_render(0)}
-                                                {this.new_render(1)}
-                                                {this.new_render(2)}
                                                 {/*<div className='d-flex'>
                                                     <div className='col-sm-2 removePadding'>
                                                         <img src={digiImage}></img>
