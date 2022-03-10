@@ -262,9 +262,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         let arrVal = [];
         slicedArray.map((item,i) => { arrVal.push(item.symbol)});
         var curString = arrVal.join();
-        console.log(curString);
-        console.log(arrVal);
-        this.renderLogo(curString);
+        this.renderLogo(curString.toString());
         return(
             <div>
                 {slicedArray.map((filtered,i)=> (
