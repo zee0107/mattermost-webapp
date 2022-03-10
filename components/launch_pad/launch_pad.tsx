@@ -136,15 +136,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             }
             this.setState({trendListing: tmpArray});
         }).catch(function(error) {console.log(error);});
-
-        const currencyArr = [];
-        for(var i = 0; i < this.state.data.length; i++){
-            currencyArr.push(this.state.data[i].sysmbol);
-            console.log(this.state.data[i].sysmbol);
-        }
-        var currString = currencyArr.join();
-        console.log(currString);
-        this.renderLogo(currString);
     }
 
     renderLogo = (currency: string) =>{
@@ -268,6 +259,12 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     trend_render = () => {
         const slicedArray = this.state.trendListing.slice(0,3);
+        let arrVal = [];
+        slicedArray.map((item,i) => { arrVal.push(item.symbol)});
+        var curString = arrVal.join();
+        console.log(curString);
+        console.log(arrVal);
+        this.renderLogo(curString);
         return(
             <div>
                 {slicedArray.map((filtered,i)=> (
