@@ -191,7 +191,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         );
     }
 
-    gainer_render = (i: int) => {
+    /*gainer_render = (i: int) => {
         return(
             <div>
                 {this.state.gainerListing[i].map(filtered => (
@@ -233,7 +233,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 ))}
             </div>
         );
-    }
+    }*/
 
     trend_render = (i: int) => {
         return(
