@@ -34,6 +34,7 @@ import Sidebar from 'components/sidebar';
 import SidebarRight from 'components/sidebar_right';
 import SidebarRightMenu from 'components/sidebar_right_menu';
 import { ButtonGroup } from 'react-bootstrap';
+import { filter } from 'lodash';
 
 type Props = {
     status?: string;
@@ -69,51 +70,72 @@ type State = {
 };
 
 export default class LaunchPad extends React.PureComponent<Props, State> {
-    static defaultProps = {
-        userId: '',
-        profilePicture: '',
-    }
+    static defaultProps = {userId: '',profilePicture: '',}
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,data: [],};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, data: [], newListing: [], trendListing: [], gainerListing:[]};
     }
 
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
         const uri = new URL("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest");
-    
-        let apiKey = "5b439fd8-90e5-467c-b61a-c586252c7e2c";
-        const sendData={
-            start: "1",
-            limit: "5000",
-            convert: "USD",
-            CMC_PRO_API_KEY:"5b439fd8-90e5-467c-b61a-c586252c7e2c"
-        }
+        const uriNew = new URL("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/new");
+        const uriGainer = new URL("https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/gainers-losers");
+        const uriTrending = new URL("https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/latest");
 
+        let apiKey = "5b439fd8-90e5-467c-b61a-c586252c7e2c";
+        let startupApiKey = "813046b6-001a-4064-83bb-1604c47beffa";
+
+        const sendData={start: "1",limit: "5000",convert: "USD",CMC_PRO_API_KEY:apiKey};
         uri.search = new URLSearchParams(sendData).toString();
+
+        const listingNewParams={convert: "USD",sort_dir:"desc",CMC_PRO_API_KEY:startupApiKey};
+        uriNew.search = new URLSearchParams(listingNewParams).toString();
+
+        const gainerParams={convert: "USD",sort_dir:"desc",CMC_PRO_API_KEY:startupApiKey};
+        uriGainer.search = new URLSearchParams(gainerParams).toString();
+
+        const trendingParams={convert: "USD",CMC_PRO_API_KEY:startupApiKey};
+        uriTrending.search = new URLSearchParams(trendingParams).toString();
+
         const config = {
             method: "GET",
-            headers: {
-                Accepts: "application/json",
-                "Content-Type":"application/json",
-                "Access-Control-Allow-Origin": "*"
-            }
+            headers: {Accepts: "application/json","Content-Type":"application/json","Access-Control-Allow-Origin": "*"}
         }
 
-        fetch(uri,config)
-        .then(response => response.json())
-        .then(response => {
+        fetch(uri,config).then(response => response.json()).then(response => {
             let tmpArray = [];
             for (var i = 0; i < response.data.length; i++) {
                 tmpArray.push(response.data[i]);
             }
             this.setState({data: tmpArray});
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
+        }).catch(function(error) {console.log(error);});
+
+        fetch(uriNew,config).then(response => response.json()).then(response => {
+            let tmpArray = [];
+            for (var i = 0; i < response.data.length; i++) {
+                tmpArray.push(response.data[i]);
+            }
+            this.setState({newListing: tmpArray});
+        }).catch(function(error) {console.log(error);});
+
+        fetch(uriGainer,config).then(response => response.json()).then(response => {
+            let tmpArray = [];
+            for (var i = 0; i < response.data.length; i++) {
+                tmpArray.push(response.data[i]);
+            }
+            this.setState({gainerListing: tmpArray});
+        }).catch(function(error) {console.log(error);});
+
+        fetch(uriTrending,config).then(response => response.json()).then(response => {
+            let tmpArray = [];
+            for (var i = 0; i < response.data.length; i++) {
+                tmpArray.push(response.data[i]);
+            }
+            this.setState({trendListing: tmpArray});
+        }).catch(function(error) {console.log(error);});
     }
 
     setDocumentTitle = (siteName: string) => {
@@ -123,15 +145,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
-        if (!this.props.profilePicture) {
-            return null;
-        }
-        return (
-            <Avatar
-                size={size}
-                url={this.props.profilePicture}
-            />
-        );
+        if (!this.props.profilePicture) {return null;}
+        return (<Avatar size={size} url={this.props.profilePicture} />);
     }
 
     sideBoxRender = (code: string) => {
@@ -176,6 +191,72 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         );
     }
 
+    gainer_render = (i: int) => {
+        return(
+            <div>
+                {this.state.gainerListing.findIndex(i).map(filtered => (
+                    <div className='d-flex'>
+                    <div className='col-sm-2 removePadding'>
+                        <img src={digiImage}></img>
+                    </div>
+                    <div className='col-sm-5'>
+                        <label className='text-primary'>{filtered.name}</label>
+                        <p className='text-secondary small-font'>{filtered.symbol}</p>
+                    </div>
+                    <div className='col-sm-5 removePadding text-end'>
+                        <br></br>
+                        <label className='currency-value-text small-font'>&#36; {parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                    </div>
+                </div>
+                ))}
+            </div>
+        );
+    }
+
+    new_render = (i: int) => {
+        return(
+            <div>
+                {this.state.newListing.findIndex(i).map(filtered => (
+                    <div className='d-flex'>
+                    <div className='col-sm-2 removePadding'>
+                        <img src={digiImage}></img>
+                    </div>
+                    <div className='col-sm-5'>
+                        <label className='text-primary'>{filtered.name}</label>
+                        <p className='text-secondary small-font'>{filtered.symbol}</p>
+                    </div>
+                    <div className='col-sm-5 removePadding text-end'>
+                        <br></br>
+                        <label className='currency-value-text small-font'>&#36; {parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                    </div>
+                </div>
+                ))}
+            </div>
+        );
+    }
+
+    trend_render = (i: int) => {
+        return(
+            <div>
+                {this.state.trendListing.findIndex(i).map(filtered => (
+                    <div className='d-flex'>
+                    <div className='col-sm-2 removePadding'>
+                        <img src={digiImage}></img>
+                    </div>
+                    <div className='col-sm-5'>
+                        <label className='text-primary'>{filtered.name}</label>
+                        <p className='text-secondary small-font'>{filtered.symbol}</p>
+                    </div>
+                    <div className='col-sm-5 removePadding text-end'>
+                        <br></br>
+                        <label className='currency-value-text small-font'>&#36; {parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                    </div>
+                </div>
+                ))}
+            </div>
+        );
+    }
+
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
 
@@ -190,17 +271,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         bnbContent = this.sideBoxRender("BNB");
         return (
             <div className='div-bg'>
-                {/*<SidebarRight/>*/}
                 <SidebarRightMenu/>
-                {/*<Sidebar/>*/}
-                <div
-                    key='inner-wrap'
-                    className={classNames('inner-wrap', 'channel__wrap', {
-                        'move--right': this.props.lhsOpen,
-                        'move--left': this.props.rhsOpen,
-                        'move--left-small': this.props.rhsMenuOpen,
-                    })}
-                >
+                <div key='inner-wrap' className={classNames('inner-wrap', 'channel__wrap', {'move--right': this.props.lhsOpen,'move--left': this.props.rhsOpen,'move--left-small': this.props.rhsMenuOpen,})}>
                     <div className='row header'>
                         <div id='navbar_wrapper'>
                             <ChannelHeaderMobile classes={'removeMargin'}/>
@@ -275,7 +347,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <label className='text-primary label-title'><img src={fireImage} className='fire-img'></img>Trending</label>
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
-                                                <div className='d-flex'>
+                                                {this.trend_render(0)}
+                                                {this.trend_render(1)}
+                                                {this.trend_render(2)}
+                                                {/*<div className='d-flex'>
                                                     <div className='col-sm-2 removePadding'>
                                                         <img src={digiImage}></img>
                                                     </div>
@@ -313,7 +388,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <br></br>
                                                         <label className='currency-value-text small-font'>&#36; 0.00065</label>
                                                     </div>
-                                                </div>
+                                                </div>*/}
                                             </div>
                                         </div>
                                         <div className='col-sm-12'>
@@ -322,7 +397,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <label className='text-primary label-title'><img src={trendImage} className='fire-img'></img>Biggest Gainers</label>
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
-                                                <div className='d-flex'>
+                                                {this.gainer_render(0)}
+                                                {this.gainer_render(1)}
+                                                {this.gainer_render(2)}
+                                                {/*<div className='d-flex'>
                                                     <div className='col-sm-2 removePadding'>
                                                         <img src={digiImage}></img>
                                                     </div>
@@ -360,7 +438,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <br></br>
                                                         <label className='currency-value-text small-font'>&#36; 0.00065</label>
                                                     </div>
-                                                </div>
+                                                </div>*/}
                                             </div>
                                         </div>
                                         <div className='col-sm-12'>
@@ -369,7 +447,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <label className='text-primary label-title'><img src={clockImage} className='fire-img'></img>Recently Added</label>
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
-                                                <div className='d-flex'>
+                                                {this.new_render(0)}
+                                                {this.new_render(1)}
+                                                {this.new_render(2)}
+                                                {/*<div className='d-flex'>
                                                     <div className='col-sm-2 removePadding'>
                                                         <img src={digiImage}></img>
                                                     </div>
@@ -407,7 +488,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <br></br>
                                                         <label className='currency-value-text small-font'>&#36; 0.00065</label>
                                                     </div>
-                                                </div>
+                                                </div>*/}
                                             </div>
                                         </div>
                                     </div>
@@ -484,154 +565,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                         {ltcContent}
                                         {ethContent}
                                         {bnbContent}
-                                        {/*<div className='col-sm-12'>
-                                            <div className='sidemenuBox'>
-                                                <div className='row'>
-                                                    <div className='col-lg-6'>
-                                                        <div className='btc-icon'>
-                                                            <img src={btcImage} className="current-conversion-img"></img>
-                                                        </div>
-                                                        <h5 className='text-primary'>BTC <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
-                                                        <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
-                                                        </svg> USD</h5>
-                                                        {this.state.data.filter(t => t.symbol === "BTC").map(btcFiltered => {
-                                                            if(parseFloat(btcFiltered.quote.USD.percent_change_24h) > 0){
-                                                                return (<div>
-                                                                    <h3 className='text-secondary'>
-                                                                        {parseFloat(btcFiltered.quote.USD.price).toFixed(2)}
-                                                                    </h3>
-                                                                    <p className='text-percent'><img src={trendImage}></img> {parseFloat(btcFiltered.quote.USD.percent_change_24h).toFixed(2)}%</p>
-                                                                </div>)
-                                                            }else{
-                                                                return (<div>
-                                                                    <h3 className='text-secondary'>
-                                                                        {parseFloat(btcFiltered.quote.USD.price).toFixed(2)}
-                                                                    </h3>
-                                                                    <p className='text-percent-down'><img src={trenddownImage}></img> {parseFloat(btcFiltered.quote.USD.percent_change_24h).toFixed(2)*(-1)}%</p>
-                                                                </div>)
-                                                            }
-                                                        })}
-                                                    </div>
-                                                    <div className='col-lg-6 removePaddingRight'>
-                                                    {this.state.data.filter(t => t.symbol === "BTC").map(btcFiltered => {
-                                                        if(parseFloat(btcFiltered.quote.USD.percent_change_24h) > 0){ return (<img src={graphImage} className="graph-img"></img>) }
-                                                        else{ return (<img src={graphdownImage} className="graph-img"></img>) }
-                                                    })}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className='col-sm-12'>
-                                            <div className='sidemenuBox'>
-                                                <div className='row'>
-                                                    <div className='col-lg-6'>
-                                                        <div className='ltc-icon'>
-                                                            <img src={ltcImage} className="current-conversion-img"></img>
-                                                        </div>
-                                                        <h5 className='text-primary'>LTC <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
-                                                        <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
-                                                        </svg> USD</h5>
-                                                        {this.state.data.filter(t => t.symbol === "LTC").map(ltcFiltered => {
-                                                            if(parseFloat(ltcFiltered.quote.USD.percent_change_24h) > 0){
-                                                                return (<div>
-                                                                    <h3 className='text-secondary'>
-                                                                        {parseFloat(ltcFiltered.quote.USD.price).toFixed(2)}
-                                                                    </h3>
-                                                                    <p className='text-percent'><img src={trendImage}></img> {parseFloat(ltcFiltered.quote.USD.percent_change_24h).toFixed(2)}%</p>
-                                                                </div>)
-                                                            }else{
-                                                                return (<div>
-                                                                    <h3 className='text-secondary'>
-                                                                        {parseFloat(ltcFiltered.quote.USD.price).toFixed(2)}
-                                                                    </h3>
-                                                                    <p className='text-percent-down'><img src={trenddownImage}></img> {parseFloat(ltcFiltered.quote.USD.percent_change_24h).toFixed(2)*(-1)}%</p>
-                                                                </div>)
-                                                            }
-                                                        })}
-                                                    </div>
-                                                    <div className='col-lg-6 removePaddingRight'>
-                                                    {this.state.data.filter(t => t.symbol === "LTC").map(ltcFiltered => {
-                                                        if(parseFloat(ltcFiltered.quote.USD.percent_change_24h) > 0){ return (<img src={graphImage} className="graph-img"></img>) }
-                                                        else{ return (<img src={graphdownImage} className="graph-img"></img>) }
-                                                    })}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className='col-sm-12'>
-                                            <div className='sidemenuBox'>
-                                                <div className='row'>
-                                                    <div className='col-lg-6'>
-                                                        <div className='eth-icon'>
-                                                            <img src={ethImage} className="current-conversion-img"></img>
-                                                        </div>
-                                                        <h5 className='text-primary'>ETH <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
-                                                        <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
-                                                        </svg> USD</h5>
-                                                        {this.state.data.filter(t => t.symbol === "ETH").map(ethFiltered => {
-                                                            if(parseFloat(ethFiltered.quote.USD.percent_change_24h) > 0){
-                                                                return (<div>
-                                                                    <h3 className='text-secondary'>
-                                                                        {parseFloat(ethFiltered.quote.USD.price).toFixed(2)}
-                                                                    </h3>
-                                                                    <p className='text-percent'><img src={trendImage}></img> {parseFloat(ethFiltered.quote.USD.percent_change_24h).toFixed(2)}%</p>
-                                                                </div>)
-                                                            }else{
-                                                                return (<div>
-                                                                    <h3 className='text-secondary'>
-                                                                        {parseFloat(ethFiltered.quote.USD.price).toFixed(2)}
-                                                                    </h3>
-                                                                    <p className='text-percent-down'><img src={trenddownImage}></img> {parseFloat(ethFiltered.quote.USD.percent_change_24h).toFixed(2)*(-1)}%</p>
-                                                                </div>)
-                                                            }
-                                                        })}
-                                                    </div>
-                                                    <div className='col-lg-6 removePaddingRight'>
-                                                    {this.state.data.filter(t => t.symbol === "ETH").map(ethFiltered => {
-                                                        if(parseFloat(ethFiltered.quote.USD.percent_change_24h) > 0){ return (<img src={graphImage} className="graph-img"></img>) }
-                                                        else{ return (<img src={graphdownImage} className="graph-img"></img>) }
-                                                    })}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className='col-sm-12'>
-                                            <div className='sidemenuBox'>
-                                                <div className='row'>
-                                                    <div className='col-lg-6'>
-                                                        <div className='bnb-icon'>
-                                                            <img src={bnbImage} className="current-conversion-img"></img>
-                                                        </div>
-                                                        <h5 className='text-primary'>BNB <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
-                                                        <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
-                                                        </svg> USD</h5>
-                                                        {this.state.data.filter(t => t.symbol === "BNB").map(bnbFiltered => {
-                                                            if(parseFloat(bnbFiltered.quote.USD.percent_change_24h) > 0){
-                                                                return (<div>
-                                                                    <h3 className='text-secondary'>
-                                                                        {parseFloat(bnbFiltered.quote.USD.price).toFixed(2)}
-                                                                    </h3>
-                                                                    <p className='text-percent'><img src={trendImage}></img> {parseFloat(bnbFiltered.quote.USD.percent_change_24h).toFixed(2)}%</p>
-                                                                </div>)
-                                                            }else{
-                                                                return (<div>
-                                                                    <h3 className='text-secondary'>
-                                                                        {parseFloat(bnbFiltered.quote.USD.price).toFixed(2)}
-                                                                    </h3>
-                                                                    <p className='text-percent-down'><img src={trenddownImage}></img> {parseFloat(bnbFiltered.quote.USD.percent_change_24h).toFixed(2)*(-1)}%</p>
-                                                                </div>)
-                                                            }
-                                                        })}
-                                                    </div>
-                                                    <div className='col-lg-6 removePaddingRight'>
-                                                    {this.state.data.filter(t => t.symbol === "BNB").map(bnbFiltered => {
-                                                        if(parseFloat(bnbFiltered.quote.USD.percent_change_24h) > 0){ return (<img src={graphImage} className="graph-img"></img>) }
-                                                        else{ return (<img src={graphdownImage} className="graph-img"></img>) }
-                                                    })}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>*/}
                                     </div>
                                 </div>
                             </div>
