@@ -137,13 +137,14 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             this.setState({trendListing: tmpArray});
         }).catch(function(error) {console.log(error);});
 
-        /*let currencyArr = [];
+        let currencyArr = [];
         this.state.data.map(e => { currencyArr.push(e.symbol)});
-        var currString = currencyArr.join();*/
-        
+        var currString = currencyArr.join();
+        console.log(currString);
+        this.renderLogo(currString);
     }
 
-    renderLogo = (currency: string,id: int) =>{
+    renderLogo = (currency: string) =>{
         const uri = new URL("https://pro-api.coinmarketcap.com/v2/cryptocurrency/info");
         let startupApiKey = "813046b6-001a-4064-83bb-1604c47beffa";
         const config = {
@@ -153,17 +154,14 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         
         const sendData={symbol: currency,CMC_PRO_API_KEY:startupApiKey};
         uri.search = new URLSearchParams(sendData).toString();
-        
         fetch(uri,config).then(response => response.json()).then(response => {
             let tmpArray = [];
-            tmpArray.push(response.data);
+            for (var i = 0; i < response.data.length; i++) {
+                tmpArray.push(response.data[i]);
+            }
             console.log(tmpArray);
             this.setState({logo_url:tmpArray});
         }).catch(function(error) {console.log(error);});
-
-        this.state.logo_url.filter(e => e === currency).map((item,i) => {
-            return(<img src={item[0].logo} key={currency}></img>);
-        })
     }
 
     setDocumentTitle = (siteName: string) => {
@@ -272,7 +270,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                        {this.renderLogo(filtered.symbol,filtered.id)}
+                        {this.state.logo_url.filter(e => e === filtered.symbol).map((item,i) => (<img src={item.logo}></img>))}
                     </div>
                     <div className='col-sm-5'>
                         <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
