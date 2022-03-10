@@ -145,7 +145,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         let value = [];
         const sendData={symbol: currency,aux: "logo",CMC_PRO_API_KEY:startupApiKey};
         uri.search = new URLSearchParams(sendData).toString();
-        fetch(uriTrending,config).then(response => response.json()).then(response => {
+        fetch(uri,config).then(response => response.json()).then(response => {
             let tmpArray = [];
             for (var i = 0; i < response.data.length; i++) {
                 tmpArray.push(response.data[i]);
