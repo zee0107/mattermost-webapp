@@ -150,7 +150,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             for (var i = 0; i < response.data.length; i++) {
                 tmpArray.push(response.data[i]);
             }
-            console.log(tmpArray);
             value = tmpArray;
         }).catch(function(error) {console.log(error);});
 
@@ -224,7 +223,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                       {this.renderLogo(filtered.symbol)}
+                       {/*this.renderLogo(filtered.symbol)*/}
                     </div>
                     <div className='col-sm-5'>
                         <label className='text-primary' key={i+"-gainer-name"}>{filtered.name}</label>
@@ -252,7 +251,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                        {this.renderLogo(filtered.symbol)}
+                        {/*this.renderLogo(filtered.symbol)*/}
                     </div>
                     <div className='col-sm-5'>
                         <label className='text-primary' key={i}>{filtered.name}</label>
@@ -280,7 +279,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                        {this.renderLogo(filtered.symbol)}
+                        {/*this.renderLogo(filtered.symbol)*/}
                     </div>
                     <div className='col-sm-5'>
                         <label className='text-primary' key={i}>{filtered.name}</label>
