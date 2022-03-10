@@ -134,8 +134,54 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         );
     }
 
+    sideBoxRender = (code: string) => {
+        return(
+            <div className='col-sm-12'>
+                <div className='sidemenuBox'>
+                    <div className='row'>
+                        <div className='col-lg-6'>
+                            <div className={code.toLocaleLowerCase() +"-icon"}>
+                                <img src={btcImage} className="current-conversion-img"></img>
+                            </div>
+                            <h5 className='text-primary'>{code} <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
+                            <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
+                            </svg> USD</h5>
+                            {this.state.data.filter(t => t.symbol === code).map(Filtered => {
+                            if(parseFloat(Filtered.quote.USD.percent_change_24h) > 0){
+                                return (<div>
+                                            <h3 className='text-secondary'>{parseFloat(Filtered.quote.USD.price).toFixed(2)}</h3>
+                                            <p className='text-percent'><img src={trendImage}></img> {parseFloat(Filtered.quote.USD.percent_change_24h).toFixed(2)}%</p>
+                                        </div>)
+                            }else{
+                                return (<div>
+                                            <h3 className='text-secondary'>{parseFloat(Filtered.quote.USD.price).toFixed(2)}</h3>
+                                            <p className='text-percent-down'><img src={trenddownImage}></img> {parseFloat(Filtered.quote.USD.percent_change_24h).toFixed(2)*(-1)}%</p>
+                                        </div>)
+                            }})}
+                        </div>
+                        <div className='col-lg-6 removePaddingRight'>
+                            {this.state.data.filter(t => t.symbol === code).map(Filtered => {
+                                if(parseFloat(Filtered.quote.USD.percent_change_24h) > 0){ return (<img src={graphImage} className="graph-img"></img>) }
+                                else{ return (<img src={graphdownImage} className="graph-img"></img>) }})}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
+
+        let btcContent;
+        let ltcContent;
+        let ethContent;
+        let bnbContent;
+
+        btcContent = this.sideBoxRender("BTC");
+        ltcContent = this.sideBoxRender("LTC");
+        ethContent = this.sideBoxRender("ETH");
+        bnbContent = this.sideBoxRender("BNB");
         return (
             <div className='div-bg'>
                 {/*<SidebarRight/>*/}
@@ -428,7 +474,11 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-sm-3' id="side_menu_right">
-                                        <div className='col-sm-12'>
+                                        {btcContent}
+                                        {ltcContent}
+                                        {ethContent}
+                                        {bnbContent}
+                                        {/*<div className='col-sm-12'>
                                             <div className='sidemenuBox'>
                                                 <div className='row'>
                                                     <div className='col-lg-6'>
@@ -575,7 +625,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>*/}
                                     </div>
                                 </div>
                             </div>
