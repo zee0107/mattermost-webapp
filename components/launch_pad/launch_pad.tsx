@@ -137,7 +137,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             this.setState({trendListing: tmpArray});
         }).catch(function(error) {console.log(error);});
 
-        let currencyArr = [];
+        let currencyArr = string[];
         for(var i = 0; i < this.state.data.length; i++){
             currencyArr.push(this.state.data[i].sysmbol);
         }
