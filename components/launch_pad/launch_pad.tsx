@@ -236,11 +236,11 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         );
     }*/
 
-    trend_render = (i: int) => {
-        this.state.trendListing.map((filtered,i) => {console.log(filtered)});
+    trend_render = () => {
+        const slicedArray = this.state.trendListing.slice(0,3);
         return(
             <div>
-                {this.state.trendListing.map((filtered,i)=> (
+                {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
                         <img src={digiImage}></img>
@@ -349,9 +349,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <label className='text-primary label-title'><img src={fireImage} className='fire-img'></img>Trending</label>
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
-                                                {this.trend_render(0)}
-                                                {this.trend_render(1)}
-                                                {this.trend_render(2)}
+                                                {this.trend_render()}
                                                 {/*<div className='d-flex'>
                                                     <div className='col-sm-2 removePadding'>
                                                         <img src={digiImage}></img>
