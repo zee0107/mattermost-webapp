@@ -134,6 +134,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             for (var i = 0; i < response.data.length; i++) {
                 tmpArray.push(response.data[i]);
             }
+            console.log(tmpArray);
             this.setState({trendListing: tmpArray});
         }).catch(function(error) {console.log(error);});
     }
@@ -236,6 +237,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     }*/
 
     trend_render = (i: int) => {
+        this.state.trendListing[i].map(filtered => {console.log(filtered)});
         return(
             <div>
                 {this.state.trendListing[i].map(filtered => (
