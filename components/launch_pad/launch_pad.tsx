@@ -35,6 +35,7 @@ import SidebarRight from 'components/sidebar_right';
 import SidebarRightMenu from 'components/sidebar_right_menu';
 import { ButtonGroup } from 'react-bootstrap';
 import { filter } from 'lodash';
+import { string } from 'prop-types';
 
 type Props = {
     status?: string;
@@ -74,7 +75,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, logo_url: [], data: [], newListing: [], trendListing: [], gainerListing:[]};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,logo_url: [], data: [], newListing: [], trendListing: [], gainerListing:[]};
     }
 
     componentDidMount(){
