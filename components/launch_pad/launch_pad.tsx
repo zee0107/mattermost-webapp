@@ -214,8 +214,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     gainer_render = (i: int) => {
         const slicedArray = this.state.gainerListing.slice(0,3);
+        let value;
         slicedArray.map((item,i) => {
-            if(parseFloat(filtered.quote.USD.percent_change_24h))
+            if(parseFloat(filtered.quote.USD.percent_change_24h) > 0){ value = (<label className='currency-value-text small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>)}
+            else{value = (<label className='text-percent-down small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)*(-1)}</label>)}
         })
         return(
             <div>
@@ -230,7 +232,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                     </div>
                     <div className='col-sm-5 removePadding text-end'>
                         <br></br>
-                        <label className='currency-value-text small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                        {value}
                     </div>
                 </div>
                 ))}
@@ -240,6 +242,11 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     new_render = (i: int) => {
         const slicedArray = this.state.newListing.slice(0,3);
+        let value;
+        slicedArray.map((item,i) => {
+            if(parseFloat(filtered.quote.USD.percent_change_24h) > 0){ value = (<label className='currency-value-text small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>)}
+            else{value = (<label className='text-percent-down small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)*(-1)}</label>)}
+        })
         return(
             <div>
                 {slicedArray.map((filtered,i)=> (
@@ -253,7 +260,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                     </div>
                     <div className='col-sm-5 removePadding text-end'>
                         <br></br>
-                        <label className='currency-value-text small-font' key={i}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                        {value}
                     </div>
                 </div>
                 ))}
@@ -263,6 +270,11 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     trend_render = () => {
         const slicedArray = this.state.trendListing.slice(0,3);
+        let value;
+        slicedArray.map((item,i) => {
+            if(parseFloat(filtered.quote.USD.percent_change_24h) > 0){ value = (<label className='currency-value-text small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>)}
+            else{value = (<label className='text-percent-down small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)*(-1)}</label>)}
+        })
         return(
             <div>
                 {slicedArray.map((filtered,i)=> (
@@ -276,7 +288,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                     </div>
                     <div className='col-sm-5 removePadding text-end'>
                         <br></br>
-                        <label className='currency-value-text small-font' key={i}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                        {value}
                     </div>
                 </div>
                 ))}
