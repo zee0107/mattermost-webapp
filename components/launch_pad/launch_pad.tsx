@@ -74,7 +74,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,logo_url, data: [], newListing: [], trendListing: [], gainerListing:[]};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, data: [], newListing: [], trendListing: [], gainerListing:[]};
     }
 
     componentDidMount(){
