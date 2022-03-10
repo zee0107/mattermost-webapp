@@ -237,21 +237,21 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     }*/
 
     trend_render = (i: int) => {
-        this.state.trendListing[i].map(filtered => {console.log(filtered)});
+        this.state.trendListing.map((filtered,i) => {console.log(filtered)});
         return(
             <div>
-                {this.state.trendListing[i].map(filtered => (
+                {this.state.trendListing[i].map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
                         <img src={digiImage}></img>
                     </div>
                     <div className='col-sm-5'>
-                        <label className='text-primary'>{filtered.name}</label>
-                        <p className='text-secondary small-font'>{filtered.symbol}</p>
+                        <label className='text-primary' key={i}>{filtered.name}</label>
+                        <p className='text-secondary small-font' key={i}>{filtered.symbol}</p>
                     </div>
                     <div className='col-sm-5 removePadding text-end'>
                         <br></br>
-                        <label className='currency-value-text small-font'>&#36; {parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                        <label className='currency-value-text small-font' key={i}>&#36; {parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
                     </div>
                 </div>
                 ))}
