@@ -140,7 +140,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     }
 
     renderLogo = (currency: string) =>{
-        const uri = "https://pro-api.coinmarketcap.com/v2/cryptocurrency/info";
+        const uri = new URL("https://pro-api.coinmarketcap.com/v2/cryptocurrency/info");
         let startupApiKey = "813046b6-001a-4064-83bb-1604c47beffa";
         let value = [];
         const sendData={symbol: currency,aux: "logo",CMC_PRO_API_KEY:startupApiKey};
@@ -155,7 +155,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         }).catch(function(error) {console.log(error);});
 
         value.map((item,i) => {
-            return(<img src={item.logo} key={currency}></img>);
+            return(<img src={item.1.logo} key={currency}></img>);
         })
     }
 
@@ -250,7 +250,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                     </div>
                     <div className='col-sm-5 removePadding text-end'>
                         <br></br>
-                        <label className='currency-value-text small-font' key={i}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                        <label className='currency-value-text small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
                     </div>
                 </div>
                 ))}
@@ -273,7 +273,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                     </div>
                     <div className='col-sm-5 removePadding text-end'>
                         <br></br>
-                        <label className='currency-value-text small-font' key={i}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                        <label className='currency-value-text small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
                     </div>
                 </div>
                 ))}
