@@ -113,7 +113,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             this.setState({data: tmpArray});
         }).catch(function(error) {console.log(error);});
 
-        /*fetch(uriNew,config).then(response => response.json()).then(response => {
+        fetch(uriNew,config).then(response => response.json()).then(response => {
             let tmpArray = [];
             for (var i = 0; i < response.data.length; i++) {
                 tmpArray.push(response.data[i]);
@@ -127,7 +127,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 tmpArray.push(response.data[i]);
             }
             this.setState({gainerListing: tmpArray});
-        }).catch(function(error) {console.log(error);});*/
+        }).catch(function(error) {console.log(error);});
 
         fetch(uriTrending,config).then(response => response.json()).then(response => {
             let tmpArray = [];
@@ -168,21 +168,21 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                             <h5 className='text-primary'>{code} <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
                             <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
                             </svg> USD</h5>
-                            {this.state.data.filter(t => t.symbol === code).map(Filtered => {
+                            {this.state.data.filter(t => t.symbol === code).map((Filtered,i) => {
                             if(parseFloat(Filtered.quote.USD.percent_change_24h) > 0){
                                 return (<div>
-                                            <h3 className='text-secondary'>{parseFloat(Filtered.quote.USD.price).toFixed(2)}</h3>
-                                            <p className='text-percent'><img src={trendImage}></img> {parseFloat(Filtered.quote.USD.percent_change_24h).toFixed(2)}%</p>
+                                            <h3 className='text-secondary' key={i}>{parseFloat(Filtered.quote.USD.price).toFixed(2)}</h3>
+                                            <p className='text-percent' key={i}><img src={trendImage}></img> {parseFloat(Filtered.quote.USD.percent_change_24h).toFixed(2)}%</p>
                                         </div>)
                             }else{
                                 return (<div>
-                                            <h3 className='text-secondary'>{parseFloat(Filtered.quote.USD.price).toFixed(2)}</h3>
-                                            <p className='text-percent-down'><img src={trenddownImage}></img> {parseFloat(Filtered.quote.USD.percent_change_24h).toFixed(2)*(-1)}%</p>
+                                            <h3 className='text-secondary' key={i}>{parseFloat(Filtered.quote.USD.price).toFixed(2)}</h3>
+                                            <p className='text-percent-down' key={i}><img src={trenddownImage}></img> {parseFloat(Filtered.quote.USD.percent_change_24h).toFixed(2)*(-1)}%</p>
                                         </div>)
                             }})}
                         </div>
                         <div className='col-lg-6 removePaddingRight'>
-                            {this.state.data.filter(t => t.symbol === code).map(Filtered => {
+                            {this.state.data.filter(t => t.symbol === code).map((Filtered,i) => {
                                 if(parseFloat(Filtered.quote.USD.percent_change_24h) > 0){ return (<img src={graphImage} className="graph-img"></img>) }
                                 else{ return (<img src={graphdownImage} className="graph-img"></img>) }})}
                         </div>
@@ -192,21 +192,22 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         );
     }
 
-    /*gainer_render = (i: int) => {
+    gainer_render = (i: int) => {
+        const slicedArray = this.state.gainerListing.slice(0,3);
         return(
             <div>
-                {this.state.gainerListing[i].map(filtered => (
+                {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
                         <img src={digiImage}></img>
                     </div>
                     <div className='col-sm-5'>
-                        <label className='text-primary'>{filtered.name}</label>
-                        <p className='text-secondary small-font'>{filtered.symbol}</p>
+                        <label className='text-primary' key={i}>{filtered.name}</label>
+                        <p className='text-secondary small-font' key={i}>{filtered.symbol}</p>
                     </div>
                     <div className='col-sm-5 removePadding text-end'>
                         <br></br>
-                        <label className='currency-value-text small-font'>&#36; {parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                        <label className='currency-value-text small-font' key={i}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
                     </div>
                 </div>
                 ))}
@@ -215,26 +216,27 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     }
 
     new_render = (i: int) => {
+        const slicedArray = this.state.newListing.slice(0,3);
         return(
             <div>
-                {this.state.newListing[i].map(filtered => (
+                {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
                         <img src={digiImage}></img>
                     </div>
                     <div className='col-sm-5'>
-                        <label className='text-primary'>{filtered.name}</label>
-                        <p className='text-secondary small-font'>{filtered.symbol}</p>
+                        <label className='text-primary' key={i}>{filtered.name}</label>
+                        <p className='text-secondary small-font' key={i}>{filtered.symbol}</p>
                     </div>
                     <div className='col-sm-5 removePadding text-end'>
                         <br></br>
-                        <label className='currency-value-text small-font'>&#36; {parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                        <label className='currency-value-text small-font' key={i}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
                     </div>
                 </div>
                 ))}
             </div>
         );
-    }*/
+    }
 
     trend_render = () => {
         const slicedArray = this.state.trendListing.slice(0,3);
@@ -251,7 +253,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                     </div>
                     <div className='col-sm-5 removePadding text-end'>
                         <br></br>
-                        <label className='currency-value-text small-font' key={i}>&#36; {parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                        <label className='currency-value-text small-font' key={i}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
                     </div>
                 </div>
                 ))}
@@ -350,45 +352,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
                                                 {this.trend_render()}
-                                                {/*<div className='d-flex'>
-                                                    <div className='col-sm-2 removePadding'>
-                                                        <img src={digiImage}></img>
-                                                    </div>
-                                                    <div className='col-sm-5'>
-                                                        <label className='text-primary'>GXCHAIN</label>
-                                                        <p className='text-secondary small-font'>GXS</p>
-                                                    </div>
-                                                    <div className='col-sm-5 removePadding text-end'>
-                                                        <br></br>
-                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
-                                                    </div>
-                                                </div>
-                                                <div className='d-flex'>
-                                                    <div className='col-sm-2 removePadding'>
-                                                        <img src={digiImage}></img>
-                                                    </div>
-                                                    <div className='col-sm-5'>
-                                                        <label className='text-primary'>DigiByte</label>
-                                                        <p className='text-secondary small-font'>DGB</p>
-                                                    </div>
-                                                    <div className='col-sm-5 removePadding text-end'>
-                                                        <br></br>
-                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
-                                                    </div>
-                                                </div>
-                                                <div className='d-flex'>
-                                                    <div className='col-sm-2 removePadding'>
-                                                        <img src={digiImage}></img>
-                                                    </div>
-                                                    <div className='col-sm-5'>
-                                                        <label className='text-primary'>Icon</label>
-                                                        <p className='text-secondary small-font'>ICX</p>
-                                                    </div>
-                                                    <div className='col-sm-5 removePadding text-end'>
-                                                        <br></br>
-                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
-                                                    </div>
-                                                </div>*/}
                                             </div>
                                         </div>
                                         <div className='col-sm-12'>
@@ -397,45 +360,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <label className='text-primary label-title'><img src={trendImage} className='fire-img'></img>Biggest Gainers</label>
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
-                                                {/*<div className='d-flex'>
-                                                    <div className='col-sm-2 removePadding'>
-                                                        <img src={digiImage}></img>
-                                                    </div>
-                                                    <div className='col-sm-5'>
-                                                        <label className='text-primary'>Apollo</label>
-                                                        <p className='text-secondary small-font'>APL</p>
-                                                    </div>
-                                                    <div className='col-sm-5 removePadding text-end'>
-                                                        <br></br>
-                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
-                                                    </div>
-                                                </div>
-                                                <div className='d-flex'>
-                                                    <div className='col-sm-2 removePadding'>
-                                                        <img src={digiImage}></img>
-                                                    </div>
-                                                    <div className='col-sm-5'>
-                                                        <label className='text-primary'>CloakCoin</label>
-                                                        <p className='text-secondary small-font'>Cloak</p>
-                                                    </div>
-                                                    <div className='col-sm-5 removePadding text-end'>
-                                                        <br></br>
-                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
-                                                    </div>
-                                                </div>
-                                                <div className='d-flex'>
-                                                    <div className='col-sm-2 removePadding'>
-                                                        <img src={digiImage}></img>
-                                                    </div>
-                                                    <div className='col-sm-5'>
-                                                        <label className='text-primary'>LiteCoin</label>
-                                                        <p className='text-secondary small-font'>LCC</p>
-                                                    </div>
-                                                    <div className='col-sm-5 removePadding text-end'>
-                                                        <br></br>
-                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
-                                                    </div>
-                                                </div>*/}
+                                                {this.gainer_render()}
                                             </div>
                                         </div>
                                         <div className='col-sm-12'>
@@ -444,45 +369,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <label className='text-primary label-title'><img src={clockImage} className='fire-img'></img>Recently Added</label>
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
-                                                {/*<div className='d-flex'>
-                                                    <div className='col-sm-2 removePadding'>
-                                                        <img src={digiImage}></img>
-                                                    </div>
-                                                    <div className='col-sm-5'>
-                                                        <label className='text-primary'>GXCHAIN</label>
-                                                        <p className='text-secondary small-font'>GXS</p>
-                                                    </div>
-                                                    <div className='col-sm-5 removePadding text-end'>
-                                                        <br></br>
-                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
-                                                    </div>
-                                                </div>
-                                                <div className='d-flex'>
-                                                    <div className='col-sm-2 removePadding'>
-                                                        <img src={digiImage}></img>
-                                                    </div>
-                                                    <div className='col-sm-5'>
-                                                        <label className='text-primary'>DigiByte</label>
-                                                        <p className='text-secondary small-font'>DGB</p>
-                                                    </div>
-                                                    <div className='col-sm-5 removePadding text-end'>
-                                                        <br></br>
-                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
-                                                    </div>
-                                                </div>
-                                                <div className='d-flex'>
-                                                    <div className='col-sm-2 removePadding'>
-                                                        <img src={digiImage}></img>
-                                                    </div>
-                                                    <div className='col-sm-5'>
-                                                        <label className='text-primary'>Icon</label>
-                                                        <p className='text-secondary small-font'>ICX</p>
-                                                    </div>
-                                                    <div className='col-sm-5 removePadding text-end'>
-                                                        <br></br>
-                                                        <label className='currency-value-text small-font'>&#36; 0.00065</label>
-                                                    </div>
-                                                </div>*/}
+                                                {this.new_render()}
                                             </div>
                                         </div>
                                     </div>
