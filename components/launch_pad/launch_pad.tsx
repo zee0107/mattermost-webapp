@@ -151,17 +151,15 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             headers: {Accepts: "application/json","Content-Type":"application/json","Access-Control-Allow-Origin": "*"}
         };
         
-        const sendData={symbol: currency,aux: "logo",CMC_PRO_API_KEY:startupApiKey};
+        const sendData={symbol: currency,CMC_PRO_API_KEY:startupApiKey};
         uri.search = new URLSearchParams(sendData).toString();
-
+        let arrValue: [];
         fetch(uri,config).then(response => response.json()).then(response => {
-            let tmpArray = [];
-            tmpArray.push(response.data);
-            console.log(tmpArray);
-            this.setState({logo_url: tmpArray});
+            arrValue.push(response.data)
+            console.log(arrValue);
         }).catch(function(error) {console.log(error);});
 
-        this.state.logo_url.filter(e => e === currency).map((item,i) => {
+        arrValue.filter(e => e === currency).map((item,i) => {
             return(<img src={item.logo} key={currency}></img>);
         })
     }
