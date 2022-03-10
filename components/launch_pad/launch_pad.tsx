@@ -240,7 +240,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         this.state.trendListing.map((filtered,i) => {console.log(filtered)});
         return(
             <div>
-                {this.state.trendListing[i].map((filtered,i)=> (
+                {this.state.trendListing.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
                         <img src={digiImage}></img>
