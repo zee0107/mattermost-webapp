@@ -237,6 +237,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     new_render = () => {
         const slicedArray = this.state.newListing.slice(0,3);
+        
         return(
             <div>
                 {slicedArray.map((filtered,i)=> (
@@ -273,7 +274,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
                         {this.renderLogo(filtered.symbol).map((item, index)=> {
-                            let key=Object.keys(item)[0];
+                            let key=Object.keys(item)[0][0];
                             return( <img src={item[key].logo} key={index+currency}></img>)
                         })}
                     </div>
