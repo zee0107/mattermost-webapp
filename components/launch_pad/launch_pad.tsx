@@ -153,15 +153,14 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             let tmpArray = [];
             tmpArray.push(response.data);
             array.push(tmpArray);
+            console.log(array);
         }).catch(function(error) {console.log(error);});
         
-        const newData = [];
-        array.map((item, index)=> {
-            let key=Object.keys(item)[0];
-            newData.push(item[key]);
+        const newData = array.map(item => {
+            const key = Object.keys(item)[0];
+            return item[key]
         })
 
-        console.log(newData);
         return newData;
     }
 
@@ -225,7 +224,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                       {/*this.renderLogo(filtered.symbol)*/}
+                       {
+                       }
                     </div>
                     <div className='col-sm-5'>
                         <label className='text-primary' key={i+"-gainer-name"}>{filtered.name}</label>
@@ -272,7 +272,9 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                        {this.renderLogo(filtered.symbol).map((item,index) => (<img src={item[0].logo} key={filtered.symbol}></img>))}
+                        {this.renderLogo(filtered.symbol).map((item,index) => {
+                            let key = Object.keys(item)[0];
+                            return (<img src={item[key].logo} key={filtered.symbol}></img>)})}
                     </div>
                     <div className='col-sm-5'>
                         <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
