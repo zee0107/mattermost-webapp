@@ -152,11 +152,11 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         fetch(uri,config).then(response => response.json()).then(response => {
             let tmpArray = [];
             tmpArray.push(response.data);
-            this.setState({logo_url:tmpArray})
+            array.push(tmpArray);
         }).catch(function(error) {console.log(error);});
         console.log(array);
 
-        let newData = this.state.logo_url.map(item => {
+        let newData = array.logo_url.map(item => {
             const key = Object.keys(item)[0];
             return item[key]
         });
