@@ -153,7 +153,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             for (var i = 0; i < response.data.length; i++) {
                 tmpArray.push(response.data[i]);
             }
-            console.log(tmpArray);
             this.setState({logo_url:tmpArray});
         }).catch(function(error) {console.log(error);});
     }
@@ -260,8 +259,11 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     trend_render = () => {
         const slicedArray = this.state.trendListing.slice(0,3);
         let arrVal = [];
-        slicedArray.map((item,i) => { arrVal.push(item.symbol)});
+        slicedArray.map((item,i) => { 
+            arrVal.push(item.symbol);
+        });
         var curString = arrVal.join();
+        console.log(curString);
         this.renderLogo(curString.toString());
         return(
             <div>
