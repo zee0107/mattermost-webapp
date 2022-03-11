@@ -150,7 +150,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         uri.search = new URLSearchParams(sendData).toString();
         fetch(uri,config).then(response => response.json()).then(response => {
             let tmpArray = [];
-            tmpArray.push(response.data);
+            tmpArray.push(response.data[0]);
             this.setState({logo_url:tmpArray});
         }).catch(function(error) {console.log(error);});
 
