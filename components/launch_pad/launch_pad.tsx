@@ -147,7 +147,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         };
         
         const sendData={symbol: currency,CMC_PRO_API_KEY:startupApiKey};
-        let array = [];
+        var array = [];
         uri.search = new URLSearchParams(sendData).toString();
         fetch(uri,config).then(response => response.json()).then(response => {
             let tmpArray = [];
@@ -156,13 +156,13 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         }).catch(function(error) {console.log(error);});
         console.log(array);
 
-        let newData = array.logo_url.map(item => {
+        var newData = array.logo_url.map(item => {
             const key = Object.keys(item)[0];
             return item[key]
         });
         console.log(newData);
 
-        let finalData = newData.map(item => {
+        var finalData = newData.map(item => {
             const key = Object.keys(item)[0];
             return item[key]
         });
