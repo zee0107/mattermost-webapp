@@ -275,7 +275,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                         {this.renderLogo(filtered.symbol).map((item, index)=> {
                             let key=Object.keys(item)[0][0];
                             console.log(key);
-                            return( <img src={item[key].logo} key={index+currency}></img>)
+                            return( <img src={item[key].logo} key={index}></img>)
                         })}
                     </div>
                     <div className='col-sm-5'>
