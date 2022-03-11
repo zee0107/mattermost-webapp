@@ -155,7 +155,14 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             array.push(tmpArray);
         }).catch(function(error) {console.log(error);});
         
-        return array;
+        const newData = [];
+        array.map((item, index)=> {
+            let key=Object.keys(item)[0];
+            newData.push(item[key]);
+        })
+
+        console.log(newData);
+        return newData;
     }
 
     setDocumentTitle = (siteName: string) => {
@@ -260,22 +267,12 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     trend_render = () => {
         const slicedArray = this.state.trendListing.slice(0,3);
-        /*let arrVal = [];
-        slicedArray.map((item,i) => { 
-            arrVal.push(item.symbol);
-        });
-        var curString = arrVal.join();
-        console.log(curString);
-        this.renderLogo(curString.toString());*/
         return(
             <div>
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                        {this.renderLogo(filtered.symbol).map((item, index)=> {
-                            /*let key=Object.keys(item)[0][0];*/
-                            return( <img src={item[0][0].logo} key={index}></img>)
-                        })}
+                        {this.renderLogo(filtered.symbol).map((item,index) => (<img src={item[0].logo} key={filtered.symbol}></img>))}
                     </div>
                     <div className='col-sm-5'>
                         <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
