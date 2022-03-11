@@ -159,9 +159,15 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         const newData = array.map(item => {
             const key = Object.keys(item)[0];
             return item[key]
-        })
+        });
 
-        return newData;
+        const finalData = newData.map(item => {
+            const key = Object.keys(item)[0];
+            return item[key]
+        });
+
+        console.log(finalData);
+        return finalData;
     }
 
     setDocumentTitle = (siteName: string) => {
