@@ -150,11 +150,16 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         uri.search = new URLSearchParams(sendData).toString();
         fetch(uri,config).then(response => response.json()).then(response => {
             let tmpArray = [];
-            for (var i = 0; i < response.data.length; i++) {
-                tmpArray.push(response.data[i]);
-            }
+            tmpArray.push(response.data[i]);
             this.setState({logo_url:tmpArray});
         }).catch(function(error) {console.log(error);});
+
+
+        const arrayValue = this.state.logo_url.findIndex(currency);
+        console.log(arrayValue);
+        arrayValue.map((item,i) => (
+            <img src={item.logo} key={i+currency}></img>
+        ));
     }
 
     setDocumentTitle = (siteName: string) => {
@@ -258,19 +263,19 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     trend_render = () => {
         const slicedArray = this.state.trendListing.slice(0,3);
-        let arrVal = [];
+        /*let arrVal = [];
         slicedArray.map((item,i) => { 
             arrVal.push(item.symbol);
         });
         var curString = arrVal.join();
         console.log(curString);
-        this.renderLogo(curString.toString());
+        this.renderLogo(curString.toString());*/
         return(
             <div>
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                        {this.state.logo_url.filter(e => e === filtered.symbol).map((item,i) => (<img src={item.logo}></img>))}
+                        {this.renderLogo(filtered.symbol)}
                     </div>
                     <div className='col-sm-5'>
                         <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
