@@ -273,9 +273,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
                         {this.renderLogo(filtered.symbol).map((item, index)=> {
-                            let key=Object.keys(item)[0][0];
-                            console.log(key);
-                            return( <img src={item[key].logo} key={index}></img>)
+                            /*let key=Object.keys(item)[0][0];*/
+                            return( <img src={item[0][0].logo} key={index}></img>)
                         })}
                     </div>
                     <div className='col-sm-5'>
