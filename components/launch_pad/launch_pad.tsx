@@ -211,7 +211,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         );
     }
 
-    gainer_render = (i: int) => {
+    gainer_render = () => {
         const slicedArray = this.state.gainerListing.slice(0,3);
         return(
             <div>
@@ -234,7 +234,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         );
     }
 
-    new_render = (i: int) => {
+    new_render = () => {
         const slicedArray = this.state.newListing.slice(0,3);
         return(
             <div>
