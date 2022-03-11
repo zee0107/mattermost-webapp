@@ -150,16 +150,15 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         uri.search = new URLSearchParams(sendData).toString();
         fetch(uri,config).then(response => response.json()).then(response => {
             let tmpArray = [];
-            tmpArray.push(response.data[i]);
+            tmpArray.push(response.data);
             this.setState({logo_url:tmpArray});
         }).catch(function(error) {console.log(error);});
 
-
-        const arrayValue = this.state.logo_url.findIndex(currency);
-        console.log(arrayValue);
-        arrayValue.map((item,i) => (
-            <img src={item.logo} key={i+currency}></img>
-        ));
+        this.state.logo_url.map((item, index)=> {
+            let key=Object.keys(item)[0];
+         
+             return( <img src={item[key].logo} key={index+currency}></img>
+        )});
     }
 
     setDocumentTitle = (siteName: string) => {
