@@ -153,6 +153,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             let tmpArray = [];
             tmpArray.push(response.data);
             array.push(tmpArray);
+            console.log(array);
         }).catch(function(error) {console.log(error);});
 
         array.map((item, index)=> {
