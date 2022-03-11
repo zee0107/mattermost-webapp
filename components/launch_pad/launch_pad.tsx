@@ -147,28 +147,26 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         };
         
         const sendData={symbol: currency,CMC_PRO_API_KEY:startupApiKey};
-        var array = [];
+        const array = [];
         uri.search = new URLSearchParams(sendData).toString();
         fetch(uri,config).then(response => response.json()).then(response => {
             let tmpArray = [];
             tmpArray.push(response.data);
             array.push(tmpArray);
-        }).catch(function(error) {console.log(error);});
-        console.log(array);
-
-        var newData = array.logo_url.map(item => {
-            const key = Object.keys(item)[0];
-            return item[key]
-        });
-        console.log(newData);
-
-        var finalData = newData.map(item => {
-            const key = Object.keys(item)[0];
-            return item[key]
-        });
-
-        console.log(finalData);
-        return finalData;
+            const newData = array.logo_url.map(item => {
+                const key = Object.keys(item)[0];
+                return item[key]
+            });
+            console.log(newData);
+    
+            const finalData = newData.map(item => {
+                const key = Object.keys(item)[0];
+                return item[key]
+            });
+    
+            console.log(finalData);
+            return finalData;
+        }).catch(function(error) {console.log(error);});        
     }
 
     setDocumentTitle = (siteName: string) => {
