@@ -155,17 +155,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             array.push(tmpArray);
             console.log(array);
         }).catch(function(error) {console.log(error);});
-
-        const newData = array.map(item => {
-            const key = Object.keys(item)[0];
-            return item[key]
-        });
-
-        return(
-            {newData.map((item,index) => (
-                <img src={item.logo} key={index}></img>
-            ))}
-        )
+        
+        return array;
     }
 
     setDocumentTitle = (siteName: string) => {
@@ -281,7 +272,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                        {this.renderLogo(filtered.symbol)}
+                        {this.renderLogo(filtered.symbol).map((item, index)=> {
+                            let key=Object.keys(item)[0];
+                            return( <img src={item[key].logo} key={index+currency}></img>)
+                        })}
                     </div>
                     <div className='col-sm-5'>
                         <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
