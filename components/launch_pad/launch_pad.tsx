@@ -272,7 +272,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     }
 
     trend_render = () => {
-        const slicedArray = this.state.trendListing.slice(0,3);
+        const slicedArray = this.state.trendListing.slice(0,1);
         return(
             <div>
                 {slicedArray.map((filtered,i)=> (
