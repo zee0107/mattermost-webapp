@@ -139,37 +139,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         }).catch(function(error) {console.log(error);});
     }
 
-    /*renderLogo = (currency: string) =>{
-        const uri = new URL("https://pro-api.coinmarketcap.com/v2/cryptocurrency/info");
-        let startupApiKey = "813046b6-001a-4064-83bb-1604c47beffa";
-        const config = {
-            method: "GET",
-            headers: {Accepts: "application/json","Content-Type":"application/json","Access-Control-Allow-Origin": "*"}
-        };
-        
-        const sendData={symbol: currency,CMC_PRO_API_KEY:startupApiKey};
-        const array = [];
-        uri.search = new URLSearchParams(sendData).toString();
-        fetch(uri,config).then(response => response.json()).then(response => {
-            let tmpArray = [];
-            tmpArray.push(response.data);
-            array.push(tmpArray);
-            const newData = array.logo_url.map(item => {
-                const key = Object.keys(item)[0];
-                return item[key]
-            });
-            console.log(newData);
-    
-            const finalData = newData.map(item => {
-                const key = Object.keys(item)[0];
-                return item[key]
-            });
-    
-            console.log(finalData);
-            return finalData;
-        }).catch(function(error) {console.log(error);});        
-    }*/
-
     setDocumentTitle = (siteName: string) => {
         if (siteName) {
             document.title = siteName;
@@ -272,26 +241,23 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     }
 
     trend_render = () => {
-        const slicedArray = this.state.trendListing.slice(0,3);
-        return(
-            <div>
-                {slicedArray.map((filtered,i)=> (
-                    <div className='d-flex'>
-                    <div className='col-sm-2 removePadding'>
-                        <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
-                    </div>
-                    <div className='col-sm-5'>
-                        <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
-                        <p className='text-secondary small-font' key={i+"trend-symbol"}>{filtered.symbol}</p>
-                    </div>
-                    <div className='col-sm-5 removePadding text-end'>
-                        <br></br>
-                        <label className='currency-value-text small-font' key={i+"-trend-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
-                    </div>
-                </div>
-                ))}
+        {/*const slicedArray = this.state.trendListing.slice(0,3);*/}
+        var trend = this.state.trendListing.slice(0,3).map((filtered,i)=> (
+            <div className='d-flex'>
+            <div className='col-sm-2 removePadding'>
+                <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
             </div>
-        );
+            <div className='col-sm-5'>
+                <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
+                <p className='text-secondary small-font' key={i+"trend-symbol"}>{filtered.symbol}</p>
+            </div>
+            <div className='col-sm-5 removePadding text-end'>
+                <br></br>
+                <label className='currency-value-text small-font' key={i+"-trend-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+            </div>
+        </div>
+        ));
+        return trend;
     }
 
     render= (): JSX.Element => {
