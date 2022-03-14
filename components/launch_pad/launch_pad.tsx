@@ -83,6 +83,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+        const testUrl = new URL("https://pinoyjobsonline.ph/api/account2/ping");
         const uri = new URL("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest");
         const uriNew = new URL("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/new");
         const uriGainer = new URL("https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/gainers-losers");
@@ -107,6 +108,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             method: "GET",
             headers: {Accepts: "application/json","Content-Type":"application/json","Access-Control-Allow-Origin": "*"}
         }
+
+        fetch(testUrl,config).then(response => response.json()).then(response => {
+            console.log(response);
+        }).catch(function(error) {console.log(error);});
 
         fetch(uri,config).then(response => response.json()).then(response => {
             let tmpArray = [];
