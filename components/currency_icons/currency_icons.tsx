@@ -36,13 +36,11 @@ export default class Icon extends React.PureComponent<Props>{
                 const key = Object.keys(item)[0];
                 return item[key]
             });
-            console.log(array);
 
             const newData = array.map(item => {
                 const key = Object.keys(item)[0];
                 return item[key]
             });
-            console.log(newData);
 
             const slicedData = newData.slice(0,1);
             console.log(slicedData);
