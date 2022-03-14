@@ -26,28 +26,27 @@ export default class Icon extends React.PureComponent<Props>{
             const sendData={symbol: currency,CMC_PRO_API_KEY:startupApiKey};
             uri.search = new URLSearchParams(sendData).toString();
         
-            return fetch(uri,config).then(response => response.json()).then(response => {
+            fetch(uri,config).then(response => response.json()).then(response => {
                 let tmpArray = [];
                 tmpArray.push(response.data);
-                return tmpArray;
+                this.setState({logo_url:tmpArray})
             }).catch(function(error) {console.log(error);});  
-    }
+        
+            const array = this.state.logo_url.map(item => {
+                const key = Object.keys(item)[0];
+                return item[key]
+            });
+            console.log(array);
 
-    icon_value = () => {
-        const value = this.getIcon(this.props.code);
-        const array = value.map(item => {
-            const key = Object.keys(item)[0];
-            return item[key]
-        });
+            const newData = array.map(item => {
+                const key = Object.keys(item)[0];
+                return item[key]
+            });
+            console.log(newData);
 
-        const newData = array.map(item => {
-            const key = Object.keys(item)[0];
-            return item[key]
-        });
-
-        const slicedData = newData.slice(0,1);
-        console.log(slicedData);
-        return slicedData;
+            const slicedData = newData.slice(0,1);
+            console.log(slicedData);
+            this.setState({final_url:slicedData});
     }
 
     render(): React.ReactNode {
@@ -55,11 +54,13 @@ export default class Icon extends React.PureComponent<Props>{
             code
         } = this.props;
 
-        this.getIcon(code);
+        useEffect (() => {
+            getIcon(code);
+        })
 
         return(
             <div>
-                {this.icon_value().map((item,index) => 
+                {this.state.final_url.map((item,index) => 
                     (<img src={item.logo} key={code+index} alt={code + '-icon'}></img>)
                 )}
             </div>
