@@ -193,55 +193,44 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     }
 
     gainer_render = () => {
-        const slicedArray = this.state.gainerListing.slice(0,3);
-        return(
-            <div>
-                {slicedArray.map((filtered,i)=> (
-                    <div className='d-flex'>
-                    <div className='col-sm-2 removePadding'>
-                       {
-                       }
-                    </div>
-                    <div className='col-sm-5'>
-                        <label className='text-primary' key={i+"-gainer-name"}>{filtered.name}</label>
-                        <p className='text-secondary small-font' key={i+"-gainer-symbol"}>{filtered.symbol}</p>
-                    </div>
-                    <div className='col-sm-5 removePadding text-end'>
-                        <br></br>
-                        <label className='currency-value-text small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
-                    </div>
+        var gainer = this.state.gainerListing.slice(0,3).map((filtered,i)=> (
+            <div className='d-flex'>
+                <div className='col-sm-2 removePadding'>
+                    <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
                 </div>
-                ))}
+            <div className='col-sm-5'>
+                <label className='text-primary' key={i+"-gainer-name"}>{filtered.name}</label>
+                <p className='text-secondary small-font' key={i+"-gainer-symbol"}>{filtered.symbol}</p>
             </div>
-        );
+            <div className='col-sm-5 removePadding text-end'>
+                <br></br>
+                <label className='currency-value-text small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+            </div>
+        </div>
+        ))
+        return gainer;
     }
 
     new_render = () => {
-        const slicedArray = this.state.newListing.slice(0,3);
-        
-        return(
-            <div>
-                {slicedArray.map((filtered,i)=> (
-                    <div className='d-flex'>
-                    <div className='col-sm-2 removePadding'>
-                        {/*this.renderLogo(filtered.symbol)*/}
-                    </div>
-                    <div className='col-sm-5'>
-                        <label className='text-primary' key={i+"-new-name"}>{filtered.name}</label>
-                        <p className='text-secondary small-font' key={i+"-new-symbol"}>{filtered.symbol}</p>
-                    </div>
-                    <div className='col-sm-5 removePadding text-end'>
-                        <br></br>
-                        <label className='currency-value-text small-font' key={i+"-new-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
-                    </div>
+        var newlist = this.state.newListing.slice(0,3).map((filtered,i)=> (
+            <div className='d-flex'>
+                <div className='col-sm-2 removePadding'>
+                    <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
                 </div>
-                ))}
+            <div className='col-sm-5'>
+                <label className='text-primary' key={i+"-new-name"}>{filtered.name}</label>
+                <p className='text-secondary small-font' key={i+"-new-symbol"}>{filtered.symbol}</p>
             </div>
-        );
+            <div className='col-sm-5 removePadding text-end'>
+                <br></br>
+                <label className='currency-value-text small-font' key={i+"-new-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+            </div>
+        </div>
+        ))
+        return newlist;
     }
 
     trend_render = () => {
-        {/*const slicedArray = this.state.trendListing.slice(0,3);*/}
         var trend = this.state.trendListing.slice(0,3).map((filtered,i)=> {
             console.log(i);
             if(i < 3){
@@ -273,6 +262,14 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         let ltcContent;
         let ethContent;
         let bnbContent;
+
+        let gainer;
+        let newList;
+        let trend;
+
+        gainer = this.gainer_render();
+        newList = this.new_render();
+        trend = this.trend_render();
 
         btcContent = this.sideBoxRender("BTC");
         ltcContent = this.sideBoxRender("LTC");
@@ -356,7 +353,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <label className='text-primary label-title'><img src={fireImage} className='fire-img'></img>Trending</label>
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
-                                                {this.trend_render()}
+                                                {trend}
                                             </div>
                                         </div>
                                         <div className='col-sm-12'>
@@ -365,7 +362,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <label className='text-primary label-title'><img src={trendImage} className='fire-img'></img>Biggest Gainers</label>
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
-                                                {this.gainer_render()}
+                                                {gainer}
                                             </div>
                                         </div>
                                         <div className='col-sm-12'>
@@ -374,7 +371,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <label className='text-primary label-title'><img src={clockImage} className='fire-img'></img>Recently Added</label>
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
-                                                {this.new_render()}
+                                                {newList}
                                             </div>
                                         </div>
                                     </div>
