@@ -27,19 +27,23 @@ export default class Icon extends React.PureComponent<Props, Attrs>{
         const sendData={symbol: currency,CMC_PRO_API_KEY:startupApiKey};
         uri.search = new URLSearchParams(sendData).toString();
     
-        const array = [];
         fetch(uri,config).then(response => response.json()).then(response => {
             let tmpArray = [];
             tmpArray.push(response.data);
             this.setState({logo_url:tmpArray})
         }).catch(function(error) {console.log(error);});  
     
-        const newData = this.state.logo_url.map(item => {
+        const array = this.state.logo_url.map(item => {
             const key = Object.keys(item)[0];
             return item[key]
         });
         console.log(newData);
     
+        const newData = array.map(item => {
+            const key = Object.keys(item)[0];
+            return item[key]
+        });
+
         const finalData = newData.map(item => {
             const key = Object.keys(item)[0];
             return item[key]
