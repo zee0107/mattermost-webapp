@@ -46,7 +46,7 @@ export default class Icon extends React.PureComponent<Props>{
 
             const slicedData = newData.slice(0,1);
             console.log(slicedData);
-            return slicedData;
+            this.setState({final_url:slicedData});
     }
 
     render(): React.ReactNode {
@@ -54,7 +54,7 @@ export default class Icon extends React.PureComponent<Props>{
             code
         } = this.props;
 
-        useEffect(() => {this.getIcon(code).then(value => this.setState({final_url:value}))},[]);
+        this.getIcon(code);
 
         return(
             <div>
