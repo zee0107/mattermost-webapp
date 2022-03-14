@@ -4,14 +4,13 @@
 import React, {memo, HTMLAttributes} from 'react';
 import classNames from 'classnames';
 import { registerPluginTranslationsSource } from 'actions/views/root';
+import { typeOf } from 'react-is';
 
 type Props = {
     code?: string;
 };
 
-type Attrs = HTMLAttributes<HTMLElement>;
-
-export default class Icon extends React.PureComponent<Props, Attrs>{
+export default class Icon extends React.PureComponent<Props>{
     constructor(props: Props) {
         super(props);
         this.state = {logo_url: []};

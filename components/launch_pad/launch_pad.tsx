@@ -278,8 +278,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                        {/*<CurrencyIcons code={filtered.symbol}></CurrencyIcons>*/}
-                        {React.cloneElement(CurrencyIcons,{code: filtered.symbol})}
+                        <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
                     </div>
                     <div className='col-sm-5'>
                         <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
