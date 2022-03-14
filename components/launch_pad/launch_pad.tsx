@@ -243,8 +243,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     trend_render = () => {
         {/*const slicedArray = this.state.trendListing.slice(0,3);*/}
         var trend = this.state.trendListing.slice(0,3).map((filtered,i)=> {
-            console.log(index);
-            if(index < 3){
+            console.log(i);
+            if(i < 3){
                 return (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
