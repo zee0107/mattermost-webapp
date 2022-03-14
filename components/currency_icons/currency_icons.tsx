@@ -49,7 +49,7 @@ export default class Icon extends React.PureComponent<Props, Attrs>{
         return(
             <div>
                 {this.getIcon(this.props.code).map((item,index) => 
-                    (<img src={item[key].logo} key={code+index} alt={code + '-icon'}></img>)
+                    (<img src={item.logo} key={code+index} alt={code + '-icon'}></img>)
                 )}
             </div>
         )
