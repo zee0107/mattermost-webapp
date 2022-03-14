@@ -42,23 +42,15 @@ export default class Icon extends React.PureComponent<Props, Attrs>{
             const key = Object.keys(item)[0];
             return item[key]
         });
-
-        const finalData = newData.map(item => {
-            const key = Object.keys(item)[0];
-            return item[key]
-        });
-    
-        console.log(finalData);
-        return finalData;
+        return newData;
     }
 
     render(): React.ReactNode {
         return(
             <div>
-                {this.getIcon(this.props.code).map((item,index) => {
-                    let key= Object.keys(item)[0];
-                    return (<img src={item[key].logo} key={code+index} alt={code + '-icon'}></img>)
-                })}
+                {this.getIcon(this.props.code).map((item,index) => 
+                    (<img src={item[key].logo} key={code+index} alt={code + '-icon'}></img>)
+                )}
             </div>
         )
     }
