@@ -233,23 +233,21 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     trend_render = () => {
         var trend = this.state.trendListing.slice(0,3).map((filtered,i)=> {
             console.log(i);
-            if(i < 3){
-                return (
-                    <div className='d-flex'>
-                    <div className='col-sm-2 removePadding'>
-                        <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
-                    </div>
-                    <div className='col-sm-5'>
-                        <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
-                        <p className='text-secondary small-font' key={i+"trend-symbol"}>{filtered.symbol}</p>
-                    </div>
-                    <div className='col-sm-5 removePadding text-end'>
-                        <br></br>
-                        <label className='currency-value-text small-font' key={i+"-trend-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
-                    </div>
+            return (
+                <div className='d-flex'>
+                <div className='col-sm-2 removePadding'>
+                    <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
                 </div>
-                )
-            }
+                <div className='col-sm-5'>
+                    <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
+                    <p className='text-secondary small-font' key={i+"trend-symbol"}>{filtered.symbol}</p>
+                </div>
+                <div className='col-sm-5 removePadding text-end'>
+                    <br></br>
+                    <label className='currency-value-text small-font' key={i+"-trend-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                </div>
+            </div>
+            )
         });
         return trend;
     }

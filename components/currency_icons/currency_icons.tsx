@@ -37,6 +37,7 @@ export default class Icon extends React.PureComponent<Props>{
                 return item[key]
             });
             console.log(array);
+
             const newData = array.map(item => {
                 const key = Object.keys(item)[0];
                 return item[key]
@@ -53,6 +54,7 @@ export default class Icon extends React.PureComponent<Props>{
             code
         } = this.props;
 
+        useEffect(() => {this.getIcon(code).then(value => this.setState({final_url:value}))},[]);
 
         return(
             <div>
