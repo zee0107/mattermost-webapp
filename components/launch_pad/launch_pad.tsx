@@ -257,6 +257,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             </div>
         </div>
         ));
+        console.log(this.state.trendListing.slice(0,1));
         return trend;
     }
 
