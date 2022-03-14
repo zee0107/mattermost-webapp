@@ -22,21 +22,12 @@ import bnbImage from 'images/currency-icons/bnb.svg';
 import ethImage from 'images/currency-icons/eth.svg';
 import graphImage from 'images/graph-up.svg';
 import graphdownImage from 'images/graph-down.svg';
-import triangleupImage from 'images/triangle-up.svg';
-import lccImage from 'images/currency-icons/litecoin.svg';
+import triangleupImage from 'images/caret-up.svg';
+import triangledownImage from 'images/caret-down.svg';
 
-
-import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
-import UserSettingsModal from 'components/user_settings/modal_profile';
 import {ModalData} from 'types/actions';
-import {ModalIdentifiers} from 'utils/constants';
-import ChannelHeaderMobile from 'components/channel_header_mobile';
 
-import Sidebar from 'components/sidebar';
-import SidebarRight from 'components/sidebar_right';
 import SidebarRightMenu from 'components/sidebar_right_menu';
-import { ButtonGroup } from 'react-bootstrap';
-import { filter } from 'lodash';
 
 type Props = {
     status?: string;
@@ -195,10 +186,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     render_percent = (percent) =>{
         if(parseFloat(percent) > 0){
-            return (<label className='currency-value-text small-font' key={percent+"-trend-percent"}><img src={triangleupImage}></img>{parseFloat(percent).toFixed(2)}</label>);
+            return (<label className='currency-value-text small-font' key={percent+"-trend-percent"}><img src={triangleupImage}></img>&nbsp;{parseFloat(percent).toFixed(2)}</label>);
         }
         else{
-            return (<label className='text-percent-down small-font' key={percent+"-trend-percent"}><img src={triangleupImage}></img>{parseFloat(percent).toFixed(2) * (-1)}</label>);
+            return (<label className='text-percent-down small-font' key={percent+"-trend-percent"}><img src={triangledownImage}></img>&nbsp;{parseFloat(percent).toFixed(2) * (-1)}</label>);
         }
     }
 
