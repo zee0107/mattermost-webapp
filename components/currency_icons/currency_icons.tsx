@@ -21,7 +21,7 @@ export default class Icon extends React.PureComponent<Props>{
         let startupApiKey = "813046b6-001a-4064-83bb-1604c47beffa";
         const config = {
             method: "GET",
-            headers: {Accepts: "application/json","Content-Type":"application/json","Access-Control-Allow-Origin": "*"}
+            headers: {Accepts: "application/json","Content-Type":"application/json","Access-Control-Allow-Origin": "*","Access-Control-Allow-Methods":"POST,GET,OPTIONS","Access-Control-Allow-Headers":"*"}
         };
         
         const sendData={symbol: this.props.code,CMC_PRO_API_KEY:startupApiKey};
