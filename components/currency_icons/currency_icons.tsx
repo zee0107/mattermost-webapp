@@ -50,20 +50,12 @@ export default class Icon extends React.PureComponent<Props, Attrs>{
     }
 
     render(): React.ReactNode {
-        {this.getIcon(this.props.code).map((item,index) => (
-            <img src={item[0].logo} key={code+index} alt={code + '-icon'}></img>
-        ))}
+        return(
+            <div>
+                {this.getIcon(this.props.code).map((item,index) => (
+                    <img src={item[0].logo} key={code+index} alt={code + '-icon'}></img>
+                ))}
+            </div>
+        )
     }
 }
-/*const Icon = ({
-    code,
-    ...attrs
-}: Props & Attrs) => {
-
-    return (
-        {getIcon(code).map((item,index) => (
-            <img src={item[0].logo} key={code+index} alt={code + '-icon'}></img>
-        ))}
-    );
-};
-export default memo(Icon);*/
