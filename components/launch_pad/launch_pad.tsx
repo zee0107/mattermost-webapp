@@ -22,6 +22,7 @@ import bnbImage from 'images/currency-icons/bnb.svg';
 import ethImage from 'images/currency-icons/eth.svg';
 import graphImage from 'images/graph-up.svg';
 import graphdownImage from 'images/graph-down.svg';
+import triangleupImage from 'images/triangle-up.svg';
 import lccImage from 'images/currency-icons/litecoin.svg';
 
 
@@ -192,11 +193,20 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         );
     }
 
+    render_percent = (percent) =>{
+        if(parseFloat(percent) > 0){
+            return (<label className='currency-value-text small-font' key={i+"-trend-percent"}><img src={triangleupImage}></img>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>);
+        }
+        else{
+            return (<label className='text-percent-down small-font' key={i+"-trend-percent"}><img src={triangleupImage}></img>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2) * (-1)}</label>);
+        }
+    }
+
     gainer_render = () => {
         var gainer = this.state.gainerListing.slice(0,3).map((filtered,i)=> (
             <div className='d-flex'>
                 <div className='col-sm-2 removePadding'>
-                    {/*<CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>*/}
+                    <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
                 </div>
             <div className='col-sm-5'>
                 <label className='text-primary' key={i+"-gainer-name"}>{filtered.name}</label>
@@ -204,7 +214,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             </div>
             <div className='col-sm-5 removePadding text-end'>
                 <br></br>
-                <label className='currency-value-text small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                {this.render_percent(filtered.quote.USD.percent_change_24h.toString())}
+                {/*<label className='currency-value-text small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>*/}
             </div>
         </div>
         ))
@@ -215,7 +226,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         var newlist = this.state.newListing.slice(0,3).map((filtered,i)=> (
             <div className='d-flex'>
                 <div className='col-sm-2 removePadding'>
-                    {/*<CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>*/}
+                    <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
                 </div>
             <div className='col-sm-5'>
                 <label className='text-primary' key={i+"-new-name"}>{filtered.name}</label>
@@ -223,7 +234,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             </div>
             <div className='col-sm-5 removePadding text-end'>
                 <br></br>
-                <label className='currency-value-text small-font' key={i+"-new-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                {this.render_percent(filtered.quote.USD.percent_change_24h.toString())}
+                {/*<label className='currency-value-text small-font' key={i+"-new-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>*/}
             </div>
         </div>
         ))
@@ -232,7 +244,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     trend_render = () => {
         var trend = this.state.trendListing.slice(0,3).map((filtered,i)=> {
-            console.log(i);
             return (
                 <div className='d-flex'>
                 <div className='col-sm-2 removePadding'>
@@ -244,13 +255,15 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 </div>
                 <div className='col-sm-5 removePadding text-end'>
                     <br></br>
-                    <label className='currency-value-text small-font' key={i+"-trend-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                    {this.render_percent(filtered.quote.USD.percent_change_24h.toString())}
                 </div>
             </div>
             )
         });
         return trend;
     }
+
+    
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;

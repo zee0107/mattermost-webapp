@@ -46,7 +46,6 @@ export default class Icon extends React.PureComponent<Props>{
             });
 
             const slicedData = newData.slice(0,1);
-            console.log(slicedData);
             return slicedData;
     }
 
@@ -58,7 +57,7 @@ export default class Icon extends React.PureComponent<Props>{
         return(
             <div>
                 {this.getIcon().map((item,index) => 
-                    (<img src={item.logo} key={code+index} alt={code + '-icon'}></img>)
+                    (<img src={item.logo} key={code+index} alt={code + '-icon'} className='currency-icon'></img>)
                 )}
             </div>
         )
