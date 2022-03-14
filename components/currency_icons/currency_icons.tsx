@@ -37,8 +37,7 @@ export default class Icon extends React.PureComponent<Props, Attrs>{
             const key = Object.keys(item)[0];
             return item[key]
         });
-        console.log(newData);
-    
+        
         const newData = array.map(item => {
             const key = Object.keys(item)[0];
             return item[key]
