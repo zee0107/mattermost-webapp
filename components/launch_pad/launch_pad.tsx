@@ -242,7 +242,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     trend_render = () => {
         {/*const slicedArray = this.state.trendListing.slice(0,3);*/}
-        var trend = this.state.trendListing.slice(0,3).map((filtered,i)=> (
+        var trend = this.state.trendListing.slice(0,1).map((filtered,i)=> (
             <div className='d-flex'>
             <div className='col-sm-2 removePadding'>
                 <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
