@@ -41,8 +41,8 @@ export default class Icon extends React.PureComponent<Props>{
             const key = Object.keys(item)[0];
             return item[key]
         });
-        
-        const slicedData = this.state.trendListing.slice(0,1);
+
+        const slicedData = newData.slice(0,1);
         console.log(slicedData);
         return slicedData;
     }
