@@ -6,6 +6,7 @@ import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import classNames from 'classnames';
+import CurrencyIcons from 'components/currency_icons';
 
 import homeImage from 'images/homeFeed.png';
 import rocketImage from 'images/rocket.svg';
@@ -138,7 +139,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         }).catch(function(error) {console.log(error);});
     }
 
-    renderLogo = (currency: string) =>{
+    /*renderLogo = (currency: string) =>{
         const uri = new URL("https://pro-api.coinmarketcap.com/v2/cryptocurrency/info");
         let startupApiKey = "813046b6-001a-4064-83bb-1604c47beffa";
         const config = {
@@ -167,7 +168,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             console.log(finalData);
             return finalData;
         }).catch(function(error) {console.log(error);});        
-    }
+    }*/
 
     setDocumentTitle = (siteName: string) => {
         if (siteName) {
@@ -277,9 +278,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 {slicedArray.map((filtered,i)=> (
                     <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
-                        {this.renderLogo(filtered.symbol).map((item,index) => {
-                            let key = Object.keys(item)[0];
-                            return (<img src={item[key].logo} key={filtered.symbol}></img>)})}
+                        <CurrencyIcons code={filtered.symbol}></CurrencyIcons>
                     </div>
                     <div className='col-sm-5'>
                         <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
