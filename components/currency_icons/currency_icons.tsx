@@ -13,10 +13,9 @@ type Props = {
 export default class Icon extends React.PureComponent<Props>{
     constructor(props: Props) {
         super(props);
-        this.state = {code:'',logo_url: []};
+        this.state = {code:'',logo_url: [],final_url:[]};
     }
     getIcon = (currency) => {
-        useEffect(() => {
             const uri = new URL("https://pro-api.coinmarketcap.com/v2/cryptocurrency/info");
             let startupApiKey = "813046b6-001a-4064-83bb-1604c47beffa";
             const config = {
@@ -46,8 +45,7 @@ export default class Icon extends React.PureComponent<Props>{
 
             const slicedData = newData.slice(0,1);
             console.log(slicedData);
-            return slicedData;
-        },[]);
+            this.setState({final_url:slicedData});
     }
 
     render(): React.ReactNode {
@@ -55,9 +53,10 @@ export default class Icon extends React.PureComponent<Props>{
             code
         } = this.props;
 
+
         return(
             <div>
-                {this.getIcon(code).map((item,index) => 
+                {this.state.final_url.map((item,index) => 
                     (<img src={item.logo} key={code+index} alt={code + '-icon'}></img>)
                 )}
             </div>
