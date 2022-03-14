@@ -242,21 +242,26 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     trend_render = () => {
         {/*const slicedArray = this.state.trendListing.slice(0,3);*/}
-        var trend = this.state.trendListing.slice(0,1).map((filtered,i)=> (
-            <div className='d-flex'>
-            <div className='col-sm-2 removePadding'>
-                <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
-            </div>
-            <div className='col-sm-5'>
-                <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
-                <p className='text-secondary small-font' key={i+"trend-symbol"}>{filtered.symbol}</p>
-            </div>
-            <div className='col-sm-5 removePadding text-end'>
-                <br></br>
-                <label className='currency-value-text small-font' key={i+"-trend-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
-            </div>
-        </div>
-        ));
+        var trend = this.state.trendListing.slice(0,3).map((filtered,i)=> {
+            console.log(index);
+            if(index < 3){
+                return (
+                    <div className='d-flex'>
+                    <div className='col-sm-2 removePadding'>
+                        <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
+                    </div>
+                    <div className='col-sm-5'>
+                        <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
+                        <p className='text-secondary small-font' key={i+"trend-symbol"}>{filtered.symbol}</p>
+                    </div>
+                    <div className='col-sm-5 removePadding text-end'>
+                        <br></br>
+                        <label className='currency-value-text small-font' key={i+"-trend-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>
+                    </div>
+                </div>
+                )
+            }
+        });
         console.log(this.state.trendListing.slice(0,1));
         return trend;
     }
