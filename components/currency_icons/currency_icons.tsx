@@ -11,7 +11,7 @@ type Props = {
 
 type Attrs = HTMLAttributes<HTMLElement>;
 
-function getIcon(currency) {
+getIcon = (currency) => {
     const uri = new URL("https://pro-api.coinmarketcap.com/v2/cryptocurrency/info");
     let startupApiKey = "813046b6-001a-4064-83bb-1604c47beffa";
     const config = {
