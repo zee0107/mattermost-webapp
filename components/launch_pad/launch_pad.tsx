@@ -24,10 +24,20 @@ import graphImage from 'images/graph-up.svg';
 import graphdownImage from 'images/graph-down.svg';
 import triangleupImage from 'images/caret-up.svg';
 import triangledownImage from 'images/caret-down.svg';
+import lccImage from 'images/currency-icons/litecoin.svg';
 
+
+import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
+import UserSettingsModal from 'components/user_settings/modal_profile';
 import {ModalData} from 'types/actions';
+import {ModalIdentifiers} from 'utils/constants';
+import ChannelHeaderMobile from 'components/channel_header_mobile';
 
+import Sidebar from 'components/sidebar';
+import SidebarRight from 'components/sidebar_right';
 import SidebarRightMenu from 'components/sidebar_right_menu';
+import { ButtonGroup } from 'react-bootstrap';
+import { filter } from 'lodash';
 
 type Props = {
     status?: string;
