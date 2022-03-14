@@ -195,10 +195,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     render_percent = (percent) =>{
         if(parseFloat(percent) > 0){
-            return (<label className='currency-value-text small-font' key={i+"-trend-percent"}><img src={triangleupImage}></img>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>);
+            return (<label className='currency-value-text small-font' key={percent+"-trend-percent"}><img src={triangleupImage}></img>{parseFloat(percent).toFixed(2)}</label>);
         }
         else{
-            return (<label className='text-percent-down small-font' key={i+"-trend-percent"}><img src={triangleupImage}></img>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2) * (-1)}</label>);
+            return (<label className='text-percent-down small-font' key={percent+"-trend-percent"}><img src={triangleupImage}></img>{parseFloat(percent).toFixed(2) * (-1)}</label>);
         }
     }
 
