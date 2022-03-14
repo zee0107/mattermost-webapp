@@ -13,7 +13,7 @@ type Props = {
 export default class Icon extends React.PureComponent<Props>{
     constructor(props: Props) {
         super(props);
-        this.state = {logo_url: []};
+        this.state = {code:'',logo_url: []};
     }
     getIcon = (currency) => {
         const uri = new URL("https://pro-api.coinmarketcap.com/v2/cryptocurrency/info");
@@ -48,9 +48,13 @@ export default class Icon extends React.PureComponent<Props>{
     }
 
     render(): React.ReactNode {
+        const {
+            code
+        } = this.props;
+
         return(
             <div>
-                {this.getIcon(this.props.code).map((item,index) => 
+                {this.getIcon(code).map((item,index) => 
                     (<img src={item.logo} key={code+index} alt={code + '-icon'}></img>)
                 )}
             </div>
