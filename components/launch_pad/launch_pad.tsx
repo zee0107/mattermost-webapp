@@ -150,38 +150,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         return (<Avatar size={size} url={this.props.profilePicture} />);
     }
 
-    renderLogo = (currencies) =>{
-        const uri = new URL("https://pro-api.coinmarketcap.com/v2/cryptocurrency/info");
-        let startupApiKey = "813046b6-001a-4064-83bb-1604c47beffa";
-        const config = {
-            method: "GET",
-            headers: {Accepts: "application/json","Content-Type":"application/json","Access-Control-Allow-Origin": "*"}
-        };
-        
-        const sendData={symbol: currencies,CMC_PRO_API_KEY:startupApiKey};
-        uri.search = new URLSearchParams(sendData).toString();
-    
-        fetch(uri,config).then(response => response.json()).then(response => {
-            let tmpArray = [];
-            tmpArray.push(response.data);
-            this.setState({logo_url:tmpArray})
-        }).catch(function(error) {console.log(error);});  
-    
-        const array = this.state.logo_url.map(item => {
-            const key = Object.keys(item)[0];
-            return item[key]
-        });
-
-        const newData = array.map(item => {
-            const key = Object.keys(item)[0];
-            return item[key]
-        });
-
-        const slicedData = newData.slice(0,1);
-        console.log(slicedData);
-        return slicedData;
-    }
-
     sideBoxRender = (code: string) => {
         let img;
         if(code === "BTC"){ img = (<img src={btcImage} className="current-conversion-img"></img>);}
@@ -263,15 +231,12 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     }
 
     trend_render = () => {
-        let array = [];
-        this.state.trendListing.slice(0,3).map((filtered,i)=> { array.push(filtered.symbol)});
-        console.log(array.join());
         var trend = this.state.trendListing.slice(0,3).map((filtered,i)=> {
             console.log(i);
             return (
                 <div className='d-flex'>
                 <div className='col-sm-2 removePadding'>
-                    {/*<CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>*/}
+                    <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
                 </div>
                 <div className='col-sm-5'>
                     <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
