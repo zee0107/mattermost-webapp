@@ -105,7 +105,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
         const config = {
             method: "GET",
-            headers: {Accepts: "application/json"}
+            headers: new Headers{Accepts: "application/json","Content-Type": "application/json","Access-Control-Allow-Origin": "http://localhost:8065,https://crypter.polywickstudio.ph/"}
         }
 
         fetch(uri,config).then(response => response.json()).then(response => {

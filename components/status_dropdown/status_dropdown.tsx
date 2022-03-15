@@ -501,7 +501,7 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
                             ) : <i className='fa fa-cog'/>}
                         />
                     </Menu.Group>
-                    {/*<Menu.Group>
+                    <Menu.Group>
                         <Menu.ItemAction
                             id='logout'
                             onClick={this.handleEmitUserLoggedOutEvent}
@@ -513,7 +513,7 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
                                 />
                             ) : <i className='fa fa-sign-out'/>}
                         />
-                    </Menu.Group>*/}
+                    </Menu.Group>
                 </Menu>
             </MenuWrapper>
         );
