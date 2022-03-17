@@ -83,28 +83,28 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
-        const uri = new URL("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest");
-        const uriNew = new URL("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/new");
-        const uriGainer = new URL("https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/gainers-losers");
-        const uriTrending = new URL("https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/latest");
+        const uri = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencyalldata");
+        const uriNew = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/getnewdata");
+        const uriGainer = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/getgainersdata");
+        const uriTrending = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/gettrendingdata");
 
-        let apiKey = "5b439fd8-90e5-467c-b61a-c586252c7e2c";
-        let startupApiKey = "813046b6-001a-4064-83bb-1604c47beffa";
-
-        const sendData={start: "1",limit: "5000",convert: "USD",CMC_PRO_API_KEY:startupApiKey};
-        uri.search = new URLSearchParams(sendData).toString();
-
-        const listingNewParams={convert: "USD",sort_dir:"desc",CMC_PRO_API_KEY:startupApiKey};
-        uriNew.search = new URLSearchParams(listingNewParams).toString();
-
-        const gainerParams={convert: "USD",sort_dir:"desc",CMC_PRO_API_KEY:startupApiKey};
-        uriGainer.search = new URLSearchParams(gainerParams).toString();
-
-        const trendingParams={convert: "USD",CMC_PRO_API_KEY:startupApiKey};
-        uriTrending.search = new URLSearchParams(trendingParams).toString();
+        const listingNewParams={limit: "3",sort:"desc"};
+        const tgParams={limit: "3",sort:""};
 
         const config = {
             method: "GET",
+            headers: {Accepts: "application/json","Content-Type": "application/json","Access-Control-Allow-Origin": "http://localhost:8065"}
+        }
+
+        const configNew = {
+            method: "GET",
+            body: JSON.stringify(listingNewParams),
+            headers: {Accepts: "application/json","Content-Type": "application/json","Access-Control-Allow-Origin": "http://localhost:8065"}
+        }
+
+        const configTG = {
+            method: "GET",
+            body: JSON.stringify(tgParams),
             headers: {Accepts: "application/json","Content-Type": "application/json","Access-Control-Allow-Origin": "http://localhost:8065"}
         }
 
@@ -116,7 +116,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             this.setState({data: tmpArray});
         }).catch(function(error) {console.log(error);});
 
-        fetch(uriNew,config).then(response => response.json()).then(response => {
+        fetch(uriNew,configNew).then(response => response.json()).then(response => {
             let tmpArray = [];
             for (var i = 0; i < response.data.length; i++) {
                 tmpArray.push(response.data[i]);
@@ -124,7 +124,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             this.setState({newListing: tmpArray});
         }).catch(function(error) {console.log(error);});
 
-        fetch(uriGainer,config).then(response => response.json()).then(response => {
+        fetch(uriGainer,configTG).then(response => response.json()).then(response => {
             let tmpArray = [];
             for (var i = 0; i < response.data.length; i++) {
                 tmpArray.push(response.data[i]);
@@ -132,7 +132,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             this.setState({gainerListing: tmpArray});
         }).catch(function(error) {console.log(error);});
 
-        fetch(uriTrending,config).then(response => response.json()).then(response => {
+        fetch(uriTrending,configTG).then(response => response.json()).then(response => {
             let tmpArray = [];
             for (var i = 0; i < response.data.length; i++) {
                 tmpArray.push(response.data[i]);
