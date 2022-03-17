@@ -1,7 +1,7 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import React, {ReactNode} from 'react';
+import React, {ReactNode, ReactPropTypes} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
@@ -45,10 +45,10 @@ type Props = {
     userId: string;
     profilePicture: string;
     autoResetPref?: string;
-    allCrypto: [];
-    trendCrypto: [];
-    newCrypto: [];
-    gainerCrypto: [];
+    allCrypto: AllListing[];
+    trendCrypto: TrendListing[];
+    newCrypto: NewListing[];
+    gainerCrypto: GainerListing[];
     actions: {
         openModal: <P>(modalData: ModalData<P>) => void;
         setStatus: (status: UserStatus) => ActionFunc;
