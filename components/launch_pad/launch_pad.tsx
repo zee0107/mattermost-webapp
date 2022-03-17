@@ -317,7 +317,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                             </svg> My Pages</a>
                                                             <a href="#" className='view-all'>View all</a>
                                                         </div>
-                                                        
                                                     </li>
                                                 </ul>
                                             </div>
