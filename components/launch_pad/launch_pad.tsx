@@ -110,33 +110,25 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
         fetch(uri,config).then(response => response.json()).then(response => {
             let tmpArray = [];
-            for (var i = 0; i < response.data.length; i++) {
-                tmpArray.push(response.data[i]);
-            }
+            for (var i = 0; i < response.data.length; i++) {tmpArray.push(response.data[i]);}
             this.setState({data: tmpArray});
         }).catch(function(error) {console.log(error);});
 
         fetch(uriNew,configNew).then(response => response.json()).then(response => {
             let tmpArray = [];
-            for (var i = 0; i < response.data.length; i++) {
-                tmpArray.push(response.data[i]);
-            }
+            for (var i = 0; i < response.data.length; i++) {tmpArray.push(response.data[i]);}
             this.setState({newListing: tmpArray});
         }).catch(function(error) {console.log(error);});
 
         fetch(uriGainer,configTG).then(response => response.json()).then(response => {
             let tmpArray = [];
-            for (var i = 0; i < response.data.length; i++) {
-                tmpArray.push(response.data[i]);
-            }
+            for (var i = 0; i < response.data.length; i++) {tmpArray.push(response.data[i]);}
             this.setState({gainerListing: tmpArray});
         }).catch(function(error) {console.log(error);});
 
         fetch(uriTrending,configTG).then(response => response.json()).then(response => {
             let tmpArray = [];
-            for (var i = 0; i < response.data.length; i++) {
-                tmpArray.push(response.data[i]);
-            }
+            for (var i = 0; i < response.data.length; i++) {tmpArray.push(response.data[i]);}
             this.setState({trendListing: tmpArray});
         }).catch(function(error) {console.log(error);});
     }

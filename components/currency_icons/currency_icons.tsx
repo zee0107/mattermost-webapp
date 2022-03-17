@@ -33,7 +33,7 @@ export default class Icon extends React.PureComponent<Props>{
             this.setState({logo_url:tmpArray})
         }).catch(function(error) {console.log(error);});  
     }
-
+    
     getIcon = () => {
             const array = this.state.logo_url.map(item => {
                 const key = Object.keys(item)[0];
