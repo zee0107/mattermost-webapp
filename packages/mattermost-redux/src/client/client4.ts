@@ -3775,20 +3775,20 @@ export default class Client4 {
 
     getCryptoData = () => {
         return this.doFetch<AllListing[]>(
-            'https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencyalldata',{method: 'get',headers: { origin: '*'}
+            'https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencyalldata',{method: 'get',headers: { origin: '*'}}
         );
     }
 
     getCryptoTrend = (limit: string,sort: string) => {
         return this.doFetch<TrendListing[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/gettrendingdata?limit=${limit}&sort=${sort}`,{method: 'get',headers: { origin: '*'}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/gettrendingdata?limit=${limit}&sort=${sort}`,{method: 'get',headers: { origin: '*'}}
         );
     }
 
 
     getCryptoGainer = (limit: string,sort: string) => {
         return this.doFetch<GainerListing[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getgainersdata?limit=${limit}&sort=${sort}`,{method: 'get',headers: { origin: '*'}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getgainersdata?limit=${limit}&sort=${sort}`,{method: 'get',headers: { origin: '*'}}
         );
     }
 
