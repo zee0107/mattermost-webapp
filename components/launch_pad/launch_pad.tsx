@@ -90,21 +90,12 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
         const listingNewParams={limit: "3",sort:"desc"};
         const tgParams={limit: "3",sort:""};
+        uriNew.search = new URLSearchParams(listingNewParams).toString();
+        uriGainer.search = new URLSearchParams(tgParams).toString();
+        uriGainer.search = new URLSearchParams(tgParams).toString();
 
         const config = {
             method: "GET",
-            headers: {Accepts: "application/json","Content-Type": "application/json","Access-Control-Allow-Origin": "http://localhost:8065"}
-        }
-
-        const configNew = {
-            method: "GET",
-            body: JSON.stringify(listingNewParams),
-            headers: {Accepts: "application/json","Content-Type": "application/json","Access-Control-Allow-Origin": "http://localhost:8065"}
-        }
-
-        const configTG = {
-            method: "GET",
-            body: JSON.stringify(tgParams),
             headers: {Accepts: "application/json","Content-Type": "application/json","Access-Control-Allow-Origin": "http://localhost:8065"}
         }
 
@@ -114,19 +105,19 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             this.setState({data: tmpArray});
         }).catch(function(error) {console.log(error);});
 
-        fetch(uriNew,configNew).then(response => response.json()).then(response => {
+        fetch(uriNew,config).then(response => response.json()).then(response => {
             let tmpArray = [];
             for (var i = 0; i < response.data.length; i++) {tmpArray.push(response.data[i]);}
             this.setState({newListing: tmpArray});
         }).catch(function(error) {console.log(error);});
 
-        fetch(uriGainer,configTG).then(response => response.json()).then(response => {
+        fetch(uriGainer,config).then(response => response.json()).then(response => {
             let tmpArray = [];
             for (var i = 0; i < response.data.length; i++) {tmpArray.push(response.data[i]);}
             this.setState({gainerListing: tmpArray});
         }).catch(function(error) {console.log(error);});
 
-        fetch(uriTrending,configTG).then(response => response.json()).then(response => {
+        fetch(uriTrending,config).then(response => response.json()).then(response => {
             let tmpArray = [];
             for (var i = 0; i < response.data.length; i++) {tmpArray.push(response.data[i]);}
             this.setState({trendListing: tmpArray});
