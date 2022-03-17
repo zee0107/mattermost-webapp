@@ -39,16 +39,17 @@ import SidebarRightMenu from 'components/sidebar_right_menu';
 import { ButtonGroup } from 'react-bootstrap';
 import { filter } from 'lodash';
 import { AllListing, GainerListing, NewListing, TrendListing } from 'mattermost-redux/types/crypto';
+import ConfirmLicenseRemovalModal from 'components/admin_console/license_settings/modals/confirm_license_removal_modal';
 
 type Props = {
     status?: string;
     userId: string;
     profilePicture: string;
     autoResetPref?: string;
-    allCrypto: AllListing[];
-    trendCrypto: TrendListing[];
-    newCrypto: NewListing[];
-    gainerCrypto: GainerListing[];
+    allCrypto: Promise<AllListing[]>;
+    trendCrypto: Promise<TrendListing[]>;
+    newCrypto: Promise<NewListing[]>;
+    gainerCrypto: Promise<GainerListing[]>;
     actions: {
         openModal: <P>(modalData: ModalData<P>) => void;
         setStatus: (status: UserStatus) => ActionFunc;
@@ -88,6 +89,34 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+
+        if(this.props.allCrypto != null){
+            Promise.resolve(this.props.allCrypto).then(value => {
+                console.log(value);
+                this.setState({data: value});
+            })
+        }
+
+        if(this.props.trendCrypto != null){
+            Promise.resolve(this.props.trendCrypto).then(value => {
+                console.log(value);
+                this.setState({trendListing: value});
+            })
+        }
+
+        if(this.props.gainerCrypto != null){
+            Promise.resolve(this.props.gainerCrypto).then(value => {
+                console.log(value);
+                this.setState({gainerListing: value});
+            })
+        }
+
+        if(this.props.newCrypto != null){
+            Promise.resolve(this.props.newCrypto).then(value => {
+                console.log(value);
+                this.setState({newListing: value});
+            })
+        }
     }
 
     setDocumentTitle = (siteName: string) => {
@@ -119,7 +148,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                             <h5 className='text-primary'>{code} <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="var(--text-primary)" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
                             <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
                             </svg> USD</h5>
-                            {this.props.allCrypto.filter(t => t.symbol === code).map((Filtered,i) => {
+                            {this.state.data.filter(t => t.symbol === code).map((Filtered,i) => {
                             if(parseFloat(Filtered.percent_change_24h) > 0){
                                 return (<div>
                                             <h3 className='text-secondary' key={i+Filtered.symbol+"_price"}>{parseFloat(Filtered.price).toFixed(2)}</h3>
@@ -133,7 +162,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                             }})}
                         </div>
                         <div className='col-lg-6 removePaddingRight'>
-                            {this.props.allCrypto.filter(t => t.symbol === code).map((Filtered,i) => {
+                            {this.state.data.filter(t => t.symbol === code).map((Filtered,i) => {
                                 if(parseFloat(Filtered.percent_change_24h) > 0){ return (<img src={graphImage} className="graph-img"></img>) }
                                 else{ return (<img src={graphdownImage} className="graph-img"></img>) }})}
                         </div>
@@ -153,7 +182,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     }
 
     gainer_render = () => {
-        var gainer = this.props.gainerCrypto.map((filtered,i)=> (
+        var gainer = this.state.gainerListing.map((filtered,i)=> (
             <div className='d-flex'>
                 <div className='col-sm-2 removePadding'>
                     {/*<CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>*/}
@@ -173,7 +202,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     }
 
     new_render = () => {
-        var newlist = this.props.newCrypto.map((filtered,i)=> (
+        var newlist = this.state.newListing.map((filtered,i)=> (
             <div className='d-flex'>
                 <div className='col-sm-2 removePadding'>
                     {/*<CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>*/}
@@ -193,7 +222,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     }
 
     trend_render = () => {
-        var trend = this.props.trendCrypto.map((filtered,i)=> {
+        var trend = this.state.trendListing.map((filtered,i)=> {
             return (
                 <div className='d-flex'>
                 <div className='col-sm-2 removePadding'>
