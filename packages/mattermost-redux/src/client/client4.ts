@@ -3775,27 +3775,27 @@ export default class Client4 {
 
     getCryptoData = () => {
         return this.doFetch<AllListing[]>(
-            'https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencyalldata',{method: 'get', headers: {'Allow-Access-Control-Oririgin' : '*'}}
+            'https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencyalldata',{method: 'get', headers: {'Allow-Access-Control-Origin' : '*'}}
         );
     }
 
     getCryptoTrend = (limit: string,sort: string) => {
         return this.doFetch<TrendListing[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/gettrendingdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Allow-Access-Control-Oririgin' : '*'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/gettrendingdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Allow-Access-Control-Origin' : '*'}}
         );
     }
 
 
     getCryptoGainer = (limit: string,sort: string) => {
         return this.doFetch<GainerListing[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getgainersdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Allow-Access-Control-Oririgin' : '*'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getgainersdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Allow-Access-Control-Origin' : '*'}}
         );
     }
 
 
     getCryptoNew = (limit: string,sort: string) => {
         return this.doFetch<NewListing[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getnewdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Allow-Access-Control-Oririgin' : '*'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getnewdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Allow-Access-Control-Origin' : '*'}}
         );
     }
 
