@@ -78,7 +78,7 @@ type State = {
 };
 
 export default class LaunchPad extends React.PureComponent<Props, State> {
-    static defaultProps = {userId: '',profilePicture: '',}
+    static defaultProps = {userId: '',profilePicture: '', allCrypto: [],trendCrypto: [],newCrypto: [],gainerCrypto: []}
 
     constructor(props: Props) {
         super(props);
