@@ -88,46 +88,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
-        /*const uri = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencyalldata");
-        const uriNew = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/getnewdata");
-        const uriGainer = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/getgainersdata");
-        const uriTrending = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/gettrendingdata");
-
-        const listingNewParams={limit: "3",sort:"desc"};
-        const tgParams={limit: "3",sort:""};
-        uriNew.search = new URLSearchParams(listingNewParams).toString();
-        uriGainer.search = new URLSearchParams(tgParams).toString();
-        uriGainer.search = new URLSearchParams(tgParams).toString();
-
-        const config = {
-            method: "GET",
-            mode: "no-cors",
-            headers: {Accepts: "application/json","Content-Type": "application/json","Access-Control-Allow-Origin": "http://localhost:8065"}
-        }
-
-        fetch(uri,config).then(response => response.json()).then(response => {
-            let tmpArray = [];
-            for (var i = 0; i < response.data.length; i++) {tmpArray.push(response.data[i]);}
-            this.setState({data: tmpArray});
-        }).catch(function(error) {console.log(error);});
-
-        fetch(uriNew,config).then(response => response.json()).then(response => {
-            let tmpArray = [];
-            for (var i = 0; i < response.data.length; i++) {tmpArray.push(response.data[i]);}
-            this.setState({newListing: tmpArray});
-        }).catch(function(error) {console.log(error);});
-
-        fetch(uriGainer,config).then(response => response.json()).then(response => {
-            let tmpArray = [];
-            for (var i = 0; i < response.data.length; i++) {tmpArray.push(response.data[i]);}
-            this.setState({gainerListing: tmpArray});
-        }).catch(function(error) {console.log(error);});
-
-        fetch(uriTrending,config).then(response => response.json()).then(response => {
-            let tmpArray = [];
-            for (var i = 0; i < response.data.length; i++) {tmpArray.push(response.data[i]);}
-            this.setState({trendListing: tmpArray});
-        }).catch(function(error) {console.log(error);});*/
     }
 
     setDocumentTitle = (siteName: string) => {
@@ -252,8 +212,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         });
         return trend;
     }
-
-    
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
