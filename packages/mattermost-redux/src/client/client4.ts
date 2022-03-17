@@ -3781,21 +3781,21 @@ export default class Client4 {
 
     getCryptoTrend = (limit: string,sort: string) => {
         return this.doFetch<TrendListing[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/gettrendingdata?limit=${limit}&sort=${sort}`,{method: 'get',headers: {'Access-Control-Allow-Origin:':'*'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/gettrendingdata?limit=${limit}&sort=${sort}`,{method: 'get',credentials: 'same-origin'}
         );
     }
 
 
     getCryptoGainer = (limit: string,sort: string) => {
         return this.doFetch<GainerListing[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getgainersdata?limit=${limit}&sort=${sort}`,{method: 'get',headers: {'Access-Control-Allow-Origin:':'*'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getgainersdata?limit=${limit}&sort=${sort}`,{method: 'get',credentials: 'same-origin'}
         );
     }
 
 
     getCryptoNew = (limit: string,sort: string) => {
         return this.doFetch<NewListing[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getnewdata?limit=${limit}&sort=${sort}`,{method: 'get',headers: {'Access-Control-Allow-Origin:':'*'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getnewdata?limit=${limit}&sort=${sort}`,{method: 'get',credentials: 'same-origin'}
         );
     }
 
