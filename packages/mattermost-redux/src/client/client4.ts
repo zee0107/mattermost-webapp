@@ -119,6 +119,7 @@ import {isSystemAdmin} from 'mattermost-redux/utils/user_utils';
 import {UserThreadList, UserThread, UserThreadWithPost} from 'mattermost-redux/types/threads';
 
 import {TelemetryHandler} from './telemetry';
+import { AllListing, GainerListing, NewListing, TrendListing } from 'mattermost-redux/types/crypto';
 
 const FormData = require('form-data');
 const HEADER_AUTH = 'Authorization';
@@ -3771,6 +3772,33 @@ export default class Client4 {
             {method: 'get'},
         );
     }
+
+    getCryptoData = () => {
+        return this.doFetch<AllListing[]>(
+            'https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencyalldata',{method: 'get'}
+        );
+    }
+
+    getCryptoTrend = (limit: string,sort: string) => {
+        return this.doFetch<TrendListing[]>(
+            `https://crypterfighter.polywickstudio.ph/api/crypter/gettrendingdata?limit=${limit}&sort=${sort}`,{method: 'get'}
+        );
+    }
+
+
+    getCryptoGainer = (limit: string,sort: string) => {
+        return this.doFetch<GainerListing[]>(
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getgainersdata?limit=${limit}&sort=${sort}`,{method: 'get'}
+        );
+    }
+
+
+    getCryptoNew = (limit: string,sort: string) => {
+        return this.doFetch<NewListing[]>(
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getnewdata?limit=${limit}&sort=${sort}`,{method: 'get'}
+        );
+    }
+
 
     // Client Helpers
 

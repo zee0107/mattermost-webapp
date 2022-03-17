@@ -38,12 +38,17 @@ import SidebarRight from 'components/sidebar_right';
 import SidebarRightMenu from 'components/sidebar_right_menu';
 import { ButtonGroup } from 'react-bootstrap';
 import { filter } from 'lodash';
+import { AllListing, GainerListing, NewListing, TrendListing } from 'mattermost-redux/types/crypto';
 
 type Props = {
     status?: string;
     userId: string;
     profilePicture: string;
     autoResetPref?: string;
+    allCrypto: AllListing[];
+    trendCrypto: TrendListing[];
+    newCrypto: NewListing[];
+    gainerCrypto: GainerListing[];
     actions: {
         openModal: <P>(modalData: ModalData<P>) => void;
         setStatus: (status: UserStatus) => ActionFunc;
@@ -83,7 +88,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
-        const uri = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencyalldata");
+        /*const uri = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencyalldata");
         const uriNew = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/getnewdata");
         const uriGainer = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/getgainersdata");
         const uriTrending = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/gettrendingdata");
@@ -122,7 +127,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             let tmpArray = [];
             for (var i = 0; i < response.data.length; i++) {tmpArray.push(response.data[i]);}
             this.setState({trendListing: tmpArray});
-        }).catch(function(error) {console.log(error);});
+        }).catch(function(error) {console.log(error);});*/
     }
 
     setDocumentTitle = (siteName: string) => {
@@ -188,10 +193,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     }
 
     gainer_render = () => {
-        var gainer = this.state.gainerListing.slice(0,3).map((filtered,i)=> (
+        var gainer = this.props.gainerCrypto.map((filtered,i)=> (
             <div className='d-flex'>
                 <div className='col-sm-2 removePadding'>
-                    <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
+                    {/*<CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>*/}
                 </div>
             <div className='col-sm-5'>
                 <label className='text-primary' key={i+"-gainer-name"}>{filtered.name}</label>
@@ -208,10 +213,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     }
 
     new_render = () => {
-        var newlist = this.state.newListing.slice(0,3).map((filtered,i)=> (
+        var newlist = this.props.newCrypto.map((filtered,i)=> (
             <div className='d-flex'>
                 <div className='col-sm-2 removePadding'>
-                    <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
+                    {/*<CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>*/}
                 </div>
             <div className='col-sm-5'>
                 <label className='text-primary' key={i+"-new-name"}>{filtered.name}</label>
@@ -228,11 +233,11 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     }
 
     trend_render = () => {
-        var trend = this.state.trendListing.slice(0,3).map((filtered,i)=> {
+        var trend = this.props.trendCrypto.map((filtered,i)=> {
             return (
                 <div className='d-flex'>
                 <div className='col-sm-2 removePadding'>
-                    <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
+                    {/*<CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>*/}
                 </div>
                 <div className='col-sm-5'>
                     <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
