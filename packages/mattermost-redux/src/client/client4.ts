@@ -3811,7 +3811,7 @@ export default class Client4 {
     doFetchWithResponse = async <T>(url: string, options: Options): Promise<ClientResponse<T>> => {
         const response = await fetch(url, this.getOptions(options));
         const headers = parseAndMergeNestedHeaders(response.headers);
-
+        console.log(headers);
         let data;
         try {
             data = await response.json();
