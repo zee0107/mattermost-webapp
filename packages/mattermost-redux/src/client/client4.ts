@@ -3775,7 +3775,7 @@ export default class Client4 {
 
     getCryptoData = () => {
         return this.doFetch<AllListing[]>(
-            'https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencyalldata',{method: 'get',headers: {'Access-Control-Allow-Origin:':'*'}}
+            'https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencyalldata',{method: 'get',credentials: 'same-origin'}
         );
     }
 
