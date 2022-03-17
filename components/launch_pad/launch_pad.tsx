@@ -193,7 +193,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             </div>
             <div className='col-sm-5 removePadding text-end'>
                 <br></br>
-                {this.render_percent(filtered.quote.USD.percent_change_24h.toString())}
+                {this.render_percent(filtered.percent_change_24h.toString())}
                 {/*<label className='currency-value-text small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>*/}
             </div>
         </div>
