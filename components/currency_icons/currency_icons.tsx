@@ -29,21 +29,6 @@ export default class Icon extends React.PureComponent<Props>{
             this.setState({logo_url: response})
         }).catch(function(error) {console.log(error);});  
     }
-    
-    getIcon = () => {
-            const array = this.state.logo_url.map(item => {
-                const key = Object.keys(item)[0];
-                return item[key]
-            });
-
-            const newData = array.map(item => {
-                const key = Object.keys(item)[0];
-                return item[key]
-            });
-
-            const slicedData = newData.slice(0,1);
-            return slicedData;
-    }
 
     render(): React.ReactNode {
         const {
@@ -51,9 +36,7 @@ export default class Icon extends React.PureComponent<Props>{
         } = this.props;
 
         return(
-            <div>
-                <img src={this.state.logo_url} alt={code + '-icon'} className='currency-icon'></img>
-            </div>
+            <img src={this.state.logo_url} alt={code + '-icon'} className='currency-icon'></img>
         )
     }
 }

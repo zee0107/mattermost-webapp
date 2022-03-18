@@ -232,7 +232,13 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     gainer_render = () => {
         var gainer = this.state.gainerListing.map((filtered,i)=> (
-            <div className='d-flex'>
+            <div className='col-12'>
+                <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
+                <label className='text-primary currency-details' key={i+"trend-name"}>{filtered.name}<br></br>
+                <p className='text-secondary small-font' key={i+"trend-symbol"}>{filtered.symbol}</p></label>
+                {this.render_percent(filtered.percent_change_24h.toString())}
+            </div>
+            /*<div className='d-flex'>
                 <div className='col-sm-2 removePadding'>
                     <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
                 </div>
@@ -244,14 +250,20 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                     <br></br>
                     {this.render_percent(filtered.percent_change_24h.toString())}
                 </div>
-            </div>
+            </div>*/
         ))
         return gainer;
     }
 
     new_render = () => {
         var newlist = this.state.newListing.map((filtered,i)=> (
-            <div className='d-flex'>
+            <div className='col-12'>
+                <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
+                <label className='text-primary currency-details' key={i+"trend-name"}>{filtered.name}<br></br>
+                <p className='text-secondary small-font' key={i+"trend-symbol"}>{filtered.symbol}</p></label>
+                {this.render_percent(filtered.percent_change_24h.toString())}
+            </div>
+            /*<div className='d-flex'>
                 <div className='col-sm-2 removePadding'>
                     <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
                 </div>
@@ -263,7 +275,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                     <br></br>
                     {this.render_percent(filtered.percent_change_24h.toString())}                
                 </div>
-            </div>
+            </div>*/
         ))
         return newlist;
     }
@@ -271,9 +283,9 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     trend_render = () => {
         var trend = this.state.trendListing.map((filtered,i)=> {
             return (
-                <div>
+                <div className='col-12'>
                     <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
-                    <label className='text-primary float-start' key={i+"trend-name"}>{filtered.name}<br></br>
+                    <label className='text-primary currency-details' key={i+"trend-name"}>{filtered.name}<br></br>
                     <p className='text-secondary small-font' key={i+"trend-symbol"}>{filtered.symbol}</p></label>
                     {this.render_percent(filtered.percent_change_24h.toString())}
                 </div>
