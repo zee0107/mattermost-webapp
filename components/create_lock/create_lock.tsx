@@ -75,34 +75,41 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         return (
-            <div>
-                <div className='col-md-12'>
-                    <button type='button' className='btn btn-primary'>Create</button>
-                    <button type='button' className='btn btn-primary'>BSC Mainnet</button>
-                    <button type='button' className='btn btn-primary'>Connect</button>
+            <div className='margin-top-20'>
+                <div className='col-md-12 removePadding'>
+                    <button type='button' className='btn btn-primary create-lock-btn'>Connect</button>
+                    <button type='button' className='btn buttonBgWhite create-lock-btn'>BSC Mainnet</button>
+                    <button type='button' className='btn buttonBgWhite create-lock-btn'>Create</button>
                 </div>
                 <div id='create-lock' className='col-md-12 create-token-box'>
                     <div className='col-md-12'>
                         <h4 className='text-primary'>Create Your Lock</h4>
                     </div>
-                    <hr></hr>
+                    <div className='col-md-12 removePadding border-bot-div'>
                     <div className='col-md-12'>
-                        <h4 className='text-secondary'>PinkSale is Audited by Certik</h4>
-                        <input type='text' className='form-control custom-token-input' placeholder='Ex. https://leaderboard.certik.io/group/links'></input>
-                        <h4 className='text-secondary'>Token or LP Token Address</h4>
-                        <input type='text' className='form-control custom-token-input' placeholder='Token or LP Token Address'></input>
-                        <h4 className='text-secondary'>* Amount</h4>
-                        <input type='text' className='form-control custom-token-input' placeholder='Ex. PinkMoon'></input>
-                        <h4 className='text-secondary'>Lock Until</h4>
-                        <input type='date' className='form-control custom-token-input' placeholder='Select Time'></input>
-
+                        <div className='create-lock-input'>
+                            <h5 className='text-secondary'>PinkSale is Audited by Certik</h5>
+                            <input type='text' className='form-control custom-token-input' placeholder='Ex. https://leaderboard.certik.io/group/links'></input>
+                        </div>
+                        <div className='create-lock-input'>
+                            <h5 className='text-secondary'>Token or LP Token Address</h5>
+                            <input type='text' className='form-control custom-token-input' placeholder='Token or LP Token Address'></input>
+                        </div>
+                        <div className='create-lock-input'>
+                            <h5 className='text-secondary'>* Amount</h5>
+                            <input type='text' className='form-control custom-token-input' placeholder='Ex. PinkMoon'></input>
+                        </div>
+                        <div className='create-lock-input'>
+                            <h5 className='text-secondary'>Lock Until</h5>
+                            <input type='date' className='form-control custom-token-input' placeholder='Select Time'></input>
+                        </div>
                         <div className='info-lock-box'>
                             <p className='text-primary small-font'>we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process.</p>
                         </div>
-
-                        <div className='text-center'>
+                        <div className='text-center create-lock-input'>
                             <label className='text-seconary'>You will pay <label className='text-percent'>0.00</label> BTC</label>
-                            <button type='button' className='btn btn-primary'>LOCK</button>
+                            <br></br>
+                            <button type='button' className='btn buttonBgWhite'>LOCK</button>
                         </div>
                     </div>
                 </div>

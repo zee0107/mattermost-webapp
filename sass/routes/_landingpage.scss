@@ -98,6 +98,10 @@
   margin-top: 30px;
 }
 
+.margin-top-20{
+  margin-top: 20px;
+}
+
 .marginTopImg{
   margin-top: 4%;
 }
@@ -1210,13 +1214,14 @@ input[type="checkbox"]:checked ~ ul{
   //border: 1px solid var(--border-div);
   border-radius: 8px;
   background-color: #ffe875b8;
-  margin-top: 10px;
+  margin-top: 20px;
   padding: 10px;
 }
 
 .custom-token-input{
   background: var(--background);
   color: var(--input-color-text);
+  border: transparent !important;
 }
 
 .token-buttom-div{
@@ -1258,4 +1263,17 @@ input[type="checkbox"]:checked ~ ul{
 .side-menu-item:hover{
   color: var(--text-primary);
   text-decoration: none;
+}
+
+.create-lock-btn{
+  float: right;
+  margin-left: 5px;
+}
+
+.create-lock-input{
+  margin-top: 20px;
+}
+
+.border-bot-div{
+  border-bottom: 1px solid #f2f5f9;
 }
