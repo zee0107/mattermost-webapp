@@ -75,39 +75,41 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         return (
-            <div className='col-md-12'>
-                <button type='button' className='btn btn-primary'>Create</button>
-                <button type='button' className='btn btn-primary'>BSC Mainnet</button>
-                <button type='button' className='btn btn-primary'>Connect</button>
-            </div>
-            <div id='create-lock' className='col-md-12 create-token-box'>
+            <div>
                 <div className='col-md-12'>
-                    <h4 className='text-primary'>Create Your Lock</h4>
+                    <button type='button' className='btn btn-primary'>Create</button>
+                    <button type='button' className='btn btn-primary'>BSC Mainnet</button>
+                    <button type='button' className='btn btn-primary'>Connect</button>
                 </div>
-                <hr></hr>
-                <div className='col-md-12'>
-                    <h4 className='text-secondary'>PinkSale is Audited by Certik</h4>
-                    <input type='text' className='form-control custom-token-input' placeholder='Ex. https://leaderboard.certik.io/group/links'></input>
-                    <h4 className='text-secondary'>Token or LP Token Address</h4>
-                    <input type='text' className='form-control custom-token-input' placeholder='Token or LP Token Address'></input>
-                    <h4 className='text-secondary'>* Amount</h4>
-                    <input type='text' className='form-control custom-token-input' placeholder='Ex. PinkMoon'></input>
-                    <h4 className='text-secondary'>Lock Until</h4>
-                    <input type='date' className='form-control custom-token-input' placeholder='Select Time'></input>
-
-                    <div className='info-lock-box'>
-                        <p className='text-primary small-font'>we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process.</p>
+                <div id='create-lock' className='col-md-12 create-token-box'>
+                    <div className='col-md-12'>
+                        <h4 className='text-primary'>Create Your Lock</h4>
                     </div>
+                    <hr></hr>
+                    <div className='col-md-12'>
+                        <h4 className='text-secondary'>PinkSale is Audited by Certik</h4>
+                        <input type='text' className='form-control custom-token-input' placeholder='Ex. https://leaderboard.certik.io/group/links'></input>
+                        <h4 className='text-secondary'>Token or LP Token Address</h4>
+                        <input type='text' className='form-control custom-token-input' placeholder='Token or LP Token Address'></input>
+                        <h4 className='text-secondary'>* Amount</h4>
+                        <input type='text' className='form-control custom-token-input' placeholder='Ex. PinkMoon'></input>
+                        <h4 className='text-secondary'>Lock Until</h4>
+                        <input type='date' className='form-control custom-token-input' placeholder='Select Time'></input>
 
-                    <div className='text-center'>
-                        <label className='text-seconary'>You will pay <label className='text-percent'>0.00</label> BTC</label>
-                        <button type='button' className='btn btn-primary'>LOCK</button>
+                        <div className='info-lock-box'>
+                            <p className='text-primary small-font'>we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process.</p>
+                        </div>
+
+                        <div className='text-center'>
+                            <label className='text-seconary'>You will pay <label className='text-percent'>0.00</label> BTC</label>
+                            <button type='button' className='btn btn-primary'>LOCK</button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div className='col-lg-12 text-center margin-top-30-responsive'>
-                <label className='text-secondary small'>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences.</label>
+                <div className='col-lg-12 text-center margin-top-30-responsive'>
+                    <label className='text-secondary small'>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences.</label>
+                </div>
             </div>
         );
     }
