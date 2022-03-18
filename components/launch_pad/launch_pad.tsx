@@ -294,12 +294,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
-
         let btcContent;
         let ltcContent;
         let ethContent;
         let bnbContent;
-
         let gainer;
         let newList;
         let trend;
@@ -307,7 +305,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         gainer = this.gainer_render();
         newList = this.new_render();
         trend = this.trend_render();
-
         btcContent = this.sideBoxRender("BTC");
         ltcContent = this.sideBoxRender("LTC");
         ethContent = this.sideBoxRender("ETH");
