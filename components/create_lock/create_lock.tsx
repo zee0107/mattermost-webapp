@@ -81,6 +81,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                     <button type='button' className='btn buttonBgWhite create-lock-btn'>BSC Mainnet</button>
                     <button type='button' className='btn buttonBgWhite create-lock-btn'>Create</button>
                 </div>
+                <br></br>
                 <div id='create-lock' className='col-md-12 create-token-box'>
                     <div className='col-md-12'>
                         <h4 className='text-primary'>Create Your Lock</h4>
