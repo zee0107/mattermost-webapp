@@ -185,7 +185,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         var gainer = this.state.gainerListing.map((filtered,i)=> (
             <div className='d-flex'>
                 <div className='col-sm-2 removePadding'>
-                    {/*<CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>*/}
+                    <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
                 </div>
             <div className='col-sm-5'>
                 <label className='text-primary' key={i+"-gainer-name"}>{filtered.name}</label>
@@ -205,7 +205,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         var newlist = this.state.newListing.map((filtered,i)=> (
             <div className='d-flex'>
                 <div className='col-sm-2 removePadding'>
-                    {/*<CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>*/}
+                    <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
                 </div>
             <div className='col-sm-5'>
                 <label className='text-primary' key={i+"-new-name"}>{filtered.name}</label>
@@ -226,7 +226,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             return (
                 <div className='d-flex'>
                 <div className='col-sm-2 removePadding'>
-                    {/*<CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>*/}
+                    <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
                 </div>
                 <div className='col-sm-5'>
                     <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
