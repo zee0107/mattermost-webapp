@@ -235,7 +235,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             <div className='col-12'>
                 <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
                 <label className='text-primary currency-details' key={i+"trend-name"}>{filtered.name}<br></br>
-                <p className='text-secondary small-font' key={i+"trend-symbol"}>{filtered.symbol}</p></label>
+                <p className='text-secondary  currency-percent-change' key={i+"trend-symbol"}>{filtered.symbol}</p></label>
                 {this.render_percent(filtered.percent_change_24h.toString())}
             </div>
             /*<div className='d-flex'>
@@ -260,7 +260,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             <div className='col-12'>
                 <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
                 <label className='text-primary currency-details' key={i+"trend-name"}>{filtered.name}<br></br>
-                <p className='text-secondary small-font' key={i+"trend-symbol"}>{filtered.symbol}</p></label>
+                <p className='text-secondary  currency-percent-change' key={i+"trend-symbol"}>{filtered.symbol}</p></label>
                 {this.render_percent(filtered.percent_change_24h.toString())}
             </div>
             /*<div className='d-flex'>
@@ -286,7 +286,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                 <div className='col-12'>
                     <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
                     <label className='text-primary currency-details' key={i+"trend-name"}>{filtered.name}<br></br>
-                    <p className='text-secondary small-font' key={i+"trend-symbol"}>{filtered.symbol}</p></label>
+                    <p className='text-secondary currency-percent-change' key={i+"trend-symbol"}>{filtered.symbol}</p></label>
                     {this.render_percent(filtered.percent_change_24h.toString())}
                 </div>
                 /*
