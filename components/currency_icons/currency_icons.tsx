@@ -13,24 +13,21 @@ type Props = {
 export default class Icon extends React.PureComponent<Props>{
     constructor(props: Props) {
         super(props);
-        this.state = {code:'',logo_url: [],final_url:[]};
+        this.state = {code:'',logo_url: '',};
     }
 
     componentDidMount (){
-        const uri = new URL("https://pro-api.coinmarketcap.com/v2/cryptocurrency/info");
-        let startupApiKey = "813046b6-001a-4064-83bb-1604c47beffa";
+        const uri = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/GetLogo");
         const config = {
-            method: "GET",
-            headers: {Accepts: "application/json","Content-Type": "application/json","Access-Control-Allow-Origin": "http://localhost:8065"}
+            method: "GET"
         }
         
-        const sendData={symbol: this.props.code,CMC_PRO_API_KEY:startupApiKey};
+        const sendData={symbol: this.props.code};
         uri.search = new URLSearchParams(sendData).toString();
     
         fetch(uri,config).then(response => response.json()).then(response => {
-            let tmpArray = [];
-            tmpArray.push(response.data);
-            this.setState({logo_url:tmpArray})
+            console.log(response);
+            this.setState({logo_url: response.data})
         }).catch(function(error) {console.log(error);});  
     }
     
@@ -56,9 +53,7 @@ export default class Icon extends React.PureComponent<Props>{
 
         return(
             <div>
-                {this.getIcon().map((item,index) => 
-                    (<img src={item.logo} key={code+index} alt={code + '-icon'} className='currency-icon'></img>)
-                )}
+                <img src={this.state.logo_url} alt={code + '-icon'} className='currency-icon'></img>
             </div>
         )
     }
