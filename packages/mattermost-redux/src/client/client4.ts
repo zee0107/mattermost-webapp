@@ -3775,27 +3775,27 @@ export default class Client4 {
 
     getCryptoData = () => {
         return this.doFetch<AllListing[]>(
-            'https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencyalldata',{method: 'get', headers: {'Content-Type':'application/json','Allow-Access-Control-Origin' : 'http://localhost:8065','Access-Control-Expose-Headers':'*'}}
+            'https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencyalldata',{method: 'get', headers: {'Content-Type':'application/json'}}
         );
     }
 
     getCryptoTrend = (limit: string,sort: string) => {
         return this.doFetch<TrendListing[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/gettrendingdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Content-Type':'application/json','Allow-Access-Control-Origin' : 'http://localhost:8065','Access-Control-Expose-Headers':'*'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/gettrendingdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Content-Type':'application/json'}}
         );
     }
 
 
     getCryptoGainer = (limit: string,sort: string) => {
         return this.doFetch<GainerListing[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getgainersdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Content-Type':'application/json','Allow-Access-Control-Origin' : 'http://localhost:8065','Access-Control-Expose-Headers':'*'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getgainersdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Content-Type':'application/json'}}
         );
     }
 
 
     getCryptoNew = (limit: string,sort: string) => {
         return this.doFetch<NewListing[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getnewdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Content-Type':'application/json,','Allow-Access-Control-Origin' : 'http://localhost:8065','Access-Control-Expose-Headers':'*'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getnewdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
