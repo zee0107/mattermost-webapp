@@ -1241,3 +1241,13 @@ input[type="checkbox"]:checked ~ ul{
   font-size: 12px;
   font-weight: 400;
 }
+
+.side-menu-item{
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.side-menu-item:hover{
+  color: var(--text-primary);
+  text-decoration: none;
+}
