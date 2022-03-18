@@ -85,7 +85,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                     <div className='col-md-12'>
                         <h4 className='text-primary'>Create Your Lock</h4>
                     </div>
-                    <div className='col-md-12 removePadding border-bot-div'>
+                    <div className='col-md-12 removePadding border-bot-div'></div>
                     <div className='col-md-12'>
                         <div className='create-lock-input'>
                             <h5 className='text-secondary'>PinkSale is Audited by Certik</h5>
