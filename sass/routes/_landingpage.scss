@@ -1139,7 +1139,7 @@ input[type="checkbox"]:checked ~ ul{
 }s
 
 .text-percent-down{
-  color: red;
+  color: red !important;
 }
 
 .current-conversion-img{
@@ -1227,8 +1227,8 @@ input[type="checkbox"]:checked ~ ul{
 
 .currency-icon{
   border-radius: 50%;
-  width: 15%;
-  margin-top: -18px;
+  width: 85%;
+  margin-top: 5px;
 }
 
 .currency-details{

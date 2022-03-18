@@ -241,7 +241,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                     <p className='text-secondary small-font' key={i+"-gainer-symbol"}>{filtered.symbol}</p>
                 </div>
                 <div className='col-sm-4 removePadding text-end'>
-                    <br></br>
                     {this.render_percent(filtered.percent_change_24h.toString())}
                 </div>
             </div>
@@ -260,7 +259,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                     <p className='text-secondary small-font' key={i+"-new-symbol"}>{filtered.symbol}</p>
                 </div>
                 <div className='col-sm-4 removePadding text-end'>
-                    <br></br>
                     {this.render_percent(filtered.percent_change_24h.toString())}                
                 </div>
             </div>
@@ -270,14 +268,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     trend_render = () => {
         var trend = this.state.trendListing.map((filtered,i)=> {
-            return (
-                /*<div className='col-12'>
-                    <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
-                    <label className='text-primary currency-details' key={i+"trend-name"}>{filtered.name}<br></br>
-                    <p className='text-secondary small-font' key={i+"trend-symbol"}>{filtered.symbol}</p></label>
-                    {this.render_percent(filtered.percent_change_24h.toString())}
-                </div>*/
-                
+            return (                
                 <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
                         <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
@@ -287,7 +278,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                         <p className='text-secondary small-font' key={i+"trend-symbol"}>{filtered.symbol}</p>
                     </div>
                     <div className='col-sm-4 removePadding text-end'>
-                        <br></br>
                         {this.render_percent(filtered.percent_change_24h.toString())}
                     </div>
                 </div>
