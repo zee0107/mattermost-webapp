@@ -300,7 +300,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <input type="checkbox" id="list-item-3"></input>
                                                         <label htmlFor="list-item-3" className="first collapsible-label">Crypter Lock</label>
                                                         <ul className='ul-collapse'>
-                                                            <li key='create-lock'><div className={'list-sidemenu-a ' + `${this.state.middleView === 'create-lock' ? 'active-item' : ''}`}><a href="#" onClick={() => this.setState({middleView: 'create-lock'})} className='side-menu-item'>Create Lock</a></div></li>
+                                                            <li key='create-lock'><div className={'list-sidemenu-b ' + `${this.state.middleView === 'create-lock' ? 'active-item' : ''}`}><a href="#" onClick={() => this.setState({middleView: 'create-lock'})} className='side-menu-item'>Create Lock</a></div></li>
                                                             <li key='token'><div className='list-sidemenu-b'><a href="#" className='side-menu-item'>Token</a></div></li>
                                                             <li key='liquidity'><div className='list-sidemenu-b'><a href="#" className='side-menu-item'>Liquidity</a></div></li>
                                                         </ul>
