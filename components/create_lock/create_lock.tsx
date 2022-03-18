@@ -77,7 +77,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         return (
             <div className='margin-top-20'>
                 <div className='col-md-12 removePadding'>
-                    <button type='button' className='btn btn-primary create-lock-btn'>Connect</button>
+                    <button type='button' className='btn buttonBgGreen create-lock-btn'>Connect</button>
                     <button type='button' className='btn buttonBgWhite create-lock-btn'>BSC Mainnet</button>
                     <button type='button' className='btn buttonBgWhite create-lock-btn'>Create</button>
                 </div>
