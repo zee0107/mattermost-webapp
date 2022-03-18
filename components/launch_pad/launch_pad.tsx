@@ -7,6 +7,7 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import classNames from 'classnames';
 import CurrencyIcons from 'components/currency_icons';
+import TrendingListComp from 'components/trending_crypto';
 
 import homeImage from 'images/homeFeed.png';
 import rocketImage from 'images/rocket.svg';
@@ -15,7 +16,6 @@ import trendImage from 'images/trending-up.svg';
 import trenddownImage from 'images/trending-down.svg';
 import fireImage from 'images/fire.png';
 import clockImage from 'images/clock.svg';
-import digiImage from 'images/currency-icons/digibyte.svg';
 import btcImage from 'images/currency-icons/btc.svg';
 import ltcImage from 'images/currency-icons/ltc.svg';
 import bnbImage from 'images/currency-icons/bnb.svg';
@@ -24,22 +24,12 @@ import graphImage from 'images/graph-up.svg';
 import graphdownImage from 'images/graph-down.svg';
 import triangleupImage from 'images/caret-up.svg';
 import triangledownImage from 'images/caret-down.svg';
-import lccImage from 'images/currency-icons/litecoin.svg';
 
-
-import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
-import UserSettingsModal from 'components/user_settings/modal_profile';
 import {ModalData} from 'types/actions';
-import {ModalIdentifiers} from 'utils/constants';
 import ChannelHeaderMobile from 'components/channel_header_mobile';
 
-import Sidebar from 'components/sidebar';
-import SidebarRight from 'components/sidebar_right';
 import SidebarRightMenu from 'components/sidebar_right_menu';
-import { ButtonGroup } from 'react-bootstrap';
-import { filter } from 'lodash';
 import { AllListing, GainerListing, NewListing, TrendListing } from 'mattermost-redux/types/crypto';
-import ConfirmLicenseRemovalModal from 'components/admin_console/license_settings/modals/confirm_license_removal_modal';
 
 type Props = {
     status?: string;
@@ -118,6 +108,77 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         return (<Avatar size={size} url={this.props.profilePicture} />);
     }
 
+    renderCreateToken = () =>{
+        return (
+            <div id="createToken" className='col-lg-12'>
+                <div className='d-flex margin-top-30-responsive'>
+                    <div className='col-lg-2'>
+                        <div className='d-flex'>
+                            <img src={fillImage} className='fill-img'></img>
+                            <p className='fill-text'>1</p>
+                        </div>
+                    </div>
+                    <div className='col-lg-10 removePaddingLeft'>
+                        <h3 className='text-primary'>Verify Token</h3>
+                        <p className='text-primary'>Please enter your verification token from your account.</p>
+                    </div>
+                </div>
+                <div className='create-token-box'>
+                    <h4 className='text-primary'>* Token Address</h4>
+                    <input type='text' className='form-control custom-token-input' placeholder='Ex. PinkMoon'></input>
+                    <div className='d-flex padding-top'>
+                        <div className='col-md-6 width-50'>
+                            <label className='currency-value-text small'>Create Pool Fee: 1 BNB</label>
+                        </div>
+                        <div className='col-md-6 token-buttom-div'>
+                            <button type='button' className='btn buttonBgWhite'>Create Token</button>
+                        </div>
+                    </div>
+                </div>
+                <div className='d-flex margin-top-30-responsive'>
+                    <div className='col-lg-2'>
+                        <div className='d-flex'>
+                            <img src={fillImage} className="fill-img"></img>
+                            <p className='fill-text'>2</p>
+                        </div>
+                    </div>
+                    <div className='col-lg-10 removePaddingLeft'>
+                        <h3 className='text-primary'>Defi Launchpad Info</h3>
+                        <p className='text-primary'>Fill in your defi launchpad information</p>
+                    </div>
+                </div>
+                <div className='d-flex margin-top-30-responsive'>
+                    <div className='col-lg-2'>
+                        <div className='d-flex'>
+                            <img src={fillImage} className="fill-img"></img>
+                            <p className='fill-text'>3</p>
+                        </div>
+                    </div>
+                    <div className='col-lg-10 removePaddingLeft'>
+                        <h3 className='text-primary'>Additional Info</h3>
+                        <p className='text-primary'>Othre information.</p>
+                    </div>
+                </div>
+                <div className='d-flex margin-top-30-responsive'>
+                    <div className='col-lg-2'>
+                        <div className='d-flex'>
+                            <img src={fillImage} className="fill-img"></img>
+                            <p className='fill-text'>4</p>
+                        </div>
+                    </div>
+                    <div className='col-lg-10 removePaddingLeft'>
+                        <h3 className='text-primary'>Finish</h3>
+                        <p className='text-primary'>Save all information to your launchpad.</p>
+                    </div>
+                </div>
+
+                <div className='col-lg-12 text-center margin-top-30-responsive'>
+                    <label className='text-secondary small'>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences.</label>
+                </div>
+            </div>
+        );
+    }
+
     sideBoxRender = (code: string) => {
         let img;
         if(code === "BTC"){ img = (<img src={btcImage} className="current-conversion-img"></img>);}
@@ -162,10 +223,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     render_percent = (percent) =>{
         if(parseFloat(percent) > 0){
-            return (<label className='currency-value-text small-font' key={percent+"-trend-percent"}><img src={triangleupImage}></img>&nbsp;{parseFloat(percent).toFixed(2)}</label>);
+            return (<label className='currency-value-text small-font' key={percent+"-trend-percent"}><img src={triangleupImage}></img>&nbsp;{parseFloat(percent).toFixed(2)}%</label>);
         }
         else{
-            return (<label className='text-percent-down small-font' key={percent+"-trend-percent"}><img src={triangledownImage}></img>&nbsp;{parseFloat(percent).toFixed(2) * (-1)}</label>);
+            return (<label className='text-percent-down small-font' key={percent+"-trend-percent"}><img src={triangledownImage}></img>&nbsp;{parseFloat(percent).toFixed(2) * (-1)}%</label>);
         }
     }
 
@@ -325,6 +386,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <label className='text-primary label-title'><img src={fireImage} className='fire-img'></img>Trending</label>
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
+                                                <br></br>
                                                 {trend}
                                             </div>
                                         </div>
@@ -334,6 +396,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <label className='text-primary label-title'><img src={trendImage} className='fire-img'></img>Biggest Gainers</label>
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
+                                                <br></br>
                                                 {gainer}
                                             </div>
                                         </div>
@@ -343,77 +406,13 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                     <label className='text-primary label-title'><img src={clockImage} className='fire-img'></img>Recently Added</label>
                                                     <a href='#' className='view-all-box'>View all</a>
                                                 </div>
+                                                <br></br>
                                                 {newList}
                                             </div>
                                         </div>
                                     </div>
                                     <div className='col-sm-6'>
-                                        <div id="createToken" className='col-lg-12'>
-                                            <div className='d-flex margin-top-30-responsive'>
-                                                <div className='col-lg-2'>
-                                                    <div className='d-flex'>
-                                                        <img src={fillImage} className='fill-img'></img>
-                                                        <p className='fill-text'>1</p>
-                                                    </div>
-                                                </div>
-                                                <div className='col-lg-10 removePaddingLeft'>
-                                                    <h3 className='text-primary'>Verify Token</h3>
-                                                    <p className='text-primary'>Please enter your verification token from your account.</p>
-                                                </div>
-                                            </div>
-                                            <div className='create-token-box'>
-                                                <h4 className='text-primary'>* Token Address</h4>
-                                                <input type='text' className='form-control custom-token-input' placeholder='Ex. PinkMoon'></input>
-                                                <div className='d-flex padding-top'>
-                                                    <div className='col-md-6 width-50'>
-                                                        <label className='currency-value-text small'>Create Pool Fee: 1 BNB</label>
-                                                    </div>
-                                                    <div className='col-md-6 token-buttom-div'>
-                                                        <button type='button' className='btn buttonBgWhite'>Create Token</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className='d-flex margin-top-30-responsive'>
-                                                <div className='col-lg-2'>
-                                                    <div className='d-flex'>
-                                                        <img src={fillImage} className="fill-img"></img>
-                                                        <p className='fill-text'>2</p>
-                                                    </div>
-                                                </div>
-                                                <div className='col-lg-10 removePaddingLeft'>
-                                                    <h3 className='text-primary'>Defi Launchpad Info</h3>
-                                                    <p className='text-primary'>Fill in your defi launchpad information</p>
-                                                </div>
-                                            </div>
-                                            <div className='d-flex margin-top-30-responsive'>
-                                                <div className='col-lg-2'>
-                                                    <div className='d-flex'>
-                                                        <img src={fillImage} className="fill-img"></img>
-                                                        <p className='fill-text'>3</p>
-                                                    </div>
-                                                </div>
-                                                <div className='col-lg-10 removePaddingLeft'>
-                                                    <h3 className='text-primary'>Additional Info</h3>
-                                                    <p className='text-primary'>Othre information.</p>
-                                                </div>
-                                            </div>
-                                            <div className='d-flex margin-top-30-responsive'>
-                                                <div className='col-lg-2'>
-                                                    <div className='d-flex'>
-                                                        <img src={fillImage} className="fill-img"></img>
-                                                        <p className='fill-text'>4</p>
-                                                    </div>
-                                                </div>
-                                                <div className='col-lg-10 removePaddingLeft'>
-                                                    <h3 className='text-primary'>Finish</h3>
-                                                    <p className='text-primary'>Save all information to your launchpad.</p>
-                                                </div>
-                                            </div>
-
-                                            <div className='col-lg-12 text-center margin-top-30-responsive'>
-                                                <label className='text-secondary small'>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences.</label>
-                                            </div>
-                                        </div>
+                                        {this.renderCreateToken()}
                                     </div>
                                     <div className='col-sm-3' id="side_menu_right">
                                         {btcContent}
