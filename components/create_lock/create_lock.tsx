@@ -104,10 +104,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                             <input type='date' className='form-control custom-token-input' placeholder='Select Time'></input>
                         </div>
                         <div className='info-lock-box'>
-                            <p className='text-primary small-font'>we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process.</p>
+                            <p className='small-font'>we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process.</p>
                         </div>
                         <div className='text-center create-lock-input'>
-                            <label className='text-seconary'>You will pay <label className='text-percent'>0.00</label> BTC</label>
+                            <label className='text-secondary'>You will pay <label className='text-percent'>0.00</label> BTC</label>
                             <br></br>
                             <button type='button' className='btn buttonBgWhite'>LOCK</button>
                         </div>
