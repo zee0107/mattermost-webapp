@@ -1199,9 +1199,17 @@ input[type="checkbox"]:checked ~ ul{
 }
 
 .create-token-box{
-  border: 1px solid var(--border-div);
+  //border: 1px solid var(--border-div);
   border-radius: 8px;
   background-color: var(--bgDiv);
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.info-lock-box{
+  //border: 1px solid var(--border-div);
+  border-radius: 8px;
+  background-color: #ffe875b8;
   margin-top: 10px;
   padding: 10px;
 }

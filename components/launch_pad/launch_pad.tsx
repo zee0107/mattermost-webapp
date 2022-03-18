@@ -8,6 +8,7 @@ import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/
 import classNames from 'classnames';
 import CurrencyIcons from 'components/currency_icons';
 import TrendingListComp from 'components/trending_crypto';
+import CreateLock from 'components/create_lock'
 
 import homeImage from 'images/homeFeed.png';
 import rocketImage from 'images/rocket.svg';
@@ -66,6 +67,7 @@ type State = {
     isStatusSet: boolean;
     isDark: string;
     img_path: string;
+    middleView: string;
 };
 
 export default class LaunchPad extends React.PureComponent<Props, State> {
@@ -73,7 +75,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,logo_url: [], data: [], newListing: [], trendListing: [], gainerListing:[]};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', middleView: '',img_path: homeImage,logo_url: [], data: [], newListing: [], trendListing: [], gainerListing:[]};
     }
 
     componentDidMount(){
@@ -106,6 +108,10 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {return null;}
         return (<Avatar size={size} url={this.props.profilePicture} />);
+    }
+
+    renderHandler = (view: string) => {
+        this.setState({middleView: view});
     }
 
     renderCreateToken = () =>{
@@ -367,7 +373,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <input type="checkbox" id="list-item-3"></input>
                                                         <label htmlFor="list-item-3" className="first collapsible-label">Crypter Lock</label>
                                                         <ul className='ul-collapse'>
-                                                            <li key='create-lock'><div className='list-sidemenu-b'><a href="#" className='side-menu-item'>Create Lock</a></div></li>
+                                                            <li key='create-lock'><div className='list-sidemenu-b'><a href="#" onClick={this.renderHandler('create-lock')} className='side-menu-item'>Create Lock</a></div></li>
                                                             <li key='token'><div className='list-sidemenu-b'><a href="#" className='side-menu-item'>Token</a></div></li>
                                                             <li key='liquidity'><div className='list-sidemenu-b'><a href="#" className='side-menu-item'>Liquidity</a></div></li>
                                                         </ul>
@@ -409,7 +415,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-sm-6'>
-                                        {this.renderCreateToken()}
+                                        {this.state.middleView === 'create-lock' ? <CreateLock /> : {renderCreateToken()}}
                                     </div>
                                     <div className='col-sm-3' id="side_menu_right">
                                         {btcContent}
