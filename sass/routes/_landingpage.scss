@@ -128,7 +128,6 @@
 }
 
 .sidemenuBox{
-  border: 1px solid var(--border-div);
   border-radius: 7px;
   background-color: var(--bgDiv);
   margin-top: 10px;
@@ -1137,7 +1136,7 @@ input[type="checkbox"]:checked ~ ul{
 
 .text-percent{
   color: #4FBF67;
-}
+}s
 
 .text-percent-down{
   color: red;

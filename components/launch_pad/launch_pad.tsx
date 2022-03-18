@@ -99,7 +99,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     setDocumentTitle = (siteName: string) => {
         if (siteName) {
-            document.title = siteName;
+            document.title = 'Crypter';
         }
     }
 
@@ -271,6 +271,13 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     trend_render = () => {
         var trend = this.state.trendListing.map((filtered,i)=> {
             return (
+                <div>
+                    <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
+                    <label className='text-primary float-start' key={i+"trend-name"}>{filtered.name}<br></br>
+                    <p className='text-secondary small-font' key={i+"trend-symbol"}>{filtered.symbol}</p></label>
+                    {this.render_percent(filtered.percent_change_24h.toString())}
+                </div>
+                /*
                 <div className='d-flex'>
                     <div className='col-sm-2 removePadding'>
                         <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
@@ -283,7 +290,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                         <br></br>
                         {this.render_percent(filtered.percent_change_24h.toString())}
                     </div>
-                </div>
+                </div>*/
             )
         });
         return trend;
