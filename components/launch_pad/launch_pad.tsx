@@ -287,7 +287,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                 <input type="checkbox" id="list-item-1"></input>
                                                 <label htmlFor="list-item-1" className="first collapsible-label-title"><img src={rocketImage} className="sidemenu-title-img"></img>Launchpad</label>
                                                 <ul className='ul-collapse'>
-                                                    <li key='create-launchpad' className='sidemenu-padding'><div className={'list-sidemenu-a' + `${this.state.middleView === 'create-launchpad' ? 'active-item' : ''}`}><a href="#"  onClick={() => this.setState({middleView: 'create-launchpad'})} className='side-menu-item'>Create Launchpad</a></div></li>
+                                                    <li key='create-launchpad' className='sidemenu-padding'><div className={'list-sidemenu-a ' + `${this.state.middleView === 'create-launchpad' ? 'active-item' : ''}`}><a href="#"  onClick={() => this.setState({middleView: 'create-launchpad'})} className='side-menu-item'>Create Launchpad</a></div></li>
                                                     <li key='projects' className='sidemenu-padding'>
                                                         <input type="checkbox" id="list-item-2"></input>
                                                         <label htmlFor="list-item-2" className="first collapsible-label">Projects</label>
