@@ -1277,3 +1277,10 @@ input[type="checkbox"]:checked ~ ul{
 .border-bot-div{
   border-bottom: 1px solid #f2f5f9;
 }
+
+.active-item{
+  color: var(--text-primary);
+  border-radius: 20px;
+  width: 100%;
+  background: linear-gradient(135deg,#5ef67e3b, rgb(0 255 53 / 70%), #5ef67e3b);
+}

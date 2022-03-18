@@ -76,7 +76,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', middleView: '',img_path: homeImage,logo_url: [], data: [], newListing: [], trendListing: [], gainerListing:[]};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', middleView: 'create-launchpad',img_path: homeImage,logo_url: [], data: [], newListing: [], trendListing: [], gainerListing:[]};
     }
 
     componentDidMount(){
@@ -287,7 +287,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                 <input type="checkbox" id="list-item-1"></input>
                                                 <label htmlFor="list-item-1" className="first collapsible-label-title"><img src={rocketImage} className="sidemenu-title-img"></img>Launchpad</label>
                                                 <ul className='ul-collapse'>
-                                                    <li key='create-launchpad' className='sidemenu-padding'><div className='list-sidemenu-a'><a href="#"  onClick={() => this.setState({middleView: 'create-launchpad'})} className='side-menu-item'>Create Launchpad</a></div></li>
+                                                    <li key='create-launchpad' className='sidemenu-padding'><div className={'list-sidemenu-a' + `${this.state.middleView === 'create-launchpad' ? 'active-item' : ''}`}><a href="#"  onClick={() => this.setState({middleView: 'create-launchpad'})} className='side-menu-item'>Create Launchpad</a></div></li>
                                                     <li key='projects' className='sidemenu-padding'>
                                                         <input type="checkbox" id="list-item-2"></input>
                                                         <label htmlFor="list-item-2" className="first collapsible-label">Projects</label>
@@ -301,7 +301,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <label htmlFor="list-item-3" className="first collapsible-label">Crypter Lock</label>
                                                         <ul className='ul-collapse'>
                                                             <li key='create-lock'><div className='list-sidemenu-b'><a href="#" onClick={() => this.setState({middleView: 'create-lock'})} className='side-menu-item'>Create Lock</a></div></li>
-                                                            <li key='token'><div className='list-sidemenu-b'><a href="#" className='side-menu-item'>Token</a></div></li>
+                                                            <li key='token'><div className={'list-sidemenu-a ' + `${this.state.middleView === 'create-launchpad' ? 'active-item' : ''}`}><a href="#" className='side-menu-item'>Token</a></div></li>
                                                             <li key='liquidity'><div className='list-sidemenu-b'><a href="#" className='side-menu-item'>Liquidity</a></div></li>
                                                         </ul>
                                                     </li>
