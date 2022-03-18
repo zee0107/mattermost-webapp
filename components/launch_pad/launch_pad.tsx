@@ -91,31 +91,19 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         this.setState({isDark: ThemeValue});
 
         if(this.props.allCrypto != null){
-            Promise.resolve(this.props.allCrypto).then(value => {
-                console.log(value);
-                this.setState({data: value});
-            })
+            Promise.resolve(this.props.allCrypto).then(value => {this.setState({data: value});})
         }
 
         if(this.props.trendCrypto != null){
-            Promise.resolve(this.props.trendCrypto).then(value => {
-                console.log(value);
-                this.setState({trendListing: value});
-            })
+            Promise.resolve(this.props.trendCrypto).then(value => {this.setState({trendListing: value});})
         }
 
         if(this.props.gainerCrypto != null){
-            Promise.resolve(this.props.gainerCrypto).then(value => {
-                console.log(value);
-                this.setState({gainerListing: value});
-            })
+            Promise.resolve(this.props.gainerCrypto).then(value => {this.setState({gainerListing: value});})
         }
 
         if(this.props.newCrypto != null){
-            Promise.resolve(this.props.newCrypto).then(value => {
-                console.log(value);
-                this.setState({newListing: value});
-            })
+            Promise.resolve(this.props.newCrypto).then(value => {this.setState({newListing: value});})
         }
     }
 
@@ -194,7 +182,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             <div className='col-sm-5 removePadding text-end'>
                 <br></br>
                 {this.render_percent(filtered.percent_change_24h.toString())}
-                {/*<label className='currency-value-text small-font' key={i+"-gainer-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>*/}
             </div>
         </div>
         ))
@@ -213,8 +200,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             </div>
             <div className='col-sm-5 removePadding text-end'>
                 <br></br>
-                {this.render_percent(filtered.percent_change_24h.toString())}
-                {/*<label className='currency-value-text small-font' key={i+"-new-percent"}>{parseFloat(filtered.quote.USD.percent_change_24h).toFixed(2)}</label>*/}
+                {this.render_percent(filtered.percent_change_24h.toString())}                
             </div>
         </div>
         ))

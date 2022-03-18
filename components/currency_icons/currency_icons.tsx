@@ -26,8 +26,7 @@ export default class Icon extends React.PureComponent<Props>{
         uri.search = new URLSearchParams(sendData).toString();
     
         fetch(uri,config).then(response => response.json()).then(response => {
-            console.log(response);
-            this.setState({logo_url: response.data})
+            this.setState({logo_url: response})
         }).catch(function(error) {console.log(error);});  
     }
     
