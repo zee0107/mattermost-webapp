@@ -5,6 +5,7 @@ import React, {ReactNode, ReactPropTypes} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
+import fillImage from 'images/fill.svg';
 
 import homeImage from 'images/homeFeed.png';
 
