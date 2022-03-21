@@ -20,7 +20,7 @@ import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
 import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
 
-import ProjectsLive from './projects_live'
+import ProjectsUpcoming from './projects_upcoming'
 
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
@@ -36,7 +36,7 @@ function makeMapStateToProps() {
             autoResetPref: get(state, Preferences.CATEGORY_AUTO_RESET_MANUAL_STATUS, userId, ''),
             status: getStatusForUserId(state, userId),
             projects: Client4.getCryptoProjects(),
-            currencies: Client4.getCryptoData('ONGOING'),
+            currencies: Client4.getCryptoData('UPCOMING'),
             customStatus,
             currentUser,
             isCustomStatusEnabled: isCustomStatusEnabled(state),
@@ -61,4 +61,4 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
 }
 
 
-export default connect(makeMapStateToProps, mapDispatchToProps)(ProjectsLive);
+export default connect(makeMapStateToProps, mapDispatchToProps)(ProjectsUpcoming);

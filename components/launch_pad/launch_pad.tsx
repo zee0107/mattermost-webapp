@@ -11,6 +11,7 @@ import TrendingListComp from 'components/trending_crypto';
 import CreateLock from 'components/create_lock';
 import CreateToken from 'components/create_token';
 import ProjectLive from 'components/projects_live';
+import ProjectUpcoming from 'components/projects_upcoming';
 
 import homeImage from 'images/homeFeed.png';
 import rocketImage from 'images/rocket.svg';
@@ -233,6 +234,9 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         else if(this.state.middleView === "projects-live"){
             middleRender = <ProjectLive/>
         }
+        else if(this.state.middleView === "projects-upcoming"){
+            middleRender = <ProjectUpcoming/>
+        }
         else{
             middleRender = <CreateToken/>
         }
@@ -305,7 +309,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <label htmlFor="list-item-2" className="first collapsible-label">Projects</label>
                                                         <ul className='ul-collapse'>
                                                             <li key='live'><div className={'list-sidemenu-b ' + `${this.state.middleView === 'projects-live' ? 'active-item' : ''}`}><a href="#" onClick={() => this.setState({middleView: 'projects-live'})} className='side-menu-item'>Live</a></div></li>
-                                                            <li key='upcoming'><div className='list-sidemenu-b'><a href="#" className='side-menu-item'>Upcoming</a></div></li>
+                                                            <li key='upcoming'><div className={'list-sidemenu-b ' + `${this.state.middleView === 'projects-upcoming' ? 'active-item' : ''}`}><a href="#" onClick={() => this.setState({middleView: 'projects-upcoming'})} className='side-menu-item'>Upcoming</a></div></li>
                                                         </ul>
                                                     </li>
                                                     <li key='crypter-lock' className='sidemenu-padding'>

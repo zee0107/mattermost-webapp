@@ -88,11 +88,21 @@
     border-radius: 7px;
     margin-top: 15px;
 }
+
+.sale-upcoming-box{
+    padding: 5px 10px 5px 5px;
+    background: linear-gradient(135deg, #ff8c083b, #ff8c087e, #ff8c083b);
+    border-radius: 7px;
+    margin-top: 15px;
+}
   
 .align-svg{
     vertical-align: bottom;
 }
 
+.text-upcoming{
+    color: #ff8d08;
+}
 /*.button-anchor:hover:after{
     content: ' ';
     background: transparent;

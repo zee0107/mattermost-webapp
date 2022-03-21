@@ -3799,9 +3799,9 @@ export default class Client4 {
         );
     }
 
-    getCryptoProjects = () => {
+    getCryptoProjects = (status: string) => {
         return this.doFetch<ProjectList[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getprojects`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getprojects?status=${status}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
