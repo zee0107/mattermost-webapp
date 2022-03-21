@@ -82,7 +82,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
 
         var seconds = delta % 60;
 
-        const value = days.padStart(2, '0') + ":" + hours.padStart(2, '0')  + ":" + minutes.padStart(2, '0')  + ":" + seconds.padStart(2, '0');
+        const value = days.toString().padStart(2,"0") + ":" + hours.toString().padStart(2,"0")  + ":" + minutes.toString().padStart(2,"0")  + ":" + parseFloat(seconds.toString().padStart(2,"0")).toFixed(0);
 
         return (
             <div>
