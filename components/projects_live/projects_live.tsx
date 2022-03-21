@@ -86,7 +86,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
 
         return (
             <div>
-                <p className='text-secondary small'>Sale starts in:</p>
+                <p className='text-secondary small text-margin-0'>Sale starts in:</p>
                 <label className='text-primary'>{value}</label>
             </div>
         );
@@ -141,7 +141,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                     <hr></hr>
                                     <div className='d-flex'>
                                         <div className='col-md-6'>{this.renderTime(item.start_date)}</div>
-                                        <div className='col-md-6 text-end'><button type='button' className='btn buttonBgGreen'>View Pool</button></div>
+                                        <div className='col-md-6 text-end'><button type='button' className='btn view-pool-btn'>View Pool</button></div>
                                     </div>
                                 </div>
                             </div>

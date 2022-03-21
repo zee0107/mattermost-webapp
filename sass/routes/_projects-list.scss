@@ -61,6 +61,29 @@
   .text-end{
       text-align: end;
   }
+
+  .text-margin-0{
+      margin: 0px 0px 0px 0px;
+  }
+
+  .view-pool-btn{
+      background: linear-gradient(135deg, #5ef67e3b, rgba(137, 236, 146, 0.7), #5ef67e3b);
+      color: #ffffff;
+      border-radius: 20px !important;
+  }
+
+.view-pool-btn:hover{
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 233 109 / 60%);
+    color: #ffffff !important;
+}
+
+.view-pool-btn:focus{
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 233 109 / 60%);
+    color: #ffffff !important;
+}
+  
+
+
 /*.button-anchor:hover:after{
     content: ' ';
     background: transparent;
