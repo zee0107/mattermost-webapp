@@ -8,7 +8,6 @@ import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/
 import fillImage from 'images/fill.svg';
 import CurrencyIcons from 'components/currency_icons';
 import ProgressBar from 'components/progress_bar_new';
-import ProgressBar2 from 'components/progress_bar_java';
 
 import homeImage from 'images/homeFeed.png';
 
@@ -97,7 +96,6 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                     </p>
                                     <label className='text-percent'>1 {item.coin.symbol} - {item.total_prize} {item.coin.symbol}</label>
                                     <ProgressBar completed='50' min='1' max={item.total_prize.toString()}></ProgressBar>
-                                    <ProgressBar2 progress='50'></ProgressBar2>
                                 </div>
                             </div>
                         );

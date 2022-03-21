@@ -19,13 +19,21 @@ export default class Icon extends React.PureComponent<Props>{
     }
 
     render(): React.ReactNode {
+        
         const {
             completed,min,max
         } = this.props;
 
+        const fillerStyle ={
+            height: '100%',
+            width: `${completed}%`,
+            backgroundColor: '#44cc4b',
+            borderRadius: inherit,
+        }
+
         return(
             <div className='containter-bar'>
-                <div className='filler-bar'>
+                <div style={fillerStyle}>
                 <span
                     role="progressbar"
                     aria-valuenow={completed}
