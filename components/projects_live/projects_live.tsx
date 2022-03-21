@@ -115,10 +115,9 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                 </div>
                 <br></br>
                 <br></br>
-                <div className='col-md-12'>
-                    <div className='search-filter-box'>
+                <div className='col-md-12 search-filter-box'>
                         <div className='row'>
-                            <div className='col-md-6'>
+                            <div className='col-md-7'>
                                 <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
                             </div>
                             <div className='col-md-2'>
@@ -136,7 +135,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                     <option value='end'>End Date</option>
                                 </select>
                             </div>
-                            <div className='col-md-2'>
+                            <div className='col-md-1'>
                                 
                             </div>
                         </div>
