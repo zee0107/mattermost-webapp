@@ -2,28 +2,11 @@ import { minBy } from 'lodash';
 import React from 'react'
 
 const ProgressBar = (props) => {
-    const { bgcolor, completed,min,max } = props;
-  
-  // styles...
-    const containerStyles = {
-        height: 20,
-        width: '100%',
-        backgroundColor: "transparent",
-        borderRadius: 50,
-        margin: 50
-    }
+    const { bgcolor, completed,min,max } = props;  
 
-    const fillerStyles = {
-        height: '100%',
-        width: '0px',
-        backgroundColor: '#44cc4b',
-        borderRadius: 'inherit',
-        textAlign: 'right'
-    }
-  
     return (
-      <div style={containerStyles}>
-        <div style={fillerStyles}>
+      <div className='containter-bar'>
+        <div className='filler-bar'>
           <span
               style={labelStyles}>{`${completed}%`}
               role="progressbar"

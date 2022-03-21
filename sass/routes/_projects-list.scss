@@ -43,6 +43,22 @@
     margin-top: 10px;
     padding: 10px;
   }
+
+  .containter-bar{
+    height: 20px,
+    width: 100%,
+    background-color: transparent,
+    border-radius: 50px,
+    margin: 50px,
+  }
+
+  .fillter-bar{
+    height: 100%,
+    width: 0px,
+    background-color: #44cc4b,
+    border-radius: inherit,
+    text-align: 'right'
+  }
 /*.button-anchor:hover:after{
     content: ' ';
     background: transparent;
