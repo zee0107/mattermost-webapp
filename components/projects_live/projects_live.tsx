@@ -71,6 +71,28 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                 </div>
                 <br></br>
                 <br></br>
+                <div className='col-md-12'>
+                    <div className='search-filter-box'>
+                        <div className='row'>
+                            <input id='seachInput' type='text' className='form-control custom-token-input' placeholder='Enter Token Name or Token Symbol'></input>
+                            <div>
+                                <label className='small text-secondary'>filter By</label>
+                                <select id='fitlerInput' className='form-control custom-token-input'>
+                                    <option value='live' selected>live</option>
+                                    <option value='ended' selected>Sale Ended</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label className='small text-secondary'>Sort By</label>
+                                <select id='sortFilter' className='form-control custom-token-input'>
+                                    <option value='' selected>No filters</option>
+                                    <option value='start'>Start Date</option>
+                                    <option value='end'>End Date</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {/*<div id='create-lock' className='col-md-12 create-token-box'>
                     <div className='col-md-12'>
                         <h4 className='text-primary'>Create Your Lock</h4>

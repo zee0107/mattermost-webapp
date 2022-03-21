@@ -3,8 +3,8 @@
     background-size: cover;
     color: #44cc4b !important;
     border: transparent;
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
+    margin: 0px 5px 0px 0px;
+    padding: 5px 5px 5px 5px;
 }
 
 .button-anchor:hover{
@@ -13,9 +13,16 @@
     color: #44cc4b !important;
     border: transparent;
     border-bottom: 1px solid #44cc4b;
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
+    margin: 0px 5px 0px 0px;
+    padding: 5px 5px 5px 5px;
 }
+
+.search-filter-box{
+    border-radius: 7px;
+    background-color: var(--bgDiv);
+    margin-top: 10px;
+    padding: 10px;
+  }
 
 /*.button-anchor:hover:after{
     content: ' ';
