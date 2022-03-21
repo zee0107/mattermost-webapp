@@ -7,6 +7,7 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import fillImage from 'images/fill.svg';
 import CurrencyIcons from 'components/currency_icons';
+import ProgressBar from 'components/progress_bar';
 
 import homeImage from 'images/homeFeed.png';
 
@@ -93,7 +94,8 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                     <p className='small text-secondary'>
                                         Soft Cap/Hard Cap
                                     </p>
-                                    <h5 className='text-percent'>1 {item.coin.symbol} - {item.total_prize} {item.coin.symbol}</h5>
+                                    <label className='text-percent'>1 {item.coin.symbol} - {item.total_prize} {item.coin.symbol}</label>
+                                    <ProgressBar bgcolor={'#44cc4b'} completed={0} min={1} max={item.total_prize}></ProgressBar>
                                 </div>
                             </div>
                         );
