@@ -71,8 +71,8 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                 <div className='row'>
                     {this.state.data.map((item,key) => {
                         return(
-                            <div className='col-md-4 project-item-box'>
-                                <div className='col-md-12'>
+                            <div className='col-md-4'>
+                                <div className='col-md-12 project-item-box'>
                                     <div className='d-flex'>
                                         <div className='col-md-2'>
                                             <CurrencyIcons code={item.coin.symbol.toString()}></CurrencyIcons>
