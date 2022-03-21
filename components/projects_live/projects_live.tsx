@@ -116,28 +116,27 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                 <br></br>
                 <br></br>
                 <div className='col-md-12 search-filter-box'>
-                        <div className='row'>
-                            <div className='col-md-7'>
-                                <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
-                            </div>
-                            <div className='col-md-2'>
-                            <label className='small text-secondary'>filter By</label>
-                                <select id='fitlerInput' className='form-control custom-token-input'>
-                                    <option value='live' selected>live</option>
-                                    <option value='ended' selected>Sale Ended</option>
-                                </select>
-                            </div>
-                            <div className='col-md-2'>
-                            <label className='small text-secondary'>Sort By</label>
-                                <select id='sortFilter' className='form-control custom-token-input'>
-                                    <option value='' selected>No filters</option>
-                                    <option value='start'>Start Date</option>
-                                    <option value='end'>End Date</option>
-                                </select>
-                            </div>
-                            <div className='col-md-1'>
+                    <div className='row'>
+                        <div className='col-md-7'>
+                            <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
+                           </div>
+                        <div className='col-md-2'>
+                        <label className='small text-secondary'>filter By</label>
+                            <select id='fitlerInput' className='form-control custom-token-input'>
+                                <option value='live'selected>live</option>
+                                <option value='ended' >Sale Ended</option>
+                            </select>
+                        </div>
+                        <div className='col-md-2'>
+                        <label className='small text-secondary'>Sort By</label>
+                            <select id='sortFilter' className='form-control custom-token-input'>
+                                <option value='' selected>No filters</option>
+                                <option value='start'>Start Date</option>
+                                <option value='end'>End Date</option>
+                            </select>
+                        </div>
+                        <div className='col-md-1'>
                                 
-                            </div>
                         </div>
                     </div>
                 </div>
