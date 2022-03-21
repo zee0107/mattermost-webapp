@@ -37,6 +37,12 @@
     }
   }
 
+  .project-item-box{
+    border-radius: 7px;
+    background-color: var(--bgDiv);
+    margin-top: 10px;
+    padding: 10px;
+  }
 /*.button-anchor:hover:after{
     content: ' ';
     background: transparent;

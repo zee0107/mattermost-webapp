@@ -71,12 +71,12 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                 <div className='row'>
                     {this.state.data.map((item,key) => {
                         return(
-                            <div className='col-md-4'>
-                                <div className='row'>
-                                    <div className='col-md-4'>
+                            <div className='col-md-4 project-item-box'>
+                                <div className='d-flex'>
+                                    <div className='col-md-2'>
                                         <CurrencyIcons code={item.coin.symbol.toString()}></CurrencyIcons>
                                     </div>
-                                    <div className='col-md-8'>
+                                    <div className='col-md-10'>
                                         
                                     </div>
                                 </div>
@@ -84,10 +84,14 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                 {this.state.listing.filter(dataMap => dataMap.symbol === item.coin.symbol).map((value,index) => {
                                     return(
                                         <div>
-                                            <label className='text-secondary small'>1 {value.symbol} - {parseFloat(value.price)} USD</label>
+                                            <label className='text-secondary small'>1 {value.symbol} - {parseFloat(value.price).toFixed(15)} USD</label>
                                         </div>
                                     );
                                 })}
+                                <p className='small text-secondary'>
+                                    Soft Cap/Hard Cap
+                                </p>
+                                <h5 className='text-percent'>1 {item.coin.symbol} - {item.total_prize} {item.coin.symbol}</h5>
                             </div>
                         );
                     })}
