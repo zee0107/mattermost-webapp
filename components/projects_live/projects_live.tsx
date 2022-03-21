@@ -106,7 +106,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         return (
             <div className='margin-top-20'>
-                <div className='col-md-12 removePadding'>
+                <div className='col-md-12'>
                     <button type='button' className='btn button-anchor'>All Laucnhpads</button>
                     <button type='button' className='btn button-anchor'>My Contributiions</button>
                     <button type='button' className='btn buttonBgGreen create-lock-btn'>Connect</button>
@@ -115,68 +115,34 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                 </div>
                 <br></br>
                 <br></br>
-                <div className='col-md-12 search-filter-box'>
-                    <div className='row'>
-                        <div className='col-md-7'>
-                            <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
-                           </div>
-                        <div className='col-md-2'>
-                        <label className='small text-secondary'>filter By</label>
-                            <select id='fitlerInput' className='form-control custom-token-input'>
-                                <option value='live'selected>live</option>
-                                <option value='ended' >Sale Ended</option>
-                            </select>
-                        </div>
-                        <div className='col-md-2'>
-                        <label className='small text-secondary'>Sort By</label>
-                            <select id='sortFilter' className='form-control custom-token-input'>
-                                <option value='' selected>No filters</option>
-                                <option value='start'>Start Date</option>
-                                <option value='end'>End Date</option>
-                            </select>
-                        </div>
-                        <div className='col-md-1'>
-                                
+                <div className='col-md-12'>
+                    <div className='search-filter-box'>
+                        <div className='row'>
+                            <div className='col-md-7'>
+                                <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
+                            </div>
+                            <div className='col-md-2'>
+                            <label className='small text-secondary'>filter By</label>
+                                <select id='fitlerInput' className='form-control custom-token-input'>
+                                    <option value='live'selected>Live</option>
+                                    <option value='ended' >Sale Ended</option>
+                                </select>
+                            </div>
+                            <div className='col-md-2'>
+                            <label className='small text-secondary'>Sort By</label>
+                                <select id='sortFilter' className='form-control custom-token-input'>
+                                    <option value='' selected>No filters</option>
+                                    <option value='start'>Start Date</option>
+                                    <option value='end'>End Date</option>
+                                </select>
+                            </div>
+                            <div className='col-md-1'>
+                                    
+                            </div>
                         </div>
                     </div>
                 </div>
                 {this.projectList()}
-                {/*<div id='create-lock' className='col-md-12 create-token-box'>
-                    <div className='col-md-12'>
-                        <h4 className='text-primary'>Create Your Lock</h4>
-                    </div>
-                    <div className='col-md-12 removePadding border-bot-div'></div>
-                    <div className='col-md-12'>
-                        <div className='create-lock-input'>
-                            <h5 className='text-secondary'>PinkSale is Audited by Certik</h5>
-                            <input type='text' className='form-control custom-token-input' placeholder='Ex. https://leaderboard.certik.io/group/links'></input>
-                        </div>
-                        <div className='create-lock-input'>
-                            <h5 className='text-secondary'>Token or LP Token Address</h5>
-                            <input type='text' className='form-control custom-token-input' placeholder='Token or LP Token Address'></input>
-                        </div>
-                        <div className='create-lock-input'>
-                            <h5 className='text-secondary'>* Amount</h5>
-                            <input type='text' className='form-control custom-token-input' placeholder='Ex. PinkMoon'></input>
-                        </div>
-                        <div className='create-lock-input'>
-                            <h5 className='text-secondary'>Lock Until</h5>
-                            <input type='date' className='form-control custom-token-input' placeholder='Select Time'></input>
-                        </div>
-                        <div className='info-lock-box'>
-                            <p className='small-font'>we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process.</p>
-                        </div>
-                        <div className='text-center create-lock-input'>
-                            <label className='text-secondary'>You will pay <label className='text-percent'>0.00</label> BTC</label>
-                            <br></br>
-                            <button type='button' className='btn buttonBgWhite'>LOCK</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div className='col-lg-12 text-center margin-top-30-responsive'>
-                    <label className='text-secondary small'>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences.</label>
-                </div>*/}
             </div>
         );
     }
