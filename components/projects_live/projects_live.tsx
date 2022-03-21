@@ -7,7 +7,7 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import fillImage from 'images/fill.svg';
 import CurrencyIcons from 'components/currency_icons';
-import ProgressBar from 'components/progress_bar';
+import ProgressBar from 'components/progress_bar_new';
 
 import homeImage from 'images/homeFeed.png';
 
@@ -95,7 +95,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         Soft Cap/Hard Cap
                                     </p>
                                     <label className='text-percent'>1 {item.coin.symbol} - {item.total_prize} {item.coin.symbol}</label>
-                                    <ProgressBar completed={'0'} min={'1'} max={item.total_prize}></ProgressBar>
+                                    <ProgressBar completed='0' min='1' max={item.total_prize.toString()}></ProgressBar>
                                 </div>
                             </div>
                         );
@@ -126,14 +126,14 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                             <div className='col-md-2'>
                             <label className='small text-secondary'>filter By</label>
                                 <select id='fitlerInput' className='form-control custom-token-input'>
-                                    <option value='live'selected>Live</option>
+                                    <option value='live'>Live</option>
                                     <option value='ended' >Sale Ended</option>
                                 </select>
                             </div>
                             <div className='col-md-2'>
                             <label className='small text-secondary'>Sort By</label>
                                 <select id='sortFilter' className='form-control custom-token-input'>
-                                    <option value='' selected>No filters</option>
+                                    <option value=''>No filters</option>
                                     <option value='start'>Start Date</option>
                                     <option value='end'>End Date</option>
                                 </select>

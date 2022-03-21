@@ -1,8 +1,7 @@
-import { minBy } from 'lodash';
 import React from 'react'
 
-const ProgressBar = (props) => {
-    const { bgcolor, completed,min,max } = props;  
+const ProgressBarNew = (props) => {
+    const { completed,min,max } = props;  
 
     return (
       <div className='containter-bar'>
@@ -19,4 +18,4 @@ const ProgressBar = (props) => {
     );
   };
   
-  export default ProgressBar;
+  export default ProgressBarNew;
