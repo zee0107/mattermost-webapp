@@ -12,13 +12,13 @@ import ProgressBar from 'components/progress_bar_new';
 import homeImage from 'images/homeFeed.png';
 
 import {ModalData} from 'types/actions';
-import { AllListing, ProjectList } from 'mattermost-redux/types/crypto';
+import { AllListing, ProjectList, ProjectsUpcomingList } from 'mattermost-redux/types/crypto';
 
 type Props = {
     status?: string;
     userId: string;
     autoResetPref?: string;
-    projects: Promise<ProjectList[]>;
+    projects: Promise<ProjectsUpcomingList[]>;
     currencies: Promise<AllListing[]>;
     actions: {
         openModal: <P>(modalData: ModalData<P>) => void;

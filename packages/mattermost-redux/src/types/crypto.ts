@@ -130,3 +130,24 @@ export type ProjectList = {
     winner_count: string,
     link: string,
 }
+
+export type CoinsUpcoming = {
+    id: string,
+    name: string,
+    slug: string,
+    symbol: string,
+}
+
+export type ProjectsUpcomingList = {
+    id: string,
+    project_name: string,
+    description: string,
+    status: string,
+    coin: CoinsUpcoming,
+    start_date: string,
+    end_date: string,
+    total_prize: string,
+    winner_count: string,
+    link: string,
+}
+
