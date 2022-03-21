@@ -45,11 +45,10 @@
   }
 
   .containter-bar{
-    height: 20px;
+    height: 10px;
     width: 100%;
-    background-color: transparent;
+    background-color: #f2f5f9;
     border-radius: 50px;
-    margin: 50px;
   }
 
   .filler-bar{
@@ -57,7 +56,6 @@
     width: 0px;
     background-color: #44cc4b;
     border-radius: inherit;
-    text-align: 'right';
   }
 /*.button-anchor:hover:after{
     content: ' ';

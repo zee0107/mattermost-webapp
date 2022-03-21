@@ -29,8 +29,8 @@ export default class Icon extends React.PureComponent<Props>{
                 <span
                     role="progressbar"
                     aria-valuenow={completed}
-                    aria-valuemin={min}
-                    aria-valuemax={max} >
+                    aria-valuemin='1'
+                    aria-valuemax='100' >
                 </span>
                 </div>
             </div>
