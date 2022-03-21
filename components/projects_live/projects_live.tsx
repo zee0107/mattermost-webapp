@@ -8,7 +8,7 @@ import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/
 import fillImage from 'images/fill.svg';
 import CurrencyIcons from 'components/currency_icons';
 import ProgressBar from 'components/progress_bar_new';
-import ProgressBar2 from 'components/progress_bar';
+import ProgressBar2 from 'components/progress_bar_java';
 
 import homeImage from 'images/homeFeed.png';
 
