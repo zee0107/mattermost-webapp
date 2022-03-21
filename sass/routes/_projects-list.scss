@@ -3,10 +3,17 @@
     background-size: cover;
     color: #44cc4b !important;
     border: transparent;
-    margin-top: 8px;
 }
 
-.button-anchor:hover:after{
+.button-ancho:hover{
+    background: transparent;
+    background-size: cover;
+    color: #44cc4b !important;
+    border: transparent;
+    border-bottom: 1px solid #44cc4b;
+}
+
+/*.button-anchor:hover:after{
     content: ' ';
     background: transparent;
     background-size: cover;
@@ -17,4 +24,4 @@
     left: 10%;
     border-bottom: 1px solid #44cc4b;
     margin-top: 8px;
-}
+}*/
