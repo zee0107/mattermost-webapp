@@ -10,6 +10,7 @@ import CurrencyIcons from 'components/currency_icons';
 import TrendingListComp from 'components/trending_crypto';
 import CreateLock from 'components/create_lock';
 import CreateToken from 'components/create_token';
+import ProjectLive from 'components/projects_live';
 
 import homeImage from 'images/homeFeed.png';
 import rocketImage from 'images/rocket.svg';
@@ -292,7 +293,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                                         <input type="checkbox" id="list-item-2"></input>
                                                         <label htmlFor="list-item-2" className="first collapsible-label">Projects</label>
                                                         <ul className='ul-collapse'>
-                                                            <li key='live'><div className='list-sidemenu-b'><a href="#" className='side-menu-item'>Live</a></div></li>
+                                                            <li key='live'><div className={'list-sidemenu-b ' + `${this.state.middleView === 'projects-live' ? 'active-item' : ''}`}><a href="#" onClick={() => this.setState({middleView: 'projects-live'})} className='side-menu-item'>Live</a></div></li>
                                                             <li key='upcoming'><div className='list-sidemenu-b'><a href="#" className='side-menu-item'>Upcoming</a></div></li>
                                                         </ul>
                                                     </li>

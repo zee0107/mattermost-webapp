@@ -110,3 +110,23 @@ export type NewListing = {
     circulating_supply: string,
     max_supply: string,
 }
+
+export type Coins = {
+    id: string,
+    name: string,
+    slug: string,
+    symbol: string,
+}
+
+export type ProjectList = {
+    id: string,
+    project_name: string,
+    description: string,
+    status: string,
+    coin: Coins,
+    start_date: string,
+    end_date: string,
+    total_prize: string,
+    winner_count: string,
+    link: string,
+}
