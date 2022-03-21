@@ -65,7 +65,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         }
     }
 
-    ProjectList = () =>{
+    projectList = () =>{
         return (
             <div className='col-md-12'>
                 <div className='row'>
@@ -135,6 +135,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                 </div>
+                {this.projectList()}
                 {/*<div id='create-lock' className='col-md-12 create-token-box'>
                     <div className='col-md-12'>
                         <h4 className='text-primary'>Create Your Lock</h4>
