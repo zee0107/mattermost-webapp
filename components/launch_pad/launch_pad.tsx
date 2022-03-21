@@ -261,7 +261,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                     <div className='col-lg-12 bodyBgElipseLaunchpad bgGrey removePadding'>
-                        <div className='wrap-launchpad-section'>
+                        <div>
                             <div className='col-lg-12 removePadding'>
                                 <div className='row'>
                                     <div className='col-sm-3' id='side_menu_left'>
