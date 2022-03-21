@@ -225,6 +225,17 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
+        
+        let middleRender;
+        if(this.state.middleView === "crypter-lock"){
+            middleRender = <CreateLock/>
+        }
+        else if(this.state.middleView === "projects-live"){
+            middleRender = <ProjectLive/>
+        }
+        else{
+            middleRender = <CreateToken/>
+        }
         let btcContent;
         let ltcContent;
         let ethContent;
@@ -343,9 +354,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-sm-6'>
-                                        {this.state.middleView === 'create-lock' && <CreateLock/>}
-                                        {this.state.middleView === 'create-token' && <CreateToken/>}
-                                        {this.state.middleView === 'Projects-Live' && <ProjectLive/>}
+                                        {middleRender}
                                     </div>
                                     <div className='col-sm-3' id="side_menu_right">
                                         {btcContent}
