@@ -6,17 +6,19 @@ import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import fillImage from 'images/fill.svg';
+import CurrencyIcons from 'components/currency_icons';
 
 import homeImage from 'images/homeFeed.png';
 
 import {ModalData} from 'types/actions';
-import { ProjectList } from 'mattermost-redux/types/crypto';
+import { AllListing, ProjectList } from 'mattermost-redux/types/crypto';
 
 type Props = {
     status?: string;
     userId: string;
     autoResetPref?: string;
     projects: Promise<ProjectList[]>;
+    currencies: Promise<AllListing[]>;
     actions: {
         openModal: <P>(modalData: ModalData<P>) => void;
         setStatus: (status: UserStatus) => ActionFunc;
@@ -47,7 +49,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: []};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: [],listing: []};
     }
 
     componentDidMount(){
@@ -57,6 +59,41 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         if(this.props.projects != null){
             Promise.resolve(this.props.projects).then(value => {this.setState({data: value});})
         }
+
+        if(this.props.currencies != null){
+            Promise.resolve(this.props.currencies).then(value => {this.setState({listing: value});})
+        }
+    }
+
+    ProjectList = () =>{
+        return (
+            <div className='col-md-12'>
+                <div className='row'>
+                    {this.state.data.map((item,key) => {
+                        return(
+                            <div className='col-md-4'>
+                                <div className='row'>
+                                    <div className='col-md-4'>
+                                        <CurrencyIcons code={item.coin.symbol.toString()}></CurrencyIcons>
+                                    </div>
+                                    <div className='col-md-8'>
+                                        
+                                    </div>
+                                </div>
+                                <h5 className='text-primary'>{item.project_name}</h5>
+                                {this.state.listing.filter(dataMap => dataMap.symbol === item.coin.symbol).map((value,index) => {
+                                    return(
+                                        <div>
+                                            <label className='text-secondary small'>1 {value.symbol} - {parseFloat(value.price)} USD</label>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        );
     }
 
     render= (): JSX.Element => {
@@ -74,17 +111,17 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                 <div className='col-md-12'>
                     <div className='search-filter-box'>
                         <div className='row'>
-                            <div className='col-md-4'>
-                                <input id='seachInput' type='text' className='form-control custom-token-input' placeholder='Enter Token Name or Token Symbol'></input>
+                            <div className='col-md-6'>
+                                <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
                             </div>
-                            <div className='col-md-3'>
+                            <div className='col-md-2'>
                             <label className='small text-secondary'>filter By</label>
                                 <select id='fitlerInput' className='form-control custom-token-input'>
                                     <option value='live' selected>live</option>
                                     <option value='ended' selected>Sale Ended</option>
                                 </select>
                             </div>
-                            <div className='col-md-3'>
+                            <div className='col-md-2'>
                             <label className='small text-secondary'>Sort By</label>
                                 <select id='sortFilter' className='form-control custom-token-input'>
                                     <option value='' selected>No filters</option>

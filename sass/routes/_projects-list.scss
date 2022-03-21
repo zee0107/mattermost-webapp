@@ -24,6 +24,19 @@
     padding: 10px;
   }
 
+  .search-filter-input{
+    background: var(--background);
+    color: var(--input-color-text);
+    border: transparent !important;
+    padding: 20px;
+    margin-top: 10px;
+
+    @media (max-width: 768px) {
+        padding: auto;
+        margin-top: auto;
+    }
+  }
+
 /*.button-anchor:hover:after{
     content: ' ';
     background: transparent;
