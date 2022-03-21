@@ -66,6 +66,32 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         }
     }
 
+    renderTime = (date: string) =>{
+        var dateNow = new Date();
+        var dateConverted = Date.parse(date.toString());
+
+        var delta = Math.abs(dateConverted - dateNow) / 1000;
+        var days = Math.floor(delta / 86400);
+        delta -= days * 86400;
+
+        var hours = Math.floor(delta / 3600) % 24;
+        delta -= hours * 3600;
+
+        var minutes = Math.floor(delta / 60) % 60;
+        delta -= minutes * 60;
+
+        var seconds = delta % 60;
+
+        const value = days + ":" + hours  + ":" + minutes  + ":" + seconds;
+
+        return (
+            <div>
+                <p className='text-secondary small'>Sale starts in:</p>
+                <label className='text-primary'>{value}</label>
+            </div>
+        );
+    } 
+
     projectList = () =>{
         return (
             <div className='col-md-12'>
@@ -105,14 +131,18 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         <div className='col-md-6 text-end'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
                                     </div>
                                     <div className='d-flex'>
-                                        <div className='col-md-6'><p className='small text-secondary' >Liquidity %:</p></div>
-                                        <div className='col-md-6 text-end'><p className='small text-secondary' >51%</p></div>
+                                        <div className='col-md-6'><label className='small text-primary' >Liquidity %:</label></div>
+                                        <div className='col-md-6 text-end'><label className='small text-primary' >51%</label></div>
                                     </div>
                                     <div className='d-flex'>
-                                        <div className='col-md-6'><p className='small text-secondary' >Lockup Time</p></div>
-                                        <div className='col-md-6 text-end'><p className='small text-secondary' >180 days</p></div>
+                                        <div className='col-md-6'><label className='small text-primary' >Lockup Time</label></div>
+                                        <div className='col-md-6 text-end'><label className='small text-primary' >180 days</label></div>
                                     </div>
                                     <hr></hr>
+                                    <div className='d-flex'>
+                                        <div className='col-md-6'>{this.renderTime(item.start_date)}</div>
+                                        <div className='col-md-6 text-end'><button type='button' className='btn buttonBgGreen'>View Pool</button></div>
+                                    </div>
                                 </div>
                             </div>
                         );
