@@ -20,7 +20,6 @@ const RightControlsContainer = styled.div`
     align-items: center;
     height: 40px;
     flex-shrink: 0;
-    margin-right: 18%;
     > * + * {
         margin-left: 8px;
     }

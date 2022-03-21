@@ -20,7 +20,6 @@ const GlobalHeaderContainer = styled.header`
     height: 70px;
     background: var(--bgDiv);
     color: var(--text-primary);
-    padding: 0 12px;
     z-index: 100;
 
     > * + * {
