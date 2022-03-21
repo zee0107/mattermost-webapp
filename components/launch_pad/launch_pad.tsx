@@ -343,7 +343,9 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-sm-6'>
-                                        {this.state.middleView === 'create-lock' ? <CreateLock/> : <CreateToken/>}
+                                        {this.state.middleView === 'create-lock' && <CreateLock/>}
+                                        {this.state.middleView === 'create-token' && <CreateToken/>}
+                                        {this.state.middleView === 'Projects-Live' && <ProjectLive/>}
                                     </div>
                                     <div className='col-sm-3' id="side_menu_right">
                                         {btcContent}
