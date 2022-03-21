@@ -28,7 +28,7 @@ export default class Icon extends React.PureComponent<Props>{
             height: '100%',
             width: `${completed}%`,
             backgroundColor: '#44cc4b',
-            borderRadius: inherit,
+            borderRadius: 'inherit',
         }
 
         return(

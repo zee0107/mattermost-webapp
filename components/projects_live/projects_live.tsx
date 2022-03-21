@@ -95,6 +95,8 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         Soft Cap/Hard Cap
                                     </p>
                                     <label className='text-percent'>1 {item.coin.symbol} - {item.total_prize} {item.coin.symbol}</label>
+                                    <br></br>
+                                    <p className='small text-secondary'>Progress (0.00%)</p>
                                     <ProgressBar completed='50' min='1' max={item.total_prize.toString()}></ProgressBar>
                                 </div>
                             </div>
