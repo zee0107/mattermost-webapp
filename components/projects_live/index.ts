@@ -36,7 +36,6 @@ function makeMapStateToProps() {
             autoResetPref: get(state, Preferences.CATEGORY_AUTO_RESET_MANUAL_STATUS, userId, ''),
             status: getStatusForUserId(state, userId),
             projects: Client4.getCryptoProjectsAll(),
-            currencies: Client4.getCryptoData(),
             customStatus,
             currentUser,
             isCustomStatusEnabled: isCustomStatusEnabled(state),

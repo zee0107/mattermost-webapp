@@ -20,7 +20,6 @@ type Props = {
     userId: string;
     autoResetPref?: string;
     projects: Promise<ProjectsUpcomingList[]>;
-    currencies: Promise<AllListing[]>;
     actions: {
         openModal: <P>(modalData: ModalData<P>) => void;
         setStatus: (status: UserStatus) => ActionFunc;
@@ -51,7 +50,7 @@ export default class ProjectsUpcoming extends React.PureComponent<Props, State> 
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: [],listing: []};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: []};
     }
 
     componentDidMount(){
@@ -60,10 +59,6 @@ export default class ProjectsUpcoming extends React.PureComponent<Props, State> 
 
         if(this.props.projects != null){
             Promise.resolve(this.props.projects).then(value => {this.setState({data: value});})
-        }
-
-        if(this.props.currencies != null){
-            Promise.resolve(this.props.currencies).then(value => {this.setState({listing: value});})
         }
     }
 
@@ -113,13 +108,6 @@ export default class ProjectsUpcoming extends React.PureComponent<Props, State> 
                                     </div>
                                     <div className='col-md-12'>
                                         <h5 className='text-primary' key={key + item.coin.symbol + '-name'}>{item.project_name}</h5>
-                                        {/*this.state.listing.filter(dataMap => dataMap.symbol === item.coin.symbol).map((value,index) => {
-                                            return(
-                                                <div>
-                                                    <label className='text-secondary small'key={index + value.symbol + '-range'}>1 {value.symbol} - {parseFloat(value.price).toFixed(15)} USD</label>
-                                                </div>
-                                            );
-                                        })*/}
                                         <CurrencyCap symbol={item.coin.symbol} />
                                         <br></br>
                                         <p className='small text-secondary'>
