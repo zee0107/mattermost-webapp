@@ -48,8 +48,8 @@ export default class RightDetails extends React.PureComponent<Props>{
                     </div>)
         }else{
             return (<div>
-                        <h3 className='text-secondary' key={this.state.data.symbol+"_price"}>{parseFloat(Filtered.price).toFixed(2)}</h3>
-                        <p className='text-percent-down' key={i+this.state.data.symbol+"_24h"}><img src={trenddownImage}></img> {parseFloat(this.state.data.percent_change_24h).toFixed(2)*(-1)}%</p>
+                        <h3 className='text-secondary' key={this.state.data.symbol+"_price"}>{parseFloat(this.state.data.price).toFixed(2)}</h3>
+                        <p className='text-percent-down' key={this.state.data.symbol+"_24h"}><img src={trenddownImage}></img> {parseFloat(this.state.data.percent_change_24h).toFixed(2)*(-1)}%</p>
                     </div>)
         }
     }
