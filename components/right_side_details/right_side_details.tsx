@@ -34,7 +34,6 @@ export default class RSDetails extends React.PureComponent<Props, State> {
         const config = {
             method: "GET"
         }
-        
         const sendData={symbol: this.props.symbol};
         uri.search = new URLSearchParams(sendData).toString();
 
