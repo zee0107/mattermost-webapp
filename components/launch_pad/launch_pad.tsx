@@ -43,7 +43,7 @@ type Props = {
     userId: string;
     profilePicture: string;
     autoResetPref?: string;
-    allCrypto: Promise<AllListing[]>;
+    //allCrypto: Promise<AllListing[]>;
     trendCrypto: Promise<TrendListing[]>;
     newCrypto: Promise<NewListing[]>;
     gainerCrypto: Promise<GainerListing[]>;
