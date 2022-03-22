@@ -26,7 +26,7 @@ type Props = {
      * Relative url for the team, used to redirect if a link in the channel header is clicked
      */
     currentRelativeTeamUrl?: string;
-
+    isDark: string;
     inGlobalThreads?: boolean;
     isMobileView: boolean;
     isMuted?: boolean;

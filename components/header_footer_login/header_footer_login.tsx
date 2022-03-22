@@ -24,6 +24,7 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import {ModalData} from 'types/actions';
 import SidebarRightMenu from 'components/sidebar_right_menu';
+import Sidebar from 'components/sidebar';
 
 type Props = {
     userId: string;
@@ -178,6 +179,7 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
             <div className='inner-wrap' data-theme={this.state.isDark}>
                 <ModalController/>
                 <SidebarRightMenu/>
+                <Sidebar/>
                 <div key='inner-wrap' className={classNames('inner-wrap', 'channel__wrap', {'move--right': this.props.lhsOpen,'move--left': this.props.rhsOpen,'move--left-small': this.props.rhsMenuOpen,})}>
                     <div className='row header'>
                         <div id='navbar_wrapper'>
