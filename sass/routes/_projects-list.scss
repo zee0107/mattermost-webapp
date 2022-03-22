@@ -114,6 +114,34 @@
 .text-ended{
     color: #783efd;
 }
+
+@media (max-width: 768px) {
+    #desktopProjectMenu{
+        display: none;
+    }
+
+    #desktopProjectFilter{
+        display: none;
+    }
+
+    #mobileProjectFilter{
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    #desktopProjectMenu{
+        display: block;
+    }
+
+    #desktopProjectFilter{
+        display: block;
+    }
+
+    #mobileProjectFilter{
+        display: none;
+    }
+}
 /*.button-anchor:hover:after{
     content: ' ';
     background: transparent;

@@ -336,7 +336,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
 
         return (
             <div className='margin-top-20'>
-                <div className='col-md-12'>
+                <div id='desktopProjectMenu' className='col-md-12'>
                     <button type='button' className='btn button-anchor'>All Laucnhpads</button>
                     <button type='button' className='btn button-anchor'>My Contributiions</button>
                     <button type='button' className='btn buttonBgGreen create-lock-btn'>Connect</button>
@@ -345,14 +345,14 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                 </div>
                 <br></br>
                 <br></br>
-                <div className='col-md-12'>
+                <div id='desktopProjectFilter' className='col-md-12'>
                     <div className='search-filter-box'>
                         <div className='row'>
                             <div className='col-md-7'>
                                 <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
                             </div>
                             <div className='col-md-2'>
-                            <label className='small text-secondary'>filter By</label>
+                                <label className='small text-secondary'>filter By</label>
                                 <select id='fitlerInput' onChange={this.changeFilter} value={this.state.filter} className='form-control custom-token-input'>
                                     <option value='all'>All Status</option>
                                     <option value='live'>Live</option>
@@ -362,7 +362,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                 </select>
                             </div>
                             <div className='col-md-2'>
-                            <label className='small text-secondary'>Sort By</label>
+                                <label className='small text-secondary'>Sort By</label>
                                 <select id='sortFilter' className='form-control custom-token-input'>
                                     <option value=''>No filters</option>
                                     <option value='start'>Start Date</option>
@@ -372,6 +372,30 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                             <div className='col-md-1'>
                                     
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id='mobileProjectFilter' className='col-md-12'>
+                    <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
+                    <div className='d-flex'>
+                        <div className='col-md-6'>
+                            <label className='small text-secondary'>filter By</label>
+                            <select id='fitlerInput' onChange={this.changeFilter} value={this.state.filter} className='form-control custom-token-input'>
+                                <option value='all'>All Status</option>
+                                <option value='live'>Live</option>
+                                <option value='kyc'>KYC</option>
+                                <option value='filled'>Filled</option>
+                                <option value='ended' >Ended</option>
+                            </select>
+                        </div>
+                        <div className='col-md-6'>
+                            <label className='small text-secondary'>Sort By</label>
+                            <select id='sortFilter' className='form-control custom-token-input'>
+                                <option value=''>No filters</option>
+                                <option value='start'>Start Date</option>
+                                <option value='end'>End Date</option>
+                            </select>
                         </div>
                     </div>
                 </div>
