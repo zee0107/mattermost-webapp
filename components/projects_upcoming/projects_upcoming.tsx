@@ -161,30 +161,71 @@ export default class ProjectsUpcoming extends React.PureComponent<Props, State> 
     render= (): JSX.Element => {
         return (
             <div className='margin-top-20'>
-                <div className='col-md-12'>
+                <div id='desktopProjectMenu' className='col-md-12'>
                     <button type='button' className='btn button-anchor'>All Laucnhpads</button>
                     <button type='button' className='btn button-anchor'>My Contributiions</button>
                     <button type='button' className='btn buttonBgGreen create-lock-btn'>Connect</button>
                     <button type='button' className='btn buttonBgWhite create-lock-btn'>BSC Mainnet</button>
                     <button type='button' className='btn buttonBgWhite create-lock-btn'>Create</button>
                 </div>
+                <div id='mobileProjectFilter' className='col-md-12'>
+                    <div className='d-flex'>
+                        <div className='form-control search-filter-icon'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-search side-menu-align" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                        </div>
+                        <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
+                    </div>
+                    <br></br>
+                    <div className='d-flex'>
+                        <div className='col-md-6 width-50 removePaddingLeft'>
+                            <label className='small text-secondary'>filter By</label>
+                            <select id='fitlerInput' onChange={this.changeFilter} value={this.state.filter} className='form-control custom-token-input'>
+                                <option value='all'>All Status</option>
+                                <option value='live'>Live</option>
+                                <option value='kyc'>KYC</option>
+                                <option value='filled'>Filled</option>
+                                <option value='ended' >Ended</option>
+                            </select>
+                        </div>
+                        <div className='col-md-6 width-50 removePaddingRight'>
+                            <label className='small text-secondary'>Sort By</label>
+                            <select id='sortFilter' className='form-control custom-token-input'>
+                                <option value=''>No filters</option>
+                                <option value='start'>Start Date</option>
+                                <option value='end'>End Date</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
                 <br></br>
                 <br></br>
-                <div className='col-md-12'>
+                <div id='desktopProjectFilter' className='col-md-12'>
                     <div className='search-filter-box'>
                         <div className='row'>
                             <div className='col-md-7'>
-                                <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
+                                <div className='d-flex'>
+                                <div className='form-control search-filter-icon'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-search" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                    </svg>
+                                </div>
+                                    <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
+                                </div>
                             </div>
                             <div className='col-md-2'>
-                            <label className='small text-secondary'>filter By</label>
-                                <select id='fitlerInput' className='form-control custom-token-input'>
+                                <label className='small text-secondary'>filter By</label>
+                                <select id='fitlerInput' onChange={this.changeFilter} value={this.state.filter} className='form-control custom-token-input'>
+                                    <option value='all'>All Status</option>
                                     <option value='live'>Live</option>
-                                    <option value='ended' >Sale Ended</option>
+                                    <option value='kyc'>KYC</option>
+                                    <option value='filled'>Filled</option>
+                                    <option value='ended' >Ended</option>
                                 </select>
                             </div>
                             <div className='col-md-2'>
-                            <label className='small text-secondary'>Sort By</label>
+                                <label className='small text-secondary'>Sort By</label>
                                 <select id='sortFilter' className='form-control custom-token-input'>
                                     <option value=''>No filters</option>
                                     <option value='start'>Start Date</option>
