@@ -25,13 +25,12 @@ export default class RightDetails extends React.PureComponent<Props>{
         uri.search = new URLSearchParams(sendData).toString();
     
         fetch(uri,config).then(response => response.json()).then(response => {
-            this.setState({data: response});
-            console.log(response);
-            console.log(this.state.data);
+            console.log(response.data);
         }).catch(function(error) {console.log(error);});  
     }
 
     sideBoxRender = (code: string) => {
+        console.log(code);
         let img;
         if(code === "BTC"){ img = (<img src={btcImage} className="current-conversion-img"></img>);}
         if(code === "LTC"){ img = (<img src={ltcImage} className="current-conversion-img"></img>);}
