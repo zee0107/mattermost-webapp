@@ -12,6 +12,7 @@ import CreateLock from 'components/create_lock';
 import CreateToken from 'components/create_token';
 import ProjectLive from 'components/projects_live';
 import ProjectUpcoming from 'components/projects_upcoming';
+import RSdetails from 'components/right_side_details';
 
 import homeImage from 'images/homeFeed.png';
 import rocketImage from 'images/rocket.svg';
@@ -34,6 +35,7 @@ import ChannelHeaderMobile from 'components/channel_header_mobile';
 
 import SidebarRightMenu from 'components/sidebar_right_menu';
 import { AllListing, GainerListing, NewListing, TrendListing } from 'mattermost-redux/types/crypto';
+import RSDetails from 'components/right_side_details/right_side_details';
 
 type Props = {
     status?: string;
@@ -118,7 +120,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
     }
 
     sideBoxRender = (code: string) => {
-        let img;
+        /*let img;
         if(code === "BTC"){ img = (<img src={btcImage} className="current-conversion-img"></img>);}
         if(code === "LTC"){ img = (<img src={ltcImage} className="current-conversion-img"></img>);}
         if(code === "ETH"){ img = (<img src={ethImage} className="current-conversion-img"></img>);}
@@ -155,6 +157,11 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                 </div>
+            </div>
+        );*/
+        return (
+            <div>
+                <RSDetails symbol={code} />
             </div>
         );
     }
