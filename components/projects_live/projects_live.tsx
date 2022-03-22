@@ -346,7 +346,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                 <div id='mobileProjectFilter' className='col-md-12'>
                     <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
                     <div className='d-flex'>
-                        <div className='col-md-6 width-50'>
+                        <div className='col-md-6 width-50 removePadding'>
                             <label className='small text-secondary'>filter By</label>
                             <select id='fitlerInput' onChange={this.changeFilter} value={this.state.filter} className='form-control custom-token-input'>
                                 <option value='all'>All Status</option>
@@ -356,7 +356,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                 <option value='ended' >Ended</option>
                             </select>
                         </div>
-                        <div className='col-md-6 width-50'>
+                        <div className='col-md-6 width-50 removePadding'>
                             <label className='small text-secondary'>Sort By</label>
                             <select id='sortFilter' className='form-control custom-token-input'>
                                 <option value=''>No filters</option>
