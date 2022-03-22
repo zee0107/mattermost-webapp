@@ -1293,7 +1293,7 @@ input[type="checkbox"]:checked ~ ul{
 }
 
 .width-15{
-  width: auto;
+  width: 25%;
 
   @media (max-width: 768px) {
     width: 15%;
@@ -1301,7 +1301,7 @@ input[type="checkbox"]:checked ~ ul{
 }
 
 .width-85{
-  width: auto;
+  width: 75%;
 
   @media (max-width: 768px) {
     width: 85%;
