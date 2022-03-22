@@ -1245,6 +1245,10 @@ input[type="checkbox"]:checked ~ ul{
   border-radius: 50%;
   width: 85%;
   margin-top: 5px;
+
+  @media (max-width: 768px) {
+    width: 15%;
+  }
 }
 
 .currency-details{
