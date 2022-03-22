@@ -18,6 +18,8 @@ import ChannelInfoButton from './channel_info_button';
 import ShowSearchButton from './show_search_button';
 import UnmuteChannelButton from './unmute_channel_button';
 import Logo from 'images/logoLight.png';
+import Logowhite from 'images/logoWhite.png';
+import Logoblack from 'images/logoBlack.png';
 
 type Props = {
     channel?: Channel;
@@ -64,7 +66,7 @@ export default class ChannelHeaderMobile extends React.PureComponent<Props> {
     }
 
     render() {
-        const {classes,user, channel, isMuted, isReadOnly, isRHSOpen, currentRelativeTeamUrl, inGlobalThreads} = this.props;
+        const {classes,user, channel, isMuted, isReadOnly, isRHSOpen, currentRelativeTeamUrl, inGlobalThreads,isDark} = this.props;
 
         let heading;
         if (inGlobalThreads) {
@@ -99,7 +101,9 @@ export default class ChannelHeaderMobile extends React.PureComponent<Props> {
                         <CollapseLhsButton/>
                         <div className='spacer'/>
                         <div className={classNames('navbar-brand text-center', {GlobalThreads___title: inGlobalThreads})}>
-                            <a href='/'><img src={Logo} className='logo-width-nav' alt='Crypter.io' /></a>
+                            <a href='/'>
+                                {isDark === 'dark' ? <img src={Logowhite} className='logo-width-nav' alt='Crypter.io' /> : <img src={Logoblack} className='logo-width-nav' alt='Crypter.io' />}
+                            </a>
                         </div>
                         {/*channel && (
                             <ChannelInfoButton
