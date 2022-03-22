@@ -78,7 +78,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
 
     changeFilter(event) {
         this.setState({filter: event.target.value});
-        console.log(event.target.value);
+        console.log(this.state.filter);
     }
 
     renderTime = (date: string) =>{
@@ -186,7 +186,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                             <CurrencyIcons code={item.coin.symbol.toString()}></CurrencyIcons>
                                         </div>
                                         <div className='col-md-9 text-end'>
-                                            <label className='text-ended small sale-ended-box'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4FBF67" className="bi bi-dot align-svg" viewBox="0 0 16 16">
+                                            <label className='text-ended small sale-ended-box'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#783efd" className="bi bi-dot align-svg" viewBox="0 0 16 16">
                                             <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
                                             </svg>&nbsp;Sale Ended</label>
                                         </div>
