@@ -33,6 +33,8 @@ import triangledownImage from 'images/caret-down.svg';
 import {ModalData} from 'types/actions';
 import ChannelHeaderMobile from 'components/channel_header_mobile';
 
+import Sidebar from 'components/sidebar';
+import SidebarRight from 'components/sidebar_right';
 import SidebarRightMenu from 'components/sidebar_right_menu';
 import { AllListing, GainerListing, NewListing, TrendListing } from 'mattermost-redux/types/crypto';
 import RSDetails from 'components/right_side_details/right_side_details';
