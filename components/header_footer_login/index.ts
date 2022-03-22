@@ -16,6 +16,9 @@ import {getCurrentUser, getStatusForUserId} from 'mattermost-redux/selectors/ent
 import {openModal} from 'actions/views/modals';
 import {setStatusDropdown} from 'actions/views/status_dropdown';
 
+import {getIsRhsOpen, getIsRhsMenuOpen} from 'selectors/rhs';
+import {getIsLhsOpen} from 'selectors/lhs';
+
 import {getCurrentUserTimezone} from 'selectors/general';
 import {makeGetCustomStatus, isCustomStatusEnabled, showStatusDropdownPulsatingDot, isCustomStatusExpired} from 'selectors/views/custom_status';
 import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
@@ -47,6 +50,9 @@ function makeMapStateToProps() {
             showCustomStatusPulsatingDot: showStatusDropdownPulsatingDot(state),
             timezone: getCurrentUserTimezone(state),
             config: getConfig(state),
+            lhsOpen: getIsLhsOpen(state),
+            rhsOpen: getIsRhsOpen(state),
+            rhsMenuOpen: getIsRhsMenuOpen(state),
         };
     };
 }

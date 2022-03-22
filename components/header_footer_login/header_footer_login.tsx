@@ -18,9 +18,33 @@ import Twitter from 'images/icons/twitter.svg';
 import LinkedIn from 'images/icons/linkedin.svg';
 import Instagram from 'images/icons/instagram.svg';
 import Heart from 'images/icons/heart-fill.svg';
+import {ActionFunc} from 'mattermost-redux/types/actions';
+import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
+import {ModalData} from 'types/actions';
 
 type Props = {
+    userId: string;
+    profilePicture: string;
+    autoResetPref?: string;
     config: Partial<ClientConfig> | undefined;
+    actions: {
+        openModal: <P>(modalData: ModalData<P>) => void;
+        setStatus: (status: UserStatus) => ActionFunc;
+        unsetCustomStatus: () => ActionFunc;
+        setStatusDropdown: (open: boolean) => void;
+    };
+    customStatus?: UserCustomStatus;
+    currentUser: UserProfile;
+    isCustomStatusEnabled: boolean;
+    isCustomStatusExpired: boolean;
+    isMilitaryTime: boolean;
+    isStatusDropdownOpen: boolean;
+    showCustomStatusPulsatingDot: boolean;
+    timezone?: string;
+    globalHeader?: boolean;
+    lhsOpen: boolean;
+    rhsOpen: boolean;
+    rhsMenuOpen: boolean;
 }
 
 export default class LoggedInHFT extends React.PureComponent<Props> {
@@ -150,8 +174,16 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
         return (
             <div className='inner-wrap' data-theme={this.state.isDark}>
                 <ModalController/>
-                <div className='row content'>
-                    {React.cloneElement(this.props.children, {mode: this.state.isDark})}
+                <SidebarRightMenu/>
+                <div key='inner-wrap' className={classNames('inner-wrap', 'channel__wrap', {'move--right': this.props.lhsOpen,'move--left': this.props.rhsOpen,'move--left-small': this.props.rhsMenuOpen,})}>
+                    <div className='row header'>
+                        <div id='navbar_wrapper'>
+                            <ChannelHeaderMobile classes={'removeMargin'}/>
+                        </div>
+                    </div>
+                    <div className='row content'>
+                        {React.cloneElement(this.props.children, {mode: this.state.isDark})}
+                    </div>
                 </div>
 
                 <div className='row footer border-top'>
