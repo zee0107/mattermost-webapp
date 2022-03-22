@@ -119,7 +119,7 @@ import {isSystemAdmin} from 'mattermost-redux/utils/user_utils';
 import {UserThreadList, UserThread, UserThreadWithPost} from 'mattermost-redux/types/threads';
 
 import {TelemetryHandler} from './telemetry';
-import { AllListing, Coins, GainerListing, NewListing, ProjectList, ProjectsUpcomingList, TrendListing } from 'mattermost-redux/types/crypto';
+import { AllListing, Coins, GainerListing, NewListing, ProjectList, ProjectsEndedList, ProjectsUpcomingList, TrendListing } from 'mattermost-redux/types/crypto';
 
 const FormData = require('form-data');
 const HEADER_AUTH = 'Authorization';
@@ -3808,6 +3808,12 @@ export default class Client4 {
     getCryptoProjectsUpcoming = () => {
         return this.doFetch<ProjectsUpcomingList[]>(
             `https://crypterfighter.polywickstudio.ph/api/crypter/getprojects?filter=UPCOMING`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
+    getCryptoProjectsEnded = () => {
+        return this.doFetch<ProjectsEndedList[]>(
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getprojects?filter=ENDED`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 

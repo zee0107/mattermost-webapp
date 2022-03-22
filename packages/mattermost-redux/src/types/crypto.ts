@@ -151,3 +151,22 @@ export type ProjectsUpcomingList = {
     link: string,
 }
 
+export type CoinsEnded = {
+    id: string,
+    name: string,
+    slug: string,
+    symbol: string,
+}
+
+export type ProjectsEndedList = {
+    id: string,
+    project_name: string,
+    description: string,
+    status: string,
+    coin: CoinsEnded,
+    start_date: string,
+    end_date: string,
+    total_prize: string,
+    winner_count: string,
+    link: string,
+}

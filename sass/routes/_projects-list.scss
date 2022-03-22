@@ -95,6 +95,13 @@
     border-radius: 7px;
     margin-top: 15px;
 }
+
+.sale-ended-box{
+    padding: 5px 10px 5px 5px;
+    background: linear-gradient(135deg, #783efd3b, #783efd7e, #783efd3b);
+    border-radius: 7px;
+    margin-top: 15px;
+}
   
 .align-svg{
     vertical-align: bottom;
@@ -102,6 +109,10 @@
 
 .text-upcoming{
     color: #ff8d08;
+}
+
+.text-ended{
+    color: #783efd;
 }
 /*.button-anchor:hover:after{
     content: ' ';

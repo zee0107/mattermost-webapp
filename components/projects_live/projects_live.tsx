@@ -12,13 +12,14 @@ import ProgressBar from 'components/progress_bar_new';
 import homeImage from 'images/homeFeed.png';
 
 import {ModalData} from 'types/actions';
-import { AllListing, ProjectList } from 'mattermost-redux/types/crypto';
+import { AllListing, ProjectList, ProjectsEndedList } from 'mattermost-redux/types/crypto';
 
 type Props = {
     status?: string;
     userId: string;
     autoResetPref?: string;
     projects: Promise<ProjectList[]>;
+    projectsEnded: Promise<ProjectsEndedList[]>;
     currencies: Promise<AllListing[]>;
     actions: {
         openModal: <P>(modalData: ModalData<P>) => void;
@@ -50,7 +51,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: [],listing: [],filter: 'live'};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: [],listing: [],ended: [],filter: 'live',overall: []};
 
         this.changeFilter = this.changeFilter.bind(this);
     }
@@ -66,6 +67,13 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         if(this.props.currencies != null){
             Promise.resolve(this.props.currencies).then(value => {this.setState({listing: value});})
         }
+
+        if(this.props.projectsEnded != null){
+            Promise.resolve(this.props.projectsEnded).then(value => {this.setState({ended: value});})
+        }
+
+        const value = this.state.data.concat(this.state.ended);
+        this.setState({overall: value});
     }
 
     changeFilter(event) {
@@ -165,7 +173,169 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         );
     }
 
+    endedList = () => {
+        return (
+            <div className='col-md-12'>
+                <div className='row'>
+                    {this.state.ended.map((item,key) => {
+                        return(
+                            <div className='col-md-4'>
+                                <div className='col-md-12 project-item-box'>
+                                    <div className='d-flex'>
+                                        <div className='col-md-3'>
+                                            <CurrencyIcons code={item.coin.symbol.toString()}></CurrencyIcons>
+                                        </div>
+                                        <div className='col-md-9 text-end'>
+                                            <label className='text-ended small sale-ended-box'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4FBF67" className="bi bi-dot align-svg" viewBox="0 0 16 16">
+                                            <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                            </svg>&nbsp;Sale Ended</label>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-12'>
+                                        <h5 className='text-primary' key={key + item.coin.symbol + '-name'}>{item.project_name}</h5>
+                                        {this.state.listing.filter(dataMap => dataMap.symbol === item.coin.symbol).map((value,index) => {
+                                            return(
+                                                <div>
+                                                    <label className='text-secondary small'key={index + value.symbol + '-range'}>1 {value.symbol} - {parseFloat(value.price).toFixed(15)} USD</label>
+                                                </div>
+                                            );
+                                        })}
+                                        <br></br>
+                                        <p className='small text-secondary'>
+                                            Soft Cap/Hard Cap
+                                        </p>
+                                        <label className='text-percent' key={key + item.coin.symbol + '-prize'}>1 {item.coin.symbol} - {item.total_prize} {item.coin.symbol}</label>
+                                        <br></br>
+                                        <br></br>
+                                        <p className='small text-secondary'>Progress (0.00%)</p>
+                                        <ProgressBar completed='50' min='1' max={item.total_prize.toString()}></ProgressBar>
+                                    </div>
+                                    <div className='col-md-12 removePadding'>
+                                        <br></br>
+                                        <div className='d-flex'>
+                                            <div className='col-md-6'><p className='small text-secondary' key={key + item.coin.symbol + '-start'}>0 {item.coin.symbol}</p></div>
+                                            <div className='col-md-6 text-end'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
+                                        </div>
+                                        <div className='d-flex'>
+                                            <div className='col-md-6'><label className='small text-primary' >Liquidity %:</label></div>
+                                            <div className='col-md-6 text-end'><label className='small text-primary' >51%</label></div>
+                                        </div>
+                                        <div className='d-flex'>
+                                            <div className='col-md-6'><label className='small text-primary' >Lockup Time</label></div>
+                                            <div className='col-md-6 text-end'><label className='small text-primary' >180 days</label></div>
+                                        </div>
+                                        <hr></hr>
+                                        <div className='d-flex'>
+                                            <div className='col-md-6'>00:00:00:00</div>
+                                            <div className='col-md-6 text-end'><button type='button' className='btn view-pool-btn'>View Pool</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        );
+    }
+
+    renderStatus = (status: string) => {
+        if(status === "ENDED"){
+            return (<label className='text-ended small sale-ended-box'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4FBF67" className="bi bi-dot align-svg" viewBox="0 0 16 16">
+            <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+            </svg>&nbsp;Sale Ended</label>);
+        }
+        else{
+            return (<label className='text-percent small sale-live-box'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4FBF67" className="bi bi-dot align-svg" viewBox="0 0 16 16">
+            <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+            </svg>&nbsp;Sale Live</label>);
+        }
+    }
+
+    renderDate = (status,date) =>{
+        if(status === "ENDED"){
+            return (<label className='text-primary'>00:00:00:00</label>);
+        }
+        else{
+            return (<div>{this.renderTime(date)}</div>);
+        }
+    }
+
+    overallListing = () => {
+        return (
+            <div className='col-md-12'>
+                <div className='row'>
+                    {this.state.overall.map((item,key) => {
+                        return(
+                            <div className='col-md-4'>
+                                <div className='col-md-12 project-item-box'>
+                                    <div className='d-flex'>
+                                        <div className='col-md-3'>
+                                            <CurrencyIcons code={item.coin.symbol.toString()}></CurrencyIcons>
+                                        </div>
+                                        <div className='col-md-9 text-end'>
+                                            {this.renderStatus(item.status)}
+                                        </div>
+                                    </div>
+                                    <div className='col-md-12'>
+                                        <h5 className='text-primary' key={key + item.coin.symbol + '-name'}>{item.project_name}</h5>
+                                        {this.state.listing.filter(dataMap => dataMap.symbol === item.coin.symbol).map((value,index) => {
+                                            return(
+                                                <div>
+                                                    <label className='text-secondary small'key={index + value.symbol + '-range'}>1 {value.symbol} - {parseFloat(value.price).toFixed(15)} USD</label>
+                                                </div>
+                                            );
+                                        })}
+                                        <br></br>
+                                        <p className='small text-secondary'>
+                                            Soft Cap/Hard Cap
+                                        </p>
+                                        <label className='text-percent' key={key + item.coin.symbol + '-prize'}>1 {item.coin.symbol} - {item.total_prize} {item.coin.symbol}</label>
+                                        <br></br>
+                                        <br></br>
+                                        <p className='small text-secondary'>Progress (0.00%)</p>
+                                        <ProgressBar completed='50' min='1' max={item.total_prize.toString()}></ProgressBar>
+                                    </div>
+                                    <div className='col-md-12 removePadding'>
+                                        <br></br>
+                                        <div className='d-flex'>
+                                            <div className='col-md-6'><p className='small text-secondary' key={key + item.coin.symbol + '-start'}>0 {item.coin.symbol}</p></div>
+                                            <div className='col-md-6 text-end'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
+                                        </div>
+                                        <div className='d-flex'>
+                                            <div className='col-md-6'><label className='small text-primary' >Liquidity %:</label></div>
+                                            <div className='col-md-6 text-end'><label className='small text-primary' >51%</label></div>
+                                        </div>
+                                        <div className='d-flex'>
+                                            <div className='col-md-6'><label className='small text-primary' >Lockup Time</label></div>
+                                            <div className='col-md-6 text-end'><label className='small text-primary' >180 days</label></div>
+                                        </div>
+                                        <hr></hr>
+                                        <div className='d-flex'>
+                                            <div className='col-md-6'>{this.renderDate(item.status,item.start_date)}</div>
+                                            <div className='col-md-6 text-end'><button type='button' className='btn view-pool-btn'>View Pool</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        );
+    }
+
     render= (): JSX.Element => {
+        let list;
+        if(this.state.fitler === 'live'){
+            list = this.projectList();
+        }
+        else if(this.state.filter === 'ended'){
+            list = this.endedList();
+        }
+        else{
+            list = this.overallListing();
+        }
         return (
             <div className='margin-top-20'>
                 <div className='col-md-12'>
@@ -207,7 +377,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                 </div>
-                {this.projectList()}
+                {list}
             </div>
         );
     }
