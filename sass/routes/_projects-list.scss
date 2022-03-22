@@ -30,7 +30,7 @@
     border: transparent !important;
     padding: 20px;
     margin-top: 10px;
-    border-radius: 0px 8px 0px 8px !important;
+    border-radius: 0px 8px 8px 0px !important;
 
     @media (max-width: 768px) {
         background: var(--bgDiv);
@@ -147,17 +147,7 @@
 
 .search-filter-icon{
     background: var(--bgDiv);
-    border-radius: 8px 0px 8px 0px;
+    border-radius: 8px 0px 0px 8px !important;
+    border: transparent;
+    padding: 5px;
 }
-/*.button-anchor:hover:after{
-    content: ' ';
-    background: transparent;
-    background-size: cover;
-    color: #44cc4b !important;
-    display: block;
-    position: relative;
-    width: 80%;
-    left: 10%;
-    border-bottom: 1px solid #44cc4b;
-    margin-top: 8px;
-}*/
