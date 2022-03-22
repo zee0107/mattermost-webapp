@@ -265,6 +265,13 @@ export class MainMenu extends React.PureComponent<Props> {
                 </Menu.Group>
                 <Menu.Group>
                     <Menu.ItemLink
+                        id='launchpad'
+                        ariaLabel='Launchpad'
+                        to='/launchpad'
+                        text={formatMessage({id: 'navbar_dropdown.launchpad', defaultMessage: 'launchpad'})}
+                        icon={<i className='fa fa-rocket'/>}
+                    />
+                    <Menu.ItemLink
                         id='accountSettings'
                         ariaLabel='Profile'
                         to='/profile'
