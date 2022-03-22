@@ -329,6 +329,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         else{
             list = this.endedList();
         }
+        
         return (
             <div className='margin-top-20'>
                 <div className='col-md-12'>
