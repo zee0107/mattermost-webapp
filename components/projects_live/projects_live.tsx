@@ -378,7 +378,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                 </div>
-                {list}
+                {this.state.filter === 'live' ? this.projectList() : this.overallListing()}
             </div>
         );
     }
