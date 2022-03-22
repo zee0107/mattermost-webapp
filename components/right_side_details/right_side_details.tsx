@@ -39,7 +39,6 @@ export default class RSDetails extends React.PureComponent<Props, State> {
         uri.search = new URLSearchParams(sendData).toString();
 
         fetch(uri,config).then(response => response.json()).then(response => {
-            
             this.setState({data: response.data});
             console.log(response.data);
             console.log(this.state.data);
