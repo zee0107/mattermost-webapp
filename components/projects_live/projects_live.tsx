@@ -44,6 +44,7 @@ type State = {
     isStatusSet: boolean;
     isDark: string;
     img_path: string;
+    filter: string;
 };
 
 export default class ProjectsLive extends React.PureComponent<Props, State> {
