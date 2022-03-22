@@ -149,12 +149,14 @@
     background: var(--background);
     border-radius: 8px 0px 0px 8px !important;
     border: transparent;
-    padding: 20px;
+    padding-top: 12px;
+    padding-bottom: 28px;
     margin-top: 10px;
+    width: 7%;
 
     @media (max-width: 768px) {
-        padding: 6px;  
-        margin-top: auto; 
+        padding: 8px;  
+        width: 7%;
         background: var(--bgDiv); 
     }
 }
