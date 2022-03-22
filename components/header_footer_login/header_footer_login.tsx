@@ -21,6 +21,7 @@ import Heart from 'images/icons/heart-fill.svg';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import {ModalData} from 'types/actions';
+import SidebarRightMenu from 'components/sidebar_right_menu';
 
 type Props = {
     userId: string;
