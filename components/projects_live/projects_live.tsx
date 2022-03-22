@@ -50,7 +50,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: [],listing: []};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: [],listing: [],filter: 'live'};
     }
 
     componentDidMount(){
@@ -64,6 +64,10 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         if(this.props.currencies != null){
             Promise.resolve(this.props.currencies).then(value => {this.setState({listing: value});})
         }
+    }
+
+    changeFilter = (event) => {
+        this.setState({value: event.target.value});
     }
 
     renderTime = (date: string) =>{
@@ -178,7 +182,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                             </div>
                             <div className='col-md-2'>
                             <label className='small text-secondary'>filter By</label>
-                                <select id='fitlerInput' className='form-control custom-token-input'>
+                                <select id='fitlerInput' onChange={this.changeFilter} value={this.state.value} className='form-control custom-token-input'>
                                     <option value='all'>All Status</option>
                                     <option value='live'>Live</option>
                                     <option value='kyc'>KYC</option>
