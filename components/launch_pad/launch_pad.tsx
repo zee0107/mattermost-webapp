@@ -12,7 +12,6 @@ import CreateLock from 'components/create_lock';
 import CreateToken from 'components/create_token';
 import ProjectLive from 'components/projects_live';
 import ProjectUpcoming from 'components/projects_upcoming';
-import RSdetails from 'components/right_side_details';
 import RightDetails from 'components/right_details';
 
 import homeImage from 'images/homeFeed.png';
