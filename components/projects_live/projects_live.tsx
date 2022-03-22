@@ -74,6 +74,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         }
 
         const value = this.state.data.concat(this.state.ended);
+        console.log(value);
         this.setState({overall: value});
     }
 
