@@ -51,6 +51,8 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: [],listing: [],filter: 'live'};
+
+        this.changeFilter = this.changeFilter.bind(this);
     }
 
     componentDidMount(){
@@ -66,10 +68,9 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         }
     }
 
-    changeFilter = (event) => {
+    changeFilter(event) {
         this.setState({filter: event.target.value});
-        console.log(event);
-        console.log(this.state.filter)
+        console.log(event.target.value);
     }
 
     renderTime = (date: string) =>{
