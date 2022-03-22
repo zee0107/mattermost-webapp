@@ -2,6 +2,8 @@
 // See LICENSE.txt for license information.
 
 import React, {memo, HTMLAttributes, useEffect} from 'react';
+import trendImage from 'images/trending-up.svg';
+import trenddownImage from 'images/trending-down.svg';
 import btcImage from 'images/currency-icons/btc.svg';
 import ltcImage from 'images/currency-icons/ltc.svg';
 import bnbImage from 'images/currency-icons/bnb.svg';
