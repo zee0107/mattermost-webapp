@@ -179,8 +179,11 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                             <div className='col-md-2'>
                             <label className='small text-secondary'>filter By</label>
                                 <select id='fitlerInput' className='form-control custom-token-input'>
+                                    <option value='all'>All Status</option>
                                     <option value='live'>Live</option>
-                                    <option value='ended' >Sale Ended</option>
+                                    <option value='kyc'>KYC</option>
+                                    <option value='filled'>Filled</option>
+                                    <option value='ended' >Ended</option>
                                 </select>
                             </div>
                             <div className='col-md-2'>
