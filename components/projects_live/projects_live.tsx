@@ -254,7 +254,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         }
     }
 
-    overallListing = () => {
+    overallList = () => {
         return (
             <div className='col-md-12'>
                 <div className='row'>
@@ -324,10 +324,10 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
             list = this.projectList();
         }
         else if(this.state.filter === 'all'){
-            list = this.endedListing();
+            list = this.overallList();
         }
         else{
-            list = this.overallListing();
+            list = this.endedList();
         }
         return (
             <div className='margin-top-20'>
