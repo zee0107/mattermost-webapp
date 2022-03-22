@@ -320,14 +320,15 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         let list;
-        if(this.state.fitler === 'live'){
-            list = this.projectList();
+        if(this.state.fitler === 'ended'){
+            
+            list = this.endedList();
         }
         else if(this.state.filter === 'all'){
             list = this.overallList();
         }
         else{
-            list = this.endedList();
+            list = this.projectList();
         }
 
         return (
