@@ -68,6 +68,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
 
     changeFilter = (event) => {
         this.setState({filter: event.target.value});
+        console.log(event);
         console.log(this.state.filter)
     }
 
