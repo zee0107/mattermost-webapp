@@ -244,7 +244,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                         unreadFilterEnabled={this.props.unreadFilterEnabled}
                     />
                 </div>
-                <div className='sidebar--left__icons'>
+                {/*<div className='sidebar--left__icons'>
                     <Pluggable pluggableName='LeftSidebarHeader'/>
                 </div>
                 <SidebarChannelList
@@ -253,7 +253,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                     onDragEnd={this.onDragEnd}
                 />
                 <DataPrefetch/>
-                <SidebarNextSteps/>
+                <SidebarNextSteps/>*/}
                 {this.renderModals()}
             </div>
         );
