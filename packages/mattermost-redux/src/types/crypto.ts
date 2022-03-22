@@ -170,3 +170,24 @@ export type ProjectsEndedList = {
     winner_count: string,
     link: string,
 }
+
+export type CoinsAll = {
+    id: string,
+    name: string,
+    slug: string,
+    symbol: string,
+}
+
+export type ProjectsAllList = {
+    id: string,
+    project_name: string,
+    description: string,
+    status: string,
+    coin: CoinsAll,
+    start_date: string,
+    end_date: string,
+    total_prize: string,
+    winner_count: string,
+    link: string,
+}
+

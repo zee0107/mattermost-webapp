@@ -19,7 +19,6 @@ type Props = {
     userId: string;
     autoResetPref?: string;
     projects: Promise<ProjectList[]>;
-    projectsEnded: Promise<ProjectsEndedList[]>;
     currencies: Promise<AllListing[]>;
     actions: {
         openModal: <P>(modalData: ModalData<P>) => void;
@@ -52,7 +51,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: [],listing: [],ended: [],filter: 'live',overall: []};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: [],listing: [],filter: 'live'};
 
         this.changeFilter = this.changeFilter.bind(this);
     }
@@ -68,14 +67,6 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         if(this.props.currencies != null){
             Promise.resolve(this.props.currencies).then(value => {this.setState({listing: value});})
         }
-
-        if(this.props.projectsEnded != null){
-            Promise.resolve(this.props.projectsEnded).then(value => {this.setState({ended: value});})
-        }
-
-        const value = this.state.data.concat(this.state.ended);
-        console.log(value);
-        this.setState({overall: value});
     }
 
     changeFilter(event) {
@@ -113,7 +104,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         return (
             <div className='col-md-12'>
                 <div className='row'>
-                    {this.state.data.map((item,key) => {
+                    {this.state.data.filter(t => t.status === 'ONGOING').map((item,key) => {
                         return(
                             <div className='col-md-4'>
                                 <div className='col-md-12 project-item-box'>
@@ -179,7 +170,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         return (
             <div className='col-md-12'>
                 <div className='row'>
-                    {this.state.ended.map((item,key) => {
+                    {this.state.data.filter(t => t.status === 'ENDED').map((item,key) => {
                         return(
                             <div className='col-md-4'>
                                 <div className='col-md-12 project-item-box'>
@@ -267,7 +258,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         return (
             <div className='col-md-12'>
                 <div className='row'>
-                    {this.state.overall.map((item,key) => {
+                    {this.state.data.map((item,key) => {
                         return(
                             <div className='col-md-4'>
                                 <div className='col-md-12 project-item-box'>
@@ -332,9 +323,9 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         if(this.state.fitler === 'live'){
             list = this.projectList();
         }
-        /*else if(this.state.filter === 'all'){
+        else if(this.state.filter === 'all'){
             list = this.endedListing();
-        }*/
+        }
         else{
             list = this.overallListing();
         }

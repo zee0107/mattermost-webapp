@@ -3817,6 +3817,18 @@ export default class Client4 {
         );
     }
 
+    getCryptoProjectsEnded = () => {
+        return this.doFetch<ProjectsEndedList[]>(
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getprojects?filter=ENDED`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
+    getCryptoProjectsAll = () => {
+        return this.doFetch<ProjectsEndedList[]>(
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getallprojects`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
 
     // Client Helpers
 
