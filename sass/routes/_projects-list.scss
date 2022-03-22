@@ -34,7 +34,7 @@
 
     @media (max-width: 768px) {
         background: var(--bgDiv);
-        padding: auto;
+        padding: 6px;
         margin-top: auto;
     }
   }
@@ -149,5 +149,9 @@
     background: var(--bgDiv);
     border-radius: 8px 0px 0px 8px !important;
     border: transparent;
-    padding: 5px;
+    padding: 20px;
+
+    @media (max-width: 768px) {
+        padding: 6px;    
+    }
 }
