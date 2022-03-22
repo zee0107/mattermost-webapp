@@ -67,7 +67,8 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
     }
 
     changeFilter = (event) => {
-        this.setState({value: event.target.value});
+        this.setState({filter: event.target.value});
+        console.log(this.state.filter)
     }
 
     renderTime = (date: string) =>{
@@ -182,7 +183,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                             </div>
                             <div className='col-md-2'>
                             <label className='small text-secondary'>filter By</label>
-                                <select id='fitlerInput' onChange={this.changeFilter} value={this.state.value} className='form-control custom-token-input'>
+                                <select id='fitlerInput' onChange={this.changeFilter} value={this.state.filter} className='form-control custom-token-input'>
                                     <option value='all'>All Status</option>
                                     <option value='live'>Live</option>
                                     <option value='kyc'>KYC</option>
