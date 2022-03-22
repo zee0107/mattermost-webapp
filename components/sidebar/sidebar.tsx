@@ -214,6 +214,9 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                     dragging: this.state.isDragging,
                 })}
             >
+                <div>
+                    <a href='/launchpad'>Launchpad</a>
+                </div>
                 {/*{this.props.isMobileView ? <MobileSidebarHeader/> : (
                     <SidebarHeader
                         showNewChannelModal={this.showNewChannelModal}
