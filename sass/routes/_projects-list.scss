@@ -146,12 +146,15 @@
 }
 
 .search-filter-icon{
-    background: var(--bgDiv);
+    background: var(--background);
     border-radius: 8px 0px 0px 8px !important;
     border: transparent;
     padding: 20px;
+    margin-top: 10px;
 
     @media (max-width: 768px) {
-        padding: 6px;    
+        padding: 6px;  
+        margin-top: auto; 
+        background: var(--bgDiv); 
     }
 }
