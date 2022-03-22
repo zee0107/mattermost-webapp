@@ -19,16 +19,15 @@ export default class RightDetails extends React.PureComponent<Props>{
 
     componentDidMount (){
         const uri = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencydata");
-        const config = {
-            method: "GET"
-        }
+        const config = { method: "GET" }
         
         const sendData={symbol: this.props.code};
         uri.search = new URLSearchParams(sendData).toString();
     
         fetch(uri,config).then(response => response.json()).then(response => {
-            this.setState({data: response.data})
-            console.log(response.data);
+            this.setState({data: response});
+            console.log(response);
+            console.log(this.state.data);
         }).catch(function(error) {console.log(error);});  
     }
 
