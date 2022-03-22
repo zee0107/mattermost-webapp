@@ -96,11 +96,11 @@ export default class ChannelHeaderMobile extends React.PureComponent<Props> {
             >
                 <div className='container-fluid theme'>
                     <div className={'navbar-header ' + `${this.props.classes}`}>
-                        {/*<CollapseLhsButton/>*/}
+                        <CollapseLhsButton/>
+                        <div className='spacer'/>
                         <div className={classNames('navbar-brand', {GlobalThreads___title: inGlobalThreads})}>
                             <a href='/'><img src={Logo} className='logo-width-nav' alt='Crypter.io' /></a>
                         </div>
-                        <div className='spacer'/>
                         {/*channel && (
                             <ChannelInfoButton
                                 channel={channel}
