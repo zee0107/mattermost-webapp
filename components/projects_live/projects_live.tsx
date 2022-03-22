@@ -330,11 +330,11 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         if(this.state.fitler === 'live'){
             list = this.projectList();
         }
-        else if(this.state.filter === 'ended'){
-            list = this.endedList();
+        else if(this.state.filter === 'all'){
+            list = this.overallListing();
         }
         else{
-            list = this.overallListing();
+            list = this.endedList();
         }
         return (
             <div className='margin-top-20'>
