@@ -27,7 +27,8 @@ export default class RightDetails extends React.PureComponent<Props>{
         uri.search = new URLSearchParams(sendData).toString();
     
         fetch(uri,config).then(response => response.json()).then(response => {
-            this.setState({data: response})
+            console.log(response.data);
+            this.setState({data: response.data})
         }).catch(function(error) {console.log(error);});  
     }
 

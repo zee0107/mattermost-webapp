@@ -34,7 +34,7 @@ function makeMapStateToProps() {
         return {
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
-            allCrypto: Client4.getCryptoData(),
+            /*allCrypto: Client4.getCryptoData()*/,
             trendCrypto: Client4.getCryptoTrend('3',''),
             newCrypto: Client4.getCryptoNew('3','desc'),
             gainerCrypto: Client4.getCryptoGainer('3',''),

@@ -88,9 +88,9 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
 
-        if(this.props.allCrypto != null){
+        /*if(this.props.allCrypto != null){
             Promise.resolve(this.props.allCrypto).then(value => {this.setState({data: value});})
-        }
+        }*/
 
         if(this.props.trendCrypto != null){
             Promise.resolve(this.props.trendCrypto).then(value => {this.setState({trendListing: value});})
