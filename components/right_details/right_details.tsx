@@ -14,7 +14,7 @@ type Props = {
 export default class RightDetails extends React.PureComponent<Props>{
     constructor(props: Props) {
         super(props);
-        this.state = {symbol:'',data,};
+        this.state = {symbol:'',data: [],};
     }
 
     componentDidMount (){
