@@ -30,6 +30,7 @@
     border: transparent !important;
     padding: 20px;
     margin-top: 10px;
+    border-radius: 0px 8px 0px 8px !important;
 
     @media (max-width: 768px) {
         background: var(--bgDiv);
@@ -142,6 +143,11 @@
     #mobileProjectFilter{
         display: none;
     }
+}
+
+.search-filter-icon{
+    background: var(--bgDiv);
+    border-radius: 8px 0px 8px 0px;
 }
 /*.button-anchor:hover:after{
     content: ' ';
