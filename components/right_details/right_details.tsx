@@ -57,7 +57,6 @@ export default class RightDetails extends React.PureComponent<Props>{
     }
     
     sideBoxRender = (code: string) => {
-        console.log(this.state.data.symbol);
         let img;
         if(code === "BTC"){ img = (<img src={btcImage} className="current-conversion-img"></img>);}
         if(code === "LTC"){ img = (<img src={ltcImage} className="current-conversion-img"></img>);}

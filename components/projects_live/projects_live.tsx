@@ -8,6 +8,7 @@ import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/
 import fillImage from 'images/fill.svg';
 import CurrencyIcons from 'components/currency_icons';
 import ProgressBar from 'components/progress_bar_new';
+import CurrencyCap from 'components/currency_cap/currency_cap';
 
 import homeImage from 'images/homeFeed.png';
 
@@ -120,13 +121,14 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='col-md-12'>
                                         <h5 className='text-primary' key={key + item.coin.symbol + '-name'}>{item.project_name}</h5>
-                                        {this.state.listing.filter(dataMap => dataMap.symbol === item.coin.symbol).map((value,index) => {
+                                        {/*this.state.listing.filter(dataMap => dataMap.symbol === item.coin.symbol).map((value,index) => {
                                             return(
                                                 <div>
                                                     <label className='text-secondary small'key={index + value.symbol + '-range'}>1 {value.symbol} - {parseFloat(value.price).toFixed(15)} USD</label>
                                                 </div>
                                             );
-                                        })}
+                                        })*/}
+                                        <CurrencyCap symbol={item.coin.symbol} />
                                         <br></br>
                                         <p className='small text-secondary'>
                                             Soft Cap/Hard Cap
@@ -186,13 +188,14 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='col-md-12'>
                                         <h5 className='text-primary' key={key + item.coin.symbol + '-name'}>{item.project_name}</h5>
-                                        {this.state.listing.filter(dataMap => dataMap.symbol === item.coin.symbol).map((value,index) => {
+                                        {/*this.state.listing.filter(dataMap => dataMap.symbol === item.coin.symbol).map((value,index) => {
                                             return(
                                                 <div>
                                                     <label className='text-secondary small'key={index + value.symbol + '-range'}>1 {value.symbol} - {parseFloat(value.price).toFixed(15)} USD</label>
                                                 </div>
                                             );
-                                        })}
+                                        })*/}
+                                        <CurrencyCap symbol={item.coin.symbol} />
                                         <br></br>
                                         <p className='small text-secondary'>
                                             Soft Cap/Hard Cap
@@ -272,13 +275,14 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='col-md-12'>
                                         <h5 className='text-primary' key={key + item.coin.symbol + '-name'}>{item.project_name}</h5>
-                                        {this.state.listing.filter(dataMap => dataMap.symbol === item.coin.symbol).map((value,index) => {
+                                        {/*this.state.listing.filter(dataMap => dataMap.symbol === item.coin.symbol).map((value,index) => {
                                             return(
                                                 <div>
                                                     <label className='text-secondary small'key={index + value.symbol + '-range'}>1 {value.symbol} - {parseFloat(value.price).toFixed(15)} USD</label>
                                                 </div>
                                             );
-                                        })}
+                                        })*/}
+                                        <CurrencyCap symbol={item.coin.symbol} />
                                         <br></br>
                                         <p className='small text-secondary'>
                                             Soft Cap/Hard Cap
