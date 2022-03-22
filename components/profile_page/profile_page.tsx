@@ -107,50 +107,50 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         return (
             <div className='div-bg'>
                 <div className='col-sm-12 bodyBgElipseProfile bgGrey removePadding'>
-                        <div className="inner-wrap-section">
-                            <div className='d-flex'>
-                                <div className="col-lg-12">
-                                    <img className='img-cover' src={coverImage}></img>
-                                </div>
-                                <div className='col-lg-6 profile-div'>
-                                    <div className='row'>
-                                        <div className='col-lg-5 profile-details-box'>
-                                            <div className='d-flex'>
-                                                <div className='col-lg-2 profile-img-div'>
-                                                    {this.renderProfilePicture('mxl')}
-                                                    {/*<img src={} className='profile-img-box'></img>*/}
-                                                </div>
-                                                
-                                                <div className='col-lg-8'>
-                                                    <h4>{`${currentUser.first_name} ${currentUser.last_name}`}</h4>
-                                                    <h5>{'@' + currentUser.username}</h5>
-                                                    <h5>{currentUser.position}</h5>
-                                                </div>
-                                                <div className='col-lg-2'>
-                                                    {/*<button type='button' className='btn btneditProfile'>Edit</button>*/}
-                                                    <ToggleModalButtonRedux
-                                                        id='accountSettings'
-                                                        ariaLabel='Profile'
-                                                        modalId={ModalIdentifiers.USER_SETTINGS}
-                                                        dialogType={UserSettingsModal}
-                                                        dialogProps={{isContentProductSettings: false}}
-                                                        className={'btn btneditProfile'}
-                                                        showUnread={false}
-                                                    >
-                                                        Edit
-                                                    </ToggleModalButtonRedux>
-                                                </div>
+                    <div className="inner-wrap-section">
+                        <div className='d-flex'>
+                            <div className="col-lg-12">
+                                <img className='img-cover' src={coverImage}></img>
+                            </div>
+                            <div className='col-lg-6 profile-div'>
+                                <div className='row'>
+                                    <div className='col-lg-5 profile-details-box'>
+                                        <div className='d-flex'>
+                                            <div className='col-lg-2 profile-img-div'>
+                                                {this.renderProfilePicture('mxl')}
+                                                {/*<img src={} className='profile-img-box'></img>*/}
+                                            </div>
+                                        
+                                            <div className='col-lg-8'>
+                                                <h4>{`${currentUser.first_name} ${currentUser.last_name}`}</h4>
+                                                <h5>{'@' + currentUser.username}</h5>
+                                                <h5>{currentUser.position}</h5>
+                                            </div>
+                                            <div className='col-lg-2'>
+                                                {/*<button type='button' className='btn btneditProfile'>Edit</button>*/}
+                                                <ToggleModalButtonRedux
+                                                    id='accountSettings'
+                                                    ariaLabel='Profile'
+                                                    modalId={ModalIdentifiers.USER_SETTINGS}
+                                                    dialogType={UserSettingsModal}
+                                                    dialogProps={{isContentProductSettings: false}}
+                                                    className={'btn btneditProfile'}
+                                                    showUnread={false}
+                                                >
+                                                    Edit
+                                                </ToggleModalButtonRedux>
                                             </div>
                                         </div>
-                                        <div className='col-lg-1'></div>
-                                        <div className='col-lg-6'>
-                                            <div className='col-lg-12 profile-count-box'>
-                                                <div className='d-flex'>
-                                                    <div className='col-lg-3'>
-                                                    </div>
-                                                    <div className='col-lg-3'>
-                                                        <h5>Post</h5>
-                                                        <h4>2.0k</h4>
+                                    </div>
+                                    <div className='col-lg-1'></div>
+                                    <div className='col-lg-6'>
+                                        <div className='col-lg-12 profile-count-box'>
+                                            <div className='d-flex'>
+                                                <div className='col-lg-3'>
+                                                </div>
+                                                <div className='col-lg-3'>
+                                                    <h5>Post</h5>
+                                                    <h4>2.0k</h4>
                                                 </div>
                                                 <div className='col-lg-3'>
                                                     <h5>Following</h5>
