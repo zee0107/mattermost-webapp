@@ -109,10 +109,10 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                             <div className='col-md-4'>
                                 <div className='col-md-12 project-item-box'>
                                     <div className='d-flex'>
-                                        <div className='col-md-3'>
+                                        <div className='col-md-3 width-15'>
                                             <CurrencyIcons code={item.coin.symbol.toString()}></CurrencyIcons>
                                         </div>
-                                        <div className='col-md-9 text-end'>
+                                        <div className='col-md-9 width-85 text-end'>
                                             <label className='text-percent small sale-live-box'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4FBF67" className="bi bi-dot align-svg" viewBox="0 0 16 16">
                                             <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
                                             </svg>&nbsp;Sale Live</label>
@@ -140,8 +140,8 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                     <div className='col-md-12 removePadding'>
                                         <br></br>
                                         <div className='d-flex'>
-                                            <div className='col-md-6'><p className='small text-secondary' key={key + item.coin.symbol + '-start'}>0 {item.coin.symbol}</p></div>
-                                            <div className='col-md-6 text-end'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
+                                            <div className='col-md-6 width-50'><p className='small text-secondary' key={key + item.coin.symbol + '-start'}>0 {item.coin.symbol}</p></div>
+                                            <div className='col-md-6 text-end width-50'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
                                         </div>
                                         <div className='d-flex'>
                                             <div className='col-md-6 width-50'><label className='small text-primary' >Liquidity %:</label></div>
@@ -175,10 +175,10 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                             <div className='col-md-4'>
                                 <div className='col-md-12 project-item-box'>
                                     <div className='d-flex'>
-                                        <div className='col-md-3'>
+                                        <div className='col-md-3 width-15'>
                                             <CurrencyIcons code={item.coin.symbol.toString()}></CurrencyIcons>
                                         </div>
-                                        <div className='col-md-9 text-end'>
+                                        <div className='col-md-9 width-85 text-end'>
                                             <label className='text-ended small sale-ended-box'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#783efd" className="bi bi-dot align-svg" viewBox="0 0 16 16">
                                             <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
                                             </svg>&nbsp;Sale Ended</label>
@@ -263,10 +263,10 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                             <div className='col-md-4'>
                                 <div className='col-md-12 project-item-box'>
                                     <div className='d-flex'>
-                                        <div className='col-md-3'>
+                                        <div className='col-md-3 width-15'>
                                             <CurrencyIcons code={item.coin.symbol.toString()}></CurrencyIcons>
                                         </div>
-                                        <div className='col-md-9 text-end'>
+                                        <div className='col-md-9 width-85 text-end'>
                                             {this.renderStatus(item.status)}
                                         </div>
                                     </div>
@@ -346,7 +346,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                 <div id='mobileProjectFilter' className='col-md-12'>
                     <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
                     <div className='d-flex'>
-                        <div className='col-md-6'>
+                        <div className='col-md-6 width-50'>
                             <label className='small text-secondary'>filter By</label>
                             <select id='fitlerInput' onChange={this.changeFilter} value={this.state.filter} className='form-control custom-token-input'>
                                 <option value='all'>All Status</option>
@@ -356,7 +356,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                 <option value='ended' >Ended</option>
                             </select>
                         </div>
-                        <div className='col-md-6'>
+                        <div className='col-md-6 width-50'>
                             <label className='small text-secondary'>Sort By</label>
                             <select id='sortFilter' className='form-control custom-token-input'>
                                 <option value=''>No filters</option>

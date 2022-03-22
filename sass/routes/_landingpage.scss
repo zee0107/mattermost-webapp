@@ -1291,3 +1291,19 @@ input[type="checkbox"]:checked ~ ul{
   width: 100%;
   background: linear-gradient(135deg,#5ef67e3b, rgb(0 255 53 / 70%), #5ef67e3b);
 }
+
+.width-15{
+  width: auto;
+
+  @media (max-width: 768px) {
+    width: 15%;
+  }
+}
+
+.width-85{
+  width: auto;
+
+  @media (max-width: 768px) {
+    width: 85%;
+  }
+}
