@@ -13,6 +13,7 @@ import logoDark from 'images/logoWhite.png';
 import ModalController from 'components/modal_controller';
 import GlobalHeader from 'components/global_header/global_header';
 import classNames from 'classnames';
+import ChannelHeaderMobile from 'components/channel_header_mobile';
 
 import Google from 'images/icons/google.svg';
 import Twitter from 'images/icons/twitter.svg';
