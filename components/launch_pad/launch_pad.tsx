@@ -13,6 +13,7 @@ import CreateToken from 'components/create_token';
 import ProjectLive from 'components/projects_live';
 import ProjectUpcoming from 'components/projects_upcoming';
 import RSdetails from 'components/right_side_details';
+import RightDetails from 'components/right_details';
 
 import homeImage from 'images/homeFeed.png';
 import rocketImage from 'images/rocket.svg';
@@ -161,7 +162,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         );*/
         return (
             <div>
-                <RSDetails symbol={code} />
+                <RightDetails symbol={code} />
             </div>
         );
     }
