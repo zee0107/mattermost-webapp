@@ -144,17 +144,17 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                             <div className='col-md-6 text-end'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
                                         </div>
                                         <div className='d-flex'>
-                                            <div className='col-md-6'><label className='small text-primary' >Liquidity %:</label></div>
-                                            <div className='col-md-6 text-end'><label className='small text-primary' >51%</label></div>
+                                            <div className='col-md-6 width-50'><label className='small text-primary' >Liquidity %:</label></div>
+                                            <div className='col-md-6 text-end width-50'><label className='small text-primary' >51%</label></div>
                                         </div>
                                         <div className='d-flex'>
-                                            <div className='col-md-6'><label className='small text-primary' >Lockup Time</label></div>
-                                            <div className='col-md-6 text-end'><label className='small text-primary' >180 days</label></div>
+                                            <div className='col-md-6 width-50'><label className='small text-primary' >Lockup Time</label></div>
+                                            <div className='col-md-6 text-end width-50'><label className='small text-primary' >180 days</label></div>
                                         </div>
                                         <hr></hr>
                                         <div className='d-flex'>
-                                            <div className='col-md-6'>{this.renderTime(item.start_date)}</div>
-                                            <div className='col-md-6 text-end'><button type='button' className='btn view-pool-btn'>View Pool</button></div>
+                                            <div className='col-md-6 width-50'>{this.renderTime(item.start_date)}</div>
+                                            <div className='col-md-6 text-end width-50'><button type='button' className='btn view-pool-btn'>View Pool</button></div>
                                         </div>
                                     </div>
                                 </div>
@@ -206,21 +206,21 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                     <div className='col-md-12 removePadding'>
                                         <br></br>
                                         <div className='d-flex'>
-                                            <div className='col-md-6'><p className='small text-secondary' key={key + item.coin.symbol + '-start'}>0 {item.coin.symbol}</p></div>
-                                            <div className='col-md-6 text-end'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
+                                            <div className='col-md-6 width-50'><p className='small text-secondary' key={key + item.coin.symbol + '-start'}>0 {item.coin.symbol}</p></div>
+                                            <div className='col-md-6 text-end width-50'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
                                         </div>
                                         <div className='d-flex'>
-                                            <div className='col-md-6'><label className='small text-primary' >Liquidity %:</label></div>
-                                            <div className='col-md-6 text-end'><label className='small text-primary' >51%</label></div>
+                                            <div className='col-md-6 width-50'><label className='small text-primary' >Liquidity %:</label></div>
+                                            <div className='col-md-6 text-end width-50'><label className='small text-primary' >51%</label></div>
                                         </div>
                                         <div className='d-flex'>
-                                            <div className='col-md-6'><label className='small text-primary' >Lockup Time</label></div>
-                                            <div className='col-md-6 text-end'><label className='small text-primary' >180 days</label></div>
+                                            <div className='col-md-6 width-50'><label className='small text-primary' >Lockup Time</label></div>
+                                            <div className='col-md-6 text-end width-50'><label className='small text-primary' >180 days</label></div>
                                         </div>
                                         <hr></hr>
                                         <div className='d-flex'>
-                                            <div className='col-md-6'><p className='text-secondary small text-margin-0'>Sale starts in:</p><label className='text-primary'>00:00:00:00</label></div>
-                                            <div className='col-md-6 text-end'><button type='button' className='btn view-pool-btn'>View Pool</button></div>
+                                            <div className='col-md-6 width-50'><p className='text-secondary small text-margin-0'>Sale starts in:</p><label className='text-primary'>00:00:00:00</label></div>
+                                            <div className='col-md-6 text-end width-50'><button type='button' className='btn view-pool-btn'>View Pool</button></div>
                                         </div>
                                     </div>
                                 </div>
@@ -292,21 +292,21 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                     <div className='col-md-12 removePadding'>
                                         <br></br>
                                         <div className='d-flex'>
-                                            <div className='col-md-6'><p className='small text-secondary' key={key + item.coin.symbol + '-start'}>0 {item.coin.symbol}</p></div>
-                                            <div className='col-md-6 text-end'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
+                                            <div className='col-md-6 width-50'><p className='small text-secondary' key={key + item.coin.symbol + '-start'}>0 {item.coin.symbol}</p></div>
+                                            <div className='col-md-6 text-end width-50'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
                                         </div>
                                         <div className='d-flex'>
                                             <div className='col-md-6'><label className='small text-primary' >Liquidity %:</label></div>
                                             <div className='col-md-6 text-end'><label className='small text-primary' >51%</label></div>
                                         </div>
                                         <div className='d-flex'>
-                                            <div className='col-md-6'><label className='small text-primary' >Lockup Time</label></div>
-                                            <div className='col-md-6 text-end'><label className='small text-primary' >180 days</label></div>
+                                            <div className='col-md-6 width-50'><label className='small text-primary' >Lockup Time</label></div>
+                                            <div className='col-md-6 text-end width-50'><label className='small text-primary' >180 days</label></div>
                                         </div>
                                         <hr></hr>
                                         <div className='d-flex'>
-                                            <div className='col-md-6'>{this.renderDate(item.status,item.start_date)}</div>
-                                            <div className='col-md-6 text-end'><button type='button' className='btn view-pool-btn'>View Pool</button></div>
+                                            <div className='col-md-6 width-50'>{this.renderDate(item.status,item.start_date)}</div>
+                                            <div className='col-md-6 text-end width-50'><button type='button' className='btn view-pool-btn'>View Pool</button></div>
                                         </div>
                                     </div>
                                 </div>
@@ -343,6 +343,29 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                     <button type='button' className='btn buttonBgWhite create-lock-btn'>BSC Mainnet</button>
                     <button type='button' className='btn buttonBgWhite create-lock-btn'>Create</button>
                 </div>
+                <div id='mobileProjectFilter' className='col-md-12'>
+                    <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
+                    <div className='d-flex'>
+                        <div className='col-md-6'>
+                            <label className='small text-secondary'>filter By</label>
+                            <select id='fitlerInput' onChange={this.changeFilter} value={this.state.filter} className='form-control custom-token-input'>
+                                <option value='all'>All Status</option>
+                                <option value='live'>Live</option>
+                                <option value='kyc'>KYC</option>
+                                <option value='filled'>Filled</option>
+                                <option value='ended' >Ended</option>
+                            </select>
+                        </div>
+                        <div className='col-md-6'>
+                            <label className='small text-secondary'>Sort By</label>
+                            <select id='sortFilter' className='form-control custom-token-input'>
+                                <option value=''>No filters</option>
+                                <option value='start'>Start Date</option>
+                                <option value='end'>End Date</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
                 <br></br>
                 <br></br>
                 <div id='desktopProjectFilter' className='col-md-12'>
@@ -372,30 +395,6 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                             <div className='col-md-1'>
                                     
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id='mobileProjectFilter' className='col-md-12'>
-                    <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
-                    <div className='d-flex'>
-                        <div className='col-md-6'>
-                            <label className='small text-secondary'>filter By</label>
-                            <select id='fitlerInput' onChange={this.changeFilter} value={this.state.filter} className='form-control custom-token-input'>
-                                <option value='all'>All Status</option>
-                                <option value='live'>Live</option>
-                                <option value='kyc'>KYC</option>
-                                <option value='filled'>Filled</option>
-                                <option value='ended' >Ended</option>
-                            </select>
-                        </div>
-                        <div className='col-md-6'>
-                            <label className='small text-secondary'>Sort By</label>
-                            <select id='sortFilter' className='form-control custom-token-input'>
-                                <option value=''>No filters</option>
-                                <option value='start'>Start Date</option>
-                                <option value='end'>End Date</option>
-                            </select>
                         </div>
                     </div>
                 </div>
