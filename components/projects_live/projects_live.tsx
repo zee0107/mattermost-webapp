@@ -219,7 +219,10 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         </div>
                                         <hr></hr>
                                         <div className='d-flex'>
-                                            <div className='col-md-6'>00:00:00:00</div>
+                                            <div className='col-md-6'><div>
+                                                <p className='text-secondary small text-margin-0'>Sale starts in:</p>
+                                                <label className='text-primary'>00:00:00:00</label>
+                                            </div>
                                             <div className='col-md-6 text-end'><button type='button' className='btn view-pool-btn'>View Pool</button></div>
                                         </div>
                                     </div>
@@ -247,7 +250,8 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
 
     renderDate = (status,date) =>{
         if(status === "ENDED"){
-            return (<label className='text-primary'>00:00:00:00</label>);
+            return ( <p className='text-secondary small text-margin-0'>Sale starts in:</p>
+            <label className='text-primary'>00:00:00:00</label>);
         }
         else{
             return (<div>{this.renderTime(date)}</div>);
