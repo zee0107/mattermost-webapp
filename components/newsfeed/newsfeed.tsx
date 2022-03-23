@@ -195,14 +195,14 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                 <div className='col-md-4 removePadding' id="side_menu_right">
                                     <div className='col-md-12 chat-box removePadding margin-top-30'>
                                         <div className='d-flex'>
-                                            <div className='col-md-3 profile-img-div'>
+                                            <div className='col-md-3 profile-img-div-new'>
                                                 {this.renderProfilePicture('xl')}
                                             </div>
                                         
-                                            <div className='col-md-8'>
+                                            <div className='col-md-8 removePadding'>
                                                 <label className='text-primary'>{`${currentUser.first_name} ${currentUser.last_name}`}</label>
-                                                <p className='text-secondary'>{'@' + currentUser.username}</p>
-                                                <p className='text-secondary'>{currentUser.position}</p>
+                                                <p className='text-secondary small'>{'@' + currentUser.username}</p>
+                                                <p className='text-secondary small'>{currentUser.position}</p>
                                             </div>
                                             <div className='col-lg-3'>
                                                 <ToggleModalButtonRedux
@@ -216,7 +216,7 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                                 >Edit</ToggleModalButtonRedux>
                                             </div>
                                         </div>
-                                        <hr></hr>
+                                        <hr className='removeMargin'></hr>
                                         <div className='d-flex'>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Post</p>
