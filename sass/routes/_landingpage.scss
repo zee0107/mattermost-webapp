@@ -94,6 +94,10 @@
   }
 }
 
+.mtop-20{
+  margin-top: 20px;
+}
+
 .margin-top-30-responsive{
   margin-top: 30px;
 }
@@ -163,6 +167,11 @@
 .removePadding{
     padding-left: 0px;
     padding-right: 0px;
+}
+
+.removeMarginHr{
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 .removePaddingRight{

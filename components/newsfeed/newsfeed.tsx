@@ -194,7 +194,7 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className='col-md-4 removePadding' id="side_menu_right">
                                     <div className='col-md-12 chat-box removePadding margin-top-30'>
-                                        <div className='d-flex'>
+                                        <div className='d-flex mtop-20'>
                                             <div className='col-md-3 profile-img-div-new'>
                                                 {this.renderProfilePicture('xl')}
                                             </div>
@@ -216,7 +216,7 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                                 >Edit</ToggleModalButtonRedux>
                                             </div>
                                         </div>
-                                        <hr className='removeMargin'></hr>
+                                        <hr className='removeMarginHr'></hr>
                                         <div className='d-flex'>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Post</p>
