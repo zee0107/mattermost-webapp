@@ -187,19 +187,12 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
                         </div>
                     </div>
                     <div className='row content'>
-                        <div id='desktopView'>
                             <div className='col-md-2'>
                                 <Sidebar/>
                             </div>
                             <div className='col-md-10 removePadding'>
                                 {React.cloneElement(this.props.children, {mode: this.state.isDark})}
                             </div>
-                        </div>
-                        
-                        <div id='mobileView'>
-                            <Sidebar/>
-                            {React.cloneElement(this.props.children, {mode: this.state.isDark})}
-                        </div>
                     </div>
                 </div>
 
