@@ -225,7 +225,7 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                                 </svg>
                                             </div>
                                         </div>
-                                        <div className='col-lg-12'>
+                                        <div className='col-lg-12 mtop-10'>
                                             <img src={postImage2}></img>
                                         </div>
                                         <div className='col-lg-12 mtop-10'>
