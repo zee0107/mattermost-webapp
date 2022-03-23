@@ -7,8 +7,7 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 
 import homeImage from 'images/homeFeed.png';
-import coverImage from 'images/cover-photo.png';
-import profPic from 'images/profiles/user-profile-1.png'
+import profPic from 'images/profiles/user-profile-1.png';
 import ImgIcon from 'images/profiles/image.svg';
 import LayoutIcon from 'images/profiles/columns-gap.svg';
 import MusicIcon from 'images/profiles/music-note-beamed.svg';
@@ -16,11 +15,12 @@ import VideoIcon from 'images/profiles/camera-video.svg';
 import GeoIcon from 'images/profiles/geo-alt.svg';
 import AttachIcon from 'images/profiles/paperclip.svg';
 import SplitIcon from 'images/profiles/menu-icon.svg';
-import DoneIcon from 'images/profiles/done.svg';
-import UndoneIcon from 'images/profiles/undone.svg';
 import postImage from 'images/post-1.png';
 import postPic from 'images/profiles/user-profile-2.png';
-import completion from 'images/profiles/completion.png';
+import heartIcon from 'images/icons/heart-icon.svg';
+import commentIcon from 'images/icons/comment-icon.svg';
+import shareIcon from 'images/icons/share-icon.svg';
+import saveIcon from 'images/icons/save-icon.svg';
 
 import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
 import UserSettingsModal from 'components/user_settings/modal_profile';
@@ -188,6 +188,19 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-lg-12'>
                                             <img src={postImage}></img>
+                                        </div>
+                                        <div className='d-flex'>
+                                            <div className='col-md-8'>
+                                                <a href='#'><img src={heartIcon}></img></a>
+                                                <a href='#'><img src={commentIcon}></img></a>
+                                                <a href='#'><img src={shareIcon}></img></a>
+                                            </div>
+                                            <div className='col-md-4 text-end'>
+                                            <a href='#'><img src={saveIcon}></img></a>
+                                            </div>
+                                        </div>
+                                        <div className='col-lg-12 mtop-10'>
+                                            <p className='text-primary'>Almost ready for a test play, skill-based p2e game is coming.</p>
                                         </div>
                                     </div>
                                 </div>
