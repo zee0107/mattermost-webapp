@@ -12,6 +12,7 @@ import MoreChannels from 'components/more_channels';
 import NewChannelFlow from 'components/new_channel_flow';
 import InvitationModal from 'components/invitation_modal';
 import UserSettingsModal from 'components/user_settings/modal';
+import CurrencyIcons from 'components/currency_icons';
 import fireImage from 'images/fire.png';
 import clockImage from 'images/clock.svg';
 import trendImage from 'images/trending-up.svg';
@@ -302,7 +303,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                     dragging: this.state.isDragging,
                 })}
             >
-                <div className='col-sm-2' id='side_menu_left'>
+                <div id='side_menu_left'>
                     <div className='col-sm-12'>
                         <div className='sidemenuBox'>
                             <ul className='ul-collapse'>
