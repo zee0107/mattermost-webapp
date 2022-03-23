@@ -188,10 +188,10 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
                     </div>
                     <div className='row content'>
                         <div className='container'>
-                            <div className='col-md-2'>
+                            <div className='col-md-3'>
                                 <Sidebar/>
                             </div>
-                            <div className='col-md-10 removePadding'>
+                            <div className='col-md-9 removePadding'>
                                 {React.cloneElement(this.props.children, {mode: this.state.isDark})}
                             </div>
                         </div>
