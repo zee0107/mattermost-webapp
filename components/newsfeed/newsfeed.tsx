@@ -171,8 +171,7 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                             </div>
                                         </div>
                                     </div>
-                                    <br></br>
-                                    <div className='col-lg-12 post-div margin-top-30'>
+                                    <div className='col-lg-12 post-div mtop-20'>
                                         <div className='d-flex'>
                                             <div className='col-lg-2 text-center removePaddingRight'>
                                                 <img src={postPic} className='post-img'></img>
@@ -193,8 +192,8 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className='col-md-4 removePadding' id="side_menu_right">
-                                    <div className='col-md-12 chat-box removePadding mtop-20'>
-                                        <div className='d-flex mtop-20'>
+                                    <div className='col-md-12 chat-box removePadding mtop-10'>
+                                        <div className='d-flex mtop-10'>
                                             <div className='col-md-3 profile-img-div-new'>
                                                 {this.renderProfilePicture('xl')}
                                             </div>
@@ -232,7 +231,18 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col-md-12 chat-box removePadding margin-top-30'>
+                                    <div className='col-md-12 chat-box removePadding mtop-10'>
+                                        <div className='d-flex'>
+                                            <div className='col-md-6'>
+                                                <label className='text-primary'>Trending Groups</label>
+                                            </div>
+                                            <div className='col-md-6 text-end'>
+                                                <lable className='text-secondary'>View All</lable>
+                                            </div>
+                                        </div>
+                                        <hr className='removeMarginHr'></hr>
+                                    </div>
+                                    <div className='col-md-12 chat-box removePadding mtop-10'>
                                         <div className='d-flex'>
                                             <div className='col-lg-4 width-100'>
                                                 <div className='d-flex'>
