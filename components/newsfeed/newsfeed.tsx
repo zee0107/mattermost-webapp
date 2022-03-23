@@ -96,7 +96,13 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                     <div className='col-md-12 chat-box mtop-10'>
                                         <div className='row'>
                                             <div className='col-md-2'>
-
+                                                <div className='position-absolute'>
+                                                    <a href="#" className='onClickstory'>
+                                                        {this.renderProfilePicture('md')}
+                                                    </a>
+                                                </div>
+                                                <div className='badges-online-plus rounded-circle onClickstory position-relative'><i class="bi-plus"></i></div>
+                                                <small className='firstname-title-story'>Your story</small>
                                             </div>
                                             <div className='col-md-2'>
                                                 

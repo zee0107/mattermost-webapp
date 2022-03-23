@@ -3,6 +3,7 @@
     font-size: 14px;
     float: right;
     text-align: center;
+    width: 15px;
   }
 
   .onAllstory {
@@ -10,5 +11,37 @@
     color: var(--text-primary);
     background: #9cdba9;
     border-radius: 50%;
-    width: 15px;
+    
+  }
+
+  .onClickstory {
+    cursor: pointer;
+  }
+
+  .firstname-title-story {
+    font-size: 10px;
+    margin: 0px 0px 0px 0px;
+  }
+
+  .badges-online-plus {
+    background: #7DCE58;
+    border: 2px solid #ffffff;
+    margin: 41px 0px 0px 0px;
+    padding: 3px 3px 3px 3px;
+    color: #ffffff;
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+
+  .position-relative{
+      position: relative;
+  }
+
+  .position-absolute{
+      position: absolute;
+  }
+
+  .storyImg{
+    z-index: 99;
   }
