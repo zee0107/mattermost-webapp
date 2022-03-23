@@ -265,35 +265,6 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                 </div>
-                {/*<div
-                    id='lhsNavigator'
-                    role='application'
-                    aria-label={ariaLabel}
-                    className='a11y__region'
-                    data-a11y-sort-order='6'
-                >
-                    <ChannelNavigator
-                        showNewChannelModal={this.showNewChannelModal}
-                        showMoreChannelsModal={this.showMoreChannelsModal}
-                        invitePeopleModal={this.invitePeopleModal}
-                        showCreateCategoryModal={this.showCreateCategoryModal}
-                        canCreateChannel={this.props.canCreatePrivateChannel || this.props.canCreatePublicChannel}
-                        canJoinPublicChannel={this.props.canJoinPublicChannel}
-                        handleOpenDirectMessagesModal={this.handleOpenMoreDirectChannelsModal}
-                        unreadFilterEnabled={this.props.unreadFilterEnabled}
-                    />
-                </div>/*}
-                {/*<div className='sidebar--left__icons'>
-                    <Pluggable pluggableName='LeftSidebarHeader'/>
-                </div>*/}
-                {/*<SidebarChannelList
-                    handleOpenMoreDirectChannelsModal={this.handleOpenMoreDirectChannelsModal}
-                    onDragStart={this.onDragStart}
-                    onDragEnd={this.onDragEnd}
-                />
-                <DataPrefetch/>
-                <SidebarNextSteps/>
-                {this.renderModals()}/*}
             </div>
         </div>
         );
