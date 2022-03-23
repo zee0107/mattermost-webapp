@@ -196,13 +196,13 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                     <div className='col-md-12 chat-box removePadding margin-top-30'>
                                         <div className='d-flex'>
                                             <div className='col-md-3 profile-img-div'>
-                                                {this.renderProfilePicture('lg')}
+                                                {this.renderProfilePicture('xl')}
                                             </div>
                                         
                                             <div className='col-md-8'>
-                                                <h4>{`${currentUser.first_name} ${currentUser.last_name}`}</h4>
-                                                <h5>{'@' + currentUser.username}</h5>
-                                                <h5>{currentUser.position}</h5>
+                                                <label className='text-primary'>{`${currentUser.first_name} ${currentUser.last_name}`}</label>
+                                                <p className='text-secondary'>{'@' + currentUser.username}</p>
+                                                <p className='text-secondary'>{currentUser.position}</p>
                                             </div>
                                             <div className='col-lg-3'>
                                                 <ToggleModalButtonRedux
