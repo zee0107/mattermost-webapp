@@ -24,7 +24,7 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import {ModalData} from 'types/actions';
 import SidebarRightMenu from 'components/sidebar_right_menu';
-import Sidebar from 'components/sidebar';
+import Sidebar from 'components/sidebar_crypter';
 
 type Props = {
     userId: string;
