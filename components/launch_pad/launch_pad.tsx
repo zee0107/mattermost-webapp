@@ -228,7 +228,6 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                         <div className='col-lg-12 removePadding'>
                             <div className='row'>
                                 <div className='col-sm-2' id='side_menu_left'>
-                                    <Sidebar />
                                     {/*<div className='col-sm-12'>
                                         <div className='sidemenuBox'>
                                             <ul className='ul-collapse'>
