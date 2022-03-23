@@ -45,9 +45,9 @@ type Props = {
     profilePicture: string;
     autoResetPref?: string;
     //allCrypto: Promise<AllListing[]>;
-    /*trendCrypto: Promise<TrendListing[]>;
+    trendCrypto: Promise<TrendListing[]>;
     newCrypto: Promise<NewListing[]>;
-    gainerCrypto: Promise<GainerListing[]>;*/
+    gainerCrypto: Promise<GainerListing[]>;
     actions: {
         openModal: <P>(modalData: ModalData<P>) => void;
         setStatus: (status: UserStatus) => ActionFunc;
@@ -89,7 +89,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
 
-        /*if(this.props.trendCrypto != null){
+        if(this.props.trendCrypto != null){
             Promise.resolve(this.props.trendCrypto).then(value => {this.setState({trendListing: value});})
         }
 
@@ -99,7 +99,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
         if(this.props.newCrypto != null){
             Promise.resolve(this.props.newCrypto).then(value => {this.setState({newListing: value});})
-        }*/
+        }
     }
 
     setDocumentTitle = (siteName: string) => {
@@ -125,7 +125,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         );
     }
 
-    /*render_percent = (percent) =>{
+    render_percent = (percent) =>{
         if(parseFloat(percent) > 0){
             return (<label className='currency-value-text currency-percent-change' key={percent+"-trend-percent"}><img src={triangleupImage}></img>&nbsp;{parseFloat(percent).toFixed(2)}%</label>);
         }
@@ -188,7 +188,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             )
         });
         return trend;
-    }*/
+    }
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
@@ -210,13 +210,13 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         let ltcContent;
         let ethContent;
         let bnbContent;
-        /*let gainer;
+        let gainer;
         let newList;
         let trend;
 
         gainer = this.gainer_render();
         newList = this.new_render();
-        trend = this.trend_render();*/
+        trend = this.trend_render();
         btcContent = this.sideBoxRender("BTC");
         ltcContent = this.sideBoxRender("LTC");
         ethContent = this.sideBoxRender("ETH");
@@ -228,7 +228,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                         <div className='col-lg-12 removePadding'>
                             <div className='row'>
                                 <div className='col-sm-2' id='side_menu_left'>
-                                    {/*<div className='col-sm-12'>
+                                    <div className='col-sm-12'>
                                         <div className='sidemenuBox'>
                                             <ul className='ul-collapse'>
                                                 <li key='news-feed' className='sidemenu-padding'><a href='#' className='sidemenu-item1'><svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg" className='side-menu-align'>
@@ -314,7 +314,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                             <br></br>
                                             {newList}
                                         </div>
-                                    </div>*/}
+                                    </div>
                                 </div>
                                 <div className='col-sm-8'>
                                     {middleRender}
