@@ -93,7 +93,7 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                         <div className='col-lg-12 removePadding'>
                             <div className='row'>
                                 <div className='col-md-8'>
-                                    <div className='col-md-12 share-div'>
+                                    <div className='col-md-12 chat-box mtop-10'>
                                         <div className='row'>
                                             <div className='col-md-2'>
 
