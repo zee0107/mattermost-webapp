@@ -133,6 +133,14 @@
     #crypto-list{
         display: none;
     }
+
+    #desktopSideBar{
+        display: none;
+    }
+    
+    #mobileSideBar{
+        display: block;
+    }
 }
 
 @media (min-width: 769px) {
@@ -150,6 +158,14 @@
 
     #crypto-list{
         display: block;
+    }
+
+    #desktopSideBar{
+        display: block;
+    }
+    
+    #mobileSideBar{
+        display: none;
     }
 }
 
