@@ -63,4 +63,4 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
 }
 
 
-export default connect(makeMapStateToProps, mapDispatchToProps)(LaunchPad);
+export default connect(makeMapStateToProps, mapDispatchToProps)(LaunchpadToken);
