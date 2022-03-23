@@ -113,28 +113,30 @@ export default class LaunchpadToken extends React.PureComponent<Props, State> {
                                         <br></br>
                                         <div id='create-lock' className='col-md-12 create-token-box'>
                                             <div className='col-md-12'>
-                                                <div className='row'>
+                                                <div className='d-flex'>
                                                     <div className='width-50'>
                                                         <h4 className='text-primary'>Token</h4>
                                                     </div>
-                                                    <div className='width-50'>
-                                                        <a href='#' className='text-secondary'>All</a>
-                                                        <a href='#' className='text-secondary'>My Lock</a>
+                                                    <div className='width-50 text-end'>
+                                                        <a href='#' className='text-secondary'><label className='text-secondary'>All</label></a>
+                                                        <a href='#' className='text-secondary'><label className='text-secondary'>My Lock</label></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className='col-md-12 removePadding border-bot-div'></div>
+                                            <br></br>
                                             <div className='col-md-12'>
                                                 <input type='text' className='form-control custom-token-input' placeholder='Search by Token'></input>
                                             </div>
+                                            <br></br>
                                             <div className='col-md-12 removePadding border-bot-div'></div>
                                             <div className='col-md-12'>
                                             <div className='d-flex'>
-                                                    <div className='col-md-5 text-center'>
-                                                        <label className='text-primary'></label>
+                                                    <div className='col-md-5'>
+                                                        <label className='text-primary'>Token</label>
                                                     </div>
-                                                    <div className='col-md-5 text-center'>
-                                                        <label className='text-primary'></label>
+                                                    <div className='col-md-5'>
+                                                        <label className='text-primary'>Amount</label>
                                                     </div>
                                                     <div className='col-md-2'>
                                                     </div>
@@ -142,10 +144,10 @@ export default class LaunchpadToken extends React.PureComponent<Props, State> {
                                                 <div className='d-flex'>
                                                     <div className='col-md-5'>
                                                         <div className='d-flex'>
-                                                            <div className='col-md-3'>
+                                                            <div className='col-md-2 removePaddingRight'>
                                                                 <CurrencyIcon code='BTC'/>
                                                             </div>
-                                                            <div className='col-md-9'>
+                                                            <div className='col-md-9 removePaddingLeft'>
                                                                 <label className='text-primary'>Lorem ipsum</label>
                                                                 <p className='text-secondary'>LEP</p>
                                                             </div>
@@ -161,10 +163,10 @@ export default class LaunchpadToken extends React.PureComponent<Props, State> {
                                                 <div className='d-flex'>
                                                     <div className='col-md-5'>
                                                         <div className='d-flex'>
-                                                            <div className='col-md-3'>
+                                                            <div className='col-md-2 removePaddingRight'>
                                                                 <CurrencyIcon code='BTC'/>
                                                             </div>
-                                                            <div className='col-md-9'>
+                                                            <div className='col-md-9 removePaddingLeft'>
                                                                 <label className='text-primary'>Lorem ipsum</label>
                                                                 <p className='text-secondary'>LEP</p>
                                                             </div>
@@ -180,10 +182,29 @@ export default class LaunchpadToken extends React.PureComponent<Props, State> {
                                                 <div className='d-flex'>
                                                     <div className='col-md-5'>
                                                         <div className='d-flex'>
-                                                            <div className='col-md-3'>
+                                                            <div className='col-md-2 removePaddingRight'>
                                                                 <CurrencyIcon code='BTC'/>
                                                             </div>
-                                                            <div className='col-md-9'>
+                                                            <div className='col-md-9 removePaddingLeft'>
+                                                                <label className='text-primary'>Lorem ipsum</label>
+                                                                <p className='text-secondary'>LEP</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className='col-md-5'>
+                                                        <label className='text-primary'>900.5320 LEP</label>
+                                                    </div>
+                                                    <div className='col-md-2'>
+                                                        <a href='#' className='text-percent'>View</a>
+                                                    </div>
+                                                </div>
+                                                <div className='d-flex'>
+                                                    <div className='col-md-5'>
+                                                        <div className='d-flex'>
+                                                            <div className='col-md-2 removePaddingRight'>
+                                                                <CurrencyIcon code='BTC'/>
+                                                            </div>
+                                                            <div className='col-md-9 removePaddingLeft'>
                                                                 <label className='text-primary'>Lorem ipsum</label>
                                                                 <p className='text-secondary'>LEP</p>
                                                             </div>
