@@ -135,11 +135,11 @@
     }
 
     #desktopSideBar{
-        display: none;
+        display: none !important;
     }
     
     #mobileSideBar{
-        display: block;
+        display: block !important;
     }
 }
 
@@ -161,11 +161,11 @@
     }
 
     #desktopSideBar{
-        display: block;
+        display: block !important;
     }
     
     #mobileSideBar{
-        display: none;
+        display: none !important;
     }
 }
 
