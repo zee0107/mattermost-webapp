@@ -194,8 +194,9 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
                                 {React.cloneElement(this.props.children, {mode: this.state.isDark})}
                             </div>
                         </div>
-
+                        
                         <div id='mobileView'>
+                            <Sidebar />
                             {React.cloneElement(this.props.children, {mode: this.state.isDark})}
                         </div>
                     </div>
