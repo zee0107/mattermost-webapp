@@ -201,7 +201,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                                 <label htmlFor="list-item-3" className="first collapsible-label">Crypter Lock</label>
                                 <ul className='ul-collapse'>
                                     <li key='create-lock'><div className={'list-sidemenu-b ' + `${this.state.middleView === 'create-lock' ? 'active-item' : ''}`}><a href="#" onClick={() => this.setState({middleView: 'create-lock'})} className='side-menu-item'>Create Lock</a></div></li>
-                                    <li key='token'><div className='list-sidemenu-b'><a href="#" className='side-menu-item'>Token</a></div></li>
+                                    <li key='token'><div className='list-sidemenu-b'><a href="/laucnhpad-token" className='side-menu-item'>Token</a></div></li>
                                     <li key='liquidity'><div className='list-sidemenu-b'><a href="#" className='side-menu-item'>Liquidity</a></div></li>
                                 </ul>
                             </li>

@@ -53,6 +53,7 @@ const LazySignupIndex = React.lazy(() => import('components/signup/signup_index'
 const LazySignupProfile = React.lazy(() => import('components/signup/signup_profile'));
 const LazyProfilePage = React.lazy(() => import('components/profile_page'));
 const LazyLaunchPad = React.lazy(() => import('components/launch_pad'));
+const LazyLaunchPadToken = React.lazy(() => import('components/launchpad_token'));
 const LazyTermsOfService = React.lazy(() => import('components/terms_of_service'));
 const LazyShouldVerifyEmail = React.lazy(() => import('components/should_verify_email'));
 const LazyDoVerifyEmail = React.lazy(() => import('components/do_verify_email'));
@@ -93,6 +94,7 @@ const SignupIndex = makeAsyncComponent('SignupIndex', LazySignupIndex);
 const SignupProfile = makeAsyncComponent('SignupProfile', LazySignupProfile);
 const ProfilePage = makeAsyncComponent('ProfilePage', LazyProfilePage);
 const LaunchPad = makeAsyncComponent('LaunchPad', LazyLaunchPad);
+const LaunchPadToken = makeAsyncComponent('LaunchPadToken', LazyLaunchPadToken);
 const ShouldVerifyEmail = makeAsyncComponent('ShouldVerifyEmail', LazyShouldVerifyEmail);
 const DoVerifyEmail = makeAsyncComponent('DoVerifyEmail', LazyDoVerifyEmail);
 const ClaimController = makeAsyncComponent('ClaimController', LazyClaimController);
@@ -519,6 +521,10 @@ export default class Root extends React.PureComponent {
                                  <LoginHFTRoute
                                     path={'/launchpad'}
                                     component={LaunchPad}
+                                />
+                                <LoginHFTRoute
+                                    path={'/launchpad-token'}
+                                    component={LaunchPadToken}
                                 />
                                 <LoggedInRoute
                                     path={'/:team'}
