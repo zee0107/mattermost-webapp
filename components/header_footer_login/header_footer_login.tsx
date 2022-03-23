@@ -179,9 +179,6 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
             <div className='inner-wrap' data-theme={this.state.isDark}>
                 <ModalController/>
                 <SidebarRightMenu/>
-                <div id='mobileSideBar'>
-                    <Sidebar/>
-                </div>
                 <div key='inner-wrap' className={classNames('inner-wrap', 'channel__wrap', {'move--right': this.props.lhsOpen,'move--left': this.props.rhsOpen,'move--left-small': this.props.rhsMenuOpen,})}>
                     <div className='row header'>
                         <div id='navbar_wrapper'>
@@ -189,7 +186,7 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
                         </div>
                     </div>
                     <div className='row content'>
-                        <div id='desktopSidebar' className='col-md-2'>
+                        <div className='col-md-2'>
                             <Sidebar/>
                         </div>
                         <div className='col-md-10 removePadding'>
