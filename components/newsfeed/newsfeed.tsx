@@ -24,8 +24,8 @@ import completion from 'images/profiles/completion.png';
 
 import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
 import UserSettingsModal from 'components/user_settings/modal_profile';
-import { AllListing, GainerListing, NewListing, TrendListing } from 'mattermost-redux/types/crypto';
-import RSDetails from 'components/right_side_details/right_side_details';
+import {ModalData} from 'types/actions';
+import {ModalIdentifiers} from 'utils/constants';
 
 type Props = {
     status?: string;
