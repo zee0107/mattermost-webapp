@@ -12,6 +12,9 @@ import MoreChannels from 'components/more_channels';
 import NewChannelFlow from 'components/new_channel_flow';
 import InvitationModal from 'components/invitation_modal';
 import UserSettingsModal from 'components/user_settings/modal';
+import fireImage from 'images/fire.png';
+import clockImage from 'images/clock.svg';
+import trendImage from 'images/trending-up.svg';
 
 import Pluggable from 'plugins/pluggable';
 
