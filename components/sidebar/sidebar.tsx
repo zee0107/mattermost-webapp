@@ -435,7 +435,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                 />
                 <DataPrefetch/>
                 <SidebarNextSteps/>*/}
-                {this.renderModals()}
+                {/*this.renderModals()*/}
             </div>
         );
     }
