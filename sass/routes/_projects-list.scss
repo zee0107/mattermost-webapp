@@ -134,11 +134,11 @@
         display: none;
     }
 
-    #desktopSideBar{
+    #desktopView{
         display: none !important;
     }
     
-    #mobileSideBar{
+    #mobileView{
         display: block !important;
     }
 }
@@ -160,12 +160,12 @@
         display: block;
     }
 
-    #desktopSideBar{
-        display: block !important;
+    #desktopView{
+        display: block;
     }
     
-    #mobileSideBar{
-        display: none !important;
+    #mobileView{
+        display: none;
     }
 }
 
