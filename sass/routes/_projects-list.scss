@@ -184,3 +184,10 @@
         background: var(--bgDiv); 
     }
 }
+
+.mobile-menu{
+    @media (max-width: 768px) {
+        background: var(--background);
+        padding-left: 20px;
+    }
+}

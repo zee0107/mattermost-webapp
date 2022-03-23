@@ -259,7 +259,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                     dragging: this.state.isDragging,
                 })}
             >
-                <div>
+                <div className='mobile-menu'>
                     {menu}
                 </div>
                  {/*<div id='side_menu_left'>
