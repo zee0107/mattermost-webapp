@@ -37,7 +37,7 @@ import MobileSidebarHeader from './mobile_sidebar_header';
 import SidebarNextSteps from './sidebar_next_steps';
 
 type Props = {
-    //teamId: string;
+    teamId: string;
     canCreatePublicChannel: boolean;
     canCreatePrivateChannel: boolean;
     canJoinPublicChannel: boolean;
@@ -47,8 +47,8 @@ type Props = {
     newCrypto: Promise<NewListing[]>;
     gainerCrypto: Promise<GainerListing[]>;
     actions: {
-        /*fetchMyCategories: (teamId: string) => {data: boolean};*/
-        /*createCategory: (teamId: string, categoryName: string) => {data: string};*/
+        fetchMyCategories: (teamId: string) => {data: boolean};
+        createCategory: (teamId: string, categoryName: string) => {data: string};
         openModal: <P>(modalData: ModalData<P>) => void;
         clearChannelSelection: () => void;
     };
@@ -73,9 +73,9 @@ export default class Sidebar extends React.PureComponent<Props, State> {
     }
 
     componentDidMount() {
-       // if (this.props.teamId) {
-            //this.props.actions.fetchMyCategories(this.props.teamId);
-        //}
+        if (this.props.teamId) {
+            this.props.actions.fetchMyCategories(this.props.teamId);
+        }
 
         if(this.props.trendCrypto != null){
             Promise.resolve(this.props.trendCrypto).then(value => {this.setState({trendListing: value});})
@@ -94,9 +94,9 @@ export default class Sidebar extends React.PureComponent<Props, State> {
     }
 
     componentDidUpdate(prevProps: Props) {
-        //if (this.props.teamId && prevProps.teamId !== this.props.teamId) {
-           // this.props.actions.fetchMyCategories(this.props.teamId);
-       //}
+        if (this.props.teamId && prevProps.teamId !== this.props.teamId) {
+            this.props.actions.fetchMyCategories(this.props.teamId);
+       }
     }
 
     componentWillUnmount() {
@@ -159,9 +159,9 @@ export default class Sidebar extends React.PureComponent<Props, State> {
         trackEvent('ui', 'ui_sidebar_menu_createCategory');
     }
 
-    /*handleCreateCategory = (categoryName: string) => {
+    handleCreateCategory = (categoryName: string) => {
         this.props.actions.createCategory(this.props.teamId, categoryName);
-    }*/
+    }
 
     showMoreChannelsModal = () => {
         this.props.actions.openModal({
@@ -289,9 +289,9 @@ export default class Sidebar extends React.PureComponent<Props, State> {
     }
 
     render() {
-        /*if (!this.props.teamId) {
+        if (!this.props.teamId) {
             return (<div/>);
-        }*/
+        }
 
         const ariaLabel = Utils.localizeMessage('accessibility.sections.lhsNavigator', 'channel navigator region');
         let gainer = this.gainer_render();

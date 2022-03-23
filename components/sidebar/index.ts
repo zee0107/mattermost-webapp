@@ -38,7 +38,7 @@ function mapStateToProps(state: GlobalState) {
         canJoinPublicChannel = haveICurrentChannelPermission(state, Permissions.JOIN_PUBLIC_CHANNELS);
     }
     return {
-        //teamId: currentTeam ? currentTeam.id : '',
+        teamId: currentTeam ? currentTeam.id : '',
         canCreatePrivateChannel,
         canCreatePublicChannel,
         canJoinPublicChannel,
@@ -59,8 +59,8 @@ function mapStateToProps(state: GlobalState) {
 }
 
 type Actions = {
-    /*fetchMyCategories: (teamId: string) => {data: boolean};
-    createCategory: (teamId: string, categoryName: string) => {data: string};*/
+    fetchMyCategories: (teamId: string) => {data: boolean};
+    createCategory: (teamId: string, categoryName: string) => {data: string};
     openModal: <P>(modalData: ModalData<P>) => void;
     clearChannelSelection: () => void;
 }
@@ -69,8 +69,8 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
     return {
         actions: bindActionCreators<ActionCreatorsMapObject, Actions>({
             clearChannelSelection,
-            /*createCategory,
-            fetchMyCategories,*/
+            createCategory,
+            fetchMyCategories,
             openModal,
         }, dispatch),
     };
