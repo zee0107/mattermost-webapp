@@ -104,7 +104,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
         window.removeEventListener('keydown', this.handleKeyDownEvent);
     }
 
-    /*handleClickClearChannelSelection = (event: MouseEvent) => {
+    handleClickClearChannelSelection = (event: MouseEvent) => {
         if (event.defaultPrevented) {
             return;
         }
@@ -157,45 +157,45 @@ export default class Sidebar extends React.PureComponent<Props, State> {
             dialogType: EditCategoryModal,
         });
         trackEvent('ui', 'ui_sidebar_menu_createCategory');
-    }*/
+    }
 
     /*handleCreateCategory = (categoryName: string) => {
         this.props.actions.createCategory(this.props.teamId, categoryName);
     }*/
 
-    /*showMoreChannelsModal = () => {
+    showMoreChannelsModal = () => {
         this.props.actions.openModal({
             modalId: ModalIdentifiers.MORE_CHANNELS,
             dialogType: MoreChannels,
             dialogProps: {morePublicChannelsModalType: 'public'},
         });
         trackEvent('ui', 'ui_channels_more_public_v2');
-    }*/
+    }
 
-    /*invitePeopleModal = () => {
+    invitePeopleModal = () => {
         this.props.actions.openModal({
             modalId: ModalIdentifiers.INVITATION,
             dialogType: InvitationModal,
         });
         trackEvent('ui', 'ui_channels_dropdown_invite_people');
-    }*/
+    }
 
-    /*showNewChannelModal = () => {
+    showNewChannelModal = () => {
         this.props.actions.openModal({
             modalId: ModalIdentifiers.NEW_CHANNEL_FLOW,
             dialogType: NewChannelFlow,
         });
         trackEvent('ui', 'ui_channels_create_channel_v2');
-    }*/
+    }
 
-    /*handleOpenMoreDirectChannelsModal = (e: Event) => {
+    handleOpenMoreDirectChannelsModal = (e: Event) => {
         e.preventDefault();
         if (this.state.showDirectChannelsModal) {
             this.hideMoreDirectChannelsModal();
         } else {
             this.showMoreDirectChannelsModal();
         }
-    }*/
+    }
 
     onDragStart = () => {
         this.setState({isDragging: true});
@@ -205,7 +205,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
         this.setState({isDragging: false});
     }
 
-    /*renderModals = () => {
+    renderModals = () => {
         let moreDirectChannelsModal;
         if (this.state.showDirectChannelsModal) {
             moreDirectChannelsModal = (
@@ -221,7 +221,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                 {moreDirectChannelsModal}
             </React.Fragment>
         );
-    }*/
+    }
 
     render_percent = (percent) =>{
         if(parseFloat(percent) > 0){
@@ -435,7 +435,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                 />
                 <DataPrefetch/>
                 <SidebarNextSteps/>*/}
-                {/*this.renderModals()*/}
+                {this.renderModals()}
             </div>
         );
     }
