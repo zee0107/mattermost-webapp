@@ -210,34 +210,36 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                         </ul>
                     </div>
                 </div>
-                <div className='col-sm-12'>
-                    <div className='sidemenuBox'>
-                        <div className='d-flex'>
-                            <label className='text-primary label-title'><img src={fireImage} className='fire-img'></img>Trending</label>
-                            <a href='#' className='view-all-box'>View all</a>
+                <div id='crypto-list'>
+                    <div className='col-sm-12'>
+                        <div className='sidemenuBox'>
+                            <div className='d-flex'>
+                                <label className='text-primary label-title'><img src={fireImage} className='fire-img'></img>Trending</label>
+                                <a href='#' className='view-all-box'>View all</a>
+                            </div>
+                            <br></br>
+                            {trend}
                         </div>
-                        <br></br>
-                        {trend}
                     </div>
-                </div>
-                <div className='col-sm-12'>
-                    <div className='sidemenuBox'>
-                        <div className='d-flex'>
-                            <label className='text-primary label-title'><img src={trendImage} className='fire-img'></img>Biggest Gainers</label>
-                            <a href='#' className='view-all-box'>View all</a>
+                    <div className='col-sm-12'>
+                        <div className='sidemenuBox'>
+                            <div className='d-flex'>
+                                <label className='text-primary label-title'><img src={trendImage} className='fire-img'></img>Biggest Gainers</label>
+                                <a href='#' className='view-all-box'>View all</a>
+                            </div>
+                            <br></br>
+                            {gainer}
                         </div>
-                        <br></br>
-                        {gainer}
                     </div>
-                </div>
-                <div className='col-sm-12'>
-                    <div className='sidemenuBox'>
-                        <div className='d-flex'>
-                            <label className='text-primary label-title'><img src={clockImage} className='fire-img'></img>Recently Added</label>
-                            <a href='#' className='view-all-box'>View all</a>
+                    <div className='col-sm-12'>
+                        <div className='sidemenuBox'>
+                            <div className='d-flex'>
+                                <label className='text-primary label-title'><img src={clockImage} className='fire-img'></img>Recently Added</label>
+                                <a href='#' className='view-all-box'>View all</a>
+                            </div>
+                            <br></br>
+                            {newList}
                         </div>
-                        <br></br>
-                        {newList}
                     </div>
                 </div>
             </div>
