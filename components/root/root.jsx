@@ -523,7 +523,7 @@ export default class Root extends React.PureComponent {
                                     component={LaunchPad}
                                 />
                                 <LoginHFTRoute
-                                    path={'/launchpad-token'}
+                                    path={'/launchpadtoken'}
                                     component={LaunchPadToken}
                                 />
                                 <LoggedInRoute
