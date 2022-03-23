@@ -369,22 +369,14 @@ class LoginController extends React.PureComponent {
     finishSignin = (team) => {
         const experimentalPrimaryTeam = this.props.experimentalPrimaryTeam;
         const query = new URLSearchParams(this.props.location.search);
-        const redirectTo = query.get('redirect_to');
+        const redirectTo = '/newsfeed';
 
         Utils.setCSRFFromCookie();
 
         // Record a successful login to local storage. If an unintentional logout occurs, e.g.
         // via session expiration, this bit won't get reset and we can notify the user as such.
         LocalStorageStore.setWasLoggedIn(true);
-        if (redirectTo && redirectTo.match(/^\/([^/]|$)/)) {
-            browserHistory.push(redirectTo);
-        } else if (team) {
-            browserHistory.push(`/${team.name}`);
-        } else if (experimentalPrimaryTeam) {
-            browserHistory.push(`/${experimentalPrimaryTeam}`);
-        } else {
-            GlobalActions.redirectUserToDefaultTeam();
-        }
+        browserHistory.push(redirectTo);
     }
 
     handleLoginIdChange = (e) => {
