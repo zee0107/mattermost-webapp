@@ -95,28 +95,30 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                 <div className='col-md-8'>
                                     <div className='col-md-12 chat-box mtop-10'>
                                         <div className='row'>
-                                            <div className='col-md-2'>
+                                            <div className='col-md-2 mtop-10'>
                                                 <div className='position-absolute'>
                                                     <a href="#" className='onClickstory'>
                                                         {this.renderProfilePicture('md')}
                                                     </a>
                                                 </div>
-                                                <div className='badges-online-plus rounded-circle onClickstory position-relative'><i class="bi-plus"></i></div>
+                                                <div className='badges-online-plus rounded-circle onClickstory position-relative'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" className="bi bi-plus-lg" viewBox="0 0 16 16">
+                                                <path fillRule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                                                </svg></div>
                                                 <small className='firstname-title-story'>Your story</small>
                                             </div>
-                                            <div className='col-md-2'>
+                                            <div className='col-md-2 mtop-10'>
                                                 
                                             </div>
-                                            <div className='col-md-2'>
+                                            <div className='col-md-2 mtop-10'>
                                                 
                                             </div>
-                                            <div className='col-md-2'>
+                                            <div className='col-md-2 mtop-10'>
                                                 
                                             </div>
-                                            <div className='col-md-2'>
+                                            <div className='col-md-2 mtop-10'>
                                                 
                                             </div>
-                                            <div className='col-md-2'>
+                                            <div className='col-md-2 mtop-10'>
                                                 
                                             </div>
                                             <div class="next-arrow-story">
