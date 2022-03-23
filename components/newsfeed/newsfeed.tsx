@@ -16,6 +16,7 @@ import GeoIcon from 'images/profiles/geo-alt.svg';
 import AttachIcon from 'images/profiles/paperclip.svg';
 import SplitIcon from 'images/profiles/menu-icon.svg';
 import postImage from 'images/post-1.png';
+import trendImage from 'images/trending-up.svg';
 import postPic from 'images/profiles/user-profile-2.png';
 import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
 import UserSettingsModal from 'components/user_settings/modal_profile';
@@ -235,15 +236,15 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                         <div className='d-flex'>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Post</p>
-                                                <label className='text-Primary'>2.0k</label>
+                                                <label className='text-primary'>2.0k</label>
                                             </div>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Following</p>
-                                                <label className='text-Primary'>2.0k</label>
+                                                <label className='text-primary'>2.0k</label>
                                             </div>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Followers</p>
-                                                <label className='text-Primary'>2.0k</label>
+                                                <label className='text-primary'>2.0k</label>
                                             </div>
                                         </div>
                                     </div>
@@ -257,6 +258,33 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                             </div>
                                         </div>
                                         <hr className='removeMarginHr'></hr>
+                                        <div className='d-flex mtop-5'>
+                                            <div className='col-md-2'>
+                                                <img src={trendImage}></img>
+                                            </div>
+                                            <div className='col-md-10'>
+                                                <label className='text-percent'>#Game</label>
+                                                <p className='text-secondary'>289 Post</p>
+                                            </div>
+                                        </div>
+                                        <div className='d-flex mtop-5'>
+                                            <div className='col-md-2'>
+                                                <img src={trendImage}></img>
+                                            </div>
+                                            <div className='col-md-10'>
+                                                <label className='text-percent'>#Handmade</label>
+                                                <p className='text-secondary'>30 Post</p>
+                                            </div>
+                                        </div>
+                                        <div className='d-flex mtop-5'>
+                                            <div className='col-md-2'>
+                                                <img src={trendImage}></img>
+                                            </div>
+                                            <div className='col-md-10'>
+                                                <label className='text-percent'>#WordPress</label>
+                                                <p className='text-secondary'>80 Post</p>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div className='col-md-12 chat-box removePadding mtop-10'>
                                         <div className='d-flex'>
