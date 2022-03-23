@@ -109,7 +109,7 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                             <div className='col-md-2 mtop-10'>
                                                 <div className='position-absolute'>
                                                     <a href="#" className='onClickstory'>
-                                                        <img class="Avatar avatar-xl" src={profPic} alt="Username" title="Username">
+                                                        <img class="Avatar avatar-xl" src={profPic} alt="Username" title="Username"/>
                                                     </a>
                                                 </div>
                                                 <div class="badges-offline-plus rounded-circle position-relative"></div>
@@ -118,7 +118,7 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                             <div className='col-md-2 mtop-10'>
                                                 <div className='position-absolute'>
                                                     <a href="#" className='onClickstory'>
-                                                    <img class="Avatar avatar-xl" src={postPic} alt="Username" title="Username">
+                                                    <img class="Avatar avatar-xl" src={postPic} alt="Username" title="Username"/>
                                                     </a>
                                                 </div>
                                                 <div class="badges-offline-plus rounded-circle position-relative"></div>
@@ -127,7 +127,7 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                             <div className='col-md-2 mtop-10'>
                                                 <div className='position-absolute'>
                                                     <a href="#" className='onClickstory'>
-                                                        <img class="Avatar avatar-xl" src={postPic2} alt="Username" title="Username">
+                                                        <img class="Avatar avatar-xl" src={postPic2} alt="Username" title="Username"/>
                                                     </a>
                                                 </div>
                                                 <div class="badges-offline-plus rounded-circle position-relative"></div>
@@ -136,7 +136,7 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                             <div className='col-md-2 mtop-10'>
                                                 <div className='position-absolute'>
                                                     <a href="#" className='onClickstory'>
-                                                        <img class="Avatar avatar-xl" src={postImage} alt="Username" title="Username">
+                                                        <img class="Avatar avatar-xl" src={postImage} alt="Username" title="Username"/>
                                                     </a>
                                                 </div>
                                                 <div class="badges-offline-plus rounded-circle position-relative"></div>
@@ -145,7 +145,7 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                             <div className='col-md-2 mtop-10'>
                                                 <div className='position-absolute'>
                                                     <a href="#" className='onClickstory'>
-                                                        <img class="Avatar avatar-xl" src={postImage2} alt="Username" title="Username">
+                                                        <img class="Avatar avatar-xl" src={postImage2} alt="Username" title="Username"/>
                                                     </a>
                                                 </div>
                                                 <div class="badges-offline-plus rounded-circle position-relative"></div>
