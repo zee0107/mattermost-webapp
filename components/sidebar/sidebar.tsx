@@ -258,12 +258,12 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                 })}
             >
                 <div>
-                    <a href='/launcpad'>Launchpad</a>
+                    {menu}
                 </div>
-                <div id='side_menu_left'>
+                 {/*<div id='side_menu_left'>
                     
                 {this.props.isMobileView && menu}
-                {/*{this.props.isMobileView ? <MobileSidebarHeader/> : (
+                {this.props.isMobileView ? <MobileSidebarHeader/> : (
                     <SidebarHeader
                         showNewChannelModal={this.showNewChannelModal}
                         showMoreChannelsModal={this.showMoreChannelsModal}
@@ -274,12 +274,12 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                         handleOpenDirectMessagesModal={this.handleOpenMoreDirectChannelsModal}
                         unreadFilterEnabled={this.props.unreadFilterEnabled}
                     />
-                )}*/}
+                
                 <div id='side_menu_left'>
-                    {menu}
+                    
                 </div>
+            </div>*/}
             </div>
-        </div>
         );
     }
 }
