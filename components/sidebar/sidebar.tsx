@@ -257,10 +257,11 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                     dragging: this.state.isDragging,
                 })}
             >
+                <div>
+                    <a href='/launcpad'>Launchpad</a>
+                </div>
                 <div id='side_menu_left'>
-                    <div>
-                        <a href='/launcpad'>Launchpad</a>
-                    </div>
+                    
                 {this.props.isMobileView && menu}
                 {/*{this.props.isMobileView ? <MobileSidebarHeader/> : (
                     <SidebarHeader
