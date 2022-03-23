@@ -286,9 +286,9 @@ export default class Sidebar extends React.PureComponent<Props, State> {
         }*/
 
         const ariaLabel = Utils.localizeMessage('accessibility.sections.lhsNavigator', 'channel navigator region');
-        gainer = this.gainer_render();
-        newList = this.new_render();
-        trend = this.trend_render();
+        let gainer = this.gainer_render();
+        let newList = this.new_render();
+        let trend = this.trend_render();
 
         return (
             <div
