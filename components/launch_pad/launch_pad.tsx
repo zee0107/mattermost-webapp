@@ -227,8 +227,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                     <div>
                         <div className='col-lg-12 removePadding'>
                             <div className='row'>
-                                <div className='col-sm-2' id='side_menu_left'>
-                                    {/*<div className='col-sm-12'>
+                                {/*<div className='col-sm-2' id='side_menu_left'>
+                                    <div className='col-sm-12'>
                                         <div className='sidemenuBox'>
                                             <ul className='ul-collapse'>
                                                 <li key='news-feed' className='sidemenu-padding'><a href='#' className='sidemenu-item1'><svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg" className='side-menu-align'>
@@ -314,12 +314,12 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                             <br></br>
                                             {newList}
                                         </div>
-                                    </div>*/}
-                                </div>
-                                <div className='col-sm-8'>
+                                    </div>
+                                </div>*/}
+                                <div className='col-sm-9'>
                                     {middleRender}
                                 </div>
-                                <div className='col-sm-2' id="side_menu_right">
+                                <div className='col-sm-3' id="side_menu_right">
                                     {btcContent}
                                     {ltcContent}
                                     {ethContent}
