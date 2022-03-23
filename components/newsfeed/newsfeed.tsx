@@ -7,13 +7,21 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 
 import homeImage from 'images/homeFeed.png';
+import ImgIcon from 'images/profiles/image.svg';
+import LayoutIcon from 'images/profiles/columns-gap.svg';
+import MusicIcon from 'images/profiles/music-note-beamed.svg';
+import VideoIcon from 'images/profiles/camera-video.svg';
+import GeoIcon from 'images/profiles/geo-alt.svg';
+import AttachIcon from 'images/profiles/paperclip.svg';
+import SplitIcon from 'images/profiles/menu-icon.svg';
+import DoneIcon from 'images/profiles/done.svg';
+import UndoneIcon from 'images/profiles/undone.svg';
+import postImage from 'images/post-1.png';
+import postPic from 'images/profiles/user-profile-2.png';
+import completion from 'images/profiles/completion.png';
 
-import {ModalData} from 'types/actions';
-import ChannelHeaderMobile from 'components/channel_header_mobile';
-
-import Sidebar from 'components/sidebar';
-import SidebarRight from 'components/sidebar_right';
-import SidebarRightMenu from 'components/sidebar_right_menu';
+import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
+import UserSettingsModal from 'components/user_settings/modal_profile';
 import { AllListing, GainerListing, NewListing, TrendListing } from 'mattermost-redux/types/crypto';
 import RSDetails from 'components/right_side_details/right_side_details';
 
