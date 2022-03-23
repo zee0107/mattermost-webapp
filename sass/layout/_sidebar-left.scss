@@ -29,8 +29,10 @@
     width: 240px;
     height: 100%;
     flex-direction: column;
-    border-right: 1px solid rgba(var(--center-channel-color-rgb), 0.12);
-    background-color: var(--sidebar-bg);
+    //border-right: 1px solid rgba(var(--center-channel-color-rgb), 0.12);
+    //background-color: var(--sidebar-bg);
+    border-right: transparent;
+    background-color: var(--background);
 
     h1,
     h2,
