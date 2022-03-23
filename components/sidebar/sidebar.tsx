@@ -13,10 +13,13 @@ import NewChannelFlow from 'components/new_channel_flow';
 import InvitationModal from 'components/invitation_modal';
 import UserSettingsModal from 'components/user_settings/modal';
 import CurrencyIcons from 'components/currency_icons';
+
 import fireImage from 'images/fire.png';
 import clockImage from 'images/clock.svg';
 import trendImage from 'images/trending-up.svg';
 import rocketImage from 'images/rocket.svg';
+import triangleupImage from 'images/caret-up.svg';
+import triangledownImage from 'images/caret-down.svg';
 
 import Pluggable from 'plugins/pluggable';
 
