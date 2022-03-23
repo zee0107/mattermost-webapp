@@ -190,7 +190,7 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
                         <div className='col-md-2'>
                             <Sidebar/>
                         </div>
-                        <div className='col-md-10'>
+                        <div className='col-md-10 removePadding'>
                             {React.cloneElement(this.props.children, {mode: this.state.isDark})}
                         </div>
                     </div>
