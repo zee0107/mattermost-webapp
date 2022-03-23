@@ -93,7 +93,34 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                         <div className='col-lg-12 removePadding'>
                             <div className='row'>
                                 <div className='col-md-8'>
-                                    <div className='col-lg-12 profile-menu-box-mobile width-100'>
+                                    <div className='col-md-12 share-div'>
+                                        <div className='row'>
+                                            <div className='col-md-2'>
+
+                                            </div>
+                                            <div className='col-md-2'>
+                                                
+                                            </div>
+                                            <div className='col-md-2'>
+                                                
+                                            </div>
+                                            <div className='col-md-2'>
+                                                
+                                            </div>
+                                            <div className='col-md-2'>
+                                                
+                                            </div>
+                                            <div className='col-md-2'>
+                                                
+                                            </div>
+                                            <div class="next-arrow-story">
+                                                <a class="onAllstory"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-chevron-right" viewBox="0 0 16 16">
+                                                <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                                </svg></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-12 profile-menu-box-mobile width-100'>
                                         <div className='d-flex'>
                                             <div className='col-lg-2 profile-menu-icon'>
                                                 <a href='#'><img src={LayoutIcon}></img></a>
