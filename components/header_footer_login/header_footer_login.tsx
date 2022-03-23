@@ -186,7 +186,7 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
                             <ChannelHeaderMobile classes={'removeMargin'} isDark={this.state.isDark}/>
                         </div>
                     </div>
-                    <div className='row content'>
+                    <div className='row content bgGrey pbot-10'>
                         <div className='container'>
                             <div className='col-md-3 removePaddingRight'>
                                 <Sidebar/>

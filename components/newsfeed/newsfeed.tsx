@@ -232,12 +232,12 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-md-12 chat-box removePadding mtop-10'>
-                                        <div className='d-flex'>
-                                            <div className='col-md-6'>
+                                        <div className='d-flex mtop-10'>
+                                            <div className='col-md-8'>
                                                 <label className='text-primary'>Trending Groups</label>
                                             </div>
-                                            <div className='col-md-6 text-end'>
-                                                <lable className='text-secondary'>View All</lable>
+                                            <div className='col-md-4 text-end'>
+                                                <label className='text-secondary'>View All</label>
                                             </div>
                                         </div>
                                         <hr className='removeMarginHr'></hr>
