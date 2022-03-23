@@ -210,13 +210,13 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         let ltcContent;
         let ethContent;
         let bnbContent;
-        let gainer;
+        /*let gainer;
         let newList;
         let trend;
 
         gainer = this.gainer_render();
         newList = this.new_render();
-        trend = this.trend_render();
+        trend = this.trend_render();*/
         btcContent = this.sideBoxRender("BTC");
         ltcContent = this.sideBoxRender("LTC");
         ethContent = this.sideBoxRender("ETH");
@@ -228,6 +228,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                         <div className='col-lg-12 removePadding'>
                             <div className='row'>
                                 <div className='col-sm-2' id='side_menu_left'>
+                                    <Sidebar />
                                     {/*<div className='col-sm-12'>
                                         <div className='sidemenuBox'>
                                             <ul className='ul-collapse'>

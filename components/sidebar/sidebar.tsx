@@ -258,7 +258,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                 })}
             >
                 <div id='side_menu_left'>
-                {this.props.isMobileView && menu}
+                {!this.props.isMobileView && menu}
                 {/*this.props.isMobileView ? <MobileSidebarHeader/> : (
                     <SidebarHeader
                         showNewChannelModal={this.showNewChannelModal}
