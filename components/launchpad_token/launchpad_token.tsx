@@ -118,20 +118,19 @@ export default class LaunchpadToken extends React.PureComponent<Props, State> {
                                                         <h4 className='text-primary'>Token</h4>
                                                     </div>
                                                     <div className='width-50 text-end'>
-                                                        <a href='#' className='text-secondary'><label className='text-secondary'>All</label></a>
-                                                        <a href='#' className='text-secondary'><label className='text-secondary'>My Lock</label></a>
+                                                        <a href='#' className='sidemenu-title-img'><label>All</label></a>
+                                                        <a href='#' className='sidemenu-title-img'><label>My Lock</label></a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className='col-md-12 removePadding border-bot-div'></div>
-                                            <br></br>
                                             <div className='col-md-12'>
+                                                <hr></hr>
                                                 <input type='text' className='form-control custom-token-input' placeholder='Search by Token'></input>
+                                                <hr></hr>
                                             </div>
-                                            <br></br>
-                                            <div className='col-md-12 removePadding border-bot-div'></div>
                                             <div className='col-md-12'>
-                                            <div className='d-flex'>
+                                                <br></br>
+                                                <div className='d-flex'>
                                                     <div className='col-md-5'>
                                                         <label className='text-primary'>Token</label>
                                                     </div>
@@ -141,6 +140,7 @@ export default class LaunchpadToken extends React.PureComponent<Props, State> {
                                                     <div className='col-md-2'>
                                                     </div>
                                                 </div>
+                                                <br></br>
                                                 <div className='d-flex'>
                                                     <div className='col-md-5'>
                                                         <div className='d-flex'>
@@ -160,6 +160,7 @@ export default class LaunchpadToken extends React.PureComponent<Props, State> {
                                                         <a href='#' className='text-percent'>View</a>
                                                     </div>
                                                 </div>
+                                                <br></br>
                                                 <div className='d-flex'>
                                                     <div className='col-md-5'>
                                                         <div className='d-flex'>
@@ -179,6 +180,7 @@ export default class LaunchpadToken extends React.PureComponent<Props, State> {
                                                         <a href='#' className='text-percent'>View</a>
                                                     </div>
                                                 </div>
+                                                <br></br>
                                                 <div className='d-flex'>
                                                     <div className='col-md-5'>
                                                         <div className='d-flex'>
@@ -198,6 +200,7 @@ export default class LaunchpadToken extends React.PureComponent<Props, State> {
                                                         <a href='#' className='text-percent'>View</a>
                                                     </div>
                                                 </div>
+                                                <br></br>
                                                 <div className='d-flex'>
                                                     <div className='col-md-5'>
                                                         <div className='d-flex'>
