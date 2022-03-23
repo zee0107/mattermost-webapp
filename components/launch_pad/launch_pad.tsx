@@ -223,7 +223,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         bnbContent = this.sideBoxRender("BNB");
         return (
             <div className='div-bg'>
-                <div className='col-lg-12 bodyBgElipseLaunchpad bgGrey removePadding'>
+                <div className='col-lg-12 bodyBgElipseLaunchpad bgGrey'>
                     <div>
                         <div className='col-lg-12 removePadding'>
                             <div className='row'>
