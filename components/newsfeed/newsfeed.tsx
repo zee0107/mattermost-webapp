@@ -195,18 +195,16 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                 <div className='col-md-4 removePadding' id="side_menu_right">
                                     <div className='col-md-12 chat-box removePadding margin-top-30'>
                                         <div className='d-flex'>
-                                            <div className='col-lg-2 profile-img-div'>
-                                                {this.renderProfilePicture('mxl')}
-                                                {/*<img src={} className='profile-img-box'></img>*/}
+                                            <div className='col-md-3 profile-img-div'>
+                                                {this.renderProfilePicture('lg')}
                                             </div>
                                         
-                                            <div className='col-lg-8'>
+                                            <div className='col-md-8'>
                                                 <h4>{`${currentUser.first_name} ${currentUser.last_name}`}</h4>
                                                 <h5>{'@' + currentUser.username}</h5>
                                                 <h5>{currentUser.position}</h5>
                                             </div>
-                                            <div className='col-lg-2'>
-                                                {/*<button type='button' className='btn btneditProfile'>Edit</button>*/}
+                                            <div className='col-lg-3'>
                                                 <ToggleModalButtonRedux
                                                     id='accountSettings'
                                                     ariaLabel='Profile'
@@ -221,16 +219,16 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                         <hr></hr>
                                         <div className='d-flex'>
                                             <div className='col-md-4'>
-                                                <h5 className='text-secondary'>Post</h5>
-                                                <h4 className='text-Primary'>2.0k</h4>
+                                                <p className='text-secondary'>Post</p>
+                                                <label className='text-Primary'>2.0k</label>
                                             </div>
                                             <div className='col-md-4'>
-                                                <h5 className='text-secondary'>Following</h5>
-                                                <h4 className='text-Primary'>2.0k</h4>
+                                                <p className='text-secondary'>Following</p>
+                                                <label className='text-Primary'>2.0k</label>
                                             </div>
                                             <div className='col-md-4'>
-                                                <h5 className='text-secondary'>Followers</h5>
-                                                <h4 className='text-Primary'>2.0k</h4>
+                                                <p className='text-secondary'>Followers</p>
+                                                <label className='text-Primary'>2.0k</label>
                                             </div>
                                         </div>
                                     </div>
