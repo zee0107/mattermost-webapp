@@ -28,7 +28,6 @@ type Props = {
      * Relative url for the team, used to redirect if a link in the channel header is clicked
      */
     currentRelativeTeamUrl?: string;
-    isDark: string;
     inGlobalThreads?: boolean;
     isMobileView: boolean;
     isMuted?: boolean;
@@ -98,7 +97,7 @@ export default class ChannelHeaderMobile extends React.PureComponent<Props> {
             >
                 <div className='container-fluid theme'>
                     <div className={'navbar-header ' + `${this.props.classes}`}>
-                        {/*<CollapseLhsButton/>*/}
+                        <CollapseLhsButton/>
                         <div className='spacer'/>
                         <div className={classNames('navbar-brand text-center', {GlobalThreads___title: inGlobalThreads})}>
                             <a href='/'>
