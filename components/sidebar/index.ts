@@ -20,6 +20,7 @@ import {ModalData} from 'types/actions';
 import {GlobalState} from 'types/store';
 import {getIsLhsOpen} from 'selectors/lhs';
 import {getIsMobileView} from 'selectors/views/browser';
+import {Client4} from 'mattermost-redux/client';
 
 import Sidebar from './sidebar';
 
@@ -37,10 +38,13 @@ function mapStateToProps(state: GlobalState) {
         canJoinPublicChannel = haveICurrentChannelPermission(state, Permissions.JOIN_PUBLIC_CHANNELS);
     }
     return {
-        teamId: currentTeam ? currentTeam.id : '',
+        //teamId: currentTeam ? currentTeam.id : '',
         canCreatePrivateChannel,
         canCreatePublicChannel,
         canJoinPublicChannel,
+        trendCrypto: Client4.getCryptoTrend('3',''),
+        newCrypto: Client4.getCryptoNew('3','desc'),
+        gainerCrypto: Client4.getCryptoGainer('3',''),
         isOpen: getIsLhsOpen(state),
         hasSeenModal: getBool(
             state,
@@ -55,8 +59,8 @@ function mapStateToProps(state: GlobalState) {
 }
 
 type Actions = {
-    fetchMyCategories: (teamId: string) => {data: boolean};
-    createCategory: (teamId: string, categoryName: string) => {data: string};
+    /*fetchMyCategories: (teamId: string) => {data: boolean};
+    createCategory: (teamId: string, categoryName: string) => {data: string};*/
     openModal: <P>(modalData: ModalData<P>) => void;
     clearChannelSelection: () => void;
 }
@@ -65,8 +69,8 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
     return {
         actions: bindActionCreators<ActionCreatorsMapObject, Actions>({
             clearChannelSelection,
-            createCategory,
-            fetchMyCategories,
+            /*createCategory,
+            fetchMyCategories,*/
             openModal,
         }, dispatch),
     };
