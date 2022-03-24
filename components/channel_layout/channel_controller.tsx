@@ -11,7 +11,6 @@ import Pluggable from 'plugins/pluggable';
 import SystemNotice from 'components/system_notice';
 import EditPostModal from 'components/edit_post_modal';
 import UserStory from 'components/user_story/user_story';
-import RightSideView from 'components/right_side_view/right_side_view';
 
 import ResetStatusModal from 'components/reset_status_modal';
 import SidebarRight from 'components/sidebar_right';
@@ -92,7 +91,6 @@ export default class ChannelController extends React.PureComponent<Props> {
                                 </div>
                             </div>
                             <div className='col-md-3'>
-                                <RightSideView/>
                             </div>
                         </div>
                     </div>
