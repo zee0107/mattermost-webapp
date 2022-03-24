@@ -203,11 +203,10 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         const DeferredPostView = this.state.deferredPostView;
 
         return (
-            <div
-                ref={this.channelViewRef}
+            <div>
+                 {/*ref={this.channelViewRef}
                 id='app-content'
-                className='app__content'
-            >
+                className='app__content'*/}
                 <FileUploadOverlay overlayType='center'/>
                 {/*<ChannelHeader
                     {...this.props}
@@ -221,7 +220,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     />
                     
                 </div>
-                
             </div>
         );
     }
