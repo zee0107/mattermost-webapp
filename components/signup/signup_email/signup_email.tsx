@@ -339,7 +339,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
         return true;
     }
 
-    handleSubmit = (e: React.SyntheticEvent) => {
+    handleSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault();
         trackEvent('signup_email', 'click_create_account');
 
@@ -375,7 +375,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                     return;
                 }
 
-                this.handleSignupSuccess(user, result.data);
+                await this.handleSignupSuccess(user, result.data);
             });
         }
     }
@@ -535,7 +535,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                         <button
                             id='createAccountButton'
                             type='submit'
-                            onClick={this.handleSubmit}
+                            onClick={async () => {await this.handleSubmit}}
                             className='btn buttonBgGreen fullWidth'
                             disabled={this.state.isSubmitting}
                         >
