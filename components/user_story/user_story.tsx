@@ -115,7 +115,7 @@ export default class UserStory extends React.PureComponent<Props, State> {
                             </a>
                         </div>
                         <div className="badges-offline-plus rounded-circle position-relative"></div>
-                        <small className="firstname-title-story mt-5">Ann Isable</small>
+                        <small class="firstname-title-story mt-5">Ann Isable</small>
                     </div>
                     <div className='col-md-2 mtop-10'>
                         <div className='position-absolute'>

@@ -224,7 +224,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         return (
             <div className='row'>
                 <div className='col-md-8'>
-                    <UserStory/>
+                    <UserStory></UserStory>
                     <div className='col-md-12 profile-menu-box-mobile width-100'>
                         <div className='d-flex'>
                             <div className='col-lg-2 profile-menu-icon'>
