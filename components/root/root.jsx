@@ -484,69 +484,61 @@ export default class Root extends React.PureComponent {
                         <ModalController/>
                         <GlobalHeaderStyle/>
                         <div className='mainContentRow d-flex flex-row'>
-                            <div className='col-md-12'>
-                                <div className='row'>
-                                    <div className='col-md-2'>
-                                        <TeamSidebar/>
-                                    </div>
-                                    <div className='col-md-10'>
-                                        <Switch>
-                                            {this.props.products?.map((product) => (
-                                                <Route
-                                                    key={product.id}
-                                                    path={product.baseURL}
-                                                    render={(props) => (
-                                                        <LoggedIn {...props}>
-                                                            <div className={classNames(['product-wrapper', {wide: !product.showTeamSidebar}])}>
-                                                                <Pluggable
-                                                                    pluggableName={'Product'}
-                                                                    subComponentName={'mainComponent'}
-                                                                    pluggableId={product.id}
-                                                                    webSocketClient={webSocketClient}
-                                                                />
-                                                            </div>
-                                                        </LoggedIn>
-                                                    )}
-                                                />
-                                            ))}
-                                            {this.props.plugins?.map((plugin) => (
-                                                <Route
-                                                    key={plugin.id}
-                                                    path={'/plug/' + plugin.route}
-                                                    render={() => (
-                                                        <Pluggable
-                                                            pluggableName={'CustomRouteComponent'}
-                                                            pluggableId={plugin.id}
-                                                        />
-                                                    )}
-                                                />
-                                            ))}
-                                            <LoginHFTRoute
-                                                path={'/profile'}
-                                                component={ProfilePage}
+                            <TeamSidebar/>
+                            <Switch>
+                                {this.props.products?.map((product) => (
+                                    <Route
+                                        key={product.id}
+                                        path={product.baseURL}
+                                        render={(props) => (
+                                            <LoggedIn {...props}>
+                                                <div className={classNames(['product-wrapper', {wide: !product.showTeamSidebar}])}>
+                                                    <Pluggable
+                                                        pluggableName={'Product'}
+                                                        subComponentName={'mainComponent'}
+                                                        pluggableId={product.id}
+                                                        webSocketClient={webSocketClient}
+                                                    />
+                                                </div>
+                                            </LoggedIn>
+                                        )}
+                                    />
+                                ))}
+                                {this.props.plugins?.map((plugin) => (
+                                    <Route
+                                        key={plugin.id}
+                                        path={'/plug/' + plugin.route}
+                                        render={() => (
+                                            <Pluggable
+                                                pluggableName={'CustomRouteComponent'}
+                                                pluggableId={plugin.id}
                                             />
-                                            <LoginHFTRoute
-                                                path={'/launchpad'}
-                                                component={LaunchPad}
-                                            />
-                                            
-                                            {/*<LoginHFTRoute
-                                                path={'/newsfeed'}
-                                                component={NewsFeed}
-                                            />*/}
-                                            <LoginHFTRoute
-                                                path={'/launchpadtoken'}
-                                                component={LaunchPadToken}
-                                            />
-                                            <LoggedInRoute
-                                                path={'/:team'}
-                                                component={NeedsTeam}
-                                            />
-                                            <RootRedirect/>
-                                        </Switch>
-                                    </div>
-                                </div>
-                            </div>
+                                        )}
+                                    />
+                                ))}
+                                <LoginHFTRoute
+                                    path={'/profile'}
+                                    component={ProfilePage}
+                                />
+                                 <LoginHFTRoute
+                                    path={'/launchpad'}
+                                    component={LaunchPad}
+                                />
+                                
+                                {/*<LoginHFTRoute
+                                    path={'/newsfeed'}
+                                    component={NewsFeed}
+                                />*/}
+                                <LoginHFTRoute
+                                    path={'/launchpadtoken'}
+                                    component={LaunchPadToken}
+                                />
+                                <LoggedInRoute
+                                    path={'/:team'}
+                                    component={NeedsTeam}
+                                />
+                                <RootRedirect/>
+                            </Switch>
                         </div>
                         <Pluggable pluggableName='Global'/>
                     </CompassThemeProvider>
