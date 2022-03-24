@@ -82,7 +82,7 @@ export default class ChannelController extends React.PureComponent<Props> {
                             </div>
                             <div className='col-md-7'>
                                 <UserStory/>
-                                <div className='col-md-12'>
+                                <div className='col-md-12 chat-box mtop-10'>
                                     {!this.props.fetchingChannels && <Route component={CenterChannel}/>}
                                     {this.props.fetchingChannels && <LoadingScreen/>}
                                     <Pluggable pluggableName='Root'/>
