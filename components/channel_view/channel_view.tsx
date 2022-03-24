@@ -209,15 +209,17 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 className='app__content'
             >
                 <FileUploadOverlay overlayType='center'/>
-                <ChannelHeader
+                {/*<ChannelHeader
                     {...this.props}
-                />
+                />*/}
                 <div className='col-md-6'>
+                    {createPost}
+                    
                     <DeferredPostView
                         channelId={this.props.channelId}
                         focusedPostId={this.state.focusedPostId}
                     />
-                    {createPost}
+                    
                 </div>
                 
             </div>
