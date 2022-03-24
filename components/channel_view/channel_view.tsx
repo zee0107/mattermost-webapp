@@ -250,7 +250,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                             </div>
                         </div>
                     </div>
-                    <div className='col-md-12 mtop-10'>
+                    <div className='col-md-12 mtop-10 removePadding'>
                     <div
                         ref={this.channelViewRef}
                         id='app-content'
