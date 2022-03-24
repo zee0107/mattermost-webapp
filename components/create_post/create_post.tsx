@@ -1519,14 +1519,14 @@ class CreatePost extends React.PureComponent<Props, State> {
                                 </a>
                             </span>
                         </div>
-                        {/*tutorialTip*/}
+                        {tutorialTip}
                     </div>
                     <div
                         id='postCreateFooter'
                         role='form'
                         className={postFooterClassName}
                     >
-                        <div className='d-flex justify-content-between'>
+                        {/*<div className='d-flex justify-content-between'>
                             <MsgTyping
                                 channelId={currentChannel.id}
                                 postId=''
@@ -1538,7 +1538,7 @@ class CreatePost extends React.PureComponent<Props, State> {
                                 updatePreview={this.setShowPreview}
                                 message={readOnlyChannel ? '' : this.state.message}
                             />
-                        </div>
+                        </div>*/}
                         <div>
                             {postError}
                             {preview}
