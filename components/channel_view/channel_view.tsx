@@ -212,7 +212,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 {/*<ChannelHeader
                     {...this.props}
                 />*/}
-                <div className='col-md-6'>
+                <div className='col-md-10'>
                     {createPost}
                     
                     <DeferredPostView

@@ -30,6 +30,7 @@
     //background-color: var(--sidebar-bg);
     border-right: transparent;
     background-color: var(--background);
+    width: 16%;
 
     @media (max-width: 768px) {
         position: absolute;
@@ -1337,10 +1338,6 @@
 
     .status-dnd {
         color: var(--dnd-indicator);
-    }
-
-    + .inner-wrap #app-content {
-        margin-left: 240px;
     }
 }
 
