@@ -11,6 +11,12 @@ import Pluggable from 'plugins/pluggable';
 import SystemNotice from 'components/system_notice';
 import EditPostModal from 'components/edit_post_modal';
 import UserStory from 'components/user_story/user_story';
+import LayoutIcon from 'images/profiles/columns-gap.svg';
+import MusicIcon from 'images/profiles/music-note-beamed.svg';
+import VideoIcon from 'images/profiles/camera-video.svg';
+import GeoIcon from 'images/profiles/geo-alt.svg';
+import AttachIcon from 'images/profiles/paperclip.svg';
+import SplitIcon from 'images/profiles/menu-icon.svg';
 
 import ResetStatusModal from 'components/reset_status_modal';
 import SidebarRight from 'components/sidebar_right';
@@ -82,6 +88,31 @@ export default class ChannelController extends React.PureComponent<Props> {
                             </div>
                             <div className='col-md-6'>
                                 <UserStory/>
+                                <div className='col-md-12 profile-menu-box-mobile width-100'>
+                                    <div className='d-flex'>
+                                        <div className='col-lg-2 profile-menu-icon'>
+                                            <a href='#'><img src={LayoutIcon}></img></a>
+                                        </div>
+                                        <div className='col-lg-2 profile-menu-icon'>
+                                            <a href='#'><img src={SplitIcon}></img></a>
+                                        </div>
+                                        <div className='col-lg-2 profile-menu-icon'>
+                                            <a href='#'><img src={ImgIcon}></img></a>
+                                        </div>
+                                        <div className='col-lg-2 profile-menu-icon'>
+                                            <a href='#'><img src={VideoIcon}></img></a>
+                                        </div>
+                                        <div className='col-lg-2 profile-menu-icon'>
+                                            <a href='#'><img src={MusicIcon}></img></a>
+                                        </div>
+                                        <div className='col-lg-2 profile-menu-icon'>
+                                            <a href='#'><img src={AttachIcon}></img></a>
+                                        </div>
+                                        <div className='col-lg-2 profile-menu-icon'>
+                                            <a href='#'><img src={GeoIcon}></img></a>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className='col-md-12 chat-box mtop-10'>
                                     {!this.props.fetchingChannels && <Route component={CenterChannel}/>}
                                     {this.props.fetchingChannels && <LoadingScreen/>}
