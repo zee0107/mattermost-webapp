@@ -606,7 +606,7 @@ export default class PostList extends React.PureComponent {
                                                 pluggableName='ChannelToast'
                                             />
 
-                                            {this.renderToasts(width)}
+                                            {/*this.renderToasts(width)*/}
                                         </div>
 
                                         <DynamicSizeList
