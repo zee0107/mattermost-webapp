@@ -218,12 +218,13 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
         trackEvent('signup', 'signup_user_02_complete');
         const redirectTo = '/completeprofile';
         browserHistory.push(redirectTo);
-        /*if (this.state.reminderInterval) {
+        
+        if (this.state.reminderInterval) {
             trackEvent('signup', 'signup_from_reminder_' + this.state.reminderInterval, {user: user.id});
         }
         //const redirectTo = (new URLSearchParams(this.props.location!.search)).get('redirect_to');
 
-        this.props.actions.loginById(data.id, user.password, '').then((result: {data: boolean} | {error: ServerError}) => {
+        this.props.actions.loginById(userdata.id, user.password, '').then((result: {data: boolean} | {error: ServerError}) => {
             if ('error' in result) {
                 if (result.error.server_error_id === 'api.user.login.not_verified.app_error') {
                     let verifyUrl = '/should_verify_email?email=' + encodeURIComponent(user.email);
@@ -251,7 +252,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
             } else {
                 GlobalActions.redirectUserToDefaultTeam();
             }
-        });*/
+        });
     }
 
     isUserValid = () => {
