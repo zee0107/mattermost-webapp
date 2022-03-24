@@ -7,7 +7,7 @@ import {MemoryRouter} from 'react-router';
 
 import {mountWithIntl} from 'tests/helpers/intl-test-helper';
 
-import NewsFeed from './newsfeed';
+import RightSideView from './right_side_view';
 
 describe('components/launch_pad', () => {
     const baseProps = {

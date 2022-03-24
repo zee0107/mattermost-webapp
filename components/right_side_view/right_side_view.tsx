@@ -97,10 +97,11 @@ export default class RightSideView extends React.PureComponent<Props, State> {
         const {globalHeader, currentUser} = this.props;
         
         return (
-            <div className='col-md-12 chat-box removePadding mtop-10'>
-                <div className='d-flex mtop-10'>
-                    <div className='col-md-3 profile-img-div-new'>
-                        {this.renderProfilePicture('xl')}
+            <div>
+                <div className='col-md-12 chat-box removePadding mtop-10'>
+                                        <div className='d-flex mtop-10'>
+                                            <div className='col-md-3 profile-img-div-new'>
+                                                {this.renderProfilePicture('xl')}
                                             </div>
                                         
                                             <div className='col-md-8 removePadding'>
@@ -253,14 +254,15 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                                             <h6 className='getStartPrimaryText'>Janine Tenoso</h6>
                                                         </div>
                                                         <div className='col-sm-6 removePaddingLeft chat-text'>
-                                                        <h6 className='getStartPrimaryText'>Today, 12:04</h6>
+                                                            <h6 className='getStartPrimaryText'>Today, 12:04</h6>
+                                                        </div>
                                                     </div>
+                                                    <h6 className='getSecondaryText'>A Facebook-like platform...</h6>
                                                 </div>
-                                            <h6 className='getSecondaryText'>A Facebook-like platform...</h6>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+            </div>
         );
     }
 }
