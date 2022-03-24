@@ -228,7 +228,9 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                         {/*<ChannelHeader
                         {...this.props}
                         />*/}
-                        {createPost}
+                        <div className='mtop-5'>
+                            {createPost}
+                        </div>
                     </div>
                     <div className='col-md-12 chat-box'>
                         <DeferredPostView
