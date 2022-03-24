@@ -30,7 +30,29 @@ import LoadingScreen from 'components/loading_screen';
 import FaviconTitleHandler from 'components/favicon_title_handler';
 import ProductNoticesModal from 'components/product_notices_modal';
 
-interface Props {
+interface Props{
+    status?: string;
+    userId: string;
+    profilePicture: string;
+    autoResetPref?: string;
+    actions: {
+        openModal: <P>(modalData: ModalData<P>) => void;
+        setStatus: (status: UserStatus) => ActionFunc;
+        unsetCustomStatus: () => ActionFunc;
+        setStatusDropdown: (open: boolean) => void;
+    };
+    customStatus?: UserCustomStatus;
+    currentUser: UserProfile;
+    isCustomStatusEnabled: boolean;
+    isCustomStatusExpired: boolean;
+    isMilitaryTime: boolean;
+    isStatusDropdownOpen: boolean;
+    showCustomStatusPulsatingDot: boolean;
+    timezone?: string;
+    globalHeader?: boolean;
+    lhsOpen: boolean;
+    rhsOpen: boolean;
+    rhsMenuOpen: boolean;
     shouldShowAppBar: boolean;
     fetchingChannels: boolean;
 }
