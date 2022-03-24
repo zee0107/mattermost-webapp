@@ -28,8 +28,8 @@ body {
 
 .sticky {
     > .channel-view {
-        overflow: auto;
-        height: 100vh;
+        //overflow: auto;
+        height: 100%;
         padding: 0px;
     }
 
@@ -89,7 +89,7 @@ body {
 }
 
 #channel_view.channel-view {
-    background: var(--center-channel-bg);
+    background: var(--background);
 }
 
 img {
