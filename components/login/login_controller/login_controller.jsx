@@ -355,9 +355,9 @@ class LoginController extends React.PureComponent {
 
             if (inviteId || inviteToken) {
                 const {data: team} = await this.props.actions.addUserToTeamFromInvite(inviteToken, inviteId);
-                const {teamdata} = await this.props.actions.addUserToTeam('5meubtskybn1bg7iyfx7x4cm9c',loginId);
-                if (team) {
-                    this.finishSignin(team);
+                const {teamdata, error} = await this.props.actions.addUserToTeam('5meubtskybn1bg7iyfx7x4cm9c',loginId);
+                if (teamdata) {
+                    this.finishSignin(teamdata);
                 } else {
                     // there's not really a good way to deal with this, so just let the user log in like normal
                     this.finishSignin();
