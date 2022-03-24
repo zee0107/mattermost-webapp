@@ -40,6 +40,7 @@ export type Actions = {
     loginById: (id: string, password: string, mfaToken?: string) => Promise<{data: boolean} | {error: ServerError}>;
     setGlobalItem: (name: string, value: string) => {data: boolean};
     getTeamInviteInfo: (inviteId: string) => Promise<{data: TeamInviteInfo} | {error: ServerError}>;
+    addUserToTeam: (teamId: string, userId?: string) => any;
 };
 
 export type Props = {
@@ -213,10 +214,15 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
         }
     }
 
-    handleSignupSuccess = (user: UserProfile, data: UserProfile) => {
+    handleSignupSuccess = (user: UserProfile, userdata: UserProfile) => {
         trackEvent('signup', 'signup_user_02_complete');
         const redirectTo = '/completeprofile';
-        browserHistory.push(redirectTo);
+        
+        const {data} = await this.props.actions.addUserToTeam('5meubtskybn1bg7iyfx7x4cm9c', user.id);
+        if (data) 
+        {
+            browserHistory.push(redirectTo);
+        }
         /*if (this.state.reminderInterval) {
             trackEvent('signup', 'signup_from_reminder_' + this.state.reminderInterval, {user: user.id});
         }

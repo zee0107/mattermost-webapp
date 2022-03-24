@@ -13,6 +13,7 @@ import {getTeamInviteInfo} from 'mattermost-redux/actions/teams';
 import {setGlobalItem} from 'actions/storage';
 import {loginById} from 'actions/views/login';
 import {getPasswordConfig} from 'utils/utils.jsx';
+import {addUserToTeam} from 'actions/team_actions';
 
 import {GlobalState} from '../../../types/store';
 
@@ -46,6 +47,7 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
             loginById,
             setGlobalItem,
             getTeamInviteInfo,
+            addUserToTeam,
         }, dispatch),
     };
 }
