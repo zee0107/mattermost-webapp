@@ -49,41 +49,6 @@ type Props = {
     lhsOpen: boolean;
     rhsOpen: boolean;
     rhsMenuOpen: boolean;
-
-     getChannelView?: () => void;
-     currentChannelMembersCount: number;
-     currentChannel: Channel;
-     currentChannelTeammateUsername?: string;
-     currentTeamId: string;
-     currentUserId: string;
-     codeBlockOnCtrlEnter?: boolean;
-     ctrlSend?: boolean;
-     fullWidthTextBox?: boolean;
-     showTutorialTip: boolean;
-     tutorialStep: number;
-     messageInHistoryItem?: string;
-     draft: PostDraft;
-     latestReplyablePostId?: string;
-     locale: string;
-     currentUsersLatestPost?: Post | null;
-     canUploadFiles: boolean;
-     enableEmojiPicker: boolean;
-     enableGifPicker: boolean;
-     enableConfirmNotificationsToChannel: boolean;
-     maxPostSize: number;
-     emojiMap: EmojiMap;
-     badConnection: boolean;
-     userIsOutOfOffice: boolean;
-     rhsExpanded: boolean;
-     isTimezoneEnabled: boolean;
-     canPost: boolean;
-     useChannelMentions: boolean;
-     intl: IntlShape;
-     shouldShowPreview: boolean;
-     groupsWithAllowReference: Map<string, Group> | null;
-     channelMemberCountsByGroup: ChannelMemberCountsByGroup;
-     useGroupMentions: boolean;
-     markdownPreviewFeatureIsEnabled: boolean;
  }
 
 
