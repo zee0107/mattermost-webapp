@@ -217,7 +217,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         }
     }
 
-    handleSignupSuccess = async (user: UserProfile, userdata: UserProfile) => {
+    handleSignupSuccess = (user: UserProfile, userdata: UserProfile) => {
         trackEvent('signup', 'signup_user_02_complete');
         const redirectTo = '/completeprofile';
         if (this.state.reminderInterval) {
@@ -247,7 +247,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
                 this.props.actions.setGlobalItem(this.state.token, JSON.stringify({usedBefore: true}));
             }
 
-            const {data} = await this.props.actions.addUserToTeam('5meubtskybn1bg7iyfx7x4cm9c', userdata.id);
+            const {data} = this.props.actions.addUserToTeam('5meubtskybn1bg7iyfx7x4cm9c', userdata.id);
             if (data) {
                 browserHistory.push(redirectTo);
             } else {
