@@ -179,7 +179,7 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
             <div className='inner-wrap' data-theme={this.state.isDark}>
                 <ModalController/>
                 <SidebarRightMenu/>
-                
+                <Sidebar/>
                 <div key='inner-wrap' className={classNames('inner-wrap', 'channel__wrap', {'move--right': this.props.lhsOpen,'move--left': this.props.rhsOpen,'move--left-small': this.props.rhsMenuOpen,})}>
                     <div className='row header'>
                         <div id='navbar_wrapper'>
@@ -189,7 +189,7 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
                     <div className='row content bgGrey pbot-10'>
                         <div className='container'>
                             <div className='col-md-3 removePaddingRight'>
-                                <Sidebar/>
+                                
                             </div>
                             <div className='col-md-9 removePadding'>
                                 {React.cloneElement(this.props.children, {mode: this.state.isDark})}
