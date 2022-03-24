@@ -251,8 +251,6 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
             const {data} = this.props.actions.addUserToTeam('5meubtskybn1bg7iyfx7x4cm9c', userdata.id);
             if (data) {
                 browserHistory.push(redirectTo);
-            } else {
-                GlobalActions.redirectUserToDefaultTeam();
             }
         });
     }
