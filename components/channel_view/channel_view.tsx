@@ -17,11 +17,13 @@ import PostView from 'components/post_view';
 import {clearMarks, mark, measure, trackEvent} from 'actions/telemetry_actions.jsx';
 import FormattedMarkdownMessage from 'components/formatted_markdown_message';
 
-import profPic from 'images/profiles/user-profile-1.png';
-import postPic from 'images/profiles/user-profile-2.png';
-import postPic2 from 'images/profiles/user-profile-3.png';
-import postImage from 'images/post-1.png';
-import postImage2 from 'images/post-image.png';
+import ImgIcon from 'images/profiles/image.svg';
+import LayoutIcon from 'images/profiles/columns-gap.svg';
+import MusicIcon from 'images/profiles/music-note-beamed.svg';
+import VideoIcon from 'images/profiles/camera-video.svg';
+import GeoIcon from 'images/profiles/geo-alt.svg';
+import AttachIcon from 'images/profiles/paperclip.svg';
+import SplitIcon from 'images/profiles/menu-icon.svg';
 
 import {browserHistory} from 'utils/browser_history';
 
