@@ -153,6 +153,7 @@ export default class ChannelController extends React.PureComponent<Props> {
                                             </svg></a>
                                         </div>
                                     </div>
+                                </div>
                                 {!this.props.fetchingChannels && <Route component={CenterChannel}/>}
                                 {this.props.fetchingChannels && <LoadingScreen/>}
                                 <Pluggable pluggableName='Root'/>
