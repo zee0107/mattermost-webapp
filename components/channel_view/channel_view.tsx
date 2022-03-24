@@ -25,6 +25,12 @@ import GeoIcon from 'images/profiles/geo-alt.svg';
 import AttachIcon from 'images/profiles/paperclip.svg';
 import SplitIcon from 'images/profiles/menu-icon.svg';
 
+import profPic from 'images/profiles/user-profile-1.png';
+import postImage from 'images/post-1.png';
+import postImage2 from 'images/post-image.png';
+import postPic from 'images/profiles/user-profile-2.png';
+import postPic2 from 'images/profiles/user-profile-3.png';
+
 import {browserHistory} from 'utils/browser_history';
 
 type Props = {
