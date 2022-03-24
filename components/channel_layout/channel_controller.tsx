@@ -65,12 +65,20 @@ export default class ChannelController extends React.PureComponent<Props> {
                 <div className={classNames('container-fluid channel-view-inner', {'app-bar-enabled': shouldShowAppBar})}>
                     <SidebarRight/>
                     <SidebarRightMenu/>
-                    <Sidebar/>
-                    {!this.props.fetchingChannels && <Route component={CenterChannel}/>}
-                    {this.props.fetchingChannels && <LoadingScreen/>}
-                    <Pluggable pluggableName='Root'/>
-                    <EditPostModal/>
-                    <ResetStatusModal/>
+                    <div className='col-md-12'>
+                        <div className='row'>
+                            <div className='col-md-2'>
+                                <Sidebar/>
+                            </div>
+                            <div className='col-md-10'>
+                                {!this.props.fetchingChannels && <Route component={CenterChannel}/>}
+                                {this.props.fetchingChannels && <LoadingScreen/>}
+                                <Pluggable pluggableName='Root'/>
+                                <EditPostModal/>
+                                <ResetStatusModal/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <AppBar/>
             </div>
