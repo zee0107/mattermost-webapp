@@ -5,6 +5,7 @@ import React, {ReactNode, ReactPropTypes} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
+import CreatePost from 'components/create_post/create_post';
 
 import homeImage from 'images/homeFeed.png';
 import profPic from 'images/profiles/user-profile-1.png';
@@ -191,7 +192,8 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                                         {this.renderProfilePicture('md')}
                                                     </div>
                                                     <div className='col-sm-8 removePadding'>
-                                                        <input className='share-input small' placeholder={'Whats going on ' + `${currentUser.first_name}` + '?'} />
+                                                        {/*<input className='share-input small' placeholder={'Whats going on ' + `${currentUser.first_name}` + '?'} />*/}
+                                                        <CreatePost/>
                                                     </div>
                                                     <div className='col-sm-2 removePadding padding-top-share-icons'>
                                                         <a href='#' className='icon-margin-right'><svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
