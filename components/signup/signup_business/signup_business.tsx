@@ -223,7 +223,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         if (this.state.reminderInterval) {
             trackEvent('signup', 'signup_from_reminder_' + this.state.reminderInterval, {user: user.id});
         }
-        const redirectTo = (new URLSearchParams(this.props.location!.search)).get('redirect_to');
+        //const redirectTo = (new URLSearchParams(this.props.location!.search)).get('redirect_to');
 
         this.props.actions.loginById(data.id, user.password, '').then((result: {data: boolean} | {error: ServerError}) => {
             if ('error' in result) {

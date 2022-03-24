@@ -218,8 +218,10 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
         trackEvent('signup', 'signup_user_02_complete');
         const redirectTo = '/completeprofile';
         
-        
-        const redirectTo = (new URLSearchParams(this.props.location!.search)).get('redirect_to');
+        if (this.state.reminderInterval) {
+            trackEvent('signup', 'signup_from_reminder_' + this.state.reminderInterval, {user: user.id});
+        }
+        //const redirectTo = (new URLSearchParams(this.props.location!.search)).get('redirect_to');
 
         this.props.actions.loginById(data.id, user.password, '').then((result: {data: boolean} | {error: ServerError}) => {
             if ('error' in result) {
