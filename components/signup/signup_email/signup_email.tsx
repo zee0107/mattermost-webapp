@@ -218,14 +218,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
         trackEvent('signup', 'signup_user_02_complete');
         const redirectTo = '/completeprofile';
         
-        const {data} = await this.props.actions.addUserToTeam('5meubtskybn1bg7iyfx7x4cm9c', userdata.id);
-        if (data) 
-        {
-            browserHistory.push(redirectTo);
-        }
-        /*if (this.state.reminderInterval) {
-            trackEvent('signup', 'signup_from_reminder_' + this.state.reminderInterval, {user: user.id});
-        }
+        
         const redirectTo = (new URLSearchParams(this.props.location!.search)).get('redirect_to');
 
         this.props.actions.loginById(data.id, user.password, '').then((result: {data: boolean} | {error: ServerError}) => {
@@ -254,11 +247,12 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
             }
 
             if (redirectTo) {
+                await this.props.actions.addUserToTeam('5meubtskybn1bg7iyfx7x4cm9c', userdata.id);
                 browserHistory.push(redirectTo);
             } else {
                 GlobalActions.redirectUserToDefaultTeam();
             }
-        });*/
+        });
     }
 
     isUserValid = () => {
