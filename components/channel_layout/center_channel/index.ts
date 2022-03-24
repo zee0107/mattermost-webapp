@@ -32,6 +32,10 @@ type Props = {
 
 const mapStateToProps = (state: GlobalState, ownProps: Props) => {
     const config = getConfig(state);
+    
+    const currentUser = getCurrentUser(state);
+    const userId = currentUser?.id;
+
     const enableOnboardingFlow = config.EnableOnboardingFlow === 'true';
     let channelName = getLastViewedChannelNameByTeamName(state, ownProps.match.params.team);
     if (!channelName) {
@@ -47,6 +51,8 @@ const mapStateToProps = (state: GlobalState, ownProps: Props) => {
         isCollapsedThreadsEnabled: isCollapsedThreadsEnabled(state),
         currentUserId: getCurrentUserId(state),
         enableTipsViewRoute: enableOnboardingFlow && showNextSteps(state),
+        profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
+        currentUser,
     };
 };
 
