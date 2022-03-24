@@ -373,7 +373,7 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                             </div>
                                             <div className='col-md-10'>
                                                 <label className='text-percent'>#Game</label>
-                                                <p className='text-secondary'>289 Post</p>
+                                                <p className='text-secondary'>289 Posts</p>
                                             </div>
                                         </div>
                                         <div className='d-flex mtop-5'>
@@ -382,7 +382,7 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                             </div>
                                             <div className='col-md-10'>
                                                 <label className='text-percent'>#Handmade</label>
-                                                <p className='text-secondary'>30 Post</p>
+                                                <p className='text-secondary'>30 Posts</p>
                                             </div>
                                         </div>
                                         <div className='d-flex mtop-5'>
@@ -391,7 +391,7 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                             </div>
                                             <div className='col-md-10'>
                                                 <label className='text-percent'>#WordPress</label>
-                                                <p className='text-secondary'>80 Post</p>
+                                                <p className='text-secondary'>80 Posts</p>
                                             </div>
                                         </div>
                                     </div>
