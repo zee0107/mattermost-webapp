@@ -49,6 +49,23 @@ type Props = {
     lhsOpen: boolean;
     rhsOpen: boolean;
     rhsMenuOpen: boolean;
+
+
+    channelId: string;
+    channelRolesLoading: boolean;
+    showNextStepsEphemeral: boolean;
+    enableOnboardingFlow: boolean;
+    showNextSteps: boolean;
+    teamUrl: string;
+    match: {
+        url: string;
+        params: {
+            postid?: string;
+        };
+    };
+    channelIsArchived: boolean;
+    viewArchivedChannels: boolean;
+    isCloud: boolean;
  }
 
 
@@ -64,9 +81,17 @@ type State = {
 export default class NewsFeed extends React.PureComponent<Props, State> {
     static defaultProps = {userId: '',profilePicture: '', allCrypto: [],trendCrypto: [],newCrypto: [],gainerCrypto: []}
 
+    channelViewRef: React.RefObject<HTMLDivElement>;
+
     constructor(props: Props) {
         super(props);
         this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light',img_path: homeImage,logo_url: [], data: []};
+
+        this.channelViewRef = React.createRef();
+    }
+    
+    getChannelView = () => {
+        return this.channelViewRef.current;
     }
 
     componentDidMount(){
@@ -194,7 +219,9 @@ export default class NewsFeed extends React.PureComponent<Props, State> {
                                                     </div>
                                                     <div className='col-sm-8 removePadding'>
                                                         {/*<input className='share-input small' placeholder={'Whats going on ' + `${currentUser.first_name}` + '?'} />*/}
-                                                        <CreatePost/>
+                                                        <CreatePost
+                                                            getChannelView={this.getChannelView}
+                                                        />
                                                     </div>
                                                     <div className='col-sm-2 removePadding padding-top-share-icons'>
                                                         <a href='#' className='icon-margin-right'><svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -17,8 +17,21 @@ import {getIsLhsOpen} from 'selectors/lhs';
 import {getCurrentUserTimezone} from 'selectors/general';
 import {makeGetCustomStatus, isCustomStatusEnabled, showStatusDropdownPulsatingDot, isCustomStatusExpired} from 'selectors/views/custom_status';
 import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
-import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
+
+import {withRouter} from 'react-router-dom';
+
+import {getCurrentChannel, getDirectTeammate} from 'mattermost-redux/selectors/entities/channels';
+import {getMyChannelRoles} from 'mattermost-redux/selectors/entities/roles';
+import {getRoles} from 'mattermost-redux/selectors/entities/roles_helpers';
+import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
+import {showNextSteps} from 'components/next_steps_view/steps';
+
+import {ActionFunc, GenericAction} from 'mattermost-redux/types/actions';
+import {setShowNextStepsView} from 'actions/views/next_steps';
+import {getCurrentRelativeTeamUrl} from 'mattermost-redux/selectors/entities/teams';
+
+import {goToLastViewedChannel} from 'actions/views/channel';
 
 import NewsFeed from './newsfeed'
 
@@ -31,6 +44,29 @@ function makeMapStateToProps() {
         const userId = currentUser?.id;
         const customStatus = getCustomStatus(state, userId);
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
+
+        const channel = getCurrentChannel(state);
+
+        const config = getConfig(state);
+
+        const viewArchivedChannels = config.ExperimentalViewArchivedChannels === 'true';
+        const enableOnboardingFlow = config.EnableOnboardingFlow === 'true';
+
+        let channelRolesLoading = true;
+        if (channel && channel.id) {
+            const roles = getRoles(state);
+            const myChannelRoles = getMyChannelRoles(state);
+            if (myChannelRoles[channel.id]) {
+                const channelRoles = myChannelRoles[channel.id].values();
+                for (const roleName of channelRoles) {
+                    if (roles[roleName]) {
+                        channelRolesLoading = false;
+                    }
+                    break;
+                }
+            }
+        }
+
 
         return {
             userId,
@@ -48,6 +84,16 @@ function makeMapStateToProps() {
             lhsOpen: getIsLhsOpen(state),
             rhsOpen: getIsRhsOpen(state),
             rhsMenuOpen: getIsRhsMenuOpen(state),
+            channelId: channel ? channel.id : '',
+            channelRolesLoading,
+            focusedPostId: state.views.channel.focusedPostId,
+            showNextStepsEphemeral: state.views.nextSteps.show,
+            enableOnboardingFlow,
+            showNextSteps: showNextSteps(state),
+            channelIsArchived: channel ? channel.delete_at !== 0 : false,
+            viewArchivedChannels,
+            isCloud: getLicense(state).Cloud === 'true',
+            teamUrl: getCurrentRelativeTeamUrl(state),
         };
     };
 }
