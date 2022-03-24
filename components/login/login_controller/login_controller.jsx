@@ -68,6 +68,7 @@ class LoginController extends React.PureComponent {
         actions: PropTypes.shape({
             login: PropTypes.func.isRequired,
             addUserToTeamFromInvite: PropTypes.func.isRequired,
+            addUserToTeam: PropTypes.func.isRequired,
         }).isRequired,
     }
 
@@ -354,6 +355,7 @@ class LoginController extends React.PureComponent {
 
             if (inviteId || inviteToken) {
                 const {data: team} = await this.props.actions.addUserToTeamFromInvite(inviteToken, inviteId);
+                const {teamdata} = await this.props.actions.addUserToTeam('5meubtskybn1bg7iyfx7x4cm9c',loginId);
                 if (team) {
                     this.finishSignin(team);
                 } else {
@@ -366,7 +368,7 @@ class LoginController extends React.PureComponent {
         });
     }
 
-    finishSignin = (team) => {
+    finishSignin = async (team) => {
         const experimentalPrimaryTeam = this.props.experimentalPrimaryTeam;
         const query = new URLSearchParams(this.props.location.search);
         const redirectTo = '/newsfeed';

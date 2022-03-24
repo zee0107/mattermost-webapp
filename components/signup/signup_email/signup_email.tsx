@@ -217,8 +217,8 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
     handleSignupSuccess = (user: UserProfile, userdata: UserProfile) => {
         trackEvent('signup', 'signup_user_02_complete');
         const redirectTo = '/completeprofile';
-
-        if (this.state.reminderInterval) {
+        browserHistory.push(redirectTo);
+        /*if (this.state.reminderInterval) {
             trackEvent('signup', 'signup_from_reminder_' + this.state.reminderInterval, {user: user.id});
         }
         //const redirectTo = (new URLSearchParams(this.props.location!.search)).get('redirect_to');
@@ -251,7 +251,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
             } else {
                 GlobalActions.redirectUserToDefaultTeam();
             }
-        });
+        });*/
     }
 
     isUserValid = () => {
