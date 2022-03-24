@@ -87,42 +87,14 @@ export default class ChannelController extends React.PureComponent<Props> {
                             <div className='col-md-3'>
                                 <Sidebar/>
                             </div>
-                            <div className='col-md-6'>
-                                <UserStory/>
-                                <div className='col-md-12 profile-menu-box-mobile width-100'>
-                                    <div className='d-flex'>
-                                        <div className='col-lg-2 profile-menu-icon'>
-                                            <a href='#'><img src={LayoutIcon}></img></a>
-                                        </div>
-                                        <div className='col-lg-2 profile-menu-icon'>
-                                            <a href='#'><img src={SplitIcon}></img></a>
-                                        </div>
-                                        <div className='col-lg-2 profile-menu-icon'>
-                                            <a href='#'><img src={ImgIcon}></img></a>
-                                        </div>
-                                        <div className='col-lg-2 profile-menu-icon'>
-                                            <a href='#'><img src={VideoIcon}></img></a>
-                                        </div>
-                                        <div className='col-lg-2 profile-menu-icon'>
-                                            <a href='#'><img src={MusicIcon}></img></a>
-                                        </div>
-                                        <div className='col-lg-2 profile-menu-icon'>
-                                            <a href='#'><img src={AttachIcon}></img></a>
-                                        </div>
-                                        <div className='col-lg-2 profile-menu-icon'>
-                                            <a href='#'><img src={GeoIcon}></img></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='col-md-12 chat-box mtop-10'>
+                            <div className='col-md-9 removePadding'>
+                                <div className='col-md-12'>
                                     {!this.props.fetchingChannels && <Route component={CenterChannel}/>}
                                     {this.props.fetchingChannels && <LoadingScreen/>}
                                     <Pluggable pluggableName='Root'/>
                                     <EditPostModal/>
                                     <ResetStatusModal/>
                                 </div>
-                            </div>
-                            <div className='col-md-3'>
                             </div>
                         </div>
                     </div>
