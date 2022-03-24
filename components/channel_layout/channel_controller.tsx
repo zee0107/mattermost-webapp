@@ -82,11 +82,13 @@ export default class ChannelController extends React.PureComponent<Props> {
                             </div>
                             <div className='col-md-7'>
                                 <UserStory/>
-                                {!this.props.fetchingChannels && <Route component={CenterChannel}/>}
-                                {this.props.fetchingChannels && <LoadingScreen/>}
-                                <Pluggable pluggableName='Root'/>
-                                <EditPostModal/>
-                                <ResetStatusModal/>
+                                <div className='col-md-12'>
+                                    {!this.props.fetchingChannels && <Route component={CenterChannel}/>}
+                                    {this.props.fetchingChannels && <LoadingScreen/>}
+                                    <Pluggable pluggableName='Root'/>
+                                    <EditPostModal/>
+                                    <ResetStatusModal/>
+                                </div>
                             </div>
                             <div className='col-md-3'>
 
