@@ -85,7 +85,7 @@ type Props = {
      useGroupMentions: boolean;
      markdownPreviewFeatureIsEnabled: boolean;
  }
-}
+
 
 type State = {
     openUp: boolean;
