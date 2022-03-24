@@ -1519,7 +1519,7 @@ class CreatePost extends React.PureComponent<Props, State> {
                                 </a>
                             </span>
                         </div>
-                        {tutorialTip}
+                        {/*tutorialTip*/}
                     </div>
                     <div
                         id='postCreateFooter'
@@ -1545,6 +1545,7 @@ class CreatePost extends React.PureComponent<Props, State> {
                             {serverError}
                         </div>
                     </div>
+                    
                 </div>
             </form>
         );
