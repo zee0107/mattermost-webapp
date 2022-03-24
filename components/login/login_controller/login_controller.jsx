@@ -353,7 +353,7 @@ class LoginController extends React.PureComponent {
             const params = new URLSearchParams(this.props.location.search);
             const inviteToken = params.get('t') || '';
             const inviteId = params.get('id') || '';
-            await this.props.actions.addUserToTeam('5meubtskybn1bg7iyfx7x4cm9c',loginId);
+            //await this.props.actions.addUserToTeam('5meubtskybn1bg7iyfx7x4cm9c',loginId);
             if (inviteId || inviteToken) {
                 const {data: team} = await this.props.actions.addUserToTeamFromInvite(inviteToken, inviteId);
                 if (team) {
