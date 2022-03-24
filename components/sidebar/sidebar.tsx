@@ -45,6 +45,7 @@ type Props = {
 };
 
 type State = {
+    showDirectChannelsModal: boolean;
     isDragging: boolean;
 };
 
@@ -52,6 +53,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
+            showDirectChannelsModal: false,
             isDragging: false,
             newListing: [],
             trendListing: [], 
@@ -70,6 +72,24 @@ export default class Sidebar extends React.PureComponent<Props, State> {
 
         if(this.props.newCrypto != null){
             Promise.resolve(this.props.newCrypto).then(value => {this.setState({newListing: value});})
+        }
+    }
+
+    showMoreDirectChannelsModal = () => {
+        this.setState({showDirectChannelsModal: true});
+        trackEvent('ui', 'ui_channels_more_direct_v2');
+    }
+
+    hideMoreDirectChannelsModal = () => {
+        this.setState({showDirectChannelsModal: false});
+    }
+    
+    handleOpenMoreDirectChannelsModal = (e: Event) => {
+        e.preventDefault();
+        if (this.state.showDirectChannelsModal) {
+            this.hideMoreDirectChannelsModal();
+        } else {
+            this.showMoreDirectChannelsModal();
         }
     }
 
@@ -240,6 +260,15 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                             <br></br>
                             {newList}
                         </div>
+                    </div>
+                </div>
+                <div className='col-sm-12'>
+                    <div className='side-menu-box'>
+                        <SidebarChannelList
+                            handleOpenMoreDirectChannelsModal={this.handleOpenMoreDirectChannelsModal}
+                            onDragStart={this.onDragStart}
+                            onDragEnd={this.onDragEnd}
+                        />
                     </div>
                 </div>
             </div>
