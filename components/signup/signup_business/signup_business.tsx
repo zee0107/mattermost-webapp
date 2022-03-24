@@ -232,9 +232,6 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
                     if (this.state.teamName) {
                         verifyUrl += '&teamname=' + encodeURIComponent(this.state.teamName);
                     }
-                    if (redirectTo) {
-                        verifyUrl += '&redirect_to=' + redirectTo;
-                    }
                     browserHistory.push(verifyUrl);
                 } else {
                     this.setState({
@@ -250,8 +247,8 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
                 this.props.actions.setGlobalItem(this.state.token, JSON.stringify({usedBefore: true}));
             }
 
-            if (redirectTo) {
-                await this.props.actions.addUserToTeam('5meubtskybn1bg7iyfx7x4cm9c', userdata.id);
+            const {data} = await this.props.actions.addUserToTeam('5meubtskybn1bg7iyfx7x4cm9c', userdata.id);
+            if (data) {
                 browserHistory.push(redirectTo);
             } else {
                 GlobalActions.redirectUserToDefaultTeam();
