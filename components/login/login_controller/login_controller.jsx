@@ -313,6 +313,7 @@ class LoginController extends React.PureComponent {
         this.setState({serverError: null, loading: true});
 
         this.props.actions.login(loginId, password, token).then(async ({error}) => {
+            console.log(loginId);
             if (error) {
                 if (error.server_error_id === 'api.user.login.not_verified.app_error') {
                     browserHistory.push('/should_verify_email?&email=' + encodeURIComponent(loginId));
@@ -354,8 +355,9 @@ class LoginController extends React.PureComponent {
             const inviteId = params.get('id') || '';
 
             if (inviteId || inviteToken) {
-                const {data: team} = await this.props.actions.addUserToTeamFromInvite(inviteToken, inviteId);
-                const {teamdata, error} = await this.props.actions.addUserToTeam('5meubtskybn1bg7iyfx7x4cm9c',loginId);
+                //const {data: team} = await this.props.actions.addUserToTeamFromInvite(inviteToken, inviteId);
+                const {data: teamdata} = await this.props.actions.addUserToTeam('5meubtskybn1bg7iyfx7x4cm9c',loginId);
+                console.log(teamdata);
                 if (teamdata) {
                     this.finishSignin(teamdata);
                 } else {
