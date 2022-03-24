@@ -4,12 +4,14 @@
 import {ActionCreatorsMapObject, bindActionCreators, Dispatch} from 'redux';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import {Client4} from 'mattermost-redux/client';
 
 import {getCurrentChannel, getDirectTeammate} from 'mattermost-redux/selectors/entities/channels';
 import {getMyChannelRoles} from 'mattermost-redux/selectors/entities/roles';
 import {getRoles} from 'mattermost-redux/selectors/entities/roles_helpers';
 import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
 import {showNextSteps} from 'components/next_steps_view/steps';
+import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
 
 import {ActionFunc, GenericAction} from 'mattermost-redux/types/actions';
 import {setShowNextStepsView} from 'actions/views/next_steps';
@@ -34,6 +36,9 @@ function isDeactivatedChannel(state: GlobalState, channelId: string) {
 
 function mapStateToProps(state: GlobalState) {
     const channel = getCurrentChannel(state);
+
+    const currentUser = getCurrentUser(state);
+    const userId = currentUser?.id;
 
     const config = getConfig(state);
 
@@ -67,6 +72,8 @@ function mapStateToProps(state: GlobalState) {
         viewArchivedChannels,
         isCloud: getLicense(state).Cloud === 'true',
         teamUrl: getCurrentRelativeTeamUrl(state),
+        profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
+        currentUser,
     };
 }
 

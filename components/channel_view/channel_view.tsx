@@ -5,6 +5,7 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
+import {UserProfile} from 'mattermost-redux/types/users';
 
 import deferComponentRender from 'components/deferComponentRender';
 import ChannelHeader from 'components/channel_header';
@@ -26,9 +27,11 @@ type Props = {
     channelId: string;
     deactivatedChannel: boolean;
     channelRolesLoading: boolean;
+    profilePicture: string;
     showNextStepsEphemeral: boolean;
     enableOnboardingFlow: boolean;
     showNextSteps: boolean;
+    currentUser: UserProfile;
     teamUrl: string;
     match: {
         url: string;
@@ -100,6 +103,11 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         };
 
         this.channelViewRef = React.createRef();
+    }
+
+    renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
+        if (!this.props.profilePicture) {return null;}
+        return (<Avatar size={size} url={this.props.profilePicture} />);
     }
 
     getChannelView = () => {
