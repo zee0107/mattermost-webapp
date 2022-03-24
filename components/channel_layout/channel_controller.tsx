@@ -11,6 +11,7 @@ import Pluggable from 'plugins/pluggable';
 import SystemNotice from 'components/system_notice';
 import EditPostModal from 'components/edit_post_modal';
 import UserStory from 'components/user_story/user_story';
+import ImgIcon from 'images/profiles/image.svg';
 import LayoutIcon from 'images/profiles/columns-gap.svg';
 import MusicIcon from 'images/profiles/music-note-beamed.svg';
 import VideoIcon from 'images/profiles/camera-video.svg';
