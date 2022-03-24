@@ -27,28 +27,8 @@ import {ModalData} from 'types/actions';
 import {ModalIdentifiers} from 'utils/constants';
 
 type Props = {
-    status?: string;
-    userId: string;
     profilePicture: string;
-    autoResetPref?: string;
-    actions: {
-        openModal: <P>(modalData: ModalData<P>) => void;
-        setStatus: (status: UserStatus) => ActionFunc;
-        unsetCustomStatus: () => ActionFunc;
-        setStatusDropdown: (open: boolean) => void;
-    };
-    customStatus?: UserCustomStatus;
     currentUser: UserProfile;
-    isCustomStatusEnabled: boolean;
-    isCustomStatusExpired: boolean;
-    isMilitaryTime: boolean;
-    isStatusDropdownOpen: boolean;
-    showCustomStatusPulsatingDot: boolean;
-    timezone?: string;
-    globalHeader?: boolean;
-    lhsOpen: boolean;
-    rhsOpen: boolean;
-    rhsMenuOpen: boolean;
  }
 
 
@@ -62,7 +42,7 @@ type State = {
 };
 
 export default class RightSideView extends React.PureComponent<Props, State> {
-    static defaultProps = {userId: '',profilePicture: '', allCrypto: [],trendCrypto: [],newCrypto: [],gainerCrypto: []}
+    static defaultProps = {profilePicture: '', allCrypto: [],trendCrypto: [],newCrypto: [],gainerCrypto: []}
 
     channelViewRef: React.RefObject<HTMLDivElement>;
 
