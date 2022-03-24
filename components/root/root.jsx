@@ -525,10 +525,10 @@ export default class Root extends React.PureComponent {
                                     component={LaunchPad}
                                 />
                                 
-                                <LoginHFTRoute
+                                {/*<LoginHFTRoute
                                     path={'/newsfeed'}
                                     component={NewsFeed}
-                                />
+                                />*/}
                                 <LoginHFTRoute
                                     path={'/launchpadtoken'}
                                     component={LaunchPadToken}
