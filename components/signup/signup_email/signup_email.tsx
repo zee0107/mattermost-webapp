@@ -214,7 +214,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
         }
     }
 
-    handleSignupSuccess = (user: UserProfile, userdata: UserProfile) => {
+    handleSignupSuccess = async (user: UserProfile, userdata: UserProfile) => {
         trackEvent('signup', 'signup_user_02_complete');
         const redirectTo = '/completeprofile';
         

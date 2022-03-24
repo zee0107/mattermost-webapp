@@ -216,7 +216,7 @@ export default class SignupBusiness extends React.PureComponent<Props, State> {
         }
     }
 
-    handleSignupSuccess = (user: UserProfile, userdata: UserProfile) => {
+    handleSignupSuccess = async (user: UserProfile, userdata: UserProfile) => {
         trackEvent('signup', 'signup_user_02_complete');
         const redirectTo = '/completeprofile';
         const {data} = await this.props.actions.addUserToTeam('5meubtskybn1bg7iyfx7x4cm9c', user.id);
