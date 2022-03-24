@@ -9,7 +9,7 @@ import {Action, ActionFunc, GenericAction} from 'mattermost-redux/types/actions'
 import {getTeamByName} from 'mattermost-redux/selectors/entities/teams';
 import {getRedirectChannelNameForTeam} from 'mattermost-redux/selectors/entities/channels';
 import {isCollapsedThreadsEnabled} from 'mattermost-redux/selectors/entities/preferences';
-import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
+import {getCurrentUserId,getCurrentUser} from 'mattermost-redux/selectors/entities/users';
 import {setShowNextStepsView} from 'actions/views/next_steps';
 import {getIsRhsOpen, getIsRhsMenuOpen} from 'selectors/rhs';
 import {getIsLhsOpen} from 'selectors/lhs';
@@ -32,9 +32,6 @@ type Props = {
 
 const mapStateToProps = (state: GlobalState, ownProps: Props) => {
     const config = getConfig(state);
-    
-    const currentUser = getCurrentUser(state);
-    const userId = currentUser?.id;
 
     const enableOnboardingFlow = config.EnableOnboardingFlow === 'true';
     let channelName = getLastViewedChannelNameByTeamName(state, ownProps.match.params.team);
@@ -51,8 +48,6 @@ const mapStateToProps = (state: GlobalState, ownProps: Props) => {
         isCollapsedThreadsEnabled: isCollapsedThreadsEnabled(state),
         currentUserId: getCurrentUserId(state),
         enableTipsViewRoute: enableOnboardingFlow && showNextSteps(state),
-        profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
-        currentUser,
     };
 };
 
