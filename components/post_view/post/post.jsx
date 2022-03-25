@@ -231,9 +231,9 @@ export default class Post extends React.PureComponent {
         if (props.isFirstReply) {
             return false;
         } else if (!post.root_id && !props.previousPostIsComment && props.consecutivePostByUser) {
-            return true;
+            return false;
         } else if (post.root_id) {
-            return true;
+            return false;
         }
 
         return false;
@@ -361,7 +361,7 @@ export default class Post extends React.PureComponent {
         const fromBot = post && post.props && post.props.from_bot === 'true';
 
         let profilePic;
-        
+
         const hideProfilePicture = false;/*this.hasSameRoot(this.props) && this.props.consecutivePostByUser && (!post.root_id && !hasReplies) && !fromBot;*/
         if (!hideProfilePicture) {
             profilePic = (
