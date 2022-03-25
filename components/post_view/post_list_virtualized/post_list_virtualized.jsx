@@ -307,19 +307,19 @@ export default class PostList extends React.PureComponent {
         const nextItemId = (index > 0 && index < data.length) ? data[index - 1] : '';
 
         if (isDateLine(nextItemId) || isStartOfNewMessages(nextItemId)) {
-            className += basePaddingClass + ' bottom';
+            className += basePaddingClass + ' top';
         }
 
         if (isDateLine(previousItemId) || isStartOfNewMessages(previousItemId)) {
             if (className.includes(basePaddingClass)) {
-                className += ' top';
+                className += ' bottom';
             } else {
-                className += basePaddingClass + ' top';
+                className += basePaddingClass + ' bottom';
             }
         }
 
         // Since the first in the list is the latest message
-        const isLastPost = itemId === this.state.postListIds[data.length-1];
+        const isLastPost = itemId === this.state.postListIds[0];
 
         return (
             <div
