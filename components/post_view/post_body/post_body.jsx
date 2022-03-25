@@ -282,6 +282,80 @@ export default class PostBody extends React.PureComponent<Props,State> {
         );
     };
 
+    buildOptionsNew = (post: Post, isSystemMessage: boolean, fromAutoResponder: boolean) => {
+        const showCommentIcon = true;
+        const commentIconExtraClass =  '';
+        let commentIcon;
+        if (showCommentIcon) {
+            commentIcon = (
+                <CommentIcon
+                    handleCommentClick={this.props.handleCommentClick}
+                    postId={post.id}
+                    extraClass={commentIconExtraClass}
+                />
+            );
+        }
+
+        const showReactionIcon = true;
+        let postReaction;
+        if (showReactionIcon) {
+            postReaction = (
+                <PostReaction
+                    channelId={post.channel_id}
+                    postId={post.id}
+                    teamId={this.props.teamId}
+                    getDotMenuRef={this.getDotMenu}
+                    showEmojiPicker={this.state.showEmojiPicker}
+                    toggleEmojiPicker={this.toggleEmojiPicker}
+                />
+            );
+        }
+
+        const showDotMenuIcon = isMobile || hover;
+        let dotMenu;
+        if (showDotMenuIcon) {
+            dotMenu = (
+                <DotMenu
+                    post={post}
+                    isFlagged={this.props.isFlagged}
+                    handleCommentClick={this.props.handleCommentClick}
+                    handleDropdownOpened={this.handleDotMenuOpened}
+                    handleAddReactionClick={this.toggleEmojiPicker}
+                    isMenuOpen={this.state.showDotMenu}
+                    isReadOnly={isReadOnly}
+                    enableEmojiPicker={this.props.enableEmojiPicker}
+                />
+            );
+        }
+
+        const showFlagIcon = true;
+        let postFlagIcon;
+        if (showFlagIcon) {
+            postFlagIcon = (
+                <PostFlagIcon
+                    postId={post.id}
+                    isFlagged={this.props.isFlagged}
+                    extraClass={'pull-right'}
+                />
+            );
+        }
+
+        return (
+            <div
+                ref={this.dotMenuRef}
+                /*data-testid={`post-menu-${post.id}`}*/
+                className={'col-md-12 removePadding'}
+            >
+                {/*!collapsedThreadsEnabled && !showRecentlyUsedReactions && dotMenu*/}
+                {/*{showRecentReacions}*/}
+                {postReaction}
+                {commentIcon}
+                {postFlagIcon}
+                {/*(collapsedThreadsEnabled || showRecentlyUsedReactions) && dotMenu*/}
+            </div>
+        );
+    }
+
     static getDerivedStateFromProps(props, state) {
         if (state.sending && props.post && (props.post.id !== props.post.pending_post_id)) {
             return {
@@ -318,7 +392,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
         const isSystemMessage = PostUtils.isSystemMessage(post);
         const fromAutoResponder = PostUtils.fromAutoResponder(post);
 
-        let options = this.buildOptions(post, isSystemMessage, fromAutoResponder);
+        let options = this.buildOptionsNew(post, isSystemMessage, fromAutoResponder);
         /*if (isEphemeral) {
             options = (
                 <div className='col col__remove'>
