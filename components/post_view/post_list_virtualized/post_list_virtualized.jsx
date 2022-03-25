@@ -35,7 +35,7 @@ const MAXIMUM_POSTS_FOR_SLICING = {
 };
 
 const postListStyle = {
-    padding: '14px 0px 7px',
+    padding: '0px',
 };
 
 const virtListStyles = {
