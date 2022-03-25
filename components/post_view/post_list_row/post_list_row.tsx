@@ -79,7 +79,7 @@ export default class PostListRow extends React.PureComponent<PostListRowProps> {
         const {
             OLDER_MESSAGES_LOADER,
             NEWER_MESSAGES_LOADER,
-            CHANNEL_INTRO_MESSAGE,
+            /*CHANNEL_INTRO_MESSAGE,*/
             LOAD_OLDER_MESSAGES_TRIGGER,
             LOAD_NEWER_MESSAGES_TRIGGER,
         } = PostListRowListIds;
@@ -109,15 +109,15 @@ export default class PostListRow extends React.PureComponent<PostListRowProps> {
             );
         }
 
-        if (listId === CHANNEL_INTRO_MESSAGE) {
+        /*if (listId === CHANNEL_INTRO_MESSAGE) {
             return (
                 <div>
-                    {/*<ChannelIntroMessage/>*/}
+                    <ChannelIntroMessage/>
                     <span></span>
                 </div>
                 
             );
-        }
+        }*/
 
         if (listId === LOAD_OLDER_MESSAGES_TRIGGER || listId === LOAD_NEWER_MESSAGES_TRIGGER) {
             return (
