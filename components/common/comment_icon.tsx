@@ -9,7 +9,7 @@ import {localizeMessage} from 'utils/utils.jsx';
 import OverlayTrigger from 'components/overlay_trigger';
 import Tooltip from 'components/tooltip';
 import ReplyIcon from 'components/widgets/icons/reply_icon';
-import CommentIcon from 'components/widgets/icons/comment_icon';
+import CommentIconAdd from 'components/widgets/icons/comment_icon';
 
 type Props = {
     location: 'CENTER' | 'SEARCH';
@@ -67,7 +67,7 @@ export default class CommentIcon extends React.PureComponent<Props> {
                     onClick={this.props.handleCommentClick}
                 >
                     <span className='d-flex align-items-center'>
-                        <CommentIcon className='icon icon--small'/>
+                        <CommentIconAdd className='icon icon--small'/>
                         {commentCountSpan}
                     </span>
                 </button>

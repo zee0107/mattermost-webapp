@@ -4,7 +4,7 @@
 import React from 'react';
 import {useIntl} from 'react-intl';
 
-export default function CommentIcon(props: React.HTMLAttributes<HTMLSpanElement>) {
+export default function CommentIconAdd(props: React.HTMLAttributes<HTMLSpanElement>) {
     const {formatMessage} = useIntl();
     return (
         <span {...props}>
