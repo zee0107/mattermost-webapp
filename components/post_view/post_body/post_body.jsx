@@ -261,6 +261,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
                 <PostFlagIcon
                     postId={post.id}
                     isFlagged={this.props.isFlagged}
+                    extraClass={'pull-right'}
                 />
             );
         }
