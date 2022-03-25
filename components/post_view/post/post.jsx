@@ -360,23 +360,9 @@ export default class Post extends React.PureComponent {
         const fromWebhook = post && post.props && post.props.from_webhook === 'true';
         const fromBot = post && post.props && post.props.from_bot === 'true';
 
-        let profilePic = (
-            <PostProfilePicture
-                compactDisplay={this.props.compactDisplay}
-                post={post}
-                userId={post.user_id}
-            />
-        );
-
-        if (fromAutoResponder) {
-            profilePic = (
-                <span className='auto-responder'>
-                    {profilePic}
-                </span>
-            );
-        }
-
-        /*const hideProfilePicture = this.hasSameRoot(this.props) && this.props.consecutivePostByUser && (!post.root_id && !hasReplies) && !fromBot;
+        let profilePic;
+        
+        const hideProfilePicture = false;/*this.hasSameRoot(this.props) && this.props.consecutivePostByUser && (!post.root_id && !hasReplies) && !fromBot;*/
         if (!hideProfilePicture) {
             profilePic = (
                 <PostProfilePicture
@@ -393,7 +379,7 @@ export default class Post extends React.PureComponent {
                     </span>
                 );
             }
-        }*/
+        }
 
         let centerClass = '';
         if (this.props.center) {
