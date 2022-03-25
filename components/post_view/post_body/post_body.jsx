@@ -188,7 +188,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
         }
 
         const {isMobile, isReadOnly, collapsedThreadsEnabled} = this.props;
-        const hover = this.props.hover || this.state.showEmojiPicker || this.state.showDotMenu || this.state.showOptionsMenuWithoutHover;
+        const hover = true;/*this.props.hover || this.state.showEmojiPicker || this.state.showDotMenu || this.state.showOptionsMenuWithoutHover*/;
 
         const showCommentIcon = fromAutoResponder ||
         (!isSystemMessage && (isMobile || hover || (!post.root_id && Boolean(this.props.hasReplies)) || this.props.isFirstReply));
@@ -250,7 +250,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
             );
         }
 
-        const showFlagIcon = true; /*!isSystemMessage && !isMobile && (hover || this.props.isFlagged)*/;
+        const showFlagIcon = !isSystemMessage && !isMobile && (hover || this.props.isFlagged);
         let postFlagIcon;
         if (showFlagIcon) {
             postFlagIcon = (
