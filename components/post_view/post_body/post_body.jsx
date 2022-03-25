@@ -36,12 +36,16 @@ import InfoSmallIcon from 'components/widgets/icons/info_small_icon';
 import {Emoji} from 'mattermost-redux/types/emojis';
 
 const SENDING_ANIMATION_DELAY = 3000;
+
 type Props = {
     post: Post;
     teamId?: string;
     handleCommentClick: React.EventHandler<React.MouseEvent>;
+
     handleCardClick: (post: Post) => void;
+
     handleDropdownOpened: (e: boolean) => void;
+
     isFlagged?: boolean;
     isCardOpen?: boolean;
     isFirstReply?: boolean;
@@ -152,7 +156,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
 
         this.setState({
             showEmojiPicker,
-            showOptionsMenuWithoutHover: true,
+            showOptionsMenuWithoutHover: false,
         });
         this.props.handleDropdownOpened(showEmojiPicker || this.state.showDotMenu);
     };
