@@ -139,7 +139,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
             },
         );
 
-        this.state = {sending: false,showEmojiPicker: false,showDotMenu: false, showOptionsMenuWithoutHover: false};
+        this.state = {sending: false,showEmojiPicker: true,showDotMenu: false, showOptionsMenuWithoutHover: false};
     }
 
     toggleEmojiPicker = (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
@@ -150,7 +150,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
 
         this.setState({
             showEmojiPicker,
-            showOptionsMenuWithoutHover: false,
+            showOptionsMenuWithoutHover: true,
         });
         this.props.handleDropdownOpened(showEmojiPicker || this.state.showDotMenu);
     };
