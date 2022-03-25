@@ -386,7 +386,7 @@ export default class Post extends React.PureComponent {
         }
 
         return (
-            <div className='mtop-10 share-div'>
+            <div className='mtop-10 chat-box'>
                 <PostContext.Provider value={{handlePopupOpened: this.handleDropdownOpened}}>
                     <PostAriaLabelDiv
                         ref={this.postRef}
