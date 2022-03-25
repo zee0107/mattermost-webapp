@@ -30,6 +30,7 @@ import MenuWrapper from 'components/widgets/menu/menu_wrapper';
 import Menu from 'components/widgets/menu/menu';
 
 import AttachmentIcon from 'components/widgets/icons/attachment_icon';
+import CameraIcon from 'components/widgets/icons/camera_icon';
 import KeyboardShortcutSequence, {KEYBOARD_SHORTCUTS} from 'components/keyboard_shortcuts/keyboard_shortcuts_sequence';
 import OverlayTrigger from 'components/overlay_trigger';
 import Tooltip from 'components/tooltip';
@@ -604,7 +605,7 @@ export class FileUpload extends PureComponent {
                         onClick={this.simulateInputClick}
                         onTouchEnd={this.simulateInputClick}
                     >
-                        <AttachmentIcon className='d-flex'/>
+                        <CameraIcon className='d-flex'/>
                     </button>
                     <input
                         id='fileUploadInput'
@@ -663,7 +664,7 @@ export class FileUpload extends PureComponent {
                                 id='fileUploadButton'
                                 className='icon icon--attachment'
                             >
-                                <AttachmentIcon className='d-flex'/>
+                                <CameraIcon className='d-flex'/>
                             </div>
                         </button>
                         <Menu
