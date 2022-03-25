@@ -27,6 +27,7 @@ import GlobalHeaderStyle from 'components/global_header_style/global_header_styl
 import ModalController from 'components/modal_controller';
 import {HFTRoute,LoggedInHFTRoute} from 'components/header_footer_template_route';
 import {HFTRouteLog,LoginHFTRoute} from 'components/header_footer_login_route';
+import {HFTRouteLogNS,LoginHFTRouteNS} from 'components/header_footer_login_route_ns';
 import IntlProvider from 'components/intl_provider';
 import NeedsTeam from 'components/needs_team';
 
@@ -516,7 +517,7 @@ export default class Root extends React.PureComponent {
                                         )}
                                     />
                                 ))}
-                                <LoginHFTRoute
+                                <LoginHFTRouteNS
                                     path={'/profile'}
                                     component={ProfilePage}
                                 />
