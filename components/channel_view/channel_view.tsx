@@ -374,7 +374,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-md-12 mtop-10 bgGrey'></div>
+                            <div className='col-md-12 pbot-20 bgGrey'></div>
                             <div className='col-md-12 chat-box'>
                                 <DeferredPostView
                                     channelId={this.props.channelId}
