@@ -39,7 +39,7 @@ type Props = {
         closeRhs: () => void;
         closeRhsMenu: () => void;
     };
-    classes: string;
+    //classes: string;
 }
 
 export default class ChannelHeaderMobile extends React.PureComponent<Props> {
