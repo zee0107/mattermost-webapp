@@ -250,7 +250,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
             );
         }
 
-        const showFlagIcon = !isSystemMessage && !isMobile && (hover || this.props.isFlagged);
+        const showFlagIcon = true; /*!isSystemMessage && !isMobile && (hover || this.props.isFlagged)*/;
         let postFlagIcon;
         if (showFlagIcon) {
             postFlagIcon = (
