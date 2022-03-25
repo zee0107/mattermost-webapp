@@ -416,7 +416,7 @@ export default class PostInfo extends React.PureComponent<Props, State> {
                     {postInfoIcon}
                     {visibleMessage}
                 </div>
-                {/*options*/}
+                {options}
             </div>
         );
     }
