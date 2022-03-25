@@ -187,9 +187,7 @@ export default class LoggedInHFTNS extends React.PureComponent<Props> {
                         </div>
                     </div>
                     <div className='row content bgGrey pbot-10'>
-                        <div className='container'>
-                            {React.cloneElement(this.props.children, {mode: this.state.isDark})}
-                        </div>
+                        {React.cloneElement(this.props.children, {mode: this.state.isDark})}
                     </div>
                 </div>
 
