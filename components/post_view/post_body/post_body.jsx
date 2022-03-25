@@ -209,7 +209,7 @@ export default class PostBody extends React.PureComponent {
                     className={`post__body ${mentionHighlightClass} ${ephemeralPostClass} ${postClass}`}
                 >
                     {fileAttachmentHolder}
-                    <div className='col-lg-12 mtop-10'>
+                    <div className='col-lg-12 mtop-10 removePadding'>
                         <div className='d-flex'>
                             <div className='col-md-8 removePadding'>
                                 <a href='#' className='mright-5'><svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -228,11 +228,9 @@ export default class PostBody extends React.PureComponent {
                                 </svg></a>
                             </div>
                         </div>
-                        <p className='text-primary mtop-10'>Almost ready for a test play, skill-based p2e game is coming.</p>
+                        {messageWithAdditionalContent}
+                        <ReactionList post={post}/>
                     </div>
-                    {messageWithAdditionalContent}
-                    
-                    <ReactionList post={post}/>
                 </div>
             </div>
         );
