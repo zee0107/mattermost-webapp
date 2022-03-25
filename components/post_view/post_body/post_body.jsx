@@ -189,8 +189,8 @@ export default class PostBody extends React.PureComponent<Props,State> {
         const hover = this.props.hover || this.state.showEmojiPicker || this.state.showDotMenu || this.state.showOptionsMenuWithoutHover;
 
         const showCommentIcon = true;/*fromAutoResponder ||
-        (!isSystemMessage && (isMobile || hover || (!post.root_id && Boolean(this.props.hasReplies)) || this.props.isFirstReply));
-        const commentIconExtraClass = isMobile ? '' : '';*/
+        (!isSystemMessage && (isMobile || hover || (!post.root_id && Boolean(this.props.hasReplies)) || this.props.isFirstReply));*/
+        const commentIconExtraClass = isMobile ? '' : '';
         let commentIcon;
         if (showCommentIcon) {
             commentIcon = (
