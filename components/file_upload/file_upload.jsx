@@ -30,7 +30,7 @@ import MenuWrapper from 'components/widgets/menu/menu_wrapper';
 import Menu from 'components/widgets/menu/menu';
 
 import AttachmentIcon from 'components/widgets/icons/attachment_icon';
-import CameraIcon from 'components/widgets/icons/camera_icon';
+import CameraIcon from 'components/widgets/icons/camera-icon-add';
 import KeyboardShortcutSequence, {KEYBOARD_SHORTCUTS} from 'components/keyboard_shortcuts/keyboard_shortcuts_sequence';
 import OverlayTrigger from 'components/overlay_trigger';
 import Tooltip from 'components/tooltip';
