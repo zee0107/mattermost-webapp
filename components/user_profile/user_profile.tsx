@@ -73,9 +73,9 @@ export default class UserProfile extends PureComponent<UserProfileProps> {
 
         let name: React.ReactNode;
         if (user && displayUsername) {
-            name = `@${(user.first_name)} ${(user.last_name)}`;
+            name = `${(user.first_name)} ${(user.last_name)}`;
         } else {
-            name = overwriteName || displayName || '...';
+            name = `${(user.first_name)} ${(user.last_name)}`;
         }
 
         const ariaName: string = typeof name === 'string' ? name.toLowerCase() : '';
