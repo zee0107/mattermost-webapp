@@ -305,8 +305,11 @@ export default class PostBody extends React.PureComponent<Props,State> {
     render() {
         const post = this.props.post;
         const parentPost = this.props.parentPost;
-        const isEphemeral = Utils.isPostEphemeral(post);
         const parentPostUser = this.props.parentPostUser;
+
+        const isEphemeral = Utils.isPostEphemeral(post);
+        const isSystemMessage = PostUtils.isSystemMessage(post);
+        const fromAutoResponder = PostUtils.fromAutoResponder(post);
 
         let options;
         if (isEphemeral) {
