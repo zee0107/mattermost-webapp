@@ -84,28 +84,40 @@ export default class PostListRow extends React.PureComponent<PostListRowProps> {
             LOAD_NEWER_MESSAGES_TRIGGER,
         } = PostListRowListIds;
 
-        /*if (PostListUtils.isDateLine(listId)) {
+        if (PostListUtils.isDateLine(listId)) {
             const date = PostListUtils.getDateForDateLine(listId);
 
             return (
-                <DateSeparator
+                <div>
+                    {/* <DateSeparator
                     key={date}
                     date={date}
-                />
+                    />*/}
+                    <span></span>
+                </div>
+               
             );
         }
 
         if (PostListUtils.isStartOfNewMessages(listId)) {
             return (
-                <NewMessageSeparator separatorId={listId}/>
+                <div>
+                    {/*<NewMessageSeparator separatorId={listId}/>*/}
+                    <span></span>
+                </div>
+                
             );
         }
 
         if (listId === CHANNEL_INTRO_MESSAGE) {
             return (
-                <ChannelIntroMessage/>
+                <div>
+                    {/*<ChannelIntroMessage/>*/}
+                    <span></span>
+                </div>
+                
             );
-        }*/
+        }
 
         if (listId === LOAD_OLDER_MESSAGES_TRIGGER || listId === LOAD_NEWER_MESSAGES_TRIGGER) {
             return (
