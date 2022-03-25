@@ -114,7 +114,7 @@ export default class PostFlagIcon extends React.PureComponent {
                     ref={this.buttonRef}
                     id={`${this.props.location}_flagIcon_${this.props.postId}`}
                     aria-label={isFlagged ? localizeMessage('flag_post.unflag', 'Remove from Saved').toLowerCase() : localizeMessage('flag_post.flag', 'Save').toLowerCase()}
-                    className='post-menu__item'
+                    className='post-menu__item pull-right'
                     onClick={this.handlePress}
                 >
                     {flagIcon}
