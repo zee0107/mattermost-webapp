@@ -263,7 +263,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
             <div
                 ref={this.dotMenuRef}
                 data-testid={`post-menu-${post.id}`}
-                className={'col post-menu'}
+                className={'col-md-12 removePadding'}
             >
                 {!collapsedThreadsEnabled && !showRecentlyUsedReactions && dotMenu}
                 {showRecentReacions}

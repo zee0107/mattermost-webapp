@@ -276,7 +276,7 @@ export default class PostInfo extends React.PureComponent<Props, State> {
             <div
                 ref={this.dotMenuRef}
                 data-testid={`post-menu-${post.id}`}
-                className={'col'}
+                className={'col post-menu'}
             >
                 {!collapsedThreadsEnabled && !showRecentlyUsedReactions && dotMenu}
                 {showRecentReacions}
