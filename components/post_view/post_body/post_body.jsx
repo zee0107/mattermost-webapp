@@ -140,6 +140,8 @@ export default class PostBody extends React.PureComponent<Props,State> {
         );
 
         this.state = {sending: false,showEmojiPicker: false,showDotMenu: false, showOptionsMenuWithoutHover: false};
+
+        this.dotMenuRef = React.createRef();
     }
 
     toggleEmojiPicker = (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
@@ -188,8 +190,8 @@ export default class PostBody extends React.PureComponent<Props,State> {
         const {isMobile, isReadOnly, collapsedThreadsEnabled} = this.props;
         const hover = this.props.hover || this.state.showEmojiPicker || this.state.showDotMenu || this.state.showOptionsMenuWithoutHover;
 
-        const showCommentIcon = true;/*fromAutoResponder ||
-        (!isSystemMessage && (isMobile || hover || (!post.root_id && Boolean(this.props.hasReplies)) || this.props.isFirstReply));*/
+        const showCommentIcon = fromAutoResponder ||
+        (!isSystemMessage && (isMobile || hover || (!post.root_id && Boolean(this.props.hasReplies)) || this.props.isFirstReply));
         const commentIconExtraClass = isMobile ? '' : '';
         let commentIcon;
         if (showCommentIcon) {
@@ -216,7 +218,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
             );
         }
 
-        const showReactionIcon = true;/*!isSystemMessage && hover && !isReadOnly && this.props.enableEmojiPicker;*/
+        const showReactionIcon = !isSystemMessage && hover && !isReadOnly && this.props.enableEmojiPicker;
         let postReaction;
         if (showReactionIcon) {
             postReaction = (
@@ -248,7 +250,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
             );
         }
 
-        const showFlagIcon = true;/*!isSystemMessage && !isMobile && (hover || this.props.isFlagged)*/;
+        const showFlagIcon = !isSystemMessage && !isMobile && (hover || this.props.isFlagged);
         let postFlagIcon;
         if (showFlagIcon) {
             postFlagIcon = (
