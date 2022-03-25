@@ -307,14 +307,14 @@ export default class PostList extends React.PureComponent {
         const nextItemId = (index > 0 && index < data.length) ? data[index - 1] : '';
 
         if (isDateLine(nextItemId) || isStartOfNewMessages(nextItemId)) {
-            className += basePaddingClass + ' top';
+            className += basePaddingClass + ' bottom';
         }
 
         if (isDateLine(previousItemId) || isStartOfNewMessages(previousItemId)) {
             if (className.includes(basePaddingClass)) {
-                className += ' bottom';
+                className += ' top';
             } else {
-                className += basePaddingClass + ' bottom';
+                className += basePaddingClass + ' top';
             }
         }
 
@@ -330,12 +330,12 @@ export default class PostList extends React.PureComponent {
                     listId={itemId}
                     previousListId={getPreviousPostId(data, index)}
                     shouldHighlight={itemId === this.props.focusedPostId}
-                    loadOlderPosts={this.props.actions.loadOlderPosts}
-                    loadNewerPosts={this.props.actions.loadNewerPosts}
+                    loadOlderPosts={this.props.actions.loadNewerPosts}
+                    loadNewerPosts={this.props.actions.loadOlderPosts}
                     togglePostMenu={this.togglePostMenu}
                     isLastPost={isLastPost}
-                    loadingNewerPosts={this.props.loadingNewerPosts}
-                    loadingOlderPosts={this.props.loadingOlderPosts}
+                    loadingNewerPosts={this.props.loadingOlderPosts}
+                    loadingOlderPosts={this.props.loadingNewerPosts}
                 />
             </div>
         );
