@@ -143,7 +143,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
             },
         );
 
-        this.state = {sending: false,showEmojiPicker: false,showDotMenu: false, showOptionsMenuWithoutHover: false};
+        this.state = {sending: false,showEmojiPicker: false,showDotMenu: false, showOptionsMenuWithoutHover: true};
 
         this.dotMenuRef = React.createRef();
     }
@@ -156,7 +156,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
 
         this.setState({
             showEmojiPicker,
-            showOptionsMenuWithoutHover: false,
+            showOptionsMenuWithoutHover: true,
         });
         this.props.handleDropdownOpened(showEmojiPicker || this.state.showDotMenu);
     };
