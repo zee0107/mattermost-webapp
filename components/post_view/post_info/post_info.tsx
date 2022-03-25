@@ -146,9 +146,9 @@ export default class PostInfo extends React.PureComponent<Props, State> {
         super(props);
 
         this.state = {
-            showEmojiPicker: false,
-            showOptionsMenuWithoutHover: false,
-            showDotMenu: false,
+            showEmojiPicker: true,
+            showOptionsMenuWithoutHover: true,
+            showDotMenu: true,
         };
 
         this.postHeaderRef = React.createRef();
