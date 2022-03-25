@@ -272,12 +272,12 @@ export default class PostBody extends React.PureComponent<Props,State> {
                 data-testid={`post-menu-${post.id}`}
                 className={'col-md-12 removePadding'}
             >
-                {!collapsedThreadsEnabled && /*!showRecentlyUsedReactions &&*/ dotMenu}
+                {/*!collapsedThreadsEnabled && !showRecentlyUsedReactions && dotMenu*/}
                 {/*{showRecentReacions}*/}
                 {postReaction}
                 {commentIcon}
                 {postFlagIcon}
-                {(collapsedThreadsEnabled/* || showRecentlyUsedReactions*/) && dotMenu}
+                {/*(collapsedThreadsEnabled || showRecentlyUsedReactions) && dotMenu*/}
             </div>
         );
     };
