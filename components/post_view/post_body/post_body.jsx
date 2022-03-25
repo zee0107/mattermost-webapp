@@ -208,7 +208,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
             );
         }
 
-        const showRecentlyUsedReactions = !isMobile && !isSystemMessage && hover && !isReadOnly && this.props.oneClickReactionsEnabled && this.props.enableEmojiPicker;
+        /*const showRecentlyUsedReactions = !isMobile && !isSystemMessage && hover && !isReadOnly && this.props.oneClickReactionsEnabled && this.props.enableEmojiPicker;
         let showRecentReacions;
         if (showRecentlyUsedReactions) {
             showRecentReacions = (
@@ -220,7 +220,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
                     getDotMenuRef={this.getDotMenu}
                 />
             );
-        }
+        }*/
 
         const showReactionIcon = !isSystemMessage && hover && !isReadOnly && this.props.enableEmojiPicker;
         let postReaction;
@@ -271,12 +271,12 @@ export default class PostBody extends React.PureComponent<Props,State> {
                 data-testid={`post-menu-${post.id}`}
                 className={'col-md-12 removePadding'}
             >
-                {!collapsedThreadsEnabled && !showRecentlyUsedReactions && dotMenu}
-                {showRecentReacions}
+                {!collapsedThreadsEnabled && /*!showRecentlyUsedReactions &&*/ dotMenu}
+                {/*{showRecentReacions}*/}
                 {postReaction}
-                {postFlagIcon}
                 {commentIcon}
-                {(collapsedThreadsEnabled || showRecentlyUsedReactions) && dotMenu}
+                {postFlagIcon}
+                {(collapsedThreadsEnabled/* || showRecentlyUsedReactions*/) && dotMenu}
             </div>
         );
     };
