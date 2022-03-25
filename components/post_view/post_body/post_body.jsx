@@ -143,7 +143,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
             },
         );
 
-        this.state = {sending: false,showEmojiPicker: false,showDotMenu: false, showOptionsMenuWithoutHover: true};
+        this.state = {sending: false,showEmojiPicker: true,showDotMenu: false, showOptionsMenuWithoutHover: true};
 
         this.dotMenuRef = React.createRef();
     }
