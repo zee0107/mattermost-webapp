@@ -311,8 +311,8 @@ export default class PostBody extends React.PureComponent<Props,State> {
         const isSystemMessage = PostUtils.isSystemMessage(post);
         const fromAutoResponder = PostUtils.fromAutoResponder(post);
 
-        let options;
-        if (isEphemeral) {
+        let options = this.buildOptions(post, isSystemMessage, fromAutoResponder);
+        /*if (isEphemeral) {
             options = (
                 <div className='col col__remove'>
                     {this.createRemovePostButton()}
@@ -320,7 +320,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
             );
         } else if (!post.failed) {
             options = this.buildOptions(post, isSystemMessage, fromAutoResponder);
-        }
+        }*/
 
         let comment;
         let postClass = '';
