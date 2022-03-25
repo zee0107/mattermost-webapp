@@ -284,7 +284,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
                 {/*{showRecentReacions}*/}
                 {postReaction}
                 {commentIcon}
-                
+                {shareIcon}
                 {postFlagIcon}
                 {/*(collapsedThreadsEnabled || showRecentlyUsedReactions) && dotMenu*/}
             </div>
