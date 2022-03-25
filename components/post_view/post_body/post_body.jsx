@@ -209,6 +209,8 @@ export default class PostBody extends React.PureComponent {
                     className={`post__body ${mentionHighlightClass} ${ephemeralPostClass} ${postClass}`}
                 >
                     {fileAttachmentHolder}
+                    {messageWithAdditionalContent}
+                    <ReactionList post={post}/>
                     <div className='col-lg-12 mtop-10 removePadding'>
                         <div className='d-flex'>
                             <div className='col-md-8 removePadding'>
@@ -228,8 +230,6 @@ export default class PostBody extends React.PureComponent {
                                 </svg></a>
                             </div>
                         </div>
-                        {messageWithAdditionalContent}
-                        <ReactionList post={post}/>
                     </div>
                 </div>
             </div>
