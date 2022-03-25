@@ -190,7 +190,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
 
         const showCommentIcon = fromAutoResponder ||
         (!isSystemMessage && (isMobile || hover || (!post.root_id && Boolean(this.props.hasReplies)) || this.props.isFirstReply));
-        const commentIconExtraClass = isMobile ? '' : 'pull-right';
+        const commentIconExtraClass = isMobile ? '' : '';
         let commentIcon;
         if (showCommentIcon) {
             commentIcon = (

@@ -9,6 +9,7 @@ import {localizeMessage} from 'utils/utils.jsx';
 import OverlayTrigger from 'components/overlay_trigger';
 import Tooltip from 'components/tooltip';
 import ReplyIcon from 'components/widgets/icons/reply_icon';
+import CommentIcon from 'components/widgets/icons/comment_icon';
 
 type Props = {
     location: 'CENTER' | 'SEARCH';
@@ -47,8 +48,8 @@ export default class CommentIcon extends React.PureComponent<Props> {
                 className='hidden-xs'
             >
                 <FormattedMessage
-                    id='post_info.comment_icon.tooltip.reply'
-                    defaultMessage='Reply'
+                    id='post_info.comment_icon.tooltip.Comment'
+                    defaultMessage='Comment'
                 />
             </Tooltip>
         );
@@ -61,12 +62,12 @@ export default class CommentIcon extends React.PureComponent<Props> {
             >
                 <button
                     id={`${this.props.location}_commentIcon_${this.props.postId}`}
-                    aria-label={localizeMessage('post_info.comment_icon.tooltip.reply', 'Reply').toLowerCase()}
+                    aria-label={localizeMessage('post_info.comment_icon.tooltip.Comment', 'Comment').toLowerCase()}
                     className={iconStyle + ' ' + this.props.extraClass}
                     onClick={this.props.handleCommentClick}
                 >
                     <span className='d-flex align-items-center'>
-                        <ReplyIcon className='icon icon--small'/>
+                        <CommentIcon className='icon icon--small'/>
                         {commentCountSpan}
                     </span>
                 </button>
