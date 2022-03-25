@@ -71,12 +71,12 @@ export default class UserProfile extends PureComponent<UserProfileProps> {
             channelId,
         } = this.props;
 
-        let name: = `${user.first_name} ${user.last_name}`;
-        /*if (user && displayUsername) {
-            name = `${user.first_name} ${user.last_name}`;
+        let name: React.ReactNode;
+        if (user && displayUsername) {
+            name = `@${(user.first_name)} ${(user.last_name)}`;
         } else {
             name = overwriteName || displayName || '...';
-        }*/
+        }
 
         const ariaName: string = typeof name === 'string' ? name.toLowerCase() : '';
 
