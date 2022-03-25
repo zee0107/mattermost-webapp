@@ -97,15 +97,11 @@ export default class PostListRow extends React.PureComponent<PostListRowProps> {
 
         if (PostListUtils.isStartOfNewMessages(listId)) {
             return (
-                {/*<NewMessageSeparator separatorId={listId}/>*/}
-                <span></span>
             );
         }
 
         if (listId === CHANNEL_INTRO_MESSAGE) {
             return (
-                {/*<ChannelIntroMessage/>*/}
-                <span></span>
             );
         }
 
