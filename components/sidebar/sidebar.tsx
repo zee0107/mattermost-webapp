@@ -37,21 +37,8 @@ import MobileSidebarHeader from './mobile_sidebar_header';
 import SidebarNextSteps from './sidebar_next_steps';
 
 type Props = {
-    teamId: string;
-    canCreatePublicChannel: boolean;
-    canCreatePrivateChannel: boolean;
-    canJoinPublicChannel: boolean;
     isOpen: boolean;
-    hasSeenModal: boolean;
-    actions: {
-        fetchMyCategories: (teamId: string) => {data: boolean};
-        createCategory: (teamId: string, categoryName: string) => {data: string};
-        openModal: <P>(modalData: ModalData<P>) => void;
-        clearChannelSelection: () => void;
-    };
-    isCloud: boolean;
     isMobileView: boolean;
-    unreadFilterEnabled: boolean;
     trendCrypto: Promise<TrendListing[]>;
     newCrypto: Promise<NewListing[]>;
     gainerCrypto: Promise<GainerListing[]>;
@@ -86,79 +73,6 @@ export default class Sidebar extends React.PureComponent<Props, State> {
         if(this.props.newCrypto != null){
             Promise.resolve(this.props.newCrypto).then(value => {this.setState({newListing: value});})
         }
-
-        if (this.props.teamId) {
-            this.props.actions.fetchMyCategories(this.props.teamId);
-        }
-
-        window.addEventListener('click', this.handleClickClearChannelSelection);
-        window.addEventListener('keydown', this.handleKeyDownEvent);
-    }
-
-    componentDidUpdate(prevProps: Props) {
-        if (this.props.teamId && prevProps.teamId !== this.props.teamId) {
-            this.props.actions.fetchMyCategories(this.props.teamId);
-       }
-
-       if(this.props.trendCrypto != null){
-            Promise.resolve(this.props.trendCrypto).then(value => {this.setState({trendListing: value});})
-        }
-
-        if(this.props.gainerCrypto != null){
-            Promise.resolve(this.props.gainerCrypto).then(value => {this.setState({gainerListing: value});})
-        }
-
-        if(this.props.newCrypto != null){
-            Promise.resolve(this.props.newCrypto).then(value => {this.setState({newListing: value});})
-        }
-
-        if (this.props.teamId) {
-            this.props.actions.fetchMyCategories(this.props.teamId);
-        }
-
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('click', this.handleClickClearChannelSelection);
-        window.removeEventListener('keydown', this.handleKeyDownEvent);
-    }
-
-    handleClickClearChannelSelection = (event: MouseEvent) => {
-        if (event.defaultPrevented) {
-            return;
-        }
-
-        this.props.actions.clearChannelSelection();
-    }
-
-    handleKeyDownEvent = (event: KeyboardEvent) => {
-        if (Utils.isKeyPressed(event, Constants.KeyCodes.ESCAPE)) {
-            this.props.actions.clearChannelSelection();
-            return;
-        }
-
-        const ctrlOrMetaKeyPressed = Utils.cmdOrCtrlPressed(event, true);
-
-        if (ctrlOrMetaKeyPressed) {
-            if (Utils.isKeyPressed(event, Constants.KeyCodes.FORWARD_SLASH)) {
-                event.preventDefault();
-
-                this.props.actions.openModal({
-                    modalId: ModalIdentifiers.KEYBOARD_SHORTCUTS_MODAL,
-                    dialogType: KeyboardShortcutsModal,
-                });
-            } else if (Utils.isKeyPressed(event, Constants.KeyCodes.A) && event.shiftKey) {
-                event.preventDefault();
-
-                this.props.actions.openModal({
-                    modalId: ModalIdentifiers.USER_SETTINGS,
-                    dialogType: UserSettingsModal,
-                    dialogProps: {
-                        isContentProductSettings: true,
-                    },
-                });
-            }
-        }
     }
 
     showMoreDirectChannelsModal = () => {
@@ -169,44 +83,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
     hideMoreDirectChannelsModal = () => {
         this.setState({showDirectChannelsModal: false});
     }
-
-    showCreateCategoryModal = () => {
-        this.props.actions.openModal({
-            modalId: ModalIdentifiers.EDIT_CATEGORY,
-            dialogType: EditCategoryModal,
-        });
-        trackEvent('ui', 'ui_sidebar_menu_createCategory');
-    }
-
-    handleCreateCategory = (categoryName: string) => {
-        this.props.actions.createCategory(this.props.teamId, categoryName);
-    }
-
-    showMoreChannelsModal = () => {
-        this.props.actions.openModal({
-            modalId: ModalIdentifiers.MORE_CHANNELS,
-            dialogType: MoreChannels,
-            dialogProps: {morePublicChannelsModalType: 'public'},
-        });
-        trackEvent('ui', 'ui_channels_more_public_v2');
-    }
-
-    invitePeopleModal = () => {
-        this.props.actions.openModal({
-            modalId: ModalIdentifiers.INVITATION,
-            dialogType: InvitationModal,
-        });
-        trackEvent('ui', 'ui_channels_dropdown_invite_people');
-    }
-
-    showNewChannelModal = () => {
-        this.props.actions.openModal({
-            modalId: ModalIdentifiers.NEW_CHANNEL_FLOW,
-            dialogType: NewChannelFlow,
-        });
-        trackEvent('ui', 'ui_channels_create_channel_v2');
-    }
-
+    
     handleOpenMoreDirectChannelsModal = (e: Event) => {
         e.preventDefault();
         if (this.state.showDirectChannelsModal) {
@@ -222,24 +99,6 @@ export default class Sidebar extends React.PureComponent<Props, State> {
 
     onDragEnd = () => {
         this.setState({isDragging: false});
-    }
-
-    renderModals = () => {
-        let moreDirectChannelsModal;
-        if (this.state.showDirectChannelsModal) {
-            moreDirectChannelsModal = (
-                <MoreDirectChannels
-                    onModalDismissed={this.hideMoreDirectChannelsModal}
-                    isExistingChannel={false}
-                />
-            );
-        }
-
-        return (
-            <React.Fragment>
-                {moreDirectChannelsModal}
-            </React.Fragment>
-        );
     }
 
     render_percent = (percent) =>{
@@ -312,26 +171,10 @@ export default class Sidebar extends React.PureComponent<Props, State> {
         let newList = this.new_render();
         let trend = this.trend_render();
 
-        if (!this.props.teamId) {
-            return (<div/>);
-        }
-
-        const ariaLabel = Utils.localizeMessage('accessibility.sections.lhsNavigator', 'channel navigator region');
-
         return (
             <div>
                 <div className='col-sm-12'>
                     <div className='sidemenuBox'>
-                        <SidebarHeader
-                            showNewChannelModal={this.showNewChannelModal}
-                            showMoreChannelsModal={this.showMoreChannelsModal}
-                            invitePeopleModal={this.invitePeopleModal}
-                            showCreateCategoryModal={this.showCreateCategoryModal}
-                            canCreateChannel={this.props.canCreatePrivateChannel || this.props.canCreatePublicChannel}
-                            canJoinPublicChannel={this.props.canJoinPublicChannel}
-                            handleOpenDirectMessagesModal={this.handleOpenMoreDirectChannelsModal}
-                            unreadFilterEnabled={this.props.unreadFilterEnabled}
-                        />
                         <ul className='ul-collapse'>
                             <li key='news-feed' className='sidemenu-padding'><a href='#' className='sidemenu-item1'><svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg" className='side-menu-align'>
                                 <path d="M3.03033 12.4859H10.4389V14.3381H3.03033V12.4859ZM3.03033 16.1902H10.4389V18.0423H3.03033V16.1902ZM3.03033 8.78166H10.4389V10.6338H3.03033V8.78166ZM3.03033 5.07739H10.4389V6.92953H3.03033V5.07739ZM17.8474 6.92953V16.1902H14.1431V6.92953H17.8474ZM19.6995 5.07739H12.291V18.0423H19.6995V5.07739Z" fill="#FF8D08"/>

@@ -38,43 +38,12 @@ function mapStateToProps(state: GlobalState) {
         canJoinPublicChannel = haveICurrentChannelPermission(state, Permissions.JOIN_PUBLIC_CHANNELS);
     }
     return {
-        teamId: currentTeam ? currentTeam.id : '',
-        canCreatePrivateChannel,
-        canCreatePublicChannel,
-        canJoinPublicChannel,
         isOpen: getIsLhsOpen(state),
-        hasSeenModal: getBool(
-            state,
-            Preferences.CATEGORY_WHATS_NEW_MODAL,
-            Preferences.HAS_SEEN_SIDEBAR_WHATS_NEW_MODAL,
-            false,
-        ),
-        isCloud: getLicense(state).Cloud === 'true',
-        unreadFilterEnabled,
         isMobileView: getIsMobileView(state),
-        
         trendCrypto: Client4.getCryptoTrend('3',''),
         newCrypto: Client4.getCryptoNew('3','desc'),
         gainerCrypto: Client4.getCryptoGainer('3',''),
     };
 }
 
-type Actions = {
-    fetchMyCategories: (teamId: string) => {data: boolean};
-    createCategory: (teamId: string, categoryName: string) => {data: string};
-    openModal: <P>(modalData: ModalData<P>) => void;
-    clearChannelSelection: () => void;
-}
-
-function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
-    return {
-        actions: bindActionCreators<ActionCreatorsMapObject, Actions>({
-            clearChannelSelection,
-            createCategory,
-            fetchMyCategories,
-            openModal,
-        }, dispatch),
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default connect(mapStateToProps)(Sidebar);

@@ -9,10 +9,10 @@ import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/
 import homeImage from 'images/homeFeed.png';
 import {ModalData} from 'types/actions';
 import GroupLogo from 'images/groupcover.png';
-
+import NewChannelFlow from 'components/new_channel_flow';
 import RightSideView from 'components/right_side_view';
 import {ChannelMembership} from 'mattermost-redux/types/channels';
-import NewChannel from 'components/new_channel_modal';
+import {ModalIdentifiers} from 'utils/constants';
 
 type Props = {
     userId: string;
@@ -76,6 +76,14 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         );
     }
 
+    showNewChannelModal = () => {
+        this.props.actions.openModal({
+            modalId: ModalIdentifiers.NEW_CHANNEL_FLOW,
+            dialogType: NewChannelFlow,
+        });
+        trackEvent('ui', 'ui_channels_create_channel_v2');
+    }
+
     createNew = () => {
         return (
             <div>
@@ -105,7 +113,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='col-3 text-start mt-2 mb-2 p-0'><a className='onMyjoined p-4'>Joined</a></div>
                                 <div className='col-3 text-start mt-2 mb-2 p-0'><a className='p-4'></a></div>
                                 </div>
-                                <a className='float-end rounded onCreategroups negative-margin-top'>
+                                <a onClick={this.showNewChannelModal()} className='float-end rounded onCreategroups negative-margin-top'>
                                     <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#fff' className='bi bi-plus' viewBox='0 0 16 16'>
                                     <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/>
                                 </svg> Create</a>
