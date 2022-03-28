@@ -84,12 +84,12 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                                 {this.renderProfilePicture('xl')}
                                             </div>
                                         
-                                            <div className='col-md-7 removePadding'>
-                                                <label className='text-primary'>{`${currentUser.first_name} ${currentUser.last_name}`}</label>
-                                                <p className='text-secondary small'>{'@' + currentUser.username}</p>
-                                                <p className='text-secondary small'>{currentUser.position}</p>
+                                            <div className='col-md-6 removePadding'>
+                                                <h4 className='fw-bold'>{`${currentUser.first_name} ${currentUser.last_name}`}</h4>
+                                                <h5 className='text-secondary small'>{'@' + currentUser.username}</h5>
+                                                <h5 className='text-secondary small'>{currentUser.position}</h5>
                                             </div>
-                                            <div className='col-lg-2'>
+                                            <div className='col-md-3'>
                                                 <ToggleModalButtonRedux
                                                     id='accountSettings'
                                                     ariaLabel='Profile'
@@ -105,15 +105,15 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                         <div className='d-flex'>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Post</p>
-                                                <label className='text-primary'>2.0k</label>
+                                                <h4 className='fw-bold'>2.0k</h4>
                                             </div>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Following</p>
-                                                <label className='text-primary'>2.0k</label>
+                                                <h4 className='fw-bold'>2.0k</h4>
                                             </div>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Followers</p>
-                                                <label className='text-primary'>2.0k</label>
+                                                <h4 className='fw-bold'>2.0k</h4>
                                             </div>
                                         </div>
                                     </div>
