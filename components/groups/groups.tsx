@@ -100,9 +100,9 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                 <div className='col-md-9'>
                     <div className='crypter-section-desktop'>
                         <div className='box-middle-panel-forums-menu'>
-                            <div className='col-12 mx-auto row'>
+                            <div className='col-12 mt-2 mx-auto row'>
                                 <div className='col-md-3'>
-                                    <a href='/mygroups' className='onCartmarketplaceicon onMarketplace float-start'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#fff' className='bi bi-people-fill' viewBox='0 0 16 16'>
+                                    <a href='/mygroups' className='onCartmarketplaceicon onMarketplace float-start mr-5'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#fff' className='bi bi-people-fill' viewBox='0 0 16 16'>
                                         <path d='M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'/>
                                         <path fillRule='evenodd' d='M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z'/>
                                         <path d='M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z'/>
@@ -117,9 +117,9 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                         <div className='col-md-3 text-start mt-2 mb-2 p-0'><a className='p-4'></a></div>
                                     </div>
                                 </div>
-                                <div className='col-md-2'>
+                                <div className='col-md-2 text-end'>
                                     <a className='float-end rounded onCreategroups negative-margin-top'>
-                                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#fff' className='bi bi-plus' viewBox='0 0 16 16'>
+                                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#fff' className='bi bi-plus side-menu-align' viewBox='0 0 16 16'>
                                         <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/>
                                     </svg> Create</a>
                                 </div>
@@ -131,7 +131,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
                                         <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
-                                        <p className='mt-4 ms-3'>
+                                        <p className='mt-4 ms-3 ml-5'>
                                         <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                         </p>
 
@@ -150,7 +150,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
                                         <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
-                                        <p className='mt-4 ms-3'>
+                                        <p className='mt-4 ms-3 ml-5'>
                                         <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                         </p>
 
@@ -168,7 +168,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
                                         <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
-                                        <p className='mt-4 ms-3'>
+                                        <p className='mt-4 ms-3 ml-5'>
                                         <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                         </p>
 
@@ -179,10 +179,10 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
 
-                                <div className='col-3 p-1'>
+                                <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
                                         <img className='img-fluid' src={GroupLogo} alt=''/>
-                                        <p className='mt-4 ms-3'>
+                                        <p className='mt-4 ms-3 ml-5'>
                                         <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                         </p>
 
