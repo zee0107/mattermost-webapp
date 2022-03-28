@@ -250,7 +250,6 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         </div>
 
                         <div className='mygroupcontent'>
-                            <!-- My groups loop here-->
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                             <div className='col p-1'>
                                 <div className='box-each-groups'>
