@@ -43,7 +43,7 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
             }
         }).catch(function(error) {console.log(error);});  
 
-        this.setState({memberCount = this.state.data.member_count});
+        this.setState({memberCount : this.state.data.member_count});
     }
 
     render= (): JSX.Element => {
