@@ -12,7 +12,7 @@ import RightControls from './right_controls/right_controls_style';
 import {useCurrentProductId, useIsLoggedIn, useProducts} from './hooks';
 
 const GlobalHeaderContainer = styled.header`
-    position: relative;
+    position: fixed;
     display: flex;
     flex-shrink: 0;
     align-items: center;
@@ -21,6 +21,7 @@ const GlobalHeaderContainer = styled.header`
     background: var(--bgDiv);
     color: var(--text-primary);
     z-index: 100;
+    width: 100%;
 
     > * + * {
         margin-left: 12px;

@@ -486,7 +486,7 @@ export default class Root extends React.PureComponent {
                     <CompassThemeProvider theme={this.props.theme}>
                         <ModalController/>
                         <GlobalHeaderStyle/>
-                        <div className='mainContentRow d-flex flex-row'>
+                        <div className='mainContentRow d-flex flex-row page-content'>
                             <TeamSidebar/>
                             <Switch>
                                 {this.props.products?.map((product) => (
