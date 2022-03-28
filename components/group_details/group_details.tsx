@@ -10,6 +10,7 @@ type Props = {
 
 type State = {
     isDark: string;
+    data: Promise<ChannelStats>;
 };
 
 export default class GroupsDetails extends React.PureComponent<Props, State> {
@@ -24,7 +25,6 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
 
         this.state = {
             isDark:'light',
-            data: [],
         };
     }
 
