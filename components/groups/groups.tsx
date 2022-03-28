@@ -88,12 +88,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                     <div className='box-middle-panel'>
                         <div className='col-12 mx-auto'>
                             <a className='onCartmarketplaceicon onMarketplace float-start'><i className='bi-people-fill'></i></a>
-                            <h6 className='ms-2 text-mygroups float-start mt-2 me-5'><strong>Group</strong></h6>
+                            <label className='ms-2 text-mygroups float-start mt-2 me-5'><strong>Group</strong></label>
                             <div className='row'>
                             <div className='col mx-auto'>
-                                <a className='btn onMygroupspages btn-md float-start'><h6>My groups</h6></a>
-                                <a className='btn onMycarts btn-md float-start'><h6>Suggested</h6></a>
-                                <a className='btn btn-md float-start onMyjoined'><h6 className='ms-2'>Joined</h6></a>
+                                <a className='btn onMygroupspages btn-md float-start'><label>My groups</label></a>
+                                <a className='btn onMycarts btn-md float-start'><label>Suggested</label></a>
+                                <a className='btn btn-md float-start onMyjoined'><label className='ms-2'>Joined</label></a>
                             </div>
                             </div>
                             <a className='float-end rounded onCreategroups' style=' margin:-39px 0px 0px 0px;'>
@@ -109,12 +109,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/suggestedcover4.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <h4 className='text-name-products'><strong>Lorem Ipsum</strong></h4><br/><h5 className='text-count-members'>95K Members</h5>
+                                    <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
 
                                 <div className='row'>
                                     <div className='col-12 mb-3 p-3'>
-                                        <div className='d-grid'><a className='btn btn-sm onUnfollowsuggested'><h6>Unfollow</h6></a></div></div>
+                                        <div className='d-grid'><a className='btn btn-sm onUnfollowsuggested'><label>Unfollow</label></a></div></div>
                                 </div>
 
                                 </div>
@@ -124,12 +124,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/suggestedcover3.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <h4 className='text-name-products'><strong>Lorem Ipsum</strong></h4><br/><h5 className='text-count-members'>95K Members</h5>
+                                    <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
 
                                 <div className='row'>
                                     <div className='col-12 mb-3 p-3'>
-                                        <div className='d-grid'><a className='btn btn-sm onUnfollowsuggested'><h6>Unfollow</h6></a></div></div>
+                                        <div className='d-grid'><a className='btn btn-sm onUnfollowsuggested'><label>Unfollow</label></a></div></div>
                                 </div>
 
                                 </div>
@@ -139,12 +139,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/suggestedcover2.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <h4 className='text-name-products'><strong>Lorem Ipsum</strong></h4><br/><h5 className='text-count-members'>95K Members</h5>
+                                    <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
 
                                 <div className='row'>
                                     <div className='col-12 mb-3 p-3'>
-                                        <div className='d-grid'><a className='btn btn-sm onUnfollowsuggested'><h6>Unfollow</h6></a></div></div>
+                                        <div className='d-grid'><a className='btn btn-sm onUnfollowsuggested'><label>Unfollow</label></a></div></div>
                                 </div>
 
                                 </div>
@@ -154,12 +154,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/suggestedcover1.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <h4 className='text-name-products'><strong>Lorem Ipsum</strong></h4><br/><h5 className='text-count-members'>95K Members</h5>
+                                    <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
 
                                 <div className='row'>
                                     <div className='col-12 mb-3 p-3'>
-                                        <div className='d-grid'><a className='btn btn-sm onUnfollowsuggested'><h6>Unfollow</h6></a></div></div>
+                                        <div className='d-grid'><a className='btn btn-sm onUnfollowsuggested'><label>Unfollow</label></a></div></div>
                                 </div>
 
                                 </div>
@@ -169,12 +169,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/joined1.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <h4 className='text-name-products'><strong>Lorem Ipsum</strong></h4><br/><h5 className='text-count-members'>95K Members</h5>
+                                    <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
 
                                 <div className='row'>
                                     <div className='col-12 mb-3 p-3'>
-                                        <div className='d-grid'><a className='btn btn-sm onUnfollowsuggested'><h6>Unfollow</h6></a></div></div>
+                                        <div className='d-grid'><a className='btn btn-sm onUnfollowsuggested'><label>Unfollow</label></a></div></div>
                                 </div>
 
                                 </div>
@@ -190,12 +190,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/suggestedcover1.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <h4 className='text-name-products'><strong>Lorem Ipsum</strong></h4><br/><h5 className='text-count-members'>95K Members</h5>
+                                    <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
 
                                 <div className='row'>
                                     <div className='col-12 mb-3 p-3'>
-                                        <div className='d-grid'><a className='btn btn-sm onFollowsuggested'><h6>Unfollow</h6></a></div></div>
+                                        <div className='d-grid'><a className='btn btn-sm onFollowsuggested'><label>Unfollow</label></a></div></div>
                                 </div>
 
                                 </div>
@@ -205,12 +205,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/suggestedcover2.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <h4 className='text-name-products'><strong>Lorem Ipsum</strong></h4><br/><h5 className='text-count-members'>95K Members</h5>
+                                    <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
 
                                 <div className='row'>
                                     <div className='col-12 mb-3 p-3'>
-                                        <div className='d-grid'><a className='btn btn-sm onFollowsuggested'><h6>Unfollow</h6></a></div></div>
+                                        <div className='d-grid'><a className='btn btn-sm onFollowsuggested'><label>Unfollow</label></a></div></div>
                                 </div>
 
                                 </div>
@@ -220,12 +220,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/suggestedcover3.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <h4 className='text-name-products'><strong>Lorem Ipsum</strong></h4><br/><h5 className='text-count-members'>95K Members</h5>
+                                    <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
 
                                 <div className='row'>
                                     <div className='col-12 mb-3 p-3'>
-                                        <div className='d-grid'><a className='btn btn-sm onFollowsuggested'><h6>Unfollow</h6></a></div></div>
+                                        <div className='d-grid'><a className='btn btn-sm onFollowsuggested'><label>Unfollow</label></a></div></div>
                                 </div>
 
                                 </div>
@@ -235,12 +235,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/suggestedcover4.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <h4 className='text-name-products'><strong>Lorem Ipsum</strong></h4><br/><h5 className='text-count-members'>95K Members</h5>
+                                    <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
 
                                 <div className='row'>
                                     <div className='col-12 mb-3 p-3'>
-                                        <div className='d-grid'><a className='btn btn-sm onFollowsuggested'><h6>Unfollow</h6></a></div></div>
+                                        <div className='d-grid'><a className='btn btn-sm onFollowsuggested'><label>Unfollow</label></a></div></div>
                                 </div>
 
                                 </div>
@@ -255,12 +255,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/groupcover1.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <h4 className='text-name-products'><strong>Lorem Ipsum</strong></h4><br/><h5 className='text-count-members'>95K Members</h5>
+                                    <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
 
                                 <div className='row'>
-                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-end onEditgroups'><h6>Edit</h6></a></div>
-                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-start onDeletegroups'><h6>Delete</h6></a></div>
+                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-end onEditgroups'><label>Edit</label></a></div>
+                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-start onDeletegroups'><label>Delete</label></a></div>
                                 </div>
 
                                 </div>
@@ -270,12 +270,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/groupcover2.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <h4 className='text-name-products'><strong>Lorem Ipsum</strong></h4><br/><h5 className='text-count-members'>95K Members</h5>
+                                    <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
 
                                 <div className='row'>
-                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-end onEditgroups'><h6>Edit</h6></a></div>
-                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-start onDeletegroups'><h6>Delete</h6></a></div>
+                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-end onEditgroups'><label>Edit</label></a></div>
+                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-start onDeletegroups'><label>Delete</label></a></div>
                                 </div>
 
                                 </div>
@@ -285,12 +285,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/groupcover3.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <h4 className='text-name-products'><strong>Lorem Ipsum</strong></h4><br/><h5 className='text-count-members'>1.5M Members</h5>
+                                    <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>1.5M Members</label>
                                 </p>
 
                                 <div className='row'>
-                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-end onEditgroups'><h6>Edit</h6></a></div>
-                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-start onDeletegroups'><h6>Delete</h6></a></div>
+                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-end onEditgroups'><label>Edit</label></a></div>
+                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-start onDeletegroups'><label>Delete</label></a></div>
                                 </div>
 
                                 </div>
@@ -300,12 +300,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/groupcover4.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <h4 className='text-name-products'><strong>Lorem Ipsum</strong></h4><br/><h5 className='text-count-members'>5K Members</h5>
+                                    <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>5K Members</label>
                                 </p>
 
                                 <div className='row'>
-                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-end onEditgroups'><h6>Edit</h6></a></div>
-                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-start onDeletegroups'><h6>Delete</h6></a></div>
+                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-end onEditgroups'><label>Edit</label></a></div>
+                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-start onDeletegroups'><label>Delete</label></a></div>
                                 </div>
 
                                 </div>
@@ -318,12 +318,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-products'>
                                 <img width='100%' className='img-fluid' src='assets/images/groupcover5.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <h4 className='text-name-products'><strong>Lorem Ipsum</strong></h4><br/><h5 className='text-count-members'>95K Members</h5>
+                                    <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
 
                                 <div className='row'>
-                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-end onEditgroups'><h6>Edit</h6></a></div>
-                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-start onDeletegroups'><h6>Delete</h6></a></div>
+                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-end onEditgroups'><label>Edit</label></a></div>
+                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-start onDeletegroups'><label>Delete</label></a></div>
                                 </div>
 
                                 </div>
@@ -333,12 +333,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-products'>
                                 <img width='100%' className='img-fluid' src='assets/images/groupcover6.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <h4 className='text-name-products'><strong>Lorem Ipsum</strong></h4><br/><h5 className='text-count-members'>95K Members</h5>
+                                    <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
 
                                 <div className='row'>
-                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-end onEditgroups'><h6>Edit</h6></a></div>
-                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-start onDeletegroups'><h6>Delete</h6></a></div>
+                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-end onEditgroups'><label>Edit</label></a></div>
+                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-start onDeletegroups'><label>Delete</label></a></div>
                                 </div>
 
                                 </div>
@@ -348,12 +348,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-products'>
                                 <img width='100%' className='img-fluid' src='assets/images/groupcover7.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <h4 className='text-name-products'><strong>Lorem Ipsum</strong></h4><br/><h5 className='text-count-members'>1.5M Members</h5>
+                                    <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>1.5M Members</label>
                                 </p>
 
                                 <div className='row'>
-                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-end onEditgroups'><h6>Edit</h6></a></div>
-                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-start onDeletegroups'><h6>Delete</h6></a></div>
+                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-end onEditgroups'><label>Edit</label></a></div>
+                                    <div className='col-6 mt-2 mb-3'><a className='btn-sm float-start onDeletegroups'><label>Delete</label></a></div>
                                 </div>
 
                                 </div>
