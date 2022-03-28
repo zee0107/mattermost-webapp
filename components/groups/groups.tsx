@@ -108,10 +108,10 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 </svg></a>
                                 <label className='ms-2 text-mygroups float-start mt-2 me-5'><strong>Group</strong></label>
                                 <div className='row'>
-                                <div className='col-3 text-start mt-2 mb-2 p-0'><a className='onMygroupspages p-4'>MyGroups</a></div>
-                                <div className='col-3 text-start mt-2 mb-2 p-0'><a className='onMycarts p-4'>Suggested</a></div>
-                                <div className='col-3 text-start mt-2 mb-2 p-0'><a className='onMyjoined p-4'>Joined</a></div>
-                                <div className='col-3 text-start mt-2 mb-2 p-0'><a className='p-4'></a></div>
+                                <div className='col-md-3 text-start mt-2 mb-2 p-0'><a className='onMygroupspages p-4'>MyGroups</a></div>
+                                <div className='col-md-3 text-start mt-2 mb-2 p-0'><a className='onMycarts p-4'>Suggested</a></div>
+                                <div className='col-md-3 text-start mt-2 mb-2 p-0'><a className='onMyjoined p-4'>Joined</a></div>
+                                <div className='col-md-3 text-start mt-2 mb-2 p-0'><a className='p-4'></a></div>
                                 </div>
                                 <a className='float-end rounded onCreategroups negative-margin-top'>
                                     <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#fff' className='bi bi-plus' viewBox='0 0 16 16'>
@@ -122,7 +122,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                         <div className='joinedcontent'>
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
-                                <div className='col-3 p-1'>
+                                <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
                                         <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                         <p className='mt-4 ms-3'>
@@ -141,7 +141,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         <div className='suggestedcontent'>
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
 
-                                <div className='col-3 p-1'>
+                                <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
                                         <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                         <p className='mt-4 ms-3'>
@@ -159,7 +159,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         
                         <div className='mygroupcontent'>
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
-                                <div className='col-3 p-1'>
+                                <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
                                         <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                         <p className='mt-4 ms-3'>
