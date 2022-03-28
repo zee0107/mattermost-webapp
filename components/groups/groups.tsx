@@ -334,7 +334,6 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             </div>
                             </div>
                         </div>
-                        </div>
                     </div>
                 </div>
                 <div className='col-md-3'>
