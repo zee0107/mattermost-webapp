@@ -84,12 +84,12 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                                 {this.renderProfilePicture('xl')}
                                             </div>
                                         
-                                            <div className='col-md-8 removePadding'>
+                                            <div className='col-md-7 removePadding'>
                                                 <label className='text-primary'>{`${currentUser.first_name} ${currentUser.last_name}`}</label>
                                                 <p className='text-secondary small'>{'@' + currentUser.username}</p>
                                                 <p className='text-secondary small'>{currentUser.position}</p>
                                             </div>
-                                            <div className='col-lg-3'>
+                                            <div className='col-lg-2'>
                                                 <ToggleModalButtonRedux
                                                     id='accountSettings'
                                                     ariaLabel='Profile'
