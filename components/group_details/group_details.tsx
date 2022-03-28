@@ -12,7 +12,7 @@ import GroupLogo from 'images/groupcover.png';
 import NewChannelFlow from 'components/new_channel_flow';
 import {trackEvent} from 'actions/telemetry_actions';
 import RightSideView from 'components/right_side_view';
-import {ChannelMembership,ServerChannel} from 'mattermost-redux/types/channels';
+import {ChannelMembership} from 'mattermost-redux/types/channels';
 import {ModalIdentifiers} from 'utils/constants';
 
 type Props = {
@@ -25,7 +25,7 @@ type Props = {
         setStatusDropdown: (open: boolean) => void;
     };
     currentUser: UserProfile;
-    mychannels: Promise<ServerChannel[]>;
+    mychannels: Promise<ChannelMembership[]>;
 }
 
 type State = {
@@ -36,7 +36,7 @@ type State = {
     img_path: string;
 };
 
-export default class MyGroups extends React.PureComponent<Props, State> {
+export default class GroupsDetails extends React.PureComponent<Props, State> {
     static defaultProps = {
         userId: '',
         profilePicture: '',
@@ -165,26 +165,21 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         
                         <div className='mygroupcontent col-md-12'>
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
-                                {this.state.mygroups.map((item,index) => {
-                                    return(
-                                        <div className='col-md-3 p-1'>
-                                            <div className='box-each-groups'>
-                                                <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
-                                                <p className='mt-4 ms-3 ml-5'>
-                                                <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><label className='text-count-members'>95K Members</label>
-                                                </p>
+                                <div className='col-md-3 p-1'>
+                                    <div className='box-each-groups'>
+                                        <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
+                                        <p className='mt-4 ms-3 ml-5'>
+                                        <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
+                                        </p>
 
-                                                <div className='row'>
-                                                    <div className='col-md-6 mt-2 mb-3'><a className='float-end onEditgroups'><label>Edit</label></a></div>
-                                                    <div className='col-md-6 mt-2 mb-3'><a className='float-start onDeletegroups'><label>Delete</label></a></div>
-                                                </div>
-                                            </div>
+                                        <div className='row'>
+                                            <div className='col-md-6 mt-2 mb-3'><a className='float-end onEditgroups'><label>Edit</label></a></div>
+                                            <div className='col-md-6 mt-2 mb-3'><a className='float-start onDeletegroups'><label>Delete</label></a></div>
                                         </div>
-                                    );
-                                })}
-                                
+                                    </div>
+                                </div>
 
-                                {/*<div className='col-md-3 p-1'>
+                                <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
                                         <img className='img-fluid' src={GroupLogo} alt=''/>
                                         <p className='mt-4 ms-3 ml-5'>
@@ -196,7 +191,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                             <div className='col-md-6 mt-2 mb-3'><a className='float-start onDeletegroups'><label>Delete</label></a></div>
                                         </div>
                                     </div>
-                                </div>*/}
+                                </div>
                             </div>
                         </div> 
                     </div>

@@ -20,7 +20,7 @@ import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
 import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
 
-import MyGroups from './groups'
+import GroupsDetails from './group_details'
 
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
@@ -34,7 +34,6 @@ function makeMapStateToProps() {
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
-            mychannels: Client4.getMyChannels('5meubtskybn1bg7iyfx7x4cm9c'),
         };
     };
 }
@@ -51,4 +50,4 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
 }
 
 
-export default connect(makeMapStateToProps, mapDispatchToProps)(MyGroups);
+export default connect(makeMapStateToProps, mapDispatchToProps)(GroupsDetails);
