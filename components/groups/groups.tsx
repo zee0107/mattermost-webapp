@@ -266,9 +266,9 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                             <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                         </p>
 
-                                        <div className='row'>
-                                            <div className='col-6 mt-2 mb-3'><a className='btn-sm float-end onEditgroups'><label>Edit</label></a></div>
-                                            <div className='col-6 mt-2 mb-3'><a className='btn-sm float-start onDeletegroups'><label>Delete</label></a></div>
+                                        <div className='d-flex text-center'>
+                                            <div className='col-6 mt-2 mb-3 mr-2'><a className='btn-sm onEditgroups'><label>Edit</label></a></div>
+                                            <div className='col-6 mt-2 mb-3'><a className='btn-sm onDeletegroups'><label>Delete</label></a></div>
                                         </div>
 
                                         </div>
