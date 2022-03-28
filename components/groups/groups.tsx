@@ -23,7 +23,7 @@ type Props = {
         setStatusDropdown: (open: boolean) => void;
     };
     currentUser: UserProfile;
-    myChannels: Promise<ChannelMembership[]>;
+    mychannels: Promise<ChannelMembership[]>;
 }
 
 type State = {

@@ -34,7 +34,7 @@ function makeMapStateToProps() {
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
-            mychannesl: Client4.getMyChannelMembers('5meubtskybn1bg7iyfx7x4cm9c'),
+            mychannels: Client4.getMyChannelMembers('5meubtskybn1bg7iyfx7x4cm9c'),
         };
     };
 }
