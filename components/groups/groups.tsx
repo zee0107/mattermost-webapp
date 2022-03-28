@@ -166,7 +166,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         <div className='mygroupcontent col-md-12'>
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                                 {this.state.mygroups.map((item,index) => {
-                                    if(item.display_name != ''){
+                                    if(item.display_name !== ''){
                                         return(
                                             <div className='col-md-3 p-1'>
                                                 <div className='box-each-groups'>
