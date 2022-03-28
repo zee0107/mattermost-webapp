@@ -818,7 +818,11 @@
 
   #side_menu_left{
     display: none;
-  } 
+  }
+  
+  #rightSideView{
+    display: none;
+  }
 
   #side_menu_right{
     display: none;
@@ -859,6 +863,10 @@
   #profileMenuMobile{
     display: none;
   } 
+
+  #rightSideView{
+    display: block;
+  }
 
   #profileMenu{
     display: block;
