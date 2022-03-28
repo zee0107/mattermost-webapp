@@ -126,7 +126,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             </div>
                         </div>
 
-                        <div className='joinedcontent'>
+                        <div className='joinedcontent col-md-12'>
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                                 <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
@@ -136,7 +136,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                         </p>
 
                                         <div className='row'>
-                                            <div className='col-12 mb-3 p-3'>
+                                            <div className='col-md-12 mb-3 p-3'>
                                             <div className='d-grid'><a className='btn onUnfollowsuggested'><label>Unfollow</label></a></div></div>
                                         </div>
                                     </div>
@@ -144,7 +144,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             </div>
                         </div>
 
-                        <div className='suggestedcontent'>
+                        <div className='suggestedcontent col-md-12'>
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
 
                                 <div className='col-md-3 p-1'>
@@ -155,7 +155,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                         </p>
 
                                         <div className='row'>
-                                            <div className='col-12 mb-3 p-3'>
+                                            <div className='col-md-12 mb-3 p-3'>
                                             <div className='d-grid'><a className='btn onFollowsuggested'><label>Unfollow</label></a></div></div>
                                         </div>
                                     </div>
@@ -163,7 +163,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             </div>
                         </div>
                         
-                        <div className='mygroupcontent'>
+                        <div className='mygroupcontent col-md-12'>
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                                 <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
@@ -173,8 +173,8 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                         </p>
 
                                         <div className='row'>
-                                            <div className='col-6 mt-2 mb-3'><a className='float-end onEditgroups'><label>Edit</label></a></div>
-                                            <div className='col-6 mt-2 mb-3'><a className='float-start onDeletegroups'><label>Delete</label></a></div>
+                                            <div className='col-md-6 mt-2 mb-3'><a className='float-end onEditgroups'><label>Edit</label></a></div>
+                                            <div className='col-md-6 mt-2 mb-3'><a className='float-start onDeletegroups'><label>Delete</label></a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -187,8 +187,8 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                         </p>
 
                                         <div className='row'>
-                                            <div className='col-6 mt-2 mb-3'><a className='float-end onEditgroups'><label>Edit</label></a></div>
-                                            <div className='col-6 mt-2 mb-3'><a className='float-start onDeletegroups'><label>Delete</label></a></div>
+                                            <div className='col-md-6 mt-2 mb-3'><a className='float-end onEditgroups'><label>Edit</label></a></div>
+                                            <div className='col-md-6 mt-2 mb-3'><a className='float-start onDeletegroups'><label>Delete</label></a></div>
                                         </div>
                                     </div>
                                 </div>
