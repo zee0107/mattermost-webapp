@@ -86,74 +86,92 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         return (
             <div className='row'>
                 <div className='col-md-9'>
-                    <div className='joinedcontent'>
-                        <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
-                            <div className='col-3 p-1'>
-                                <div className='box-each-groups'>
-                                    <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
-                                    <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
-                                    </p>
+                    <div className='crypter-section-desktop'>
+                        <div class="box-middle-panel-forums-menu">
+                            <div class="col-12 mx-auto">
+                                <a class="onCartmarketplaceicon onMarketplace float-start"><i class="bi-people-fill"></i></a>
+                                <small class="ms-2 text-mygroups float-start mt-2 me-5"><strong>Group</strong></small>
+                                <div class="row">
+                                <div class="col-3 text-start mt-2 mb-2 p-0"><a class="onMygroupspages p-4">MyGroups</a></div>
+                                <div class="col-3 text-start mt-2 mb-2 p-0"><a class="onMycarts p-4">Suggested</a></div>
+                                <div class="col-3 text-start mt-2 mb-2 p-0"><a class="onMyjoined p-4">Joined</a></div>
+                                <div class="col-3 text-start mt-2 mb-2 p-0"><a class="p-4"></a></div>
+                                </div>
+                                <a class="float-end rounded onCreategroups" style=" margin:-39px 0px 0px 0px; z-index: 99;">
+                                <i class="bi-plus" style="font-size: 16px;"></i> Create</a>
+                            </div>
+                        </div>
+                        
+                        <div className='joinedcontent'>
+                            <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
+                                <div className='col-3 p-1'>
+                                    <div className='box-each-groups'>
+                                        <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
+                                        <p className='mt-4 ms-3'>
+                                        <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
+                                        </p>
 
-                                    <div className='row'>
-                                        <div className='col-12 mb-3 p-3'>
-                                        <div className='d-grid'><a className='btn onUnfollowsuggested'><small>Unfollow</small></a></div></div>
+                                        <div className='row'>
+                                            <div className='col-12 mb-3 p-3'>
+                                            <div className='d-grid'><a className='btn onUnfollowsuggested'><small>Unfollow</small></a></div></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className='suggestedcontent'>
-                        <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
+                        <div className='suggestedcontent'>
+                            <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
 
-                            <div className='col-3 p-1'>
-                                <div className='box-each-groups'>
-                                    <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
-                                    <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
-                                    </p>
+                                <div className='col-3 p-1'>
+                                    <div className='box-each-groups'>
+                                        <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
+                                        <p className='mt-4 ms-3'>
+                                        <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
+                                        </p>
 
-                                    <div className='row'>
-                                        <div className='col-12 mb-3 p-3'>
-                                        <div className='d-grid'><a className='btn onFollowsuggested'><small>Unfollow</small></a></div></div>
+                                        <div className='row'>
+                                            <div className='col-12 mb-3 p-3'>
+                                            <div className='d-grid'><a className='btn onFollowsuggested'><small>Unfollow</small></a></div></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
+                        <div className='mygroupcontent'>
+                            <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
+                                <div className='col-3 p-1'>
+                                    <div className='box-each-groups'>
+                                        <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
+                                        <p className='mt-4 ms-3'>
+                                        <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
+                                        </p>
+
+                                        <div className='row'>
+                                            <div className='col-6 mt-2 mb-3'><a className='float-end onEditgroups'><small>Edit</small></a></div>
+                                            <div className='col-6 mt-2 mb-3'><a className='float-start onDeletegroups'><small>Delete</small></a></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className='col-3 p-1'>
+                                    <div className='box-each-groups'>
+                                        <img className='img-fluid' src={GroupLogo} alt=''/>
+                                        <p className='mt-4 ms-3'>
+                                        <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
+                                        </p>
+
+                                        <div className='row'>
+                                            <div className='col-6 mt-2 mb-3'><a className='float-end onEditgroups'><small>Edit</small></a></div>
+                                            <div className='col-6 mt-2 mb-3'><a className='float-start onDeletegroups'><small>Delete</small></a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
                     </div>
                     
-                    <div className='mygroupcontent'>
-                        <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
-                            <div className='col-3 p-1'>
-                                <div className='box-each-groups'>
-                                    <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
-                                    <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
-                                    </p>
-
-                                    <div className='row'>
-                                        <div className='col-6 mt-2 mb-3'><a className='float-end onEditgroups'><small>Edit</small></a></div>
-                                        <div className='col-6 mt-2 mb-3'><a className='float-start onDeletegroups'><small>Delete</small></a></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className='col-3 p-1'>
-                                <div className='box-each-groups'>
-                                    <img className='img-fluid' src={GroupLogo} alt=''/>
-                                    <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
-                                    </p>
-
-                                    <div className='row'>
-                                        <div className='col-6 mt-2 mb-3'><a className='float-end onEditgroups'><small>Edit</small></a></div>
-                                        <div className='col-6 mt-2 mb-3'><a className='float-start onDeletegroups'><small>Delete</small></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div className='col-md-3' id='rightSideView'>
                     <RightSideView/>
