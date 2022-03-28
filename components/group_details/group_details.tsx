@@ -46,10 +46,13 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {channelId} = this.props;
-        console.log(this.state.data);
+        let value;
+        if(this.state.data !== null){
+            value = this.state.data.member_count;
+        }
         return (
             <label className='text-count-members'>
-                {this.state.dat.member_count}
+                {value}
                 {/*this.state.data.member_count*/}
             Members</label>
         );
