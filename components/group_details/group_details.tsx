@@ -31,8 +31,9 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
-
-        this.setState({data: Client4.getChannelStats(this.props.channelId)})
+        const value = Client4.getChannelStats(this.props.channelId);
+        console.log(value);
+        this.setState({data: value});
     }
 
     render= (): JSX.Element => {
