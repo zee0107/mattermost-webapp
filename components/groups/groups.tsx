@@ -86,7 +86,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         return (
             <div className='row'>
                 <div className='col-md-9'>
-                    <div className='row'>
+                    <div>
                         <div className='box-middle-panel-products'>
                             <div className='joinedcontent'>
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
