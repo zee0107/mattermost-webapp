@@ -25,6 +25,7 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
 
         this.state = {
             isDark:'light',
+            memberCount: '',
         };
     }
 
@@ -41,6 +42,8 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
                 Promise.resolve(response).then(value => {this.setState({data: value});})
             }
         }).catch(function(error) {console.log(error);});  
+
+        this.setState({memberCount = this.state.data.member_count});
     }
 
     render= (): JSX.Element => {
@@ -48,6 +51,7 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
         console.log(this.state.data);
         return (
             <label className='text-count-members'>
+                {this.state.memberCount}
                 {/*this.state.data.member_count*/}
             Members</label>
         );
