@@ -10,7 +10,7 @@ type Props = {
 
 type State = {
     isDark: string;
-    data: Promise<ChannelStats>;
+    data: ChannelStats;
 };
 
 export default class GroupsDetails extends React.PureComponent<Props, State> {
@@ -31,9 +31,14 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
-        const value = Client4.getChannelStats(this.props.channelId);
-        console.log(value);
-        this.setState({data: value});
+        const uri = new URL(`/api/v4/channels/${this.props.channelId}/stats`);
+        const config = {
+            method: "GET"
+        }
+
+        fetch(uri,config).then(response => response.json()).then(response => {
+            this.setState({data: response})
+        }).catch(function(error) {console.log(error);});  
     }
 
     render= (): JSX.Element => {
@@ -41,6 +46,7 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
         console.log(this.state.data);
         return (
             <label className='text-count-members'>
+                {this.state.data.member_count}
                 {/*this.state.data.map((item, index) => {
                    return item.member_count 
             })*/}
