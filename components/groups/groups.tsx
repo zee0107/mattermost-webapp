@@ -10,6 +10,7 @@ import homeImage from 'images/homeFeed.png';
 import {ModalData} from 'types/actions';
 import GroupLogo from 'images/groupcover.png';
 import NewChannelFlow from 'components/new_channel_flow';
+import {trackEvent} from 'actions/telemetry_actions';
 import RightSideView from 'components/right_side_view';
 import {ChannelMembership} from 'mattermost-redux/types/channels';
 import {ModalIdentifiers} from 'utils/constants';
@@ -94,7 +95,6 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
-        console.log(this.state.mygroups);
         return (
             <div className='row'>
                 <div className='col-md-9'>
