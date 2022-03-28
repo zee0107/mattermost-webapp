@@ -11,30 +11,19 @@ import {ModalData} from 'types/actions';
 import GroupLogo from 'images/groupcover.png';
 
 import RightSideView from 'components/right_side_view';
+import {ChannelMembership} from 'mattermost-redux/types/channels';
 
 type Props = {
-    status?: string;
     userId: string;
     profilePicture: string;
-    autoResetPref?: string;
     actions: {
         openModal: <P>(modalData: ModalData<P>) => void;
         setStatus: (status: UserStatus) => ActionFunc;
         unsetCustomStatus: () => ActionFunc;
         setStatusDropdown: (open: boolean) => void;
     };
-    customStatus?: UserCustomStatus;
     currentUser: UserProfile;
-    isCustomStatusEnabled: boolean;
-    isCustomStatusExpired: boolean;
-    isMilitaryTime: boolean;
-    isStatusDropdownOpen: boolean;
-    showCustomStatusPulsatingDot: boolean;
-    timezone?: string;
-    globalHeader?: boolean;
-    lhsOpen: boolean;
-    rhsOpen: boolean;
-    rhsMenuOpen: boolean;
+    myChannels: Promise<ChannelMembership[]>;
 }
 
 type State = {
@@ -61,12 +50,17 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             isStatusSet: false,
             isDark:'light',
             img_path: homeImage,
+            mygroups: [];
         };
     }
 
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
+
+        if(this.props.myChannels != null){
+            Promise.resolve(this.props.myChannels).then(value => {this.setState({mygroups: value});})
+        }
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -83,6 +77,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
+        console.log(this.state.mygroups);
         return (
             <div className='row'>
                 <div className='col-md-9'>

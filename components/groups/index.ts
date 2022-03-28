@@ -29,24 +29,12 @@ function makeMapStateToProps() {
         const currentUser = getCurrentUser(state);
 
         const userId = currentUser?.id;
-        const customStatus = getCustomStatus(state, userId);
-        const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
+        
         return {
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
-            autoResetPref: get(state, Preferences.CATEGORY_AUTO_RESET_MANUAL_STATUS, userId, ''),
-            status: getStatusForUserId(state, userId),
-            customStatus,
             currentUser,
-            isCustomStatusEnabled: isCustomStatusEnabled(state),
-            isCustomStatusExpired: isCustomStatusExpired(state, customStatus),
-            isMilitaryTime,
-            isStatusDropdownOpen: isStatusDropdownOpen(state),
-            showCustomStatusPulsatingDot: showStatusDropdownPulsatingDot(state),
-            timezone: getCurrentUserTimezone(state),
-            lhsOpen: getIsLhsOpen(state),
-            rhsOpen: getIsRhsOpen(state),
-            rhsMenuOpen: getIsRhsMenuOpen(state),
+            mychannesl: Client4.getMyChannelMembers('5meubtskybn1bg7iyfx7x4cm9c'),
         };
     };
 }
