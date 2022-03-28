@@ -31,7 +31,7 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
-        const uri = new URL(`./api/v4/channels/${this.props.channelId}/stats`);
+        const uri = `./api/v4/channels/${this.props.channelId}/stats`;
         const config = {
             method: "GET"
         }
