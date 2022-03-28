@@ -50,7 +50,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             isStatusSet: false,
             isDark:'light',
             img_path: homeImage,
-            mygroups: [];
+            mygroups: [],
         };
     }
 
