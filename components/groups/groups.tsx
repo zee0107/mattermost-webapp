@@ -350,7 +350,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                     
                     <div className='mygroupcontent'>
                         <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
-                            <div className='col p-1'>
+                            <div className='col-3 p-1'>
                                 <div className='box-each-groups'>
                                     <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                     <p className='mt-4 ms-3'>
@@ -364,7 +364,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
 
-                            {/*<div className='col p-1'>
+                            <div className='col-3 p-1'>
                                 <div className='box-each-groups'>
                                     <img className='img-fluid' src={GroupLogo} alt=''/>
                                     <p className='mt-4 ms-3'>
@@ -378,7 +378,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
 
-                            <div className='col p-1'>
+                            {/*<div className='col p-1'>
                                 <div className='box-each-groups'>
                                     <img className='img-fluid' src={GroupLogo} alt=''/>
                                     <p className='mt-4 ms-3'>
