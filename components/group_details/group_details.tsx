@@ -37,8 +37,8 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
         }
 
         fetch(uri,config).then(response => response.json()).then(response => {
-            console.log(response.data)
-            this.setState({data: response.data})
+            console.log(response)
+            this.setState({data: response})
         }).catch(function(error) {console.log(error);});  
     }
 
