@@ -246,7 +246,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                 this.props.actions.setGlobalItem(this.state.token, JSON.stringify({usedBefore: true}));
             }
 
-            const {data} = this.props.actions.addUserToTeam('5meubtskybn1bg7iyfx7x4cm9c', userdata.id);
+            const {data} = this.props.actions.addUserToTeam('d7cxjgejnbdm78h4n91kqeq6ow', userdata.id);
             if (data) {
                 browserHistory.push(redirectTo);
             }
