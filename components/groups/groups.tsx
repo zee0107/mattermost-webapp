@@ -14,6 +14,7 @@ import {trackEvent} from 'actions/telemetry_actions';
 import RightSideView from 'components/right_side_view';
 import {ChannelMembership,ServerChannel} from 'mattermost-redux/types/channels';
 import {ModalIdentifiers} from 'utils/constants';
+import GroupDetail from 'components/group_details';
 
 type Props = {
     userId: string;
@@ -132,7 +133,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                     <div className='box-each-groups'>
                                         <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                         <p className='mt-4 ms-3 ml-5'>
-                                        <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
+                                        <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><<label className='text-count-members'>95K Members</label>>
                                         </p>
 
                                         <div className='row'>
@@ -172,7 +173,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                                 <div className='box-each-groups'>
                                                     <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                                     <p className='mt-4 ms-3 ml-5'>
-                                                    <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><label className='text-count-members'>95K Members</label>
+                                                    <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
                                                     </p>
     
                                                     <div className='row'>
