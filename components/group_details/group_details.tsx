@@ -49,9 +49,7 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
         console.log(this.state.data);
         return (
             <label className='text-count-members'>
-                {this.state.data.map((item,index) => {
-                    return item.member_count;
-                })}
+                {this.state.data}
                 {/*this.state.data.member_count*/}
             Members</label>
         );
