@@ -109,7 +109,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/suggestedcover4.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br><medium className='text-count-members'>95K Members</medium>
+                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
                                 </p>
 
                                 <div className='row'>
@@ -124,7 +124,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/suggestedcover3.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br><medium className='text-count-members'>95K Members</medium>
+                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
                                 </p>
 
                                 <div className='row'>
@@ -139,7 +139,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/suggestedcover2.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br><medium className='text-count-members'>95K Members</medium>
+                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
                                 </p>
 
                                 <div className='row'>
@@ -154,7 +154,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/suggestedcover1.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br><medium className='text-count-members'>95K Members</medium>
+                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
                                 </p>
 
                                 <div className='row'>
@@ -169,7 +169,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/joined1.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br><medium className='text-count-members'>95K Members</medium>
+                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
                                 </p>
 
                                 <div className='row'>
@@ -190,7 +190,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/suggestedcover1.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br><medium className='text-count-members'>95K Members</medium>
+                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
                                 </p>
 
                                 <div className='row'>
@@ -205,7 +205,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/suggestedcover2.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br><medium className='text-count-members'>95K Members</medium>
+                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
                                 </p>
 
                                 <div className='row'>
@@ -220,7 +220,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/suggestedcover3.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br><medium className='text-count-members'>95K Members</medium>
+                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
                                 </p>
 
                                 <div className='row'>
@@ -235,7 +235,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/suggestedcover4.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br><medium className='text-count-members'>95K Members</medium>
+                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
                                 </p>
 
                                 <div className='row'>
@@ -256,7 +256,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/groupcover1.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br><medium className='text-count-members'>95K Members</medium>
+                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
                                 </p>
 
                                 <div className='row'>
@@ -271,7 +271,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/groupcover2.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br><medium className='text-count-members'>95K Members</medium>
+                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
                                 </p>
 
                                 <div className='row'>
@@ -286,7 +286,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/groupcover3.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br><medium className='text-count-members'>1.5M Members</medium>
+                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>1.5M Members</medium>
                                 </p>
 
                                 <div className='row'>
@@ -301,7 +301,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-groups'>
                                 <img width='100%' className='img-fluid' src='assets/images/groupcover4.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br><medium className='text-count-members'>5K Members</medium>
+                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>5K Members</medium>
                                 </p>
 
                                 <div className='row'>
@@ -319,7 +319,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-products'>
                                 <img width='100%' className='img-fluid' src='assets/images/groupcover5.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br><medium className='text-count-members'>95K Members</medium>
+                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
                                 </p>
 
                                 <div className='row'>
@@ -334,7 +334,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-products'>
                                 <img width='100%' className='img-fluid' src='assets/images/groupcover6.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br><medium className='text-count-members'>95K Members</medium>
+                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>95K Members</medium>
                                 </p>
 
                                 <div className='row'>
@@ -349,7 +349,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <div className='box-each-products'>
                                 <img width='100%' className='img-fluid' src='assets/images/groupcover7.png' alt=''/>
                                 <p className='mt-4 ms-3'>
-                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br><medium className='text-count-members'>1.5M Members</medium>
+                                    <large className='text-name-products'><strong>Lorem Ipsum</strong></large><br/><medium className='text-count-members'>1.5M Members</medium>
                                 </p>
 
                                 <div className='row'>
