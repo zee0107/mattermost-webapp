@@ -58,8 +58,8 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
 
-        if(this.props.myChannels != null){
-            Promise.resolve(this.props.myChannels).then(value => {this.setState({mygroups: value});})
+        if(this.props.mychannels != null){
+            Promise.resolve(this.props.mychannels).then(value => {this.setState({mygroups: value});})
         }
     }
 
