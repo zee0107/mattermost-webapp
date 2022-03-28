@@ -96,7 +96,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 <a className='btn btn-md float-start onMyjoined'><label className='ms-2'>Joined</label></a>
                             </div>
                             </div>
-                            <a className='float-end rounded onCreategroups' style=' margin:-39px 0px 0px 0px;'>
+                            <a className='float-end rounded onCreategroups negative-margin-top'>
                             <i className='bi-plus'></i> Create</a>
                         </div>
                     </div>
