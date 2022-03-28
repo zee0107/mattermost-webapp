@@ -267,8 +267,8 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                         </p>
 
                                         <div className='row'>
-                                            <div className='col-6 mt-2 mb-3'><a className='btn-sm float-end onEditgroups'><label>Edit</label></a></div>
-                                            <div className='col-6 mt-2 mb-3'><a className='btn-sm float-start onDeletegroups'><label>Delete</label></a></div>
+                                            <div className='col-6 mt-2 mb-3'><a className='btn-sm onEditgroups'><label>Edit</label></a></div>
+                                            <div className='col-6 mt-2 mb-3'><a className='btn-sm onDeletegroups'><label>Delete</label></a></div>
                                         </div>
 
                                         </div>
