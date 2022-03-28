@@ -188,7 +188,7 @@ export default class LoggedInHFTF extends React.PureComponent<Props> {
                     </div>
                     <div className='row content bgGrey pbot-10'>
                         <div className='container-fluid'>
-                            <div className='col-md-2 removePaddingRight'>
+                            <div className='col-md-2 removePadding'>
                                 <Sidebar/>
                             </div>
                             <div className='col-md-10 removePadding'>
