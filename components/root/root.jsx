@@ -54,6 +54,7 @@ const LazySignupIndex = React.lazy(() => import('components/signup/signup_index'
 const LazySignupProfile = React.lazy(() => import('components/signup/signup_profile'));
 const LazyProfilePage = React.lazy(() => import('components/profile_page'));
 const LazyNewsFeed = React.lazy(() => import('components/newsfeed'));
+const LazyGroup = React.lazy(() => import('components/groups'));
 const LazyLaunchPad = React.lazy(() => import('components/launch_pad'));
 const LazyLaunchPadToken = React.lazy(() => import('components/launchpad_token'));
 const LazyTermsOfService = React.lazy(() => import('components/terms_of_service'));
@@ -96,6 +97,7 @@ const SignupIndex = makeAsyncComponent('SignupIndex', LazySignupIndex);
 const SignupProfile = makeAsyncComponent('SignupProfile', LazySignupProfile);
 const ProfilePage = makeAsyncComponent('ProfilePage', LazyProfilePage);
 const NewsFeed = makeAsyncComponent('Newsfeed', LazyNewsFeed);
+const Groups = makeAsyncComponent('Group', LazyGroup);
 const LaunchPad = makeAsyncComponent('LaunchPad', LazyLaunchPad);
 const LaunchPadToken = makeAsyncComponent('LaunchPadToken', LazyLaunchPadToken);
 const ShouldVerifyEmail = makeAsyncComponent('ShouldVerifyEmail', LazyShouldVerifyEmail);
@@ -526,10 +528,10 @@ export default class Root extends React.PureComponent {
                                     component={LaunchPad}
                                 />
                                 
-                                {/*<LoginHFTRoute
-                                    path={'/newsfeed'}
-                                    component={NewsFeed}
-                                />*/}
+                                <LoginHFTRoute
+                                    path={'/mygroups'}
+                                    component={Groups}
+                                />
                                 <LoginHFTRoute
                                     path={'/launchpadtoken'}
                                     component={LaunchPadToken}
