@@ -393,7 +393,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
 
-                            <div className='col p-1'>
+                            {/*<div className='col p-1'>
                                 <div className='box-each-groups'>
                                     <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                     <p className='mt-4 ms-3'>
@@ -405,7 +405,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                         <div className='col-6 mt-2 mb-3'><a className='btn-sm float-start onDeletegroups'><small>Delete</small></a></div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>*/}
                         </div>
                     </div>
                 </div>
