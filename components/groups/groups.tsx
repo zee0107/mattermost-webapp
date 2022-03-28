@@ -8,6 +8,7 @@ import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/
 
 import homeImage from 'images/homeFeed.png';
 import {ModalData} from 'types/actions';
+import GroupLogo from 'images/groupcover.png';
 
 import RightSideView from 'components/right_side_view';
 
@@ -113,7 +114,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                             <div className='col p-1'>
                                 <div className='box-each-groups'>
-                                <img width='100%' className='img-fluid' src='assets/images/suggestedcover4.png' alt=''/>
+                                <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                 <p className='mt-4 ms-3'>
                                     <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
@@ -128,7 +129,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                             <div className='col p-1'>
                                 <div className='box-each-groups'>
-                                <img width='100%' className='img-fluid' src='assets/images/suggestedcover3.png' alt=''/>
+                                <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                 <p className='mt-4 ms-3'>
                                     <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
@@ -143,7 +144,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                             <div className='col p-1'>
                                 <div className='box-each-groups'>
-                                <img width='100%' className='img-fluid' src='assets/images/suggestedcover2.png' alt=''/>
+                                <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                 <p className='mt-4 ms-3'>
                                     <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
@@ -158,7 +159,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                             <div className='col p-1'>
                                 <div className='box-each-groups'>
-                                <img width='100%' className='img-fluid' src='assets/images/suggestedcover1.png' alt=''/>
+                                <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                 <p className='mt-4 ms-3'>
                                     <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
@@ -173,7 +174,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                             <div className='col p-1'>
                                 <div className='box-each-groups'>
-                                <img width='100%' className='img-fluid' src='assets/images/joined1.png' alt=''/>
+                                <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                 <p className='mt-4 ms-3'>
                                     <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
@@ -194,7 +195,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                             <div className='col p-1'>
                                 <div className='box-each-groups'>
-                                <img width='100%' className='img-fluid' src='assets/images/suggestedcover1.png' alt=''/>
+                                <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                 <p className='mt-4 ms-3'>
                                     <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
@@ -209,7 +210,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                             <div className='col p-1'>
                                 <div className='box-each-groups'>
-                                <img width='100%' className='img-fluid' src='assets/images/suggestedcover2.png' alt=''/>
+                                <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                 <p className='mt-4 ms-3'>
                                     <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
@@ -224,7 +225,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                             <div className='col p-1'>
                                 <div className='box-each-groups'>
-                                <img width='100%' className='img-fluid' src='assets/images/suggestedcover3.png' alt=''/>
+                                <img width='100%' className='img-fluid'  src={GroupLogo} alt=''/>
                                 <p className='mt-4 ms-3'>
                                     <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
@@ -239,7 +240,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                             <div className='col p-1'>
                                 <div className='box-each-groups'>
-                                <img width='100%' className='img-fluid' src='assets/images/suggestedcover4.png' alt=''/>
+                                <img width='100%' className='img-fluid'  src={GroupLogo} alt=''/>
                                 <p className='mt-4 ms-3'>
                                     <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
@@ -259,7 +260,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                             <div className='col p-1'>
                                 <div className='box-each-groups'>
-                                <img width='100%' className='img-fluid' src='assets/images/groupcover1.png' alt=''/>
+                                <img width='100%' className='img-fluid'  src={GroupLogo} alt=''/>
                                 <p className='mt-4 ms-3'>
                                     <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
@@ -274,7 +275,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                             <div className='col p-1'>
                                 <div className='box-each-groups'>
-                                <img width='100%' className='img-fluid' src='assets/images/groupcover2.png' alt=''/>
+                                <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                 <p className='mt-4 ms-3'>
                                     <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
@@ -289,7 +290,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                             <div className='col p-1'>
                                 <div className='box-each-groups'>
-                                <img width='100%' className='img-fluid' src='assets/images/groupcover3.png' alt=''/>
+                                <img width='100%' className='img-fluid'  src={GroupLogo} alt=''/>
                                 <p className='mt-4 ms-3'>
                                     <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>1.5M Members</label>
                                 </p>
@@ -304,7 +305,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                             <div className='col p-1'>
                                 <div className='box-each-groups'>
-                                <img width='100%' className='img-fluid' src='assets/images/groupcover4.png' alt=''/>
+                                <img width='100%' className='img-fluid'  src={GroupLogo} alt=''/>
                                 <p className='mt-4 ms-3'>
                                     <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>5K Members</label>
                                 </p>
@@ -322,7 +323,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                             <div className='col p-1'>
                                 <div className='box-each-products'>
-                                <img width='100%' className='img-fluid' src='assets/images/groupcover5.png' alt=''/>
+                                <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                 <p className='mt-4 ms-3'>
                                     <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
@@ -337,7 +338,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                             <div className='col p-1'>
                                 <div className='box-each-products'>
-                                <img width='100%' className='img-fluid' src='assets/images/groupcover6.png' alt=''/>
+                                <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                 <p className='mt-4 ms-3'>
                                     <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                                 </p>
@@ -352,7 +353,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                             <div className='col p-1'>
                                 <div className='box-each-products'>
-                                <img width='100%' className='img-fluid' src='assets/images/groupcover7.png' alt=''/>
+                                <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                 <p className='mt-4 ms-3'>
                                     <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>1.5M Members</label>
                                 </p>
