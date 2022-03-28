@@ -74,7 +74,7 @@ export default class CommentedOn extends PureComponent<Props> {
                 <span>
                     <FormattedMessage
                         id='post_body.commentedOn'
-                        defaultMessage="Commented on {name}'s message: "
+                        defaultMessage="Commented on {name}'s post: "
                         values={{
                             name: <a className='theme user_name'>{parentUserProfile}</a>,
                         }}
