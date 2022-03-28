@@ -85,7 +85,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         const {globalHeader, currentUser} = this.props;
         return (
             <div className='row'>
-                <div className='col-md-8'>
+                <div className='col-md-9'>
                     <div className='box-middle-panel'>
                         <div className='col-12 mx-auto'>
                             <a href='/mygroups' className='onCartmarketplaceicon onMarketplace float-start'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#fff' className='bi bi-people-fill' viewBox='0 0 16 16'>
@@ -355,7 +355,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                 </div>
-                <div className='col-md-4'>
+                <div className='col-md-3'>
                     <RightSideView/>
                 </div>
             </div>
