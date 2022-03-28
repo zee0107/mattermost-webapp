@@ -37,14 +37,15 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
         }
 
         fetch(uri,config).then(response => response.json()).then(response => {
-            console.log(response)
-            this.setState({data: response})
+            if(response != null){
+                Promise.resolve(response).then(value => {this.setState({data: value});})
+            }
         }).catch(function(error) {console.log(error);});  
     }
 
     render= (): JSX.Element => {
         const {channelId} = this.props;
-        console.log(this.state.data);
+        console.log(this.state.data.member_count);
         return (
             <label className='text-count-members'>
                 {/*this.state.data.member_count*/}
