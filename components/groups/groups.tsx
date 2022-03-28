@@ -87,7 +87,11 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                 <div className='col-md-8'>
                     <div className='box-middle-panel'>
                         <div className='col-12 mx-auto'>
-                            <a className='onCartmarketplaceicon onMarketplace float-start'><i className='bi-people-fill'></i></a>
+                            <a className='onCartmarketplaceicon onMarketplace float-start'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" className="bi bi-people-fill" viewBox="0 0 16 16">
+                                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                <path fillRule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+                                <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                            </svg></a>
                             <label className='ms-2 text-mygroups float-start mt-2 me-5'><strong>Group</strong></label>
                             <div className='row'>
                             <div className='col mx-auto'>
@@ -97,11 +101,13 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             </div>
                             </div>
                             <a className='float-end rounded onCreategroups negative-margin-top'>
-                            <i className='bi-plus'></i> Create</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" className=''="bi bi-plus" viewBox="0 0 16 16">
+                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                            </svg> Create</a>
                         </div>
                     </div>
 
-                    <div className='box-middle-panel-products'>
+                    {/*<div className='box-middle-panel-products'>
                         <div className='joinedcontent'>
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
 
@@ -361,7 +367,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                             </div>
                         </div>
-                    </div>
+                    </div>*/}
                 </div>
                 <div className='col-md-4'>
                     <RightSideView/>
