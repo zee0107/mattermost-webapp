@@ -87,21 +87,27 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             <div className='row'>
                 <div className='col-md-9'>
                     <div className='crypter-section-desktop'>
-                        <div class="box-middle-panel-forums-menu">
-                            <div class="col-12 mx-auto">
-                                <a class="onCartmarketplaceicon onMarketplace float-start"><i class="bi-people-fill"></i></a>
-                                <small class="ms-2 text-mygroups float-start mt-2 me-5"><strong>Group</strong></small>
-                                <div class="row">
-                                <div class="col-3 text-start mt-2 mb-2 p-0"><a class="onMygroupspages p-4">MyGroups</a></div>
-                                <div class="col-3 text-start mt-2 mb-2 p-0"><a class="onMycarts p-4">Suggested</a></div>
-                                <div class="col-3 text-start mt-2 mb-2 p-0"><a class="onMyjoined p-4">Joined</a></div>
-                                <div class="col-3 text-start mt-2 mb-2 p-0"><a class="p-4"></a></div>
+                        <div class='box-middle-panel-forums-menu'>
+                            <div class='col-12 mx-auto'>
+                                <a href='/mygroups' class='onCartmarketplaceicon onMarketplace float-start'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#fff' className='bi bi-people-fill' viewBox='0 0 16 16'>
+                                    <path d='M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'/>
+                                    <path fillRule='evenodd' d='M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z'/>
+                                    <path d='M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z'/>
+                                </svg></a>
+                                <small class='ms-2 text-mygroups float-start mt-2 me-5'><strong>Group</strong></small>
+                                <div class='row'>
+                                <div class='col-3 text-start mt-2 mb-2 p-0'><a class='onMygroupspages p-4'>MyGroups</a></div>
+                                <div class='col-3 text-start mt-2 mb-2 p-0'><a class='onMycarts p-4'>Suggested</a></div>
+                                <div class='col-3 text-start mt-2 mb-2 p-0'><a class='onMyjoined p-4'>Joined</a></div>
+                                <div class='col-3 text-start mt-2 mb-2 p-0'><a class='p-4'></a></div>
                                 </div>
-                                <a class="float-end rounded onCreategroups" style=" margin:-39px 0px 0px 0px; z-index: 99;">
-                                <i class="bi-plus" style="font-size: 16px;"></i> Create</a>
+                                <a class='float-end rounded onCreategroups' style=' margin:-39px 0px 0px 0px; z-index: 99;'>
+                                    <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#fff' className='bi bi-plus' viewBox='0 0 16 16'>
+                                    <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/>
+                                </svg> Create</a>
                             </div>
                         </div>
-                        
+
                         <div className='joinedcontent'>
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                                 <div className='col-3 p-1'>
