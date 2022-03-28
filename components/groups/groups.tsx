@@ -101,13 +101,13 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             </div>
                             </div>
                             <a className='float-end rounded onCreategroups negative-margin-top'>
-                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#fff' className='bi bi-plus' viewBox='0 0 16 16'>
+                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#fff' className='bi bi-plus side-menu-align' viewBox='0 0 16 16'>
                                 <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/>
                             </svg> Create</a>
                         </div>
                     </div>
 
-                    {/*<div className='box-middle-panel-products'>
+                    <div className='box-middle-panel-products'>
                         <div className='joinedcontent'>
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
 
@@ -367,7 +367,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                             </div>
                         </div>
-                    </div>*/}
+                    </div>
                 </div>
                 <div className='col-md-4'>
                     <RightSideView/>
