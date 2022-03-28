@@ -175,6 +175,12 @@ export default class Sidebar extends React.PureComponent<Props, State> {
             <div>
                 <div className='col-sm-12'>
                     <div className='sidemenuBox'>
+                        <SidebarHeader
+                            canCreateChannel={this.props.canCreatePrivateChannel || this.props.canCreatePublicChannel}
+                            canJoinPublicChannel={this.props.canJoinPublicChannel}
+                            handleOpenDirectMessagesModal={this.handleOpenMoreDirectChannelsModal}
+                        />
+
                         <ul className='ul-collapse'>
                             <li key='news-feed' className='sidemenu-padding'><a href='#' className='sidemenu-item1'><svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg" className='side-menu-align'>
                                 <path d="M3.03033 12.4859H10.4389V14.3381H3.03033V12.4859ZM3.03033 16.1902H10.4389V18.0423H3.03033V16.1902ZM3.03033 8.78166H10.4389V10.6338H3.03033V8.78166ZM3.03033 5.07739H10.4389V6.92953H3.03033V5.07739ZM17.8474 6.92953V16.1902H14.1431V6.92953H17.8474ZM19.6995 5.07739H12.291V18.0423H19.6995V5.07739Z" fill="#FF8D08"/>
