@@ -171,10 +171,10 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         const {globalHeader, currentUser} = this.props;
         
         let viewDetails;
-        if(this.state.group_view === 'joined'){
+        if(this.state.group_view === "joined"){
             viewDetails = this.joinedGroup();
         }
-        else if(this.state.group_view === 'suggested'){
+        else if(this.state.group_view === "suggested"){
             viewDetails = this.suggestedGroup();
         }
         else{
