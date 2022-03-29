@@ -230,7 +230,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         this.typeSwitched(e.target.value);
     }
 
-    handleJoin = (channel: ServerChannel) => {
+    /*handleJoin = (channel: ServerChannel) => {
         const {actions} = this.props;
         const result = actions.joinChannel(this.props.userId, 'd7cxjgejnbdm78h4n91kqeq6ow', channel.id);
 
@@ -239,7 +239,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         } else {
             this.setState({group_view: 'joined'})
         }
-    }
+    }*/
 
     showNewChannelModal = () => {
         this.props.actions.openModal({
