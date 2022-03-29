@@ -212,6 +212,17 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         </div>
 
                         <div className="row p-2">
+                            <div className="col-md-6">
+                                <label htmlFor="inputState" className="form-label"><small>Sub Category</small></label>
+                                <select id="inputState" className="form-control input-create-new-group">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                                </select>
+                            </div>
+                            <div className="col-md-6"></div>
+                        </div>
+
+                        <div className="row p-2">
                             <div className="col-md-6"></div>
                             <div className="col-md-6">
                                 <a className="float-end rounded onCreategroups btn-sm ml-4"> Create</a>
