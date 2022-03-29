@@ -79,13 +79,13 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         );
     }
 
-    /*showNewChannelModal = () => {
+    showNewChannelModal = () => {
         this.props.actions.openModal({
             modalId: ModalIdentifiers.NEW_CHANNEL_FLOW,
             dialogType: NewChannelFlow,
         });
         trackEvent('ui', 'ui_channels_create_channel_v2');
-    }*/
+    }
 
     joinedGroup = () => {
         return (
@@ -234,14 +234,6 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                     </form>
                 </div>
            </div>
-        );
-    }
-
-    createNew = () => {
-        return (
-            <div>
-                <NewChannel/>
-            </div>
         );
     }
 
