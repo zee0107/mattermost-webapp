@@ -5,6 +5,7 @@ import React, {ReactNode} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
+import {FormattedMessage} from 'react-intl';
 
 import homeImage from 'images/homeFeed.png';
 import {ModalData} from 'types/actions';
@@ -12,15 +13,25 @@ import GroupLogo from 'images/groupcover.png';
 import NewChannelFlow from 'components/new_channel_flow';
 import {trackEvent} from 'actions/telemetry_actions';
 import RightSideView from 'components/right_side_view';
-import {ChannelMembership,ServerChannel} from 'mattermost-redux/types/channels';
+
+import {ChannelMembership,ServerChannel,ChannelType, Channel} from 'mattermost-redux/types/channels';
+import {ServerError} from 'mattermost-redux/types/errors';
+
 import {ModalIdentifiers} from 'utils/constants';
 import GroupDetail from 'components/group_details';
 import Constants from 'utils/constants.jsx';
 
-type Props = {
+export type Props = {
     userId: string;
     profilePicture: string;
+    currentTeamId: string;
+    channelType: ChannelType;
+    canCreatePublicChannel: boolean;
+    canCreatePrivateChannel: boolean;
+
     actions: {
+        createChannel: (channel: Channel) => Promise<{data?: Channel; error?: ServerError}>;
+        switchToChannel: (channel: Channel) => Promise<{data?: true; error?: true}>;
         openModal: <P>(modalData: ModalData<P>) => void;
         setStatus: (status: UserStatus) => ActionFunc;
         unsetCustomStatus: () => ActionFunc;
@@ -37,25 +48,33 @@ type State = {
     isDark: string;
     img_path: string;
     group_view: string;
+
+    channelDisplayName: string;
+    channelName: string;
+    channelPurpose: string;
+    channelHeader: string;
+    channelType: ChannelType;
+    nameModified: boolean;
 };
 
+type NewChannelData = {
+    displayName: string;
+    purpose: string;
+    header: string;
+}
+
 export default class MyGroups extends React.PureComponent<Props, State> {
-    static defaultProps = {
+    public static defaultProps = {
+        channelType: Constants.OPEN_CHANNEL as ChannelType,
         userId: '',
         profilePicture: '',
-    }
+    };
 
-    constructor(props: Props) {
+    public constructor(props: Props) {
         super(props);
 
-        this.state = {
-            openUp: false,
-            width: 0,
-            isStatusSet: false,
-            isDark:'light',
-            img_path: homeImage,
-            mygroups: [],
-            group_view: 'mygroup',
+        this.state = { openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, mygroups: [], group_view: 'mygroup',
+        serverError: '', channelType: getChannelTypeFromProps(props), channelName: '', channelDisplayName:'', channelPurpose: '', channelHeader: '', nameModified: false,
         };
     }
 
@@ -67,6 +86,82 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.mychannels).then(value => {this.setState({mygroups: value});})
         }
     }
+
+    onSubmit = () => {
+        if (!this.state.channelDisplayName) {
+            this.setState({serverError: Utils.localizeMessage('channel_flow.invalidName', 'Invalid Channel Name')});
+            return;
+        }
+
+        /*if (this.state.channelName.length < 2) {
+            this.setState({flowState: SHOW_EDIT_URL_THEN_COMPLETE});
+            return;
+        }*/
+
+        const {actions, currentTeamId} = this.props;
+        const channel: Channel = {
+            team_id: currentTeamId,
+            name: this.state.channelName,
+            display_name: this.state.channelDisplayName,
+            purpose: this.state.channelPurpose,
+            header: this.state.channelHeader,
+            type: this.state.channelType,
+            create_at: 0,
+            creator_id: '',
+            delete_at: 0,
+            group_constrained: false,
+            id: '',
+            last_post_at: 0,
+            last_root_post_at: 0,
+            scheme_id: '',
+            update_at: 0,
+        };
+
+        actions.createChannel(channel).then(({data, error}) => {
+            if (error) {
+                this.onCreateChannelError(error);
+            } else if (data) {
+                actions.switchToChannel(data);
+            }
+        });
+    };
+
+    onCreateChannelError = (err: ServerError) => {
+        if (err.server_error_id === 'model.channel.is_valid.2_or_more.app_error') {
+            this.setState({
+                //flowState: SHOW_EDIT_URL_THEN_COMPLETE,
+                serverError: (
+                    <FormattedMessage
+                        id='channel_flow.handleTooShort'
+                        defaultMessage='Channel URL must be 2 or more lowercase alphanumeric characters'
+                    />
+                ),
+            });
+        } else if (err.server_error_id === 'store.sql_channel.update.exists.app_error') {
+            this.setState({serverError: Utils.localizeMessage('channel_flow.alreadyExist', 'A channel with that URL already exists')});
+        } else {
+            this.setState({serverError: err.message});
+        }
+    };
+
+    typeSwitched = (channelType: ChannelType) => {
+        this.setState({
+            channelType,
+            serverError: '',
+        });
+    };
+
+    channelDataChanged = (data: NewChannelData) => {
+        this.setState({
+            channelDisplayName: data.displayName,
+            channelPurpose: data.purpose,
+            channelHeader: data.header,
+        });
+        if (!this.state.nameModified) {
+            this.setState({channelName: cleanUpUrlable(data.displayName.trim())});
+        }
+    };
+
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
@@ -235,7 +330,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
-        
+        const channelData = {
+            name: this.state.channelName,
+            displayName: this.state.channelDisplayName,
+            purpose: this.state.channelPurpose,
+            header: this.state.channelHeader,
+        };
         let viewDetails;
         if(this.state.group_view === "joined"){
             viewDetails = this.joinedGroup();

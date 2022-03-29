@@ -19,29 +19,36 @@ import {makeGetCustomStatus, isCustomStatusEnabled, showStatusDropdownPulsatingD
 import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
 import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
+import { getCurrentTeam } from 'mattermost-redux/selectors/entities/teams';
+import {createChannel} from 'mattermost-redux/actions/channels';
+import {switchToChannel} from 'actions/views/channel';
 
-import MyGroups from './groups'
+import MyGroups, {Props} from './groups'
+
 
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
 
     return function mapStateToProps(state: GlobalState) {
         const currentUser = getCurrentUser(state);
-
+        const currentTeam = getCurrentTeam(state);
         const userId = currentUser?.id;
         
         return {
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
+            currentTeamId: currentTeam?.id,
             mychannels: Client4.getMyChannels('5meubtskybn1bg7iyfx7x4cm9c'),
         };
     };
 }
 
-function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
+function mapDispatchToProps(dispatch: Dispatch) {
     return {
-        actions: bindActionCreators({
+        actions: bindActionCreators<ActionCreatorsMapObject<Action>, Props['actions']>({
+            createChannel,
+            switchToChannel,
             openModal,
             setStatus,
             unsetCustomStatus,
