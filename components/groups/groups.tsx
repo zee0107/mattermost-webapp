@@ -11,17 +11,35 @@ import {ModalData} from 'types/actions';
 import GroupLogo from 'images/groupcover.png';
 import NewChannelFlow from 'components/new_channel_flow';
 import {trackEvent} from 'actions/telemetry_actions';
+import {ServerError} from 'mattermost-redux/types/errors';
 import RightSideView from 'components/right_side_view';
-import {ChannelMembership,ServerChannel} from 'mattermost-redux/types/channels';
+import {ChannelType, Channel,ServerChannel} from 'mattermost-redux/types/channels';
 import {ModalIdentifiers} from 'utils/constants';
 import GroupDetail from 'components/group_details';
 import Constants from 'utils/constants.jsx';
+import * as Utils from 'utils/utils';
+import {FormattedMessage} from 'react-intl';
 
-type Props = {
+
+export function getChannelTypeFromProps(props: Props): ChannelType {
+    let channelType = props.channelType || Constants.OPEN_CHANNEL;
+    if (channelType === Constants.OPEN_CHANNEL) {
+        channelType = Constants.PRIVATE_CHANNEL as ChannelType;
+    }
+    if (channelType === Constants.PRIVATE_CHANNEL) {
+        channelType = Constants.OPEN_CHANNEL as ChannelType;
+    }
+    return channelType;
+}
+
+export type Props = {
     userId: string;
     profilePicture: string;
     currentTeamId: string;
+    channelType: ChannelType;
     actions: {
+        createChannel: (channel: Channel) => Promise<{data?: Channel; error?: ServerError}>;
+        switchToChannel: (channel: Channel) => Promise<{data?: true; error?: true}>;
         openModal: <P>(modalData: ModalData<P>) => void;
         setStatus: (status: UserStatus) => ActionFunc;
         unsetCustomStatus: () => ActionFunc;
@@ -39,13 +57,21 @@ type State = {
     img_path: string;
     group_view: string;
 
-    team_id: string;
-    name: string;
-    display_name: string;
-    purpose?: string;
-    header?: string;
-    type: string;
+    serverError: JSX.Element | string | null;
+    channelType: ChannelType;
+    flowState: number;
+    channelDisplayName: string;
+    channelName: string;
+    channelPurpose: string;
+    channelHeader: string;
+    nameModified: boolean;
 };
+
+type NewChannelData = {
+    displayName: string;
+    purpose: string;
+    header: string;
+}
 
 export default class MyGroups extends React.PureComponent<Props, State> {
     static defaultProps = {
@@ -56,7 +82,19 @@ export default class MyGroups extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = { openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, mygroups: [], group_view: 'mygroup',};
+        this.state = { openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, mygroups: [], group_view: 'mygroup',
+            serverError: '',
+            channelType: getChannelTypeFromProps(props),
+            channelDisplayName: '',
+            channelName: '',
+            channelPurpose: '',
+            channelHeader: '',
+            nameModified: false,
+        };
+
+        this.channelHeaderInput = React.createRef();
+        this.channelPurposeInput = React.createRef();
+        this.displayNameInput = React.createRef();
     }
 
     componentDidMount(){
@@ -67,8 +105,79 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.mychannels).then(value => {this.setState({mygroups: value});})
         }
 
-        console.log(this.props.currentTeamId);
+        console.log(this.props.userId);
     }
+
+
+    onSubmit = () => {
+        if (!this.state.channelDisplayName) {
+            this.setState({serverError: Utils.localizeMessage('channel_flow.invalidName', 'Invalid Channel Name')});
+            return;
+        }
+
+        const {actions} = this.props;
+        const channel: Channel = {
+            team_id: '5meubtskybn1bg7iyfx7x4cm9c',
+            name: this.state.channelName,
+            display_name: this.state.channelDisplayName,
+            purpose: this.state.channelPurpose,
+            header: this.state.channelHeader,
+            type: this.state.channelType,
+            create_at: 0,
+            creator_id: '',
+            delete_at: 0,
+            group_constrained: false,
+            id: '',
+            last_post_at: 0,
+            last_root_post_at: 0,
+            scheme_id: '',
+            update_at: 0,
+        };
+
+        actions.createChannel(channel).then(({data, error}) => {
+            if (error) {
+                this.onCreateChannelError(error);
+            } else if (data) {
+                actions.switchToChannel(data);
+            }
+        });
+    };
+
+    onCreateChannelError = (err: ServerError) => {
+        if (err.server_error_id === 'model.channel.is_valid.2_or_more.app_error') {
+            this.setState({
+                serverError: (
+                    <FormattedMessage
+                        id='channel_flow.handleTooShort'
+                        defaultMessage='Channel URL must be 2 or more lowercase alphanumeric characters'
+                    />
+                ),
+            });
+        } else if (err.server_error_id === 'store.sql_channel.update.exists.app_error') {
+            this.setState({serverError: Utils.localizeMessage('channel_flow.alreadyExist', 'A channel with that URL already exists')});
+        } else {
+            this.setState({serverError: err.message});
+        }
+    };
+
+    typeSwitched = (channelType: ChannelType) => {
+        this.setState({
+            channelType,
+            serverError: '',
+        });
+    };
+
+    channelDataChanged = (data: NewChannelData) => {
+        this.setState({
+            channelDisplayName: data.displayName,
+            channelPurpose: data.purpose,
+            channelHeader: data.header,
+        });
+        if (!this.state.nameModified) {
+            this.setState({channelName: cleanUpUrlable(data.displayName.trim())});
+        }
+    };
+
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
@@ -80,6 +189,38 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                 url={this.props.profilePicture}
             />
         );
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        const displayName = this.displayNameInput.current.value.trim();
+        if (displayName.length < Constants.MIN_CHANNELNAME_LENGTH) {
+            this.setState({displayNameError: true});
+            return;
+        }
+
+        this.onSubmit();
+    }
+
+    handleChange = () => {
+        const newData = {
+            displayName: this.displayNameInput.current.value,
+            header: this.channelHeaderInput.current.value,
+            purpose: this.channelPurposeInput.current.value,
+        };
+        this.channelDataChanged(newData);
+    }
+
+    /*handleOnURLChange = (e) => {
+        e.preventDefault();
+        if (this.props.onChangeURLPressed) {
+            this.props.onChangeURLPressed();
+        }
+    }*/
+
+    handleTypeSelect = (e) => {
+        this.typeSwitched(e.target.value);
     }
 
     showNewChannelModal = () => {
@@ -183,26 +324,26 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         <div className="row">
                             <div className="col-md-6">
                                 <label htmlFor="inputState" className="form-label"><small>Group name</small></label>
-                                <input type="text" id='newChannelName' className="form-control input-create-new-group" maxLength={Constants.MAX_CHANNELNAME_LENGTH} placeholder='E.g.: "Bugs", "Marketing", "客户支持"' aria-label="Group name"/>
+                                <input type="text" ref={this.displayNameInput} id='newChannelName' className="form-control input-create-new-group" maxLength={Constants.MAX_CHANNELNAME_LENGTH} placeholder='E.g.: "Bugs", "Marketing", "客户支持"' aria-label="Group name"/>
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="inputState" className="form-label"><small>Group url</small></label>
-                                <input type="text" className="form-control input-create-new-group" placeholder="Group url" aria-label="Group url"/>
+                                <input type="text" className="form-control input-create-new-group" placeholder="Group url" aria-label="Group url" readOnly/>
                             </div>
                         </div>
 
                         <div className="row">
                             <div className="col-md-12">
-                                <textarea className="form-control form-textarea-custom no-resize" id='newChannelPurpose' rows="3" placeholder='E.g.: "A group to to share crypto improvements"' maxLength='250'></textarea>
+                                <textarea ref={this.channelPurposeInput} className="form-control form-textarea-custom no-resize" id='newChannelPurpose' rows="3" placeholder='E.g.: "A group to to share crypto improvements"' maxLength='250'></textarea>
                             </div>
                         </div>
 
                         <div className="row p-2">
                             <div className="col-md-6">
                                 <label htmlFor="inputState" className="form-label"><small>Group type</small></label>
-                                <select id="inputState" className="form-control input-create-new-group">
-                                <option value='Public'>Public</option>
-                                <option value='Private'>Private</option>
+                                <select id="inputState" className="form-control input-create-new-group" onChange={this.handleTypeSelect} value={this.state.channelType}>
+                                <option value='O'>Public</option>
+                                <option value='P'>Private</option>
                                 </select>
                             </div>
                             <div className="col-md-6">
@@ -223,8 +364,8 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         <div className="row p-2">
                             <div className="col-md-6"></div>
                             <div className="col-md-6">
-                                <a className="float-end rounded onCreategroups btn-sm ml-4"> Create</a>
-                                <a className="float-end rounded me-2 mt-2 zero-margin" onClick={() => { this.setState({group_view: 'mygroups'})}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" className="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                                <a className="float-end rounded onCreategroups btn-sm ml-4" onClick={this.handleSubmit}> Create</a>
+                                <a className="float-end rounded me-2 mt-2 zero-margin" onClick={() => { this.setState({group_view: 'mygroups'})}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" className="bi bi-arrow-left-short side-menu-align" viewBox="0 0 16 16">
                                     <path fillRule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
                                 </svg> Go Back</a>
                             </div>
@@ -237,7 +378,13 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
-        
+        const channelData = {
+            name: this.state.channelName,
+            displayName: this.state.channelDisplayName,
+            purpose: this.state.channelPurpose,
+            header: this.state.channelHeader,
+        };
+
         let viewDetails;
         if(this.state.group_view === "joined"){
             viewDetails = this.joinedGroup();
