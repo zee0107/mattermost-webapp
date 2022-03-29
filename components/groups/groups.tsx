@@ -342,7 +342,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         <div className="row">
                             <div className="col-md-6">
                                 <label htmlFor="inputState" className="form-label"><small>Group name</small></label>
-                                <input type="text" ref={this.displayNameInput} onChange={this.handleChange} id='newChannelName' className="form-control input-create-new-group" maxLength={Constants.MAX_CHANNELNAME_LENGTH} placeholder='E.g.: "Bugs", "Marketing", "客户支持"' aria-label="Group name"/>
+                                <input type="text" ref={this.displayNameInput} value={this.state.channelDisplayName} onChange={this.handleChange} id='newChannelName' className="form-control input-create-new-group" maxLength={Constants.MAX_CHANNELNAME_LENGTH} placeholder='E.g.: "Bugs", "Marketing", "客户支持"' aria-label="Group name"/>
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="inputState" className="form-label"><small>Group url</small></label>
@@ -352,7 +352,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                         <div className="row">
                             <div className="col-md-12">
-                                <textarea ref={this.channelPurposeInput} onChange={this.handleChange} className="form-control form-textarea-custom no-resize" id='newChannelPurpose' rows="3" placeholder='E.g.: "A group to to share crypto improvements"' maxLength='250'></textarea>
+                                <textarea ref={this.channelPurposeInput} value={this.state.channelPurpose} onChange={this.handleChange} className="form-control form-textarea-custom no-resize" id='newChannelPurpose' rows="3" placeholder='E.g.: "A group to to share crypto improvements"' maxLength='250'></textarea>
                             </div>
                         </div>
 
