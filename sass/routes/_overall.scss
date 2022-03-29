@@ -243,8 +243,8 @@ button {
   .onUnfollowsuggested {
     cursor: pointer;
     background: #CFF3DE;
-    padding: 6px 0px 6px 0px;
-    border-radius: 11px;
+    padding: 6px 6px 6px 6px;
+    border-radius: 11px !important;
     color: #44CD68;
   }
   /*.suggestedcontent, .joinedcontent, .create-new-group {

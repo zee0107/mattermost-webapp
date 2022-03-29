@@ -99,7 +99,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             </p>
 
                             <div className='row'>
-                                <div className='col-md-12 mb-3 p-3'>
+                                <div className='col-md-12 mb-3 p-3 text-center'>
                                 <div className='d-grid'><a className='btn onUnfollowsuggested'><label>Unfollow</label></a></div></div>
                             </div>
                         </div>
@@ -149,8 +149,8 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             </p>
 
                             <div className='row'>
-                                <div className='col-md-12 mb-3 p-3'>
-                                <div className='d-grid'><a className='btn onFollowsuggested'><label>Unfollow</label></a></div></div>
+                                <div className='col-md-12 mb-3 p-3 text-center'>
+                                <div className='d-grid'><a className='btn onFollowsuggested'><label>Follow</label></a></div></div>
                             </div>
                         </div>
                     </div>
