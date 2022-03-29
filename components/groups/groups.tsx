@@ -165,6 +165,76 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         );
     }
 
+    createGroup = () => {
+        return (
+            <div className="create-new-group">
+                <div className="box-middle-panel-create-new-group">
+                    <div className="row">
+                        <h6>Create new groups</h6>
+                        <hr/>
+                    </div>
+
+                    <form>
+                        <div className="row">
+                        <div className="col">
+                            <label htmlFor="inputState" className="form-label"><small>Group name</small></label>
+                            <input type="text" className="form-control input-create-new-group" placeholder="Group name" aria-label="Group name"/>
+                        </div>
+                        <div className="col">
+                            <label htmlFor="inputState" className="form-label"><small>Group url</small></label>
+                            <input type="text" className="form-control input-create-new-group" placeholder="Group url" aria-label="Group url"/>
+                        </div>
+                        </div>
+
+                        <div className="row">
+                        <div className="col-12">
+                            <textarea className="form-textarea-custom" id="" rows="3" placeholder="Group description"></textarea>
+                        </div>
+                        </div>
+
+                        <div className="row p-2">
+                        <div className="col">
+                            <label htmlFor="inputState" className="form-label"><small>Group type</small></label>
+                            <select id="inputState" className="form-select input-create-new-group">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                            </select>
+                        </div>
+                        <div className="col">
+                            <label htmlFor="inputState" className="form-label"><small>Category</small></label>
+                            <select id="inputState" className="form-select input-create-new-group">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                            </select>
+                        </div>
+                        </div>
+
+                        <div className="row p-2">
+                        <div className="col">
+                            <label htmlFor="inputState" className="form-label"><small>Group type</small></label>
+                            <select id="inputState" className="form-select input-create-new-group">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                            </select>
+                        </div>
+                        <div className="col">
+
+                        </div>
+                        </div>
+
+                        <div className="row p-2">
+                        <div className="col-6"></div>
+                        <div className="col-6">
+                            <a className="float-end rounded onCreategroups btn-sm zero-margin"> Create</a>
+                            <a className="float-end rounded me-2 mt-2 zero-margin" onClick={() => { this.setState({group_view: 'mygroups'})}}> <i className="bi-arrow-left"></i> Go Back</a>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+           </div>
+        );
+    }
+
     createNew = () => {
         return (
             <div>
@@ -182,6 +252,9 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         }
         else if(this.state.group_view === "suggested"){
             viewDetails = this.suggestedGroup();
+        }
+        else if(this.state.group_view === "creategroup"){
+            viewDetails = this.createGroup();
         }
         else{
             viewDetails = this.myGroupList();
@@ -210,7 +283,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className='col-md-2 text-end'>
-                                    <a className='float-end rounded onCreategroups negative-margin-top'>
+                                    <a className='float-end rounded onCreategroups negative-margin-top' onClick={() => { this.setState({group_view: 'creategroup'})}}>
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#fff' className='bi bi-plus side-menu-align' viewBox='0 0 16 16'>
                                         <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/>
                                     </svg> Create</a>
