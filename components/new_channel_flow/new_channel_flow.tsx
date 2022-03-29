@@ -255,7 +255,7 @@ export default class NewChannelFlow extends React.PureComponent<Props, State> {
                     onChangeURLPressed={this.urlChangeRequested}
                     onDataChanged={this.channelDataChanged}
                 />
-                <ChangeURLModal
+                {/*<ChangeURLModal
                     show={showChangeURLModal}
                     title={changeURLTitle}
                     submitButtonText={changeURLSubmitButtonText}
@@ -263,7 +263,7 @@ export default class NewChannelFlow extends React.PureComponent<Props, State> {
                     serverError={this.state.serverError}
                     onModalSubmit={this.urlChangeSubmitted}
                     onModalDismissed={this.urlChangeDismissed}
-                />
+                />*/}
             </span>
         );
     }
