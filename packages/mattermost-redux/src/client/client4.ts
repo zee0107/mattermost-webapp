@@ -1504,7 +1504,7 @@ export default class Client4 {
         );
     };
 
-    getAllChannelsExclude = (page = 0, perPage = PER_PAGE_DEFAULT, notAssociatedToGroup = '', excludeDefaultChannels = true, includeTotalCount = false, includeDeleted = false, excludePolicyConstrained = false) => {
+    getAllChannelsExclude = (page = 0, perPage = PER_PAGE_DEFAULT, notAssociatedToGroup = '', excludeDefaultChannels = true, includeTotalCount = false, includeDeleted = false, excludePolicyConstrained = true) => {
         const queryData = {
             page,
             per_page: perPage,
