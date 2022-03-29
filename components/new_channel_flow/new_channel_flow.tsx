@@ -245,8 +245,8 @@ export default class NewChannelFlow extends React.PureComponent<Props, State> {
                 <NewChannelModal
                     show={showChannelModal}
                     channelType={this.state.channelType}
-                    canCreatePublicChannel={this.props.canCreatePublicChannel}
-                    canCreatePrivateChannel={this.props.canCreatePrivateChannel}
+                    canCreatePublicChannel={true}
+                    canCreatePrivateChannel={true}
                     channelData={channelData}
                     serverError={this.state.serverError}
                     onSubmitChannel={this.onSubmit}

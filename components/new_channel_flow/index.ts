@@ -19,15 +19,15 @@ import NewChannelFlow, {Props} from './new_channel_flow';
 
 
 function mapStateToProps(state: GlobalState) {
-    let currentTeam = Client4.getTeam('5meubtskybn1bg7iyfx7x4cm9c');
-    /*if (currentTeam === undefined){
+    let currentTeam = getCurrentTeam(state);
+    if (currentTeam === undefined){
         let team = Client4.getTeam('5meubtskybn1bg7iyfx7x4cm9c');
         if(team != null){
             Promise.resolve(team).then(value => { currentTeam = value; })
         }
-    }*/
-    let canCreatePublicChannel = true;
-    let canCreatePrivateChannel = true;
+    }
+    let canCreatePublicChannel = false;
+    let canCreatePrivateChannel = false;
 
     if (currentTeam) {
         canCreatePublicChannel = haveICurrentChannelPermission(state, Permissions.CREATE_PUBLIC_CHANNEL);
