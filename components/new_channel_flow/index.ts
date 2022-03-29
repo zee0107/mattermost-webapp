@@ -26,8 +26,8 @@ function mapStateToProps(state: GlobalState) {
             Promise.resolve(team).then(value => { currentTeam = value; })
         }
     }*/
-    let canCreatePublicChannel = false;
-    let canCreatePrivateChannel = false;
+    let canCreatePublicChannel = true;
+    let canCreatePrivateChannel = true;
 
     if (currentTeam) {
         canCreatePublicChannel = haveICurrentChannelPermission(state, Permissions.CREATE_PUBLIC_CHANNEL);
