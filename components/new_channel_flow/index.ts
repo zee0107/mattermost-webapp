@@ -10,11 +10,13 @@ import {getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
 import {Action} from 'mattermost-redux/types/actions';
 import {createChannel} from 'mattermost-redux/actions/channels';
 import {GlobalState} from 'mattermost-redux/types/store';
+import {Client4} from 'mattermost-redux/client';
 
 import {switchToChannel} from 'actions/views/channel';
 import {closeModal} from 'actions/views/modals';
 
 import NewChannelFlow, {Props} from './new_channel_flow';
+
 
 function mapStateToProps(state: GlobalState) {
     const currentTeam = getCurrentTeam(state);
