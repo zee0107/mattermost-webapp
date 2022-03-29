@@ -15,6 +15,7 @@ import RightSideView from 'components/right_side_view';
 import {ChannelMembership,ServerChannel} from 'mattermost-redux/types/channels';
 import {ModalIdentifiers} from 'utils/constants';
 import GroupDetail from 'components/group_details';
+import Constants from 'utils/constants.jsx';
 
 type Props = {
     userId: string;
@@ -180,7 +181,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         <div className="row">
                             <div className="col-md-6">
                                 <label htmlFor="inputState" className="form-label"><small>Group name</small></label>
-                                <input type="text" className="form-control input-create-new-group" placeholder="Group name" aria-label="Group name"/>
+                                <input type="text" id='newChannelName' className="form-control input-create-new-group" maxLength={Constants.MAX_CHANNELNAME_LENGTH} placeholder='E.g.: "Bugs", "Marketing", "客户支持"' aria-label="Group name"/>
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="inputState" className="form-label"><small>Group url</small></label>
@@ -190,7 +191,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                         <div className="row">
                             <div className="col-md-12">
-                                <textarea className="form-control form-textarea-custom" id="" rows="3" placeholder="Group description"></textarea>
+                                <textarea className="form-control form-textarea-custom no-resize" id='newChannelPurpose' rows="3" placeholder='E.g.: "A group to to share crypto improvements"' maxLength='250'></textarea>
                             </div>
                         </div>
 
