@@ -144,7 +144,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
     }
 
     suggestedGroup = () => {
-        var test = document.getElementsByClassName('onMycarts');
+        document.getElementsByClassName('onMyCart').classList.add('active');
         /*test.classList.add('active');*/
         return (
             <div className='suggestedcontent col-md-12'>
