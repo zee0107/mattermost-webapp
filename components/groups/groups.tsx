@@ -170,7 +170,9 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             <div className="create-new-group">
                 <div className="box-middle-panel-create-new-group">
                     <div className="row">
-                        <h6>Create new groups</h6>
+                        <div className='col-md-12'>
+                            <h4>Create new groups</h4>
+                        </div>
                         <hr/>
                     </div>
 
