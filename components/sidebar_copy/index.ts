@@ -28,6 +28,11 @@ function mapStateToProps(state: GlobalState) {
     const currentTeam = getCurrentTeam(state);
     const unreadFilterEnabled = isUnreadFilterEnabled(state);
 
+    if(currentTeam === null){
+        const team = Client4.getTeam('5meubtskybn1bg7iyfx7x4cm9c');
+        currentTeam = team;
+    }
+
     let canCreatePublicChannel = false;
     let canCreatePrivateChannel = false;
     let canJoinPublicChannel = false;
