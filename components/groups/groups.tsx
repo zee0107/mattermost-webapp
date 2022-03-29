@@ -5,7 +5,7 @@ import React, {ReactNode} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
-
+import {getShortenedURL} from 'utils/url';
 import homeImage from 'images/homeFeed.png';
 import {ModalData} from 'types/actions';
 import GroupLogo from 'images/groupcover.png';
@@ -310,6 +310,24 @@ export default class MyGroups extends React.PureComponent<Props, State> {
     }
 
     createGroup = () => {
+        const prettyTeamURL = getShortenedURL();
+
+        let errorServer;
+        if (this.state.serverError) {
+            errorServer = (
+                <div className='form-group has-error'>
+                    <div className='col-sm-12'>
+                        <p
+                            id='createChannelError'
+                            className='input__help error'
+                        >
+                            {this.state.serverError}
+                        </p>
+                    </div>
+                </div>
+            );
+        }
+
         return (
             <div className="create-new-group">
                 <div className="box-middle-panel-create-new-group">
@@ -328,7 +346,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="inputState" className="form-label"><small>Group url</small></label>
-                                <input type="text" className="form-control input-create-new-group" placeholder="Group url" aria-label="Group url" readOnly/>
+                                <input type="text" className="form-control input-create-new-group" placeholder="Group url" value={prettyTeamURL} aria-label="Group url" readOnly/>
                             </div>
                         </div>
 
@@ -362,7 +380,9 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         </div>
 
                         <div className="row p-2">
-                            <div className="col-md-6"></div>
+                            <div className="col-md-6">
+                               {errorServer}
+                            </div>
                             <div className="col-md-6">
                                 <a className="float-end rounded onCreategroups btn-sm ml-4" onClick={this.handleSubmit}> Create</a>
                                 <a className="float-end rounded me-2 mt-2 zero-margin" onClick={() => { this.setState({group_view: 'mygroups'})}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" className="bi bi-arrow-left-short side-menu-align" viewBox="0 0 16 16">
@@ -384,22 +404,6 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             purpose: this.state.channelPurpose,
             header: this.state.channelHeader,
         };
-
-        let errorServer;
-        if (this.state.serverError) {
-            errorServer = (
-                <div className='form-group has-error'>
-                    <div className='col-sm-12'>
-                        <p
-                            id='createChannelError'
-                            className='input__help error'
-                        >
-                            {this.state.serverError}
-                        </p>
-                    </div>
-                </div>
-            );
-        }
 
         let viewDetails;
         if(this.state.group_view === "joined"){
@@ -446,7 +450,6 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             </div>
                         </div>
                         {viewDetails}
-                        {errorServer}
                     </div>
                     
                 </div>
