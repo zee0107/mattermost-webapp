@@ -124,7 +124,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
         const {actions} = this.props;
         const channel: Channel = {
-            team_id: 'd7cxjgejnbdm78h4n91kqeq6ow',
+            team_id: '5meubtskybn1bg7iyfx7x4cm9c',
             name: this.state.channelName,
             display_name: this.state.channelDisplayName,
             purpose: this.state.channelPurpose,
