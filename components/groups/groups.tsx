@@ -110,10 +110,10 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
 
     onSubmit = () => {
-        if (!this.state.channelDisplayName) {
+        /*if (!this.state.channelDisplayName) {
             this.setState({serverError: Utils.localizeMessage('channel_flow.invalidName', 'Invalid Channel Name')});
             return;
-        }
+        }*/
 
         const {actions} = this.props;
         const channel: Channel = {
