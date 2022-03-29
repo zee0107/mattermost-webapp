@@ -198,28 +198,23 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             <div className="col-md-6">
                                 <label htmlFor="inputState" className="form-label"><small>Group type</small></label>
                                 <select id="inputState" className="form-control input-create-new-group">
-                                <option selected>Choose...</option>
-                                <option>...</option>
+                                <option value='Public'>Public</option>
+                                <option value='Private'>Private</option>
                                 </select>
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="inputState" className="form-label"><small>Category</small></label>
                                 <select id="inputState" className="form-control input-create-new-group">
-                                <option selected>Choose...</option>
-                                <option>...</option>
+                                <option value='Meme'>Meme</option>
+                                <option value='NFT'>NFT</option>
+                                <option value='P2E'>Play to Earn</option>
+                                <option value='Deflationary'>Deflationary</option>
+                                <option value='YieldFarm'>Yield Farm</option>
+                                <option value='Calls'>Calls</option>
+                                <option value='Lounge'>Lounge</option>
+                                <option value='Others'>Others</option>
                                 </select>
                             </div>
-                        </div>
-
-                        <div className="row p-2">
-                            <div className="col-md-6">
-                                <label htmlFor="inputState" className="form-label"><small>Sub Category</small></label>
-                                <select id="inputState" className="form-control input-create-new-group">
-                                <option selected>Choose...</option>
-                                <option>...</option>
-                                </select>
-                            </div>
-                            <div className="col-md-6"></div>
                         </div>
 
                         <div className="row p-2">
