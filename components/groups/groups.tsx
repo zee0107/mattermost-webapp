@@ -144,6 +144,8 @@ export default class MyGroups extends React.PureComponent<Props, State> {
     }
 
     suggestedGroup = () => {
+        var test = document.getElementsByClassName('onMycarts');
+        /*test.classList.add('active');*/
         return (
             <div className='suggestedcontent col-md-12'>
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
@@ -178,58 +180,45 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                     <form>
                         <div className="row">
-                        <div className="col-md-6">
-                            <label htmlFor="inputState" className="form-label"><small>Group name</small></label>
-                            <input type="text" className="form-control input-create-new-group" placeholder="Group name" aria-label="Group name"/>
-                        </div>
-                        <div className="col-md-6">
-                            <label htmlFor="inputState" className="form-label"><small>Group url</small></label>
-                            <input type="text" className="form-control input-create-new-group" placeholder="Group url" aria-label="Group url"/>
-                        </div>
+                            <div className="col-md-6">
+                                <label htmlFor="inputState" className="form-label"><small>Group name</small></label>
+                                <input type="text" className="form-control input-create-new-group" placeholder="Group name" aria-label="Group name"/>
+                            </div>
+                            <div className="col-md-6">
+                                <label htmlFor="inputState" className="form-label"><small>Group url</small></label>
+                                <input type="text" className="form-control input-create-new-group" placeholder="Group url" aria-label="Group url"/>
+                            </div>
                         </div>
 
                         <div className="row">
-                        <div className="col-md-12">
-                            <textarea className="form-control form-textarea-custom" id="" rows="3" placeholder="Group description"></textarea>
-                        </div>
-                        </div>
-
-                        <div className="row p-2">
-                        <div className="col-md-6">
-                            <label htmlFor="inputState" className="form-label"><small>Group type</small></label>
-                            <select id="inputState" className="form-control input-create-new-group">
-                            <option selected>Choose...</option>
-                            <option>...</option>
-                            </select>
-                        </div>
-                        <div className="col-md-6">
-                            <label htmlFor="inputState" className="form-label"><small>Category</small></label>
-                            <select id="inputState" className="form-control input-create-new-group">
-                            <option selected>Choose...</option>
-                            <option>...</option>
-                            </select>
-                        </div>
+                            <div className="col-md-12">
+                                <textarea className="form-control form-textarea-custom" id="" rows="3" placeholder="Group description"></textarea>
+                            </div>
                         </div>
 
                         <div className="row p-2">
-                        <div className="col-md-6">
-                            <label htmlFor="inputState" className="form-label"><small>Group type</small></label>
-                            <select id="inputState" className="form-control input-create-new-group">
-                            <option selected>Choose...</option>
-                            <option>...</option>
-                            </select>
-                        </div>
-                        <div className="col-md-6">
-
-                        </div>
+                            <div className="col-md-6">
+                                <label htmlFor="inputState" className="form-label"><small>Group type</small></label>
+                                <select id="inputState" className="form-control input-create-new-group">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                                </select>
+                            </div>
+                            <div className="col-md-6">
+                                <label htmlFor="inputState" className="form-label"><small>Category</small></label>
+                                <select id="inputState" className="form-control input-create-new-group">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div className="row p-2">
-                        <div className="col-md-6"></div>
-                        <div className="col-md-6">
-                            <a className="float-end rounded onCreategroups btn-sm zero-margin"> Create</a>
-                            <a className="float-end rounded me-2 mt-2 zero-margin" onClick={() => { this.setState({group_view: 'mygroups'})}}> <i className="bi-arrow-left"></i> Go Back</a>
-                        </div>
+                            <div className="col-md-6"></div>
+                            <div className="col-md-6">
+                                <a className="float-end rounded onCreategroups btn-sm ml-4"> Create</a>
+                                <a className="float-end rounded me-2 mt-2 zero-margin" onClick={() => { this.setState({group_view: 'mygroups'})}}> <i className="bi-arrow-left"></i> Go Back</a>
+                            </div>
                         </div>
                     </form>
                 </div>
