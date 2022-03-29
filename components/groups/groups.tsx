@@ -206,7 +206,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
     handleChange = () => {
         const newData = {
             displayName: this.displayNameInput.current.value,
-            header: this.channelHeaderInput.current.value,
+            //header: this.channelHeaderInput.current.value,
             purpose: this.channelPurposeInput.current.value,
         };
         this.channelDataChanged(newData);
