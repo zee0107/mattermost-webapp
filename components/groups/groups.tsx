@@ -40,6 +40,7 @@ export type Props = {
     actions: {
         createChannel: (channel: Channel) => Promise<{data?: Channel; error?: ServerError}>;
         switchToChannel: (channel: Channel) => Promise<{data?: true; error?: true}>;
+        joinChannel: (currentUserId: string, teamId: string, channelId: string) => Promise<ActionResult>;
         openModal: <P>(modalData: ModalData<P>) => void;
         setStatus: (status: UserStatus) => ActionFunc;
         unsetCustomStatus: () => ActionFunc;
@@ -229,6 +230,21 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         this.typeSwitched(e.target.value);
     }
 
+    handleJoin = async (channel: ServerChannel, done: () => void) => {
+        const {actions} = this.props;
+        const result = await actions.joinChannel(this.props.userId, '5meubtskybn1bg7iyfx7x4cm9c', channel.id);
+
+        if (result.error) {
+            this.setState({serverError: result.error.message});
+        } /*else {
+            browserHistory.push(getRelativeChannelURL(teamName, channel.name));
+        }*/
+
+        if (done) {
+            done();
+        }
+    }
+
     showNewChannelModal = () => {
         this.props.actions.openModal({
             modalId: ModalIdentifiers.NEW_CHANNEL_FLOW,
@@ -309,7 +325,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
     
                                         <div className='row'>
                                             <div className='col-md-12 mb-3 p-3 text-center'>
-                                            <div className='d-grid'><a className='btn onFollowsuggested'><label>Follow</label></a></div></div>
+                                            <div className='d-grid'><a className='btn onFollowsuggested' onClick={this.handleJoin(item,() => { this.setState({group_view: 'joined'})})}><label>Follow</label></a></div></div>
                                         </div>
                                     </div>
                                 </div>
