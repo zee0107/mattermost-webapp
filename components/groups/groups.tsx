@@ -346,7 +346,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="inputState" className="form-label"><small>Group url</small></label>
-                                <input type="text" className="form-control input-create-new-group" placeholder="Group url" value={prettyTeamURL} aria-label="Group url" readOnly/>
+                                <input type="text" className="form-control input-create-new-group" placeholder="Group url" value={prettyTeamURL + this.state.channelName} aria-label="Group url" readOnly/>
                             </div>
                         </div>
 
