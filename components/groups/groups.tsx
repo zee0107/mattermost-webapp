@@ -172,8 +172,8 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                     <div className="row">
                         <div className='col-md-12'>
                             <h4>Create new groups</h4>
+                            <hr/>
                         </div>
-                        <hr/>
                     </div>
 
                     <form>
@@ -190,21 +190,21 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
                         <div className="row">
                         <div className="col-md-12">
-                            <textarea className="form-textarea-custom" id="" rows="3" placeholder="Group description"></textarea>
+                            <textarea className="form-control form-textarea-custom" id="" rows="3" placeholder="Group description"></textarea>
                         </div>
                         </div>
 
                         <div className="row p-2">
                         <div className="col-md-6">
                             <label htmlFor="inputState" className="form-label"><small>Group type</small></label>
-                            <select id="inputState" className="form-select input-create-new-group">
+                            <select id="inputState" className="form-control input-create-new-group">
                             <option selected>Choose...</option>
                             <option>...</option>
                             </select>
                         </div>
                         <div className="col-md-6">
                             <label htmlFor="inputState" className="form-label"><small>Category</small></label>
-                            <select id="inputState" className="form-select input-create-new-group">
+                            <select id="inputState" className="form-control input-create-new-group">
                             <option selected>Choose...</option>
                             <option>...</option>
                             </select>
@@ -214,7 +214,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         <div className="row p-2">
                         <div className="col-md-6">
                             <label htmlFor="inputState" className="form-label"><small>Group type</small></label>
-                            <select id="inputState" className="form-select input-create-new-group">
+                            <select id="inputState" className="form-control input-create-new-group">
                             <option selected>Choose...</option>
                             <option>...</option>
                             </select>
