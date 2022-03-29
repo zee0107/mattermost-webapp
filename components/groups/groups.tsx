@@ -5,7 +5,7 @@ import React, {ReactNode} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
-import {getShortenedURL} from 'utils/url';
+import {getShortenedURL,cleanUpUrlable} from 'utils/url';
 import homeImage from 'images/homeFeed.png';
 import {ModalData} from 'types/actions';
 import GroupLogo from 'images/groupcover.png';
@@ -19,7 +19,6 @@ import GroupDetail from 'components/group_details';
 import Constants from 'utils/constants.jsx';
 import * as Utils from 'utils/utils';
 import {FormattedMessage} from 'react-intl';
-
 
 export function getChannelTypeFromProps(props: Props): ChannelType {
     let channelType = props.channelType || Constants.OPEN_CHANNEL;
