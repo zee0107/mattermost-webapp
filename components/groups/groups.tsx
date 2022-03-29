@@ -35,7 +35,7 @@ export function getChannelTypeFromProps(props: Props): ChannelType {
 export type Props = {
     userId: string;
     profilePicture: string;
-    currentTeamId: string;
+    currentTeamId?: string;
     channelType: ChannelType;
     actions: {
         createChannel: (channel: Channel) => Promise<{data?: Channel; error?: ServerError}>;
