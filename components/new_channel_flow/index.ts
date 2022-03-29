@@ -20,11 +20,9 @@ import NewChannelFlow, {Props} from './new_channel_flow';
 
 function mapStateToProps(state: GlobalState) {
     const currentTeam = getCurrentTeam(state);
-    if (currentTeam === undefined){
+    if (currentTeam == 'undefined'){
         const team = Client4.getTeam('5meubtskybn1bg7iyfx7x4cm9c');
-        if(team != null){
-            Promise.resolve(team).then(value => { currentTeam = value; })
-        }
+        currentTeam = team;
     }
     let canCreatePublicChannel = false;
     let canCreatePrivateChannel = false;
