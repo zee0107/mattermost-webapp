@@ -89,13 +89,13 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
     joinedGroup = () => {
         return (
-            /*<div className='joinedcontent col-md-12'>
+            <div className='joinedcontent col-md-12'>
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                     <div className='col-md-3 p-1'>
                         <div className='box-each-groups'>
                             <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                             <p className='mt-4 ms-3 ml-5'>
-                            <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
+                                <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
                             </p>
 
                             <div className='row'>
@@ -105,31 +105,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                 </div>
-            </div>*/
-
-            <div className='mygroupcontent col-md-12'>
-                <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
-                    {this.state.mygroups.map((item,index) => {
-                        if(item.display_name !== ''){
-                            return(
-                                <div className='col-md-3 p-1'>
-                                    <div className='box-each-groups'>
-                                        <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
-                                        <p className='mt-4 ms-3 ml-5'>
-                                        <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
-                                        </p>
-    
-                                        <div className='row'>
-                                            <div className='col-md-6 mt-2 mb-3'><a className='float-end onEditgroups'><label>TEST</label></a></div>
-                                            <div className='col-md-6 mt-2 mb-3'><a className='float-start onDeletegroups'><label>TEST</label></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-                        }
-                    })}
-                </div> 
-            </div> 
+            </div>
         );
     }
 
