@@ -230,18 +230,14 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         this.typeSwitched(e.target.value);
     }
 
-    handleJoin = async (channel: ServerChannel, done: () => void) => {
+    handleJoin = async (channel: ServerChannel) => {
         const {actions} = this.props;
         const result = await actions.joinChannel(this.props.userId, '5meubtskybn1bg7iyfx7x4cm9c', channel.id);
 
         if (result.error) {
             this.setState({serverError: result.error.message});
-        } /*else {
-            browserHistory.push(getRelativeChannelURL(teamName, channel.name));
-        }*/
-
-        if (done) {
-            done();
+        } else {
+            this.setState({group_view: 'joined'})
         }
     }
 
@@ -325,7 +321,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
     
                                         <div className='row'>
                                             <div className='col-md-12 mb-3 p-3 text-center'>
-                                            <div className='d-grid'><a className='btn onFollowsuggested' onClick={this.handleJoin(item,() => { this.setState({group_view: 'joined'})})}><label>Follow</label></a></div></div>
+                                            <div className='d-grid'><a className='btn onFollowsuggested' onClick={this.handleJoin(item)}><label>Follow</label></a></div></div>
                                         </div>
                                     </div>
                                 </div>
