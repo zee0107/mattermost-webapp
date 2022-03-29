@@ -138,7 +138,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             if (error) {
                 this.onCreateChannelError(error);
             } else if (data) {
-                actions.switchToChannel(data);
+                this.setState({group_view: 'mygroup'});
             }
         });
     };
@@ -320,7 +320,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         </div>
                     </div>
 
-                    <form>
+                    <form role='form'>
                         <div className="row">
                             <div className="col-md-6">
                                 <label htmlFor="inputState" className="form-label"><small>Group name</small></label>
@@ -385,6 +385,22 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             header: this.state.channelHeader,
         };
 
+        let errorServer;
+        if (this.state.serverError) {
+            errorServer = (
+                <div className='form-group has-error'>
+                    <div className='col-sm-12'>
+                        <p
+                            id='createChannelError'
+                            className='input__help error'
+                        >
+                            {this.state.serverError}
+                        </p>
+                    </div>
+                </div>
+            );
+        }
+
         let viewDetails;
         if(this.state.group_view === "joined"){
             viewDetails = this.joinedGroup();
@@ -430,6 +446,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             </div>
                         </div>
                         {viewDetails}
+                        {errorServer}
                     </div>
                     
                 </div>
