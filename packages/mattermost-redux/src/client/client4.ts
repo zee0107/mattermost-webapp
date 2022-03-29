@@ -1504,6 +1504,22 @@ export default class Client4 {
         );
     };
 
+    getAllChannelsExclude = (page = 0, perPage = PER_PAGE_DEFAULT, notAssociatedToGroup = '', excludeDefaultChannels = true, includeTotalCount = false, includeDeleted = false, excludePolicyConstrained = false) => {
+        const queryData = {
+            page,
+            per_page: perPage,
+            not_associated_to_group: notAssociatedToGroup,
+            exclude_default_channels: excludeDefaultChannels,
+            include_total_count: includeTotalCount,
+            include_deleted: includeDeleted,
+            exclude_policy_constrained: excludePolicyConstrained,
+        };
+        return this.doFetch<ChannelWithTeamData[] | ChannelsWithTotalCount>(
+            `${this.getChannelsRoute()}${buildQueryString(queryData)}`,
+            {method: 'get'},
+        );
+    };
+
     createChannel = (channel: Channel) => {
         this.trackEvent('api', 'api_channels_create', {team_id: channel.team_id});
 

@@ -13,12 +13,13 @@ import NewChannelFlow from 'components/new_channel_flow';
 import {trackEvent} from 'actions/telemetry_actions';
 import {ServerError} from 'mattermost-redux/types/errors';
 import RightSideView from 'components/right_side_view';
-import {ChannelType, Channel,ServerChannel} from 'mattermost-redux/types/channels';
+import {ChannelType, Channel,ServerChannel,ChannelWithTeamData} from 'mattermost-redux/types/channels';
 import {ModalIdentifiers} from 'utils/constants';
 import GroupDetail from 'components/group_details';
 import Constants from 'utils/constants.jsx';
 import * as Utils from 'utils/utils';
 import {FormattedMessage} from 'react-intl';
+import {browserHistory} from 'utils/browser_history';
 
 export function getChannelTypeFromProps(props: Props): ChannelType {
     let channelType = props.channelType || Constants.OPEN_CHANNEL;
@@ -46,6 +47,7 @@ export type Props = {
     };
     currentUser: UserProfile;
     mychannels: Promise<ServerChannel[]>;
+    suggestedChannels: Promise<ChannelWithTeamData[]>;
 }
 
 type State = {
@@ -81,7 +83,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = { openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, mygroups: [], group_view: 'mygroup',
+        this.state = { openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, mygroups: [], suggestedgroup: [], group_view: 'mygroup',
             serverError: '',
             channelType: getChannelTypeFromProps(props),
             channelDisplayName: '',
@@ -103,6 +105,11 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         if(this.props.mychannels != null){
             Promise.resolve(this.props.mychannels).then(value => {this.setState({mygroups: value});})
         }
+
+        if(this.props.suggestedChannels != null){
+            Promise.resolve(this.props.suggestedChannels).then(value => {this.setState({suggestedgroup: value});})
+        }
+
 
         console.log(this.props.userId);
     }
@@ -137,7 +144,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             if (error) {
                 this.onCreateChannelError(error);
             } else if (data) {
-                this.setState({group_view: 'mygroup'});
+                browserHistory.push('/mygroups');
             }
         });
     };
@@ -235,7 +242,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             <div className='joinedcontent col-md-12'>
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                     {this.state.mygroups.map((item,index) => {
-                        if(item.display_name !== ''){
+                        if(item.display_name !== ''  || item.display_name !== 'Town Square'){
                             return(
                                 <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
@@ -263,7 +270,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             <div className='mygroupcontent col-md-12'>
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                     {this.state.mygroups.map((item,index) => {
-                        if(item.display_name !== ''){
+                        if(item.display_name !== '' || item.display_name !== 'Town Square'){
                             return(
                                 <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
@@ -290,19 +297,25 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         return (
             <div className='suggestedcontent col-md-12'>
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
-                    <div className='col-md-3 p-1'>
-                        <div className='box-each-groups'>
-                            <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
-                            <p className='mt-4 ms-3 ml-5'>
-                            <label className='text-name-products'><strong>Lorem Ipsum</strong></label><br/><label className='text-count-members'>95K Members</label>
-                            </p>
-
-                            <div className='row'>
-                                <div className='col-md-12 mb-3 p-3 text-center'>
-                                <div className='d-grid'><a className='btn onFollowsuggested'><label>Follow</label></a></div></div>
-                            </div>
-                        </div>
-                    </div>
+                    {this.state.suggestedgroup.map((item,index) => {
+                        if(item.display_name !== ''  || item.display_name !== 'Town Square'){
+                            return(
+                                <div className='col-md-3 p-1'>
+                                    <div className='box-each-groups'>
+                                        <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
+                                        <p className='mt-4 ms-3 ml-5'>
+                                        <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
+                                        </p>
+    
+                                        <div className='row'>
+                                            <div className='col-md-12 mb-3 p-3 text-center'>
+                                            <div className='d-grid'><a className='btn onFollowsuggested'><label>Follow</label></a></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        }
+                    })}
                 </div>
             </div>
         );
