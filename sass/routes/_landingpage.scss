@@ -911,6 +911,13 @@
   font-size: 14px;
 }
 
+.btn-logout:hover{
+  background-color: transparent;
+  border: transparent;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
 .logout-icon{
   vertical-align: bottom;
 }
