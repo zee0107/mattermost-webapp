@@ -145,7 +145,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             if (error) {
                 this.onCreateChannelError(error);
             } else if (data) {
-                browserHistory.push('/mygroups');
+                browserHistory.push('./mygroups');
             }
         });
     };
@@ -283,21 +283,24 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                     {this.state.mygroups.map((item,index) => {
                         if(item.display_name !== '' && item.display_name !== 'Town Square'){
-                            return(
-                                <div className='col-md-3 p-1'>
-                                    <div className='box-each-groups'>
-                                        <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
-                                        <p className='mt-4 ms-3 ml-5'>
-                                        <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
-                                        </p>
-    
-                                        <div className='row'>
-                                            <div className='col-md-6 mt-2 mb-3'><a className='float-end onEditgroups'><label>Edit</label></a></div>
-                                            <div className='col-md-6 mt-2 mb-3'><a className='float-start onDeletegroups'><label>Delete</label></a></div>
+                            if(item.creator_id === this.props.userId)
+                            {
+                                return(
+                                    <div className='col-md-3 p-1'>
+                                        <div className='box-each-groups'>
+                                            <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
+                                            <p className='mt-4 ms-3 ml-5'>
+                                            <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
+                                            </p>
+        
+                                            <div className='row'>
+                                                <div className='col-md-6 mt-2 mb-3'><a className='float-end onEditgroups'><label>Edit</label></a></div>
+                                                <div className='col-md-6 mt-2 mb-3'><a className='float-start onDeletegroups'><label>Delete</label></a></div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            );
+                                );
+                            }
                         }
                     })}
                 </div> 
