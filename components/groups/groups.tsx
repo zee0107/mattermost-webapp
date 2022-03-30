@@ -20,6 +20,7 @@ import Constants from 'utils/constants.jsx';
 import * as Utils from 'utils/utils';
 import {FormattedMessage} from 'react-intl';
 import {browserHistory} from 'utils/browser_history';
+import { group } from 'console';
 
 export function getChannelTypeFromProps(props: Props): ChannelType {
     let channelType = props.channelType || Constants.OPEN_CHANNEL;
@@ -94,7 +95,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = { openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, mygroups: [], suggestedgroup: [], group_view: 'mygroup',
+        this.state = { openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, mygroups: [], suggestedgroup: [], group_view: 'mygroups',
             result_create: false, result_joined: false, result_update: false, result_leave: false, serverError: '', channelType: getChannelTypeFromProps(props), channelDisplayName: '', channelName: '',
             channelPurpose: '', channelHeader: '', channelId: '', nameModified: false, result_remove: false,
         };
@@ -648,7 +649,6 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const { group_view } = this.state;
-
         let viewDetails;
         if(this.state.group_view === "joined"){
             viewDetails = this.joinedGroup();
