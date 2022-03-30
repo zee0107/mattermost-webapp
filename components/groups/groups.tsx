@@ -127,7 +127,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
         const {actions} = this.props;
         const channel: Channel = {
-            team_id: '5meubtskybn1bg7iyfx7x4cm9c',
+            team_id: 'd7cxjgejnbdm78h4n91kqeq6ow',
             name: this.state.channelName,
             display_name: this.state.channelDisplayName,
             purpose: this.state.channelPurpose,
@@ -229,7 +229,8 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
     handleJoin = (channel: ServerChannel) => {
         const {actions} = this.props;
-        const result = actions.joinChannel(this.props.userId, '5meubtskybn1bg7iyfx7x4cm9c', channel.id);
+        //const result = actions.joinChannel(this.props.userId, '5meubtskybn1bg7iyfx7x4cm9c', channel.id);
+        const result = actions.joinChannel(this.props.userId, 'd7cxjgejnbdm78h4n91kqeq6ow', channel.id);
 
         if (result.error) {
             this.setState({serverError: result.error.message});
@@ -240,21 +241,6 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
     joinGroup(channel) {
         this.handleJoin(channel);
-    }
-
-    handleLeaveChannel = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-        e.preventDefault();
-        e.stopPropagation();
-        if (this.isLeaving || !this.props.closeHandler) {
-            return;
-        }
-
-        this.isLeaving = true;
-        trackEvent('ui', 'ui_sidebar_channel_menu_leave');
-
-        this.props.closeHandler(() => {
-            this.isLeaving = false;
-        });
     }
 
     joinedGroup = () => {
@@ -272,7 +258,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                         </p>
     
                                         <div className='col-md-12 mb-3 p-3 text-center'>
-                                            <div className='d-grid'><a className='btn onUnfollowsuggested'><label>Unfollow</label></a></div>
+                                            <div className='d-grid'><button type='button' className='btn onUnfollowsuggested'><label>Unfollow</label></button></div>
                                         </div>
                                         <div className='row'></div>
                                     </div>
