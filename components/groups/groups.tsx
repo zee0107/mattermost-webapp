@@ -439,7 +439,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
         if(this.state.result_joined){
             errorServer = (<div className='alert alert-success'>
-                    <label>Successfully joined a group.</label>
+                    <label>Successfully joined a group. Group is available on Joined Tab.</label>
                 </div>);
         }
 
@@ -548,7 +548,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             <div className="col-md-6"></div>
                             <div className="col-md-6">
                                 <a className="float-end rounded onCreategroups btn-sm ml-4" onClick={this.handleSubmit}> Create</a>
-                                <a className="float-end rounded me-2 mt-2 zero-margin" onClick={() => { this.setState({group_view: 'mygroups'})}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" className="bi bi-arrow-left-short side-menu-align" viewBox="0 0 16 16">
+                                <a className="float-end rounded me-2 mt-2 zero-margin" onClick={() => { this.setState({group_view: 'mygroups', serverError: ''})}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" className="bi bi-arrow-left-short side-menu-align" viewBox="0 0 16 16">
                                     <path fillRule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
                                 </svg> Go Back</a>
                             </div>
@@ -634,7 +634,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             <div className="col-md-6">
                                 <a className="float-end rounded onCreategroups btn-sm ml-4" onClick={this.handleSubmitUpdate}> Update</a>
                                 <a className="float-end rounded me-2 mt-2 zero-margin" onClick={() => { 
-                                    this.setState({group_view: 'mygroups',channelId: '', channelName: '',channelDisplayName: '',channelPurpose: '',channelHeader: '',channelType: '' })
+                                    this.setState({group_view: 'mygroups',channelId: '', channelName: '',channelDisplayName: '',channelPurpose: '',channelHeader: '',channelType: '', serverError: '' })
                                     }}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" className="bi bi-arrow-left-short side-menu-align" viewBox="0 0 16 16">
                                     <path fillRule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
                                 </svg> Go Back</a>
@@ -682,9 +682,9 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className='col-md-6'>
                                     <div className='row'>
-                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'mygroups' ? 'onMygroupspages p-6 active-group-menu' : 'onMygroupspages p-6'} onClick={() => { this.setState({group_view: 'mygroups', result_create: false, result_joined: false, result_leave: false, result_remove: false, result_update: false})}}>MyGroups</a></div>
-                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'suggested' ? 'onMycarts p-6 active-group-menu' : 'onMycarts p-6'} onClick={() => { this.setState({group_view: 'suggested', result_create: false, result_joined: false, result_leave: false, result_remove: false, result_update: false})}}>Suggested</a></div>
-                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'joined' ? 'onMyjoined p-6 active-group-menu' : 'onMyjoined p-6'} onClick={() => { this.setState({group_view: 'joined', result_create: false, result_joined: false, result_leave: false, result_remove: false, result_update: false})}}>Joined</a></div>
+                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'mygroups' ? 'onMygroupspages p-6 active-group-menu' : 'onMygroupspages p-6'} onClick={() => { this.setState({group_view: 'mygroups', result_create: false, result_joined: false, result_leave: false, result_remove: false, result_update: false , serverError: ''})}}>MyGroups</a></div>
+                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'suggested' ? 'onMycarts p-6 active-group-menu' : 'onMycarts p-6'} onClick={() => { this.setState({group_view: 'suggested', result_create: false, result_joined: false, result_leave: false, result_remove: false, result_update: false, serverError: ''})}}>Suggested</a></div>
+                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'joined' ? 'onMyjoined p-6 active-group-menu' : 'onMyjoined p-6'} onClick={() => { this.setState({group_view: 'joined', result_create: false, result_joined: false, result_leave: false, result_remove: false, result_update: false, serverError: ''})}}>Joined</a></div>
                                     </div>
                                 </div>
                                 <div className='col-md-3 text-end'>
