@@ -40,7 +40,7 @@ function makeMapStateToProps() {
             currentUser,
             currentTeamId: currentTeam?.id,
             mychannels: Client4.getMyChannels('5meubtskybn1bg7iyfx7x4cm9c'),
-            suggestedChannels: Client4.getAllChannelsExclude(),
+            suggestedChannels: Client4.getChannels('5meubtskybn1bg7iyfx7x4cm9c'),
         };
     };
 }
