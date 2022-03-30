@@ -683,49 +683,54 @@ export function leaveChannel(channelId: string): ActionFunc {
 }
 
 export function leaveChannelNew(channelId: string): ActionFunc {
-    return async (dispatch: DispatchFunc, getState: GetStateFunc) => {
-        const state = getState();
-        const {currentUserId} = state.entities.users;
-        const {channels, myMembers} = state.entities.channels;
-        const channel = Client4.getChannel(channelId);
-        const member = Client4.getChannelMember(channel.id, currentUserId);
-
-        Client4.trackEvent('action', 'action_channels_leave', {channel_id: channelId});
-
-        dispatch({
-            type: ChannelTypes.LEAVE_CHANNEL,
-            data: {
-                id: channelId,
-                user_id: currentUserId,
-                team_id: channel.team_id,
-                type: channel.type,
-            },
-        });
-
-        (async function removeFromChannelWrapper() {
-            try {
-                await Client4.removeFromChannel(currentUserId, channelId);
-            } catch {
-                dispatch(batchActions([
-                    {
-                        type: ChannelTypes.RECEIVED_CHANNEL,
-                        data: channel,
-                    },
-                    {
-                        type: ChannelTypes.RECEIVED_MY_CHANNEL_MEMBER,
-                        data: member,
-                    },
-                ]));
-
-                // The category here may not be the one in which the channel was originally located,
-                // much less the order in which it was placed. Treating this as a transient issue
-                // for the user to resolve by refreshing or leaving again.
-                dispatch(addChannelToInitialCategory(channel, false));
-            }
-        }());
-
-        return {data: true};
-    };
+    if(channelId !== ''){
+        return async (dispatch: DispatchFunc, getState: GetStateFunc) => {
+            const state = getState();
+            const {currentUserId} = state.entities.users;
+            const {channels, myMembers} = state.entities.channels;
+            const channel = Client4.getChannel(channelId);
+            const member = Client4.getChannelMember(channel.id, currentUserId);
+    
+            Client4.trackEvent('action', 'action_channels_leave', {channel_id: channelId});
+    
+            dispatch({
+                type: ChannelTypes.LEAVE_CHANNEL,
+                data: {
+                    id: channelId,
+                    user_id: currentUserId,
+                    team_id: channel.team_id,
+                    type: channel.type,
+                },
+            });
+    
+            (async function removeFromChannelWrapper() {
+                try {
+                    await Client4.removeFromChannel(currentUserId, channelId);
+                } catch {
+                    dispatch(batchActions([
+                        {
+                            type: ChannelTypes.RECEIVED_CHANNEL,
+                            data: channel,
+                        },
+                        {
+                            type: ChannelTypes.RECEIVED_MY_CHANNEL_MEMBER,
+                            data: member,
+                        },
+                    ]));
+    
+                    // The category here may not be the one in which the channel was originally located,
+                    // much less the order in which it was placed. Treating this as a transient issue
+                    // for the user to resolve by refreshing or leaving again.
+                    dispatch(addChannelToInitialCategory(channel, false));
+                }
+            }());
+    
+            return {data: true};
+        };
+    }
+    else{
+        return {data: false}
+    }
 }
 
 export function joinChannel(userId: string, teamId: string, channelId: string, channelName: string): ActionFunc {
