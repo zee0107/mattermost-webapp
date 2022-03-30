@@ -113,10 +113,18 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         if(this.props.suggestedChannels != null){
             Promise.resolve(this.props.suggestedChannels).then(value => {this.setState({suggestedgroup: value});})
         }
-
-
-        console.log(this.props.userId);
     }
+
+    componentDidUpdate(){
+        if(this.props.mychannels != null){
+            Promise.resolve(this.props.mychannels).then(value => {this.setState({mygroups: value});})
+        }
+
+        if(this.props.suggestedChannels != null){
+            Promise.resolve(this.props.suggestedChannels).then(value => {this.setState({suggestedgroup: value});})
+        }
+    }
+
 
 
     onSubmit = () => {
