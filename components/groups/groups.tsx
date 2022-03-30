@@ -61,8 +61,10 @@ type State = {
     isDark: string;
     img_path: string;
     group_view: string;
-    action_result: boolean;
-
+    result_create: boolean;
+    result_joined: boolean;
+    result_leave: boolean;
+    result_remove: boolean;
     serverError: JSX.Element | string | null;
     channelType: ChannelType;
     flowState: number;
@@ -89,14 +91,9 @@ export default class MyGroups extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = { openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, mygroups: [], suggestedgroup: [], group_view: 'mygroup',action_result: false,
-            serverError: '',
-            channelType: getChannelTypeFromProps(props),
-            channelDisplayName: '',
-            channelName: '',
-            channelPurpose: '',
-            channelHeader: '',
-            nameModified: false,
+        this.state = { openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, mygroups: [], suggestedgroup: [], group_view: 'mygroup',
+            result_create: false, result_joined: false, result_leave: false, serverError: '', channelType: getChannelTypeFromProps(props), channelDisplayName: '', channelName: '',
+            channelPurpose: '', channelHeader: '', nameModified: false, result_remove: false,
         };
 
         this.channelHeaderInput = React.createRef();
@@ -160,7 +157,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                 this.onCreateChannelError(error);
             } else if (data) {
                 //browserHistory.push('./mygroups');
-                this.setState({group_view: 'mygroups'});
+                this.setState({group_view: 'mygroups', result_create: true});
             }
         });
     };
@@ -246,7 +243,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         if (result.error) {
             this.setState({serverError: result.error.message});
         } else {
-            this.setState({group_view: 'joined'})
+            this.setState({result_joined: true})
         }
     }
 
@@ -261,7 +258,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         if (result.error) {
             this.setState({serverError: result.error.message});
         } else {
-            this.setState({group_view: 'suggested'});
+            this.setState({result_leave: true});
         }
     }
 
@@ -276,7 +273,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         if (result.error) {
             this.setState({serverError: result.error.message});
         } else {
-            this.setState({group_view: 'mygroup'});
+            this.setState({result_remove: true});
         }
     }
 
@@ -290,6 +287,14 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             errorServer = (<div className='alert alert-danger'>
                     <div className='col-sm-12'>
                         <label>{this.state.serverError}</label>
+                    </div>
+                </div>);
+        }
+
+        if(this.state.result_leave){
+            errorServer = (<div className='alert alert-success'>
+                    <div className='col-sm-12'>
+                        <label>Leaved group successfuly.</label>
                     </div>
                 </div>);
         }
@@ -327,7 +332,23 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         if (this.state.serverError) {
             errorServer = (<div className='alert alert-danger'>
                     <div className='col-sm-12'>
-                        <label>{this.state.serverError}</label>
+                        <label>{this.state.serverError}.</label>
+                    </div>
+                </div>);
+        }
+
+        if(this.state.result_create){
+            errorServer = (<div className='alert alert-success'>
+                    <div className='col-sm-12'>
+                        <label>Successfuly create a group.</label>
+                    </div>
+                </div>);
+        }
+
+        if(this.state.result_remove){
+            errorServer = (<div className='alert alert-success'>
+                    <div className='col-sm-12'>
+                        <label>Group has been archive.</label>
                     </div>
                 </div>);
         }
@@ -369,6 +390,14 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             errorServer = (<div className='alert alert-danger'>
                     <div className='col-sm-12'>
                         <label>{this.state.serverError}</label>
+                    </div>
+                </div>);
+        }
+
+        if(this.state.result_joined){
+            errorServer = (<div className='alert alert-success'>
+                    <div className='col-sm-12'>
+                        <label>Successfuly joined a group.</label>
                     </div>
                 </div>);
         }
@@ -525,9 +554,9 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className='col-md-6'>
                                     <div className='row'>
-                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'mygroups' ? 'onMygroupspages p-6 active-group-menu' : 'onMygroupspages p-6'} onClick={() => { this.setState({group_view: 'mygroups'})}}>MyGroups</a></div>
-                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'suggested' ? 'onMycarts p-6 active-group-menu' : 'onMycarts p-6'} onClick={() => { this.setState({group_view: 'suggested'})}}>Suggested</a></div>
-                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'joined' ? 'onMyjoined p-6 active-group-menu' : 'onMyjoined p-6'} onClick={() => { this.setState({group_view: 'joined'})}}>Joined</a></div>
+                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'mygroups' ? 'onMygroupspages p-6 active-group-menu' : 'onMygroupspages p-6'} onClick={() => { this.setState({group_view: 'mygroups', result_create: false, result_joined: false, result_leave: false, result_remove: false})}}>MyGroups</a></div>
+                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'suggested' ? 'onMycarts p-6 active-group-menu' : 'onMycarts p-6'} onClick={() => { this.setState({group_view: 'suggested', result_create: false, result_joined: false, result_leave: false, result_remove: false})}}>Suggested</a></div>
+                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'joined' ? 'onMyjoined p-6 active-group-menu' : 'onMyjoined p-6'} onClick={() => { this.setState({group_view: 'joined', result_create: false, result_joined: false, result_leave: false, result_remove: false})}}>Joined</a></div>
                                     </div>
                                 </div>
                                 <div className='col-md-3 text-end'>
