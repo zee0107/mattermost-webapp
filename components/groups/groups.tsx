@@ -313,26 +313,25 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         return (
             <div className='suggestedcontent col-md-12'>
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
-                    {this.state.mygroup.map((item,index) => {
-                        this.state.suggestedgroup.some(t => item.id !== t.id).map((item2,index) => {
-                            if(item2.display_name !== ''  && item2.display_name !== 'Town Square'){
-                                return(
-                                    <div className='col-md-3 p-1'>
-                                        <div className='box-each-groups'>
-                                            <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
-                                            <p className='mt-4 ms-3 ml-5'>
-                                            <label className='text-name-products'><strong>{item2.display_name}</strong></label><br/><GroupDetail channelId={item2.id}/>
-                                            </p>
-        
-                                            <div className='row'>
-                                                <div className='col-md-12 mb-3 p-3 text-center'>
-                                                <div className='d-grid'><a className='btn onFollowsuggested'><label>Follow</label></a></div></div>
-                                            </div>
+                    {this.state.suggestedgroup.map((item,index) => {
+                        if(item.display_name !== ''  && item.display_name !== 'Town Square'){
+                            
+                            return(
+                                <div className='col-md-3 p-1'>
+                                    <div className='box-each-groups'>
+                                        <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
+                                        <p className='mt-4 ms-3 ml-5'>
+                                        <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
+                                        </p>
+    
+                                        <div className='row'>
+                                            <div className='col-md-12 mb-3 p-3 text-center'>
+                                            <div className='d-grid'><a className='btn onFollowsuggested'><label>Follow</label></a></div></div>
                                         </div>
                                     </div>
-                                );
-                            }
-                        })
+                                </div>
+                            );
+                        }
                     })}
                 </div>
             </div>
