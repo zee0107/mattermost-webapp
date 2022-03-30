@@ -42,6 +42,7 @@ export type Props = {
         createChannel: (channel: Channel) => Promise<{data?: Channel; error?: ServerError}>;
         switchToChannel: (channel: Channel) => Promise<{data?: true; error?: true}>;
         joinChannel: (currentUserId: string, teamId: string, channelId: string) => Promise<ActionResult>;
+        leaveChannel: (channelId: string) => Promise<ActionResult>;
         openModal: <P>(modalData: ModalData<P>) => void;
         setStatus: (status: UserStatus) => ActionFunc;
         unsetCustomStatus: () => ActionFunc;
@@ -251,23 +252,38 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         this.handleJoin(channel);
     }
     
-    handleLeaveChannel = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-        e.preventDefault();
-        e.stopPropagation();
-        if (this.isLeaving || !this.props.closeHandler) {
-            return;
+    handleLeaveChannel = (channel: ServerChannel) => {
+        const {actions} = this.props;
+        const result = actions.leaveChannel(channel.id);
+
+        if (result.error) {
+            this.setState({serverError: result.error.message});
+        } else {
+            this.setState({group_view: 'suggested'})
         }
+    }
 
-        this.isLeaving = true;
-        trackEvent('ui', 'ui_sidebar_channel_menu_leave');
-
-        this.props.closeHandler(() => {
-            this.isLeaving = false;
-            this.setState({group_view: 'suggested'});
-        });
+    leaveGroup(channel){
+        this.handleLeaveChannel(channel);
     }
 
     joinedGroup = () => {
+        let errorServer;
+        if (this.state.serverError) {
+            errorServer = (
+                <div className='form-group has-error'>
+                    <div className='col-sm-12'>
+                        <p
+                            id='createChannelError'
+                            className='input__help error'
+                        >
+                            {this.state.serverError}
+                        </p>
+                    </div>
+                </div>
+            );
+        }
+
         return (
             <div className='joinedcontent col-md-12'>
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
@@ -282,7 +298,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                         </p>
     
                                         <div className='col-md-12 mb-3 p-3 text-center'>
-                                            <div className='d-grid'><button type='button' className='btn onUnfollowsuggested' onClick={this.handleLeaveChannel.bind(this)}><label>Unfollow</label></button></div>
+                                            <div className='d-grid'><button type='button' className='btn onUnfollowsuggested' onClick={this.leaveGroup.bind(this,item)}><label>Unfollow</label></button></div>
                                         </div>
                                         <div className='row'></div>
                                     </div>
@@ -291,11 +307,28 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         }
                     })}
                 </div>
+                {errorServer}
             </div>
         );
     }
 
     myGroupList = () => {
+        let errorServer;
+        if (this.state.serverError) {
+            errorServer = (
+                <div className='form-group has-error'>
+                    <div className='col-sm-12'>
+                        <p
+                            id='createChannelError'
+                            className='input__help error'
+                        >
+                            {this.state.serverError}
+                        </p>
+                    </div>
+                </div>
+            );
+        }
+
         return (
             <div className='mygroupcontent col-md-12'>
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
@@ -322,11 +355,28 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         }
                     })}
                 </div> 
+                {errorServer}
             </div> 
         );
     }
 
     suggestedGroup = () => {
+        let errorServer;
+        if (this.state.serverError) {
+            errorServer = (
+                <div className='form-group has-error'>
+                    <div className='col-sm-12'>
+                        <p
+                            id='createChannelError'
+                            className='input__help error'
+                        >
+                            {this.state.serverError}
+                        </p>
+                    </div>
+                </div>
+            );
+        }
+
         return (
             <div className='suggestedcontent col-md-12'>
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
@@ -354,6 +404,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         }
                     })}
                 </div>
+                {errorServer}
             </div>
         );
     }
