@@ -626,7 +626,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         <div className="row p-2">
                             <div className="col-md-6"></div>
                             <div className="col-md-6">
-                                <a className="float-end rounded onCreategroups btn-sm ml-4" onClick={this.handleSubmitUpdate}> Create</a>
+                                <a className="float-end rounded onCreategroups btn-sm ml-4" onClick={this.handleSubmitUpdate}> Update</a>
                                 <a className="float-end rounded me-2 mt-2 zero-margin" onClick={() => { 
                                     this.setState({group_view: 'mygroups',channelId: '', channelName: '',channelDisplayName: '',channelPurpose: '',channelHeader: '',channelType: '' })
                                     }}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" className="bi bi-arrow-left-short side-menu-align" viewBox="0 0 16 16">
@@ -654,7 +654,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             viewDetails = this.createGroup();
         }
         else if(this.state.group_view === "update_group"){
-            viewDetails = this.createGroup();
+            viewDetails = this.updateGroup();
         }
         else{
             viewDetails = this.myGroupList();
