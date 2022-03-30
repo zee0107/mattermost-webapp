@@ -261,6 +261,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             this.setState({serverError: result.error.message});
         } else {
             this.setState({group_view: 'suggested'});
+        }
     }
 
     leaveGroup(channel){
