@@ -220,27 +220,24 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         this.channelDataChanged(newData);
     }
 
-    /*handleOnURLChange = (e) => {
-        e.preventDefault();
-        if (this.props.onChangeURLPressed) {
-            this.props.onChangeURLPressed();
-        }
-    }*/
-
     handleTypeSelect = (e) => {
         this.typeSwitched(e.target.value);
     }
 
-    /*handleJoin = (channel: ServerChannel) => {
+    handleJoin = (channel: ServerChannel) => {
         const {actions} = this.props;
-        const result = actions.joinChannel(this.props.userId, 'd7cxjgejnbdm78h4n91kqeq6ow', channel.id);
+        const result = actions.joinChannel(this.props.userId, '5meubtskybn1bg7iyfx7x4cm9c', channel.id);
 
         if (result.error) {
             this.setState({serverError: result.error.message});
         } else {
             this.setState({group_view: 'joined'})
         }
-    }*/
+    }
+
+    joinGroup(channel) {
+        this.handleJoin(channel);
+    }
 
     showNewChannelModal = () => {
         this.props.actions.openModal({
@@ -328,7 +325,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                         </p>
     
                                         <div className='col-md-12 mb-3 p-3 text-center'>
-                                            <div className='d-grid'><a className='btn onFollowsuggested'><label>Follow</label></a></div>
+                                            <div className='d-grid'><a className='btn onFollowsuggested' onClick={this.joinGroup(item)}><label>Follow</label></a></div>
                                         </div>
                                         <div className='row'></div>
                                     </div>
