@@ -37,6 +37,7 @@ export type Props = {
     profilePicture: string;
     currentTeamId?: string;
     channelType: ChannelType;
+    closeHandler?: (callback: () => void) => void;
     actions: {
         createChannel: (channel: Channel) => Promise<{data?: Channel; error?: ServerError}>;
         switchToChannel: (channel: Channel) => Promise<{data?: true; error?: true}>;
@@ -76,6 +77,7 @@ type NewChannelData = {
 }
 
 export default class MyGroups extends React.PureComponent<Props, State> {
+    isLeaving: boolean;
     static defaultProps = {
         userId: '',
         profilePicture: '',
@@ -97,6 +99,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         this.channelHeaderInput = React.createRef();
         this.channelPurposeInput = React.createRef();
         this.displayNameInput = React.createRef();
+        this.isLeaving = false;
     }
 
     componentDidMount(){
@@ -239,12 +242,19 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         this.handleJoin(channel);
     }
 
-    showNewChannelModal = () => {
-        this.props.actions.openModal({
-            modalId: ModalIdentifiers.NEW_CHANNEL_FLOW,
-            dialogType: NewChannelFlow,
+    handleLeaveChannel = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (this.isLeaving || !this.props.closeHandler) {
+            return;
+        }
+
+        this.isLeaving = true;
+        trackEvent('ui', 'ui_sidebar_channel_menu_leave');
+
+        this.props.closeHandler(() => {
+            this.isLeaving = false;
         });
-        trackEvent('ui', 'ui_channels_create_channel_v2');
     }
 
     joinedGroup = () => {
