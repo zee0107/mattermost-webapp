@@ -61,6 +61,7 @@ type State = {
     isDark: string;
     img_path: string;
     group_view: string;
+    action_result: boolean;
 
     serverError: JSX.Element | string | null;
     channelType: ChannelType;
@@ -88,7 +89,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = { openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, mygroups: [], suggestedgroup: [], group_view: 'mygroup',
+        this.state = { openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, mygroups: [], suggestedgroup: [], group_view: 'mygroup',action_result: false,
             serverError: '',
             channelType: getChannelTypeFromProps(props),
             channelDisplayName: '',
@@ -286,22 +287,16 @@ export default class MyGroups extends React.PureComponent<Props, State> {
     joinedGroup = () => {
         let errorServer;
         if (this.state.serverError) {
-            errorServer = (
-                <div className='form-group has-error'>
+            errorServer = (<div className='alert alert-danger'>
                     <div className='col-sm-12'>
-                        <p
-                            id='createChannelError'
-                            className='input__help error'
-                        >
-                            {this.state.serverError}
-                        </p>
+                        <label>{this.state.serverError}</label>
                     </div>
-                </div>
-            );
+                </div>);
         }
 
         return (
             <div className='joinedcontent col-md-12'>
+                {errorServer}
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                     {this.state.mygroups.map((item,index) => {
                         if(item.display_name !== ''  && item.display_name !== 'Town Square'){
@@ -323,7 +318,6 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         }
                     })}
                 </div>
-                {errorServer}
             </div>
         );
     }
@@ -331,22 +325,16 @@ export default class MyGroups extends React.PureComponent<Props, State> {
     myGroupList = () => {
         let errorServer;
         if (this.state.serverError) {
-            errorServer = (
-                <div className='form-group has-error'>
+            errorServer = (<div className='alert alert-danger'>
                     <div className='col-sm-12'>
-                        <p
-                            id='createChannelError'
-                            className='input__help error'
-                        >
-                            {this.state.serverError}
-                        </p>
+                        <label>{this.state.serverError}</label>
                     </div>
-                </div>
-            );
+                </div>);
         }
 
         return (
             <div className='mygroupcontent col-md-12'>
+                {errorServer}
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                     {this.state.mygroups.map((item,index) => {
                         if(item.display_name !== '' && item.display_name !== 'Town Square'){
@@ -371,7 +359,6 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         }
                     })}
                 </div> 
-                {errorServer}
             </div> 
         );
     }
@@ -379,22 +366,16 @@ export default class MyGroups extends React.PureComponent<Props, State> {
     suggestedGroup = () => {
         let errorServer;
         if (this.state.serverError) {
-            errorServer = (
-                <div className='form-group has-error'>
+            errorServer = (<div className='alert alert-danger'>
                     <div className='col-sm-12'>
-                        <p
-                            id='createChannelError'
-                            className='input__help error'
-                        >
-                            {this.state.serverError}
-                        </p>
+                        <label>{this.state.serverError}</label>
                     </div>
-                </div>
-            );
+                </div>);
         }
 
         return (
             <div className='suggestedcontent col-md-12'>
+                {errorServer}
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                     {this.state.suggestedgroup.filter((data1) => {
                         return !this.state.mygroups.some((data2) => {
@@ -420,7 +401,6 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         }
                     })}
                 </div>
-                {errorServer}
             </div>
         );
     }
@@ -437,22 +417,16 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
         let errorServer;
         if (this.state.serverError) {
-            errorServer = (
-                <div className='form-group has-error'>
+            errorServer = (<div className='alert alert-danger'>
                     <div className='col-sm-12'>
-                        <p
-                            id='createChannelError'
-                            className='input__help error'
-                        >
-                            {this.state.serverError}
-                        </p>
+                        <label>{this.state.serverError}</label>
                     </div>
-                </div>
-            );
+                </div>);
         }
 
         return (
             <div className="create-new-group">
+                {errorServer}
                 <div className="box-middle-panel-create-new-group">
                     <div className="row">
                         <div className='col-md-12'>
@@ -503,9 +477,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         </div>
 
                         <div className="row p-2">
-                            <div className="col-md-6">
-                               {errorServer}
-                            </div>
+                            <div className="col-md-6"></div>
                             <div className="col-md-6">
                                 <a className="float-end rounded onCreategroups btn-sm ml-4" onClick={this.handleSubmit}> Create</a>
                                 <a className="float-end rounded me-2 mt-2 zero-margin" onClick={() => { this.setState({group_view: 'mygroups'})}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" className="bi bi-arrow-left-short side-menu-align" viewBox="0 0 16 16">
