@@ -355,9 +355,9 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         if(item.display_name !== ''  && item.display_name !== 'Town Square'){
                             return(
                                 <div className='col-md-3 p-1'>
-                                    <div onClick={this.handleRedirect.bind(this,item.name)} className='box-each-groups'>
-                                        <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
-                                        <p className='mt-4 ms-3 ml-5'>
+                                    <div className='box-each-groups'>
+                                        <img onClick={this.handleRedirect.bind(this,item.name)} width='100%' className='img-fluid' src={GroupLogo} alt=''/>
+                                        <p onClick={this.handleRedirect.bind(this,item.name)} className='mt-4 ms-3 ml-5'>
                                         <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
                                         </p>
     
@@ -411,9 +411,9 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             {
                                 return(
                                     <div className='col-md-3 p-1'>
-                                        <div onClick={this.handleRedirect.bind(this,item.name)} className='box-each-groups'>
-                                            <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
-                                            <p className='mt-4 ms-3 ml-5'>
+                                        <div className='box-each-groups'>
+                                            <img onClick={this.handleRedirect.bind(this,item.name)} width='100%' className='img-fluid' src={GroupLogo} alt=''/>
+                                            <p onClick={this.handleRedirect.bind(this,item.name)} className='mt-4 ms-3 ml-5'>
                                             <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
                                             </p>
         
