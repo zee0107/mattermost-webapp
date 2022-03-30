@@ -329,6 +329,10 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         this.onSubmitUpdate();
     }
 
+    handleRedirect = (name: string) => {
+        window.location.href = `./newsfeed/channels/${name}`;
+    }
+
     joinedGroup = () => {
         let errorServer;
         if (this.state.serverError) {
@@ -351,7 +355,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         if(item.display_name !== ''  && item.display_name !== 'Town Square'){
                             return(
                                 <div className='col-md-3 p-1'>
-                                    <div onClick={() => { window.location.href=`./newsfeed/channels/${item.name}`; }} className='box-each-groups'>
+                                    <div onClick={this.handleRedirect.bind(this,item.name)} className='box-each-groups'>
                                         <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                         <p className='mt-4 ms-3 ml-5'>
                                         <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
@@ -407,7 +411,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             {
                                 return(
                                     <div className='col-md-3 p-1'>
-                                        <div onClick={() => { window.location.href=`./newsfeed/channels/${item.name}`; }} className='box-each-groups'>
+                                        <div onClick={this.handleRedirect.bind(this,item.name)} className='box-each-groups'>
                                             <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
                                             <p className='mt-4 ms-3 ml-5'>
                                             <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
