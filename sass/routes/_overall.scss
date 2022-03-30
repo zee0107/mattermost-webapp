@@ -246,6 +246,7 @@ button {
     background: -moz-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
     background: -webkit-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
     background: linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+    width: 100%;
   }
   .onUnfollowsuggested {
     cursor: pointer;
@@ -253,6 +254,7 @@ button {
     padding: 6px 6px 6px 6px;
     border-radius: 11px !important;
     color: #44CD68;
+    width: 100%;
   }
   /*.suggestedcontent, .joinedcontent, .create-new-group {
     display: none;
