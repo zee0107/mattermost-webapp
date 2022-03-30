@@ -40,6 +40,7 @@ export type Props = {
     closeHandler?: (callback: () => void) => void;
     actions: {
         createChannel: (channel: Channel) => Promise<{data?: Channel; error?: ServerError}>;
+        updateChannel: (channel: Channel) => Promise<{data?: Channel; error?: ServerError}>;
         switchToChannel: (channel: Channel) => Promise<{data?: true; error?: true}>;
         joinChannel: (currentUserId: string, teamId: string, channelId: string) => Promise<ActionResult>;
         leaveChannelNew: (channelId: string) => Promise<ActionResult>;
@@ -65,11 +66,13 @@ type State = {
     result_joined: boolean;
     result_leave: boolean;
     result_remove: boolean;
+    result_update: boolean;
     serverError: JSX.Element | string | null;
     channelType: ChannelType;
     flowState: number;
     channelDisplayName: string;
     channelName: string;
+    channelId: string;
     channelPurpose: string;
     channelHeader: string;
     nameModified: boolean;
@@ -92,8 +95,8 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         super(props);
 
         this.state = { openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage, mygroups: [], suggestedgroup: [], group_view: 'mygroup',
-            result_create: false, result_joined: false, result_leave: false, serverError: '', channelType: getChannelTypeFromProps(props), channelDisplayName: '', channelName: '',
-            channelPurpose: '', channelHeader: '', nameModified: false, result_remove: false,
+            result_create: false, result_joined: false, result_update: false, result_leave: false, serverError: '', channelType: getChannelTypeFromProps(props), channelDisplayName: '', channelName: '',
+            channelPurpose: '', channelHeader: '', channelId: '', nameModified: false, result_remove: false,
         };
 
         this.channelHeaderInput = React.createRef();
@@ -124,8 +127,6 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.suggestedChannels).then(value => {this.setState({suggestedgroup: value});})
         }
     }
-
-
 
     onSubmit = () => {
         if (!this.state.channelDisplayName) {
@@ -196,7 +197,6 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             this.setState({channelName: cleanUpUrlable(data.displayName.trim())});
         }
     };
-
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
@@ -281,6 +281,53 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         this.handleRemoveChannel(channel);
     }
 
+    onSubmitUpdate = () => {
+        if (!this.state.channelDisplayName) {
+            this.setState({serverError: Utils.localizeMessage('channel_flow.invalidName', 'Invalid Channel Name')});
+            return;
+        }
+
+        const {actions} = this.props;
+        const channel: Channel = {
+            id: this.state.channelId,
+            team_id: '5meubtskybn1bg7iyfx7x4cm9c',
+            name: this.state.channelName,
+            display_name: this.state.channelDisplayName,
+            purpose: this.state.channelPurpose,
+            header: this.state.channelHeader,
+            type: this.state.channelType,
+            create_at: 0,
+            creator_id: '',
+            delete_at: 0,
+            group_constrained: false,
+            last_post_at: 0,
+            last_root_post_at: 0,
+            scheme_id: '',
+            update_at: 0,
+        };
+
+        actions.updateChannel(channel).then(({data, error}) => {
+            if (error) {
+                this.onCreateChannelError(error);
+            } else if (data) {
+                //browserHistory.push('./mygroups');
+                this.setState({group_view: 'mygroups', result_update: true});
+            }
+        });
+    }
+
+    handleSubmitUpdate = (e) => {
+        e.preventDefault();
+
+        const displayName = this.displayNameInput.current.value.trim();
+        if (displayName.length < Constants.MIN_CHANNELNAME_LENGTH) {
+            this.setState({displayNameError: true});
+            return;
+        }
+
+        this.onSubmitUpdate();
+    }
+
     joinedGroup = () => {
         let errorServer;
         if (this.state.serverError) {
@@ -360,7 +407,9 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                             </p>
         
                                             <div className='row'>
-                                                <div className='col-md-6 mt-2 mb-3'><a className='float-end onEditgroups'><label>Edit</label></a></div>
+                                                <div className='col-md-6 mt-2 mb-3'><button type='button' className='float-end onEditgroups' onClick={() => {
+                                                    this.setState({group_view: 'update_group',channelId: item.id, channelName: item.name,channelDisplayName: item.display_name,channelPurpose: item.purpose,channelHeader: item.header,channelType: item.type })
+                                                }}><label>Edit</label></button></div>
                                                 <div className='col-md-6 mt-2 mb-3'><button type='button' className='float-start onDeletegroups' onClick={this.removeGroup.bind(this,item)}><label>Delete</label></button></div>
                                             </div>
                                         </div>
@@ -504,8 +553,92 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         );
     }
 
+    updateGroup = () => {
+        const prettyTeamURL = getShortenedURL();
+
+        const channelData = {
+            id: this.state.channelId,
+            name: this.state.channelName,
+            displayName: this.state.channelDisplayName,
+            purpose: this.state.channelPurpose,
+            header: this.state.channelHeader,
+        };
+
+        let errorServer;
+        if (this.state.serverError) {
+            errorServer = (<div className='alert alert-danger'>
+                    <label>{this.state.serverError}</label>
+                </div>);
+        }
+
+        return (
+            <div className="create-new-group">
+                {errorServer}
+                <div className="box-middle-panel-create-new-group">
+                    <div className="row">
+                        <div className='col-md-12'>
+                            <h4>Update Group</h4>
+                            <hr/>
+                        </div>
+                    </div>
+
+                    <form role='form'>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <label htmlFor="inputState" className="form-label"><small>Group name</small></label>
+                                <input type="text" ref={this.displayNameInput} value={channelData.displayName} onChange={this.handleChange} id='newChannelName' className="form-control input-create-new-group" maxLength={Constants.MAX_CHANNELNAME_LENGTH} placeholder='E.g.: "Bugs", "Marketing", "客户支持"' aria-label="Group name"/>
+                            </div>
+                            <div className="col-md-6">
+                                <label htmlFor="inputState" className="form-label"><small>Group url</small></label>
+                                <input type="text" className="form-control input-create-new-group" placeholder="Group url" value={prettyTeamURL + this.state.channelName} aria-label="Group url" readOnly/>
+                            </div>
+                        </div>
+
+                        <div className="row">
+                            <div className="col-md-12">
+                                <textarea ref={this.channelPurposeInput} value={channelData.purpose} onChange={this.handleChange} className="form-control form-textarea-custom no-resize" id='newChannelPurpose' rows="3" placeholder='E.g.: "A group to to share crypto improvements"' maxLength='250'></textarea>
+                            </div>
+                        </div>
+
+                        <div className="row p-2">
+                            <div className="col-md-6">
+                                <label htmlFor="inputState" className="form-label"><small>Group type</small></label>
+                                <select id="inputState" className="form-control input-create-new-group" onChange={this.handleTypeSelect} value={this.state.channelType}>
+                                <option value='O'>Public</option>
+                                <option value='P'>Private</option>
+                                </select>
+                            </div>
+                            <div className="col-md-6">
+                                <label htmlFor="inputState" className="form-label"><small>Category</small></label>
+                                <select id="inputState" className="form-control input-create-new-group">
+                                <option value='Meme'>Meme</option>
+                                <option value='NFT'>NFT</option>
+                                <option value='P2E'>Play to Earn</option>
+                                <option value='Deflationary'>Deflationary</option>
+                                <option value='YieldFarm'>Yield Farm</option>
+                                <option value='Calls'>Calls</option>
+                                <option value='Lounge'>Lounge</option>
+                                <option value='Others'>Others</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div className="row p-2">
+                            <div className="col-md-6"></div>
+                            <div className="col-md-6">
+                                <a className="float-end rounded onCreategroups btn-sm ml-4" onClick={this.handleSubmitUpdate}> Create</a>
+                                <a className="float-end rounded me-2 mt-2 zero-margin" onClick={() => { this.setState({group_view: 'mygroups'})}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" className="bi bi-arrow-left-short side-menu-align" viewBox="0 0 16 16">
+                                    <path fillRule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+                                </svg> Go Back</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+           </div>
+        );
+    }
+
     render= (): JSX.Element => {
-        const {globalHeader, currentUser} = this.props;
         const { group_view } = this.state;
 
         let viewDetails;
@@ -516,6 +649,9 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             viewDetails = this.suggestedGroup();
         }
         else if(this.state.group_view === "creategroup"){
+            viewDetails = this.createGroup();
+        }
+        else if(this.state.group_view === "update_group"){
             viewDetails = this.createGroup();
         }
         else{
@@ -538,9 +674,9 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className='col-md-6'>
                                     <div className='row'>
-                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'mygroups' ? 'onMygroupspages p-6 active-group-menu' : 'onMygroupspages p-6'} onClick={() => { this.setState({group_view: 'mygroups', result_create: false, result_joined: false, result_leave: false, result_remove: false})}}>MyGroups</a></div>
-                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'suggested' ? 'onMycarts p-6 active-group-menu' : 'onMycarts p-6'} onClick={() => { this.setState({group_view: 'suggested', result_create: false, result_joined: false, result_leave: false, result_remove: false})}}>Suggested</a></div>
-                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'joined' ? 'onMyjoined p-6 active-group-menu' : 'onMyjoined p-6'} onClick={() => { this.setState({group_view: 'joined', result_create: false, result_joined: false, result_leave: false, result_remove: false})}}>Joined</a></div>
+                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'mygroups' ? 'onMygroupspages p-6 active-group-menu' : 'onMygroupspages p-6'} onClick={() => { this.setState({group_view: 'mygroups', result_create: false, result_joined: false, result_leave: false, result_remove: false, result_update: false})}}>MyGroups</a></div>
+                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'suggested' ? 'onMycarts p-6 active-group-menu' : 'onMycarts p-6'} onClick={() => { this.setState({group_view: 'suggested', result_create: false, result_joined: false, result_leave: false, result_remove: false, result_update: false})}}>Suggested</a></div>
+                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'joined' ? 'onMyjoined p-6 active-group-menu' : 'onMyjoined p-6'} onClick={() => { this.setState({group_view: 'joined', result_create: false, result_joined: false, result_leave: false, result_remove: false, result_update: false})}}>Joined</a></div>
                                     </div>
                                 </div>
                                 <div className='col-md-3 text-end'>
