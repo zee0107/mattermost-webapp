@@ -313,9 +313,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         return (
             <div className='suggestedcontent col-md-12'>
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
-                    {this.state.suggestedgroup.map((item,index) => {
+                    {this.state.suggestedgroup.filter((data1) => {
+                        return !this.state.mygroups.some((data2) => {
+                            return data1.id === data2.id;
+                        })
+                    }).map((item,index) => {
                         if(item.display_name !== ''  && item.display_name !== 'Town Square'){
-                            
                             return(
                                 <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
