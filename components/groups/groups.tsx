@@ -250,6 +250,22 @@ export default class MyGroups extends React.PureComponent<Props, State> {
     joinGroup(channel) {
         this.handleJoin(channel);
     }
+    
+    handleLeaveChannel = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (this.isLeaving || !this.props.closeHandler) {
+            return;
+        }
+
+        this.isLeaving = true;
+        trackEvent('ui', 'ui_sidebar_channel_menu_leave');
+
+        this.props.closeHandler(() => {
+            this.isLeaving = false;
+            this.setState({group_view: 'suggested'});
+        });
+    }
 
     joinedGroup = () => {
         return (
@@ -266,7 +282,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                         </p>
     
                                         <div className='col-md-12 mb-3 p-3 text-center'>
-                                            <div className='d-grid'><button type='button' className='btn onUnfollowsuggested'><label>Unfollow</label></button></div>
+                                            <div className='d-grid'><button type='button' className='btn onUnfollowsuggested' onClick={this.handleLeaveChannel.bind(this)}><label>Unfollow</label></button></div>
                                         </div>
                                         <div className='row'></div>
                                     </div>
