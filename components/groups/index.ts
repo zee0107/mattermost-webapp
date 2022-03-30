@@ -39,8 +39,8 @@ function makeMapStateToProps() {
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
             currentTeamId: currentTeam?.id,
-            mychannels: Client4.getMyChannels('d7cxjgejnbdm78h4n91kqeq6ow'),
-            suggestedChannels: Client4.getChannels('d7cxjgejnbdm78h4n91kqeq6ow'),
+            mychannels: Client4.getMyChannels('5meubtskybn1bg7iyfx7x4cm9c'),
+            suggestedChannels: Client4.getChannels('5meubtskybn1bg7iyfx7x4cm9c'),
         };
     };
 }
