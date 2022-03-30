@@ -145,7 +145,8 @@ export default class MyGroups extends React.PureComponent<Props, State> {
             if (error) {
                 this.onCreateChannelError(error);
             } else if (data) {
-                browserHistory.push('./mygroups');
+                //browserHistory.push('./mygroups');
+                window.location.reload();
             }
         });
     };
