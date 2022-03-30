@@ -467,15 +467,14 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                     </svg></a>
                                     <label className='ms-2 text-mygroups float-start mt-2 me-5'><strong>Group</strong></label>
                                 </div>
-                                <div className='col-md-7'>
+                                <div className='col-md-6'>
                                     <div className='row'>
-                                        <div className='col-md-3 text-start mt-2 mb-2 p-0'><a className={group_view === 'mygroups' ? 'onMygroupspages p-6 active-group-menu' : 'onMygroupspages p-6'} onClick={() => { this.setState({group_view: 'mygroups'})}}>MyGroups</a></div>
-                                        <div className='col-md-3 text-start mt-2 mb-2 p-0'><a className={group_view === 'suggested' ? 'onMycarts p-6 active-group-menu' : 'onMycarts p-6'} onClick={() => { this.setState({group_view: 'suggested'})}}>Suggested</a></div>
-                                        <div className='col-md-3 text-start mt-2 mb-2 p-0'><a className={group_view === 'joined' ? 'onMyjoined p-6 active-group-menu' : 'onMyjoined p-6'} onClick={() => { this.setState({group_view: 'joined'})}}>Joined</a></div>
-                                        <div className='col-md-3 text-start mt-2 mb-2 p-0'><a className='p-4'></a></div>
+                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'mygroups' ? 'onMygroupspages p-6 active-group-menu' : 'onMygroupspages p-6'} onClick={() => { this.setState({group_view: 'mygroups'})}}>MyGroups</a></div>
+                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'suggested' ? 'onMycarts p-6 active-group-menu' : 'onMycarts p-6'} onClick={() => { this.setState({group_view: 'suggested'})}}>Suggested</a></div>
+                                        <div className='col-md-4 text-start mt-2 mb-2 p-0'><a className={group_view === 'joined' ? 'onMyjoined p-6 active-group-menu' : 'onMyjoined p-6'} onClick={() => { this.setState({group_view: 'joined'})}}>Joined</a></div>
                                     </div>
                                 </div>
-                                <div className='col-md-2 text-end'>
+                                <div className='col-md-3 text-end'>
                                     <a className='float-end rounded onCreategroups negative-margin-top' id='showNewChannel' onClick={/*this.showNewChannelModal*/() => { this.setState({group_view: 'creategroup'})}}>
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#fff' className='bi bi-plus side-menu-align' viewBox='0 0 16 16'>
                                         <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/>
