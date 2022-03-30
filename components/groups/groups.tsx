@@ -264,10 +264,10 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                         <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
                                         </p>
     
-                                        <div className='row'>
-                                            <div className='col-md-12 mb-3 p-3 text-center'>
-                                            <div className='d-grid'><a className='btn onUnfollowsuggested'><label>Unfollow</label></a></div></div>
+                                        <div className='col-md-12 mb-3 p-3 text-center'>
+                                            <div className='d-grid'><a className='btn onUnfollowsuggested'><label>Unfollow</label></a></div>
                                         </div>
+                                        <div className='row'></div>
                                     </div>
                                 </div>
                             );
@@ -327,10 +327,10 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                         <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
                                         </p>
     
-                                        <div className='row'>
-                                            <div className='col-md-12 mb-3 p-3 text-center'>
-                                            <div className='d-grid'><a className='btn onFollowsuggested'><label>Follow</label></a></div></div>
+                                        <div className='col-md-12 mb-3 p-3 text-center'>
+                                            <div className='d-grid'><a className='btn onFollowsuggested'><label>Follow</label></a></div>
                                         </div>
+                                        <div className='row'></div>
                                     </div>
                                 </div>
                             );
