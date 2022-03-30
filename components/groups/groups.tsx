@@ -285,17 +285,13 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         let errorServer;
         if (this.state.serverError) {
             errorServer = (<div className='alert alert-danger'>
-                    <div className='col-sm-12'>
-                        <label>{this.state.serverError}</label>
-                    </div>
+                    <label>{this.state.serverError}</label>
                 </div>);
         }
 
         if(this.state.result_leave){
             errorServer = (<div className='alert alert-success'>
-                    <div className='col-sm-12'>
-                        <label>Leaved group successfuly.</label>
-                    </div>
+                    <label>Leaved group successfuly.</label>
                 </div>);
         }
 
@@ -331,25 +327,19 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         let errorServer;
         if (this.state.serverError) {
             errorServer = (<div className='alert alert-danger'>
-                    <div className='col-sm-12'>
-                        <label>{this.state.serverError}.</label>
-                    </div>
+                    <label>{this.state.serverError}.</label>
                 </div>);
         }
 
         if(this.state.result_create){
             errorServer = (<div className='alert alert-success'>
-                    <div className='col-sm-12'>
-                        <label>Successfuly create a group.</label>
-                    </div>
+                    <label>Successfuly create a group.</label>
                 </div>);
         }
 
         if(this.state.result_remove){
             errorServer = (<div className='alert alert-success'>
-                    <div className='col-sm-12'>
-                        <label>Group has been archive.</label>
-                    </div>
+                    <label>Group has been archive.</label>
                 </div>);
         }
 
@@ -388,17 +378,13 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         let errorServer;
         if (this.state.serverError) {
             errorServer = (<div className='alert alert-danger'>
-                    <div className='col-sm-12'>
-                        <label>{this.state.serverError}</label>
-                    </div>
+                    <label>{this.state.serverError}</label>
                 </div>);
         }
 
         if(this.state.result_joined){
             errorServer = (<div className='alert alert-success'>
-                    <div className='col-sm-12'>
-                        <label>Successfuly joined a group.</label>
-                    </div>
+                    <label>Successfuly joined a group.</label>
                 </div>);
         }
 
@@ -447,9 +433,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         let errorServer;
         if (this.state.serverError) {
             errorServer = (<div className='alert alert-danger'>
-                    <div className='col-sm-12'>
-                        <label>{this.state.serverError}</label>
-                    </div>
+                    <label>{this.state.serverError}</label>
                 </div>);
         }
 
