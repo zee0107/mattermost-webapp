@@ -58,3 +58,36 @@
   .storyImg{
     z-index: 99;
   }
+
+.active-group-menu{
+  border-bottom: 2px solid;
+  border-color: #81D055!important;
+  color: #81D055!important;
+}
+
+.onMygroupspages{
+  color: #81D055!important;
+}
+
+.onMycarts{
+  color: #81D055!important;
+}
+
+.onMyjoined{
+  color: #81D055!important;
+}
+
+.onMygroupspages:hover{
+  color: #81D055!important;
+  text-decoration: none !important;
+}
+
+.onMycarts:hover{
+  color: #81D055!important;
+  text-decoration: none !important;
+}
+
+.onMyjoined:hover{
+  color: #81D055!important;
+  text-decoration: none !important;
+}

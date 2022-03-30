@@ -469,9 +469,9 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className='col-md-7'>
                                     <div className='row'>
-                                        <div className='col-md-3 text-start mt-2 mb-2 p-0'><a className={group_view === 'mygroups' ? 'onMygroupspages p-4 border-3 border-bottom border-top-0 border-start-0 border-end-0 border-success text-success' : 'onMygroupspages p-4'} onClick={() => { this.setState({group_view: 'mygroups'})}}>MyGroups</a></div>
-                                        <div className='col-md-3 text-start mt-2 mb-2 p-0'><a className={group_view === 'suggested' ? 'onMycarts p-4 border-3 border-bottom border-top-0 border-start-0 border-end-0 border-success text-success' : 'onMycarts p-4'} onClick={() => { this.setState({group_view: 'suggested'})}}>Suggested</a></div>
-                                        <div className='col-md-3 text-start mt-2 mb-2 p-0'><a className={group_view === 'joined' ? 'onMyjoined p-4 border-3 border-bottom border-top-0 border-start-0 border-end-0 border-success text-success' : 'onMyjoined p-4 '} onClick={() => { this.setState({group_view: 'joined'})}}>Joined</a></div>
+                                        <div className='col-md-3 text-start mt-2 mb-2 p-0'><a className={group_view === 'mygroups' ? 'onMygroupspages p-6 active-group-menu' : 'onMygroupspages p-6'} onClick={() => { this.setState({group_view: 'mygroups'})}}>MyGroups</a></div>
+                                        <div className='col-md-3 text-start mt-2 mb-2 p-0'><a className={group_view === 'suggested' ? 'onMycarts p-6 active-group-menu' : 'onMycarts p-6'} onClick={() => { this.setState({group_view: 'suggested'})}}>Suggested</a></div>
+                                        <div className='col-md-3 text-start mt-2 mb-2 p-0'><a className={group_view === 'joined' ? 'onMyjoined p-6 active-group-menu' : 'onMyjoined p-6'} onClick={() => { this.setState({group_view: 'joined'})}}>Joined</a></div>
                                         <div className='col-md-3 text-start mt-2 mb-2 p-0'><a className='p-4'></a></div>
                                     </div>
                                 </div>
