@@ -384,6 +384,12 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                 </div>);
         }
 
+        if(this.state.result_update){
+            errorServer = (<div className='alert alert-success'>
+                    <label>Successfully updated group.</label>
+                </div>);
+        }
+
         if(this.state.result_remove){
             errorServer = (<div className='alert alert-success'>
                     <label>Group has been archive.</label>
