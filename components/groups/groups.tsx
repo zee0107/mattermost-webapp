@@ -291,7 +291,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
         if(this.state.result_leave){
             errorServer = (<div className='alert alert-success'>
-                    <label>Leaved group successfuly.</label>
+                    <label>Leaved group successfully.</label>
                 </div>);
         }
 
@@ -333,7 +333,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
         if(this.state.result_create){
             errorServer = (<div className='alert alert-success'>
-                    <label>Successfuly create a group.</label>
+                    <label>Successfully created a group.</label>
                 </div>);
         }
 
@@ -384,7 +384,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
         if(this.state.result_joined){
             errorServer = (<div className='alert alert-success'>
-                    <label>Successfuly joined a group.</label>
+                    <label>Successfully joined a group.</label>
                 </div>);
         }
 
