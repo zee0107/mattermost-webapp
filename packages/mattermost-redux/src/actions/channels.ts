@@ -641,8 +641,8 @@ export function leaveChannel(channelId: string): ActionFunc {
         const state = getState();
         const {currentUserId} = state.entities.users;
         const {channels, myMembers} = state.entities.channels;
-        const channel = channels[channelId];
-        const member = myMembers[channelId];
+        const channel = await Client4.getChannel(channelId);
+        const member = await Client4.getChannelMember(channel.id, currentUserId);
 
         Client4.trackEvent('action', 'action_channels_leave', {channel_id: channelId});
 
