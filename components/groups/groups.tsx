@@ -42,7 +42,7 @@ export type Props = {
         createChannel: (channel: Channel) => Promise<{data?: Channel; error?: ServerError}>;
         switchToChannel: (channel: Channel) => Promise<{data?: true; error?: true}>;
         joinChannel: (currentUserId: string, teamId: string, channelId: string) => Promise<ActionResult>;
-        leaveChannel: (channelId: string) => Promise<ActionResult>;
+        leaveChannelNew: (channelId: string) => Promise<ActionResult>;
         openModal: <P>(modalData: ModalData<P>) => void;
         setStatus: (status: UserStatus) => ActionFunc;
         unsetCustomStatus: () => ActionFunc;
@@ -158,7 +158,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                 this.onCreateChannelError(error);
             } else if (data) {
                 //browserHistory.push('./mygroups');
-                window.location.reload();
+                this.setState({group_view: 'mygroups'});
             }
         });
     };
@@ -254,7 +254,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
     
     handleLeaveChannel = (channel: ServerChannel) => {
         const {actions} = this.props;
-        const result = actions.leaveChannel(channel.id);
+        const result = actions.leaveChannelNew(channel.id);
 
         if (result.error) {
             this.setState({serverError: result.error.message});
