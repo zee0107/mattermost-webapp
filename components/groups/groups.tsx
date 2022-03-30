@@ -43,6 +43,7 @@ export type Props = {
         switchToChannel: (channel: Channel) => Promise<{data?: true; error?: true}>;
         joinChannel: (currentUserId: string, teamId: string, channelId: string) => Promise<ActionResult>;
         leaveChannelNew: (channelId: string) => Promise<ActionResult>;
+        deleteChannel: (channelId: string) => Promise<ActionResult>;
         openModal: <P>(modalData: ModalData<P>) => void;
         setStatus: (status: UserStatus) => ActionFunc;
         unsetCustomStatus: () => ActionFunc;
@@ -259,12 +260,26 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         if (result.error) {
             this.setState({serverError: result.error.message});
         } else {
-            this.setState({group_view: 'suggested'})
-        }
+            this.setState({group_view: 'suggested'});
     }
 
     leaveGroup(channel){
         this.handleLeaveChannel(channel);
+    }
+
+    handleRemoveChannel = (channel: ServerChannel) => {
+        const {actions} = this.props;
+        const result = actions.deleteChannel(channel.id);
+
+        if (result.error) {
+            this.setState({serverError: result.error.message});
+        } else {
+            this.setState({group_view: 'mygroup'});
+        }
+    }
+
+    removeGroup(channel){
+        this.handleRemoveChannel(channel);
     }
 
     joinedGroup = () => {
@@ -346,7 +361,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         
                                             <div className='row'>
                                                 <div className='col-md-6 mt-2 mb-3'><a className='float-end onEditgroups'><label>Edit</label></a></div>
-                                                <div className='col-md-6 mt-2 mb-3'><a className='float-start onDeletegroups'><label>Delete</label></a></div>
+                                                <div className='col-md-6 mt-2 mb-3'><button type='button' className='float-start onDeletegroups' onClick={this.removeGroup.bind(this,item)}><label>Delete</label></button></div>
                                             </div>
                                         </div>
                                     </div>

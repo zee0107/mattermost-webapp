@@ -20,7 +20,7 @@ import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
 import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
 import { getCurrentTeam } from 'mattermost-redux/selectors/entities/teams';
-import {createChannel,joinChannel,leaveChannelNew} from 'mattermost-redux/actions/channels';
+import {createChannel,joinChannel,leaveChannelNew,deleteChannel} from 'mattermost-redux/actions/channels';
 import {switchToChannel} from 'actions/views/channel';
 
 import MyGroups, {Props} from './groups'
@@ -54,11 +54,11 @@ function mapDispatchToProps(dispatch: Dispatch) {
             setStatus,
             joinChannel,
             leaveChannelNew,
+            deleteChannel,
             unsetCustomStatus,
             setStatusDropdown,
         }, dispatch),
     };
 }
-
 
 export default connect(makeMapStateToProps, mapDispatchToProps)(MyGroups);
