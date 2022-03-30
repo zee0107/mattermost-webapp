@@ -325,7 +325,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                         </p>
     
                                         <div className='col-md-12 mb-3 p-3 text-center'>
-                                            <div className='d-grid'><a className='btn onFollowsuggested' onClick={this.joinGroup(item)}><label>Follow</label></a></div>
+                                            <div className='d-grid'><button type='button' className='btn onFollowsuggested' onClick={this.joinGroup.bind(this,item)}><label>Follow</label></button></div>
                                         </div>
                                         <div className='row'></div>
                                     </div>
