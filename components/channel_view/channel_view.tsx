@@ -139,21 +139,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         this.props.actions.goToLastViewedChannel();
     }
 
-    handleLeaveChannel = (channel: string) => {
-        const {actions} = this.props;
-        const result = actions.leaveChannelNew(channel);
-        console.log(result);
-        if (result.error) {
-            this.setState({serverError: result.error.message});
-        } else {
-            this.setState({result_leave: true});
-        }
-    }
-
-    leaveGroup(channel){
-        this.handleLeaveChannel(channel);
-    }
-
     componentDidUpdate(prevProps: Props) {
         if (prevProps.channelId !== this.props.channelId || prevProps.channelIsArchived !== this.props.channelIsArchived) {
             mark('ChannelView#componentDidUpdate');
@@ -180,8 +165,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
     }
 
     render() {
-        const {channelId,channelPurpose,channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName, channelDisplayName} = this.props;
-        const { result_leave } = this.state;
+        const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName} = this.props;
         if (enableOnboardingFlow && showNextSteps && !showNextStepsEphemeral) {
             this.props.actions.setShowNextStepsView(true);
             browserHistory.push(`${teamUrl}/tips`);
@@ -253,14 +237,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         }
 
         const DeferredPostView = this.state.deferredPostView;
-
-        let buttonJoin;
-        if(result_leave){
-            /*browserHistory.push(`${teamUrl}/channels/town-square`);*/
-        }
-        else{
-            buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn btn-success float-end btn-sm mt-4'>Joined</button>);
-        }
 
         let viewDetail;
         if(channelName === 'town-square'){
