@@ -39,6 +39,7 @@ function isDeactivatedChannel(state: GlobalState, channelId: string) {
 function mapStateToProps(state: GlobalState) {
     const channel = getCurrentChannel(state);
     const currentChannelId = channel?.id;
+    console.log(channel.id);
     const stats = Client4.getChannelStats(currentChannelId);
     console.log(stats);
     const currentUser = getCurrentUser(state);
