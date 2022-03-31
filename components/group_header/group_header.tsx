@@ -59,7 +59,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {channelId, channelDisplayName} = this.props;
-
+        const { result_leave } = this.state;
+        
         let buttonJoin;
         if(result_leave){
             /*browserHistory.push(`${teamUrl}/channels/town-square`);*/
