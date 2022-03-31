@@ -50,7 +50,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         event.preventDefault();
     
         const data = new FormData();
-        data.append('fileblob',event.target.files[0]);
+        data.append('fileblob', event.target.files[0]);
         data.append('group_id', this.props.channelId);
 
         fetch('https://localhost:44312/api/crypter/uploadgroupcover', {
@@ -99,9 +99,9 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             upload = (
                 <div className='col-md-12 chat-box mtop-10'>
                     <form onSubmit={this.handleSubmit}>
-                        <input type='file' className='form-control float-start' required />'
+                        <input type='file' className='form-control float-start' required />
                         <button className='btn btn-success float-end' type='submit'>Upload</button>
-                        <button className='btn btn-success float-end' type='button'>Cancel</button>
+                        <button className='btn btn-success float-end' type='button' onClick={() => {this.setState({uploadImage: false})}}>Cancel</button>
                     </form>
                 </div>
             );
