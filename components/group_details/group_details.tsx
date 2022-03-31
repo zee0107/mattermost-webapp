@@ -35,9 +35,9 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
         const uri = `./api/v4/channels/${this.props.channelId}/stats`;
         const config = {
             method: "GET",
-            /*headers: {
+            headers: {
                 'Authorization': 'Bearer x61mfw3jepfq7rffh96gq6ckyh',
-            }*/
+            }
         }
 
         fetch(uri,config).then(response => response.json()).then(response => {

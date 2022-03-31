@@ -33,6 +33,7 @@ import postPic2 from 'images/profiles/user-profile-3.png';
 
 import {browserHistory} from 'utils/browser_history';
 import { ChannelStats } from 'mattermost-redux/types/channels';
+import GroupDetail from 'components/group_details';
 
 type Props = {
     channelId: string;
@@ -161,7 +162,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
     render() {
         const {channelId,channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName, channelDisplayName} = this.props;
-        console.log(channelId);
         if (enableOnboardingFlow && showNextSteps && !showNextStepsEphemeral) {
             this.props.actions.setShowNextStepsView(true);
             browserHistory.push(`${teamUrl}/tips`);
@@ -342,7 +342,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     <div className='col-md-12'>
                         <div className='float-start'>
                             <h5 className='text-primary'>{channelDisplayName}</h5>
-                            <h6 className='text-secondary'>{member_count} Members</h6>
+                            <h6 className='text-secondary'><GroupDetail channelId={channelId} /></h6>
                         </div>
                         
                         <button type='button' className='btn btn-success float-end btn-sm mt-4'>Joined</button>
