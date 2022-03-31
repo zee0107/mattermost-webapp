@@ -254,7 +254,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         const DeferredPostView = this.state.deferredPostView;
         let buttonJoin;
         if(result_leave){
-            buttonJoin = (<button type='button' className='btn btn-success float-end btn-sm mt-4'>Join</button>);
+            browserHistory.push(`${teamUrl}/channels/town-square`);
         }
         else{
             buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn btn-success float-end btn-sm mt-4'>Joined</button>);
