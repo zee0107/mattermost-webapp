@@ -18,6 +18,7 @@ type State = {
     isDark: string;
     result_leave: boolean;
     uploadImage: boolean;
+    selectedFile: any;
 };
 
 export default class GroupsHeader extends React.PureComponent<Props, State> {
@@ -46,11 +47,13 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         this.setState({isDark: ThemeValue});
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-    
+    handelChange = (e) => {
+        this.setState({selectedFile: e.target.files[0]});
+    }
+
+    handleSubmit = () => {
         const data = new FormData();
-        data.append('fileblob', event.target.files[0]);
+        data.append('fileblob', this.state.selectedFile);
         data.append('group_id', this.props.channelId);
 
         fetch('https://localhost:44312/api/crypter/uploadgroupcover', {
@@ -60,7 +63,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         })
             .then((response) => response.json())
             .then((data)=>{
-                console.log(data);
+                console.log('Success', data);
             })
             .catch(error => this.setState({ error, isLoading: false}));
     }
@@ -98,11 +101,9 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         if (uploadImage){
             upload = (
                 <div className='col-md-12 chat-box mtop-10'>
-                    <form onSubmit={this.handleSubmit}>
-                        <input type='file' className='form-control float-start' required />
-                        <button className='btn btn-success float-end' type='submit'>Upload</button>
-                        <button className='btn btn-success float-end' type='button' onClick={() => {this.setState({uploadImage: false})}}>Cancel</button>
-                    </form>
+                    <input type='file' className='form-control float-start' onChange={this.handelChange} required />
+                    <button className='btn btn-success float-end' type='button' onClick={this.handleSubmit}>Upload</button>
+                    <button className='btn btn-success float-end' type='button' onClick={() => {this.setState({uploadImage: false})}}>Cancel</button>
                 </div>
             );
         }
