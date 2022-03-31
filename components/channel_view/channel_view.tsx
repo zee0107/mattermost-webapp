@@ -132,7 +132,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
     }
 
     componentDidMount(){
-        consol.log(this.props.channelId);
+        console.log(this.props.channelId);
         const uri = `./api/v4/channels/${this.props.channelId}/stats`;
         const config = {
             method: "GET"
