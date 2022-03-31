@@ -162,7 +162,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         const config = {
             method: "GET",
             headers: {
-                'Authorization': 'Bearer b8fctgxnjbdxtjec4u6tgrcjhy',
+                'Authorization': 'Bearer fw3rdic4wfdgibwmbrmezk6ryr',
             }
         }
 
