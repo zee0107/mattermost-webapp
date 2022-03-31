@@ -20,6 +20,7 @@ import {setShowNextStepsView} from 'actions/views/next_steps';
 import {getCurrentRelativeTeamUrl} from 'mattermost-redux/selectors/entities/teams';
 
 import {goToLastViewedChannel} from 'actions/views/channel';
+import {joinChannel,leaveChannelNew} from 'mattermost-redux/actions/channels';
 
 import {GlobalState} from 'types/store';
 
@@ -86,6 +87,7 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
     return {
         actions: bindActionCreators<ActionCreatorsMapObject<ActionFunc|GenericAction>, Actions>({
             goToLastViewedChannel,
+            leaveChannelNew,
             setShowNextStepsView,
         }, dispatch),
     };

@@ -34,6 +34,7 @@ import postPic2 from 'images/profiles/user-profile-3.png';
 import {browserHistory} from 'utils/browser_history';
 import { ChannelStats } from 'mattermost-redux/types/channels';
 import GroupDetail from 'components/group_details';
+import { result } from 'lodash';
 
 type Props = {
     channelId: string;
@@ -60,6 +61,7 @@ type Props = {
     actions: {
         goToLastViewedChannel: () => Promise<{data: boolean}>;
         setShowNextStepsView: (x: boolean) => void;
+        leaveChannelNew: (channelId: string) => Promise<ActionResult>;
     };
 };
 
@@ -68,6 +70,7 @@ type State = {
     url: string;
     focusedPostId?: string;
     deferredPostView: any;
+    result_leave: boolean;
 };
 
 export default class ChannelView extends React.PureComponent<Props, State> {
@@ -115,6 +118,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             channelId: props.channelId,
             focusedPostId: props.match.params.postid,
             deferredPostView: ChannelView.createDeferredPostView(),
+            result_leave: false,
         };
 
         this.channelViewRef = React.createRef();
@@ -131,6 +135,21 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
     onClickCloseChannel = () => {
         this.props.actions.goToLastViewedChannel();
+    }
+
+    handleLeaveChannel = (channel: string) => {
+        const {actions} = this.props;
+        const result = actions.leaveChannelNew(channel);
+
+        if (result.error) {
+            this.setState({serverError: result.error.message});
+        } else {
+            this.setState({result_leave: true});
+        }
+    }
+
+    leaveGroup(channel){
+        this.handleLeaveChannel(channel);
     }
 
     componentDidUpdate(prevProps: Props) {
@@ -159,7 +178,8 @@ export default class ChannelView extends React.PureComponent<Props, State> {
     }
 
     render() {
-        const {channelPurpose,channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName, channelDisplayName} = this.props;
+        const {channelId,channelPurpose,channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName, channelDisplayName} = this.props;
+        const { result_leave } = this.state;
         if (enableOnboardingFlow && showNextSteps && !showNextStepsEphemeral) {
             this.props.actions.setShowNextStepsView(true);
             browserHistory.push(`${teamUrl}/tips`);
@@ -231,6 +251,13 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         }
 
         const DeferredPostView = this.state.deferredPostView;
+        let buttonJoin;
+        if(result_leave){
+            buttonJoin = (<button type='button' className='btn btn-success float-end btn-sm mt-4'>Join</button>);
+        }
+        else{
+            buttonJoin = (<button type='button' onClick={() => {this.leaveGroup.bind(this,channelId)}} className='btn btn-success float-end btn-sm mt-4'>Joined</button>);
+        }
 
         let viewDetail;
         if(channelName === 'town-square'){
@@ -338,7 +365,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                             <h6 className='text-secondary'>{channelPurpose}</h6>
                         </div>
                         
-                        <button type='button' className='btn btn-success float-end btn-sm mt-4'>Joined</button>
+                        {buttonJoin}
                     </div>
                 </div>
             );
