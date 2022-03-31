@@ -3,7 +3,9 @@
 
 import {ActionCreatorsMapObject, bindActionCreators, Dispatch} from 'redux';
 import {connect} from 'react-redux';
+
 import {withRouter} from 'react-router-dom';
+
 import {Client4} from 'mattermost-redux/client';
 
 import {getCurrentChannel, getDirectTeammate} from 'mattermost-redux/selectors/entities/channels';
@@ -36,7 +38,7 @@ function isDeactivatedChannel(state: GlobalState, channelId: string) {
 
 function mapStateToProps(state: GlobalState) {
     const channel = getCurrentChannel(state);
-
+    console.log(channel);
     const currentUser = getCurrentUser(state);
     const userId = currentUser?.id;
 
