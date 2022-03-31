@@ -141,7 +141,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
     handleLeaveChannel = (channel: string) => {
         const {actions} = this.props;
         const result = actions.leaveChannelNew(channel);
-
+        console.log(result);
         if (result.error) {
             this.setState({serverError: result.error.message});
         } else {
@@ -254,7 +254,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         const DeferredPostView = this.state.deferredPostView;
         let buttonJoin;
         if(result_leave){
-            browserHistory.push(`${teamUrl}/channels/town-square`);
+            /*browserHistory.push(`${teamUrl}/channels/town-square`);*/
         }
         else{
             buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn btn-success float-end btn-sm mt-4'>Joined</button>);
