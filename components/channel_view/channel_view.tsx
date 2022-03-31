@@ -326,7 +326,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         }else{
             viewDetail = (
                 <div className='col-md-12 chat-box mtop-10'>
-                    <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
+                    <img width='100%' className='img-fluid' src={postImage2} alt=''/>
                 </div>
             );
         }
