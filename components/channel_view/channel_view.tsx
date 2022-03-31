@@ -30,6 +30,7 @@ import postImage from 'images/post-1.png';
 import postImage2 from 'images/post-image.png';
 import postPic from 'images/profiles/user-profile-2.png';
 import postPic2 from 'images/profiles/user-profile-3.png';
+import GroupHeader from 'components/group_header';
 
 import {browserHistory} from 'utils/browser_history';
 import { ChannelStats } from 'mattermost-redux/types/channels';
@@ -252,6 +253,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         }
 
         const DeferredPostView = this.state.deferredPostView;
+
         let buttonJoin;
         if(result_leave){
             /*browserHistory.push(`${teamUrl}/channels/town-square`);*/
@@ -358,16 +360,10 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             );
         }else{
             viewDetail = (
-                <div className='col-md-12 group-cover-box mtop-10 p-0'>
-                    <img width='100%' className='img-fluid' height='300' src={postImage2} alt=''/>
-                    <div className='col-md-12'>
-                        <div className='float-start'>
-                            <h5 className='text-primary'>{channelDisplayName}</h5>
-                            <h6 className='text-secondary'>{channelPurpose}</h6>
-                        </div>
-                        
-                        {buttonJoin}
-                    </div>
+                <div>
+                    <GroupHeader
+                        channelId={this.props.channelId}
+                        channelDisplayName={this.props.channelDisplayName} />
                 </div>
             );
         }
