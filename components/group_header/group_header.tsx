@@ -46,6 +46,12 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
+
+        this.getImage(this.props.channelId);
+    }
+
+    componentDidUpdate(){
+        this.getImage(this.props.channelId);
     }
 
     handelChange = (e) => {
@@ -73,7 +79,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             .catch(error => this.setState({ error, isLoading: false}));
     }
 
-    getImage = (channel: string) =>(){
+    getImage = (channel: string) => {
         fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`, {
             method: 'GET'
         })
