@@ -135,7 +135,8 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         console.log(this.props.channelId);
         const uri = `./api/v4/channels/${this.props.channelId}/stats`;
         const config = {
-            method: "GET"
+            method: "GET",
+            'Authorization': 'Bearer b8fctgxnjbdxtjec4u6tgrcjhy',
         }
 
         fetch(uri,config).then(response => response.json()).then(response => {
