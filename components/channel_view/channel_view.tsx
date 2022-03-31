@@ -133,21 +133,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         this.props.actions.goToLastViewedChannel();
     }
 
-    componentDidMount(){
-        console.log(this.props.channelId);
-        const uri = `./api/v4/channels/${this.props.channelId}/stats`;
-        const config = {
-            method: "GET",
-            'Authorization': 'Bearer b8fctgxnjbdxtjec4u6tgrcjhy',
-        }
-
-        fetch(uri,config).then(response => response.json()).then(response => {
-            if(response != null){
-                Promise.resolve(response).then(value => {this.setState({details: value});})
-            }
-        }).catch(function(error) {console.log(error);});
-    }
-
     componentDidUpdate(prevProps: Props) {
         if (prevProps.channelId !== this.props.channelId || prevProps.channelIsArchived !== this.props.channelIsArchived) {
             mark('ChannelView#componentDidUpdate');
@@ -171,6 +156,19 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 this.props.actions.goToLastViewedChannel();
             }
         }
+
+        console.log(this.props.channelId);
+        const uri = `./api/v4/channels/${this.props.channelId}/stats`;
+        const config = {
+            method: "GET",
+            'Authorization': 'Bearer b8fctgxnjbdxtjec4u6tgrcjhy',
+        }
+
+        fetch(uri,config).then(response => response.json()).then(response => {
+            if(response != null){
+                Promise.resolve(response).then(value => {this.setState({details: value});})
+            }
+        }).catch(function(error) {console.log(error);});
     }
 
     render() {
