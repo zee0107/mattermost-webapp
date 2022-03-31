@@ -166,12 +166,12 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             }*/
         }
 
-        fetch(uri,config).then(response => response.json()).then(response => {
+        fetch(uri,config).then(response => { console.log(response)})/*.then(response => {
             if(response != null){
                 console.log(response);
                 Promise.resolve(response).then(value => {this.setState({details: value});})
             }
-        }).catch(function(error) {console.log(error);});
+        })*/.catch(function(error) {console.log(error);});
     }
 
     render() {
