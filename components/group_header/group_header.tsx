@@ -136,8 +136,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                             <input type='file' className='form-control float-start' onChange={this.handelChange} required />
                         </div>
                         <div className='col-md-5'>
-                            <button className='btn btn-success float-end btn-sm' type='button' onClick={() => {this.setState({uploadImage: false})}}>Cancel</button>
-                            <button className='btn btn-success float-end btn-sm mr-2' type='button' onClick={this.handleSubmit}>Upload</button>
+                            <button className='btn buttonBgGreen text-white float-end btn-sm' type='button' onClick={() => {this.setState({uploadImage: false})}}>Cancel</button>
+                            <button className='btn buttonBgGreen text-white float-end btn-sm mr-2' type='button' onClick={this.handleSubmit}>Upload</button>
                         </div>
                     </div>
                 </div>
@@ -147,14 +147,14 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         return (
             <div>
                 <div className='col-md-12 group-cover-box mtop-10 p-0'>
-                    {cover}
+                    <img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>
                     <div className='col-md-12'>
                         <div className='float-start'>
                             <h5 className='text-primary'>{channelDisplayName}</h5>
                             <h6 className='text-secondary'><GroupDetails channelId={channelId}/></h6>
                         </div>
 
-                        <button type='button' onClick={() => {this.setState({uploadImage: true})}} className='btn btn-success float-end btn-sm mt-4'>Upload Cover</button>
+                        <button type='button' onClick={() => {this.setState({uploadImage: true})}} className='btn buttonBgGreen text-white float-end btn-sm mt-4'>Upload</button>
                         {buttonJoin}
                     </div>
                 </div>
