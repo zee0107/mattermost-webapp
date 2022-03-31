@@ -141,7 +141,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             if(response != null){
                 Promise.resolve(response).then(value => {this.setState({details: value});})
             }
-        }).catch(function(error) {console.log(error);});
+        }).catch(function(error) {console.log(error);});  
     }
 
     componentDidUpdate(prevProps: Props) {
@@ -350,11 +350,11 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     <img width='100%' className='img-fluid' height='300' src={postImage2} alt=''/>
                     <div className='col-md-12'>
                         <div className='float-start'>
-                            <h3 className='text-primary'>{channelDisplayName}</h3>
-                            <h4 className='text-secondary'>{member_count} Members</h4>
+                            <h5 className='text-primary'>{channelDisplayName}</h5>
+                            <h6 className='text-secondary'>{member_count} Members</h6>
                         </div>
                         
-                        <button type='button' className='1btn btn-success float-end btn-sm'>Joined</button>
+                        <button type='button' className='1btn btn-success float-end btn-sm pt-4'>Joined</button>
                     </div>
                 </div>
             );
