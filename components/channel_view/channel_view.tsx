@@ -32,13 +32,11 @@ import postPic from 'images/profiles/user-profile-2.png';
 import postPic2 from 'images/profiles/user-profile-3.png';
 
 import {browserHistory} from 'utils/browser_history';
-import { ChannelStats } from 'mattermost-redux/types/channels';
 
 type Props = {
     channelId: string;
     channelName: string;
     channelDisplayName: string;
-    channelMemberCount: Promise<ChannelStats>;
     deactivatedChannel: boolean;
     channelRolesLoading: boolean;
     profilePicture: string;
@@ -134,9 +132,16 @@ export default class ChannelView extends React.PureComponent<Props, State> {
     }
 
     componentDidMount(){
-        if(this.props.channelMemberCount != null){
-            Promise.resolve(this.props.channelMemberCount).then(value => {this.setState({details: value});})
+        const uri = `./api/v4/channels/${this.props.channelId}/stats`;
+        const config = {
+            method: "GET"
         }
+
+        fetch(uri,config).then(response => response.json()).then(response => {
+            if(response != null){
+                Promise.resolve(response).then(value => {this.setState({details: value});})
+            }
+        }).catch(function(error) {console.log(error);});
     }
 
     componentDidUpdate(prevProps: Props) {
