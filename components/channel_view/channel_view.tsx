@@ -71,6 +71,7 @@ type State = {
     focusedPostId?: string;
     deferredPostView: any;
     result_leave: boolean;
+    serverError: JSX.Element | string | null;
 };
 
 export default class ChannelView extends React.PureComponent<Props, State> {
@@ -256,7 +257,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             buttonJoin = (<button type='button' className='btn btn-success float-end btn-sm mt-4'>Join</button>);
         }
         else{
-            buttonJoin = (<button type='button' onClick={() => {this.leaveGroup.bind(this,channelId)}} className='btn btn-success float-end btn-sm mt-4'>Joined</button>);
+            buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn btn-success float-end btn-sm mt-4'>Joined</button>);
         }
 
         let viewDetail;
