@@ -149,7 +149,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         }).catch(function(error) {console.log(error);}); */
 
         if(this.props.channelStats != null){
-            console.log(response);
             Promise.resolve(this.props.channelStats).then(value => {this.setState({details: value});})
         }
     }
