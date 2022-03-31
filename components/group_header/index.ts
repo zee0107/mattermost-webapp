@@ -52,4 +52,4 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
 }
 
 
-export default connect(makeMapStateToProps, mapDispatchToProps)(GroupsDetails);
+export default connect(makeMapStateToProps, mapDispatchToProps)(GroupsHeader);
