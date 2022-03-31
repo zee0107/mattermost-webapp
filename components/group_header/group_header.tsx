@@ -117,16 +117,22 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             window.location.href = '/mygroups';
         }
         else{
-            buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn btn-success float-end btn-sm mt-4'>Joined</button>);
+            buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn btn-success float-end btn-sm mt-4 ml-2'>Joined</button>);
         }
 
         let upload;
         if (uploadImage){
             upload = (
                 <div className='col-md-12 chat-box mtop-10'>
-                    <input type='file' className='form-control float-start' onChange={this.handelChange} required />
-                    <button className='btn btn-success float-end' type='button' onClick={this.handleSubmit}>Upload</button>
-                    <button className='btn btn-success float-end' type='button' onClick={() => {this.setState({uploadImage: false})}}>Cancel</button>
+                    <div className='row'>
+                        <div className='col-md-7'>
+                            <input type='file' className='form-control float-start' onChange={this.handelChange} required />
+                        </div>
+                        <div className='col-md-5'>
+                            <button className='btn btn-success float-end btn-sm' type='button' onClick={() => {this.setState({uploadImage: false})}}>Cancel</button>
+                            <button className='btn btn-success float-end btn-sm ml-2' type='button' onClick={this.handleSubmit}>Upload</button>
+                        </div>
+                    </div>
                 </div>
             );
         }
@@ -140,8 +146,9 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                             <h5 className='text-primary'>{channelDisplayName}</h5>
                             <h6 className='text-secondary'><GroupDetails channelId={channelId}/></h6>
                         </div>
-                        {buttonJoin}
+
                         <button type='button' onClick={() => {this.setState({uploadImage: true})}} className='btn btn-success float-end btn-sm mt-4'>Upload Cover</button>
+                        {buttonJoin}
                     </div>
                 </div>
                 {upload}
