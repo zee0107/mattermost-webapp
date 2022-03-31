@@ -32,12 +32,13 @@ import postPic from 'images/profiles/user-profile-2.png';
 import postPic2 from 'images/profiles/user-profile-3.png';
 
 import {browserHistory} from 'utils/browser_history';
+import { ChannelStats } from 'mattermost-redux/types/channels';
 
 type Props = {
     channelId: string;
     channelName: string;
     channelDisplayName: string;
-    channelMemberCount: string;
+    channelMemberCount: Promise<ChannelStats>;
     deactivatedChannel: boolean;
     channelRolesLoading: boolean;
     profilePicture: string;
@@ -113,6 +114,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             channelId: props.channelId,
             focusedPostId: props.match.params.postid,
             deferredPostView: ChannelView.createDeferredPostView(),
+            details: [],
         };
 
         this.channelViewRef = React.createRef();
@@ -129,6 +131,12 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
     onClickCloseChannel = () => {
         this.props.actions.goToLastViewedChannel();
+    }
+
+    componentDidMount(){
+        if(this.props.channelMemberCount != null){
+            Promise.resolve(this.props.channelMemberCount).then(value => {this.setState({details: value});})
+        }
     }
 
     componentDidUpdate(prevProps: Props) {
@@ -229,6 +237,12 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         }
 
         const DeferredPostView = this.state.deferredPostView;
+
+        let member_count;
+        if(this.state.details !== null){
+            member_count = this.state.details.member_count;
+        }
+
         let viewDetail;
         if(channelName === 'town-square'){
             viewDetail = (
@@ -332,7 +346,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     <div className='col-md-12'>
                         <div className='float-start'>
                             <h3 className='text-primary'>{channelDisplayName}</h3>
-                            <h4 className='text-secondary'>{channelMemberCount}</h4>
+                            <h4 className='text-secondary'>{member_count} Members</h4>
                         </div>
                         
                         <button type='button' className='1btn btn-success float-end btn-sm'>Joined</button>
