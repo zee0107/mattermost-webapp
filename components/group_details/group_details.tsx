@@ -34,11 +34,7 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
         this.setState({isDark: ThemeValue});
         const uri = `./api/v4/channels/${this.props.channelId}/stats`;
         const config = {
-            method: "GET",
-            headers: {
-                'authorization': 'Bearer x61mfw3jepfq7rffh96gq6ckyh',
-                'Content-Type' : 'application/json'
-            }
+            method: "GET"
         }
 
         fetch(uri,config).then(response => {console.log(response)})/*.then(response => {
