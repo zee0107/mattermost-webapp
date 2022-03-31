@@ -87,6 +87,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             .then((data)=>{
                 if (data !== 'unvailable'){
                     this.setState({img_url: data});
+                    console.log(data);
                 }
             })
             .catch(error => this.setState({ error, isLoading: false}));
@@ -111,7 +112,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         const {channelId, channelDisplayName} = this.props;
         const { result_leave, uploadImage } = this.state;
         let cover;
-        if(this.state.img_url === '' && this.state.img_url === null){
+        if(this.state.img_url === '' || this.state.img_url === null){
             cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
         }
         else{
@@ -123,7 +124,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             window.location.href = '/mygroups';
         }
         else{
-            buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn btn-success float-end btn-sm mt-4 ml-2'>Joined</button>);
+            buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn btn-success float-end btn-sm mt-4 mr-2'>Joined</button>);
         }
 
         let upload;
@@ -136,7 +137,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                         </div>
                         <div className='col-md-5'>
                             <button className='btn btn-success float-end btn-sm' type='button' onClick={() => {this.setState({uploadImage: false})}}>Cancel</button>
-                            <button className='btn btn-success float-end btn-sm ml-2' type='button' onClick={this.handleSubmit}>Upload</button>
+                            <button className='btn btn-success float-end btn-sm mr-2' type='button' onClick={this.handleSubmit}>Upload</button>
                         </div>
                     </div>
                 </div>
