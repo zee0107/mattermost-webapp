@@ -37,7 +37,6 @@ import GroupDetail from 'components/group_details';
 
 type Props = {
     channelId: string;
-    channelStats: Promise<ChannelStats>;
     channelName: string;
     channelDisplayName: string;
     deactivatedChannel: boolean;
