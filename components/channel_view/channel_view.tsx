@@ -36,6 +36,8 @@ import {browserHistory} from 'utils/browser_history';
 type Props = {
     channelId: string;
     channelName: string;
+    channelDisplayName: string;
+    channelMemberCount: string;
     deactivatedChannel: boolean;
     channelRolesLoading: boolean;
     profilePicture: string;
@@ -155,7 +157,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
     }
 
     render() {
-        const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName} = this.props;
+        const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName, channelDisplayName, channelMemberCount} = this.props;
         if (enableOnboardingFlow && showNextSteps && !showNextStepsEphemeral) {
             this.props.actions.setShowNextStepsView(true);
             browserHistory.push(`${teamUrl}/tips`);
@@ -325,8 +327,16 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             );
         }else{
             viewDetail = (
-                <div className='col-md-12 chat-box mtop-10'>
-                    <img width='100%' className='img-fluid' src={postImage2} alt=''/>
+                <div className='col-md-12 group-cover-box mtop-10 p-0'>
+                    <img width='100%' className='img-fluid' height='300' src={postImage2} alt=''/>
+                    <div className='col-md-12'>
+                        <div className='float-start'>
+                            <h3 className='text-primary'>{channelDisplayName}</h3>
+                            <h4 className='text-secondary'>{channelMemberCount}</h4>
+                        </div>
+                        
+                        <button type='button' className='1btn btn-success float-end btn-sm'>Joined</button>
+                    </div>
                 </div>
             );
         }
@@ -399,7 +409,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                 </div>
-                <div className='col-md-4'>
+                <div id='rsvDesktop' className='col-md-4'>
                     <RigthSideView></RigthSideView>
                 </div>
             </div>
