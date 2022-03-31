@@ -52,6 +52,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     }
 
     handleSubmit = () => {
+        'use strict';
         const data = new FormData();
         data.append('fileblob', this.state.selectedFile);
         data.append('group_id', this.props.channelId);

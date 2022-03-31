@@ -13,6 +13,7 @@ type State = {
 };
 
 export default class GroupsDetails extends React.PureComponent<Props, State> {
+    
     static defaultProps = {
         userId: '',
         profilePicture: '',
@@ -30,6 +31,7 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
     }
 
     componentDidMount(){
+        'use strict';
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
         const uri = `./api/v4/channels/${this.props.channelId}/stats`;
