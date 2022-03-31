@@ -64,7 +64,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         let buttonJoin;
         if(result_leave){
             /*browserHistory.push(`${teamUrl}/channels/town-square`);*/
-            window.location.href = 'newsfeed/channels/town-square';
+            window.location.href = '/mygroups';
         }
         else{
             buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn btn-success float-end btn-sm mt-4'>Joined</button>);
