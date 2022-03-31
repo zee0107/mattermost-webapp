@@ -63,7 +63,8 @@ function mapStateToProps(state: GlobalState) {
     }
 
     return {
-        channelId: currentChannelId,
+        channelId: channel ? channel.id : '',
+        idChannel: currentChannelId,
         channelName: channel ? channel.name : '',
         channelDisplayName: channel ? channel.display_name : '',
         channelRolesLoading,
