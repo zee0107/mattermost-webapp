@@ -179,7 +179,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
     }
 
     render() {
-        const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName, channelDisplayName, channelMemberCount} = this.props;
+        const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName, channelDisplayName} = this.props;
         if (enableOnboardingFlow && showNextSteps && !showNextStepsEphemeral) {
             this.props.actions.setShowNextStepsView(true);
             browserHistory.push(`${teamUrl}/tips`);
