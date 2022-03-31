@@ -134,23 +134,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         this.props.actions.goToLastViewedChannel();
     }
 
-    componentDidMount(){
-        const uri = `./api/v4/channels/${this.props.channelId}/stats`;
-        const config = {
-            method: "GET",
-            headers: {
-                'Content-Type' : 'application/json',
-            }
-        }
-
-        fetch(uri,config).then(response => response.json()).then(response => {
-            if(response != null){
-                console.log(response);
-                Promise.resolve(response).then(value => {this.setState({details: value});})
-            }
-        }).catch(function(error) {console.log(error);});
-    }
-
     componentDidUpdate(prevProps: Props) {
         if (prevProps.channelId !== this.props.channelId || prevProps.channelIsArchived !== this.props.channelIsArchived) {
             mark('ChannelView#componentDidUpdate');
@@ -174,15 +157,11 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 this.props.actions.goToLastViewedChannel();
             }
         }
-
-        
-
-        this.setState({channel_id: this.props.channelId});
-        console.log(this.state.channel_id);
     }
 
     render() {
-        const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName, channelDisplayName} = this.props;
+        const {channelId,channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName, channelDisplayName} = this.props;
+        console.log(channelId);
         if (enableOnboardingFlow && showNextSteps && !showNextStepsEphemeral) {
             this.props.actions.setShowNextStepsView(true);
             browserHistory.push(`${teamUrl}/tips`);
