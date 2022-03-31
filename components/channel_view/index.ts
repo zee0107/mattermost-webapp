@@ -40,6 +40,7 @@ function mapStateToProps(state: GlobalState) {
     const channel = getCurrentChannel(state);
     const currentChannelId = channel?.id;
     const stats = Client4.getChannelStats(currentChannelId);
+    console.log(stats);
     const currentUser = getCurrentUser(state);
     const userId = currentUser?.id;
 
