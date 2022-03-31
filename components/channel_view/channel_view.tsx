@@ -132,6 +132,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
     }
 
     componentDidMount(){
+        consol.log(this.props.channelId);
         const uri = `./api/v4/channels/${this.props.channelId}/stats`;
         const config = {
             method: "GET"
@@ -354,7 +355,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                             <h6 className='text-secondary'>{member_count} Members</h6>
                         </div>
                         
-                        <button type='button' className='1btn btn-success float-end btn-sm pt-4'>Joined</button>
+                        <button type='button' className='btn btn-success float-end btn-sm mt-4'>Joined</button>
                     </div>
                 </div>
             );
