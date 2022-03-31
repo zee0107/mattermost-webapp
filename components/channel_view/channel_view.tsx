@@ -114,8 +114,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             channelId: props.channelId,
             focusedPostId: props.match.params.postid,
             deferredPostView: ChannelView.createDeferredPostView(),
-            details: [],
-            channel_id: '',
         };
 
         this.channelViewRef = React.createRef();
@@ -232,11 +230,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         }
 
         const DeferredPostView = this.state.deferredPostView;
-
-        let member_count;
-        if(this.state.details !== null){
-            member_count = this.state.details.member_count;
-        }
 
         let viewDetail;
         if(channelName === 'town-square'){
