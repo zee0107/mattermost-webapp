@@ -134,8 +134,8 @@ export default class ChannelView extends React.PureComponent<Props, State> {
     }
 
     componentDidMount(){
-        /*console.log(this.props.idChannel);
-        const uri = `./api/v4/channels/${this.props.idChannel}/stats`;
+        console.log(this.props.channelId);
+        const uri = `./api/v4/channels/${this.props.channelId}/stats`;
         const config = {
             method: "GET",
             'Authorization': 'Bearer b8fctgxnjbdxtjec4u6tgrcjhy',
@@ -143,14 +143,9 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
         fetch(uri,config).then(response => response.json()).then(response => {
             if(response != null){
-                console.log(response);
                 Promise.resolve(response).then(value => {this.setState({details: value});})
             }
-        }).catch(function(error) {console.log(error);}); */
-
-        if(this.props.channelStats != null){
-            Promise.resolve(this.props.channelStats).then(value => {this.setState({details: value});})
-        }
+        }).catch(function(error) {console.log(error);});
     }
 
     componentDidUpdate(prevProps: Props) {
