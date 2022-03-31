@@ -19,6 +19,7 @@ type State = {
     result_leave: boolean;
     uploadImage: boolean;
     selectedFile: any;
+    img_url: any;
 };
 
 export default class GroupsHeader extends React.PureComponent<Props, State> {
@@ -57,12 +58,6 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         data.append('fileblob', this.state.selectedFile);
         data.append('group_id', this.props.channelId);
 
-        console.log(this.state.selectedFile);
-
-        for (let [key, value] of data.entries()) {
-            console.log(key, value);
-          }
-
         fetch('https://localhost:44312/api/crypter/uploadgroupcover', {
             method: 'POST',
             //headers: {'Content-Type':'multipart/form-data'},
@@ -70,11 +65,26 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         })
             .then((response) => response.json())
             .then((data)=>{
-                console.log('Success', data);
+                if (data === 'Uploaded'){
+                    this.setState({uploadImage: false});
+                    this.getImage(this.props.channelId);
+                }
             })
             .catch(error => this.setState({ error, isLoading: false}));
     }
 
+    getImage = (channel: string) =>(){
+        fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`, {
+            method: 'GET'
+        })
+            .then((response) => response.json())
+            .then((data)=>{
+                if (data !== 'unvailable'){
+                    this.setState({img_url: data});
+                }
+            })
+            .catch(error => this.setState({ error, isLoading: false}));
+    }
     
     handleLeaveChannel = (channel: string) => {
         const {actions} = this.props;
@@ -94,7 +104,13 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const {channelId, channelDisplayName} = this.props;
         const { result_leave, uploadImage } = this.state;
-        
+        let cover;
+        if(this.state.img_url === '' && this.state.img_url === null){
+            cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
+        }
+        else{
+            cover = (<img width='100%' className='img-fluid' height='300' src={this.state.img_url} alt=''/>);
+        }
         let buttonJoin;
         if(result_leave){
             /*browserHistory.push(`${teamUrl}/channels/town-square`);*/
@@ -118,7 +134,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         return (
             <div>
                 <div className='col-md-12 group-cover-box mtop-10 p-0'>
-                    <img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>
+                    {cover}
                     <div className='col-md-12'>
                         <div className='float-start'>
                             <h5 className='text-primary'>{channelDisplayName}</h5>
