@@ -57,8 +57,11 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         data.append('fileblob', this.state.selectedFile);
         data.append('group_id', this.props.channelId);
 
-        console.log(data);
         console.log(this.state.selectedFile);
+
+        for (let [key, value] of data.entries()) {
+            console.log(key, value);
+          }
 
         fetch('https://localhost:44312/api/crypter/uploadgroupcover', {
             method: 'POST',
