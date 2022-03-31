@@ -64,7 +64,7 @@ function mapStateToProps(state: GlobalState) {
         channelId: channel ? channel.id : '',
         channelName: channel ? channel.name : '',
         channelDisplayName: channel ? channel.display_name : '',
-        channelMemberCount: channel ? Client4.getChannelStats(channel.id) : '',
+        channelMemberCount: Client4.getChannelStats(channel.id),
         channelRolesLoading,
         deactivatedChannel: channel ? isDeactivatedChannel(state, channel.id) : false,
         focusedPostId: state.views.channel.focusedPostId,
