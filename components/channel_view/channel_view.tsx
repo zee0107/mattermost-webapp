@@ -115,6 +115,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             focusedPostId: props.match.params.postid,
             deferredPostView: ChannelView.createDeferredPostView(),
             details: [],
+            channel_id: '',
         };
 
         this.channelViewRef = React.createRef();
@@ -131,6 +132,23 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
     onClickCloseChannel = () => {
         this.props.actions.goToLastViewedChannel();
+    }
+
+    componentDidMount(){
+        const uri = `./api/v4/channels/${this.props.channelId}/stats`;
+        const config = {
+            method: "GET",
+            headers: {
+                'Content-Type' : 'application/json',
+            }
+        }
+
+        fetch(uri,config).then(response => response.json()).then(response => {
+            if(response != null){
+                console.log(response);
+                Promise.resolve(response).then(value => {this.setState({details: value});})
+            }
+        }).catch(function(error) {console.log(error);});
     }
 
     componentDidUpdate(prevProps: Props) {
@@ -157,21 +175,10 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             }
         }
 
-        console.log(this.props.channelId);
-        const uri = `./api/v4/channels/${this.props.channelId}/stats`;
-        const config = {
-            method: "GET",
-            /*headers: {
-                'Authorization': 'Bearer x61mfw3jepfq7rffh96gq6ckyh',
-            }*/
-        }
+        
 
-        fetch(uri,config).then(response => { console.log(response)})/*.then(response => {
-            if(response != null){
-                console.log(response);
-                Promise.resolve(response).then(value => {this.setState({details: value});})
-            }
-        })*/.catch(function(error) {console.log(error);});
+        this.setState({channel_id: this.props.channelId});
+        console.log(this.state.channel_id);
     }
 
     render() {
