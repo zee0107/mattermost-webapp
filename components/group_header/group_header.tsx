@@ -79,8 +79,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             .catch(error => this.setState({ error, isLoading: false}));
     }
 
-    getImage = async (channel: string) => {
-        await fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`, {
+    getImage = (channel: string) => {
+        fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`, {
             method: 'GET'
         })
             .then((response) => response.json())
