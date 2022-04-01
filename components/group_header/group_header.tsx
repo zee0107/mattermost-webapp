@@ -43,6 +43,14 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     componentDidMount = () =>{
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
+        const chnId = window.localStorage.getItem('channelId');
+        if (chnId !== null){
+            this.setState({id: chnId});
+            this.getImage(this.state.id);
+        }
+        else{
+            this.setState({img_url: 'unavailable'});
+        }
     }
 
     handelChange = (e) => {
@@ -112,7 +120,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {channelId, channelDisplayName} = this.props;
-        const { result_leave, uploadImage , img_url, id} = this.state;        
+        const { result_leave, uploadImage} = this.state;        
         
         let buttonJoin;
         if(result_leave){

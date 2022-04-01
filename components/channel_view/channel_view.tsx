@@ -161,6 +161,8 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             if (this.props.channelIsArchived && !this.props.viewArchivedChannels) {
                 this.props.actions.goToLastViewedChannel();
             }
+
+            window.localStorage.setItem('channelId', this.props.channelId);
         }
     }
 
