@@ -124,7 +124,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                 <div className='col-md-12 chat-box mtop-10'>
                     <div className='row mt-2'>
                         <div className='col-md-12'>
-                            <h5 className='text-primary'>Upload Group Cover Photo</h5>
+                            <label className='text-primary small'>Upload Group Cover Photo</label>
                         </div>
                         <div className='col-md-8'>
                             <input type='file' className='form-control float-start' onChange={this.handelChange} required />
