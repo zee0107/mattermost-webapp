@@ -82,7 +82,7 @@ const holders = defineMessages({
     },
     position: {
         id: t('user.settings.general.position'),
-        defaultMessage: 'Position',
+        defaultMessage: 'Location',
     },
 });
 
@@ -1151,7 +1151,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
                 let positionLabel: JSX.Element | string = (
                     <FormattedMessage
                         id='user.settings.general.position'
-                        defaultMessage='Position'
+                        defaultMessage='Location'
                     />
                 );
                 if (Utils.isMobile()) {
