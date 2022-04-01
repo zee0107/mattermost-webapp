@@ -50,6 +50,10 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         this.getImage(this.props.channelId);
     }
 
+    componentDidUpdate(){
+        this.getImage(this.props.channelId);
+    }
+
     handelChange = (e) => {
         this.setState({selectedFile: e.target.files[0]});
     }
@@ -80,12 +84,12 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             method: 'GET'
         })
             .then((response) => response.json())
-            .then((response)=>{
+            .then(async (response)=>{
                 console.log(response);
-                    /*const imageBlob = await response.blob()
-                    const imageObjectURL = URL.createObjectURL(imageBlob);
-                    this.setState({img_url: imageObjectURL});
-                    console.log(this.state.img_url);*/
+                const imageBlob = await response.blob()
+                const imageObjectURL = URL.createObjectURL(imageBlob);
+                this.setState({img_url: imageObjectURL});
+                console.log(this.state.img_url);
             })
             .catch(error => this.setState({ error, isLoading: false}));
     }
