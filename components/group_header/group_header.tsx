@@ -6,7 +6,7 @@ import GroupDetails from 'components/group_details';
 import GroupLogo from 'images/groupcover.png';
 import { isGIFImage } from 'utils/utils';
 
-type Props = {
+export type Props = {
     channelId:string;
     channelDisplayName: string;
     actions: {
