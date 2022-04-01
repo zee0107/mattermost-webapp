@@ -1150,7 +1150,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
             } else {
                 let positionLabel: JSX.Element | string = (
                     <FormattedMessage
-                        id='user.settings.general.position'
+                        id='general.position'
                         defaultMessage='Location'
                     />
                 );
@@ -1175,7 +1175,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
                                 maxLength={Constants.MAX_POSITION_LENGTH}
                                 autoCapitalize='off'
                                 onFocus={Utils.moveCursorToEnd}
-                                aria-label={formatMessage({id: 'user.settings.general.position', defaultMessage: 'Position'})}
+                                aria-label={formatMessage({id: 'general.position', defaultMessage: 'Location'})}
                             />
                         </div>
                     </div>,
@@ -1185,7 +1185,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
                     <span>
                         <FormattedMessage
                             id='user.settings.general.positionExtra'
-                            defaultMessage='Use Position for your role or job title. This will be shown in your profile popover.'
+                            defaultMessage='Use Location. This will be shown in your profile popover.'
                         />
                     </span>
                 );
@@ -1212,15 +1212,15 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
             } else {
                 describe = (
                     <FormattedMessage
-                        id='user.settings.general.emptyPosition'
-                        defaultMessage="Click 'Edit' to add your job title / position"
+                        id='general.emptyPosition'
+                        defaultMessage="Click 'Edit' to add your location."
                     />
                 );
                 if (Utils.isMobile()) {
                     describe = (
                         <FormattedMessage
-                            id='user.settings.general.mobile.emptyPosition'
-                            defaultMessage='Click to add your job title / position'
+                            id='general.mobile.emptyPosition'
+                            defaultMessage='Click to add your location.'
                         />
                     );
                 }
