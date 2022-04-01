@@ -45,9 +45,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     }
 
     componentDidUpdate(prevProps){
-        if (this.props.channelId != undefined && this.props.channelId === prevProps.channelId){
-            this.setState({id: this.props.channelId});
-        }
+        console.log(`Prop: ${this.props.channelId} | PrevProp: ${prevProps.channelId}`);
     }
 
     handelChange = (e) => {
