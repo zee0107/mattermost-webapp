@@ -26,7 +26,7 @@ type State = {
 export default class GroupsHeader extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
-
+        console.log(this.props)
         this.state = {
             isDark:'light',
             memberCount: '',
