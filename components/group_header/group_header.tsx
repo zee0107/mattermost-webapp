@@ -41,8 +41,6 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     componentDidMount = () =>{
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
-
-        this._loadAsyncData(this.props.channelId);
     }
 
     componentDidUpdate(prevProps){
