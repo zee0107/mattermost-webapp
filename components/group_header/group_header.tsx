@@ -43,11 +43,11 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount = async () =>{
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
 
-        this.getImage(this.props.channelId);
+        await this.getImage(this.props.channelId);
     }
 
     /*componentDidUpdate(){
@@ -79,8 +79,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             .catch(error => this.setState({ error, isLoading: false}));
     }
 
-    getImage = (channel: string) => {
-        fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`, {
+    getImage = async (channel: string) => {
+        await fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`, {
             method: 'GET'
         })
             .then((response) => response.json())
@@ -120,7 +120,6 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         else{
             cover = (<img width='100%' className='img-fluid' height='300' src={this.state.img_url} alt=''/>);
         }
-        this.getImage(channelId);
         let buttonJoin;
         if(result_leave){
             /*browserHistory.push(`${teamUrl}/channels/town-square`);*/
