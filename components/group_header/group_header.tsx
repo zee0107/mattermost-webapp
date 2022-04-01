@@ -78,6 +78,18 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             .catch(error => this.setState({ error, isLoading: false}));
     }
 
+    renderCover = () => {
+        this.getImage(this.state.id);
+        let cover;
+        console.log(this.state.img_url);
+        if(this.state.img_url === 'unavailable'){
+            cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
+        }
+        else{
+            cover = (<img width='100%' className='img-fluid' height='300' src={this.state.img_url} alt=''/>);
+        }
+    }
+
     getImage = (channel: string) => {
         fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`, {
             method: 'GET'
@@ -88,7 +100,6 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                     const imageBlob = await response.blob()
                     const imageObjectURL = URL.createObjectURL(imageBlob);
                     this.setState({img_url: imageObjectURL});
-                    console.log(this.state.img_url);
                 }
                 else{
                     this.setState({img_url:response});
@@ -114,16 +125,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {channelId, channelDisplayName} = this.props;
-        const { result_leave, uploadImage , img_url, id} = this.state;
-        console.log(id)
+        const { result_leave, uploadImage , img_url, id} = this.state;        
         
-        let cover;
-        if(img_url === 'unavailable'){
-            cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
-        }
-        else{
-            cover = (<img width='100%' className='img-fluid' height='300' src={this.state.img_url} alt=''/>);
-        }
         let buttonJoin;
         if(result_leave){
             /*browserHistory.push(`${teamUrl}/channels/town-square`);*/
@@ -132,7 +135,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         else{
             buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn btn-success float-end btn-sm mt-4 mr-2'>Joined</button>);
         }
-
+        const cover = this.renderCover();
         let upload;
         if (uploadImage){
             upload = (
