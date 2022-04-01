@@ -42,6 +42,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
         
+        this.getImage(this.state.id);
     }
 
     componentDidUpdate(prevProps){
@@ -115,7 +116,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         const {channelId, channelDisplayName} = this.props;
         const { result_leave, uploadImage , img_url, id} = this.state;
         console.log(id)
-        this.getImage(id);
+        
         let cover;
         if(img_url === 'unavailable'){
             cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
