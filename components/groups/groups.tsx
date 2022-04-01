@@ -21,6 +21,7 @@ import * as Utils from 'utils/utils';
 import {FormattedMessage} from 'react-intl';
 import {browserHistory} from 'utils/browser_history';
 import { group } from 'console';
+import GroupImage from 'components/group_image/group_image';
 
 export function getChannelTypeFromProps(props: Props): ChannelType {
     let channelType = props.channelType || Constants.OPEN_CHANNEL;
@@ -357,7 +358,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             return(
                                 <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
-                                        <img onClick={this.handleRedirect.bind(this,item.name,item.id)} width='100%' className='img-fluid' src={GroupLogo} alt=''/>
+                                        <GroupImage channelId={item.id} channelName={item.name} />
                                         <p onClick={this.handleRedirect.bind(this,item.name,item.id)} className='mt-4 ms-3 ml-5'>
                                         <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
                                         </p>
@@ -413,7 +414,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 return(
                                     <div className='col-md-3 p-1'>
                                         <div className='box-each-groups'>
-                                            <img onClick={this.handleRedirect.bind(this,item.name,item.id)} width='100%' className='img-fluid' src={GroupLogo} alt=''/>
+                                            <GroupImage channelId={item.id} channelName={item.name} />
                                             <p onClick={this.handleRedirect.bind(this,item.name,item.id)} className='mt-4 ms-3 ml-5'>
                                             <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
                                             </p>
@@ -462,7 +463,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             return(
                                 <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
-                                        <img width='100%' className='img-fluid' src={GroupLogo} alt=''/>
+                                        <GroupImage channelId={item.id} channelName={item.name} />
                                         <p className='mt-4 ms-3 ml-5'>
                                         <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
                                         </p>

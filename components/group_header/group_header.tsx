@@ -81,7 +81,6 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         const response = await fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`);
         const imageBlob = await response.blob();
         const textBlob = await imageBlob.text();
-        console.log(textBlob.toString());
         if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
         {
             this.setState({img_url: 'unavailable'});
