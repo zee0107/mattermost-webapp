@@ -19,7 +19,7 @@ type State = {
     result_leave: boolean;
     uploadImage: boolean;
     selectedFile: any;
-    img_url: any;
+    img_url: string;
     id:string;
 };
 
@@ -32,18 +32,15 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             data: [],
             result_leave: false,
             uploadImage: false,
+            img_url: 'unavailable',
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount = () =>{
-        const { props } = this.props;
-        console.log(props);
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
-        
-        this.getImage(this.state.id);
     }
 
     componentDidUpdate(prevProps){
@@ -81,8 +78,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     renderCover = () => {
         let cover;
-        console.log(this.state.img_url);
-        if(this.state.img_url === 'unavailable' || this.state.img_url === undefined){
+        if(this.state.img_url === 'unavailable' || this.state.img_url === 'undefined'){
             cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
         }
         else{
@@ -100,9 +96,11 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                     const imageBlob = await response.blob()
                     const imageObjectURL = URL.createObjectURL(imageBlob);
                     this.setState({img_url: imageObjectURL});
+                    console.log(this.state.img_url);
                 }
                 else{
                     this.setState({img_url:response});
+                    console.log(this.state.img_url);
                 }
             })
             .catch(error => this.setState({ error, isLoading: false}));

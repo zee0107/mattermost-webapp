@@ -22,20 +22,17 @@ import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
 import {joinChannel,leaveChannelNew} from 'mattermost-redux/actions/channels';
 
-import GroupsHeader, { Props } from './group_header'
+import GroupsHeader from './group_header'
 
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
 
-    return function mapStateToProps(state: GlobalState, props : Props) {
+    return function mapStateToProps(state: GlobalState) {
         const currentUser = getCurrentUser(state);
         const channel = getCurrentChannel(state);
 
         const userId = currentUser?.id;
-        const channelId = props.channelId;
-        const channelDisplayName = props.channelDisplayName;
         return {
-            channelId,
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
