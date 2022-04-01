@@ -92,16 +92,10 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         })
             .then((response) => response.json())
             .then((response)=>{
-                if(response !== 'unavailable'){
-                    const imageBlob = response.blob()
-                    const imageObjectURL = URL.createObjectURL(imageBlob);
-                    this.setState({img_url: imageObjectURL});
-                    console.log(this.state.img_url);
-                }
-                else{
-                    this.setState({img_url:response});
-                    console.log(this.state.img_url);
-                }
+                const imageBlob = response.blob()
+                const imageObjectURL = URL.createObjectURL(imageBlob);
+                this.setState({img_url: imageObjectURL});
+                console.log(this.state.img_url);
             })
             .catch(error => this.setState({ error, isLoading: false}));
     }
