@@ -53,7 +53,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.channelRole).then(value => {this.setState({data: value});})
         }
 
-        console.log(this.state.data);
+        
         
         this.getImage(this.props.channelId);
     }
@@ -119,8 +119,9 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {channelId, channelDisplayName} = this.props;
-        const { result_leave, uploadImage, img_url} = this.state;
-
+        const { result_leave, uploadImage, img_url, data} = this.state;
+        console.log(data);
+        
         let cover;
         if(img_url === 'unavailable'){
             cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
