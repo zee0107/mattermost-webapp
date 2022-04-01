@@ -31,7 +31,6 @@ type State = {
 export default class GroupsHeader extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
-        console.log(props);
         this.state = {
             isDark:'light',
             memberCount: '',
@@ -120,7 +119,6 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const {channelId, channelDisplayName} = this.props;
         const { result_leave, uploadImage, img_url, data} = this.state;
-        console.log(data.roles);
 
         let cover;
         if(img_url === 'unavailable'){
