@@ -18,11 +18,7 @@ export type Props = {
 
 type State = {
     isDark: string;
-    result_leave: boolean;
-    uploadImage: boolean;
-    selectedFile: any;
     img_url: string;
-    id:string;
 };
 
 export default class GroupImage extends React.PureComponent<Props, State> {
@@ -30,15 +26,8 @@ export default class GroupImage extends React.PureComponent<Props, State> {
         super(props);
         this.state = {
             isDark:'light',
-            memberCount: '',
-            data: [],
-            result_leave: false,
-            uploadImage: false,
             img_url: 'unavailable',
-            id: '',
         };
-
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount = () =>{
