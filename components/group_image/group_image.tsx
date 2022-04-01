@@ -58,7 +58,7 @@ export default class GroupImage extends React.PureComponent<Props, State> {
 
     handleRedirect = (name: string, id: string) => {
         window.localStorage.setItem('channelId', id);
-        window.location.href = `./newsfeed/channels/${name}`;
+        window.location.href = `./crypter/channels/${name}`;
     }
     
     render= (): JSX.Element => {

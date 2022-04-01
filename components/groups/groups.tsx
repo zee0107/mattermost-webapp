@@ -332,7 +332,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
     handleRedirect = (name: string, id: string) => {
         window.localStorage.setItem('channelId', id);
-        window.location.href = `./newsfeed/channels/${name}`;
+        window.location.href = `./crypter/channels/${name}`;
     }
 
     joinedGroup = () => {
