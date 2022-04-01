@@ -47,6 +47,10 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         this.getImage(this.props.channelId);
     }
 
+    componentDidUpdate(){
+        
+    }
+
     handelChange = (e) => {
         this.setState({selectedFile: e.target.files[0]});
     }
