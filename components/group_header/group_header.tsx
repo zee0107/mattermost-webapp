@@ -120,7 +120,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const {channelId, channelDisplayName} = this.props;
         const { result_leave, uploadImage, img_url, data} = this.state;
-        console.log(data);
+        console.log(data.role);
 
         let cover;
         if(img_url === 'unavailable'){
