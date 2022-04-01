@@ -91,9 +91,9 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             method: 'GET'
         })
             .then((response) => response.json())
-            .then(async (response)=>{
+            .then((response)=>{
                 if(response !== 'unavailable'){
-                    const imageBlob = await response.blob()
+                    const imageBlob = response.blob()
                     const imageObjectURL = URL.createObjectURL(imageBlob);
                     this.setState({img_url: imageObjectURL});
                     console.log(this.state.img_url);
