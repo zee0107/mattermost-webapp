@@ -117,7 +117,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {channelId, channelDisplayName} = this.props;
-        const { result_leave, uploadImage } = this.state;
+        const { result_leave, uploadImage , img_url} = this.state;
         let cover;
         if(this.state.img_url === '' || this.state.img_url === null){
             cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
@@ -154,7 +154,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         return (
             <div>
                 <div className='col-md-12 group-cover-box mtop-10 p-0'>
-                    <img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>
+                    <img width='100%' className='img-fluid' height='300' src={img_url} alt=''/>
                     <div className='col-md-12'>
                         <div className='float-start'>
                             <h5 className='text-primary'>{channelDisplayName}</h5>
