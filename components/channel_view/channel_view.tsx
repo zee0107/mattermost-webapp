@@ -99,6 +99,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
         if (props.channelId !== state.channelId) {
             updatedState = {...updatedState, channelId: props.channelId, focusedPostId};
+            window.localStorage.setItem('channelId',props.channelId);
         }
 
         if (focusedPostId && focusedPostId !== state.focusedPostId) {
@@ -162,7 +163,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 this.props.actions.goToLastViewedChannel();
             }
 
-            window.localStorage.setItem('channelId', this.props.channelId);
+            //window.localStorage.setItem('channelId', this.props.channelId);
         }
     }
 
