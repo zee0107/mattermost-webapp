@@ -53,7 +53,18 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             this.setState({img_url: 'unavailable'});
         }*/
 
-        this.getImage(this.props.channelId);
+        fetch(`https://localhost:44312/api/crypter/coverimg?id=${this.props.channelId}`, {
+            method: 'GET'
+        })
+        .then((response) => response.json())
+        .then((response)=>{
+            /*const imageBlob = await response.blob()
+            const imageObjectURL = URL.createObjectURL(imageBlob);
+            this.setState({img_url: imageObjectURL});
+            console.log(this.state.img_url);*/
+
+            console.log(response);
+        }).catch(error => this.setState({ error, isLoading: false}));
     }
 
     handelChange = (e) => {
