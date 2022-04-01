@@ -79,15 +79,22 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             .catch(error => this.setState({ error, isLoading: false}));
     }
 
-    getImage = (channel: string) => {
+    getImage = async (channel: string) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            const base64data = reader.result;
+            console.log(base64data);
+        }
+
         fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`, {
             method: 'GET'
         })
             .then((response) => response.json())
             .then((data)=>{
                 if (data !== 'unvailable'){
-                    this.setState({img_url: data});
-                    console.log(data);
+                    const imageBlob = await data.blob()
+                    this.setState({img_url: reader.readAsDataURL(imageBlob)});
+                    console.log(this.state.img_url);
                 }
             })
             .catch(error => this.setState({ error, isLoading: false}));
