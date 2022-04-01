@@ -23,12 +23,6 @@ type State = {
 };
 
 export default class GroupsHeader extends React.PureComponent<Props, State> {
-    static defaultProps = {
-        userId: '',
-        profilePicture: '',
-        /*status: UserStatuses.OFFLINE,*/
-    }
-
     constructor(props: Props) {
         super(props);
 
@@ -47,7 +41,12 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
         console.log(this.props.channelId)
-        fetch(`https://localhost:44312/api/crypter/coverimg?id=${this.props.channelId}`, { method: 'GET' })
+        
+    }
+
+    componentDidUpdate(prevProps){
+        if (this.props.channelId != undefined && this.props.channelId !== prevProps.channelId){
+            fetch(`https://localhost:44312/api/crypter/coverimg?id=${this.props.channelId}`, { method: 'GET' })
             .then((response) => response.json())
             .then(async (response)=>{
                 console.log(response);
@@ -57,6 +56,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                 console.log(this.state.img_url);
             })
             .catch(error => this.setState({ error, isLoading: false}));
+        }
     }
 
     handelChange = (e) => {
