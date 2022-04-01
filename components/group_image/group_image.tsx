@@ -42,7 +42,7 @@ export default class GroupImage extends React.PureComponent<Props, State> {
     }
 
     getImage = async (channel: string) => {
-        const response = await fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`);
+        const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/coverimg?id=${channel}`);
         const imageBlob = await response.blob();
         const textBlob = await imageBlob.text();
         if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
