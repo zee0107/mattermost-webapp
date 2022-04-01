@@ -78,16 +78,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             .catch(error => this.setState({ error, isLoading: false}));
     }
 
-    renderCover = () => {
-        const { img_url } = this.state;
-        let cover;
-        if(img_url === 'unavailable' || img_url === undefined){
-            cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
-        }
-        else{
-            cover = (<img width='100%' className='img-fluid' height='300' src={this.state.img_url} alt=''/>);
-        }
-    }
+ 
 
     getImage =async (channel: string) => {
         await fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`, {
@@ -120,8 +111,15 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {channelId, channelDisplayName} = this.props;
-        const { result_leave, uploadImage} = this.state;        
-        
+        const { result_leave, uploadImage, img_url} = this.state;
+
+        let cover;
+        if(img_url === 'unavailable'){
+            cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
+        }
+        else{
+            cover = (<img width='100%' className='img-fluid' height='300' src={this.state.img_url} alt=''/>);
+        }
         let buttonJoin;
         if(result_leave){
             /*browserHistory.push(`${teamUrl}/channels/town-square`);*/
@@ -130,7 +128,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         else{
             buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn btn-success float-end btn-sm mt-4 mr-2'>Joined</button>);
         }
-        const cover = this.renderCover();
+        
         let upload;
         if (uploadImage){
             upload = (
