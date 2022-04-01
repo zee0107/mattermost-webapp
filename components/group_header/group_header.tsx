@@ -49,8 +49,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
 
-        if (this.props.channelRole != null){
-            Promise.resolve(this.props.channelRole).then(value => {this.setState({data: value})});
+        if(this.props.channelRole != null){
+            Promise.resolve(this.props.channelRole).then(value => {this.setState({data: value});})
         }
 
         console.log(this.state.data);
