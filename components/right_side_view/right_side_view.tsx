@@ -80,7 +80,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
             <div>
                 <div className='col-md-12 chat-box removePadding mtop-10'>
                                         <div className='d-flex mtop-10'>
-                                            <div className='col-md-3 profile-img-div-new'>
+                                            <div className='col-md-3 profile-img-div-new pt-3'>
                                                 {this.renderProfilePicture('xl')}
                                             </div>
                                         
