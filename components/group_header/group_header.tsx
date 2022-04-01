@@ -79,7 +79,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             .catch(error => this.setState({ error, isLoading: false}));
     }
 
-    getImage = async (channel: string) => {
+    getImage = (channel: string) => {
         const reader = new FileReader();
         reader.onloadend = () => {
             const base64data = reader.result;
@@ -90,7 +90,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             method: 'GET'
         })
             .then((response) => response.json())
-            .then((data)=>{
+            .then(async (data)=>{
                 if (data !== 'unvailable'){
                     const imageBlob = await data.blob()
                     this.setState({img_url: reader.readAsDataURL(imageBlob)});
