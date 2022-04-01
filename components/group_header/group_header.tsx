@@ -44,14 +44,16 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     componentDidMount = () =>{
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
-        const chnId = window.localStorage.getItem('channelId');
+        /*const chnId = window.localStorage.getItem('channelId');
         if (chnId !== null){
             this.setState({id: chnId});
             this.getImage(this.state.id);
         }
         else{
             this.setState({img_url: 'unavailable'});
-        }
+        }*/
+
+        this.getImage(this.props.channelId);
     }
 
     handelChange = (e) => {
@@ -81,16 +83,18 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
  
 
-    getImage =async (channel: string) => {
-        await fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`, {
+    getImage = (channel: string) => {
+        fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`, {
             method: 'GET'
         })
             .then((response) => response.json())
-            .then(async (response)=>{
-                const imageBlob = await response.blob()
+            .then((response)=>{
+                /*const imageBlob = await response.blob()
                 const imageObjectURL = URL.createObjectURL(imageBlob);
                 this.setState({img_url: imageObjectURL});
-                console.log(this.state.img_url);
+                console.log(this.state.img_url);*/
+
+                console.log(response);
             })
             .catch(error => this.setState({ error, isLoading: false}));
     }
