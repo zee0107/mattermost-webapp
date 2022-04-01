@@ -5,6 +5,7 @@ import React, {ReactNode} from 'react';
 import GroupDetails from 'components/group_details';
 import GroupLogo from 'images/groupcover.png';
 import { isGIFImage } from 'utils/utils';
+import { throws } from 'assert';
 
 export type Props = {
     channelId:string;
@@ -33,6 +34,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             result_leave: false,
             uploadImage: false,
             img_url: 'unavailable',
+            id: '',
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -45,7 +47,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     componentDidUpdate(prevProps){
         if (this.props.channelId != undefined && this.props.channelId !== prevProps.channelId){
-            this.getImage(this.props.channelId);
+            this.setState({id: this.props.channelId});
             console.log(`Prop: ${this.props.channelId} | PrevProp: ${prevProps.channelId}`);
         }
     }
@@ -76,6 +78,10 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     }
 
     renderCover = () => {
+        const { id } = this.state;
+        if(id !== ''){
+            this.getImage(id);
+        }
         let cover;
         if(this.state.img_url === 'unavailable' || this.state.img_url === 'undefined'){
             cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
