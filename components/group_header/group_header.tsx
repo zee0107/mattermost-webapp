@@ -118,6 +118,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const {channelId, channelDisplayName} = this.props;
         const { result_leave, uploadImage , img_url} = this.state;
+        console.log(img_url)
         let cover;
         if(this.state.img_url === '' || this.state.img_url === null){
             cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
