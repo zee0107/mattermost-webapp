@@ -36,7 +36,6 @@ type Props = {
         setStatus: (status: UserStatus) => ActionFunc;
         unsetCustomStatus: () => ActionFunc;
         setStatusDropdown: (open: boolean) => void;
-        leaveChannelNew: (channelId: string) => Promise<ActionResult>;
     };
     customStatus?: UserCustomStatus;
     currentUser: UserProfile;
@@ -50,25 +49,6 @@ type Props = {
     lhsOpen: boolean;
     rhsOpen: boolean;
     rhsMenuOpen: boolean;
-
-    channelId: string;
-    channelName: string;
-    channelPurpose: string;
-    channelDisplayName: string;
-    deactivatedChannel: boolean;
-    channelRolesLoading: boolean;
-    enableOnboardingFlow: boolean;
-    showNextSteps: boolean;
-    teamUrl: string;
-    match: {
-        url: string;
-        params: {
-            postid?: string;
-        };
-    };
-    channelIsArchived: boolean;
-    viewArchivedChannels: boolean;
-    isCloud: boolean;
 }
 
 export default class LoggedInHFT extends React.PureComponent<Props> {
@@ -119,8 +99,6 @@ export default class LoggedInHFT extends React.PureComponent<Props> {
         if (rootElement) {
             rootElement.classList.add('container-fluid');
         }
-
-        console.log(this.props.channelId);
     }
     componentWillUnmount() {
         document.body.classList.remove('sticky');
