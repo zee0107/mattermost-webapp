@@ -121,7 +121,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         const {channelId, channelDisplayName} = this.props;
         const { result_leave, uploadImage, img_url, data} = this.state;
         console.log(data);
-        
+
         let cover;
         if(img_url === 'unavailable'){
             cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
@@ -135,7 +135,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             window.location.href = '/mygroups';
         }
         else{
-            buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn buttonBgGreen text-white float-end btn-sm mt-4 mr-2'>Joined</button>);
+            buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn buttonBgGreen text-white float-end btn-sm mt-4'>Joined</button>);
         }
         
         let upload;
@@ -158,6 +158,25 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             );
         }
 
+        let buttonAction;
+        if (data.role === 'channel_user channel_admin') {
+            buttonAction = (
+                <div>
+                    <a href='#' onClick={() => {this.setState({uploadImage: true})}} className='float-end btn-sm mt-4 ml-2' title='Upload Group cover photo'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="var(--text-primary)" className="bi bi-images" viewBox="0 0 16 16">
+                        <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                        <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"/>
+                    </svg></a>
+                    {buttonJoin}
+                </div>
+            );
+        }
+        else {
+            buttonAction = (
+                <div>
+                    {buttonJoin}
+                </div>);
+        }
+
         return (
             <div>
                 <div className='col-md-12 group-cover-box mtop-10 p-0'>
@@ -167,12 +186,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                             <h5 className='text-primary'>{channelDisplayName}</h5>
                             <h6 className='text-secondary'><GroupDetails channelId={channelId}/></h6>
                         </div>
-
-                        <a href='#' onClick={() => {this.setState({uploadImage: true})}} className='float-end btn-sm mt-4' title='Upload Group cover photo'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="var(--text-primary)" className="bi bi-images" viewBox="0 0 16 16">
-                            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
-                            <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"/>
-                        </svg></a>
-                        {buttonJoin}
+                        {buttonAction}
                     </div>
                 </div>
                 {upload}
