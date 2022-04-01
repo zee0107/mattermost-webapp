@@ -81,7 +81,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         this.getImage(this.state.id);
         let cover;
         console.log(this.state.img_url);
-        if(this.state.img_url === 'unavailable'){
+        if(this.state.img_url === 'unavailable' || this.state.img_url === undefined){
             cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
         }
         else{
