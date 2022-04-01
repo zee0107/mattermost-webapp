@@ -45,7 +45,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     }
 
     componentDidUpdate(prevProps){
-        if (this.props.channelId != undefined && this.props.channelId !== prevProps.channelId){
+        if (this.props.channelId != undefined && this.props.channelId === prevProps.channelId){
+            console.log('Prev Prpos: ', prevProps.channelId);
             fetch(`https://localhost:44312/api/crypter/coverimg?id=${this.props.channelId}`, { method: 'GET' })
             .then((response) => response.json())
             .then(async (response)=>{
