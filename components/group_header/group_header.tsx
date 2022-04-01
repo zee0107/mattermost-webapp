@@ -6,6 +6,7 @@ import GroupDetails from 'components/group_details';
 import GroupLogo from 'images/groupcover.png';
 import { isGIFImage } from 'utils/utils';
 import { throws } from 'assert';
+import ThemeSetting from 'components/user_settings/display/user_settings_theme/user_settings_theme';
 
 export type Props = {
     channelId:string;
@@ -79,9 +80,17 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     getImage = async (channel: string) => {
         const response = await fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`);
         const imageBlob = await response.blob();
-        console.log((await imageBlob.text()).toString());
-        const imageObjectURL = URL.createObjectURL(imageBlob);
-        this.setState({img_url: imageObjectURL});
+        const textBlob = await imageBlob.text().toString();
+        console.log(textBlob.toString());
+        if (textBlob === '\"unavailable\"' || textBlob === 'unavailable')
+        {
+            this.setState({img_url: 'unavailable'});
+        }
+        else
+        {
+            const imageObjectURL = URL.createObjectURL(imageBlob);
+            this.setState({img_url: imageObjectURL});
+        }
     }
     
     handleLeaveChannel = (channel: string) => {
