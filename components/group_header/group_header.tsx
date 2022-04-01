@@ -45,7 +45,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     }
 
     componentDidUpdate(prevProps){
-        if (this.props.channelId != undefined && this.props.channelId !== prevProps.channelId){
+        if (this.props.channelId != undefined && this.props.channelId === prevProps.channelId){
             this.setState({id: this.props.channelId});
         }
     }
@@ -75,8 +75,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             .catch(error => this.setState({ error, isLoading: false}));
     }
 
-    getImage = async (channel: string) => {
-        await fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`, {
+    getImage = (channel: string) => {
+        fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`, {
             method: 'GET'
         })
             .then((response) => response.json())
