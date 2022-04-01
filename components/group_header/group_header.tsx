@@ -50,10 +50,6 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         this.getImage(this.props.channelId);
     }
 
-    componentDidUpdate(){
-        this.getImage(this.props.channelId);
-    }
-
     handelChange = (e) => {
         this.setState({selectedFile: e.target.files[0]});
     }
@@ -80,12 +76,6 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     }
 
     getImage = (channel: string) => {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-            const base64data = reader.result;
-            console.log(base64data);
-        }
-
         fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`, {
             method: 'GET'
         })
@@ -93,7 +83,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             .then(async (data)=>{
                 if (data !== 'unvailable'){
                     const imageBlob = await data.blob()
-                    this.setState({img_url: reader.readAsDataURL(imageBlob)});
+                    const imageObjectURL = URL.createObjectURL(imageBlob);
+                    this.setState({img_url: imageObjectURL});
                     console.log(this.state.img_url);
                 }
             })
