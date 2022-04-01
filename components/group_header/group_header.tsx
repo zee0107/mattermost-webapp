@@ -120,7 +120,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const {channelId, channelDisplayName} = this.props;
         const { result_leave, uploadImage, img_url, data} = this.state;
-        console.log(data.role);
+        console.log(data.roles);
 
         let cover;
         if(img_url === 'unavailable'){
@@ -159,7 +159,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         }
 
         let buttonAction;
-        if (data.role === 'channel_user channel_admin') {
+        if (data.roles === 'channel_user channel_admin') {
             buttonAction = (
                 <div>
                     <a href='#' onClick={() => {this.setState({uploadImage: true})}} className='float-end btn-sm mt-4 ml-2' title='Upload Group cover photo'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="var(--text-primary)" className="bi bi-images" viewBox="0 0 16 16">
