@@ -11,6 +11,7 @@ import ThemeSetting from 'components/user_settings/display/user_settings_theme/u
 export type Props = {
     channelId:string;
     channelDisplayName: string;
+    channelAdmin: boolean;
     actions: {
         leaveChannelNew: (channelId: string) => Promise<ActionResult>;
     }
@@ -28,6 +29,7 @@ type State = {
 export default class GroupsHeader extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
+        console.log(props);
         this.state = {
             isDark:'light',
             memberCount: '',

@@ -13,9 +13,8 @@ import {getCurrentChannel} from 'mattermost-redux/selectors/entities/channels';
 
 import {openModal} from 'actions/views/modals';
 import {setStatusDropdown} from 'actions/views/status_dropdown';
-import {getIsRhsOpen, getIsRhsMenuOpen} from 'selectors/rhs';
-import {getIsLhsOpen} from 'selectors/lhs';
-import {getCurrentUserTimezone} from 'selectors/general';
+import {getMyChannelRoles} from 'mattermost-redux/selectors/entities/roles';
+import {getRoles} from 'mattermost-redux/selectors/entities/roles_helpers';
 import {makeGetCustomStatus, isCustomStatusEnabled, showStatusDropdownPulsatingDot, isCustomStatusExpired} from 'selectors/views/custom_status';
 import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
 import {GenericAction} from 'mattermost-redux/types/actions';
@@ -29,12 +28,30 @@ function makeMapStateToProps() {
 
     return function mapStateToProps(state: GlobalState) {
         const currentUser = getCurrentUser(state);
-        const channel = getCurrentChannel(state);
         const channelId = window.localStorage.getItem('channelId');
+
+        const channel = getCurrentChannel(state);
+
         const userId = currentUser?.id;
+
+        let channelAdmin = false;
+        if (channel && channel.id) {
+            const roles = getRoles(state);
+            const myChannelRoles = getMyChannelRoles(state);
+            if (myChannelRoles[channel.id]) {
+                const channelRoles = myChannelRoles[channel.id].values();
+                for (const roleName of channelRoles) {
+                    if (roleName === 'channel_admin') {
+                        channelAdmin = true;
+                    }
+                    break;
+                }
+            }
+        }
         return {
             channelId,
             userId,
+            channelAdmin,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
         };
