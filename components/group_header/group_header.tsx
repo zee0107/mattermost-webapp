@@ -77,15 +77,11 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     }
 
     getImage = async (channel: string) => {
-        const res = await fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`);
-        const value = await res.json().then(value => value);
-        console.log(value);
-        if(value !== 'unavailable'){
-            const response = await fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`);
-            const imageBlob = await response.blob();
-            const imageObjectURL = URL.createObjectURL(imageBlob);
-            this.setState({img_url: imageObjectURL});
-        }
+        const response = await fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`);
+        const imageBlob = await response.blob();
+        console.log(imageBlob);
+        const imageObjectURL = URL.createObjectURL(imageBlob);
+        this.setState({img_url: imageObjectURL});
     }
     
     handleLeaveChannel = (channel: string) => {
