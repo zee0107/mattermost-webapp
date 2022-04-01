@@ -43,11 +43,11 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount = async () =>{
+    componentDidMount = () =>{
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
 
-        await this.getImage(this.props.channelId);
+        this.getImage(this.props.channelId);
     }
 
     /*componentDidUpdate(){
