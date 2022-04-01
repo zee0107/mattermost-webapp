@@ -7,11 +7,13 @@ import GroupLogo from 'images/groupcover.png';
 import { isGIFImage } from 'utils/utils';
 import { throws } from 'assert';
 import ThemeSetting from 'components/user_settings/display/user_settings_theme/user_settings_theme';
+import { ChannelMembership } from 'mattermost-redux/types/channels';
 
 export type Props = {
     channelId:string;
     channelDisplayName: string;
     channelAdmin: boolean;
+    channelRole: Promise<ChannelMembership>;
     actions: {
         leaveChannelNew: (channelId: string) => Promise<ActionResult>;
     }
@@ -46,6 +48,12 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     componentDidMount = () =>{
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
+
+        if (this.props.channelRole != null){
+            Promise.resolve(this.props.channelRole).then(value => {this.setState({data: value})});
+        }
+
+        console.log(this.state.data);
         
         this.getImage(this.props.channelId);
     }

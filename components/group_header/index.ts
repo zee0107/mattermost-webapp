@@ -30,27 +30,15 @@ function makeMapStateToProps() {
         const currentUser = getCurrentUser(state);
         const channelId = window.localStorage.getItem('channelId');
 
-        const channel = getCurrentChannel(state);
-
         const userId = currentUser?.id;
 
         let channelAdmin = false;
-        if (channel && channel.id) {
-            const roles = getRoles(state);
-            const myChannelRoles = getMyChannelRoles(state);
-            if (myChannelRoles[channel.id]) {
-                const channelRoles = myChannelRoles[channel.id].values();
-                for (const roleName of channelRoles) {
-                    if (roleName === 'channel_admin') {
-                        channelAdmin = true;
-                    }
-                    break;
-                }
-            }
-        }
+        const channelRole = Client4.getChannelMember(channelId,userId);
+
         return {
             channelId,
             userId,
+            channelRole,
             channelAdmin,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
