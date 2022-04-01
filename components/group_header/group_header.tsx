@@ -47,9 +47,18 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
 
-        this.getImage(this.props.channelId);
+        fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`, { method: 'GET' })
+            .then((response) => response.json())
+            .then(async (response)=>{
+                console.log(response);
+                const imageBlob = await response.blob()
+                const imageObjectURL = URL.createObjectURL(imageBlob);
+                this.setState({img_url: imageObjectURL});
+                console.log(this.state.img_url);
+            })
+            .catch(error => this.setState({ error, isLoading: false}));
     }
-    
+
     handelChange = (e) => {
         this.setState({selectedFile: e.target.files[0]});
     }
