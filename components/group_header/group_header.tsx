@@ -46,6 +46,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     componentDidUpdate(prevProps){
         console.log(`Prop: ${this.props.channelId} | PrevProp: ${prevProps.channelId}`);
+        this.setState({id: this.props.channelId});
     }
 
     handelChange = (e) => {
@@ -111,6 +112,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         const {channelId, channelDisplayName} = this.props;
         const { result_leave, uploadImage , img_url, id} = this.state;
         console.log(id)
+        this.getImage(id);
         let cover;
         if(img_url === 'unavailable'){
             cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
