@@ -33,14 +33,15 @@ function makeMapStateToProps() {
         const currentUser = getCurrentUser(state);
         const currentTeam = getCurrentTeam(state);
         const userId = currentUser?.id;
-        
+        //const teamId = '5meubtskybn1bg7iyfx7x4cm9c'
+        const teamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
         return {
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
             currentTeamId: currentTeam?.id,
-            mychannels: Client4.getMyChannels('5meubtskybn1bg7iyfx7x4cm9c'),
-            suggestedChannels: Client4.getChannels('5meubtskybn1bg7iyfx7x4cm9c'),
+            mychannels: Client4.getMyChannels(teamId),
+            suggestedChannels: Client4.getChannels(teamId),
         };
     };
 }

@@ -22,7 +22,7 @@ const LeftControlsContainer = styled.div`
 
 const LeftControlsStyle = (): JSX.Element => (
     <LeftControlsContainer>
-        <a href='/'><img src={Logo} className='logo-width-nav' alt='Crypter.io' /></a>
+        <a href='./crypter/channels/town-square'><img src={Logo} className='logo-width-nav' alt='Crypter.io' /></a>
         {/*<ProductMenu/>
         {isDesktopApp() && <HistoryButtons/>}*/}
     </LeftControlsContainer>
