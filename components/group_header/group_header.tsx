@@ -50,9 +50,9 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         this.getImage(this.props.channelId);
     }
 
-    componentDidUpdate(){
+    /*componentDidUpdate(){
         this.getImage(this.props.channelId);
-    }
+    }*/
 
     handelChange = (e) => {
         this.setState({selectedFile: e.target.files[0]});
@@ -120,6 +120,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         else{
             cover = (<img width='100%' className='img-fluid' height='300' src={this.state.img_url} alt=''/>);
         }
+        this.getImage(channelId);
         let buttonJoin;
         if(result_leave){
             /*browserHistory.push(`${teamUrl}/channels/town-square`);*/
