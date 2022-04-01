@@ -20,6 +20,7 @@ type State = {
     uploadImage: boolean;
     selectedFile: any;
     img_url: any;
+    id:string;
 };
 
 export default class GroupsHeader extends React.PureComponent<Props, State> {
@@ -40,23 +41,12 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     componentDidMount = () =>{
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
-        console.log(this.props.channelId)
         
     }
 
     componentDidUpdate(prevProps){
-        if (this.props.channelId != undefined && this.props.channelId === prevProps.channelId){
-            console.log('Prev Prpos: ', prevProps.channelId);
-            fetch(`https://localhost:44312/api/crypter/coverimg?id=${this.props.channelId}`, { method: 'GET' })
-            .then((response) => response.json())
-            .then(async (response)=>{
-                console.log(response);
-                const imageBlob = await response.blob()
-                const imageObjectURL = URL.createObjectURL(imageBlob);
-                this.setState({img_url: imageObjectURL});
-                console.log(this.state.img_url);
-            })
-            .catch(error => this.setState({ error, isLoading: false}));
+        if (this.props.channelId != undefined && this.props.channelId !== prevProps.channelId){
+            this.setState({id: this.props.channelId});
         }
     }
 
@@ -91,11 +81,15 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         })
             .then((response) => response.json())
             .then(async (response)=>{
-                console.log(response);
-                const imageBlob = await response.blob()
-                const imageObjectURL = URL.createObjectURL(imageBlob);
-                this.setState({img_url: imageObjectURL});
-                console.log(this.state.img_url);
+                if(response !== 'unavailable'){
+                    const imageBlob = await response.blob()
+                    const imageObjectURL = URL.createObjectURL(imageBlob);
+                    this.setState({img_url: imageObjectURL});
+                    console.log(this.state.img_url);
+                }
+                else{
+                    this.setState({img_url:response});
+                }
             })
             .catch(error => this.setState({ error, isLoading: false}));
     }
@@ -117,10 +111,10 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {channelId, channelDisplayName} = this.props;
-        const { result_leave, uploadImage , img_url} = this.state;
-        //console.log(img_url)
+        const { result_leave, uploadImage , img_url, id} = this.state;
+        console.log(id)
         let cover;
-        if(this.state.img_url === '' || this.state.img_url === null){
+        if(img_url === 'unavailable'){
             cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
         }
         else{
@@ -155,7 +149,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         return (
             <div>
                 <div className='col-md-12 group-cover-box mtop-10 p-0'>
-                    <img width='100%' className='img-fluid' height='300' src={img_url} alt=''/>
+                    {cover}
                     <div className='col-md-12'>
                         <div className='float-start'>
                             <h5 className='text-primary'>{channelDisplayName}</h5>
