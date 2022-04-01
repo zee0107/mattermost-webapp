@@ -26,7 +26,6 @@ type State = {
 export default class GroupsHeader extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
-        console.log(this.props)
         this.state = {
             isDark:'light',
             memberCount: '',
@@ -39,6 +38,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     }
 
     componentDidMount = () =>{
+        const { props } = this.props;
+        console.log(props);
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
         
@@ -48,6 +49,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     componentDidUpdate(prevProps){
         if (this.props.channelId != undefined && this.props.channelId !== prevProps.channelId){
             this.setState({id: this.props.channelId});
+            this.getImage(this.state.id);
             console.log(`Prop: ${this.props.channelId} | PrevProp: ${prevProps.channelId}`);
         }
     }
