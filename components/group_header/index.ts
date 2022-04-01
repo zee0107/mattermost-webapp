@@ -9,6 +9,7 @@ import {Preferences} from 'mattermost-redux/constants';
 
 import {get, getBool} from 'mattermost-redux/selectors/entities/preferences';
 import {getCurrentUser, getStatusForUserId} from 'mattermost-redux/selectors/entities/users';
+import {getCurrentChannel} from 'mattermost-redux/selectors/entities/channels';
 
 import {openModal} from 'actions/views/modals';
 import {setStatusDropdown} from 'actions/views/status_dropdown';
@@ -28,10 +29,12 @@ function makeMapStateToProps() {
 
     return function mapStateToProps(state: GlobalState) {
         const currentUser = getCurrentUser(state);
+        const channel = getCurrentChannel(state);
 
         const userId = currentUser?.id;
-        
+        const channelId = channel?.id;
         return {
+            channelId,
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
