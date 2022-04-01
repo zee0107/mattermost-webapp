@@ -43,26 +43,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     componentDidMount = () =>{
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
-        /*const chnId = window.localStorage.getItem('channelId');
-        if (chnId !== null){
-            this.setState({id: chnId});
-            this.getImage(this.state.id);
-        }
-        else{
-            this.setState({img_url: 'unavailable'});
-        }*/
-
-        fetch(`https://localhost:44312/api/crypter/coverimg?id=${this.props.channelId}`, {
-            method: 'GET'
-        })
-        .then((response)=>{
-            const imageBlob = response.blob();
-            const imageObjectURL = URL.createObjectURL(imageBlob);
-            this.setState({img_url: imageObjectURL});
-            console.log(this.state.img_url);
-
-            console.log(response);
-        }).catch(error => this.setState({ error, isLoading: false}));
+        
+        this.getImage(this.props.channelId);
     }
 
     handelChange = (e) => {
@@ -90,22 +72,11 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             .catch(error => this.setState({ error, isLoading: false}));
     }
 
- 
-
-    getImage = (channel: string) => {
-        fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`, {
-            method: 'GET'
-        })
-            .then((response) => response.json())
-            .then((response)=>{
-                /*const imageBlob = await response.blob()
-                const imageObjectURL = URL.createObjectURL(imageBlob);
-                this.setState({img_url: imageObjectURL});
-                console.log(this.state.img_url);*/
-
-                console.log(response);
-            })
-            .catch(error => this.setState({ error, isLoading: false}));
+    getImage = async (channel: string) => {
+        const res = await fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`);
+        const imageBlob = await res.blob();
+        const imageObjectURL = URL.createObjectURL(imageBlob);
+        this.setState({img_url: imageObjectURL});
     }
     
     handleLeaveChannel = (channel: string) => {
