@@ -32,7 +32,7 @@ function makeMapStateToProps() {
         const channel = getCurrentChannel(state);
 
         const userId = currentUser?.id;
-        const channelId = channel.id;
+        const channelId = channel?.id;
         return {
             channelId,
             userId,
