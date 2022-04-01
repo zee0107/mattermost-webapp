@@ -3,7 +3,7 @@
 
 import {connect} from 'react-redux';
 
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
+import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
 import {bindActionCreators, Dispatch} from 'redux';
 
 import {setStatus, unsetCustomStatus} from 'mattermost-redux/actions/users';
@@ -12,6 +12,9 @@ import {Preferences} from 'mattermost-redux/constants';
 
 import {get, getBool} from 'mattermost-redux/selectors/entities/preferences';
 import {getCurrentUser, getStatusForUserId} from 'mattermost-redux/selectors/entities/users';
+import {getCurrentChannel, getDirectTeammate} from 'mattermost-redux/selectors/entities/channels';
+import {getMyChannelRoles} from 'mattermost-redux/selectors/entities/roles';
+import {getRoles} from 'mattermost-redux/selectors/entities/roles_helpers';
 
 import {openModal} from 'actions/views/modals';
 import {setStatusDropdown} from 'actions/views/status_dropdown';
@@ -24,8 +27,15 @@ import {makeGetCustomStatus, isCustomStatusEnabled, showStatusDropdownPulsatingD
 import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
 import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
+import {joinChannel,leaveChannelNew} from 'mattermost-redux/actions/channels';
 
 import LoggedInHFT from './header_footer_login';
+
+function isDeactivatedChannel(state: GlobalState, channelId: string) {
+    const teammate = getDirectTeammate(state, channelId);
+
+    return Boolean(teammate && teammate.delete_at);
+}
 
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
@@ -33,7 +43,28 @@ function makeMapStateToProps() {
     return function mapStateToProps(state: GlobalState) {
         const currentUser = getCurrentUser(state);
 
+        const channel = getCurrentChannel(state);
+        const currentChannelId = channel?.id;
+        
         const userId = currentUser?.id;
+
+        const viewArchivedChannels = config.ExperimentalViewArchivedChannels === 'true';
+        const enableOnboardingFlow = config.EnableOnboardingFlow === 'true';
+
+        let channelRolesLoading = true;
+        if (channel && channel.id) {
+            const roles = getRoles(state);
+            const myChannelRoles = getMyChannelRoles(state);
+            if (myChannelRoles[channel.id]) {
+                const channelRoles = myChannelRoles[channel.id].values();
+                for (const roleName of channelRoles) {
+                    if (roles[roleName]) {
+                        channelRolesLoading = false;
+                    }
+                    break;
+                }
+            }
+        }
         const customStatus = getCustomStatus(state, userId);
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
         return {
@@ -53,6 +84,18 @@ function makeMapStateToProps() {
             lhsOpen: getIsLhsOpen(state),
             rhsOpen: getIsRhsOpen(state),
             rhsMenuOpen: getIsRhsMenuOpen(state),
+
+            channelId: channel ? channel.id : '',
+            channelName: channel ? channel.name : '',
+            channelDisplayName: channel ? channel.display_name : '',
+            channelPurpose: channel ? channel.purpose : '',
+            channelRolesLoading,
+            deactivatedChannel: channel ? isDeactivatedChannel(state, channel.id) : false,
+            channelIsArchived: channel ? channel.delete_at !== 0 : false,
+            viewArchivedChannels,
+            enableOnboardingFlow,
+            isCloud: getLicense(state).Cloud === 'true',
+            teamUrl: getCurrentRelativeTeamUrl(state),
         };
     };
 }
@@ -63,6 +106,7 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
             openModal,
             setStatus,
             unsetCustomStatus,
+            leaveChannelNew,
             setStatusDropdown,
         }, dispatch),
     };
