@@ -131,7 +131,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         if (uploadImage){
             upload = (
                 <div className='col-md-12 chat-box mtop-10'>
-                    <div className='row'>
+                    <div className='row mt-2'>
                         <div className='col-md-7'>
                             <input type='file' className='form-control float-start' onChange={this.handelChange} required />
                         </div>
