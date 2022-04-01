@@ -80,11 +80,12 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             method: 'GET'
         })
             .then((response) => response.json())
-            .then(async (response)=>{
-                const imageBlob = await response.blob()
+            .then((response)=>{
+                console.log(response);
+                    /*const imageBlob = await response.blob()
                     const imageObjectURL = URL.createObjectURL(imageBlob);
                     this.setState({img_url: imageObjectURL});
-                    console.log(this.state.img_url);
+                    console.log(this.state.img_url);*/
             })
             .catch(error => this.setState({ error, isLoading: false}));
     }
@@ -107,7 +108,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const {channelId, channelDisplayName} = this.props;
         const { result_leave, uploadImage , img_url} = this.state;
-        console.log(img_url)
+        //console.log(img_url)
         let cover;
         if(this.state.img_url === '' || this.state.img_url === null){
             cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
