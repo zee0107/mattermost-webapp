@@ -55,7 +55,6 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         fetch(`https://localhost:44312/api/crypter/coverimg?id=${this.props.channelId}`, {
             method: 'GET'
         })
-        .then((response) => response)
         .then((response)=>{
             const imageBlob = response.blob();
             const imageObjectURL = URL.createObjectURL(imageBlob);
