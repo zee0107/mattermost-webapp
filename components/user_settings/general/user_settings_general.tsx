@@ -81,7 +81,7 @@ const holders = defineMessages({
         defaultMessage: 'Close',
     },
     position: {
-        id: t('user.settings.general.position'),
+        id: t('general.position'),
         defaultMessage: 'Location',
     },
 });
