@@ -396,7 +396,6 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
         }).then((response) => response.json()).then((data)=>{
                 if (data === 'Uploaded'){
                     this.getImage(this.props.channelId);
-                    this.submitActive = false;
                 }
 
                 if (data === 'Not exist'){
@@ -412,10 +411,12 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
         const textBlob = await imageBlob.text();
         if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
         {
+            this.submitActive = false;
             this.setState({coverUrl: ''});
         }
         else
         {
+            this.submitActive = false;
             const imageObjectURL = URL.createObjectURL(imageBlob);
             this.setState({coverUrl: imageObjectURL});
         }
