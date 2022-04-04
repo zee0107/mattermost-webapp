@@ -127,10 +127,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             <div className='div-bg'>
                 <div className='col-sm-12 bodyBgElipseProfile bgGrey removePadding'>
                     <div className="inner-wrap-section">
+                        <div className="col-lg-12">
+                            {coverImg}
+                        </div>
                         <div className='d-flex'>
-                            <div className="col-lg-12">
-                                {coverImg}
-                            </div>
                             <div className='col-lg-6 profile-div'>
                                 <div className='row'>
                                     <div className='col-lg-5 profile-details-box'>
