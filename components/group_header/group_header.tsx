@@ -85,9 +85,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         const uri = new URL('https://localhost:44312/api/crypter/uploadgroupcover?');
         const params = {group_id: this.props.channelId, file_id: this.state.file_name};
         uri.search = new URLSearchParams(params);
-        console.log(uri.toString());
-
-        fetch('uri', {
+        
+        fetch(uri, {
             method: 'POST',
             body: this.state.selectedFile,
         }).then((response) => response.json()).then((data)=>{
