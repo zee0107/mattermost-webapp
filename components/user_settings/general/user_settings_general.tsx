@@ -478,15 +478,9 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
         }
     }
 
-    updateCover = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
-            this.setState({profileCover: e.target.files[0],coverFileName: e.target.files[0].name});
-
-            this.submitActive = true;
-            this.setState({clientError: null});
-        } else {
-            this.setState({profileCover: null});
-        }
+    updateCover = (e) => {
+        this.setState({profileCover: e.target.files[0],coverFileName: e.target.files[0].name});
+        this.submitActive = true;
     }
 
     updateSection = (section: string) => {
