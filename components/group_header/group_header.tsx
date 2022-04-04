@@ -79,7 +79,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         data.append('fileblob', this.state.selectedFile);
         data.append('group_id', this.props.channelId);
         
-        fetch('https://localhost:44312/api/crypter/uploadgroupcover', {
+        fetch('https://crypterfighter.polywickstudio.ph/api/crypter/uploadgroupcover', {
             method: 'POST',
             //headers: {'Content-Type': 'multipart/form-data'},
             body: data,
