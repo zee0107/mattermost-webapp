@@ -107,7 +107,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser, coverPhoto} = this.props;
-
+        console.log(coverPhoto);
         let coverImg;
         if(coverPhoto !== undefined && coverPhoto !== 'unavailable' && coverPhoto !== ''){
             coverImg = (<img className='img-cover' src={coverPhoto}></img>);
