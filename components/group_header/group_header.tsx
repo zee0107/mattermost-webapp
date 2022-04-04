@@ -26,7 +26,8 @@ type State = {
     uploadImage: boolean;
     selectedFile: any;
     img_url: string;
-    id:string;
+    id: string;
+    uploadError: string;
 };
 
 export default class GroupsHeader extends React.PureComponent<Props, State> {
@@ -88,6 +89,10 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                     this.setState({uploadImage: false});
                     this.getImage(this.props.channelId);
                 }
+
+                if (data === 'Not exist'){
+                    this.setState({uploadError: 'Please select a file to upload.'});
+                }
             }).catch(error => this.setState({error, isLoading: false}));
     }
 
@@ -125,6 +130,15 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         const {channelId, channelDisplayName} = this.props;
         const { result_leave, uploadImage, img_url, data} = this.state;
 
+        let uploadError;
+        if(this.state.uploadError){
+            uploadError = (
+                <div className='col-md-12'>
+                    <label className='text-danger small'>{this.state.uploadError}</label>
+                </div>
+            );
+        }
+
         let cover;
         if(img_url === 'unavailable'){
             cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
@@ -156,6 +170,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                             <button className='btn buttonBgGreen text-white float-end btn-sm' type='button' onClick={() => {this.setState({uploadImage: false})}}>Cancel</button>
                             <button className='btn buttonBgGreen text-white float-end btn-sm mr-2' type='button' onClick={this.handleSubmit}>Upload</button>
                         </div>
+                        {uploadError}
                     </div>
                 </div>
             );
