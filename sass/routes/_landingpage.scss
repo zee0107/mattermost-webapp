@@ -484,6 +484,8 @@
   .img-cover{
     height: 300px;
     border-radius: 7px;
+    object-fit: cover;
+    width: 100%;
 
     @media (max-width: 768px) {
       height: 250px;      
