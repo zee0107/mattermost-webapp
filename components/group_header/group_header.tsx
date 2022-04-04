@@ -63,12 +63,13 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     }
 
     handelChange = (e) => {
-        const reader = new FileReader();
+        /*const reader = new FileReader();
         reader.readAsDataURL(e.target.files[0]);
 
         reader.onload = () => {
             this.setState({selectedFile: reader.result});
-        };
+        };*/
+        this.setState({selectedFile: e.target.files[0]});
     }
 
     handleSubmit = () => {
