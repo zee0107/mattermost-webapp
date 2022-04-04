@@ -392,7 +392,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
 
         fetch(uri, {
             method: 'POST',
-            body: this.state.selectedFile,
+            body: this.state.profileCover,
         }).then((response) => response.json()).then((data)=>{
                 if (data === 'Uploaded'){
                     this.getImage(this.props.channelId);
@@ -478,9 +478,15 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
         }
     }
 
-    updateCover = (e) => {
-        this.setState({profileCover: e.target.files[0],coverFileName: e.target.files[0].name});
-        this.submitActive = true;
+    updateCover = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            this.setState({profileCover: e.target.files[0],coverFileName: e.target.files[0].name});
+
+            this.submitActive = true;
+            this.setState({clientError: null});
+        } else {
+            this.setState({profileCover: null});
+        }
     }
 
     updateSection = (section: string) => {
