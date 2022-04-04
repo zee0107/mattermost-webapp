@@ -73,27 +73,20 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     handleSubmit = () => {
         'use strict';
-        /*const data = new FormData();
+        const data = new FormData();
         data.append('fileblob', this.state.selectedFile);
-        data.append('group_id', this.props.channelId);*/
-        const data = {
-            group_id: this.props.channelId,
-            fileblob: this.state.selectedFile
-        };
+        data.append('group_id', this.props.channelId);
 
         fetch('https://localhost:44312/api/crypter/uploadgroupcover', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(data),
-        })
-            .then((response) => response.json())
-            .then((data)=>{
+            //headers: {'Content-Type': 'application/json'},
+            body: data,
+        }).then((response) => response.json()).then((data)=>{
                 if (data === 'Uploaded'){
                     this.setState({uploadImage: false});
                     this.getImage(this.props.channelId);
                 }
-            })
-            .catch(error => this.setState({ error, isLoading: false}));
+            }).catch(error => this.setState({error, isLoading: false}));
     }
 
     getImage = async (channel: string) => {
