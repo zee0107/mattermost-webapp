@@ -66,26 +66,16 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     }
 
     handelChange = (e) => {
-        /*const reader = new FileReader();
-        reader.readAsBinaryString(e.target.files[0]);
-
-        reader.onload = () => {
-            this.setState({selectedFile: reader.result});
-        };*/
         this.setState({selectedFile: e.target.files[0],
             file_name: e.target.files[0].name});
     }
 
     handleSubmit = () => {
         'use strict';
-        /*const data = new FormData();
-        data.append('fileblob', this.state.selectedFile);
-        data.append('group_id', this.props.channelId);*/
-        
-        const uri = new URL('https://localhost:44312/api/crypter/uploadgroupcover?');
+        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/uploadgroupcover?');
         const params = {group_id: this.props.channelId, file_id: this.state.file_name};
         uri.search = new URLSearchParams(params);
-        
+
         fetch(uri, {
             method: 'POST',
             body: this.state.selectedFile,
@@ -102,7 +92,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     }
 
     getImage = async (channel: string) => {
-        const response = await fetch(`https://localhost:44312/api/crypter/coverimg?id=${channel}`);
+        const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/coverimg?id=${channel}`);
         const imageBlob = await response.blob();
         const textBlob = await imageBlob.text();
         if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
