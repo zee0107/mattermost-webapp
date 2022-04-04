@@ -96,6 +96,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         }
     }
 
+    componentDidUpdate(){
+
+    }
+
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
             return null;
@@ -113,7 +117,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
         const { coverUrl } = this.state;
-        console.log(coverUrl);
 
         let coverImg;
         if(coverUrl !== undefined && coverUrl !== 'unavailable' && coverUrl !== ''){
