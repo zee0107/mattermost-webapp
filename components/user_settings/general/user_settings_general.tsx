@@ -385,14 +385,6 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
     }
 
     submitCover = () => {
-        if (!this.state.profileCover) {
-            return;
-        }
-
-        if (!this.submitActive) {
-            return;
-        }
-
         const user = Object.assign({}, this.props.user);
         const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/uploadprofilecover');
         const params = {user_id: user.id, file_id: this.state.coverFileName};
