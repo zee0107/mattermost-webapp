@@ -87,9 +87,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         uri.search = new URLSearchParams(params);
         console.log(uri.toString());
 
-        fetch('https://localhost:44312/api/crypter/uploadgroupcover', {
-            //method: 'POST',
-            //headers: {'Content-Type': 'multipart/form-data'},
+        fetch('uri', {
+            method: 'POST',
             body: this.state.selectedFile,
         }).then((response) => response.json()).then((data)=>{
                 if (data === 'Uploaded'){
