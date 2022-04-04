@@ -8,6 +8,7 @@ import { isGIFImage } from 'utils/utils';
 import { throws } from 'assert';
 import ThemeSetting from 'components/user_settings/display/user_settings_theme/user_settings_theme';
 import { ChannelMembership } from 'mattermost-redux/types/channels';
+import ThreadsIcon from 'components/threading/global_threads_link/threads_icon';
 
 export type Props = {
     channelId:string;
@@ -62,19 +63,28 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     }
 
     handelChange = (e) => {
-        this.setState({selectedFile: e.target.files[0]});
+        const reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0]);
+
+        reader.onload = () => {
+            this.setState({selectedFile: reader.result});
+        };
     }
 
     handleSubmit = () => {
         'use strict';
-        const data = new FormData();
+        /*const data = new FormData();
         data.append('fileblob', this.state.selectedFile);
-        data.append('group_id', this.props.channelId);
+        data.append('group_id', this.props.channelId);*/
+        const data = {
+            group_id: this.props.channelId,
+            fileblob: this.state.selectedFile
+        };
 
         fetch('https://localhost:44312/api/crypter/uploadgroupcover', {
             method: 'POST',
             //headers: {'Content-Type':'multipart/form-data'},
-            body: data,
+            body: JSON.stringify(data),
         })
             .then((response) => response.json())
             .then((data)=>{
