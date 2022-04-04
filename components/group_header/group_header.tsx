@@ -78,8 +78,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         const data = new FormData();
         data.append('fileblob', this.state.selectedFile);
         data.append('group_id', this.props.channelId);
-
-        console.log(this.state.selectedFile);
+        
         fetch('https://localhost:44312/api/crypter/uploadgroupcover', {
             method: 'POST',
             //headers: {'Content-Type': 'multipart/form-data'},
@@ -114,7 +113,6 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     handleLeaveChannel = (channel: string) => {
         const {actions} = this.props;
         const result = actions.leaveChannelNew(channel);
-        console.log(result);
         if (result.error) {
             this.setState({serverError: result.error.message});
         } else {
