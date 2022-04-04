@@ -386,7 +386,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
 
     submitCover = () => {
         const user = Object.assign({}, this.props.user);
-        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/uploadprofilecover?');
+        const uri = new URL('https://localhost:44312/api/crypter/uploadprofilecover');
         const params = {user_id: user.id, file_id: this.state.coverFileName};
         uri.search = new URLSearchParams(params);
 
