@@ -82,7 +82,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         data.append('fileblob', this.state.selectedFile);
         data.append('group_id', this.props.channelId);*/
         
-        const uri = new Url('https://localhost:44312/api/crypter/uploadgroupcover');
+        const uri = new URL('https://localhost:44312/api/crypter/uploadgroupcover');
         const params = { 'group_id': this.props.channelId, 'file_id': this.state.file_name};
         uri.search = new URLSearchParams(params);
 
