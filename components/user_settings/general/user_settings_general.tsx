@@ -150,6 +150,9 @@ type State = {
     clientError?: string | null;
     serverError?: string | {server_error_id: string; message: string};
     emailError?: string;
+    profileCover: string;
+    coverUrl?: string;
+    coverFileName?: string;
 }
 
 export class UserSettingsGeneralTab extends React.Component<Props, State> {
@@ -381,6 +384,41 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
             });
     }
 
+    submitCover = () => {
+        const user = Object.assign({}, this.props.user);
+        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/uploadprofilecover?');
+        const params = {user_id: user.id, file_id: this.state.coverFileName};
+        uri.search = new URLSearchParams(params);
+
+        fetch(uri, {
+            method: 'POST',
+            body: this.state.selectedFile,
+        }).then((response) => response.json()).then((data)=>{
+                if (data === 'Uploaded'){
+                    this.getImage(this.props.channelId);
+                }
+
+                if (data === 'Not exist'){
+                    this.setState({clientError: 'Please select a file to upload.'});
+                }
+            }).catch(error => this.setState({serverError: error, isLoading: false}));
+    }
+
+    getImage = async (id: string) => {
+        const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/profilecover?id=${id}`);
+        const imageBlob = await response.blob();
+        const textBlob = await imageBlob.text();
+        if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
+        {
+            this.setState({coverUrl: ''});
+        }
+        else
+        {
+            const imageObjectURL = URL.createObjectURL(imageBlob);
+            this.setState({coverUrl: imageObjectURL});
+        }
+    }
+
     submitPosition = () => {
         const user = Object.assign({}, this.props.user);
         const position = this.state.position.trim();
@@ -437,6 +475,17 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
             this.setState({clientError: null});
         } else {
             this.setState({pictureFile: null});
+        }
+    }
+
+    updateCover = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            this.setState({profileCover: e.target.files[0],coverFileName: e.target.files[0].name});
+
+            this.submitActive = true;
+            this.setState({clientError: null});
+        } else {
+            this.setState({profileCover: null});
         }
     }
 
@@ -1328,27 +1377,16 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
             let helpText = null;
             let imgSrc = null;
 
-            if ((this.props.user.auth_service === Constants.LDAP_SERVICE || this.props.user.auth_service === Constants.SAML_SERVICE) && this.props.ldapPictureAttributeSet) {
-                helpText = (
-                    <span>
-                        <FormattedMessage
-                            id='user.settings.general.field_handled_externally'
-                            defaultMessage='This field is handled through your login provider. If you want to change it, you need to do so through your login provider.'
-                        />
-                    </span>
-                );
-            } else {
-                submit = this.submitPicture;
-                setDefault = user.last_picture_update > 0 ? this.setDefaultProfilePicture : null;
-                imgSrc = Utils.imageURLForUser(user.id, user.last_picture_update);
+            submit = this.submitCover;
+                setDefault = user.last_picture_update > 0 ? null : null;
+                imgSrc = this.state.coverUrl;
                 helpText = (
                     <FormattedMessage
-                        id={'setting_picture.help.profile'}
+                        id={'help.profile'}
                         defaultMessage='Upload a picture in BMP, JPG, JPEG, or PNG format. Maximum file size: {max}'
                         values={{max: Utils.fileSizeToString(this.props.maxFileSize)}}
                     />
                 );
-            }
 
             coverPictureSection = (
                 <SettingPicture
@@ -1363,8 +1401,8 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
                         this.updateSection('');
                         e.preventDefault();
                     }}
-                    file={this.state.pictureFile}
-                    onFileChange={this.updatePicture}
+                    file={this.state.profileCover}
+                    onFileChange={this.updateCover}
                     submitActive={this.submitActive}
                     loadingPicture={this.state.loadingPicture}
                     maxFileSize={this.props.maxFileSize}

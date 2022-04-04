@@ -36,6 +36,7 @@ import SidebarRightMenu from 'components/sidebar_right_menu';
 type Props = {
     status?: string;
     userId: string;
+    coverPhoto?: string;
     profilePicture: string;
     autoResetPref?: string;
     actions: {
@@ -102,15 +103,26 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         );
     }
 
+    
+
     render= (): JSX.Element => {
-        const {globalHeader, currentUser} = this.props;
+        const {globalHeader, currentUser, coverPhoto} = this.props;
+
+        let coverImg;
+        if(coverPhoto !== undefined && coverPhoto !== 'unavailable' && coverPhoto !== ''){
+            coverImg = (<img className='img-cover' src={coverPhoto}></img>);
+        }
+        else{
+            coverImg = (<img className='img-cover' src={coverImage}></img>);
+        }
+
         return (
             <div className='div-bg'>
                 <div className='col-sm-12 bodyBgElipseProfile bgGrey removePadding'>
                     <div className="inner-wrap-section">
                         <div className='d-flex'>
                             <div className="col-lg-12">
-                                <img className='img-cover' src={coverImage}></img>
+                                {coverImg}
                             </div>
                             <div className='col-lg-6 profile-div'>
                                 <div className='row'>

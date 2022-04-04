@@ -3833,16 +3833,25 @@ export default class Client4 {
         );
     }
 
-    getCryptoProjectsEnded = () => {
-        return this.doFetch<ProjectsEndedList[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getprojects?filter=ENDED`,{method: 'get', headers: {'Content-Type':'application/json,'}}
-        );
-    }
-
     getCryptoProjectsAll = () => {
         return this.doFetch<ProjectsEndedList[]>(
             `https://crypterfighter.polywickstudio.ph/api/crypter/getallprojects`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
+    }
+
+    getProfileCover = async (user_id: string) => {
+        const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/profilecover?id=${user_id}`);
+        const imageBlob = await response.blob();
+        const textBlob = await imageBlob.text();
+        if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
+        {
+            return 'unavailable';
+        }
+        else
+        {
+            const imageObjectURL = URL.createObjectURL(imageBlob);
+            return imageObjectURL;
+        }
     }
 
 
