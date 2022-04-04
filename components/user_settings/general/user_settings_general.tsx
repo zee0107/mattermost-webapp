@@ -385,6 +385,14 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
     }
 
     submitCover = () => {
+        if (!this.state.profileCover) {
+            return;
+        }
+
+        if (!this.submitActive) {
+            return;
+        }
+
         const user = Object.assign({}, this.props.user);
         const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/uploadprofilecover');
         const params = {user_id: user.id, file_id: this.state.coverFileName};
@@ -396,10 +404,12 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
         }).then((response) => response.json()).then((data)=>{
                 if (data === 'Uploaded'){
                     this.getImage(this.props.channelId);
+                    this.submitActive = false;
                 }
 
                 if (data === 'Not exist'){
                     this.setState({clientError: 'Please select a file to upload.'});
+                    this.submitActive = false;
                 }
             }).catch(error => this.setState({serverError: error, isLoading: false}));
     }
