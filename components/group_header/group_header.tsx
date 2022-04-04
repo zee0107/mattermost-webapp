@@ -9,6 +9,7 @@ import { throws } from 'assert';
 import ThemeSetting from 'components/user_settings/display/user_settings_theme/user_settings_theme';
 import { ChannelMembership } from 'mattermost-redux/types/channels';
 import ThreadsIcon from 'components/threading/global_threads_link/threads_icon';
+import { url } from 'inspector';
 
 export type Props = {
     channelId:string;
@@ -25,6 +26,7 @@ type State = {
     result_leave: boolean;
     uploadImage: boolean;
     selectedFile: any;
+    file_name: string;
     img_url: string;
     id: string;
     uploadError: string;
@@ -64,24 +66,30 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     }
 
     handelChange = (e) => {
-        const reader = new FileReader();
+        /*const reader = new FileReader();
         reader.readAsBinaryString(e.target.files[0]);
 
         reader.onload = () => {
             this.setState({selectedFile: reader.result});
-        };
+        };*/
+        this.setState({selectedFile: e.target.files[0],
+            file_name: e.target.files[0].name});
     }
 
     handleSubmit = () => {
         'use strict';
-        const data = new FormData();
+        /*const data = new FormData();
         data.append('fileblob', this.state.selectedFile);
-        data.append('group_id', this.props.channelId);
+        data.append('group_id', this.props.channelId);*/
         
+        const uri = new Url('https://localhost:44312/api/crypter/uploadgroupcover');
+        const params = { 'group_id': this.props.channelId, 'file_id': this.state.file_name};
+        uri.search = new URLSearchParams(params);
+
         fetch('https://localhost:44312/api/crypter/uploadgroupcover', {
             method: 'POST',
             //headers: {'Content-Type': 'multipart/form-data'},
-            body: data,
+            body: this.state.selectedFile,
         }).then((response) => response.json()).then((data)=>{
                 if (data === 'Uploaded'){
                     this.setState({uploadImage: false});
