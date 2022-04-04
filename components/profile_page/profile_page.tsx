@@ -36,7 +36,7 @@ import SidebarRightMenu from 'components/sidebar_right_menu';
 type Props = {
     status?: string;
     userId: string;
-    coverPhoto?: string;
+    coverPhoto: Promise<string>;
     profilePicture: string;
     autoResetPref?: string;
     actions: {
@@ -65,6 +65,7 @@ type State = {
     isStatusSet: boolean;
     isDark: string;
     img_path: string;
+    coverUrl:string;
 };
 
 export default class ProfilPage extends React.PureComponent<Props, State> {
@@ -89,6 +90,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+
+        if(this.props.coverPhoto != null){
+            Promise.resolve(this.props.coverPhoto).then(value => this.setState({coverUrl: value}));
+        }
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -106,11 +111,13 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
     
 
     render= (): JSX.Element => {
-        const {globalHeader, currentUser, coverPhoto} = this.props;
-        console.log(coverPhoto);
+        const {globalHeader, currentUser} = this.props;
+        const { coverUrl } = this.state;
+        console.log(coverUrl);
+
         let coverImg;
-        if(coverPhoto !== undefined && coverPhoto !== 'unavailable' && coverPhoto !== ''){
-            coverImg = (<img className='img-cover' src={coverPhoto}></img>);
+        if(coverUrl !== undefined && coverUrl !== 'unavailable' && coverUrl !== ''){
+            coverImg = (<img className='img-cover' src={coverUrl}></img>);
         }
         else{
             coverImg = (<img className='img-cover' src={coverImage}></img>);
