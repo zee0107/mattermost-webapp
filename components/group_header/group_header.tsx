@@ -80,7 +80,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         fetch('https://localhost:44312/api/crypter/uploadgroupcover', {
             method: 'POST',
             //headers: {'Content-Type': 'application/json'},
-            body: data,
+            body: JSON.stringify(data),
         }).then((response) => response.json()).then((data)=>{
                 if (data === 'Uploaded'){
                     this.setState({uploadImage: false});
