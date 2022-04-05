@@ -230,10 +230,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                             Edit
                                                         </ToggleModalButtonRedux>
                                                         <h4 className='float-start ml-2 mt-2 name-query-style text-white'>{`${currentUser.first_name} ${currentUser.last_name}`}</h4>
-                                                        </br>
-                                                        </br>
+                                                        <br />
+                                                        <br />
                                                         <h5 className='float-start ml-2 little-medium-text name-quuery-at text-white'>{'@' + currentUser.username}</h5>
-                                                        </br>
+                                                        <br />
                                                         <h5 className='float-start ml-2 little-medium-text text-muted'>{currentUser.position}</h5>
                                                     </div>
                                                 </div>
@@ -245,10 +245,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='col-md-4'></div>
                                             <div className='col-md-8'>
                                                 <div className='row'>
-                                                    <div className='col-md-3 mt-5 text-center text-white'><p></p></br><h4><label></label></h4></div>
-                                                    <div className='col-md-3 mt-5 text-center text-white'><p>Posts</br></p><h4><label>2.6K</label></h4></div>
-                                                    <div className='col-md-3 mt-5 text-center text-white'><p>Following</br></p><h4><label>561</label></h4></div>
-                                                    <div className='col-md-3 mt-5 text-center text-white'><p>Followers</br></p><h4><label>16.2K</label></h4></div>
+                                                    <div className='col-md-3 mt-5 text-center text-white'><p></p><br /><h4><label></label></h4></div>
+                                                    <div className='col-md-3 mt-5 text-center text-white'><p>Posts<br /></p><h4><label>2.6K</label></h4></div>
+                                                    <div className='col-md-3 mt-5 text-center text-white'><p>Following<br /></p><h4><label>561</label></h4></div>
+                                                    <div className='col-md-3 mt-5 text-center text-white'><p>Followers<br /></p><h4><label>16.2K</label></h4></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -290,9 +290,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </div>
                                                 <div className='col-lg-5 text-center'>
                                                     <h3 className='name-query-mobile-style text-white'>{`${currentUser.first_name} ${currentUser.last_name}`}</h3>
-                                                    </br>
+                                                    <br />
                                                     <h4 className='hash-name text-white'>{'@' + currentUser.username}</h4>
-                                                    </br>
+                                                    <br />
                                                     <h4 className='little-medium-text name-quuery-at text-muted'>{currentUser.position}</h4>
                                                 </div>
                                                 <div className='col-lg-4'>
@@ -315,9 +315,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='col-md-10 mx-auto mt-3 mb-1'>
                                         <div className='row'>
-                                            <div className='col-md-4 text-center text-white'><p>Posts</p></br><h4><strong>2.6K</strong></h4></div>
-                                            <div className='col-md-4 text-center text-white'><p>Following</p></br><h4><strong>561</strong></h4></div>
-                                            <div className='col-md-4 text-center text-white'><p>Followers</p></br><h4><strong>16.2K</strong></h4></div>
+                                            <div className='col-md-4 text-center text-white'><p>Posts</p><br /><h4><strong>2.6K</strong></h4></div>
+                                            <div className='col-md-4 text-center text-white'><p>Following</p><br /><h4><strong>561</strong></h4></div>
+                                            <div className='col-md-4 text-center text-white'><p>Followers</p><br /><h4><strong>16.2K</strong></h4></div>
                                         </div>
                                     </div>
                                 </div>
@@ -357,7 +357,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                 </div>
-                                </br></br>
+                                <br /><br />
                                 <div className='col-lg-12 post-div mtop-10'>
                                     <div className='d-flex'>
                                         <div className='col-lg-2 text-center removePaddingRight'>
@@ -517,7 +517,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <a href='#' className='tagviewpost'><small className='text-muted'>with</small> Friend name goes here</a> 
                                                 <a href='#' className='activities'><small className='text-muted'>Activities</small> &#128151;</a> 
                                             </strong>
-                                            </br>
+                                            <br />
                                             <a className='onSelectactionfriends'><i className='bi-people-fill'></i> Friends <i className='bi-chevron-down'></i></a>
                                             <a className='onSelectactionpublic'><i className='bi-globe'></i> Everyone <i className='bi-chevron-down'></i></a>
                                             <a className='onSelectactiononlyme'><i className='bi-person'></i> Private <i className='bi-chevron-down'></i></a>
@@ -553,7 +553,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </div>
                                             </div>
                                             <div className='row'>
-                                                <label className='mb-2'><strong>Lyrics:</strong> </br></br> What a wonderful world is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. </br></br> when an unknown printer took a galley of type and scrambled it to make a type specimen book.</label>
+                                                <label className='mb-2'><strong>Lyrics:</strong> <br /><br /> What a wonderful world is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. <br /><br /> when an unknown printer took a galley of type and scrambled it to make a type specimen book.</label>
                                             </div>
                                         </div>
                                     </div>
