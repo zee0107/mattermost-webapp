@@ -161,7 +161,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                     >
                                                         Edit
                                                     </ToggleModalButtonRedux>
-                                                    <h3 className='float-start ml-2 name-query-style'>{`${currentUser.first_name} ${currentUser.last_name}`}</h3>
+                                                    <h3 className='float-start ml-2 mt-2 name-query-style'>{`${currentUser.first_name} ${currentUser.last_name}`}</h3>
                                                     <br/>
                                                     <br/>
                                                     <h4 className='float-start ml-2 little-medium-text name-quuery-at'>{'@' + currentUser.username}</h4>
