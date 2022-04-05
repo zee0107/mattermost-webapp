@@ -378,27 +378,26 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             </div>
                             <div className='col-lg-4'>
                                 <div className='box-left-panel-egzo'>
-                                    <div className='row'>
-                                        <div className='position-relative'>
-                                        <div className='position-absolute top-0 start-50 translate-middle-x'>
-                                            <div><img height='63' src='assets/images/wave-skew.png'/></div>
-                                        </div>
-                                        </div>  
-
-                                        <div className='col-7'>
-                                        <div className='profile-completion-desktop text-center text-white'><small>Profile completion</small></div>
-                                        </div>
-                                        <div className='col-5'>
-                                        <div className='profile-completion-percent text-center'><small>80%</small></div>
+                                    <div className='d-flex completion-box-bg'>
+                                        <img src={completion} className='completion-img' height='60' width={`${completionResult}%`}></img>
+                                        <div className='col-lg-12 completion-text'>
+                                            <div className='d-flex'>
+                                                <div className='col-lg-9 width-100'>
+                                                    <h5>Profile Completion</h5>
+                                                </div> 
+                                                <div className='col-lg-3'>
+                                                    <h4 className='competion-text-percent'>{completionResult}%</h4>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
                                     
                                     <ul className='list-group p-3'>
-                                        <li className='list-group-item border-0'><img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/> <medium className='ms-2'>Add Your Photo</medium></li>
-                                        <li className='list-group-item border-0'><img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/> <medium className='ms-2'>Add Your Name</medium></li>
-                                        <li className='list-group-item border-0'><img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/> <medium className='ms-2'>Add Your Workspace</medium></li>
-                                        <li className='list-group-item border-0'><img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/> <medium className='ms-2'>Add Your Address</medium></li>
+                                        <li className='list-group-item border-transparent'><img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/> <label className='ms-2'>Add Your Photo</label></li>
+                                        <li className='list-group-item border-transparent'><img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/> <label className='ms-2'>Add Your Name</label></li>
+                                        <li className='list-group-item border-transparent'><img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/> <label className='ms-2'>Add Your Workspace</label></li>
+                                        <li className='list-group-item border-transparent'><img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/> <label className='ms-2'>Add Your Address</label></li>
                                     </ul>
                                 </div>
                                 {/*<div className='col-lg-12 completion-div-box removePadding'>
