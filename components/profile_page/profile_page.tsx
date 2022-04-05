@@ -16,7 +16,7 @@ import MusicIcon from 'images/profiles/music-note-beamed.svg';
 import VideoIcon from 'images/profiles/camera-video.svg';
 import GeoIcon from 'images/profiles/geo-alt.svg';
 import AttachIcon from 'images/profiles/paperclip.svg';
-import SplitIcon from 'images/profiles/menu-icon.svg';
+import GlobeIcon from 'images/icon-global2.png';
 import DoneIcon from 'images/profiles/done.svg';
 import UndoneIcon from 'images/profiles/undone.svg';
 import postImage from 'images/post-1.png';
@@ -347,13 +347,13 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </span>
                                             </div>
                                         </div>
-                                        <div className='col-md-3'><div className='d-grid'><button className='box-live-post btn-sm'>
-                                            <img width='22' className='img-fluid' src='assets/images/icon-globe2.png'/>Everyone</button></div></div>
-                                            <div className='col-md-2'><div className='d-grid'><button className='box-live-post btn-sm'><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='var(--text-primary)' className='bi bi-camera-video' viewBox='0 0 16 16'>
+                                        <div className='col-md-3'><div className='d-grid'><button className='box-live-post btn-sm width-100'>
+                                            <img width='22' className='img-fluid' src={GlobeIcon}/>Everyone</button></div></div>
+                                            <div className='col-md-2'><div className='d-grid'><button className='box-live-post btn-sm width-100'><svg xmlns='http://www.w3.org/2000/svg' width='19' height='19' fill='var(--text-primary)' className='bi bi-camera-video side-menu-align' viewBox='0 0 16 16'>
                                                     <path fillRule='evenodd' d='M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z' fill='var(--text-primary)'/>
                                                     </svg> Live</button></div>
                                             </div>
-                                            <div className='col-md-2'><div className='d-grid'><button className='box-button-share btn-sm text-white'>Share</button></div>
+                                            <div className='col-md-2'><div className='d-grid'><button className='box-button-share btn-sm text-white width-100'>Share</button></div>
                                         </div>
                                     </div>
                                 </div>
