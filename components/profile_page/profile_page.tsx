@@ -120,23 +120,21 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             }
         }
 
-        if(this.props.currentUser != null){
-            if(this.props.currentUser.first_name !== '' && this.props.currentUser.last_name !== ''){
-                result += 25;
+        if(this.props.currentUser.first_name !== '' && this.props.currentUser.last_name !== ''){
+            result += 25;
+        }
+        else{
+            if(result >= 25){
+                result -= 25;
             }
-            else{
-                if(result >= 25){
-                    result -= 25;
-                }
-            }
+        }
 
-            if(this.props.currentUser.position !== ''){
-                result += 25;
-            }
-            else{
-                if(result >= 25){
-                    result -= 25;
-                }
+        if(this.props.currentUser.position !== ''){
+            result += 25;
+        }
+        else{
+            if(result >= 25){
+                result -= 25;
             }
         }
 
