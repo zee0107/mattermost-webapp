@@ -379,7 +379,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <div className='col-lg-4'>
                                 <div className='box-left-panel-egzo'>
                                     <div className='d-flex completion-box-bg'>
-                                        <img src={completion} className='completion-img' height='60' width={`${completionResult}%`}></img>
+                                        <img src={completion} className='completion-img' height='50' width={`${completionResult}%`}></img>
                                         <div className='col-lg-12 completion-text'>
                                             <div className='d-flex'>
                                                 <div className='col-lg-9 width-100'>

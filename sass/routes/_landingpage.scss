@@ -625,7 +625,7 @@
   }
 
   .chat-box{
-    border-radius: 7px;
+    border-radius: 19px;
     background-color: var(--bgDiv);
     padding-bottom: 10px;
   }
@@ -688,7 +688,7 @@
 
   .share-div{
     background: var(--bgDiv);
-    border-radius: 7px;
+    border-radius: 19px;
     padding: 5px;
     margin-top: 5px;
 
@@ -721,7 +721,7 @@
 
   .post-div{
     background: var(--bgDiv);
-    border-radius: 7px;
+    border-radius: 19px;
     padding: 10px;
   }
 
@@ -774,11 +774,11 @@
 .completion-box-bg{
   background: #cafdc086;
   position: relative;
-  border-radius: 7px 7px 0px 0px;
+  border-radius: 19px 19px 0px 0px;
 }
 
 .completion-img{
-  border-radius: 8px 0px 0px 0px;
+  border-radius: 19px 0px 0px 0px;
 }
 
 
@@ -794,7 +794,7 @@
 }
 
 .completion-div-box{
-  border-radius: 7px;
+  border-radius: 19px;
   background-color: var(--bgDiv);
   padding-bottom: 10px;
 
@@ -935,7 +935,7 @@
 
 .search-div{
   background-color: #6868683b;
-  border-radius: 7px;
+  border-radius: 19px;
   padding: 8px;
   align-items: center;
 }
@@ -958,7 +958,7 @@
   color: var(--text-primary);
   background-color: #6868683b;
   padding: 5px 10px 7px 10px;
-  border-radius: 7px;
+  border-radius: 19px;
 }
 
 .btneditProfile{
