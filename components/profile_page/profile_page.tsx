@@ -495,7 +495,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     </div>
                 </div>
 
-                <div className='modal postcontent' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                <div className='modal postcontent' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
                     <div className='modal-dialog modal-dialog-centered'>
                         <div className='modal-content'>
                             <form className='form'>
@@ -526,7 +526,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     <div className='row'>
                                             <div className='form-floating'>
                                             <textarea className='form-control write-whats-goingon mt-3 validate' rows='10' placeholder={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} id='floatingTextarea'></textarea>
-                                            <label for='floatingTextarea'>What's going on, {currentUser.first_name} {currentUser.last_name}.</label>
+                                            <label htmlFor='floatingTextarea'>What's going on, {currentUser.first_name} {currentUser.last_name}.</label>
                                             </div>
                                     </div>
 
