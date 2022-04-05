@@ -34,6 +34,7 @@ import Sidebar from 'components/sidebar';
 import SidebarRight from 'components/sidebar_right';
 import SidebarRightMenu from 'components/sidebar_right_menu';
 import { CssFontSource } from '@stripe/stripe-js';
+import { toggleRHSPlugin } from 'actions/views/rhs';
 
 type Props = {
     status?: string;
@@ -69,6 +70,7 @@ type State = {
     img_path: string;
     coverUrl: string;
     completion: number;
+    currentUser: UserProfile;
 };
 
 export default class ProfilPage extends React.PureComponent<Props, State> {
@@ -101,12 +103,34 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.coverPhoto).then(value => this.setState({coverUrl: value}));
         }
 
-        
+        if(this.props.profilePicture.includes("image?")){
+            this.setState({completion: +25});
+        }
+
+        if(this.props.currentUser != null){
+            if(this.props.currentUser.first_name !== '' && this.props.currentUser.last_name !== ''){
+                this.setState({completion: +25});
+            }
+
+            if(this.props.currentUser.position !== ''){
+                this.setState({completion: +25});
+            }
+        }
     }
 
-    componentDidUpdate(prevState){
-        if(this.props.currentUser !== prevState.currentUser){
-            console.log('equal')
+    componentDidUpdate(){
+        if(this.props.profilePicture.includes("image?")){
+            this.setState({completion: +25});
+        }
+
+        if(this.props.currentUser != null){
+            if(this.props.currentUser.first_name !== '' && this.props.currentUser.last_name !== ''){
+                this.setState({completion: +25});
+            }
+
+            if(this.props.currentUser.position !== ''){
+                this.setState({completion: +25});
+            }
         }
     }
 
@@ -138,8 +162,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
-        const { coverUrl } = this.state;
-
+        const { coverUrl,completion } = this.state;
+        console.log(completion);
         let coverImg;
         if(coverUrl !== undefined && coverUrl !== 'unavailable' && coverUrl !== ''){
             coverImg = (<img className='img-cover' src={coverUrl}></img>);
