@@ -357,7 +357,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                 </div>
-                                <br></br>
+                                <br/></br>
                                 <div className='col-lg-12 post-div mtop-10'>
                                     <div className='d-flex'>
                                         <div className='col-lg-2 text-center removePaddingRight'>
@@ -491,6 +491,98 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='modal postcontent' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                    <div className='modal-dialog modal-dialog-centered'>
+                        <div className='modal-content'>
+                            <form className='form'>
+                                <div className='modal-header'>
+                                    <h6 className='modal-title'>Create post</h6>
+                                    <a className='btn-close-canvas shadow onClosecreatepost' data-bs-dismiss='modal' aria-label='Close'><i className='bi-x'></i></a>
+                                </div>
+
+                                <div className='modal-body'>
+                                    <div className='row'>
+                                        <div className='col-2 text-center'>
+                                            <img width='50px' className='img-fluid' src='assets/images/sample-user-primary-picture-6.png'/>
+                                        </div>
+                                        <div className='col-10 text-left'>
+                                            <strong>
+                                                <a href='#'>First name</a> 
+                                                <a href='#' className='feelingspost'><small className='text-muted'>is feeling Grinning smile</small> &#128512;</a>
+                                                <a href='#' className='locationviewpost'><small className='text-muted'>is in</small> Muntinlupa City</a> 
+                                                <a href='#' className='tagviewpost'><small className='text-muted'>with</small> Friend name goes here</a> 
+                                                <a href='#' className='activities'><small className='text-muted'>Activities</small> &#128151;</a> 
+                                            </strong>
+                                            <br/>
+                                            <a className='onSelectactionfriends'><i className='bi-people-fill'></i> Friends <i className='bi-chevron-down'></i></a>
+                                            <a className='onSelectactionpublic'><i className='bi-globe'></i> Everyone <i className='bi-chevron-down'></i></a>
+                                            <a className='onSelectactiononlyme'><i className='bi-person'></i> Private <i className='bi-chevron-down'></i></a>
+                                        </div>
+                                    </div>
+                                    <div className='row'>
+                                            <div className='form-floating'>
+                                            <textarea style=' height: 102px;' className='form-control write-whats-goingon mt-3 validate' placeholder='What's going on, Name goes here' id='floatingTextarea'></textarea>
+                                            <label for='floatingTextarea'>What's going on, Name goes here.</label>
+                                            </div>
+                                    </div>
+
+                                    <div className='post-photo-content'>
+                                        <div className='row'>
+                                        <div className='col-9'><strong>Add Photos / Video</strong></div>
+                                        <div className='col-3'><a className='closePhotocontent'><i className='bi-x float-end'></i></a></div>
+                                        <div className='text-center'>
+                                            <input className='form-control form-control-lg' id='formFileLg' type='file' />
+                                        </div>
+                                        </div>
+                                    </div>
+
+                                    <div className='post-music-content'>
+                                        <div className='container'>
+                                            <div className='row'>
+                                                <div className='col-2 text-left'><img width='50px' className='rounded' src='assets/images/Cover-album.jpg' alt='Cover album' /></div>
+                                                <div className='col-8 mt-0'>
+                                                <label className='ms-3'><strong>Lovely</strong></label>
+                                                <p className='ms-3'><small>Eric Godlow</small></p>
+                                                </div>
+                                                <div className='col-2 mt-0'>
+                                                <a className='onClosemusicpost float-end'><i className='bi-x'></i></a>
+                                                </div>
+                                            </div>
+                                            <div className='row'>
+                                                <label className='mb-2'><strong>Lyrics:</strong> <br/><br/> What a wonderful world is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. <br/><br/> when an unknown printer took a galley of type and scrambled it to make a type specimen book.</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className='box-add-border'>
+                                        <div className='row mt-3'>
+                                            <div className='col-5'><p className='mt-1'><strong>Add to your post</strong></p></div>
+                                            <div className='col-7'>
+                                                <div className='btn-group float-end gap-2' role='group' aria-label='Add to your post group'>
+                                                    <a className='onTag'><i className='bi-tag-fill'></i></a>
+                                                    <a className='onAddimage'><i className='bi-image'></i></a>
+                                                    <a className='onAddfeelings'><i className='bi-emoji-smile-fill'></i></a>
+                                                    <a className='onAddmusic'><i className='bi-music-note-beamed'></i></a>
+                                                    <a className='onAddimage'><i className='bi-camera-video'></i></a>
+                                                    <a className='onLocation'><i className='bi-geo-alt-fill'></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className='modal-footer'>
+                                    <div className='col-lg-12 text-center'>
+                                    <div className='d-grid'>
+                                        <button type='submit' className='btn btn-primary btn-md btn-create-post' disabled>Post</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
