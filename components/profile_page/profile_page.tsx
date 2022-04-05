@@ -102,27 +102,45 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         if(this.props.coverPhoto != null){
             Promise.resolve(this.props.coverPhoto).then(value => this.setState({coverUrl: value}));
         }
+        this.getCompletionRate();
+    }
 
+    componentDidUpdate(){
+        this.getCompletionRate();
+    }
+
+    getCompletionRate = () =>{
         let result = 0;
         if(this.props.profilePicture.includes("image?")){
             result += 25;
+        }
+        else{
+            if(result >= 25){
+                result -= 25;
+            }
         }
 
         if(this.props.currentUser != null){
             if(this.props.currentUser.first_name !== '' && this.props.currentUser.last_name !== ''){
                 result += 25;
             }
+            else{
+                if(result >= 25){
+                    result -= 25;
+                }
+            }
 
             if(this.props.currentUser.position !== ''){
                 result += 25;
             }
+            else{
+                if(result >= 25){
+                    result -= 25;
+                }
+            }
         }
 
         this.setState({completionResult: result});
-    }
-
-    componentDidUpdate(){
-        
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
