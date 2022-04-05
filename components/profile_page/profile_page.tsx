@@ -174,7 +174,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let photoAvailable;
         let nameAvailable;
         let locationAvailable;
-        let WorkspaceAvailable;
+        let WorkspaceAvailable = (<img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/>);
 
         if(currentUser.first_name !== '' && currentUser.first_name !== '' && currentUser.first_name !== null && currentUser.first_name !== null){
             nameAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
