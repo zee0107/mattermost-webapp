@@ -333,8 +333,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     <div className='row'>
                                         <div className='col-md-5 text-center'>
                                             <div className='input-group float-start'>
-                                            <span className='input-group-text input-search-crypter-whats-going-on' id='basic-addon22'>
-                                                {this.renderProfilePicture('md')}</span>
+                                            {/*<span className='input-group-text input-search-crypter-whats-going-on' id='basic-addon22'>
+                                                </span>*/}
+                                            {this.renderProfilePicture('md')}
                                             <input type='text' className='form-control input-search-crypter-whats-going-on onCreatepost' placeholder={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-label={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-describedby='basic-addon55' data-bs-toggle='modal' data-bs-target='#staticBackdrop' />
                                             <span className='input-group-text input-search-crypter-whats-going-on onPhotoaddpost' id='basic-addon33' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
                                                 <a href='#'><img width='18' className='img-fluid' src='assets/images/photo-icon-img.png'/></a></span>
