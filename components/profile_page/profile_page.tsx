@@ -225,13 +225,11 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                     {this.renderProfilePicture('mxl')}
                                                 </div>
                                                 <div className='col-lg-5 text-center'>
-                                                    <p>
-                                                        <h3 className='name-query-mobile-style'>{`${currentUser.first_name} ${currentUser.last_name}`}</h3>
-                                                        <br/>
-                                                        <h4 className='hash-name'>{'@' + currentUser.username}</h4>
-                                                        <br/>
-                                                        <h4 className='little-medium-text name-quuery-at'>{currentUser.position}</h4>
-                                                    </p>
+                                                    <h3 className='name-query-mobile-style'>{`${currentUser.first_name} ${currentUser.last_name}`}</h3>
+                                                    <br/>
+                                                    <h4 className='hash-name'>{'@' + currentUser.username}</h4>
+                                                    <br/>
+                                                    <h4 className='little-medium-text name-quuery-at'>{currentUser.position}</h4>
                                                 </div>
                                                 <div className='col-lg-4'>
                                                     <div className='d-grid w-50 mx-auto'>
