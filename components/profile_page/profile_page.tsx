@@ -222,7 +222,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <div className='blur-effects-mobile text-white'>
                                             <div className='row'>
                                                 <div className='col-lg-3 text-center'>
-                                                        <img className='img-fluid border border-2 rounded-circle border-success' src='assets/images/evan-yates-photos.png' alt='User photo' title='User photo'>
+                                                    <img className='img-fluid border border-2 rounded-circle border-success' src='assets/images/evan-yates-photos.png' alt='User photo' title='User photo' />
                                                 </div>
                                                 <div className='col-lg-5 text-center'>
                                                     <p>
