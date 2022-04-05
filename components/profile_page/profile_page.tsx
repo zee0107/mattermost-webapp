@@ -141,75 +141,128 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         }
 
         return (
-            <div className='profile-header-desktop'>
-                <section id='profile' className='profile-views'>
-                    <div className='container'>
-                        <div className='box-top-profile-verion text-center'>
-                            <div className='row'>
-                                <div className='col-4'>
-                                    <div className='blur-effects text-white'>
-                                        <div className='row'>
-                                            <div className='p-0'>
-                                                <div className='col-12'>
-                                                    {this.renderProfilePictureText('mxl')}
-                                                    <ToggleModalButtonRedux
-                                                        id='accountSettings'
-                                                        ariaLabel='Profile'
-                                                        modalId={ModalIdentifiers.USER_SETTINGS}
-                                                        dialogType={UserSettingsModal}
-                                                        dialogProps={{isContentProductSettings: false}}
-                                                        className={'float-end onEditclicks mt-1'}
-                                                        showUnread={false}
-                                                    >
-                                                        Edit
-                                                    </ToggleModalButtonRedux>
-                                                    <h3 className='float-start ml-2 mt-2 name-query-style'>{`${currentUser.first_name} ${currentUser.last_name}`}</h3>
-                                                    <br/>
-                                                    <br/>
-                                                    <h4 className='float-start ml-2 little-medium-text name-quuery-at'>{'@' + currentUser.username}</h4>
-                                                    <br/>
-                                                    <h4 className='float-start ml-2 little-medium-text text-muted'>{currentUser.position}</h4>
+            <div>
+                <div className='profile-header-desktop'>
+                    <section id='profile' className='profile-views'>
+                        <div className='container'>
+                            <div className='box-top-profile-verion text-center'>
+                                <div className='row'>
+                                    <div className='col-4'>
+                                        <div className='blur-effects text-white'>
+                                            <div className='row'>
+                                                <div className='p-0'>
+                                                    <div className='col-12'>
+                                                        {this.renderProfilePictureText('mxl')}
+                                                        <ToggleModalButtonRedux
+                                                            id='accountSettings'
+                                                            ariaLabel='Profile'
+                                                            modalId={ModalIdentifiers.USER_SETTINGS}
+                                                            dialogType={UserSettingsModal}
+                                                            dialogProps={{isContentProductSettings: false}}
+                                                            className={'float-end onEditclicks mt-1'}
+                                                            showUnread={false}
+                                                        >
+                                                            Edit
+                                                        </ToggleModalButtonRedux>
+                                                        <h3 className='float-start ml-2 mt-2 name-query-style'>{`${currentUser.first_name} ${currentUser.last_name}`}</h3>
+                                                        <br/>
+                                                        <br/>
+                                                        <h4 className='float-start ml-2 little-medium-text name-quuery-at'>{'@' + currentUser.username}</h4>
+                                                        <br/>
+                                                        <h4 className='float-start ml-2 little-medium-text text-muted'>{currentUser.position}</h4>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className='col-8'>
-                                    <div className='row'>
-                                        <div className='col-4'></div>
-                                        <div className='col-8'>
-                                            <div className='row'>
-                                                <div className='col-md-3 mt-5 text-center text-white'><p><br/><h4><label></label></h4></p></div>
-                                                <div className='col-md-3 mt-5 text-center text-white'><p>Posts<br/></p><h4><label>2.6K</label></h4></div>
-                                                <div className='col-md-3 mt-5 text-center text-white'><p>Following<br/></p><h4><label>561</label></h4></div>
-                                                <div className='col-md-3 mt-5 text-center text-white'><p>Followers<br/></p><h4><label>16.2K</label></h4></div>
+                                    <div className='col-8'>
+                                        <div className='row'>
+                                            <div className='col-4'></div>
+                                            <div className='col-8'>
+                                                <div className='row'>
+                                                    <div className='col-md-3 mt-5 text-center text-white'><p><br/><h4><label></label></h4></p></div>
+                                                    <div className='col-md-3 mt-5 text-center text-white'><p>Posts<br/></p><h4><label>2.6K</label></h4></div>
+                                                    <div className='col-md-3 mt-5 text-center text-white'><p>Following<br/></p><h4><label>561</label></h4></div>
+                                                    <div className='col-md-3 mt-5 text-center text-white'><p>Followers<br/></p><h4><label>16.2K</label></h4></div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div className='blur-effects-menu-heading'>
-                                        <div className='p-0'>
-                                            <div className='row'>
-                                                <div className='col-md-2'>
-                                                <a className='float-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/72d2138889140c51526aefce3a272ee0.svg' /></a></div>
-                                                <div className='col-md-2'>
-                                                <a className='float-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/9ce1d2fa6e5f663e97224a4488d62884.svg' /></a></div>
-                                                <div className='col-md-2'>
-                                                <a className='float-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/d90345991a9eaf243edaa2187adb064c.svg' /></a></div>
-                                                <div className='col-md-2'>
-                                                <a className='float-md-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/7daf35f1d65ac32e86296b9afc8035b7.svg' /></a></div>
-                                                <div className='col-md-2'>
-                                                <a className='float-md-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/7b6de3c9cc5c5a75fd7fef23f015c50a.svg' /></a></div>
-                                                <div className='col-2'>
-                                                <a className='float-md-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/3b737edeb663be203dfa275d031717fc.svg' /></a></div>
+                                        <div className='blur-effects-menu-heading'>
+                                            <div className='p-0'>
+                                                <div className='row'>
+                                                    <div className='col-md-2'>
+                                                    <a className='float-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/72d2138889140c51526aefce3a272ee0.svg' /></a></div>
+                                                    <div className='col-md-2'>
+                                                    <a className='float-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/9ce1d2fa6e5f663e97224a4488d62884.svg' /></a></div>
+                                                    <div className='col-md-2'>
+                                                    <a className='float-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/d90345991a9eaf243edaa2187adb064c.svg' /></a></div>
+                                                    <div className='col-md-2'>
+                                                    <a className='float-md-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/7daf35f1d65ac32e86296b9afc8035b7.svg' /></a></div>
+                                                    <div className='col-md-2'>
+                                                    <a className='float-md-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/7b6de3c9cc5c5a75fd7fef23f015c50a.svg' /></a></div>
+                                                    <div className='col-2'>
+                                                    <a className='float-md-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/3b737edeb663be203dfa275d031717fc.svg' /></a></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </div>
+                <div className='profile-header-mobile'>
+                    <section id='profile-mobile' className='profile-views'>
+                            <div className='container-fluid'>
+                                <div className='box-top-profile-mobile text-center'>
+                                    <div className='row'>
+                                        <div className='col-md-10 mx-auto'>
+                                        
+                                        <div className='blur-effects-mobile text-white'>
+                                            <div className='row'>
+                                                <div className='col-lg-3 text-center'>
+                                                        <img className='img-fluid border border-2 rounded-circle border-success' src='assets/images/evan-yates-photos.png' alt='User photo' title='User photo'>
+                                                </div>
+                                                <div className='col-lg-5 text-center'>
+                                                    <p>
+                                                        <h3 className='name-query-mobile-style'>{`${currentUser.first_name} ${currentUser.last_name}`}</h3>
+                                                        <br>
+                                                        <h4 className='hash-name'>{'@' + currentUser.username}</h4>
+                                                        <br>
+                                                        <h4 className='little-medium-text name-quuery-at'>{currentUser.position}</h4>
+                                                    </p>
+                                                </div>
+                                                <div className='col-lg-4'>
+                                                    <div className='d-grid w-50 mx-auto'>
+                                                        <ToggleModalButtonRedux
+                                                            id='accountSettings'
+                                                            ariaLabel='Profile'
+                                                            modalId={ModalIdentifiers.USER_SETTINGS}
+                                                            dialogType={UserSettingsModal}
+                                                            dialogProps={{isContentProductSettings: false}}
+                                                            className={'float-end onEditclicks mt-1'}
+                                                            showUnread={false}
+                                                        >
+                                                            Edit
+                                                        </ToggleModalButtonRedux>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-10 mx-auto mt-3 mb-1'>
+                                        <div className='row'>
+                                            <div className='col-md-4 text-center text-white'><p>Posts</p><br/><h4><strong>2.6K</strong></h4></div>
+                                            <div className='col-md-4 text-center text-white'><p>Following</p><br/><h4><strong>561</strong></h4></div>
+                                            <div className='col-md-4 text-center text-white'><p>Followers</p><br/><h4><strong>16.2K</strong></h4></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
         );
     }
