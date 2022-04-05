@@ -28,10 +28,17 @@ const Avatar = ({
 
     if (text) {
         return (
-            <div
+            /*<div
                 {...attrs}
                 className={classes + ' img-fluid float-start border border-2 rounded-circle border-success'}
                 data-content={text}
+            />*/
+            <img
+                {...attrs}
+                className={classes + ' img-fluid float-start border border-2 rounded-circle border-success'}
+                tabIndex={0}
+                alt={`${username || 'user'} profile image`}
+                src={url}
             />
         );
     }
