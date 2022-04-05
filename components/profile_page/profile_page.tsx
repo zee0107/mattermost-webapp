@@ -331,7 +331,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <div className='col-lg-8'>
                                 <div className='box-middle-panel'>
                                     <div className='row'>
-                                        <div className='col-5 text-center'>
+                                        <div className='col-md-5 text-center'>
                                             <div className='input-group float-start'>
                                             <span className='input-group-text input-search-crypter-whats-going-on' id='basic-addon22'>
                                                 {this.renderProfilePicture('md')}</span>
@@ -343,10 +343,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             </span>
                                             </div>
                                         </div>
-                                        <div className='col-3'><div className='d-grid'><button className='box-live-post btn-sm'>
+                                        <div className='col-md-3'><div className='d-grid'><button className='box-live-post btn-sm'>
                                             <img width='22' className='img-fluid' src='assets/images/icon-globe2.png'/>Everyone</button></div></div>
-                                            <div className='col-2'><div className='d-grid'><button className='box-live-post btn-sm'><img width='22' className='img-fluid' src='assets/images/icon-cideo-camera.png'/> Live</button></div></div>
-                                            <div className='col-2'><div className='d-grid'><button className='box-button-share btn-sm text-white'>Share</button></div>
+                                            <div className='col-md-2'><div className='d-grid'><button className='box-live-post btn-sm'><img width='22' className='img-fluid' src='assets/images/icon-cideo-camera.png'/> Live</button></div></div>
+                                            <div className='col-md-2'><div className='d-grid'><button className='box-button-share btn-sm text-white'>Share</button></div>
                                         </div>
                                     </div>
                                 </div>
