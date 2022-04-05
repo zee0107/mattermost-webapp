@@ -104,16 +104,16 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         }
 
         if(this.props.profilePicture.includes("image?")){
-            this.setState({completionResult: +25});
+            this.setState({completionResult:  this.state.completionResult+25});
         }
 
         if(this.props.currentUser != null){
             if(this.props.currentUser.first_name !== '' && this.props.currentUser.last_name !== ''){
-                this.setState({completionResult: +25});
+                this.setState({completionResult: this.state.completionResult+25});
             }
 
             if(this.props.currentUser.position !== ''){
-                this.setState({completionResult: +25});
+                this.setState({completionResult: this.state.completionResult+25});
             }
         }
     }
@@ -150,8 +150,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
-        const { coverUrl,completion } = this.state;
-        console.log(completion);
+        const { coverUrl,completionResult } = this.state;
+        console.log(completionResult);
         let coverImg;
         if(coverUrl !== undefined && coverUrl !== 'unavailable' && coverUrl !== ''){
             coverImg = (<img className='img-cover' src={coverUrl}></img>);
