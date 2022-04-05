@@ -262,10 +262,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     </section>
                 </div>
                 <div className='container'>
-                    <div className="col-lg-12">
+                    <div className="col-lg-12 removePadding">
                         <div className="row">
                             <div className="col-lg-8">
-                                <div className='col-lg-12 share-div removePadding'>
+                                <div className='col-lg-12 share-div'>
                                     <div className='d-flex'>
                                         <div className='col-md-6 share-div-input removePaddingRight'>
                                             <div className='d-flex'>
