@@ -110,8 +110,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
     }
 
     getCompletionRate = () =>{
+        const { profilePicture, currentUser} = this.props;
         let result = 0;
-        if(this.props.profilePicture.includes('image?')){
+        if(profilePicture.includes('image?')){
             result += 25;
         }
         else{
@@ -120,7 +121,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             }
         }
 
-        if(this.props.currentUser.position !== ''){
+        if(currentUser.position !== '' && currentUser.position !== null){
             result += 25;
         }
         else{
@@ -129,7 +130,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             }
         }
 
-        if(this.props.currentUser.first_name !== '' && this.props.currentUser.last_name !== ''){
+        if(currentUser.first_name !== '' && currentUser.first_name !== '' && currentUser.first_name !== null && currentUser.first_name !== null){
             result += 25;
         }
         else{
@@ -168,9 +169,34 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
 
     render= (): JSX.Element => {
-        const {globalHeader, currentUser} = this.props;
+        const {globalHeader, currentUser, profilePicture} = this.props;
         const { coverUrl,completionResult } = this.state;
-        //console.log(completionResult);
+        let photoAvailable;
+        let nameAvailable;
+        let locationAvailable;
+        let WorkspaceAvailable;
+
+        if(currentUser.first_name !== '' && currentUser.first_name !== '' && currentUser.first_name !== null && currentUser.first_name !== null){
+            nameAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
+        }
+        else{
+            nameAvailable = (<img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/>);
+        }
+
+        if (currentUser.position !== '' && currentUser.position !== null){
+            locationAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
+        }
+        else{
+            locationAvailable = (<img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/>);
+        }
+
+        if (profilePicture.includes('image?')){
+            photoAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
+        }
+        else{
+            photoAvailable = (<img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/>);
+        }
+
         let coverImg;
         if(coverUrl !== undefined && coverUrl !== 'unavailable' && coverUrl !== ''){
             coverImg = (<img className='img-cover' src={coverUrl}></img>);
@@ -394,52 +420,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
                                     
                                     <ul className='list-group p-3'>
-                                        <li className='list-group-item border-transparent'><img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/> <label className='ms-2'>Add Your Photo</label></li>
-                                        <li className='list-group-item border-transparent'><img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/> <label className='ms-2'>Add Your Name</label></li>
-                                        <li className='list-group-item border-transparent'><img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/> <label className='ms-2'>Add Your Workspace</label></li>
-                                        <li className='list-group-item border-transparent'><img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/> <label className='ms-2'>Add Your Address</label></li>
+                                        <li className='list-group-item border-transparent'>{photoAvailable} <label className='ms-2'>Add Your Photo</label></li>
+                                        <li className='list-group-item border-transparent'>{nameAvailable} <label className='ms-2'>Add Your Name</label></li>
+                                        <li className='list-group-item border-transparent'>{WorkspaceAvailable} <label className='ms-2'>Add Your Workspace</label></li>
+                                        <li className='list-group-item border-transparent'>{locationAvailable} <label className='ms-2'>Add Your Address</label></li>
                                     </ul>
                                 </div>
-                                {/*<div className='col-lg-12 completion-div-box removePadding'>
-                                    <div className='d-flex completion-box-bg'>
-                                        <img src={completion} className='completion-img' height='60' width={`${completionResult}%`}></img>
-                                        <div className='col-lg-12 completion-text'>
-                                            <div className='d-flex'>
-                                                <div className='col-lg-9 width-100'>
-                                                    <h5>Profile Completion</h5>
-                                                </div>
-                                                <div className='col-lg-3'>
-                                                    <h4 className='competion-text-percent'>{completionResult}%</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br></br>
-                                    <div className='d-flex margin-top-10'>
-                                        <div className='done-div'>
-                                            <img src={DoneIcon}></img>
-                                        </div>
-                                        <h5 className='getStartPrimaryText margin-top-4'>Add Your Photo</h5>
-                                    </div>
-                                    <div className='d-flex margin-top-10'>
-                                        <div className='done-div'>
-                                            <img src={DoneIcon}></img>
-                                        </div>
-                                        <h5 className='getStartPrimaryText margin-top-4'>Add Your Name</h5>
-                                    </div>
-                                    <div className='d-flex margin-top-10'>
-                                        <div className='done-div'>
-                                            <img src={DoneIcon}></img>
-                                        </div>
-                                        <h5 className='getStartPrimaryText margin-top-4'>Add Your Workspace</h5>
-                                    </div>
-                                    <div className='d-flex margin-top-10'>
-                                        <div className='undone-div'>
-                                            <img className='undone-img' src={UndoneIcon}></img>
-                                        </div>
-                                        <h5 className='getStartPrimaryText margin-top-4'>Add Your Address</h5>
-                                    </div>
-                                </div>*/}
                                 <br />
                                 <div className='col-lg-12 chat-box removePadding margin-top-30'>
                                     <div className='d-flex'>
