@@ -166,7 +166,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                     <br/>
                                                     <h4 className='float-start ml-2 little-medium-text name-quuery-at'>{'@' + currentUser.username}</h4>
                                                     <br/>
-                                                    <br/>
                                                     <h4 className='float-start ml-2 little-medium-text text-muted'>{currentUser.position}</h4>
                                                 </div>
                                             </div>
