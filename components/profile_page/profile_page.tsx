@@ -192,17 +192,17 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='p-0'>
                                                 <div className='row'>
                                                     <div className='col-md-2'>
-                                                    <a className='float-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/72d2138889140c51526aefce3a272ee0.svg' /></a></div>
+                                                    <a className='float-start mr-5 ml-5'><img width='18' src={SplitIcon} /></a></div>
                                                     <div className='col-md-2'>
-                                                    <a className='float-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/9ce1d2fa6e5f663e97224a4488d62884.svg' /></a></div>
+                                                    <a className='float-start mr-5 ml-5'><img width='18' src={ImgIcon} /></a></div>
                                                     <div className='col-md-2'>
-                                                    <a className='float-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/d90345991a9eaf243edaa2187adb064c.svg' /></a></div>
+                                                    <a className='float-start mr-5 ml-5'><img width='18' src={VideoIcon} /></a></div>
                                                     <div className='col-md-2'>
-                                                    <a className='float-md-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/7daf35f1d65ac32e86296b9afc8035b7.svg' /></a></div>
+                                                    <a className='float-md-start mr-5 ml-5'><img width='18' src={MusicIcon} /></a></div>
                                                     <div className='col-md-2'>
-                                                    <a className='float-md-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/7b6de3c9cc5c5a75fd7fef23f015c50a.svg' /></a></div>
+                                                    <a className='float-md-start mr-5 ml-5'><img width='18' src={AttachIcon} /></a></div>
                                                     <div className='col-2'>
-                                                    <a className='float-md-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/3b737edeb663be203dfa275d031717fc.svg' /></a></div>
+                                                    <a className='float-md-start mr-5 ml-5'><img width='18' src={GeoIcon} /></a></div>
                                                 </div>
                                             </div>
                                         </div>
