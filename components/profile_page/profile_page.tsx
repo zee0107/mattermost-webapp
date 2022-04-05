@@ -381,7 +381,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     <div className='row'>
                                         <div className='position-relative'>
                                         <div className='position-absolute top-0 start-50 translate-middle-x'>
-                                            <div style={'margin:0px 0px 0px 74px;'}><img height='63' src='assets/images/wave-skew.png'/></div>
+                                            <div><img height='63' src='assets/images/wave-skew.png'/></div>
                                         </div>
                                         </div>  
 
