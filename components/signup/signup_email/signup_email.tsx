@@ -602,7 +602,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                 {/*hasAccounts && <BackButton onClick={() => trackEvent('signup_email', 'click_back')}/>*/}
                 <div
                     id='signup_email_section'
-                    className='col-sm-12 bodyBgElipse'
+                    className='col-sm-12 bodyBgElipse removePadding'
                 >
                     <div className='row'>
                         <div className='col-sm-5 divfullheight'>
@@ -663,6 +663,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                             <div className='col-md-12'>
                                 <button className='btn buttonBgGreen buttonTogglePostion float-end' onClick={this.darkModeToggle}>Switch Theme</button>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
