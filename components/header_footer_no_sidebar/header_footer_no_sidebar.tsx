@@ -186,7 +186,7 @@ export default class LoggedInHFTNS extends React.PureComponent<Props> {
                             <ChannelHeaderMobile classes={'removeMargin'} isDark={this.state.isDark}/>
                         </div>
                     </div>
-                    <div className='row content bgGrey pbot-10'>
+                    <div className='bgGrey pbot-10'>
                         {React.cloneElement(this.props.children, {mode: this.state.isDark})}
                     </div>
                 </div>
