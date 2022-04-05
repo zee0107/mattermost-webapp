@@ -149,7 +149,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <div className='row'>
                                             <div className='p-0'>
                                                 <div className='col-12'>
-                                                    {this.renderProfilePictureText('xl')}
+                                                    {this.renderProfilePictureText('mxl')}
                                                     <ToggleModalButtonRedux
                                                         id='accountSettings'
                                                         ariaLabel='Profile'
@@ -163,9 +163,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                     </ToggleModalButtonRedux>
                                                     <h3 className='float-start ml-2 name-query-style'>{`${currentUser.first_name} ${currentUser.last_name}`}</h3>
                                                     <br/>
-                                                    <h4 className='float-start ml-2 little-medium-text name-quuery-at small'>{'@' + currentUser.username}</h4>
                                                     <br/>
-                                                    <h4 className='float-start ml-2 little-medium-text text-muted small'>{currentUser.position}</h4>
+                                                    <h4 className='float-start ml-2 little-medium-text name-quuery-at'>{'@' + currentUser.username}</h4>
+                                                    <br/>
+                                                    <br/>
+                                                    <br/>
+                                                    <h4 className='float-start ml-2 little-medium-text text-muted'>{currentUser.position}</h4>
                                                 </div>
                                             </div>
                                         </div>
