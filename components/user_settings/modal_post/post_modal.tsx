@@ -399,4 +399,4 @@ class PostModal extends React.PureComponent<Props, State> {
     }
 }
 
-export default injectIntl(UserProfileModal);
+export default injectIntl(PostModal);
