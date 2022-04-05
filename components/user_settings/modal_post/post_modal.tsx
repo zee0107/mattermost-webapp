@@ -74,14 +74,14 @@ export type Props = {
     onExited: () => void;
     intl: IntlShape;
     isContentProductSettings: boolean;
-    actions: {
+    /*actions: {
         sendVerificationEmail: (email: string) => Promise<{
             data: StatusOK;
             error: {
                 err: string;
             };
         }>;
-    };
+    };*/
 }
 
 type State = {
@@ -122,7 +122,7 @@ class PostModal extends React.PureComponent<Props, State> {
         this.modalBodyRef = React.createRef();
     }
 
-    handleResend = (email: string) => {
+    /*handleResend = (email: string) => {
         this.setState({resendStatus: 'sending'});
 
         this.props.actions.sendVerificationEmail(email).then(({data, error: err}) => {
@@ -132,7 +132,7 @@ class PostModal extends React.PureComponent<Props, State> {
                 this.setState({resendStatus: 'failure'});
             }
         });
-    }
+    }*/
 
     componentDidMount() {
         document.addEventListener('keydown', this.handleKeyDown);

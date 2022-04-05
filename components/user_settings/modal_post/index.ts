@@ -25,12 +25,12 @@ function mapStateToProps(state: GlobalState) {
     };
 }
 
-function mapDispatchToProps(dispatch: Dispatch) {
+/*function mapDispatchToProps(dispatch: Dispatch) {
     return {
         actions: bindActionCreators<ActionCreatorsMapObject<Action>, Props['actions']>({
             sendVerificationEmail,
         }, dispatch),
     };
-}
+}*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostModal);
+export default connect(mapStateToProps)(PostModal);
