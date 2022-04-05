@@ -117,7 +117,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         else{
             if(result >= 25){
                 result -= 25;
-                console.log('result 1');
             }
         }
 
@@ -127,7 +126,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         else{
             if(result >= 25){
                 result -= 25;
-                console.log('result 2');
             }
         }
 
@@ -137,7 +135,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         else{
             if(result >= 25){
                 result -= 25;
-                console.log('result 3');
             }
         }
 
@@ -382,14 +379,14 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <div className="col-lg-4">
                                 <div className='col-lg-12 completion-div-box removePadding'>
                                     <div className='d-flex completion-box-bg'>
-                                        <img src={completion} className='completion-img'></img>
+                                        <img src={completion} className='completion-img' height='60' width={`${completionResult}%`}></img>
                                         <div className='col-lg-12 completion-text'>
                                             <div className='d-flex'>
                                                 <div className='col-lg-9 width-100'>
                                                     <h5>Profile Completion</h5>
                                                 </div>
                                                 <div className='col-lg-3'>
-                                                    <h4 className='competion-text-percent'>80%</h4>
+                                                    <h4 className='competion-text-percent'>{completionResult}%</h4>
                                                 </div>
                                             </div>
                                         </div>
