@@ -164,10 +164,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                         >
                                                             Edit
                                                         </ToggleModalButtonRedux>
-                                                        <h4 className='float-start ml-2 mt-2 name-query-style'>{`${currentUser.first_name} ${currentUser.last_name}`}</h4>
+                                                        <h4 className='float-start ml-2 mt-2 name-query-style text-white'>{`${currentUser.first_name} ${currentUser.last_name}`}</h4>
                                                         <br/>
                                                         <br/>
-                                                        <h5 className='float-start ml-2 little-medium-text name-quuery-at'>{'@' + currentUser.username}</h5>
+                                                        <h5 className='float-start ml-2 little-medium-text name-quuery-at text-white'>{'@' + currentUser.username}</h5>
                                                         <br/>
                                                         <h5 className='float-start ml-2 little-medium-text text-muted'>{currentUser.position}</h5>
                                                     </div>
@@ -225,11 +225,11 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                     {this.renderProfilePicture('mxl')}
                                                 </div>
                                                 <div className='col-lg-5 text-center'>
-                                                    <h3 className='name-query-mobile-style'>{`${currentUser.first_name} ${currentUser.last_name}`}</h3>
+                                                    <h3 className='name-query-mobile-style text-white'>{`${currentUser.first_name} ${currentUser.last_name}`}</h3>
                                                     <br/>
-                                                    <h4 className='hash-name'>{'@' + currentUser.username}</h4>
+                                                    <h4 className='hash-name text-white'>{'@' + currentUser.username}</h4>
                                                     <br/>
-                                                    <h4 className='little-medium-text name-quuery-at'>{currentUser.position}</h4>
+                                                    <h4 className='little-medium-text name-quuery-at text-muted'>{currentUser.position}</h4>
                                                 </div>
                                                 <div className='col-lg-4'>
                                                     <div className='d-grid w-50 mx-auto'>
@@ -239,7 +239,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                             modalId={ModalIdentifiers.USER_SETTINGS}
                                                             dialogType={UserSettingsModal}
                                                             dialogProps={{isContentProductSettings: false}}
-                                                            className={'float-end onEditclicks mt-1'}
+                                                            className={'onEditclicks mt-1'}
                                                             showUnread={false}
                                                         >
                                                             Edit
