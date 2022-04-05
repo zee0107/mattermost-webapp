@@ -16,13 +16,15 @@ import MusicIcon from 'images/profiles/music-note-beamed.svg';
 import VideoIcon from 'images/profiles/camera-video.svg';
 import GeoIcon from 'images/profiles/geo-alt.svg';
 import AttachIcon from 'images/profiles/paperclip.svg';
-import SplitIcon from 'images/profiles/menu-icon.svg';
+import cameraPlus from 'images/photo-icon-img.png';
+import smileBox from 'images/smile-box.png';
 import DoneIcon from 'images/profiles/done.svg';
 import UndoneIcon from 'images/profiles/undone.svg';
 import postImage from 'images/post-1.png';
 import postPic from 'images/profiles/user-profile-2.png';
-import completion from 'images/profiles/completion.png';
+import globe from 'images/icon-global2.png';
 import waveIcon from 'images/wave-skew.png';
+import videoCam from 'images/icon-cideo-camera.png';
 import waveIconMobilbe from 'imageswave-skew-mobile.png';
 import styled from 'styled-components';
 
@@ -281,16 +283,16 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             {this.renderProfilePicture('md')}</span>
                                             <input type='text' className='form-control input-search-crypter-whats-going-on onCreatepost' placeholder='What`s going on, Name goes here' aria-label='What`s going on, Name goes here' aria-describedby='basic-addon55' data-bs-toggle='modal' data-bs-target='#staticBackdrop' />
                                             <span className='input-group-text input-search-crypter-whats-going-on onPhotoaddpost' id='basic-addon33' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
-                                            <a href='#'><img width='18' className='img-fluid' src='assets/images/photo-icon-img.png' /></a></span>
+                                            <a href='#'><img width='18' className='img-fluid' src={cameraPlus} /></a></span>
                                             <span className='input-group-text input-search-crypter-whats-going-on onEmoji p-2' id='basic-addon44'>
-                                            <a href='#'><img width='18' className='img-fluid' src='assets/images/smile-box.png' /></a>
+                                            <a href='#'><img width='18' className='img-fluid' src={smileBox} /></a>
                                             </span>
                                         </div>
                                         </div>
-                                        <div className='col-3'><div className='d-grid'><button className='box-live-post btn-sm'>
-                                            <img width='22' className='img-fluid' src='assets/images/icon-globe2.png' />Everyone</button></div></div>
-                                            <div className='col-2'><div className='d-grid'><button className='box-live-post btn-sm'><img width='22' className='img-fluid' src='assets/images/icon-cideo-camera.png'/> Live</button></div></div>
-                                            <div className='col-2'><div className='d-grid'><button className='box-button-share btn-sm text-white'>Share</button></div>
+                                        <div className='col-3'><div className='d-grid'><button className='box-live-post'>
+                                            <img width='22' className='img-fluid' src={globe} />Everyone</button></div></div>
+                                            <div className='col-2'><div className='d-grid'><button className='box-live-post'><img width='22' className='img-fluid' src={videoCam}/> Live</button></div></div>
+                                            <div className='col-2'><div className='d-grid'><button className='box-button-share text-white'>Share</button></div>
                                         </div>
                                     </div>
 
