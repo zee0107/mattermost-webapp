@@ -22,6 +22,8 @@ import UndoneIcon from 'images/profiles/undone.svg';
 import postImage from 'images/post-1.png';
 import postPic from 'images/profiles/user-profile-2.png';
 import completion from 'images/profiles/completion.png';
+import waveIcon from 'images/wave-skew.png';
+import waveIconMobilbe from 'imageswave-skew-mobile.png';
 import styled from 'styled-components';
 
 import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
@@ -192,7 +194,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='p-0'>
                                                 <div className='row'>
                                                     <div className='col-md-2'>
-                                                    <a className='float-start mr-5 ml-5'><img width='18' src={SplitIcon} /></a></div>
+                                                    <a className='float-start mr-5 ml-5'><img width='18' src={LayoutIcon} /></a></div>
                                                     <div className='col-md-2'>
                                                     <a className='float-start mr-5 ml-5'><img width='18' src={ImgIcon} /></a></div>
                                                     <div className='col-md-2'>
@@ -301,7 +303,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <div className='row'>
                                             <div className='position-relative'>
                                             <div className='position-absolute top-0 start-50 translate-middle-x'>
-                                                <div><img height='63' src='assets/images/wave-skew.png' /></div>
+                                                <div><img height='63' src={waveIcon} /></div>
                                             </div>
                                             </div>  
 
@@ -320,148 +322,92 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <li className='list-group-item border-0'><img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt='' /> <label className='ms-2'>Add Your Workspace</label></li>
                                             <li className='list-group-item border-0'><img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt='' /> <label className='ms-2'>Add Your Address</label></li>
                                         </ul>
-
                                     </div>
-                                    <div className='box-right-panel'>
-                                        <div className='row'>
-                                            <div className='col-3 mt-1 text-center'><a className='onSinglechat'><i className='bi-person'></i></a></div>
-                                            <div className='col-3 mt-1 text-center'><a className='onGroupchat'><i className='bi-people'></i></a></div>
-                                            <div className='col-3 mt-1 text-center'><a className='onChats'><i className='bi-chat-dots'></i></a></div>
-                                            <div className='col-3 mt-1 text-center'><a className='onSettings' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelaccounts' aria-controls='offcanvasRightLabelaccounts'><i className='bi-gear'></i></a></div>
-                                        </div>
 
-                                        <div className='row singlechats-content'>
-                                            <div className='col-12 mt-3'>
-                                            <div className='list-group'>
-                                                <a className='list-group-item list-group-item-action border-0' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
-                                                <div className='d-flex w-100 justify-content-between'>
-                                                    <label className='mb-1'>
-                                                    <img width='30px' className='img-fluid' src='assets/images/sample-user-primary-picture-6.png' alt=''/> 
-                                                    <strong className='ms-2'>Allysa Kate</strong></label>
-                                                    <small className='mt-3'>Today 4:17pm</small>
-                                                </div>
-                                                <small>And some small print.</small>
-                                                </a>
-                                                <a href='#' className='list-group-item list-group-item-action border-0' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
-                                                <div className='d-flex w-100 justify-content-between'>
-                                                    <label className='mb-1'><img width='30px' className='img-fluid' src='assets/images/sample-user-primary-picture-5.png' alt=''/> <strong className='ms-2'>Adams cure</strong></label>
-                                                    <small className='mt-3'>Today 4:18pm</small>
-                                                </div>
-                                                <small className='text-muted'>And some muted small print.</small>
-                                                </a>
-                                                <a href='#' className='list-group-item list-group-item-action border-0' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
-                                                <div className='d-flex w-100 justify-content-between'>
-                                                    <label className='mb-1'><img width='30px' className='img-fluid' src='assets/images/sample-user-primary-picture-4.png' alt=''/> <strong className='ms-2'>John Lloyd</strong></label>
-                                                    <small className='mt-3'>Today 4:19pm</small>
-                                                </div>
-                                                <small className='text-muted'>And some muted small print.</small>
-                                                </a>
-                                                <a href='#' className='list-group-item list-group-item-action border-0' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
-                                                <div className='d-flex w-100 justify-content-between'>
-                                                    <label className='mb-1'><img width='30px' className='img-fluid' src='assets/images/sample-user-primary-picture-3.png' alt=''/> <strong className='ms-2'>Goudlian Finch</strong></label>
-                                                    <small className='mt-3'>Today 4:19pm</small>
-                                                </div>
-                                                <small className='text-muted'>And some muted small print.</small>
-                                                </a>
-                                            </div>
-                                            </div>
-                                            <div className='col-12 mt-3'>
-                                            <form>
-                                                <div className='input-group mb-0'>
-                                                    <span className='input-group-text input-search-crypter-span' id='basic-addon1'><i className='bi-search'></i></span>
-                                                    <input type='text' className='form-control form-control-dark input-search-crypter' placeholder='Search for users' aria-label='Search for users'/>
-                                                </div>
-                                            </form>
-                                            </div>
-                                        </div>
-
-                                        <div className='row groupchats-content'>
-                                            <div className='col-12 mt-3'>
-                                            <div className='list-group'>
-                                                <a className='list-group-item list-group-item-action border-0' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
-                                                <div className='d-flex w-100 justify-content-between'>
-                                                    <label className='mb-1'>
-                                                    <img width='30px' className='img-fluid' src='assets/images/sample-user-primary-picture-6.png' alt=''/> 
-                                                    <strong className='ms-2'>Group name</strong></label>
-                                                    <small className='mt-3'>Today 9:09AM</small>
-                                                </div>
-                                                <small>And some small print.</small>
-                                                </a>
-                                                <a href='#' className='list-group-item list-group-item-action border-0' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
-                                                <div className='d-flex w-100 justify-content-between'>
-                                                    <label className='mb-1'><img width='30px' className='img-fluid' src='assets/images/sample-user-primary-picture-5.png' alt=''/> <strong className='ms-2'>Group name</strong></label>
-                                                    <small className='mt-3'>Today 9:15AM</small>
-                                                </div>
-                                                <small className='text-muted'>And some muted small print.</small>
-                                                </a>
-                                                <a href='#' className='list-group-item list-group-item-action border-0' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
-                                                <div className='d-flex w-100 justify-content-between'>
-                                                    <label className='mb-1'><img width='30px' className='img-fluid' src='assets/images/sample-user-primary-picture-4.png' alt=''/> <strong className='ms-2'>Group name</strong></label>
-                                                    <small className='mt-3'>Today 9:30AM</small>
-                                                </div>
-                                                <small className='text-muted'>And some muted small print.</small>
-                                                </a>
-                                                <a href='#' className='list-group-item list-group-item-action border-0' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
-                                                <div className='d-flex w-100 justify-content-between'>
-                                                    <label className='mb-1'><img width='30px' className='img-fluid' src='assets/images/sample-user-primary-picture-3.png' alt=''/> <strong className='ms-2'>Group name</strong></label>
-                                                    <small className='mt-3'>Today 9:30AM</small>
-                                                </div>
-                                                <small className='text-muted'>And some muted small print.</small>
-                                                </a>
-                                            </div>
-                                            </div>
-                                            <div className='col-12 mt-3'>
-                                                <form>
-                                                    <div className='input-group mb-0'>
-                                                    <span className='input-group-text input-search-crypter-span' id='basic-addon1'><i className='bi-search'></i></span>
-                                                    <input type='text' className='form-control form-control-dark input-search-crypter' placeholder='Search for group name' aria-label='Search for users'/>
+                                    <div className='col-lg-12 chat-box removePadding margin-top-30'>
+                                        <div className='d-flex'>
+                                            <div className='col-lg-4 width-100'>
+                                                <div className='d-flex'>
+                                                    <div className='col-sm-3'>
+                                                        <h4>
+                                                            <a href='#' title='Personal Chat'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-person" viewBox="0 0 16 16">
+                                                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                                                            </svg></a>
+                                                        </h4>
                                                     </div>
-                                                </form>
+                                                    <div className='col-sm-3'>
+                                                        <h4>
+                                                            <a href='#' title='Group Chat'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-people" viewBox="0 0 16 16">
+                                                                <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                                                            </svg></a>
+                                                        </h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className='col-lg-4 width-100 text-center'>
+                                                <h4 className='getStartPrimaryText'>Chat</h4>
+                                            </div>
+                                            <div className='col-lg-4 width-100 chat-setting'>
+                                                <h4><a href='#' title='Settings'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-gear" viewBox="0 0 16 16">
+                                                    <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                                                    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+                                                </svg></a>
+                                                </h4>
                                             </div>
                                         </div>
-
-                                        <div className='row chats-content'>
-                                            <div className='col-12 mt-3'>
-                                            <div className='list-group'>
-                                                <a className='list-group-item list-group-item-action border-0' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
-                                                <div className='d-flex w-100 justify-content-between'>
-                                                    <label className='mb-1'>
-                                                    <img width='30px' className='img-fluid' src='assets/images/sample-user-primary-picture-6.png' alt=''/> 
-                                                    <strong className='ms-2'>Allysa Kate</strong></label>
-                                                    <small className='mt-3'>Today 4:17pm</small>
+                                        <br />
+                                        <div className='col-lg-12 chat-hover removePadding'>
+                                            <div className='d-flex'>
+                                                <div className='col-lg-3 marginTopImg'>
+                                                    <img src={profPic} className='chat-img'></img>
                                                 </div>
-                                                <small>Chat And some small print.</small>
-                                                </a>
-                                                <a href='#' className='list-group-item list-group-item-action border-0' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
-                                                <div className='d-flex w-100 justify-content-between'>
-                                                    <label className='mb-1'><img width='30px' className='img-fluid' src='assets/images/sample-user-primary-picture-5.png' alt=''/> <strong className='ms-2'>Adams cure</strong></label>
-                                                    <small className='mt-3'>Today 4:18pm</small>
-                                                </div>
-                                                <small className='text-muted'>Chat And some muted small print.</small>
-                                                </a>
-                                                <a href='#' className='list-group-item list-group-item-action border-0' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
-                                                <div className='d-flex w-100 justify-content-between'>
-                                                    <label className='mb-1'><img width='30px' className='img-fluid' src='assets/images/sample-user-primary-picture-4.png' alt=''/> <strong className='ms-2'>John Lloyd</strong></label>
-                                                    <small className='mt-3'>Today 4:19pm</small>
-                                                </div>
-                                                <small className='text-muted'>Chat And some muted small print.</small>
-                                                </a>
-                                                <a href='#' className='list-group-item list-group-item-action border-0' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
-                                                <div className='d-flex w-100 justify-content-between'>
-                                                    <label className='mb-1'><img width='30px' className='img-fluid' src='assets/images/sample-user-primary-picture-3.png' alt=''/> <strong className='ms-2'>Goudlian Finch</strong></label>
-                                                    <small className='mt-3'>Today 4:19pm</small>
-                                                </div>
-                                                <small className='text-muted'>Chat And some muted small print.</small>
-                                                </a>
-                                            </div>
-                                            </div>
-                                            <div className='col-12 mt-3'>
-                                                <form>
-                                                    <div className='input-group mb-0'>
-                                                    <span className='input-group-text input-search-crypter-span' id='basic-addon1'><i className='bi-search'></i></span>
-                                                    <input type='text' className='form-control form-control-dark input-search-crypter' placeholder='Search for users' aria-label='Search for users'/>
+                                                <div className='col-lg-9 width-100 removePaddingLeft'>
+                                                    <div className='d-flex'>
+                                                        <div className='col-sm-6 width-100 removePaddingLeft'>
+                                                            <h6 className='getStartPrimaryText'>Allysa Kate</h6>
+                                                        </div>
+                                                        <div className='col-sm-6 removePaddingLeft chat-text'>
+                                                            <h6 className='getStartPrimaryText'>Today, 12:04</h6>
+                                                        </div>
                                                     </div>
-                                                </form>
+                                                    <h6 className='getSecondaryText'>A Facebook-like platform...</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='col-lg-12 chat-hover removePadding'>
+                                            <div className='d-flex'>
+                                                <div className='col-lg-3 marginTopImg'>
+                                                    <img src={profPic} className='chat-img'></img>
+                                                </div>
+                                                <div className='col-lg-9 width-100 removePaddingLeft'>
+                                                    <div className='d-flex'>
+                                                        <div className='col-sm-6 width-100 removePaddingLeft'>
+                                                            <h6 className='getStartPrimaryText'>Mark Olympus</h6>
+                                                        </div>
+                                                        <div className='col-sm-6 removePaddingLeft chat-text'>
+                                                            <h6 className='getStartPrimaryText'>Today, 12:04</h6>
+                                                        </div>
+                                                    </div>
+                                                    <h6 className='getSecondaryText'>A Facebook-like platform...</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='col-lg-12 chat-hover removePadding'>
+                                            <div className='d-flex'>
+                                                <div className='col-lg-3 marginTopImg'>
+                                                    <img src={profPic} className='chat-img'></img>
+                                                </div>
+                                                <div className='col-lg-9 width-100 removePaddingLeft'>
+                                                    <div className='d-flex'>
+                                                        <div className='col-sm-6 width-100 removePaddingLeft'>
+                                                            <h6 className='getStartPrimaryText'>Janine Tenoso</h6>
+                                                        </div>
+                                                        <div className='col-sm-6 removePaddingLeft chat-text'>
+                                                            <h6 className='getStartPrimaryText'>Today, 12:04</h6>
+                                                        </div>
+                                                    </div>
+                                                    <h6 className='getSecondaryText'>A Facebook-like platform...</h6>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
