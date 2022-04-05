@@ -138,7 +138,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='p-0'>
                                                 <div className='col-12'>
                                                     <p>
-                                                        {this.renderProfilePicture('xl float-start border border-2 rounded-circle border-success')}
+                                                        {this.renderProfilePicture('xl')}
                                                         <ToggleModalButtonRedux
                                                             id='accountSettings'
                                                             ariaLabel='Profile'
