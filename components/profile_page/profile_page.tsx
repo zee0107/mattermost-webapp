@@ -118,18 +118,18 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         }
     }
 
-    componentDidUpdate(){
+    componentDidUpdate(prevState){
         if(this.props.profilePicture.includes("image?")){
-            this.setState({completion: +25});
+            this.setState({completion: prevState.completion+25});
         }
 
         if(this.props.currentUser != null){
             if(this.props.currentUser.first_name !== '' && this.props.currentUser.last_name !== ''){
-                this.setState({completion: +25});
+                this.setState({completion: prevState.completion+25});
             }
 
             if(this.props.currentUser.position !== ''){
-                this.setState({completion: +25});
+                this.setState({completion: prevState.completion+25});
             }
         }
     }
