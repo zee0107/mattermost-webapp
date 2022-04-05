@@ -30,7 +30,7 @@ const Avatar = ({
         return (
             <div
                 {...attrs}
-                className={classes + ' Avatar-plain'}
+                className={classes + ' img-fluid float-start border border-2 rounded-circle border-success'}
                 data-content={text}
             />
         );

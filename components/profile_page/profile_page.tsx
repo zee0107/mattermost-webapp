@@ -112,7 +112,19 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         );
     }
 
-    
+    renderProfilePictureText = (size: TAvatarSizeToken): ReactNode => {
+        if (!this.props.profilePicture) {
+            return null;
+        }
+        return (
+            <Avatar
+                size={size}
+                url={this.props.profilePicture}
+                text='plain'
+            />
+        );
+    }
+
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
@@ -138,7 +150,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='p-0'>
                                                 <div className='col-12'>
                                                     <p>
-                                                        {this.renderProfilePicture('xl')}
+                                                        {this.renderProfilePictureText('xl')}
                                                         <ToggleModalButtonRedux
                                                             id='accountSettings'
                                                             ariaLabel='Profile'
