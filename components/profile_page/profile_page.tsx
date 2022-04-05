@@ -3,8 +3,6 @@
 
 import React, {ReactNode} from 'react';
 
-import styled from 'styled-components';
-
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
