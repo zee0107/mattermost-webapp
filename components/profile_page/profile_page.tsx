@@ -2,10 +2,12 @@
 // See LICENSE.txt for license information.
 
 import React, {ReactNode} from 'react';
+
+import styled from 'styled-components';
+
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
-import classNames from 'classnames';
 
 import homeImage from 'images/homeFeed.png';
 import coverImage from 'images/cover-photo.png';
@@ -22,6 +24,7 @@ import UndoneIcon from 'images/profiles/undone.svg';
 import postImage from 'images/post-1.png';
 import postPic from 'images/profiles/user-profile-2.png';
 import completion from 'images/profiles/completion.png';
+import styled from 'styled-components';
 
 import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
 import UserSettingsModal from 'components/user_settings/modal_profile';
@@ -32,6 +35,7 @@ import ChannelHeaderMobile from 'components/channel_header_mobile';
 import Sidebar from 'components/sidebar';
 import SidebarRight from 'components/sidebar_right';
 import SidebarRightMenu from 'components/sidebar_right_menu';
+import { CssFontSource } from '@stripe/stripe-js';
 
 type Props = {
     status?: string;
