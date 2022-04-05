@@ -138,7 +138,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='p-0'>
                                                 <div className='col-12'>
                                                     <p>
-                                                        {this.renderProfilePicture('mxl float-start border border-2 rounded-circle border-success')}
+                                                        {this.renderProfilePicture('xl float-start border border-2 rounded-circle border-success')}
                                                         <ToggleModalButtonRedux
                                                             id='accountSettings'
                                                             ariaLabel='Profile'
@@ -150,12 +150,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                         >
                                                             Edit
                                                         </ToggleModalButtonRedux>
-                                                        <label className='float-start ms-2 name-query-style'>{`${currentUser.first_name} ${currentUser.last_name}`}</label>
+                                                        <label className='float-start ml-2 name-query-style'>{`${currentUser.first_name} ${currentUser.last_name}`}</label>
                                                         <br/>
                                                         <br/>
-                                                        <label className='float-start ms-2 little-medium-text name-quuery-at small'>{'@' + currentUser.username}</label>
+                                                        <label className='float-start ml-2 little-medium-text name-quuery-at small'>{'@' + currentUser.username}</label>
                                                         <br/>
-                                                        <label className='float-start ms-2 little-medium-text text-muted small'>{currentUser.position}</label>
+                                                        <label className='float-start ml-2 little-medium-text text-muted small'>{currentUser.position}</label>
                                                     </p>
                                                 </div>
                                             </div>
@@ -167,10 +167,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <div className='col-4'></div>
                                         <div className='col-8'>
                                             <div className='row'>
-                                                <div className='col-3 mt-5 text-center text-white'><p><br/><h5><label></label></h5></p></div>
-                                                <div className='col-3 mt-5 text-center text-white'><p>Posts<br/><h5><label>2.6K</label></h5></p></div>
-                                                <div className='col-3 mt-5 text-center text-white'><p>Following<br/><h5><label>561</label></h5></p></div>
-                                                <div className='col-3 mt-5 text-center text-white'><p>Followers<br/><h5><label>16.2K</label></h5></p></div>
+                                                <div className='col-md-3 mt-5 text-center text-white'><p><br/><h5><label></label></h5></p></div>
+                                                <div className='col-md-3 mt-5 text-center text-white'><p>Posts<br/><h5><label>2.6K</label></h5></p></div>
+                                                <div className='col-md-3 mt-5 text-center text-white'><p>Following<br/><h5><label>561</label></h5></p></div>
+                                                <div className='col-md-3 mt-5 text-center text-white'><p>Followers<br/><h5><label>16.2K</label></h5></p></div>
                                             </div>
                                         </div>
                                     </div>
@@ -178,18 +178,18 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     <div className='blur-effects-menu-heading'>
                                         <div className='p-0'>
                                             <div className='row'>
+                                                <div className='col-md-2'>
+                                                <a className='float-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/72d2138889140c51526aefce3a272ee0.svg' /></a></div>
+                                                <div className='col-md-2'>
+                                                <a className='float-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/9ce1d2fa6e5f663e97224a4488d62884.svg' /></a></div>
+                                                <div className='col-md-2'>
+                                                <a className='float-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/d90345991a9eaf243edaa2187adb064c.svg' /></a></div>
+                                                <div className='col-md-2'>
+                                                <a className='float-md-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/7daf35f1d65ac32e86296b9afc8035b7.svg' /></a></div>
+                                                <div className='col-md-2'>
+                                                <a className='float-md-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/7b6de3c9cc5c5a75fd7fef23f015c50a.svg' /></a></div>
                                                 <div className='col-2'>
-                                                <a className='float-start me-5 ms-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/72d2138889140c51526aefce3a272ee0.svg' /></a></div>
-                                                <div className='col-2'>
-                                                <a className='float-start me-5 ms-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/9ce1d2fa6e5f663e97224a4488d62884.svg' /></a></div>
-                                                <div className='col-2'>
-                                                <a className='float-start me-5 ms-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/d90345991a9eaf243edaa2187adb064c.svg' /></a></div>
-                                                <div className='col-2'>
-                                                <a className='float-start me-5 ms-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/7daf35f1d65ac32e86296b9afc8035b7.svg' /></a></div>
-                                                <div className='col-2'>
-                                                <a className='float-start me-5 ms-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/7b6de3c9cc5c5a75fd7fef23f015c50a.svg' /></a></div>
-                                                <div className='col-2'>
-                                                <a className='float-start me-5 ms-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/3b737edeb663be203dfa275d031717fc.svg' /></a></div>
+                                                <a className='float-md-start mr-5 ml-5'><img width='18' src='https://crypter.polywickstudio.ph/static/files/3b737edeb663be203dfa275d031717fc.svg' /></a></div>
                                             </div>
                                         </div>
                                     </div>
