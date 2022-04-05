@@ -177,10 +177,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <div className='col-4'></div>
                                         <div className='col-8'>
                                             <div className='row'>
-                                                <div className='col-md-3 mt-5 text-center text-white'><p><br/><h5><label></label></h5></p></div>
-                                                <div className='col-md-3 mt-5 text-center text-white'><p>Posts<br/><h5><label>2.6K</label></h5></p></div>
-                                                <div className='col-md-3 mt-5 text-center text-white'><p>Following<br/><h5><label>561</label></h5></p></div>
-                                                <div className='col-md-3 mt-5 text-center text-white'><p>Followers<br/><h5><label>16.2K</label></h5></p></div>
+                                                <div className='col-md-3 mt-5 text-center text-white'><p><br/><h4><label></label></h4></p></div>
+                                                <div className='col-md-3 mt-5 text-center text-white'><p>Posts<br/></p><h4><label>2.6K</label></h4></div>
+                                                <div className='col-md-3 mt-5 text-center text-white'><p>Following<br/></p><h4><label>561</label></h4></div>
+                                                <div className='col-md-3 mt-5 text-center text-white'><p>Followers<br/></p><h4><label>16.2K</label></h4></div>
                                             </div>
                                         </div>
                                     </div>
