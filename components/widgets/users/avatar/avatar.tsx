@@ -35,7 +35,7 @@ const Avatar = ({
             />*/
             <img
                 {...attrs}
-                className={classes + ' img-fluid float-start border border-2 rounded-circle border-success'}
+                className={classes + ' img-fluid float-start border border-2 mt-2 rounded-circle border-success'}
                 tabIndex={0}
                 alt={`${username || 'user'} profile image`}
                 src={url}

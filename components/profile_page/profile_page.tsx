@@ -67,7 +67,8 @@ type State = {
     isStatusSet: boolean;
     isDark: string;
     img_path: string;
-    coverUrl:string;
+    coverUrl: string;
+    completion: number;
 };
 
 export default class ProfilPage extends React.PureComponent<Props, State> {
@@ -86,7 +87,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             isStatusSet: false,
             isDark:'light',
             img_path: homeImage,
+            completion: 0,
         };
+
+
     }
 
     componentDidMount(){
@@ -96,10 +100,14 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         if(this.props.coverPhoto != null){
             Promise.resolve(this.props.coverPhoto).then(value => this.setState({coverUrl: value}));
         }
+
+        
     }
 
-    componentDidUpdate(){
-
+    componentDidUpdate(prevState){
+        if(this.props.currentUser !== prevState.currentUser){
+            console.log('equal')
+        }
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
