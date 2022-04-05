@@ -23,8 +23,8 @@
 }
 
 .btnPaddingText{
-    padding: 20px;
-    font-size: 16px;
+    padding: 20px !important;
+    font-size: 16px !important;
     margin-top: 50px;
     font-weight: bold;
 }
@@ -231,15 +231,15 @@
 }
 
 .btnNowBgWhite{
-    background: white;
+    background: white !important;
     background-size: cover;
     border: 1px solid #44cc4b;
     color: #44cc4b;
     border-radius: 7px !important;
     padding: 20px;
-    font-size: 16px;
+    font-size: 16px !important;
     font-weight: bold;
-    margin-top: 5em;
+    margin-top: 2em;
 
     @media (max-width: 768px) {
         margin-top: 15px;

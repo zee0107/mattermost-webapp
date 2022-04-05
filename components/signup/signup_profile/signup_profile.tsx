@@ -1107,7 +1107,9 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                                 {/*terms*/}
                             </div>
                         </div>
-                        <button className='btn buttonBgGreen buttonTogglePostion' onClick={this.darkModeToggle}>Switch Theme</button>
+                        <div className='col-md-12'>
+                            <button className='btn buttonBgGreen buttonTogglePostion float-end' onClick={this.darkModeToggle}>Switch Theme</button>
+                        </div>
                     </div>
                 </div>
             </div>
