@@ -261,6 +261,42 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         </div>
                     </section>
                 </div>
+                <section id='crypter-section' className='crypter-section-profile-desktop'>
+                    <div className='container'>
+                        <div className='row'>
+                            <div className='col-md-8 profile-post-page'>
+                                <div className='col-12 text-center reload-loading'>
+                                    <div className='spinner-border' role='status'>
+                                        <span className='visually-hidden'>Loading...</span>
+                                    </div>
+                                </div>
+                                <div className='box-middle-panel'>
+
+                                <div className='row'>
+                                    <div className='col-5 text-center'>
+                                        <div className='input-group float-start'>
+                                            <span className='input-group-text input-search-crypter-whats-going-on' id='basic-addon22'>
+                                            <img width='34' className='img-fluid rounded-circle' src='assets/images/evan-yates-photos.png' alt='' /></span>
+                                            <input type='text' className='form-control input-search-crypter-whats-going-on onCreatepost' placeholder='What`s going on, Name goes here' aria-label='What`s going on, Name goes here' aria-describedby='basic-addon55' data-bs-toggle='modal' data-bs-target='#staticBackdrop' />
+                                            <span className='input-group-text input-search-crypter-whats-going-on onPhotoaddpost' id='basic-addon33' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
+                                            <a href='#'><img width='18' className='img-fluid' src='assets/images/photo-icon-img.png' /></a></span>
+                                            <span className='input-group-text input-search-crypter-whats-going-on onEmoji p-2' id='basic-addon44'>
+                                            <a href='#'><img width='18' className='img-fluid' src='assets/images/smile-box.png' /></a>
+                                            </span>
+                                        </div>
+                                        </div>
+                                        <div className='col-3'><div className='d-grid'><button className='box-live-post btn-sm'>
+                                            <img width='22' className='img-fluid' src='assets/images/icon-globe2.png' />Everyone</button></div></div>
+                                            <div className='col-2'><div className='d-grid'><button className='box-live-post btn-sm'><img width='22' className='img-fluid' src='assets/images/icon-cideo-camera.png'/> Live</button></div></div>
+                                            <div className='col-2'><div className='d-grid'><button className='box-button-share btn-sm text-white'>Share</button></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         );
     }
