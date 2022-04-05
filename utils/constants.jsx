@@ -356,6 +356,7 @@ export const ModalIdentifiers = {
     KEYBOARD_SHORTCUTS_MODAL: 'keyboar_shortcuts_modal',
     USERS_TO_BE_REMOVED: 'users_to_be_removed',
     UPLOAD_LICENSE: 'upload_license',
+    POST_CREATE: 'staticBackdrop',
 };
 
 export const UserStatuses = {
