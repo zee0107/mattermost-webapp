@@ -276,7 +276,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     <div className='col-5 text-center'>
                                         <div className='input-group float-start'>
                                             <span className='input-group-text input-search-crypter-whats-going-on' id='basic-addon22'>
-                                            <img width='34' className='img-fluid rounded-circle' src='assets/images/evan-yates-photos.png' alt='' /></span>
+                                            {this.renderProfilePicture('lg')}}</span>
                                             <input type='text' className='form-control input-search-crypter-whats-going-on onCreatepost' placeholder='What`s going on, Name goes here' aria-label='What`s going on, Name goes here' aria-describedby='basic-addon55' data-bs-toggle='modal' data-bs-target='#staticBackdrop' />
                                             <span className='input-group-text input-search-crypter-whats-going-on onPhotoaddpost' id='basic-addon33' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
                                             <a href='#'><img width='18' className='img-fluid' src='assets/images/photo-icon-img.png' /></a></span>
