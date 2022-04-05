@@ -117,6 +117,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         else{
             if(result >= 25){
                 result -= 25;
+                console.log('result 1');
             }
         }
 
@@ -126,6 +127,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         else{
             if(result >= 25){
                 result -= 25;
+                console.log('result 2');
             }
         }
 
@@ -135,9 +137,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         else{
             if(result >= 25){
                 result -= 25;
+                console.log('result 3');
             }
         }
-        
+
         this.setState({completionResult: result});
     }
 
@@ -170,7 +173,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
         const { coverUrl,completionResult } = this.state;
-        console.log(completionResult);
+        //console.log(completionResult);
         let coverImg;
         if(coverUrl !== undefined && coverUrl !== 'unavailable' && coverUrl !== ''){
             coverImg = (<img className='img-cover' src={coverUrl}></img>);
