@@ -69,7 +69,7 @@ type State = {
     isDark: string;
     img_path: string;
     coverUrl: string;
-    completion: number;
+    completionResult: number;
     currentUser: UserProfile;
 };
 
@@ -89,7 +89,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             isStatusSet: false,
             isDark:'light',
             img_path: homeImage,
-            completion: 0,
+            completionResult: 0,
         };
 
 
@@ -104,34 +104,22 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         }
 
         if(this.props.profilePicture.includes("image?")){
-            this.setState({completion: +25});
+            this.setState({completionResult: +25});
         }
 
         if(this.props.currentUser != null){
             if(this.props.currentUser.first_name !== '' && this.props.currentUser.last_name !== ''){
-                this.setState({completion: +25});
+                this.setState({completionResult: +25});
             }
 
             if(this.props.currentUser.position !== ''){
-                this.setState({completion: +25});
+                this.setState({completionResult: +25});
             }
         }
     }
 
-    componentDidUpdate(prevState){
-        if(this.props.profilePicture.includes("image?")){
-            this.setState({completion: prevState.completion+25});
-        }
-
-        if(this.props.currentUser != null){
-            if(this.props.currentUser.first_name !== '' && this.props.currentUser.last_name !== ''){
-                this.setState({completion: prevState.completion+25});
-            }
-
-            if(this.props.currentUser.position !== ''){
-                this.setState({completion: prevState.completion+25});
-            }
-        }
+    componentDidUpdate(){
+        
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
