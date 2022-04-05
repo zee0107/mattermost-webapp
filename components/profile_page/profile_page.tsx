@@ -525,8 +525,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='row'>
                                             <div className='form-floating'>
-                                            <textarea style=' height: 102px;' className='form-control write-whats-goingon mt-3 validate' placeholder='What's going on, Name goes here' id='floatingTextarea'></textarea>
-                                            <label for='floatingTextarea'>What's going on, Name goes here.</label>
+                                            <textarea style=' height: 102px;' className='form-control write-whats-goingon mt-3 validate' placeholder={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} id='floatingTextarea'></textarea>
+                                            <label for='floatingTextarea'>What's going on, {currentUser.first_name} {currentUser.last_name}.</label>
                                             </div>
                                     </div>
 
