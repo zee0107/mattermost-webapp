@@ -149,26 +149,24 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <div className='row'>
                                             <div className='p-0'>
                                                 <div className='col-12'>
-                                                    <p>
-                                                        {this.renderProfilePictureText('xl')}
-                                                        <ToggleModalButtonRedux
-                                                            id='accountSettings'
-                                                            ariaLabel='Profile'
-                                                            modalId={ModalIdentifiers.USER_SETTINGS}
-                                                            dialogType={UserSettingsModal}
-                                                            dialogProps={{isContentProductSettings: false}}
-                                                            className={'float-end onEditclicks mt-1'}
-                                                            showUnread={false}
-                                                        >
-                                                            Edit
-                                                        </ToggleModalButtonRedux>
-                                                        <label className='float-start ml-2 name-query-style'>{`${currentUser.first_name} ${currentUser.last_name}`}</label>
-                                                        <br/>
-                                                        <br/>
-                                                        <label className='float-start ml-2 little-medium-text name-quuery-at small'>{'@' + currentUser.username}</label>
-                                                        <br/>
-                                                        <label className='float-start ml-2 little-medium-text text-muted small'>{currentUser.position}</label>
-                                                    </p>
+                                                    {this.renderProfilePictureText('xl')}
+                                                    <ToggleModalButtonRedux
+                                                        id='accountSettings'
+                                                        ariaLabel='Profile'
+                                                        modalId={ModalIdentifiers.USER_SETTINGS}
+                                                        dialogType={UserSettingsModal}
+                                                        dialogProps={{isContentProductSettings: false}}
+                                                        className={'float-end onEditclicks mt-1'}
+                                                        showUnread={false}
+                                                    >
+                                                        Edit
+                                                    </ToggleModalButtonRedux>
+                                                    <label className='float-start ml-2 name-query-style'>{`${currentUser.first_name} ${currentUser.last_name}`}</label>
+                                                    <br/>
+                                                    <br/>
+                                                    <label className='float-start ml-2 little-medium-text name-quuery-at small'>{'@' + currentUser.username}</label>
+                                                    <br/>
+                                                    <label className='float-start ml-2 little-medium-text text-muted small'>{currentUser.position}</label>
                                                 </div>
                                             </div>
                                         </div>
