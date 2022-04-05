@@ -269,7 +269,6 @@ class UserProfileModal extends React.PureComponent<Props, State> {
 
     render() {
         const {formatMessage} = this.props.intl;
-        const {currentUser} = this.props;
         if (this.props.currentUser == null) {
             return (<div/>);
         }
@@ -286,106 +285,72 @@ class UserProfileModal extends React.PureComponent<Props, State> {
 
         return (
             <Modal
-                id='staticBackdrop'
-                dialogClassName='modal postcontent'
+                id='accountSettingsModal'
+                dialogClassName='a11y__modal settings-modal'
                 show={this.state.show}
                 onHide={this.handleHide}
                 onExited={this.handleHidden}
                 enforceFocus={this.state.enforceFocus}
                 role='dialog'
-                aria-labelledby='staticBackdropLabel'
+                aria-labelledby='accountSettingsModalLabel'
             >
                 <Modal.Header
-                    id='staticBackdropHeader'
+                    id='accountSettingsHeader'
                     closeButton={true}
                 >
                     <Modal.Title
-                        componentClass='h6'
+                        componentClass='h1'
                         id='accountSettingsModalLabel'
                     >
-                        <FormattedMessage
-                            id='createPost'
-                            defaultMessage='Create post'
-                        />
+                        {this.props.isContentProductSettings ? (
+                            <FormattedMessage
+                                id='global_header.productSettings'
+                                defaultMessage='Settings'
+                            />
+                        ) : (
+                            <FormattedMessage
+                                id='user.settings.modal.title'
+                                defaultMessage='Profile'
+                            />
+                        )}
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body ref={this.modalBodyRef}>
-                    <div className='row'>
-                        <div className='col-2 text-center'>
-                            <img width='50px' className='img-fluid' src='assets/images/sample-user-primary-picture-6.png'/>
+                    <div className='settings-table'>
+                        <div className='settings-links'>
+                            <React.Suspense fallback={null}>
+                                <Provider store={store}>
+                                    <SettingsSidebar
+                                        tabs={tabs}
+                                        activeTab={this.state.active_tab}
+                                        updateTab={this.updateTab}
+                                    />
+                                </Provider>
+                            </React.Suspense>
                         </div>
-                        <div className='col-10 text-left'>
-                            <strong>
-                                <a href='#'>First name</a> 
-                                <a href='#' className='feelingspost'><small className='text-muted'>is feeling Grinning smile</small> &#128512;</a>
-                                <a href='#' className='locationviewpost'><small className='text-muted'>is in</small> Muntinlupa City</a> 
-                                <a href='#' className='tagviewpost'><small className='text-muted'>with</small> Friend name goes here</a> 
-                                <a href='#' className='activities'><small className='text-muted'>Activities</small> &#128151;</a> 
-                            </strong>
-                            <br />
-                                a className='onSelectactionfriends'><i className='bi-people-fill'></i> Friends <i className='bi-chevron-down'></i></a>
-                            <a className='onSelectactionpublic'><i className='bi-globe'></i> Everyone <i className='bi-chevron-down'></i></a>
-                            <a className='onSelectactiononlyme'><i className='bi-person'></i> Private <i className='bi-chevron-down'></i></a>
-                        </div>
-                    </div>
-                    <div className='row'>
-                            <div className='form-floating'>
-                            <textarea className='form-control write-whats-goingon mt-3 validate' rows='10' placeholder={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} id='floatingTextarea'></textarea>
-                            <label htmlFor='floatingTextarea'>What's going on, {currentUser.first_name} {currentUser.last_name}.</label>
-                            </div>
-                    </div>
-
-                    <div className='post-photo-content'>
-                        <div className='row'>
-                        <div className='col-9'><strong>Add Photos / Video</strong></div>
-                        <div className='col-3'><a className='closePhotocontent'><i className='bi-x float-end'></i></a></div>
-                        <div className='text-center'>
-                            <input className='form-control form-control-lg' id='formFileLg' type='file' />
-                        </div>
-                        </div>
-                    </div>
-
-                    <div className='post-music-content'>
-                        <div className='container'>
-                            <div className='row'>
-                                <div className='col-2 text-left'><img width='50px' className='rounded' src='assets/images/Cover-album.jpg' alt='Cover album' /></div>
-                                <div className='col-8 mt-0'>
-                                <label className='ms-3'><strong>Lovely</strong></label>
-                                <p className='ms-3'><small>Eric Godlow</small></p>
-                                </div>
-                                <div className='col-2 mt-0'>
-                                <a className='onClosemusicpost float-end'><i className='bi-x'></i></a>
-                                </div>
-                            </div>
-                            <div className='row'>
-                                <label className='mb-2'><strong>Lyrics:</strong> <br /><br /> What a wonderful world is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. <br /><br /> when an unknown printer took a galley of type and scrambled it to make a type specimen book.</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='box-add-border'>
-                        <div className='row mt-3'>
-                            <div className='col-5'><p className='mt-1'><strong>Add to your post</strong></p></div>
-                            <div className='col-7'>
-                                <div className='btn-group float-end gap-2' role='group' aria-label='Add to your post group'>
-                                    <a className='onTag'><i className='bi-tag-fill'></i></a>
-                                    <a className='onAddimage'><i className='bi-image'></i></a>
-                                    <a className='onAddfeelings'><i className='bi-emoji-smile-fill'></i></a>
-                                    <a className='onAddmusic'><i className='bi-music-note-beamed'></i></a>
-                                    <a className='onAddimage'><i className='bi-camera-video'></i></a>
-                                    <a className='onLocation'><i className='bi-geo-alt-fill'></i></a>
-                                </div>
-                            </div>
+                        <div className='settings-content minimize-settings'>
+                            <React.Suspense fallback={null}>
+                                <Provider store={store}>
+                                    <UserSettings
+                                        activeTab={this.state.active_tab}
+                                        activeSection={this.state.active_section}
+                                        updateSection={this.updateSection}
+                                        updateTab={this.updateTab}
+                                        closeModal={this.closeModal}
+                                        collapseModal={this.collapseModal}
+                                        setEnforceFocus={(enforceFocus?: boolean) => this.setState({enforceFocus})}
+                                        setRequireConfirm={
+                                            (requireConfirm?: boolean, customConfirmAction?: () => () => void) => {
+                                                this.requireConfirm = requireConfirm!;
+                                                this.customConfirmAction = customConfirmAction!;
+                                            }
+                                        }
+                                    />
+                                </Provider>
+                            </React.Suspense>
                         </div>
                     </div>
                 </Modal.Body>
-                <Modal.Footer>
-                    <div className='col-lg-12 text-center'>
-                        <div className='d-grid'>
-                            <button type='submit' className='btn btn-primary btn-md btn-create-post' disabled>Post</button>
-                        </div>
-                    </div>
-                </Modal.Footer>
                 <ConfirmModal
                     title={formatMessage(holders.confirmTitle)}
                     message={formatMessage(holders.confirmMsg)}
