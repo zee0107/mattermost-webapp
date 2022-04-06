@@ -519,17 +519,17 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <form className='form'>
                                 <div className='modal-header'>
                                     <h6 className='modal-title'>Create post</h6>
-                                    <a className='btn-close-canvas shadow onClosecreatepost' data-bs-dismiss='modal' aria-label='Close'><i className='bi-x'></i></a>
+                                    <a className='btn-close-canvas shadow onClosecreatepost' data-dismiss='modal' aria-label='Close'><i className='bi-x'></i></a>
                                 </div>
 
                                 <div className='modal-body'>
                                     <div className='row'>
                                         <div className='col-2 text-center'>
-                                            <img width='50px' className='img-fluid' src='assets/images/sample-user-primary-picture-6.png'/>
+                                            {this.renderProfilePicture('lg')}
                                         </div>
                                         <div className='col-10 text-left'>
                                             <strong>
-                                                <a href='#'>First name</a> 
+                                                <a href='#'>{currentUser.first_name} {currentUser.last_name}</a> 
                                                 <a href='#' className='feelingspost'><small className='text-muted'>is feeling Grinning smile</small> &#128512;</a>
                                                 <a href='#' className='locationviewpost'><small className='text-muted'>is in</small> Muntinlupa City</a> 
                                                 <a href='#' className='tagviewpost'><small className='text-muted'>with</small> Friend name goes here</a> 
@@ -542,19 +542,19 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='row'>
-                                            <div className='form-floating'>
+                                        <div className='form-floating'>
                                             <textarea className='form-control write-whats-goingon mt-3 validate' rows='10' placeholder={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} id='floatingTextarea'></textarea>
                                             <label htmlFor='floatingTextarea'>What's going on, {currentUser.first_name} {currentUser.last_name}.</label>
-                                            </div>
+                                        </div>
                                     </div>
 
                                     <div className='post-photo-content'>
                                         <div className='row'>
-                                        <div className='col-9'><strong>Add Photos / Video</strong></div>
-                                        <div className='col-3'><a className='closePhotocontent'><i className='bi-x float-end'></i></a></div>
-                                        <div className='text-center'>
-                                            <input className='form-control form-control-lg' id='formFileLg' type='file' />
-                                        </div>
+                                            <div className='col-9'><strong>Add Photos / Video</strong></div>
+                                            <div className='col-3'><a className='closePhotocontent'><i className='bi-x float-end'></i></a></div>
+                                            <div className='text-center'>
+                                                <input className='form-control form-control-lg' id='formFileLg' type='file' />
+                                            </div>
                                         </div>
                                     </div>
 
