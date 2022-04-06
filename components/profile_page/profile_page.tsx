@@ -696,8 +696,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <label className='onAddlocation'>Muntinlupa City</label>
                                         <p><small>Muntinlupa City Philippines</small></p>
                                         </div>
-                                        <div className='col-md-2'>
-                                            <div className='form-check mt-3 float-end'>
+                                        <div className='col-md-2 text-center'>
+                                            <div className='form-check mt-3'>
                                                 <input className='form-check-input onAddlocation' type='radio' name='locationRadios' id='locationRadios4' value='option4'/>
                                                 <label className='form-check-label' htmlFor='locationRadios4'></label>
                                             </div>
@@ -710,8 +710,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <label>Makati City</label>
                                         <p><small>Makati City Philippines</small></p>
                                         </div>
-                                        <div className='col-md-2'>
-                                            <div className='form-check mt-3 float-end'>
+                                        <div className='col-md-2 text-center'>
+                                            <div className='form-check mt-3'>
                                                 <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios5' value='option5'/>
                                                 <label className='form-check-label' htmlFor='locationRadios5'></label>
                                             </div>
@@ -724,8 +724,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <label>Taguig City</label>
                                         <p><small>Taguig City Philippines</small></p>
                                         </div>
-                                        <div className='col-md-2'>
-                                            <div className='form-check mt-3 float-end'>
+                                        <div className='col-md-2 text-center'>
+                                            <div className='form-check mt-3'>
                                                 <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios6' value='option6'/>
                                                 <label className='form-check-label' htmlFor='locationRadios6'></label>
                                             </div>
@@ -738,8 +738,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <label>Santa Rosa City</label>
                                         <p><small>Santa Rosa City Philippines</small></p>
                                         </div>
-                                        <div className='col-md-2'>
-                                            <div className='form-check mt-3 float-end'>
+                                        <div className='col-md-2 text-center'>
+                                            <div className='form-check mt-3'>
                                                 <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios7' value='option6'/>
                                                 <label className='form-check-label' htmlFor='locationRadios6'></label>
                                             </div>
@@ -752,8 +752,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <label>San Pedro City</label>
                                         <p><small>San Pedro City Philippines</small></p>
                                         </div>
-                                        <div className='col-md-2'>
-                                            <div className='form-check mt-3 float-end'>
+                                        <div className='col-md-2 text-center'>
+                                            <div className='form-check mt-3'>
                                                 <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios8' value='option6'/>
                                                 <label className='form-check-label' htmlFor='locationRadios6'></label>
                                             </div>
