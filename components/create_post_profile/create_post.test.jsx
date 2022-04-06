@@ -3,7 +3,7 @@
 
 import React from 'react';
 
-import CreatePost from 'components/create_post/create_post';
+import CreatePostProfile from 'components/create_post_proifle/create_post_proifle';
 
 import {Posts} from 'mattermost-redux/constants';
 
