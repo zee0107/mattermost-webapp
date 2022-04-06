@@ -581,12 +581,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='col-5'><p className='mt-1'><strong>Add to your post</strong></p></div>
                                             <div className='col-7'>
                                                 <div className='btn-group float-end gap-2' role='group' aria-label='Add to your post group'>
-                                                    <a className='onTag'><i className='bi-tag-fill'></i></a>
-                                                    <a className='onAddimage'><i className='bi-image'></i></a>
-                                                    <a className='onAddfeelings'><i className='bi-emoji-smile-fill'></i></a>
-                                                    <a className='onAddmusic'><i className='bi-music-note-beamed'></i></a>
-                                                    <a className='onAddimage'><i className='bi-camera-video'></i></a>
-                                                    <a className='onLocation'><i className='bi-geo-alt-fill'></i></a>
+                                                    <a className='onTag'><img src={AttachIcon} /></a>
+                                                    <a className='onAddimage'><img src={ImgIcon} /></a>
+                                                    <a className='onAddfeelings'><img src={smile} /></a>
+                                                    <a className='onAddmusic'><img src={MusicIcon} /></a>
+                                                    <a className='onAddimage'><img src={VideoIcon} /></a>
+                                                    <a className='onLocation'><img src={GeoIcon} /></a>
                                                 </div>
                                             </div>
                                         </div>
