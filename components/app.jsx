@@ -3,7 +3,7 @@
 
 import {hot} from 'react-hot-loader/root';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'jquery/jquery';
+import 'jquery/dist/jquery.min';
 import $ from 'jquery';
 import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.min.js';
