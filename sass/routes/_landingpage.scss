@@ -1044,10 +1044,9 @@ ul ul li{
   //background: #59ABE3;
 }
 
-
-input[type="checkbox"]{
-  position: absolute;
-  left: -9999px;
+.form-check-input:checked {
+  background-color: #80CF55 !important;
+  border-color: #80CF55 !important;
 }
 
 input[type="checkbox"] ~ ul{
