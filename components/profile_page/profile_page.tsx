@@ -676,7 +676,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         <div className='modal-content'>
                             <div className='modal-header'>
                                 <h6 className='modal-title' id='staticBackdropLabel'>Search for location</h6>
-                                <a className='onBacktolocation'><i className='bi-arrow-left-circle'></i></a>
+                                <a className='onBacktolocation float-end' data-dismiss='modal' ariaLabel='Close'><i className='bi-arrow-left-circle'></i></a>
                             </div>
                             <div className='modal-body'>
                                 <div className=''>
@@ -691,12 +691,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                 
                                 <div id='searchforlocations'>
                                     <div className='row mt-3'>
-                                        <div className='col-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-8'>
+                                        <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
+                                        <div className='col-md-8'>
                                         <label className='onAddlocation'>Muntinlupa City</label>
                                         <p><small>Muntinlupa City Philippines</small></p>
                                         </div>
-                                        <div className='col-2'>
+                                        <div className='col-md-2'>
                                             <div className='form-check mt-3 float-end'>
                                                 <input className='form-check-input onAddlocation' type='radio' name='locationRadios' id='locationRadios4' value='option4'/>
                                                 <label className='form-check-label' htmlFor='locationRadios4'></label>
@@ -705,12 +705,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     </div>
                 
                                     <div className='row'>
-                                        <div className='col-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-8'>
+                                        <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
+                                        <div className='col-md-8'>
                                         <label>Makati City</label>
                                         <p><small>Makati City Philippines</small></p>
                                         </div>
-                                        <div className='col-2'>
+                                        <div className='col-md-2'>
                                             <div className='form-check mt-3 float-end'>
                                                 <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios5' value='option5'/>
                                                 <label className='form-check-label' htmlFor='locationRadios5'></label>
@@ -719,12 +719,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     </div>
                                 
                                     <div className='row'>
-                                        <div className='col-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-8'>
+                                        <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
+                                        <div className='col-md-8'>
                                         <label>Taguig City</label>
                                         <p><small>Taguig City Philippines</small></p>
                                         </div>
-                                        <div className='col-2'>
+                                        <div className='col-md-2'>
                                             <div className='form-check mt-3 float-end'>
                                                 <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios6' value='option6'/>
                                                 <label className='form-check-label' htmlFor='locationRadios6'></label>
@@ -742,15 +742,15 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     <div className='modal-content'>
                         <div className='modal-header'>
                             <h6 className='modal-title' id='staticBackdropLabel'>How are you feeling?</h6>
-                            <a className='onBacktoemoticons'><i className='bi-arrow-left-circle'></i></a>
+                            <a className='onBacktoemoticons float-end' data-dismiss='modal' ariaLabel='Close'><i className='bi-arrow-left-circle'></i></a>
                         </div>
             
                         <div className='modal-body'>
                             <div className='container'>
                                 <div className='row mt-1 mb-4 gap-1'>
-                                    <div className='col-3 text-center border rounded p-1'>
+                                    <div className='col-md-3 text-center border rounded p-1'>
                                     <a className='onFeelings'><small> Feelings</small></a></div>
-                                    <div className='col-3 text-center border rounded p-1'>
+                                    <div className='col-md-3 text-center border rounded p-1'>
                                     <a className='onActivities'><small> Activities</small></a></div>
                                 </div>
                             </div>
@@ -767,37 +767,37 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                 
                                 <div id='searchfeelings'>
                                     <div className='row mt-3'>
-                                    <div className='col-6 text-center'>
+                                    <div className='col-md-6 text-center'>
                                         <p className='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128512;</label> <br /> <small>Grinning face</small></p> 
                                     </div>
-                                    <div className='col-6 text-center'>
+                                    <div className='col-md-6 text-center'>
                                         <p className='border p-1'><label style={{fontSize: 20}}>&#128513;</label> <br /> <small>Smiling eyes</small></p>
                                     </div>
                                     </div>
                 
                                     <div className='row'>
-                                    <div className='col-6 text-center'>
+                                    <div className='col-md-6 text-center'>
                                         <p className='border p-1'><label style={{fontSize: 20}}>&#128514;</label> <br /> <small>Tears of joy</small></p> 
                                     </div>
-                                    <div className='col-6 text-center'>
+                                    <div className='col-md-6 text-center'>
                                         <p className='border p-1'><label style={{fontSize: 20}}>&#128515;</label> <br /> <small>Open mounth</small></p> 
                                     </div>
                                     </div>
                 
                                     <div className='row'>
-                                    <div className='col-6 text-center'>
+                                    <div className='col-md-6 text-center'>
                                         <p className='border p-1'><label style={{fontSize: 20}}>&#128516;</label> <br /> <small>Smiling eyes</small></p> 
                                     </div>
-                                    <div className='col-6 text-center'>
+                                    <div className='col-md-6 text-center'>
                                         <p className='border p-1'><label style={{fontSize: 20}}>&#128517;</label> <br /> <small>Cold sweat</small></p>
                                     </div>
                                     </div>
                 
                                     <div className='row'>
-                                    <div className='col-6 text-center'>
+                                    <div className='col-md-6 text-center'>
                                         <p className='border p-1'><label style={{fontSize: 20}}>&#128518;</label> <br /> <small>Tightly closed eye</small></p>
                                     </div>
-                                    <div className='col-6 text-center'>
+                                    <div className='col-md-6 text-center'>
                                         <p className='border p-1'><label style={{fontSize: 20}}>&#128519;</label> <br /> <small>Smiling with halo</small></p>
                                     </div>
                                     </div>
@@ -817,28 +817,28 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                 
                                 <div id='searchactivities'>
                                     <div className='row mt-1'>
-                                    <div className='col-6 text-center'>
+                                    <div className='col-md-6 text-center'>
                                         <p className='border p-1 onActivitiesselect'><label style={{fontSize: 20}}>&#128151;</label> <br /> <small>Loving</small></p> 
                                     </div>
-                                    <div className='col-6 text-center'>
+                                    <div className='col-md-6 text-center'>
                                         <p className='border p-1'><label style={{fontSize: 20}}>&#128561;</label> <br /> <small>Face screaming in fear</small></p> 
                                     </div>
                                     </div>
                 
                                     <div className='row mt-1'>
-                                    <div className='col-6 text-center'>
+                                    <div className='col-md-6 text-center'>
                                         <p className='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128562;</label> <br /> <small>Astonished face</small></p>
                                     </div>
-                                    <div className='col-6 text-center'>
+                                    <div className='col-md-6 text-center'>
                                         <p className='border p-1'><label style={{fontSize: 20}}>&#128564;</label> <br /> <small>Sleeping face</small></p>
                                     </div>
                                     </div>
                 
                                     <div className='row mt-1'>
-                                    <div className='col-6 text-center'>
+                                    <div className='col-md-6 text-center'>
                                         <p className='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128565;</label> <br /> <small>Dizzy face</small></p>
                                     </div>
-                                    <div className='col-6 text-center'>
+                                    <div className='col-md-6 text-center'>
                                         <p className='border p-1'><label style={{fontSize: 20}}>&#128567;</label> <br /> <small>Face with medical mask</small></p>
                                     </div>
                                     </div>
