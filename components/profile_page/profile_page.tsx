@@ -103,6 +103,11 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         if(this.props.coverPhoto != null){
             Promise.resolve(this.props.coverPhoto).then(value => this.setState({coverUrl: value}));
         }
+
+        if(this.state.coverUrl === undefined || this.state.coverUrl === 'unavailable' || this.state.coverUrl === ''){
+            this.setState({coverUrl: coverImage});
+        }
+        
         this.getCompletionRate();
     }
 
@@ -199,20 +204,17 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             photoAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
         }
 
-        let coverImg;
-        if(coverUrl !== undefined && coverUrl !== 'unavailable' && coverUrl !== ''){
-            coverImg = (<img className='img-cover' src={coverUrl}></img>);
-        }
-        else{
-            coverImg = (<img className='img-cover' src={coverImage}></img>);
-        }
+        
 
         return (
             <div>
                 <div className='profile-header-desktop'>
                     <section id='profile' className='profile-views'>
                         <div className='container'>
-                            <div className='box-top-profile-verion text-center'>
+                            <div
+                                className='box-top-profile-verion text-center'
+                                style={{background: `Url(${coverUrl}) no-repeat center bottom #222222`}}
+                            >
                                 <div className='row'>
                                     <div className='col-md-4'>
                                         <div className='blur-effects text-white'>
@@ -282,7 +284,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                 <div className='profile-header-mobile'>
                     <section id='profile-mobile' className='profile-views'>
                             <div className='container-fluid'>
-                                <div className='box-top-profile-mobile text-center'>
+                            <div
+                                className='box-top-profile-verion text-center'
+                                style={{background: `Url(${coverUrl}) no-repeat center bottom #222222`}}
+                            >
                                     <div className='row'>
                                         <div className='col-md-10 mx-auto'>
                                         <div className='blur-effects-mobile text-white'>
