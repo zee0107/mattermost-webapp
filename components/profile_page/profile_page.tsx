@@ -601,7 +601,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         <div className='modal-content'>
                             <div className='modal-header'>
                                 <h6 className='modal-title' id='staticBackdropLabel'>Tag people</h6>
-                                <a className='onBacktotag'><i className='bi-arrow-left-circle'></i></a>
+                                <a className='onBacktotag float-end' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
                             </div>
                             <div className='modal-body'>
                                 <div className='input-group mb-0'>
@@ -615,50 +615,50 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     
                                 <div id='searchforfriends'>
                                     <div className='row mt-3'>
-                                        <div className='col-10'>
-                                            <p><img width='40px' className='img-fluid' src='assets/images/sample-user-primary-picture-6.png' /> Friend1 name goes here</p>
+                                        <div className='col-md-10'>
+                                            <p><img width='40px' className='img-fluid' src={profPic} /> Analyn Natividad</p>
                                         </div>
-                                        <div className='col-2'>
+                                        <div className='col-md-2'>
                                                 <div className='form-check mt-2 float-end'>
                                                     <input className='form-check-input onTagfriends' type='checkbox' value=''/>
                                                 </div>
                                         </div>
                                     </div>
                                     <div className='row mt-0'>
-                                        <div className='col-10'>
-                                            <p><img width='40px' className='img-fluid' src='assets/images/sample-user-primary-picture-5.png' /> Friend2 name goes here</p>
+                                        <div className='col-md-10'>
+                                            <p><img width='40px' className='img-fluid' src={profPic} /> Mark Tristan</p>
                                         </div>
-                                        <div className='col-2'>
+                                        <div className='col-md-2'>
                                             <div className='form-check mt-2 float-end'>
                                                 <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault2'/>
                                             </div>
                                         </div>
                                     </div>
                                     <div className='row mt-0'>
-                                        <div className='col-10'>
-                                            <p><img width='40px' className='img-fluid' src='assets/images/sample-user-primary-picture-4.png' /> Friend3 name goes here</p>
+                                        <div className='col-md-10'>
+                                            <p><img width='40px' className='img-fluid' src={profPic} /> Dysania Marie</p>
                                         </div>
-                                        <div className='col-2'>
+                                        <div className='col-md-2'>
                                             <div className='form-check mt-2 float-end'>
                                                 <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault3'/>
                                             </div>
                                         </div>
                                     </div>
                                     <div className='row mt-0'>
-                                        <div className='col-10'>
-                                            <p><img width='40px' className='img-fluid' src='assets/images/sample-user-primary-picture-3.png' /> Friend name goes here</p>
+                                        <div className='col-md-10'>
+                                            <p><img width='40px' className='img-fluid' src={profPic} /> Jason Born</p>
                                         </div>
-                                        <div className='col-2'>
+                                        <div className='col-md-2'>
                                             <div className='form-check mt-2 float-end'>
                                                 <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault3'/>
                                             </div>
                                         </div>
                                     </div>
                                     <div className='row mt-0'>
-                                        <div className='col-10'>
-                                            <p><img width='40px' className='img-fluid' src='assets/images/sample-user-primary-picture-2.png' /> Friend name goes here</p>
+                                        <div className='col-md-10'>
+                                            <p><img width='40px' className='img-fluid' src={profPic} /> John Doe</p>
                                         </div>
-                                        <div className='col-2'>
+                                        <div className='col-md-2'>
                                             <div className='form-check mt-2 float-end'>
                                                 <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault2'/>
                                             </div>
