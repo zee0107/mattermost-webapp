@@ -28,6 +28,7 @@ import styled from 'styled-components';
 import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
 import UserSettingsModal from 'components/user_settings/modal_profile';
 import PostModal from 'components/user_settings/modal_post/post_modal';
+import CreatePostProfile from 'components/create_post_profile/';
 import {ModalData} from 'types/actions';
 import {ModalIdentifiers} from 'utils/constants';
 import ChannelHeaderMobile from 'components/channel_header_mobile';
@@ -189,7 +190,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         if (uploading){
             uploaderView = (<div className='post-photo-content'>
             <div className='row'>
-                <div className='col-md-9'><strong>Add Photos / Video</strong></div>
+                <div className='col-md-9'><strong>Add Photos / Music / Video</strong></div>
                 <div className='col-md-3'><a className='closePhotocontent' onClick={() => {this.setState({uploading: false})}}><i className='bi-x float-end'></i></a></div>
                 <div className='text-center'>
                     <input className='form-control form-control-lg' id='formFileLg' type='file'/>
