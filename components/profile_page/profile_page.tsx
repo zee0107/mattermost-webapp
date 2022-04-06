@@ -73,28 +73,19 @@ type State = {
     coverUrl: string;
     completionResult: number;
     currentUser: UserProfile;
+    uploading: boolean;
 };
 
 export default class ProfilPage extends React.PureComponent<Props, State> {
     static defaultProps = {
         userId: '',
         profilePicture: '',
-        /*status: UserStatuses.OFFLINE,*/
     }
 
     constructor(props: Props) {
         super(props);
 
-        this.state = {
-            openUp: false,
-            width: 0,
-            isStatusSet: false,
-            isDark:'light',
-            img_path: homeImage,
-            completionResult: 0,
-        };
-
-
+        this.state = {openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,};
     }
 
     componentDidMount(){
@@ -174,10 +165,30 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         );
     }
 
+    onClickUploader = () => {
+        if (this.state.uploading){
+            this.setState({uploading: false});
+        }
+        else{
+            this.setState({uploading: true});
+        }
+    }
+
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser, profilePicture} = this.props;
-        const { coverUrl,completionResult } = this.state;
+        const { coverUrl,completionResult, uploading } = this.state;
+        let uploader = (
+            <div className='post-photo-content'>
+                <div className='row'>
+                    <div className='col-md-9'><strong>Add Photos / Video</strong></div>
+                    <div className='col-md-3'><a className='closePhotocontent'><i className='bi-x float-end'></i></a></div>
+                    <div className='text-center'>
+                        <input className='form-control form-control-lg' id='formFileLg' type='file'/>
+                    </div>
+                </div>
+            </div>
+        );
 
         let photoAvailable;
         let nameAvailable;
@@ -204,8 +215,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         else{
             photoAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
         }
-
-        
 
         return (
             <div>
@@ -343,17 +352,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='d-flex input-group float-start width-100'>
                                                 <span className='input-group-text input-search-crypter-whats-going-on' id='basic-addon22'>
                                                     {this.renderProfilePicture('md')}</span>
-                                                    {/*<ToggleModalButtonRedux
-                                                        id='staticBackdrop'
-                                                        ariaLabel='staticBackdropLabel'
-                                                        modalId={ModalIdentifiers.POST_CREATE}
-                                                        dialogType={PostModal}
-                                                        dialogProps={{isContentProductSettings: false}}
-                                                        className={'form-control input-search-crypter-whats-going-on onCreatepost mt-1'}
-                                                        showUnread={false}
-                                                    >
-                                                        What's going on, {currentUser.first_name} {currentUser.last_name}
-                                                    </ToggleModalButtonRedux>*/}
                                                 <input type='text' className='form-control input-search-crypter-whats-going-on onCreatepost mt-1' placeholder={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-label={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-describedby='basic-addon55' data-toggle='modal' data-target='#staticBackdrop' />
                                                 <span className='input-group-text input-search-crypter-whats-going-on onPhotoaddpost mt-1' id='basic-addon33' data-toggle='modal' data-target='#staticBackdrop'>
                                                     <a href='#'><svg width='21' height='21' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -412,8 +410,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             </div>
                                         </div>
                                     </div>
-
-                                    
                                     <ul className='list-group p-3'>
                                         <li className='list-group-item border-transparent'>{photoAvailable} <label className='ms-2'>Add Your Photo</label></li>
                                         <li className='list-group-item border-transparent'>{nameAvailable} <label className='ms-2'>Add Your Name</label></li>
@@ -549,15 +545,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
 
-                                    <div className='post-photo-content'>
-                                        <div className='row'>
-                                            <div className='col-md-9'><strong>Add Photos / Video</strong></div>
-                                            <div className='col-md-3'><a className='closePhotocontent'><i className='bi-x float-end'></i></a></div>
-                                            <div className='text-center'>
-                                                <input className='form-control form-control-lg' id='formFileLg' type='file' />
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {uploader === true ? uploader : null}
 
                                     <div className='post-music-content'>
                                         <div className='container'>
@@ -583,10 +571,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='col-md-7'>
                                                 <div className='btn-group float-end gap-2' role='group' aria-label='Add to your post group'>
                                                     <a className='onTag ml-2'><img src={AttachIcon} height="20" width="20"/></a>
-                                                    <a className='onAddimage ml-2'><img src={ImgIcon} height="20" width="20" /></a>
+                                                    <a className='onAddimage ml-2' href='#' onClick={this.onClickUploader()}><img src={ImgIcon} height="20" width="20" /></a>
                                                     <a className='onAddfeelings ml-2'><img src={SmileIcon} height="20" width="20" /></a>
-                                                    <a className='onAddmusic ml-2'><img src={MusicIcon} height="20" width="20" /></a>
-                                                    <a className='onAddimage ml-2'><img src={VideoIcon} height="20" width="20" /></a>
+                                                    <a className='onAddmusic ml-2' href='#' onClick={this.onClickUploader()}><img src={MusicIcon} height="20" width="20" /></a>
+                                                    <a className='onAddimage ml-2' href='#' onClick={this.onClickUploader()}><img src={VideoIcon} height="20" width="20" /></a>
                                                     <a className='onLocation ml-2'><img src={GeoIcon} height="20" width="20" /></a>
                                                 </div>
                                             </div>
