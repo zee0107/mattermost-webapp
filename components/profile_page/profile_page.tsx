@@ -595,7 +595,149 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                 </div>
+
+                <div className='modal tagfriends' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                    <div className='modal-dialog modal-dialog-centered'>
+                        <div className='modal-content'>
+                            <div className='modal-header'>
+                                <h6 className='modal-title' id='staticBackdropLabel'>Tag people</h6>
+                                <a className='onBacktotag'><i className='bi-arrow-left-circle'></i></a>
+                            </div>
+                            <div className='modal-body'>
+                                <div className='input-group mb-0'>
+                                    <span className='input-group-text input-search-crypter-span' id='basic-addon1'><i className='bi-search'></i></span>
+                                   <input id='searchforFriends' type='text' className='form-control form-control-dark input-search-crypter' placeholder='Search for friend' aria-label='Search for friend'/>
+                                </div>
+                    
+                                <div className='row mt-3'>
+                                    <a href='#' className='tagviewpost onUntag'>Friend name goes here <i className='bi-x-lg'></i></a>
+                                </div>
+                    
+                                <div id='searchforfriends'>
+                                    <div className='row mt-3'>
+                                        <div className='col-10'>
+                                            <p><img width='40px' className='img-fluid' src='assets/images/sample-user-primary-picture-6.png' /> Friend1 name goes here</p>
+                                        </div>
+                                        <div className='col-2'>
+                                                <div className='form-check mt-2 float-end'>
+                                                    <input className='form-check-input onTagfriends' type='checkbox' value=''/>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div className='row mt-0'>
+                                        <div className='col-10'>
+                                            <p><img width='40px' className='img-fluid' src='assets/images/sample-user-primary-picture-5.png' /> Friend2 name goes here</p>
+                                        </div>
+                                        <div className='col-2'>
+                                            <div className='form-check mt-2 float-end'>
+                                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault2'/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='row mt-0'>
+                                        <div className='col-10'>
+                                            <p><img width='40px' className='img-fluid' src='assets/images/sample-user-primary-picture-4.png' /> Friend3 name goes here</p>
+                                        </div>
+                                        <div className='col-2'>
+                                            <div className='form-check mt-2 float-end'>
+                                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault3'/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='row mt-0'>
+                                        <div className='col-10'>
+                                            <p><img width='40px' className='img-fluid' src='assets/images/sample-user-primary-picture-3.png' /> Friend name goes here</p>
+                                        </div>
+                                        <div className='col-2'>
+                                            <div className='form-check mt-2 float-end'>
+                                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault3'/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='row mt-0'>
+                                        <div className='col-10'>
+                                            <p><img width='40px' className='img-fluid' src='assets/images/sample-user-primary-picture-2.png' /> Friend name goes here</p>
+                                        </div>
+                                        <div className='col-2'>
+                                            <div className='form-check mt-2 float-end'>
+                                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault2'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div className='modal selectlocation' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                    <div className='modal-dialog modal-dialog-centered'>
+                        <div className='modal-content'>
+                            <div className='modal-header'>
+                                <h6 className='modal-title' id='staticBackdropLabel'>Search for location</h6>
+                                <a className='onBacktolocation'><i className='bi-arrow-left-circle'></i></a>
+                            </div>
+                            <div className='modal-body'>
+                                <div className=''>
+                                    <div className='input-group mb-0'>
+                                    <span className='input-group-text input-search-crypter-span' id='basic-addon1'><i className='bi-search'></i></span>
+                                    <input id='searchLocations' type='text' className='form-control form-control-dark input-search-crypter' placeholder='Where are you?' aria-label='Where are you?'/>
+                                </div>
+                
+                                <div className='row mt-3'>
+                                    <a className='locationviewpost onUnselectlocation'>Muntinlupa City <i className='bi-x-lg'></i></a>
+                                </div>
+                
+                                <div id='searchforlocations'>
+                                    <div className='row mt-3'>
+                                        <div className='col-2 text-center'><i className='bi-geo-alt'></i></div>
+                                        <div className='col-8'>
+                                        <medium className='onAddlocation'>Muntinlupa City</medium>
+                                        <p><small>Muntinlupa City Philippines</small></p>
+                                        </div>
+                                        <div className='col-2'>
+                                            <div className='form-check mt-3 float-end'>
+                                                <input className='form-check-input onAddlocation' type='radio' name='locationRadios' id='locationRadios4' value='option4'>
+                                                <label className='form-check-label' for='locationRadios4'></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                
+                                    <div className='row'>
+                                        <div className='col-2 text-center'><i className='bi-geo-alt'></i></div>
+                                        <div className='col-8'>
+                                        <medium>Makati City</medium>
+                                        <p><small>Makati City Philippines</small></p>
+                                        </div>
+                                        <div className='col-2'>
+                                            <div className='form-check mt-3 float-end'>
+                                                <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios5' value='option5'>
+                                                <label className='form-check-label' for='locationRadios5'></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div className='row'>
+                                        <div className='col-2 text-center'><i className='bi-geo-alt'></i></div>
+                                        <div className='col-8'>
+                                        <medium>Taguig City</medium>
+                                        <p><small>Taguig City Philippines</small></p>
+                                        </div>
+                                        <div className='col-2'>
+                                            <div className='form-check mt-3 float-end'>
+                                                <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios6' value='option6'>
+                                                <label className='form-check-label' for='locationRadios6'></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
         );
     }
 }
