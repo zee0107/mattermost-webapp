@@ -597,7 +597,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 <div className='modal-footer'>
                                     <div className='col-12 text-center'>
                                     <div className='d-grid'>
-                                        <button type='submit' className='btn btn-primary btn-md btn-create-post width-100 text-white' disabled>Post</button>
+                                        <button type='submit' className='btn btn-primary btn-md btn-create-post width-100 text-white'>Post</button>
                                     </div>
                                     </div>
                                 </div>
