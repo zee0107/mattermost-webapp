@@ -578,7 +578,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                     <button className='onAddimage ml-2' type='button' onClick={() => {this.setState({uploading: true})}}><img src={ImgIcon} height="20" width="20" /></button>
                                                     <a className='onAddfeelings ml-2'><img src={SmileIcon} height="20" width="20" /></a>
                                                     <a className='onAddmusic ml-2'><img src={MusicIcon} onClick={() => {this.setState({uploading: true})}} height="20" width="20" /></a>
-                                                    <a className='onAddimage ml-2' href='#' onClick={() => {this.setState({uploading: true})}}><img src={VideoIcon} height="20" width="20" /></a>
+                                                    <a className='onAddimage ml-2' href='#' onClick={() => {this.setState({uploading: true}); console.log(uploading)}}><img src={VideoIcon} height="20" width="20" /></a>
                                                     <a className='onLocation ml-2'><img src={GeoIcon} height="20" width="20" /></a>
                                                 </div>
                                             </div>
