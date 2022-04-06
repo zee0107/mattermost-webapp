@@ -737,6 +737,117 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     </div>
                 </div>
             </div>
+            <div class='modal selectemoticons' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                <div class='modal-dialog modal-dialog-centered'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h6 class='modal-title' id='staticBackdropLabel'>How are you feeling?</h6>
+                            <a class='onBacktoemoticons'><i class='bi-arrow-left-circle'></i></a>
+                        </div>
+            
+                        <div class='modal-body'>
+                            <div class='container'>
+                                <div class='row mt-1 mb-4 gap-1'>
+                                    <div class='col-3 text-center border rounded p-1'>
+                                    <a class='onFeelings'><small> Feelings</small></a></div>
+                                    <div class='col-3 text-center border rounded p-1'>
+                                    <a class='onActivities'><small> Activities</small></a></div>
+                                </div>
+                            </div>
+                
+                            <div class='feelingscontent'>
+                                <div class='input-group mb-0'>
+                                    <span class='input-group-text input-search-crypter-span' id='basic-addon1'><i class='bi-search'></i></span>
+                                    <input id='searchFeelings' type='text' class='form-control form-control-dark input-search-crypter' placeholder='Search' aria-label='Search'/>
+                                </div>
+                
+                                <div class='row mt-3'>
+                                <a href='#' class='feelingspost onClosefeelingsviews'><label>Grinning face &#128512;</label> <i class='bi-x-lg'></i></a>
+                                </div>
+                
+                                <div id='searchfeelings'>
+                                    <div class='row mt-3'>
+                                    <div class='col-6 text-center'>
+                                        <p class='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128512;</label> <br /> <small>Grinning face</small></p> 
+                                    </div>
+                                    <div class='col-6 text-center'>
+                                        <p class='border p-1'><label style={{fontSize: 20}}>&#128513;</label> <br /> <small>Smiling eyes</small></p>
+                                    </div>
+                                    </div>
+                
+                                    <div class='row'>
+                                    <div class='col-6 text-center'>
+                                        <p class='border p-1'><label style={{fontSize: 20}}>&#128514;</label> <br /> <small>Tears of joy</small></p> 
+                                    </div>
+                                    <div class='col-6 text-center'>
+                                        <p class='border p-1'><label style={{fontSize: 20}}>&#128515;</label> <br /> <small>Open mounth</small></p> 
+                                    </div>
+                                    </div>
+                
+                                    <div class='row'>
+                                    <div class='col-6 text-center'>
+                                        <p class='border p-1'><label style={{fontSize: 20}}>&#128516;</label> <br /> <small>Smiling eyes</small></p> 
+                                    </div>
+                                    <div class='col-6 text-center'>
+                                        <p class='border p-1'><label style={{fontSize: 20}}>&#128517;</label> <br /> <small>Cold sweat</small></p>
+                                    </div>
+                                    </div>
+                
+                                    <div class='row'>
+                                    <div class='col-6 text-center'>
+                                        <p class='border p-1'><label style={{fontSize: 20}}>&#128518;</label> <br /> <small>Tightly closed eye</small></p>
+                                    </div>
+                                    <div class='col-6 text-center'>
+                                        <p class='border p-1'><label style={{fontSize: 20}}>&#128519;</label> <br /> <small>Smiling with halo</small></p>
+                                    </div>
+                                    </div>
+                                </div>
+                
+                            </div>
+                
+                            <div class='activitiescontent'>
+                                <div class='input-group mb-0'>
+                                        <span class='input-group-text input-search-crypter-span' id='basic-addon1'><i class='bi-search'></i></span>
+                                        <input id='searchActivities' type='text' class='form-control form-control-dark input-search-crypter' placeholder='Search' aria-label='Search'/>
+                                </div>
+                
+                                <div class='row mt-3 mb-3'>
+                                    <a href='#' class='activitiespost onCloseactivitiessviews'><label>Loving &#128151;</label> <i class='bi-x-lg'></i></a>
+                                </div>
+                
+                                <div id='searchactivities'>
+                                    <div class='row mt-1'>
+                                    <div class='col-6 text-center'>
+                                        <p class='border p-1 onActivitiesselect'><label style={{fontSize: 20}}>&#128151;</label> <br /> <small>Loving</small></p> 
+                                    </div>
+                                    <div class='col-6 text-center'>
+                                        <p class='border p-1'><label style={{fontSize: 20}}>&#128561;</label> <br /> <small>Face screaming in fear</small></p> 
+                                    </div>
+                                    </div>
+                
+                                    <div class='row mt-1'>
+                                    <div class='col-6 text-center'>
+                                        <p class='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128562;</label> <br /> <small>Astonished face</small></p>
+                                    </div>
+                                    <div class='col-6 text-center'>
+                                        <p class='border p-1'><label style={{fontSize: 20}}>&#128564;</label> <br /> <small>Sleeping face</small></p>
+                                    </div>
+                                    </div>
+                
+                                    <div class='row mt-1'>
+                                    <div class='col-6 text-center'>
+                                        <p class='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128565;</label> <br /> <small>Dizzy face</small></p>
+                                    </div>
+                                    <div class='col-6 text-center'>
+                                        <p class='border p-1'><label style={{fontSize: 20}}>&#128567;</label> <br /> <small>Face with medical mask</small></p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         );
     }
