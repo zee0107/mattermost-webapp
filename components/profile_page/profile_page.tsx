@@ -530,16 +530,16 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-md-10 text-left'>
                                             <strong>
-                                                <a href='#'>{currentUser.first_name} {currentUser.last_name}</a> 
-                                                <a href='#' className='feelingspost'><small className='text-muted'>is feeling Grinning smile</small> &#128512;</a>
-                                                <a href='#' className='locationviewpost'><small className='text-muted'>is in</small> Muntinlupa City</a> 
-                                                <a href='#' className='tagviewpost'><small className='text-muted'>with</small> Friend name goes here</a> 
-                                                <a href='#' className='activities'><small className='text-muted'>Activities</small> &#128151;</a> 
+                                                <a href='#' className='text-primary'>{currentUser.first_name} {currentUser.last_name}</a> 
+                                                <a href='#' className='feelingspost text-primary'><small className='text-muted'>is feeling Grinning smile</small> &#128512;</a>
+                                                <a href='#' className='locationviewpost text-primary'><small className='text-muted'>is in</small> Muntinlupa City</a> 
+                                                <a href='#' className='tagviewpost text-primary'><small className='text-muted'>with</small> Friend name goes here</a> 
+                                                <a href='#' className='activities text-primary'><small className='text-muted'>Activities</small> &#128151;</a> 
                                             </strong>
                                             <br />
-                                            <a className='onSelectactionfriends'><i className='bi-people-fill'></i> Friends <i className='bi-chevron-down'></i></a>
-                                            <a className='onSelectactionpublic'><i className='bi-globe'></i> Everyone <i className='bi-chevron-down'></i></a>
-                                            <a className='onSelectactiononlyme'><i className='bi-person'></i> Private <i className='bi-chevron-down'></i></a>
+                                            <a className='onSelectactionfriends text-primary'><i className='bi-people-fill'></i> Friends <i className='bi-chevron-down'></i></a>
+                                            <a className='onSelectactionpublic text-primary'><i className='bi-globe'></i> Everyone <i className='bi-chevron-down'></i></a>
+                                            <a className='onSelectactiononlyme text-primary'><i className='bi-person'></i> Private <i className='bi-chevron-down'></i></a>
                                         </div>
                                     </div>
                                     <div className='row'>

@@ -1167,7 +1167,7 @@ input[type="checkbox"]:checked ~ ul{
 }
 
 .text-primary{
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
 }
 
 .text-secondary{
