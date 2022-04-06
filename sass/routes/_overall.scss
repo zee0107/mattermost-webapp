@@ -282,9 +282,9 @@ background: #F3F8FC;
 }
 .box-button-share {
   cursor: pointer;
-  padding: 11px 11px 11px 11px;
-  border-radius: 11px;
-  box-shadow: 0px;
+  padding: 11px 11px 11px 11px !important;
+  border-radius: 11px !important;
+  box-shadow: 0px !important;
   background: rgb(127,207,87);
   background: -moz-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
   background: -webkit-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
@@ -974,8 +974,8 @@ background: #F4F9FD;
 }
 .box-live-post {
   background: #F4F9FD;
-  padding: 10px 24px 10px 24px;
-  border-radius: 14px;
+  padding: 10px 24px 10px 24px !important;
+  border-radius: 14px !important;
 }
 #profile {
   background: #F2F5F9;
@@ -4819,10 +4819,10 @@ margin: 0px 0px 0px 0px;
 }
 .input-search-crypter-whats-going-on {
 background: none;
-border: 0px;
-border-radius: 24px;
-padding: 5px 4px 5px 5px;
-font-size: 12px;
+border: 0px !important;
+border-radius: 24px !important;
+padding: 5px 4px 5px 5px !important;
+font-size: 12px !important;
 }
 .input-search-div {
 padding: 0px 0px 0px 0px;
