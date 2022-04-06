@@ -513,13 +513,13 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     </div>
                 </div>
 
-                <div className='modal postcontent' id='staticBackdrop' data-backdrop='static' data-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                <div className='modal postcontent' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
                     <div className='modal-dialog modal-dialog-centered'>
                         <div className='modal-content'>
                             <form className='form'>
                                 <div className='modal-header'>
                                     <h6 className='modal-title'>Create post</h6>
-                                    <a className='btn-close-canvas shadow onClosecreatepost' data-dismiss='modal' aria-label='Close'><i className='bi-x'></i></a>
+                                    <a className='btn-close-canvas shadow onClosecreatepost' data-bs-dismiss='modal' aria-label='Close'><i className='bi-x'></i></a>
                                 </div>
 
                                 <div className='modal-body'>
