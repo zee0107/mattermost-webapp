@@ -238,7 +238,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                         {this.renderProfilePictureText('mxl')}
                                                         <ToggleModalButtonRedux
                                                             id='accountSettings'
-                                                            ariaLabel='Profile'
+                                                            aria-label='Profile'
                                                             modalId={ModalIdentifiers.USER_SETTINGS}
                                                             dialogType={UserSettingsModal}
                                                             dialogProps={{isContentProductSettings: false}}
@@ -320,7 +320,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                     <div className='d-grid w-50 mx-auto'>
                                                         <ToggleModalButtonRedux
                                                             id='accountSettings'
-                                                            ariaLabel='Profile'
+                                                            aria-label='Profile'
                                                             modalId={ModalIdentifiers.USER_SETTINGS}
                                                             dialogType={UserSettingsModal}
                                                             dialogProps={{isContentProductSettings: false}}
@@ -676,7 +676,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         <div className='modal-content'>
                             <div className='modal-header'>
                                 <h6 className='modal-title' id='staticBackdropLabel'>Search for location</h6>
-                                <a className='onBacktolocation float-end' data-dismiss='modal' ariaLabel='Close'><i className='bi-arrow-left-circle'></i></a>
+                                <a className='onBacktolocation float-end' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
                             </div>
                             <div className='modal-body'>
                                 <div className=''>
@@ -770,7 +770,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     <div className='modal-content'>
                         <div className='modal-header'>
                             <h6 className='modal-title' id='staticBackdropLabel'>How are you feeling?</h6>
-                            <a className='onBacktoemoticons float-end' data-dismiss='modal' ariaLabel='Close'><i className='bi-arrow-left-circle'></i></a>
+                            <a className='onBacktoemoticons float-end' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
                         </div>
             
                         <div className='modal-body'>
