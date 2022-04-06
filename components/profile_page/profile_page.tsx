@@ -525,10 +525,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
                                 <div className='modal-body'>
                                     <div className='row'>
-                                        <div className='col-2 text-center'>
+                                        <div className='col-md-2 text-center'>
                                             {this.renderProfilePicture('xl')}
                                         </div>
-                                        <div className='col-10 text-left'>
+                                        <div className='col-md-10 text-left'>
                                             <strong>
                                                 <a href='#'>{currentUser.first_name} {currentUser.last_name}</a> 
                                                 <a href='#' className='feelingspost'><small className='text-muted'>is feeling Grinning smile</small> &#128512;</a>
@@ -551,8 +551,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
                                     <div className='post-photo-content'>
                                         <div className='row'>
-                                            <div className='col-9'><strong>Add Photos / Video</strong></div>
-                                            <div className='col-3'><a className='closePhotocontent'><i className='bi-x float-end'></i></a></div>
+                                            <div className='col-md-9'><strong>Add Photos / Video</strong></div>
+                                            <div className='col-md-3'><a className='closePhotocontent'><i className='bi-x float-end'></i></a></div>
                                             <div className='text-center'>
                                                 <input className='form-control form-control-lg' id='formFileLg' type='file' />
                                             </div>
