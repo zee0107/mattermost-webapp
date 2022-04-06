@@ -562,12 +562,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     <div className='post-music-content'>
                                         <div className='container'>
                                             <div className='row'>
-                                                <div className='col-2 text-left'><img width='50px' className='rounded' src='assets/images/Cover-album.jpg' alt='Cover album' /></div>
-                                                <div className='col-8 mt-0'>
+                                                <div className='col-md-2 text-left'><img width='50px' className='rounded' src='assets/images/Cover-album.jpg' alt='Cover album' /></div>
+                                                <div className='col-md-8 mt-0'>
                                                 <label className='ms-3'><strong>Lovely</strong></label>
                                                 <p className='ms-3'><small>Eric Godlow</small></p>
                                                 </div>
-                                                <div className='col-2 mt-0'>
+                                                <div className='col-md-2 mt-0'>
                                                 <a className='onClosemusicpost float-end'><i className='bi-x'></i></a>
                                                 </div>
                                             </div>
@@ -579,8 +579,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
                                     <div className='box-add-border'>
                                         <div className='row mt-3'>
-                                            <div className='col-5'><p className='mt-1'><strong>Add to your post</strong></p></div>
-                                            <div className='col-7'>
+                                            <div className='col-md-5'><p className='mt-1'><strong>Add to your post</strong></p></div>
+                                            <div className='col-md-7'>
                                                 <div className='btn-group float-end gap-2' role='group' aria-label='Add to your post group'>
                                                     <a className='onTag'><img src={AttachIcon} /></a>
                                                     <a className='onAddimage'><img src={ImgIcon} /></a>
