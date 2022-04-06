@@ -660,7 +660,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-2'>
                                             <div className='form-check mt-2 float-end'>
-                                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault2'>
+                                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault2'/>
                                             </div>
                                         </div>
                                     </div>
@@ -698,7 +698,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-2'>
                                             <div className='form-check mt-3 float-end'>
-                                                <input className='form-check-input onAddlocation' type='radio' name='locationRadios' id='locationRadios4' value='option4'>
+                                                <input className='form-check-input onAddlocation' type='radio' name='locationRadios' id='locationRadios4' value='option4'/>
                                                 <label className='form-check-label' for='locationRadios4'></label>
                                             </div>
                                         </div>
@@ -712,7 +712,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-2'>
                                             <div className='form-check mt-3 float-end'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios5' value='option5'>
+                                                <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios5' value='option5'/>
                                                 <label className='form-check-label' for='locationRadios5'></label>
                                             </div>
                                         </div>
@@ -726,7 +726,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-2'>
                                             <div className='form-check mt-3 float-end'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios6' value='option6'>
+                                                <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios6' value='option6'/>
                                                 <label className='form-check-label' for='locationRadios6'></label>
                                             </div>
                                         </div>
