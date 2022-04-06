@@ -17,6 +17,7 @@ import VideoIcon from 'images/profiles/camera-video.svg';
 import GeoIcon from 'images/profiles/geo-alt.svg';
 import AttachIcon from 'images/profiles/paperclip.svg';
 import GlobeIcon from 'images/icon-global2.png';
+import SmileIcon from 'images/emoji-smile-fill.svg';
 import DoneIcon from 'images/profiles/done.svg';
 import UndoneIcon from 'images/profiles/undone.svg';
 import postImage from 'images/post-1.png';
@@ -583,7 +584,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <div className='btn-group float-end gap-2' role='group' aria-label='Add to your post group'>
                                                     <a className='onTag'><img src={AttachIcon} /></a>
                                                     <a className='onAddimage'><img src={ImgIcon} /></a>
-                                                    <a className='onAddfeelings'><img src={smile} /></a>
+                                                    <a className='onAddfeelings'><img src={SmileIcon} /></a>
                                                     <a className='onAddmusic'><img src={MusicIcon} /></a>
                                                     <a className='onAddimage'><img src={VideoIcon} /></a>
                                                     <a className='onLocation'><img src={GeoIcon} /></a>
