@@ -575,10 +575,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='col-md-7'>
                                                 <div className='btn-group float-end gap-2' role='group' aria-label='Add to your post group'>
                                                     <a className='onTag ml-2'><img src={AttachIcon} height="20" width="20"/></a>
-                                                    <button className='onAddimage ml-2' type='button' onClick={() => this.setState({uploading: true})}><img src={ImgIcon} height="20" width="20" /></button>
+                                                    <button className='onAddimage ml-2' type='button' onClick={() => {this.setState({uploading: true})}}><img src={ImgIcon} height="20" width="20" /></button>
                                                     <a className='onAddfeelings ml-2'><img src={SmileIcon} height="20" width="20" /></a>
-                                                    <a className='onAddmusic ml-2'><img src={MusicIcon} height="20" width="20" /></a>
-                                                    <a className='onAddimage ml-2' href='#' onClick={() => this.setState({uploading: true})}><img src={VideoIcon} height="20" width="20" /></a>
+                                                    <a className='onAddmusic ml-2'><img src={MusicIcon} onClick={() => {this.setState({uploading: true})}} height="20" width="20" /></a>
+                                                    <a className='onAddimage ml-2' href='#' onClick={() => {this.setState({uploading: true})}}><img src={VideoIcon} height="20" width="20" /></a>
                                                     <a className='onLocation ml-2'><img src={GeoIcon} height="20" width="20" /></a>
                                                 </div>
                                             </div>
