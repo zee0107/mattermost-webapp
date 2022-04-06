@@ -182,21 +182,20 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let photoAvailable;
         let nameAvailable;
         let locationAvailable;
-        let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
         let uploaderView;
+        let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
+        
 
         if (uploading){
-            uploaderView = (
-                <div className='post-photo-content'>
-                    <div className='row'>
-                        <div className='col-md-9'><strong>Add Photos / Video</strong></div>
-                        <div className='col-md-3'><a className='closePhotocontent'><i className='bi-x float-end'></i></a></div>
-                        <div className='text-center'>
-                            <input className='form-control form-control-lg' id='formFileLg' type='file'/>
-                        </div>
-                    </div>
+            uploaderView = (<div className='post-photo-content'>
+            <div className='row'>
+                <div className='col-md-9'><strong>Add Photos / Video</strong></div>
+                <div className='col-md-3'><a className='closePhotocontent'><i className='bi-x float-end'></i></a></div>
+                <div className='text-center'>
+                    <input className='form-control form-control-lg' id='formFileLg' type='file'/>
                 </div>
-            );
+            </div>
+        </div>);
         }
 
         if(currentUser.first_name !== '' && currentUser.first_name !== '' && currentUser.first_name !== null && currentUser.first_name !== null){
