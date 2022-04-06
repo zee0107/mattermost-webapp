@@ -520,13 +520,13 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <form className='form'>
                                 <div className='modal-header'>
                                     <h6 className='modal-title'>Create post</h6>
-                                    <a className='btn-close-canvas shadow onClosecreatepost' data-dismiss='modal' aria-label='Close'><i className='bi-x'></i></a>
+                                    <a className='btn-close-canvas shadow onClosecreatepost float-end' data-dismiss='modal' aria-label='Close'><i className='bi-x'></i></a>
                                 </div>
 
                                 <div className='modal-body'>
                                     <div className='row'>
                                         <div className='col-2 text-center'>
-                                            {this.renderProfilePicture('lg')}
+                                            {this.renderProfilePicture('xl')}
                                         </div>
                                         <div className='col-10 text-left'>
                                             <strong>
