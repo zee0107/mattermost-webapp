@@ -178,11 +178,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         const {globalHeader, currentUser, profilePicture} = this.props;
         const { coverUrl,completionResult } = this.state;
 
-        const cover = {
-            background: `Url(${coverUrl}) no-repeat center bottom #222222`,
-            backgroundSize: 'cover',
-        };
-
         let photoAvailable;
         let nameAvailable;
         let locationAvailable;
@@ -218,7 +213,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         <div className='container'>
                             <div
                                 className='box-top-profile-verion text-center'
-                                style={cover}
+                                style={{
+                                    background: `Url(${coverUrl}) no-repeat center bottom #222222`,
+                                    backgroundSize: 'cover',
+                                }}
                             >
                                 <div className='row'>
                                     <div className='col-md-4'>
@@ -291,7 +289,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <div className='container-fluid'>
                             <div
                                 className='box-top-profile-mobile text-center'
-                                style={cover}
+                                style={{
+                                    background: `Url(${coverUrl}) no-repeat center bottom #222222`,
+                                    backgroundSize: 'cover',
+                                }}
                             >
                                     <div className='row'>
                                         <div className='col-md-10 mx-auto'>
