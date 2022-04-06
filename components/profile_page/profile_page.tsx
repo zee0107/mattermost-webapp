@@ -596,7 +596,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     </div>
                 </div>
 
-                <div className='modal tagfriends' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                <div className='modal tagfriends' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
                     <div className='modal-dialog modal-dialog-centered'>
                         <div className='modal-content'>
                             <div className='modal-header'>
@@ -671,7 +671,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                 </div>
                 
                 
-                <div className='modal selectlocation' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                <div className='modal selectlocation' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
                     <div className='modal-dialog modal-dialog-centered'>
                         <div className='modal-content'>
                             <div className='modal-header'>
@@ -693,13 +693,13 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     <div className='row mt-3'>
                                         <div className='col-2 text-center'><i className='bi-geo-alt'></i></div>
                                         <div className='col-8'>
-                                        <medium className='onAddlocation'>Muntinlupa City</medium>
+                                        <label className='onAddlocation'>Muntinlupa City</label>
                                         <p><small>Muntinlupa City Philippines</small></p>
                                         </div>
                                         <div className='col-2'>
                                             <div className='form-check mt-3 float-end'>
                                                 <input className='form-check-input onAddlocation' type='radio' name='locationRadios' id='locationRadios4' value='option4'/>
-                                                <label className='form-check-label' for='locationRadios4'></label>
+                                                <label className='form-check-label' htmlFor='locationRadios4'></label>
                                             </div>
                                         </div>
                                     </div>
@@ -707,7 +707,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     <div className='row'>
                                         <div className='col-2 text-center'><i className='bi-geo-alt'></i></div>
                                         <div className='col-8'>
-                                        <medium>Makati City</medium>
+                                        <label>Makati City</label>
                                         <p><small>Makati City Philippines</small></p>
                                         </div>
                                         <div className='col-2'>
@@ -721,13 +721,13 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     <div className='row'>
                                         <div className='col-2 text-center'><i className='bi-geo-alt'></i></div>
                                         <div className='col-8'>
-                                        <medium>Taguig City</medium>
+                                        <label>Taguig City</label>
                                         <p><small>Taguig City Philippines</small></p>
                                         </div>
                                         <div className='col-2'>
                                             <div className='form-check mt-3 float-end'>
                                                 <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios6' value='option6'/>
-                                                <label className='form-check-label' for='locationRadios6'></label>
+                                                <label className='form-check-label' htmlFor='locationRadios6'></label>
                                             </div>
                                         </div>
                                     </div>
