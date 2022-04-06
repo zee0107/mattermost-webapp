@@ -606,7 +606,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <div className='modal-body'>
                                 <div className='input-group d-flex mb-0'>
                                     <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
-                                   <input id='searchforFriends' type='text' className='form-control form-control-dark input-search-crypter' placeholder='Search for friend' aria-label='Search for friend'/>
+                                   <input id='searchforFriends' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Search for friend' aria-label='Search for friend'/>
                                 </div>
                     
                                 <div className='row mt-3'>
@@ -680,9 +680,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             </div>
                             <div className='modal-body'>
                                 <div className=''>
-                                    <div className='input-group mb-0'>
-                                    <span className='input-group-text input-search-crypter-span' id='basic-addon1'><i className='bi-search'></i></span>
-                                    <input id='searchLocations' type='text' className='form-control form-control-dark input-search-crypter' placeholder='Where are you?' aria-label='Where are you?'/>
+                                    <div className='input-group d-flex mb-0'>
+                                    <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
+                                    <input id='searchLocations' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Where are you?' aria-label='Where are you?'/>
                                 </div>
                 
                                 <div className='row mt-3'>
@@ -784,9 +784,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             </div>
                 
                             <div className='feelingscontent'>
-                                <div className='input-group mb-0'>
-                                    <span className='input-group-text input-search-crypter-span' id='basic-addon1'><i className='bi-search'></i></span>
-                                    <input id='searchFeelings' type='text' className='form-control form-control-dark input-search-crypter' placeholder='Search' aria-label='Search'/>
+                                <div className='input-group d-flex mb-0'>
+                                    <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
+                                    <input id='searchFeelings' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Search' aria-label='Search'/>
                                 </div>
                 
                                 <div className='row mt-3'>
