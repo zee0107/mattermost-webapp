@@ -342,17 +342,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='d-flex input-group float-start width-100'>
                                                 <span className='input-group-text input-search-crypter-whats-going-on' id='basic-addon22'>
                                                     {this.renderProfilePicture('md')}</span>
-                                                    {/*<ToggleModalButtonRedux
-                                                        id='staticBackdrop'
-                                                        ariaLabel='staticBackdropLabel'
-                                                        modalId={ModalIdentifiers.POST_CREATE}
-                                                        dialogType={PostModal}
-                                                        dialogProps={{isContentProductSettings: false}}
-                                                        className={'form-control input-search-crypter-whats-going-on onCreatepost mt-1'}
-                                                        showUnread={false}
-                                                    >
-                                                        What's going on, {currentUser.first_name} {currentUser.last_name}
-                                                    </ToggleModalButtonRedux>*/}
                                                 <input type='text' className='form-control input-search-crypter-whats-going-on onCreatepost mt-1' placeholder={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-label={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-describedby='basic-addon55' data-bs-toggle='modal' data-bs-target='#staticBackdrop' />
                                                 <span className='input-group-text input-search-crypter-whats-going-on onPhotoaddpost mt-1' id='basic-addon33' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
                                                     <a href='#'><svg width='21' height='21' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
