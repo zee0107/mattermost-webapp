@@ -731,6 +731,34 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div className='row'>
+                                        <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
+                                        <div className='col-md-8'>
+                                        <label>Santa Rosa City</label>
+                                        <p><small>Santa Rosa City Philippines</small></p>
+                                        </div>
+                                        <div className='col-md-2'>
+                                            <div className='form-check mt-3 float-end'>
+                                                <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios7' value='option6'/>
+                                                <label className='form-check-label' htmlFor='locationRadios6'></label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className='row'>
+                                        <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
+                                        <div className='col-md-8'>
+                                        <label>San Pedro City</label>
+                                        <p><small>San Pedro City Philippines</small></p>
+                                        </div>
+                                        <div className='col-md-2'>
+                                            <div className='form-check mt-3 float-end'>
+                                                <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios8' value='option6'/>
+                                                <label className='form-check-label' htmlFor='locationRadios6'></label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
