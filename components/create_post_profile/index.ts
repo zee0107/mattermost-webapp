@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {ActionCreatorsMapObject, bindActionCreators, Dispatch} from 'redux';
 
 import {GlobalState} from 'types/store/index.js';
+import {Client4} from 'mattermost-redux/client';
 
 import {Post} from 'mattermost-redux/types/posts.js';
 
@@ -68,7 +69,7 @@ function makeMapStateToProps() {
     return (state: GlobalState) => {
         const config = getConfig(state);
         const license = getLicense(state);
-        const currentChannel = getCurrentChannel(state) || {};
+        const currentChannel = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
         const currentChannelTeammateUsername = getUser(state, currentChannel.teammate_id || '')?.username;
         const draft = getPostDraft(state, StoragePrefixes.DRAFT, currentChannel.id);
         const latestReplyablePostId = getLatestReplyablePostId(state);
@@ -87,7 +88,7 @@ function makeMapStateToProps() {
         const isLDAPEnabled = license?.IsLicensed === 'true' && license?.LDAPGroups === 'true';
         const useGroupMentions = isLDAPEnabled && haveICurrentChannelPermission(state, Permissions.USE_GROUP_MENTIONS);
         const channelMemberCountsByGroup = selectChannelMemberCountsByGroup(state, currentChannel.id);
-        const currentTeamId = getCurrentTeamId(state);
+        const currentTeamId = 'u57ytznuttyzbgapem9sqj4oyc';
         const groupsWithAllowReference = useGroupMentions ? getAssociatedGroupsForReferenceByMention(state, currentTeamId, currentChannel.id) : null;
         const enableTutorial = config.EnableTutorial === 'true';
         const showTutorialTip = enableTutorial && tutorialStep === TutorialSteps.POST_POPOVER;
