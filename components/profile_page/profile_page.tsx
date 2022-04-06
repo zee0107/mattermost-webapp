@@ -213,10 +213,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         <div className='container'>
                             <div
                                 className='box-top-profile-verion text-center'
-                                style={{
-                                    background: `Url(${coverUrl}) no-repeat center bottom #222222`,
-                                    backgroundSize: 'cover',
-                                }}
+                                style={{background: `Url(${coverUrl}) no-repeat center bottom #222222`}}
                             >
                                 <div className='row'>
                                     <div className='col-md-4'>
@@ -289,10 +286,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <div className='container-fluid'>
                             <div
                                 className='box-top-profile-mobile text-center'
-                                style={{
-                                    background: `Url(${coverUrl}) no-repeat center bottom #222222`,
-                                    backgroundSize: 'cover',
-                                }}
+                                style={{background: `Url(${coverUrl}) no-repeat center bottom #222222`}}
                             >
                                     <div className='row'>
                                         <div className='col-md-10 mx-auto'>
