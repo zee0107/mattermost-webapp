@@ -8,7 +8,6 @@ import $ from 'jquery';
 import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import React from 'react';
-import '../scripts.js';
 import {Provider} from 'react-redux';
 import {Router, Route} from 'react-router-dom';
 
