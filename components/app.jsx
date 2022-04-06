@@ -2,7 +2,7 @@
 // See LICENSE.txt for license information.
 
 import {hot} from 'react-hot-loader/root';
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import 'jquery/src/jquery';
 import $ from 'jquery';
 import Popper from 'popper.js';
