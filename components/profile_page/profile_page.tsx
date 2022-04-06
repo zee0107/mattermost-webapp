@@ -401,17 +401,15 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <div className='col-lg-4'>
                                 <div className='box-left-panel-egzo'>
                                     <div className='d-flex completion-box-bg'>
-                                        <img src={completion} className='completion-img' height='50' width={`${completionResult}%`}></img>
-                                        <div className='col-lg-12 completion-text'>
-                                            <div className='d-flex'>
-                                                <div className='col-lg-9 width-100'>
-                                                    <h5>Profile Completion</h5>
-                                                </div> 
-                                                <div className='col-lg-3'>
-                                                    <h4 className='competion-text-percent'>{completionResult}%</h4>
-                                                </div>
+                                        <div className='d-flex completion-text width-100'>
+                                            <div className='col-lg-9 width-100'>
+                                                 <h5>Profile Completion</h5>
+                                            </div> 
+                                            <div className='col-lg-3'>
+                                                <h4 className='competion-text-percent'>{completionResult}%</h4>
                                             </div>
                                         </div>
+                                        <img src={completion} className='completion-img' height='50' width={`${completionResult}%`}></img>
                                     </div>
                                     <ul className='list-group p-3'>
                                         <li className='list-group-item border-transparent'>{photoAvailable} <label className='ms-2'>Add Your Photo</label></li>
