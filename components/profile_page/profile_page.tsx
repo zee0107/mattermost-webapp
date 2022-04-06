@@ -178,6 +178,11 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         const {globalHeader, currentUser, profilePicture} = this.props;
         const { coverUrl,completionResult } = this.state;
 
+        const cover = {
+            background: `Url(${coverUrl}) no-repeat center bottom #222222`,
+            backgroundSize: 'cover',
+        };
+
         let photoAvailable;
         let nameAvailable;
         let locationAvailable;
@@ -213,7 +218,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         <div className='container'>
                             <div
                                 className='box-top-profile-verion text-center'
-                                style={{background: `Url(${coverUrl}) no-repeat center bottom #222222`}}
+                                style={cover}
                             >
                                 <div className='row'>
                                     <div className='col-md-4'>
@@ -286,7 +291,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <div className='container-fluid'>
                             <div
                                 className='box-top-profile-verion text-center'
-                                style={{background: `Url(${coverUrl}) no-repeat center bottom #222222`}}
+                                style={cover}
                             >
                                     <div className='row'>
                                         <div className='col-md-10 mx-auto'>
@@ -343,8 +348,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <span className='input-group-text input-search-crypter-whats-going-on' id='basic-addon22'>
                                                     {this.renderProfilePicture('md')}</span>
                                                     <ToggleModalButtonRedux
-                                                        id='createPost'
-                                                        ariaLabel='Profile'
+                                                        id='staticBackdrop'
+                                                        ariaLabel='staticBackdropLabel'
                                                         modalId={ModalIdentifiers.POST_CREATE}
                                                         dialogType={PostModal}
                                                         dialogProps={{isContentProductSettings: false}}
