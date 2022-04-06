@@ -604,8 +604,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 <a className='onBacktotag float-end' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
                             </div>
                             <div className='modal-body'>
-                                <div className='input-group mb-0'>
-                                    <span className='input-group-text input-search-crypter-span' id='basic-addon1'><i className='bi-search'></i></span>
+                                <div className='input-group d-flex mb-0'>
+                                    <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
                                    <input id='searchforFriends' type='text' className='form-control form-control-dark input-search-crypter' placeholder='Search for friend' aria-label='Search for friend'/>
                                 </div>
                     
