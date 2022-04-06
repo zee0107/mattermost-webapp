@@ -547,7 +547,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
 
-                                    {uploading === true ? uploaderView : null}
+                                    {this.state.uploading === true ? uploaderView : null}
 
                                     <div className='post-music-content'>
                                         <div className='container'>
