@@ -18,7 +18,7 @@ import GeoIcon from 'images/profiles/geo-alt.svg';
 import AttachIcon from 'images/profiles/paperclip.svg';
 import GlobeIcon from 'images/icon-global2.png';
 import SmileIcon from 'images/emoji-smile-fill.svg';
-import DoneIcon from 'images/profiles/done.svg';
+import xIcon from 'images/x.svg';
 import UndoneIcon from 'images/profiles/undone.svg';
 import postImage from 'images/post-1.png';
 import postPic from 'images/profiles/user-profile-2.png';
@@ -520,7 +520,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <form className='form'>
                                 <div className='modal-header'>
                                     <h6 className='modal-title'>Create post</h6>
-                                    <a className='btn-close-canvas shadow onClosecreatepost float-end' data-dismiss='modal' aria-label='Close'><i className='bi-x'></i></a>
+                                    <a className='btn-close-canvas shadow onClosecreatepost float-end' data-dismiss='modal' aria-label='Close'><img src={xIcon}/></a>
                                 </div>
 
                                 <div className='modal-body'>
