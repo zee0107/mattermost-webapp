@@ -178,7 +178,14 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const {globalHeader, currentUser, profilePicture} = this.props;
         const { coverUrl,completionResult, uploading } = this.state;
-        let uploader = (
+
+        let photoAvailable;
+        let nameAvailable;
+        let locationAvailable;
+        let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
+        let uploaderView;
+
+        uploaderView = (
             <div className='post-photo-content'>
                 <div className='row'>
                     <div className='col-md-9'><strong>Add Photos / Video</strong></div>
@@ -189,11 +196,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                 </div>
             </div>
         );
-
-        let photoAvailable;
-        let nameAvailable;
-        let locationAvailable;
-        let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
 
         if(currentUser.first_name !== '' && currentUser.first_name !== '' && currentUser.first_name !== null && currentUser.first_name !== null){
             nameAvailable = (<img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/>);
@@ -545,7 +547,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
 
-                                    {uploader === true ? uploader : null}
+                                    {uploader === true ? uploaderView : null}
 
                                     <div className='post-music-content'>
                                         <div className='container'>
