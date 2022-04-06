@@ -3,8 +3,9 @@
 
 import {hot} from 'react-hot-loader/root';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery/dist/jquery.js';
-import Popper from 'popper.js/dist/popper.js';
+import 'jquery/jquery';
+import $ from 'jquery';
+import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import React from 'react';
 import {Provider} from 'react-redux';
