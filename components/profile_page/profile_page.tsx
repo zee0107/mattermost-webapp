@@ -75,9 +75,23 @@ type State = {
     completionResult: number;
     currentUser: UserProfile;
     uploading: boolean;
+    deferredPostView: any;
 };
 
 export default class ProfilPage extends React.PureComponent<Props, State> {
+    public static createDeferredPostView = () => {
+        return deferComponentRender(
+            PostView,
+            <div
+                id='post-list'
+                className='a11y__region'
+                data-a11y-sort-order='1'
+                data-a11y-focus-child={true}
+                data-a11y-order-reversed={true}
+            />,
+        );
+    }
+
     static defaultProps = {
         userId: '',
         profilePicture: '',
@@ -86,7 +100,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = {openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,};
+        this.state = {openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
     }
 
     componentDidMount(){
@@ -219,6 +233,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         else{
             photoAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
         }
+
+        const DeferredPostView = this.state.deferredPostView;
 
         return (
             <div>
@@ -380,7 +396,11 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 </div>
                                 <br /><br />
                                 <div className='col-lg-12 post-div mtop-10'>
-                                    <div className='d-flex'>
+                                    <DeferredPostView
+                                        channelId={this.props.channelId}
+                                        focusedPostId={''}
+                                    />
+                                    {/*<div className='d-flex'>
                                         <div className='col-lg-2 text-center removePaddingRight'>
                                             <img src={postPic} className='post-img'></img>
                                         </div>
@@ -396,7 +416,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='col-lg-12'>
                                         <img src={postImage}></img>
-                                    </div>
+                                    </div>*/}
                                 </div>
                             </div>
                             <div className='col-lg-4'>
