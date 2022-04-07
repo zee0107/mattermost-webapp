@@ -66,13 +66,13 @@ import CreatePostProfile from './create_post_profile';
 function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
 
-    return async (state: GlobalState) => {
+    return (state: GlobalState) => {
         const channelId = 'kqe4sihhdid47gprhk6dwbuc4o';
         const config = getConfig(state);
         const currentUser = getCurrentUser(state);
         const license = getLicense(state);
         
-        let currentValue = await Client4.getChannel(channelId).then(value => value);    
+        let currentValue = Client4.getChannel(channelId).then(value => value);    
         console.log(currentValue);
         const currentChannel = Client4.getChannel(channelId);
         const currentChannelTeammateUsername = getUser(state, currentChannel.teammate_id || '')?.username;
