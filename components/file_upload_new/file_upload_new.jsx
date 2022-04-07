@@ -604,7 +604,7 @@ export class FileUploadNew extends PureComponent {
                         className='post-action icon icon--attachment'
                         onClick={this.simulateInputClick}
                         onTouchEnd={this.simulateInputClick}
-                        style={{background: 'transparent', border: '1px solid #7fcf57',paddingLeft: 15, paddingRight: 15}}
+                        style={{background: 'transparent', border: '1px solid #cccccc',paddingLeft: 15, paddingRight: 15}}
                     >
                         <CameraIcon className='d-flex'/>
                         <p className='mt-4 ml-1'>Select Photo / Music / Video to upload.</p>
