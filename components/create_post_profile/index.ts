@@ -64,7 +64,7 @@ import {isFeatureEnabled} from 'utils/utils';
 import CreatePostProfile from './create_post_profile';
 
 function getChannelValue(id: string){
-    const value = Clien4.getChannel(id).then((value) => {return value});
+    const value = Client4.getChannel(id).then((value) => {return value});
     console.log(value);
     return value;
 }
