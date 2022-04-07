@@ -65,10 +65,9 @@ import CreatePostProfile from './create_post_profile';
 
 function getCurChannel(id: string){
     const channelValue = Client4.getChannel(id);
-    Promise.resolve(channelValue).then(async (data) => {
-        const value = data;
-        return value;
-    });
+    channelValue.then(data => {
+        return data;
+    })
 }
 function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
