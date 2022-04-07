@@ -97,7 +97,7 @@ function makeMapStateToProps() {
         const enableTutorial = config.EnableTutorial === 'true';
         const showTutorialTip = enableTutorial && tutorialStep === TutorialSteps.POST_POPOVER;
 
-        console.log(currentChannel);
+        console.log(currentChannel.id);
         
         return {
             currentTeamId,
