@@ -71,7 +71,7 @@ function makeMapStateToProps() {
         const config = getConfig(state);
         const currentUser = getCurrentUser(state);
         const license = getLicense(state);
-        const currentChannel = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
+        const currentChannel = Client4.getChannel(channelId);
         const currentChannelTeammateUsername = getUser(state, currentChannel.teammate_id || '')?.username;
         const draft = getPostDraft(state, StoragePrefixes.DRAFT, channelId);
         const latestReplyablePostId = getLatestReplyablePostId(state);
@@ -124,7 +124,7 @@ function makeMapStateToProps() {
             shortcutReactToLastPostEmittedFrom,
             canPost,
             useChannelMentions,
-            shouldShowPreview: true,
+            shouldShowPreview: showPreviewOnCreatePost(state),
             groupsWithAllowReference,
             useGroupMentions,
             channelMemberCountsByGroup,
