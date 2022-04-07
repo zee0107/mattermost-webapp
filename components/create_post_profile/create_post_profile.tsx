@@ -326,7 +326,7 @@ type State = {
     uploadsProgressPercent: {[clientID: string]: FilePreviewInfo};
     renderScrollbar: boolean;
     scrollbarWidth: number;
-    currentChannel: Channel;
+    //currentChannel: Channel;
     errorClass: string | null;
     serverError: (ServerError & {submittedMessage?: string}) | null;
     postError?: React.ReactNode;
@@ -350,7 +350,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
     private fileUploadRef: React.RefObject<FileUploadClass>;
     private createPostControlsRef: React.RefObject<HTMLSpanElement>;
 
-    static getDerivedStateFromProps(props: Props, state: State): Partial<State> {
+    /*static getDerivedStateFromProps(props: Props, state: State): Partial<State> {
         let updatedState: Partial<State> = {currentChannel: props.currentChannel};
         if (props.currentChannel.id !== state.currentChannel.id) {
             updatedState = {
@@ -361,7 +361,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             };
         }
         return updatedState;
-    }
+    }*/
 
     constructor(props: Props) {
         super(props);
@@ -375,7 +375,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             scrollbarWidth: 0,
             errorClass: null,
             serverError: null,
-            currentChannel: props.currentChannel,
+            currentChannel: [],
             channelId: 'kqe4sihhdid47gprhk6dwbuc4o',
             uploading: false,
         };
