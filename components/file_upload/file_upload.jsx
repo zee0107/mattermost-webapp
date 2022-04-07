@@ -617,6 +617,7 @@ export class FileUpload extends PureComponent {
                         onClick={this.handleLocalFileUploaded}
                         multiple={multiple}
                         accept={accept}
+                        style={{display: 'none'}}
                     />
                 </div>
             );
