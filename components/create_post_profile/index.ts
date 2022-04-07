@@ -60,20 +60,26 @@ import {openModal} from 'actions/views/modals';
 import {Constants, Preferences, StoragePrefixes, TutorialSteps, UserStatuses} from 'utils/constants';
 import {canUploadFiles} from 'utils/file_utils';
 import {isFeatureEnabled} from 'utils/utils';
+import {Channel} from 'mattermost-redux/types/channels';
 
 import CreatePostProfile from './create_post_profile';
+
+type Props = {
+    channeValue: Channel;
+}
 
 function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
 
-    return (state: GlobalState) => {
+    return (state: GlobalState, props: Props) => {
         const channelId = 'kqe4sihhdid47gprhk6dwbuc4o';
         const config = getConfig(state);
         const currentUser = getCurrentUser(state);
         const license = getLicense(state);
         
-        let currentValue = Client4.getChannel(channelId).then(value => value);    
-        console.log(currentValue);
+        let currentValue = Client4.getChannel(channelId);    
+        Promise.resolve(currentValue).then(value => {props.channeValue=value;})
+        console.log(props.channeValue);
         const currentChannel = Client4.getChannel(channelId);
         const currentChannelTeammateUsername = getUser(state, currentChannel.teammate_id || '')?.username;
         const draft = getPostDraft(state, StoragePrefixes.DRAFT, channelId);
