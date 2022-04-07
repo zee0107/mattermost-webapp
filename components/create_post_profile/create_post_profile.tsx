@@ -100,7 +100,7 @@ type Props = {
     /**
   *  Data used in multiple places of the component
   */
-    currentChannel: Channel;
+    currentChannel: Promise<Channel>;
 
     /**
   *  Data used for DM prewritten messages
@@ -373,7 +373,6 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             uploadsProgressPercent: {},
             renderScrollbar: false,
             scrollbarWidth: 0,
-            currentChannel: props.currentChannel,
             errorClass: null,
             serverError: null,
             channelId: 'kqe4sihhdid47gprhk6dwbuc4o',
@@ -401,12 +400,17 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             actions.getChannelMemberCountsByGroup(currentChannel.id, isTimezoneEnabled);
         }
 
+        if(currentChannel !== null){
+            Promise.resolve(currentChannel).then(value => {this.setState({currentChannel: value})});
+        }
+        console.log(this.state.currentChannel);
         this.setState({channelId: 'kqe4sihhdid47gprhk6dwbuc4o'});
     }
 
     componentDidUpdate(prevProps: Props, prevState: State) {
         const {useGroupMentions, currentChannel, isTimezoneEnabled, actions} = this.props;
-        if (prevProps.currentChannel.id !== currentChannel.id) {
+        const {currentChannel} = this.state;
+        if(prevState.currentChannel.id !== currentChannel.id){
             this.lastChannelSwitchAt = Date.now();
             this.focusTextbox();
             this.saveDraft(prevProps);
@@ -414,8 +418,11 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                 actions.getChannelMemberCountsByGroup(currentChannel.id, isTimezoneEnabled);
             }
         }
+        /*if (prevProps.currentChannel.id !== currentChannel.id) {
+            
+        }*/
 
-        if (currentChannel.id !== prevProps.currentChannel.id) {
+        if (currentChannel.id !== prevState.currentChannel.id) {
             actions.setShowPreview(false);
         }
 
@@ -441,8 +448,8 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
         this.saveDraft();
     }
 
-    saveDraft = (props = this.props) => {
-        if (this.saveDraftFrame && props.currentChannel) {
+    saveDraft = (props = this.props, state = this.state) => {
+        if (this.saveDraftFrame && state.currentChannel) {
             const channelId = this.state.channelId;
             props.actions.setDraft(StoragePrefixes.DRAFT + channelId, this.draftsForChannel[channelId]);
             clearTimeout(this.saveDraftFrame);
