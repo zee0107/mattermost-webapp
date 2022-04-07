@@ -345,7 +345,6 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                 message: props.draft.message,
                 submitting: false,
                 serverError: null,
-                channelId: '',
             };
         }
         return updatedState;
@@ -364,6 +363,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             currentChannel: props.currentChannel,
             errorClass: null,
             serverError: null,
+            channelId: 'kqe4sihhdid47gprhk6dwbuc4o',
         };
 
         this.topDiv = React.createRef<HTMLFormElement>();
