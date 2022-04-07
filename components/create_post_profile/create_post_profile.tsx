@@ -1469,7 +1469,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             createMessage = Utils.localizeMessage('create_post.read_only', 'This channel is read-only. Only members with permission can post here.');
         } else {
             createMessage = formatMessage(
-                {id: 'write', defaultMessage: 'Write to {channelDisplayName}'},
+                {id: 'write', defaultMessage: `What's going on ${currentUser.first_name} ${currentUser.last_name}`},
                 {channelDisplayName: currentChannel.display_name},
             );
         }
