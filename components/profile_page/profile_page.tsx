@@ -397,7 +397,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className='col-lg-12 post-div mtop-10'>
                                     <DeferredPostView
-                                        channelId={'kqe4sihhdid47gprhk6dwbuc4o'}
+                                        channelId='kqe4sihhdid47gprhk6dwbuc4o'
                                         focusedPostId={''}
                                     />
                                     {/*<div className='d-flex'>
