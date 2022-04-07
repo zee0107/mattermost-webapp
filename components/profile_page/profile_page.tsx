@@ -28,7 +28,7 @@ import styled from 'styled-components';
 import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
 import UserSettingsModal from 'components/user_settings/modal_profile';
 import PostModal from 'components/user_settings/modal_post/post_modal';
-import CreatePostProfile from 'components/create_post_profile/';
+import CreatePost from 'components/create_post';
 import {ModalData} from 'types/actions';
 import {ModalIdentifiers} from 'utils/constants';
 import ChannelHeaderMobile from 'components/channel_header_mobile';
@@ -63,6 +63,27 @@ type Props = {
     lhsOpen: boolean;
     rhsOpen: boolean;
     rhsMenuOpen: boolean;
+
+    channelId: string;
+    channelName: string;
+    channelPurpose: string;
+    channelDisplayName: string;
+    deactivatedChannel: boolean;
+    channelRolesLoading: boolean;
+    profilePicture: string;
+    showNextStepsEphemeral: boolean;
+    enableOnboardingFlow: boolean;
+    showNextSteps: boolean;
+    teamUrl: string;
+    match: {
+        url: string;
+        params: {
+            postid?: string;
+        };
+    };
+    channelIsArchived: boolean;
+    viewArchivedChannels: boolean;
+    isCloud: boolean;
 }
 
 type State = {
@@ -87,6 +108,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         super(props);
 
         this.state = {openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,};
+        this.channelViewRef = React.createRef();
     }
 
     componentDidMount(){
@@ -106,6 +128,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     componentDidUpdate(){
         this.getCompletionRate();
+    }
+
+    getChannelView = () => {
+        return this.channelViewRef.current;
     }
 
     getCompletionRate = () =>{
@@ -542,6 +568,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='row'>
                                         <div className='col-md-12'>
+                                            <CreatePost
+                                                getChannelView={this.getChannelView}
+                                            />
                                             <textarea className='form-control write-whats-goingon mt-3 validate' style={{height: 102, resize: 'none'}} placeholder={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} id='floatingTextarea'></textarea>
                                             {/*<label htmlFor='floatingTextarea'>What's going on, {currentUser.first_name} {currentUser.last_name}.</label>*/}
                                         </div>
