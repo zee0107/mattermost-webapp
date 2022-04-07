@@ -401,7 +401,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
         this.setOrientationListeners();
 
         if(currentChannel != null){
-            Promise.resolve(currentChannel).then(value => this.setState(channelValue: value));
+            Promise.resolve(currentChannel).then(value => {this.setState({channelValue: value})});
         }
 
         if (useGroupMentions) {
@@ -414,7 +414,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
     componentDidUpdate(prevProps: Props, prevState: State) {
         const {useGroupMentions, currentChannel, isTimezoneEnabled, actions} = this.props;
         if(currentChannel != null){
-            Promise.resolve(currentChannel).then(value => this.setState(channelValue: value));
+            Promise.resolve(currentChannel).then(value => {this.setState({channelValue: value})});
         }
 
         if (prevState.currentChannel.id !== this.state.channelValue.id) {
