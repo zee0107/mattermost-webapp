@@ -1499,14 +1499,11 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                                 badConnection={this.props.badConnection}
                                 listenForMentionKeyClick={true}
                                 useChannelMentions={this.props.useChannelMentions}
-                                style={{height:102, resize: 'none'}}
                             />
                             <span
                                 ref={this.createPostControlsRef}
                                 className='post-body__actions'
                             >
-                                {callButton}
-                                {fileUpload}
                                 {emojiPicker}
                                 <a
                                     role='button'
@@ -1529,25 +1526,13 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                             </span>
                         </div>
                         {tutorialTip}
+                        {fileUpload}
                     </div>
                     <div
                         id='postCreateFooter'
                         role='form'
                         className={postFooterClassName}
                     >
-                        {/*<div className='d-flex justify-content-between'>
-                            <MsgTyping
-                                channelId={currentChannel.id}
-                                postId=''
-                            />
-                            <TextboxLinks
-                                isMarkdownPreviewEnabled={this.props.canPost && this.props.markdownPreviewFeatureIsEnabled}
-                                characterLimit={this.props.maxPostSize}
-                                showPreview={this.props.shouldShowPreview}
-                                updatePreview={this.setShowPreview}
-                                message={readOnlyChannel ? '' : this.state.message}
-                            />
-                        </div>*/}
                         <div>
                             {postError}
                             {preview}
