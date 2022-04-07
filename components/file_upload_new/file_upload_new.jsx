@@ -606,6 +606,7 @@ export class FileUploadNew extends PureComponent {
                         onTouchEnd={this.simulateInputClick}
                     >
                         <CameraIcon className='d-flex'/>
+                        Select Photo / Music / Video to upload.
                     </button>
                     <input
                         id='fileUploadInput'
