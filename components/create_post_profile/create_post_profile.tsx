@@ -43,6 +43,16 @@ import Textbox from 'components/textbox';
 import TextboxClass from 'components/textbox/textbox';
 import TextboxLinks from 'components/textbox/textbox_links';
 
+import ImgIcon from 'images/profiles/image.svg';
+import LayoutIcon from 'images/profiles/columns-gap.svg';
+import MusicIcon from 'images/profiles/music-note-beamed.svg';
+import VideoIcon from 'images/profiles/camera-video.svg';
+import GeoIcon from 'images/profiles/geo-alt.svg';
+import AttachIcon from 'images/profiles/paperclip.svg';
+import GlobeIcon from 'images/icon-global2.png';
+import SmileIcon from 'images/emoji-smile-fill.svg';
+import xIcon from 'images/x.svg';
+
 import MessageSubmitError from 'components/message_submit_error';
 import {Channel, ChannelMemberCountsByGroup} from 'mattermost-redux/types/channels';
 import {PostDraft} from 'types/store/rhs';
