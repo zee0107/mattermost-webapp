@@ -73,6 +73,7 @@ function makeMapStateToProps() {
         value = data;
     });
     const currentChannel = value;
+    console.log(currentChannel.id);
 
     return (state: GlobalState) => {
         const config = getConfig(state);
@@ -101,7 +102,7 @@ function makeMapStateToProps() {
         const enableTutorial = config.EnableTutorial === 'true';
         const showTutorialTip = enableTutorial && tutorialStep === TutorialSteps.POST_POPOVER;
 
-        console.log(currentChannel.id);
+        
         
         return {
             currentTeamId,
