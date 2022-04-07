@@ -104,12 +104,14 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
         if (focusedPostId && focusedPostId !== state.focusedPostId) {
             updatedState = {...updatedState, focusedPostId};
-            window.localStorage.setItem('focusedPostId',focusedPostId);
+            
         }
 
         if (Object.keys(updatedState).length) {
             return updatedState;
         }
+
+        window.localStorage.setItem('focusedPostId',focusedPostId);
 
         return null;
     }
