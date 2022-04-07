@@ -1446,7 +1446,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             createMessage = Utils.localizeMessage('create_post.read_only', 'This channel is read-only. Only members with permission can post here.');
         } else {
             createMessage = formatMessage(
-                {id: 'create_post.write', defaultMessage: 'Write to {channelDisplayName}'},
+                {id: 'write', defaultMessage: 'Write to {channelDisplayName}'},
                 {channelDisplayName: currentChannel.display_name},
             );
         }
@@ -1499,6 +1499,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                                 badConnection={this.props.badConnection}
                                 listenForMentionKeyClick={true}
                                 useChannelMentions={this.props.useChannelMentions}
+                                style={{height:102, resize: 'none'}}
                             />
                             <span
                                 ref={this.createPostControlsRef}
