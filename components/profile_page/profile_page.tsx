@@ -9,7 +9,7 @@ import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/
 
 import homeImage from 'images/homeFeed.png';
 import coverImage from 'images/cover-photo.png';
-import profPic from 'images/profiles/user-profile-1.png'
+import profPic from 'images/profiles/user-profile-1.png';
 import ImgIcon from 'images/profiles/image.svg';
 import LayoutIcon from 'images/profiles/columns-gap.svg';
 import MusicIcon from 'images/profiles/music-note-beamed.svg';
