@@ -355,7 +355,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             Promise.resolve(props.currentChannel).then(value => {this.setState({channelValue: value})});
         }
         let updatedState: Partial<State> = {currentChannel: state.channelValue};
-        if (props.channelValue.id !== state.currentChannel.id) {
+        if (state.channelValue.id !== state.currentChannel.id) {
             updatedState = {
                 ...updatedState,
                 message: props.draft.message,
