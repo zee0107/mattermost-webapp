@@ -345,7 +345,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                 message: props.draft.message,
                 submitting: false,
                 serverError: null,
-                channelId: 'kqe4sihhdid47gprhk6dwbuc4o',
+                channelId: '',
             };
         }
         return updatedState;
@@ -386,6 +386,8 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
         if (useGroupMentions) {
             actions.getChannelMemberCountsByGroup(currentChannel.id, isTimezoneEnabled);
         }
+
+        this.setState({channelId: 'kqe4sihhdid47gprhk6dwbuc4o'});
     }
 
     componentDidUpdate(prevProps: Props, prevState: State) {
@@ -406,6 +408,10 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
         // Focus on textbox when emoji picker is closed
         if (prevState.showEmojiPicker && !this.state.showEmojiPicker) {
             this.focusTextbox();
+        }
+
+        if (prevState.channelId !== this.state.channelId){
+            this.setState({channelId: 'kqe4sihhdid47gprhk6dwbuc4o'});
         }
     }
 
