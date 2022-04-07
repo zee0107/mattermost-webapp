@@ -100,7 +100,7 @@ type Props = {
     /**
   *  Data used in multiple places of the component
   */
-    currentChannel: Channel;
+    currentChannel: Promise<Channel>;
 
     /**
   *  Data used for DM prewritten messages
@@ -218,7 +218,6 @@ type Props = {
   * Should preview be showed
   */
     shouldShowPreview: boolean;
-
     actions: {
 
         /**
@@ -331,6 +330,7 @@ type State = {
     serverError: (ServerError & {submittedMessage?: string}) | null;
     postError?: React.ReactNode;
     channelId: string;
+    channelValue: Channel;
     uploading: boolen;
 }
 
@@ -351,8 +351,11 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
     private createPostControlsRef: React.RefObject<HTMLSpanElement>;
 
     static getDerivedStateFromProps(props: Props, state: State): Partial<State> {
-        let updatedState: Partial<State> = {currentChannel: props.currentChannel};
-        if (props.currentChannel.id !== state.currentChannel.id) {
+        if(props.currentChannel != null){
+            Promise.resolve(props.currentChannel).then(value => this.setState(channelValue: value));
+        }
+        let updatedState: Partial<State> = {currentChannel: state.channelValue};
+        if (props.channelValue.id !== state.currentChannel.id) {
             updatedState = {
                 ...updatedState,
                 message: props.draft.message,
@@ -397,8 +400,12 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
         window.addEventListener('beforeunload', this.unloadHandler);
         this.setOrientationListeners();
 
+        if(currentChannel != null){
+            Promise.resolve(currentChannel).then(value => this.setState(channelValue: value));
+        }
+
         if (useGroupMentions) {
-            actions.getChannelMemberCountsByGroup(currentChannel.id, isTimezoneEnabled);
+            actions.getChannelMemberCountsByGroup(this.state.channelValue.id, isTimezoneEnabled);
         }
 
         this.setState({channelId: 'kqe4sihhdid47gprhk6dwbuc4o'});
@@ -406,7 +413,11 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
 
     componentDidUpdate(prevProps: Props, prevState: State) {
         const {useGroupMentions, currentChannel, isTimezoneEnabled, actions} = this.props;
-        if (prevProps.currentChannel.id !== currentChannel.id) {
+        if(currentChannel != null){
+            Promise.resolve(currentChannel).then(value => this.setState(channelValue: value));
+        }
+
+        if (prevState.currentChannel.id !== this.state.channelValue.id) {
             this.lastChannelSwitchAt = Date.now();
             this.focusTextbox();
             this.saveDraft(prevProps);
@@ -415,7 +426,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             }
         }
 
-        if (currentChannel.id !== prevProps.currentChannel.id) {
+        if (this.state.channelValue.id !== prevState.currentChannel.id) {
             actions.setShowPreview(false);
         }
 
