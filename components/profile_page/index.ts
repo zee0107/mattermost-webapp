@@ -50,7 +50,6 @@ function makeMapStateToProps() {
 
         const channel = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
         const currentChannelId = channel?.id;
-        const userId = currentUser?.id;
 
         const config = getConfig(state);
 
