@@ -66,7 +66,7 @@ import CreatePostProfile from './create_post_profile';
 function getCurChannel(id: string){
     const channelValue = Client4.getChannel(id);
     Promise.resolve(channelValue).then(async (data) => {
-        const value = await data;
+        const value = data;
         return value;
     });
 }
@@ -74,9 +74,10 @@ function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
 
     return (state: GlobalState) => {
+        console.log(getCurChannel('kqe4sihhdid47gprhk6dwbuc4o'));
         const config = getConfig(state);
         const license = getLicense(state);
-        const currentChannel = getCurChannel('kqe4sihhdid47gprhk6dwbuc4o');
+        const currentChannel = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
         const currentChannelTeammateUsername = getUser(state, currentChannel.teammate_id || '')?.username;
         const draft = getPostDraft(state, StoragePrefixes.DRAFT, currentChannel.id);
         const latestReplyablePostId = getLatestReplyablePostId(state);
