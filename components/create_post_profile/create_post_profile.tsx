@@ -404,8 +404,6 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
         if (useGroupMentions) {
             actions.getChannelMemberCountsByGroup(this.state.currentChannel.id, isTimezoneEnabled);
         }
-
-        console.log(this.state.currentChannel);
         this.setState({channelId: 'kqe4sihhdid47gprhk6dwbuc4o'});
     }
 
@@ -416,6 +414,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
         if(this.props.currentChannel !== null){
             Promise.resolve(currentChannel).then(value => {this.setState({currentChannel: value})});
         }
+        console.log(this.state.currentChannel);
         
         if(prevState.currentChannel.id !== currentChannel.id){
             this.lastChannelSwitchAt = Date.now();
