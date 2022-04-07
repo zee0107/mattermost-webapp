@@ -104,14 +104,11 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
         if (focusedPostId && focusedPostId !== state.focusedPostId) {
             updatedState = {...updatedState, focusedPostId};
-            
         }
 
         if (Object.keys(updatedState).length) {
             return updatedState;
         }
-
-        window.localStorage.setItem('focusedPostId',focusedPostId);
 
         return null;
     }
@@ -145,6 +142,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
     componentDidUpdate(prevProps: Props) {
         if (prevProps.channelId !== this.props.channelId || prevProps.channelIsArchived !== this.props.channelIsArchived) {
+            window.localStorage.setItem('focusedPostId',this.state.focusedPostId);
             mark('ChannelView#componentDidUpdate');
 
             const [dur1] = measure('SidebarChannelLink#click', 'ChannelView#componentDidUpdate');
