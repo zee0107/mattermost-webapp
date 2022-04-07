@@ -634,9 +634,9 @@ body {
 }
 
 .buttonBgGreen{
-    background-image: url('/images/button-bg.png');
+    background-image: url('/images/button-bg.png') !important;
     background-size: cover;
-    color: #ffffff;
+    color: #ffffff !important;
     border-radius: 7px !important;
 }
 
@@ -646,14 +646,14 @@ body {
 }
 
 .buttonBgGreen:focus{
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 233, 109, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 233, 109, 0.6) !important;
     color: #ffffff !important;
 }
 
 .buttonBgWhite{
     background: transparent;
     background-size: cover;
-    border: 1px solid #44cc4b;
+    border: 1px solid #44cc4b !important;
     color: #44cc4b !important;
     border-radius: 7px !important;
 }
