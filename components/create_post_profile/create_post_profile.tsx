@@ -997,7 +997,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
     removePreview = (id: string) => {
         let modifiedDraft = {} as PostDraft;
         const draft = {...this.props.draft};
-        const channelId = this.props.currentChannel.id;
+        const channelId = this.state.channelId;
 
         // Clear previous errors
         this.setState({serverError: null});
