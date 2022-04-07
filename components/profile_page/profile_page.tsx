@@ -395,10 +395,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                 </div>
-                                <br /><br />
                                 <div className='col-lg-12 post-div mtop-10'>
                                     <DeferredPostView
-                                        channelId={this.props.channelId}
+                                        channelId={'kqe4sihhdid47gprhk6dwbuc4o'}
                                         focusedPostId={''}
                                     />
                                     {/*<div className='d-flex'>
@@ -440,7 +439,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <li className='list-group-item border-transparent'>{locationAvailable} <label className='ms-2'>Add Your Address</label></li>
                                     </ul>
                                 </div>
-                                <br />
                                 <div className='col-lg-12 chat-box removePadding mtop-10'>
                                     <div className='d-flex'>
                                         <div className='col-lg-4 width-100'>
