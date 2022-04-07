@@ -410,12 +410,14 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
     componentDidUpdate(prevProps: Props, prevState: State) {
         const {useGroupMentions, isTimezoneEnabled, actions} = this.props;
         const {currentChannel} = this.state;
-
-        if(this.props.currentChannel !== null){
-            Promise.resolve(currentChannel).then(value => {this.setState({currentChannel: value})});
+        if (prevState.currentChannel.id !== currentChannel.id){
+            if(this.props.currentChannel !== null){
+                Promise.resolve(currentChannel).then(value => {this.setState({currentChannel: value})});
+            }
+            console.log(this.state.currentChannel);
         }
-        console.log(this.state.currentChannel);
         
+
         if(prevState.currentChannel.id !== currentChannel.id){
             this.lastChannelSwitchAt = Date.now();
             this.focusTextbox();
