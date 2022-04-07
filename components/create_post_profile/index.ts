@@ -71,8 +71,10 @@ function makeMapStateToProps() {
         const config = getConfig(state);
         const currentUser = getCurrentUser(state);
         const license = getLicense(state);
+        var data;
+        var currentValue = Client4.getChannel(channelId);
+        Promise.resolve(currentValue).then (value => {data=value});
         const currentChannel = Client4.getChannel(channelId);
-        const data;
         const currentChannelTeammateUsername = getUser(state, currentChannel.teammate_id || '')?.username;
         const draft = getPostDraft(state, StoragePrefixes.DRAFT, channelId);
         const latestReplyablePostId = getLatestReplyablePostId(state);
@@ -95,6 +97,7 @@ function makeMapStateToProps() {
         const groupsWithAllowReference = useGroupMentions ? getAssociatedGroupsForReferenceByMention(state, currentTeamId, channelId) : null;
         const enableTutorial = config.EnableTutorial === 'true';
         const showTutorialTip = enableTutorial && tutorialStep === TutorialSteps.POST_POPOVER;
+        console.log(data);
         
         return {
             currentTeamId,
