@@ -65,7 +65,7 @@ import {Channel} from 'mattermost-redux/types/channels';
 import CreatePostProfile from './create_post_profile';
 
 type Props = {
-    channeValue: Channel;
+    channelValue: Channel;
 }
 
 function makeMapStateToProps() {
@@ -76,10 +76,10 @@ function makeMapStateToProps() {
         const config = getConfig(state);
         const currentUser = getCurrentUser(state);
         const license = getLicense(state);
-        
-        let currentValue = Client4.getChannel(channelId);    
-        Promise.resolve(currentValue).then(value => {props.channeValue=value;})
-        console.log(props.channeValue);
+        props.channelValue=Client4.getChannel(channelId);
+        //let currentValue = Client4.getChannel(channelId);    
+        //Promise.resolve(currentValue).then(value => {props.channeValue=value;})
+        console.log(props.channelValue);
         const currentChannel = Client4.getChannel(channelId);
         const currentChannelTeammateUsername = getUser(state, currentChannel.teammate_id || '')?.username;
         const draft = getPostDraft(state, StoragePrefixes.DRAFT, channelId);
