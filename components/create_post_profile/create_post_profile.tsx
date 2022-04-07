@@ -318,6 +318,7 @@ type State = {
     errorClass: string | null;
     serverError: (ServerError & {submittedMessage?: string}) | null;
     postError?: React.ReactNode;
+    channelId: string;
 }
 
 class CreatePostProfile extends React.PureComponent<Props, State> {
@@ -344,6 +345,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                 message: props.draft.message,
                 submitting: false,
                 serverError: null,
+                channelId: 'kqe4sihhdid47gprhk6dwbuc4o',
             };
         }
         return updatedState;
@@ -421,7 +423,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
 
     saveDraft = (props = this.props) => {
         if (this.saveDraftFrame && props.currentChannel) {
-            const channelId = props.currentChannel.id;
+            const channelId = this.state.channelId;
             props.actions.setDraft(StoragePrefixes.DRAFT + channelId, this.draftsForChannel[channelId]);
             clearTimeout(this.saveDraftFrame);
             this.saveDraftFrame = null;
@@ -483,7 +485,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
     }
 
     doSubmit = async (e?: React.FormEvent) => {
-        const channelId = this.props.currentChannel.id;
+        const channelId = this.state.channelId;
         if (e) {
             e.preventDefault();
         }
@@ -781,7 +783,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
     }
 
     sendReaction(isReaction: RegExpExecArray) {
-        const channelId = this.props.currentChannel.id;
+        const channelId = this.state.channelId;
         const action = isReaction[1];
         const emojiName = isReaction[2];
         const postId = this.props.latestReplyablePostId;
@@ -857,13 +859,13 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
     }
 
     emitTypingEvent = () => {
-        const channelId = this.props.currentChannel.id;
+        const channelId = this.state.channelId;
         GlobalActions.emitLocalUserTypingEvent(channelId, '');
     }
 
     handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const message = e.target.value;
-        const channelId = this.props.currentChannel.id;
+        const channelId = this.state.channelId;
 
         let serverError = this.state.serverError;
         if (isErrorInvalidSlashCommand(serverError)) {
@@ -1223,7 +1225,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             ...this.props.draft,
             message,
         };
-        const channelId = this.props.currentChannel.id;
+        const channelId = this.state.channelId;
         this.props.actions.setDraft(StoragePrefixes.DRAFT + channelId, draft);
         this.draftsForChannel[channelId] = draft;
 
@@ -1395,7 +1397,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                     onUploadError={this.handleUploadError}
                     onUploadProgress={this.handleUploadProgress}
                     postType='post'
-                    channelId={currentChannel.id}
+                    channelId={this.state.channelId}
                 />
             );
         }
@@ -1482,7 +1484,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                                 onBlur={this.handleBlur}
                                 emojiEnabled={this.props.enableEmojiPicker}
                                 createMessage={createMessage}
-                                channelId={currentChannel.id}
+                                channelId={this.state.channelId}
                                 id='post_textbox'
                                 ref={this.textboxRef}
                                 disabled={readOnlyChannel}
