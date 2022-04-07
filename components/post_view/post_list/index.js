@@ -38,6 +38,7 @@ function makeMapStateToProps() {
     const preparePostIdsForPostList = makePreparePostIdsForPostList();
 
     return function mapStateToProps(state, ownProps) {
+        console.log(state);
         let latestPostTimeStamp = 0;
         let postIds;
         let chunk;
