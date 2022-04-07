@@ -601,12 +601,13 @@ export class FileUploadNew extends PureComponent {
                         type='button'
                         id='fileUploadButton'
                         aria-label={ariaLabel}
-                        className='style--none post-action icon icon--attachment'
+                        className='post-action icon icon--attachment'
                         onClick={this.simulateInputClick}
                         onTouchEnd={this.simulateInputClick}
+                        style={{background: 'transparent', border: '1px solid #7fcf57',paddingLeft: 15, paddingRight: 15}}
                     >
                         <CameraIcon className='d-flex'/>
-                        <label>Select Photo / Music / Video to upload.</label>
+                        <p className='mt-4 ml-1'>Select Photo / Music / Video to upload.</p>
                     </button>
                     <input
                         id='fileUploadInput'
