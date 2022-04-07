@@ -73,7 +73,7 @@ function makeMapStateToProps() {
     Promise.resolve(channelValue).then((data) => {
         currentChannel = data;
     });
-    console.log(currentChannel.id);
+    console.log(currentChannel);
 
     return (state: GlobalState) => {
         const config = getConfig(state);
