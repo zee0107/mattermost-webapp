@@ -76,7 +76,7 @@ function makeMapStateToProps() {
         const config = getConfig(state);
         const currentUser = getCurrentUser(state);
         const license = getLicense(state);
-        const currentChannel = this.getChannelValue(channelId);
+        const currentChannel = getChannelValue(channelId);
         const currentChannelTeammateUsername = getUser(state, currentChannel.teammate_id || '')?.username;
         const draft = getPostDraft(state, StoragePrefixes.DRAFT, channelId);
         const latestReplyablePostId = getLatestReplyablePostId(state);
