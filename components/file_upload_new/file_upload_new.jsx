@@ -725,5 +725,5 @@ export class FileUploadNew extends PureComponent {
 }
 
 const wrappedComponent = injectIntl(FileUpload, {forwardRef: true});
-wrappedComponent.displayName = 'injectIntl(FileUpload)';
+wrappedComponent.displayName = 'injectIntl(FileUploadNew)';
 export default wrappedComponent;
