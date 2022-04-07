@@ -396,19 +396,20 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
         window.addEventListener('beforeunload', this.unloadHandler);
         this.setOrientationListeners();
 
-        if (useGroupMentions) {
-            actions.getChannelMemberCountsByGroup(currentChannel.id, isTimezoneEnabled);
-        }
-
         if(currentChannel !== null){
             Promise.resolve(currentChannel).then(value => {this.setState({currentChannel: value})});
         }
+
+        if (useGroupMentions) {
+            actions.getChannelMemberCountsByGroup(this.state.currentChannel.id, isTimezoneEnabled);
+        }
+
         console.log(this.state.currentChannel);
         this.setState({channelId: 'kqe4sihhdid47gprhk6dwbuc4o'});
     }
 
     componentDidUpdate(prevProps: Props, prevState: State) {
-        const {useGroupMentions, currentChannel, isTimezoneEnabled, actions} = this.props;
+        const {useGroupMentions, isTimezoneEnabled, actions} = this.props;
         const {currentChannel} = this.state;
         if(prevState.currentChannel.id !== currentChannel.id){
             this.lastChannelSwitchAt = Date.now();
@@ -770,7 +771,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
 
         let post = originalPost;
 
-        post.channel_id = currentChannel.id;
+        post.channel_id = this.state.currentChannel.id;
 
         const time = Utils.getTimestamp();
         const userId = currentUserId;
@@ -1383,7 +1384,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             tutorialTip = (
                 <CreatePostTip
                     prefillMessage={this.prefillMessage}
-                    currentChannel={this.props.currentChannel}
+                    currentChannel={this.state.currentChannel}
                     currentUserId={this.props.currentUserId}
                     currentChannelTeammateUsername={this.props.currentChannelTeammateUsername}
                 />
