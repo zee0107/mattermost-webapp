@@ -67,10 +67,12 @@ function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
 
     const channelValue = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
-    const currentChannel = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
+    let value;
+    //const currentChannel = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
     Promise.resolve(channelValue).then((data) => {
-        currentChannel = data;
+        value = data;
     });
+    const currentChannel = value;
 
     return (state: GlobalState) => {
         const config = getConfig(state);
