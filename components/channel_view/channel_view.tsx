@@ -174,7 +174,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             this.props.actions.setShowNextStepsView(true);
             browserHistory.push(`${teamUrl}/tips`);
         }
-
+        console.log(this.state.focusedPostId);
         let createPost;
         if (this.props.deactivatedChannel) {
             createPost = (
