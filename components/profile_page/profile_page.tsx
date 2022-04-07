@@ -81,8 +81,8 @@ type State = {
 
 export default class ProfilPage extends React.PureComponent<Props, State> {
     public static createDeferredPostView = () => {
-        return (PostView/*deferComponentRender(
-            PostView,
+        return deferComponentRender(
+            PostView/*,
             <div
                 id='post-list'
                 className='a11y__region'
