@@ -68,7 +68,7 @@ function makeMapStateToProps() {
 
     const channelValue = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
     Promise.resolve(channelValue).then(async (data) => {
-        const value = data;
+        const value = await data;
         console.log(value);
     });
     
@@ -76,7 +76,7 @@ function makeMapStateToProps() {
     return (state: GlobalState) => {
         const config = getConfig(state);
         const license = getLicense(state);
-        const currentChannel = getCurrentChannel(state);
+        const currentChannel = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
         const currentChannelTeammateUsername = getUser(state, currentChannel.teammate_id || '')?.username;
         const draft = getPostDraft(state, StoragePrefixes.DRAFT, currentChannel.id);
         const latestReplyablePostId = getLatestReplyablePostId(state);
