@@ -1319,9 +1319,10 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
         } = this.props;
         const readOnlyChannel = !canPost;
         const {formatMessage} = this.props.intl;
-        const {renderScrollbar} = this.state;
+        const {renderScrollbar, channelId} = this.state;
         const ariaLabelMessageInput = Utils.localizeMessage('accessibility.sections.centerFooter', 'message input complimentary region');
 
+        console.log(channelId);
         let serverError = null;
         if (this.state.serverError) {
             serverError = (
@@ -1403,7 +1404,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                     onUploadError={this.handleUploadError}
                     onUploadProgress={this.handleUploadProgress}
                     postType='post'
-                    channelId={this.state.channelId}
+                    channelId={channelId}
                 />
             );
         }
@@ -1490,7 +1491,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                                 onBlur={this.handleBlur}
                                 emojiEnabled={this.props.enableEmojiPicker}
                                 createMessage={createMessage}
-                                channelId={this.state.channelId}
+                                channelId={channelId}
                                 id='post_textbox'
                                 ref={this.textboxRef}
                                 disabled={readOnlyChannel}
