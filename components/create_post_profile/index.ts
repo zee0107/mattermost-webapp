@@ -63,22 +63,19 @@ import {isFeatureEnabled} from 'utils/utils';
 
 import CreatePostProfile from './create_post_profile';
 
-async function makeMapStateToProps() {
+function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
 
-    const channelValue = await Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
-    //let value;
-    var currentChannel;
-    //const currentChannel = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
+    const channelValue = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
     Promise.resolve(channelValue).then((data) => {
-        currentChannel = data;
+        console.log(data);
     });
-    console.log(currentChannel);
+    
 
     return (state: GlobalState) => {
         const config = getConfig(state);
         const license = getLicense(state);
-      
+        const currentChannel = getCurrentChannel(state);
         const currentChannelTeammateUsername = getUser(state, currentChannel.teammate_id || '')?.username;
         const draft = getPostDraft(state, StoragePrefixes.DRAFT, currentChannel.id);
         const latestReplyablePostId = getLatestReplyablePostId(state);
@@ -102,8 +99,7 @@ async function makeMapStateToProps() {
         const enableTutorial = config.EnableTutorial === 'true';
         const showTutorialTip = enableTutorial && tutorialStep === TutorialSteps.POST_POPOVER;
 
-        
-        
+        console.log(currentChannel);
         return {
             currentTeamId,
             currentChannel,
