@@ -63,17 +63,10 @@ import {isFeatureEnabled} from 'utils/utils';
 
 import CreatePostProfile from './create_post_profile';
 
-function getCurChannel(id: string){
-    const channelValue = Client4.getChannel(id);
-    channelValue.then(data => {
-        return data;
-    })
-}
 function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
 
     return (state: GlobalState) => {
-        console.log(getCurChannel('kqe4sihhdid47gprhk6dwbuc4o'));
         const config = getConfig(state);
         const license = getLicense(state);
         const currentChannel = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
@@ -99,8 +92,7 @@ function makeMapStateToProps() {
         const groupsWithAllowReference = useGroupMentions ? getAssociatedGroupsForReferenceByMention(state, currentTeamId, currentChannel.id) : null;
         const enableTutorial = config.EnableTutorial === 'true';
         const showTutorialTip = enableTutorial && tutorialStep === TutorialSteps.POST_POPOVER;
-
-        console.log(currentChannel);
+        
         return {
             currentTeamId,
             currentChannel,
