@@ -70,7 +70,12 @@ function makeMapStateToProps() {
         const config = getConfig(state);
         const license = getLicense(state);
         const channelValue = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
-        const currentChannel = channelValue.then((data) => {return data;});
+        let value;
+        Promise.resolve(channelValue).then((data) => {
+            value = data;
+        });
+
+        const currentChannel = value;
         const currentChannelTeammateUsername = getUser(state, currentChannel.teammate_id || '')?.username;
         const draft = getPostDraft(state, StoragePrefixes.DRAFT, currentChannel.id);
         const latestReplyablePostId = getLatestReplyablePostId(state);
@@ -94,9 +99,8 @@ function makeMapStateToProps() {
         const enableTutorial = config.EnableTutorial === 'true';
         const showTutorialTip = enableTutorial && tutorialStep === TutorialSteps.POST_POPOVER;
 
-        Promise.resolve(channelValue).then((data) => {
-            console.log(data);
-        });
+        console.log(currentChannel);
+        
         return {
             currentTeamId,
             currentChannel,
