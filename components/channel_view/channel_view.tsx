@@ -95,7 +95,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
         if (props.match.url !== state.url && props.channelId !== state.channelId) {
             updatedState = {deferredPostView: ChannelView.createDeferredPostView(), url: props.match.url, focusedPostId};
-            window.localStorage.setItem('focusedPostId',focusedPostId);
         }
 
         if (props.channelId !== state.channelId) {
@@ -105,6 +104,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
         if (focusedPostId && focusedPostId !== state.focusedPostId) {
             updatedState = {...updatedState, focusedPostId};
+            window.localStorage.setItem('focusedPostId',focusedPostId);
         }
 
         if (Object.keys(updatedState).length) {
