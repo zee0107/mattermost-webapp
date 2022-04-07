@@ -49,7 +49,7 @@ function makeMapStateToProps() {
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
 
         const channel = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
-        const currentChannelId = kqe4sihhdid47gprhk6dwbuc4o;
+        const currentChannelId = 'kqe4sihhdid47gprhk6dwbuc4o';
 
         const config = getConfig(state);
 
