@@ -37,7 +37,6 @@ function makeMapStateToProps() {
             coverPhoto: Client4.getProfileCover(userId),
             autoResetPref: get(state, Preferences.CATEGORY_AUTO_RESET_MANUAL_STATUS, userId, ''),
             status: getStatusForUserId(state, userId),
-            focusedPostId: window.localStorage.geItem('focusedPostId'),
             customStatus,
             currentUser,
             isCustomStatusEnabled: isCustomStatusEnabled(state),
