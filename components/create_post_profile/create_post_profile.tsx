@@ -1427,6 +1427,17 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                             />
                         </div>
                     </div>
+                    <div
+                            id='postCreateFooter'
+                            role='form'
+                            className={postFooterClassName}
+                        >
+                            <div>
+                                {postError}
+                                {preview}
+                                {serverError}
+                            </div>
+                        </div>
                 </div>
                 );
             }
@@ -1536,17 +1547,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                             {tutorialTip}
                             {fileUpload}
                         </div>
-                        <div
-                            id='postCreateFooter'
-                            role='form'
-                            className={postFooterClassName}
-                        >
-                            <div>
-                                {postError}
-                                {preview}
-                                {serverError}
-                            </div>
-                        </div>
+                        
 
                         <div className='box-add-border'>
                             <div className='row mt-3'>
