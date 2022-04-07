@@ -13,7 +13,7 @@ import {Constants} from 'utils/constants';
 import PostView from './post_view.jsx';
 
 export const isChannelLoading = (params, channel, team, teammate, teamMemberships) => {
-    if (!params.postid) {
+    if (params.postid) {
         return false;
     }
 
