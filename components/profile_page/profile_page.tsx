@@ -100,11 +100,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         if(this.state.coverUrl === undefined || this.state.coverUrl === 'unavailable' || this.state.coverUrl === ''){
             this.setState({coverUrl: coverImage});
         }
-        
-        const script = document.createElement("script");
-        script.src = "../scripts.js";
-        script.async = true;
-        document.body.appendChild(script);
 
         this.getCompletionRate();
     }
