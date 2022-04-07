@@ -71,9 +71,9 @@ function makeMapStateToProps() {
         const config = getConfig(state);
         const currentUser = getCurrentUser(state);
         const license = getLicense(state);
-        let data;
+        
         let currentValue = Client4.getChannel(channelId);    
-        Promise.resolve(currentValue).then(value => {data=value; console.log(data)});    
+        let data = Promise.resolve(currentValue).then(value => {return valuel;});    
         console.log(data);
         const currentChannel = Client4.getChannel(channelId);
         const currentChannelTeammateUsername = getUser(state, currentChannel.teammate_id || '')?.username;
