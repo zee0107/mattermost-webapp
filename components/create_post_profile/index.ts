@@ -70,9 +70,10 @@ function makeMapStateToProps() {
         const config = getConfig(state);
         const license = getLicense(state);
         const channelValue = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
-        let value;
+        const value;
         Promise.resolve(channelValue).then((data) => {
             value = data;
+            console.log(value);
         });
 
         const currentChannel = value;
