@@ -63,10 +63,10 @@ import {isFeatureEnabled} from 'utils/utils';
 
 import CreatePostProfile from './create_post_profile';
 
-function makeMapStateToProps() {
+async function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
 
-    const channelValue = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
+    const channelValue = await Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
     //let value;
     var currentChannel;
     //const currentChannel = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
