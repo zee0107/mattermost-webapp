@@ -73,7 +73,6 @@ function makeMapStateToProps() {
         const value;
         Promise.resolve(channelValue).then((data) => {
             value = data;
-            console.log(value);
         });
 
         const currentChannel = value;
