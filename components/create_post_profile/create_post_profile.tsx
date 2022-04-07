@@ -414,10 +414,8 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             if(this.props.currentChannel !== null){
                 Promise.resolve(currentChannel).then(value => {this.setState({currentChannel: value})});
             }
-            console.log(this.state.currentChannel);
         }
         
-
         if(prevState.currentChannel.id !== currentChannel.id){
             this.lastChannelSwitchAt = Date.now();
             this.focusTextbox();
@@ -426,9 +424,6 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                 actions.getChannelMemberCountsByGroup(currentChannel.id, isTimezoneEnabled);
             }
         }
-        /*if (prevProps.currentChannel.id !== currentChannel.id) {
-            
-        }*/
 
         if (currentChannel.id !== prevState.currentChannel.id) {
             actions.setShowPreview(false);
@@ -1439,7 +1434,9 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                                 onUploadProgress={this.handleUploadProgress}
                                 postType='post'
                                 channelId={channelId}
-                            />
+                            >
+                                test
+                            </FileUpload>
                         </div>
                     </div>
                     <div
