@@ -352,7 +352,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
 
     static getDerivedStateFromProps(props: Props, state: State): Partial<State> {
         if(props.currentChannel != null){
-            Promise.resolve(props.currentChannel).then(value => this.setState({channelValue: value}));
+            Promise.resolve(props.currentChannel).then(value => {this.setState({channelValue: value})});
         }
         let updatedState: Partial<State> = {currentChannel: state.channelValue};
         if (props.channelValue.id !== state.currentChannel.id) {
