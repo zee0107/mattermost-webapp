@@ -67,12 +67,13 @@ function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
 
     return (state: GlobalState) => {
+        const channelId = 'kqe4sihhdid47gprhk6dwbuc4o';
         const config = getConfig(state);
         const currentUser = getCurrentUser(state);
         const license = getLicense(state);
         const currentChannel = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
         const currentChannelTeammateUsername = getUser(state, currentChannel.teammate_id || '')?.username;
-        const draft = getPostDraft(state, StoragePrefixes.DRAFT, currentChannel.id);
+        const draft = getPostDraft(state, StoragePrefixes.DRAFT, channelId);
         const latestReplyablePostId = getLatestReplyablePostId(state);
         const currentChannelMembersCount = getCurrentChannelStats(state) ? getCurrentChannelStats(state).member_count : 1;
         const tutorialStep = getInt(state, Preferences.TUTORIAL_STEP, getCurrentUserId(state), TutorialSteps.FINISHED);
@@ -88,9 +89,9 @@ function makeMapStateToProps() {
         const useChannelMentions = haveICurrentChannelPermission(state, Permissions.USE_CHANNEL_MENTIONS);
         const isLDAPEnabled = license?.IsLicensed === 'true' && license?.LDAPGroups === 'true';
         const useGroupMentions = isLDAPEnabled && haveICurrentChannelPermission(state, Permissions.USE_GROUP_MENTIONS);
-        const channelMemberCountsByGroup = selectChannelMemberCountsByGroup(state, currentChannel.id);
+        const channelMemberCountsByGroup = selectChannelMemberCountsByGroup(state, channelId);
         const currentTeamId = 'u57ytznuttyzbgapem9sqj4oyc';
-        const groupsWithAllowReference = useGroupMentions ? getAssociatedGroupsForReferenceByMention(state, currentTeamId, currentChannel.id) : null;
+        const groupsWithAllowReference = useGroupMentions ? getAssociatedGroupsForReferenceByMention(state, currentTeamId, channelId) : null;
         const enableTutorial = config.EnableTutorial === 'true';
         const showTutorialTip = enableTutorial && tutorialStep === TutorialSteps.POST_POPOVER;
         
@@ -123,7 +124,7 @@ function makeMapStateToProps() {
             shortcutReactToLastPostEmittedFrom,
             canPost,
             useChannelMentions,
-            shouldShowPreview: showPreviewOnCreatePost(state),
+            shouldShowPreview: true,
             groupsWithAllowReference,
             useGroupMentions,
             channelMemberCountsByGroup,
