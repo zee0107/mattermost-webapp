@@ -375,6 +375,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             scrollbarWidth: 0,
             errorClass: null,
             serverError: null,
+            currentChannel: props.currentChannel,
             channelId: 'kqe4sihhdid47gprhk6dwbuc4o',
             uploading: false,
         };
