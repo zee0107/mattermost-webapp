@@ -68,6 +68,7 @@ import {ModalData} from 'types/actions';
 import {FileInfo} from 'mattermost-redux/types/files';
 import {Emoji} from 'mattermost-redux/types/emojis';
 import {FilePreviewInfo} from 'components/file_preview/file_preview';
+import {UserProfile} from 'mattermost-redux/types/users';
 
 import CreatePostTip from './create_post_tip';
 
@@ -115,7 +116,7 @@ type Props = {
   *  Data used for posting message
   */
     currentUserId: string;
-
+    currentUser: UserProfile;
     /**
   * Force message submission on CTRL/CMD + ENTER
   */
@@ -1408,25 +1409,25 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
         if(uploading){
             if (!readOnlyChannel && !this.props.shouldShowPreview) {
                 fileUpload = (<div className='post-photo-content'>
-                                <div className='row'>
-                                    <div className='col-md-9'><strong>Add Photos / Music / Video</strong></div>
-                                    <div className='col-md-3'><a className='closePhotocontent' onClick={() => {this.setState({uploading: false})}}><i className='bi-x float-end'></i></a></div>
-                                    <div className='text-center'>
-                                        <FileUpload
-                                            ref={this.fileUploadRef}
-                                            fileCount={this.getFileCount()}
-                                            getTarget={this.getFileUploadTarget}
-                                            onFileUploadChange={this.handleFileUploadChange}
-                                            onUploadStart={this.handleUploadStart}
-                                            onFileUpload={this.handleFileUploadComplete}
-                                            onUploadError={this.handleUploadError}
-                                            onUploadProgress={this.handleUploadProgress}
-                                            postType='post'
-                                            channelId={channelId}
-                                        />
-                                    </div>
-                                </div>
+                    <div className='row'>
+                        <div className='col-md-9'><strong>Add Photos / Music / Video</strong></div>
+                        <div className='col-md-3'><a className='closePhotocontent' onClick={() => {this.setState({uploading: false})}}><i className='bi-x float-end'></i></a></div>
+                        <div className='text-center'>
+                            <FileUpload
+                                ref={this.fileUploadRef}
+                                fileCount={this.getFileCount()}
+                                getTarget={this.getFileUploadTarget}
+                                onFileUploadChange={this.handleFileUploadChange}
+                                onUploadStart={this.handleUploadStart}
+                                onFileUpload={this.handleFileUploadComplete}
+                                onUploadError={this.handleUploadError}
+                                onUploadProgress={this.handleUploadProgress}
+                                postType='post'
+                                channelId={channelId}
+                            />
+                        </div>
                     </div>
+                </div>
                 );
             }
         }
