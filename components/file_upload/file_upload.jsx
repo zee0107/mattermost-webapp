@@ -704,7 +704,7 @@ export class FileUpload extends PureComponent {
             <OverlayTrigger
                 delayShow={Constants.OVERLAY_TIME_DELAY}
                 placement='top'
-                trigger='hover focus'
+                trigger='focus'
                 overlay={
                     <Tooltip id='upload-tooltip'>
                         <KeyboardShortcutSequence
