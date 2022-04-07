@@ -375,7 +375,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             scrollbarWidth: 0,
             errorClass: null,
             serverError: null,
-            currentChannel: [],
+            currentChannel: {},
             channelId: 'kqe4sihhdid47gprhk6dwbuc4o',
             uploading: false,
         };
@@ -410,10 +410,6 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
     }
 
     componentDidUpdate(prevProps: Props, prevState: State) {
-        if(this.props.currentChannel !== null){
-            Promise.resolve(currentChannel).then(value => {this.setState({currentChannel: value})});
-        }
-
         const {useGroupMentions, isTimezoneEnabled, actions} = this.props;
         const {currentChannel} = this.state;
         if(prevState.currentChannel.id !== currentChannel.id){
