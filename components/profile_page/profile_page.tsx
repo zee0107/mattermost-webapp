@@ -83,7 +83,7 @@ type Props = {
     };
     channelIsArchived: boolean;
     viewArchivedChannels: boolean;
-    isCloud: boolean;
+    //isCloud: boolean;
 }
 
 type State = {

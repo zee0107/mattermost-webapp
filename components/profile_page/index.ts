@@ -49,7 +49,7 @@ function makeMapStateToProps() {
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
 
         const channel = Client4.getChannel('kqe4sihhdid47gprhk6dwbuc4o');
-        const currentChannelId = channel?.id;
+        const currentChannelId = kqe4sihhdid47gprhk6dwbuc4o;
 
         const config = getConfig(state);
 
@@ -100,7 +100,7 @@ function makeMapStateToProps() {
             enableOnboardingFlow,
             channelIsArchived: channel ? channel.delete_at !== 0 : false,
             viewArchivedChannels,
-            isCloud: getLicense(state).Cloud === 'true',
+            //isCloud: getLicense(state).Cloud === 'true',
             teamUrl: getCurrentRelativeTeamUrl(state),
         };
     };
