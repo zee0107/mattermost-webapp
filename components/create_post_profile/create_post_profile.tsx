@@ -1322,7 +1322,6 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
         const {renderScrollbar, channelId} = this.state;
         const ariaLabelMessageInput = Utils.localizeMessage('accessibility.sections.centerFooter', 'message input complimentary region');
 
-        console.log(channelId);
         let serverError = null;
         if (this.state.serverError) {
             serverError = (
