@@ -8,6 +8,7 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import deferComponentRender from 'components/deferComponentRender';
 import PostView from 'components/post_view';
+
 import homeImage from 'images/homeFeed.png';
 import coverImage from 'images/cover-photo.png';
 import profPic from 'images/profiles/user-profile-1.png';
@@ -83,14 +84,14 @@ type State = {
 export default class ProfilPage extends React.PureComponent<Props, State> {
     public static createDeferredPostView = () => {
         return deferComponentRender(
-            PostView/*,
+            PostView,
             <div
                 id='post-list'
                 className='a11y__region'
                 data-a11y-sort-order='1'
                 data-a11y-focus-child={true}
                 data-a11y-order-reversed={true}
-            />,*/
+            />,
         );
     }
 
