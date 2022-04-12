@@ -87,7 +87,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             <div
                 id='post-list'
                 className='a11y__region'
-                data-a11y-sort-order='1'
+                data-a11y-sort-order='0'
                 data-a11y-focus-child={true}
                 data-a11y-order-reversed={true}
             />,
@@ -546,8 +546,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     <div className='row'>
                                         <div className='col-md-12'>
                                             <CreatePostProfile />
-                                            {/*<textarea className='form-control write-whats-goingon mt-3 validate' style={{height: 102, resize: 'none'}} placeholder={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} id='floatingTextarea'></textarea>
-                                            <label htmlFor='floatingTextarea'>What's going on, {currentUser.first_name} {currentUser.last_name}.</label>*/}
                                         </div>
                                     </div>
 
