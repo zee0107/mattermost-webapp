@@ -475,9 +475,12 @@ export default class PostList extends React.PureComponent {
         this.setState({
             topPostId: getLatestPostId(this.props.postListIds.slice(visibleTopItem)),
         });
+
+        console.log('Top: ',this.state.topPostId);
     }
 
     onItemsRendered = ({visibleStartIndex}) => {
+        console.log(visibleStartIndex);
         this.updateFloatingTimestamp(visibleStartIndex);
     }
 
