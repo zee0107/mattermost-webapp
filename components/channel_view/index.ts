@@ -53,7 +53,9 @@ function mapStateToProps(state: GlobalState) {
     let channelRolesLoading = true;
     if (channel && channel.id) {
         const roles = getRoles(state);
-        window.localStorage.setItem('defaulChannel', JSON.stringify(channel));
+        if(channel.name === 'town-square'){
+            window.localStorage.setItem('defaulChannel', JSON.stringify(channel));
+        }
         const myChannelRoles = getMyChannelRoles(state);
         if (myChannelRoles[channel.id]) {
             const channelRoles = myChannelRoles[channel.id].values();
