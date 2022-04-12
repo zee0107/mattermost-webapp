@@ -44,7 +44,7 @@ function makeMapStateToProps() {
         ownProps.match.params.channel = "town-square";
         const team = getTeamByName(state, ownProps.match.params.team);
         let teammate;
-
+        console.log("Own Props: ", ownProps);
         const channel = getChannel(state, ownProps.channelId);
         let lastViewedAt = state.views.channel.lastChannelViewTime[ownProps.channelId];
         if (channel) {
