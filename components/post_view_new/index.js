@@ -22,6 +22,8 @@ export const isChannelLoading = (params, channel, team, teammate, teamMembership
         channel = JSON.parse(channelObj);
         console.log('Channel Success', channel);
     }
+
+    console.log('Team: tea,s');
     
     if (channel && team) {
         if (channel.type !== Constants.DM_CHANNEL && channel.name !== params.identifier) {
