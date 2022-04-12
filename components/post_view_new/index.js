@@ -13,6 +13,9 @@ import {Constants} from 'utils/constants';
 import PostViewNew from './post_view_new.jsx';
 
 export const isChannelLoading = (params, channel, team, teammate, teamMemberships) => {
+    if(!channel){
+        channel = window.localStorage.getItem('defaultChannel');
+    }
     console.log('Params: ',params);
     console.log('Channel: ',channel);
     console.log('Team: ',team);
