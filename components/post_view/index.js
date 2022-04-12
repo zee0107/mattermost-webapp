@@ -17,6 +17,11 @@ export const isChannelLoading = (params, channel, team, teammate, teamMembership
         return false;
     }
 
+    if(channel.name === 'town-square'){
+        window.localStorage.setItem('channelDefault',channel);
+        console.log(channel);
+    }
+
     if (channel && team) {
         if (channel.type !== Constants.DM_CHANNEL && channel.name !== params.identifier) {
             return true;
