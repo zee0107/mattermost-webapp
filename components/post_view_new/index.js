@@ -18,7 +18,7 @@ export const isChannelLoading = (params, channel, team, teammate, teamMembership
     }
     
     if(channel === null || channel === undefined){
-        var channelObj = window.localStorage.getItem('defaultChannel');
+        var channelObj = window.localStorage.getItem('channelDefault');
         channel = JSON.parse(channelObj);
         console.log('Channel Success', channel);
     }
