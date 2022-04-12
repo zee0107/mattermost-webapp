@@ -84,7 +84,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 className='a11y__region'
                 data-a11y-sort-order='1'
                 data-a11y-focus-child={true}
-                data-a11y-order-reversed={true}
+                data-a11y-order-reversed={false}
             />,
         );
     }
