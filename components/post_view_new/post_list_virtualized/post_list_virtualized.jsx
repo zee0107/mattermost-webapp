@@ -598,6 +598,7 @@ export default class PostList extends React.PureComponent {
                             className='post-list__content'
                         >
                             <LatestPostReader postIds={this.props.postListIds}/>
+                            {this.renderRow}
                             {/*<AutoSizer>
                                 {({height, width}) => (
                                     <React.Fragment>
@@ -634,7 +635,7 @@ export default class PostList extends React.PureComponent {
                                     </React.Fragment>
                                 )}
                             </AutoSizer>*/}
-                                {({height, width}) => (
+                                {/*{({height, width}) => (
                                     <React.Fragment>
                                         <div>
                                             <Pluggable
@@ -643,8 +644,8 @@ export default class PostList extends React.PureComponent {
 
                                             {this.renderToasts(width)}
                                         </div>
-                                        {this.renderRow}
-                                        {/*<DynamicSizeList
+                                        
+                                        <DynamicSizeList
                                             ref={this.listRef}
                                             height={height}
                                             width={width}
@@ -664,10 +665,10 @@ export default class PostList extends React.PureComponent {
                                             onItemsRendered={this.onItemsRendered}
                                             scrollToFailed={this.scrollToFailed}
                                         >
-                                            
-                                        </DynamicSizeList>*/}
+                                            {this.renderRow}
+                                        </DynamicSizeList>
                                     </React.Fragment>
-                                )}
+                                )}*/}
                         </div>
                     </div>
                 </div>
