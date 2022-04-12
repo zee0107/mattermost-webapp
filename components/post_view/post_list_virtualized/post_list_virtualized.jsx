@@ -464,6 +464,7 @@ export default class PostList extends React.PureComponent {
     }
 
     updateFloatingTimestamp = (visibleTopItem) => {
+        console.log('Top item: '+ visibleTopItem);
         if (!this.props.isMobileView) {
             return;
         }
@@ -471,7 +472,6 @@ export default class PostList extends React.PureComponent {
         if (!this.props.postListIds) {
             return;
         }
-        console.log('Top: '+ this.props.postListIds.slice(visibleTopItem));
         this.setState({
             topPostId: getLatestPostId(this.props.postListIds.slice(visibleTopItem)),
         });
