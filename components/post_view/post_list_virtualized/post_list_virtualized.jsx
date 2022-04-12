@@ -131,7 +131,7 @@ export default class PostList extends React.PureComponent {
             isScrolling: false,
 
             /* Intentionally setting null so that toast can determine when the first time this state is defined */
-            atBottom: false,
+            atBottom: null,
             lastViewedBottom: Date.now(),
             postListIds: [channelIntroMessage],
             topPostId: '',
@@ -180,7 +180,7 @@ export default class PostList extends React.PureComponent {
 
     getSnapshotBeforeUpdate(prevProps) {
         if (this.postListRef && this.postListRef.current) {
-            const postsAddedAtTop = this.props.postListIds && this.props.postListIds.length === prevProps.postListIds.length && this.props.postListIds[0] !== prevProps.postListIds[0];
+            const postsAddedAtTop = this.props.postListIds && this.props.postListIds.length !== prevProps.postListIds.length && this.props.postListIds[0] === prevProps.postListIds[0];
             const channelHeaderAdded = this.props.atOldestPost !== prevProps.atOldestPost;
             if ((postsAddedAtTop || channelHeaderAdded) && this.state.atBottom === false) {
                 const postListNode = this.postListRef.current;
@@ -209,7 +209,7 @@ export default class PostList extends React.PureComponent {
 
         if (snapshot) {
             const postlistScrollHeight = this.postListRef.current.scrollHeight;
-            const postsAddedAtTop = presentPostsCount === prevPostsCount && this.props.postListIds[0] !== prevProps.postListIds[0];
+            const postsAddedAtTop = presentPostsCount !== prevPostsCount && this.props.postListIds[0] === prevProps.postListIds[0];
             const channelHeaderAdded = this.props.atOldestPost !== prevProps.atOldestPost;
             if ((postsAddedAtTop || channelHeaderAdded) && !this.state.atBottom && snapshot) {
                 const scrollValue = snapshot.previousScrollTop + (postlistScrollHeight - snapshot.previousScrollHeight);
@@ -319,7 +319,8 @@ export default class PostList extends React.PureComponent {
         }
 
         // Since the first in the list is the latest message
-        const isLastPost = itemId === this.state.postListIds[0];
+        const lastIndex = this.state.postListIds.length - 1;
+        const isLastPost = itemId === this.state.postListIds[lastIndex];
 
         return (
             <div
