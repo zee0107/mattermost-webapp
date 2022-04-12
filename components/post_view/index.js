@@ -13,6 +13,9 @@ import {Constants} from 'utils/constants';
 import PostView from './post_view.jsx';
 
 export const isChannelLoading = (params, channel, team, teammate, teamMemberships) => {
+    console.log("Params: ",params);
+    console.log("Channel: ",channel);
+    console.log("Team: ",team);
     if (params.postid) {
         return false;
     }
@@ -39,8 +42,6 @@ function makeMapStateToProps() {
     return function mapStateToProps(state, ownProps) {
         ownProps.match.params.team = "crypter";
         const team = getTeamByName(state, ownProps.match.params.team);
-        console.log("OwnProps",ownProps);
-        console.log("State",state);
         let teammate;
 
         const channel = getChannel(state, ownProps.channelId);
