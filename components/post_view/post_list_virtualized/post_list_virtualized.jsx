@@ -387,7 +387,7 @@ export default class PostList extends React.PureComponent {
             const postsRenderedRange = this.listRef.current._getRangeToRender(); //eslint-disable-line no-underscore-dangle
 
             // postsRenderedRange[3] is the visibleStopIndex which is post at the bottom of the screen
-            if (postsRenderedRange[3] <= 1 && !this.props.atLatestPost) {
+            if (postsRenderedRange[this.props.postListIds.length - 1] <= 1 && !this.props.atLatestPost) {
                 this.props.actions.canLoadMorePosts(PostRequestTypes.AFTER_ID);
             }
 
@@ -464,7 +464,6 @@ export default class PostList extends React.PureComponent {
     }
 
     updateFloatingTimestamp = (visibleTopItem) => {
-        console.log('Top item: '+ visibleTopItem);
         if (!this.props.isMobileView) {
             return;
         }
