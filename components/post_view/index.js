@@ -41,6 +41,7 @@ function makeMapStateToProps() {
         let teammate;
 
         const channel = getChannel(state, ownProps.channelId);
+        console.log(channel);
         let lastViewedAt = state.views.channel.lastChannelViewTime[ownProps.channelId];
         if (channel) {
             if (channel.type === Constants.DM_CHANNEL && channel.teammate_id) {
