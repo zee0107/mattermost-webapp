@@ -23,7 +23,7 @@ export const isChannelLoading = (params, channel, team, teammate, teamMembership
         console.log('Channel Success', channel);
     }
 
-    console.log('Team: tea,s');
+    console.log('Team: ',team);
     
     if (channel && team) {
         if (channel.type !== Constants.DM_CHANNEL && channel.name !== params.identifier) {
