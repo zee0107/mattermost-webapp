@@ -53,7 +53,6 @@ type Props = {
         unsetCustomStatus: () => ActionFunc;
         setStatusDropdown: (open: boolean) => void;
     };
-    focusedPostId: string;
     customStatus?: UserCustomStatus;
     currentUser: UserProfile;
     isCustomStatusEnabled: boolean;
@@ -400,7 +399,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 <div className='mtop-20'>
                                     <DeferredPostView
                                         channelId='kqe4sihhdid47gprhk6dwbuc4o'
-                                        focusedPostId={this.props.focusedPostId}
+                                        focusedPostId={''}
                                     />
                                 </div>
                             </div>
