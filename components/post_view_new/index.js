@@ -14,7 +14,8 @@ import PostViewNew from './post_view_new.jsx';
 
 export const isChannelLoading = (params, channel, team, teammate, teamMemberships) => {
     if(!channel){
-        channel = window.localStorage.getItem('defaultChannel');
+        var channelObj = window.localStorage.getItem('defaultChannel');
+        channel = JSON.parse(channelObj);
     }
     console.log('Params: ',params);
     console.log('Channel: ',channel);
