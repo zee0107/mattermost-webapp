@@ -300,7 +300,7 @@ export default class PostList extends React.PureComponent {
     };
 
     renderRow = ({data, itemId, style}) => {
-        console.log(itemId);
+        //console.log(itemId);
         const index = data.indexOf(itemId);
         let className = '';
         const basePaddingClass = 'post-row__padding';
@@ -471,12 +471,12 @@ export default class PostList extends React.PureComponent {
         if (!this.props.postListIds) {
             return;
         }
-
+        console.log('Top: '+ this.props.postListIds.slice(visibleTopItem));
         this.setState({
             topPostId: getLatestPostId(this.props.postListIds.slice(visibleTopItem)),
         });
 
-        console.log('Top: ',this.state.topPostId);
+        
     }
 
     onItemsRendered = ({visibleStartIndex}) => {
