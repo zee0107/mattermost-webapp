@@ -129,6 +129,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {return null;}
+        
         return (<Avatar size={size} url={this.props.profilePicture} />);
     }
 

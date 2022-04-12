@@ -319,7 +319,7 @@ export default class PostList extends React.PureComponent {
         }
 
         // Since the first in the list is the latest message
-        const isLastPost = itemId === this.state.postListIds[0];
+        const isLastPost = itemId === this.state.postListIds[data.length - 1];
 
         return (
             <div
