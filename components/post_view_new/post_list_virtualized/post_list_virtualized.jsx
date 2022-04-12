@@ -41,7 +41,7 @@ const postListStyle = {
 const virtListStyles = {
     position: 'absolute',
     bottom: '0',
-    //maxHeight: '100%',
+    maxHeight: '100%',
 };
 
 const OFFSET_TO_SHOW_TOAST = -50;
@@ -319,7 +319,7 @@ export default class PostList extends React.PureComponent {
         }
 
         // Since the first in the list is the latest message
-        const isLastPost = itemId === this.state.postListIds[data.length - 1];
+        const isLastPost = itemId === this.state.postListIds[0];
 
         return (
             <div
@@ -497,20 +497,20 @@ export default class PostList extends React.PureComponent {
             if (isDateLine(this.state.postListIds[newMessagesSeparatorIndex + 1])) {
                 return {
                     index: newMessagesSeparatorIndex + 1,
-                    position: 'start',
+                    position: 'end',
                     offset: OFFSET_TO_SHOW_TOAST,
                 };
             }
             return {
                 index: newMessagesSeparatorIndex,
-                position: 'start',
+                position: 'end',
                 offset: OFFSET_TO_SHOW_TOAST,
             };
         }
 
         return {
             index: 0,
-            position: 'end',
+            position: 'start',
         };
     }
 
@@ -565,7 +565,7 @@ export default class PostList extends React.PureComponent {
             <div
                 role='list'
                 className='a11y__region'
-                data-a11y-sort-order='0'
+                data-a11y-sort-order='1'
                 data-a11y-focus-child={true}
                 data-a11y-order-reversed={false}
                 data-a11y-loop-navigation={false}
@@ -608,7 +608,7 @@ export default class PostList extends React.PureComponent {
 
                                             {this.renderToasts(width)}
                                         </div>
-
+                                        {this.renderRow}
                                         <DynamicSizeList
                                             ref={this.listRef}
                                             height={height}
