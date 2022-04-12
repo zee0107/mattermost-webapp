@@ -397,28 +397,11 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                 </div>
-                                <div className='col-lg-12 post-div mtop-10'>
+                                <div className='mtop-20'>
                                     <DeferredPostView
                                         channelId='kqe4sihhdid47gprhk6dwbuc4o'
                                         focusedPostId={this.props.focusedPostId}
                                     />
-                                    {/*<div className='d-flex'>
-                                        <div className='col-lg-2 text-center removePaddingRight'>
-                                            <img src={postPic} className='post-img'></img>
-                                        </div>
-                                        <div className='col-lg-9'>
-                                            <h5 className='getStartPrimaryText'>Cody Fisher</h5>
-                                            <h6 className='getSecondaryText'>New york City, Ny</h6>
-                                        </div>
-                                        <div className='col-lg-1'>
-                                            <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' className='bi bi-chevron-down margin-top-30' viewBox='0 0 16 16'>
-                                            <path fillRule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z' fill='var(--text-primary)'/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div className='col-lg-12'>
-                                        <img src={postImage}></img>
-                                    </div>*/}
                                 </div>
                             </div>
                             <div className='col-lg-4'>
