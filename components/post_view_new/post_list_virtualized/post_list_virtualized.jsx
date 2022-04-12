@@ -644,7 +644,7 @@ export default class PostList extends React.PureComponent {
                                             {this.renderToasts(width)}
                                         </div>
                                         {this.renderRow}
-                                        <DynamicSizeList
+                                        {/*<DynamicSizeList
                                             ref={this.listRef}
                                             height={height}
                                             width={width}
@@ -665,7 +665,7 @@ export default class PostList extends React.PureComponent {
                                             scrollToFailed={this.scrollToFailed}
                                         >
                                             
-                                        </DynamicSizeList>
+                                        </DynamicSizeList>*/}
                                     </React.Fragment>
                                 )}
                         </div>
