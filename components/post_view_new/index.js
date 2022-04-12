@@ -17,11 +17,11 @@ export const isChannelLoading = (params, channel, team, teammate, teamMembership
         return false;
     }
 
-    if(!channel){
+    /*if(!channel){
         var channelObj = window.localStorage.getItem('defaultChannel');
         channel = JSON.parse(channelObj);
         console.log('Channel Success', channel);
-    }
+    }*/
 
     if (channel && team) {
         if (channel.type !== Constants.DM_CHANNEL && channel.name !== params.identifier) {
