@@ -161,6 +161,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         if (!this.props.profilePicture) {
             return null;
         }
+        
         return (
             <Avatar
                 size={size}
