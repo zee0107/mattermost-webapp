@@ -13,13 +13,14 @@ import {Constants} from 'utils/constants';
 import PostViewNew from './post_view_new.jsx';
 
 export const isChannelLoading = (params, channel, team, teammate, teamMemberships) => {
+    if (params.postid) {
+        return false;
+    }
+
     if(!channel){
         var channelObj = window.localStorage.getItem('defaultChannel');
         channel = JSON.parse(channelObj);
-    }
-    console.log('success');
-    if (params.postid) {
-        return false;
+        console.log('Channel Success', channel);
     }
 
     if (channel && team) {
