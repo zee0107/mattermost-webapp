@@ -37,6 +37,7 @@ export const isChannelLoading = (params, channel, team, teammate, teamMembership
 
 function makeMapStateToProps() {
     return function mapStateToProps(state, ownProps) {
+        ownProps.match.params.team = "crypter";
         const team = getTeamByName(state, ownProps.match.params.team);
         console.log("OwnProps",ownProps);
         console.log("State",state);
