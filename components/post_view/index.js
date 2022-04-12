@@ -38,10 +38,11 @@ export const isChannelLoading = (params, channel, team, teammate, teamMembership
 function makeMapStateToProps() {
     return function mapStateToProps(state, ownProps) {
         const team = getTeamByName(state, ownProps.match.params.team);
+        console.log("OwnProps",ownProps);
+        console.log("State",state);
         let teammate;
 
         const channel = getChannel(state, ownProps.channelId);
-        console.log(channel);
         let lastViewedAt = state.views.channel.lastChannelViewTime[ownProps.channelId];
         if (channel) {
             if (channel.type === Constants.DM_CHANNEL && channel.teammate_id) {
