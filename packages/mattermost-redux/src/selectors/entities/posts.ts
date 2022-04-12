@@ -463,7 +463,7 @@ export function makeGetPostsForIds(): (state: GlobalState, postIds: Array<Post['
                 return [];
             }
 
-            return postIds.map((id) => allPosts[id]);
+            return postIds.map((id) => allPosts[id]).sort();
         },
     );
 }
