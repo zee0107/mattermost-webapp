@@ -501,20 +501,20 @@ export default class PostList extends React.PureComponent {
             if (isDateLine(this.state.postListIds[newMessagesSeparatorIndex + 1])) {
                 return {
                     index: newMessagesSeparatorIndex + 1,
-                    position: 'start',
+                    position: 'end',
                     offset: OFFSET_TO_SHOW_TOAST,
                 };
             }
             return {
                 index: newMessagesSeparatorIndex,
-                position: 'start',
+                position: 'end',
                 offset: OFFSET_TO_SHOW_TOAST,
             };
         }
 
         return {
             index: 0,
-            position: 'end',
+            position: 'start',
         };
     }
 
@@ -528,11 +528,11 @@ export default class PostList extends React.PureComponent {
     }
 
     scrollToBottom = () => {
-        this.listRef.current.scrollToItem(0, 'end');
+        this.listRef.current.scrollToItem(0, 'start');
     }
 
     scrollToNewMessage = () => {
-        this.listRef.current.scrollToItem(getNewMessageIndex(this.state.postListIds), 'start', OFFSET_TO_SHOW_TOAST);
+        this.listRef.current.scrollToItem(getNewMessageIndex(this.state.postListIds), 'end', OFFSET_TO_SHOW_TOAST);
     }
 
     updateNewMessagesAtInChannel = (lastViewedAt = Date.now()) => {
@@ -619,7 +619,7 @@ export default class PostList extends React.PureComponent {
                                             height={height}
                                             width={width}
                                             className='post-list__dynamic'
-                                            itemData={this.props.postListIds}
+                                            itemData={this.state.postListIds}
                                             overscanCountForward={OVERSCAN_COUNT_FORWARD}
                                             overscanCountBackward={OVERSCAN_COUNT_BACKWARD}
                                             onScroll={this.onScroll}
