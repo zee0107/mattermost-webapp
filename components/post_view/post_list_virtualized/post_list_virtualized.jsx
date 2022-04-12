@@ -175,7 +175,7 @@ export default class PostList extends React.PureComponent {
         this.props.actions.checkAndSetMobileView();
 
         window.addEventListener('resize', this.handleWindowResize);
-        //EventEmitter.addListener(EventTypes.POST_LIST_SCROLL_TO_BOTTOM, this.scrollToLatestMessages);
+        EventEmitter.addListener(EventTypes.POST_LIST_SCROLL_TO_BOTTOM, this.scrollToLatestMessages);
     }
 
     getSnapshotBeforeUpdate(prevProps) {
@@ -224,7 +224,7 @@ export default class PostList extends React.PureComponent {
     componentWillUnmount() {
         this.mounted = false;
         window.removeEventListener('resize', this.handleWindowResize);
-        //EventEmitter.removeListener(EventTypes.POST_LIST_SCROLL_TO_BOTTOM, this.scrollToLatestMessages);
+        EventEmitter.removeListener(EventTypes.POST_LIST_SCROLL_TO_BOTTOM, this.scrollToLatestMessages);
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -619,7 +619,7 @@ export default class PostList extends React.PureComponent {
                                             height={height}
                                             width={width}
                                             className='post-list__dynamic'
-                                            itemData={this.state.postListIds}
+                                            //itemData={this.state.postListIds}
                                             overscanCountForward={OVERSCAN_COUNT_FORWARD}
                                             overscanCountBackward={OVERSCAN_COUNT_BACKWARD}
                                             onScroll={this.onScroll}
