@@ -175,12 +175,12 @@ export default class PostList extends React.PureComponent {
         this.props.actions.checkAndSetMobileView();
 
         window.addEventListener('resize', this.handleWindowResize);
-        EventEmitter.addListener(EventTypes.POST_LIST_SCROLL_TO_BOTTOM, this.scrollToLatestMessages);
+        //EventEmitter.addListener(EventTypes.POST_LIST_SCROLL_TO_BOTTOM, this.scrollToLatestMessages);
     }
 
     getSnapshotBeforeUpdate(prevProps) {
         if (this.postListRef && this.postListRef.current) {
-            const postsAddedAtTop = this.props.postListIds && this.props.postListIds.length !== prevProps.postListIds.length && this.props.postListIds[this.props.postListIds.length-1] === prevProps.postListIds[this.props.postListIds.length-1];
+            const postsAddedAtTop = this.props.postListIds && this.props.postListIds.length !== prevProps.postListIds.length && this.props.postListIds[0] === prevProps.postListIds[0];
             const channelHeaderAdded = this.props.atOldestPost !== prevProps.atOldestPost;
             if ((postsAddedAtTop || channelHeaderAdded) && this.state.atBottom === false) {
                 const postListNode = this.postListRef.current;
@@ -209,7 +209,7 @@ export default class PostList extends React.PureComponent {
 
         if (snapshot) {
             const postlistScrollHeight = this.postListRef.current.scrollHeight;
-            const postsAddedAtTop = presentPostsCount !== prevPostsCount && this.props.postListIds[this.props.postListIds.length-1] === prevProps.postListIds[this.props.postListIds.length-1];
+            const postsAddedAtTop = presentPostsCount !== prevPostsCount && this.props.postListIds[0] === prevProps.postListIds[0];
             const channelHeaderAdded = this.props.atOldestPost !== prevProps.atOldestPost;
             if ((postsAddedAtTop || channelHeaderAdded) && !this.state.atBottom && snapshot) {
                 const scrollValue = snapshot.previousScrollTop + (postlistScrollHeight - snapshot.previousScrollHeight);
@@ -224,7 +224,7 @@ export default class PostList extends React.PureComponent {
     componentWillUnmount() {
         this.mounted = false;
         window.removeEventListener('resize', this.handleWindowResize);
-        EventEmitter.removeListener(EventTypes.POST_LIST_SCROLL_TO_BOTTOM, this.scrollToLatestMessages);
+        //EventEmitter.removeListener(EventTypes.POST_LIST_SCROLL_TO_BOTTOM, this.scrollToLatestMessages);
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -430,7 +430,7 @@ export default class PostList extends React.PureComponent {
         if (atBottom !== this.state.atBottom) {
             // Update lastViewedBottom when the list reaches or leaves the bottom
             let lastViewedBottom = Date.now();
-            if (this.props.latestPostTimeStamp < lastViewedBottom) {
+            if (this.props.latestPostTimeStamp > lastViewedBottom) {
                 lastViewedBottom = this.props.latestPostTimeStamp;
             }
 
