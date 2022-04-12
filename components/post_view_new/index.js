@@ -16,12 +16,12 @@ export const isChannelLoading = (params, channel, team, teammate, teamMembership
     if (params.postid) {
         return false;
     }
-
-    /*if(!channel){
+    
+    if(channel === null || channel === undefined){
         var channelObj = window.localStorage.getItem('defaultChannel');
         channel = JSON.parse(channelObj);
         console.log('Channel Success', channel);
-    }*/
+    }
     
     if (channel && team) {
         if (channel.type !== Constants.DM_CHANNEL && channel.name !== params.identifier) {
