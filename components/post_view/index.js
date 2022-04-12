@@ -42,9 +42,6 @@ export const isChannelLoading = (params, channel, team, teammate, teamMembership
 
 function makeMapStateToProps() {
     return function mapStateToProps(state, ownProps) {
-        if(channel.name === 'town-square'){
-            window.localStorage.setItem('state',JSON.stringify(state));
-        }
         const team = getTeamByName(state, ownProps.match.params.team);
         let teammate;
         const channel = getChannel(state, ownProps.channelId);
