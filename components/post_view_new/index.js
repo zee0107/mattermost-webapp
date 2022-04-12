@@ -13,9 +13,6 @@ import {Constants} from 'utils/constants';
 import PostViewNew from './post_view_new.jsx';
 
 export const isChannelLoading = (params, channel, team, teammate, teamMemberships) => {
-    console.log('Params: ',params);
-    console.log('Channel: ',channel);
-    console.log('Team: ',team);
     if (params.postid) {
         return false;
     }
@@ -46,7 +43,6 @@ function makeMapStateToProps() {
         ownProps.match.params.channel = 'town-square';
         const team = getTeamByName(state, ownProps.match.params.team);
         let teammate;
-        console.log('Own Props: ', ownProps);
         const channel = getChannel(state, ownProps.channelId);
         let lastViewedAt = state.views.channel.lastChannelViewTime[ownProps.channelId];
         if (channel) {
