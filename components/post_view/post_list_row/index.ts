@@ -23,7 +23,7 @@ type Props = {
 
 function mapStateToProps(state: GlobalState, ownProps: Props) {
     const shortcutReactToLastPostEmittedFrom = getShortcutReactToLastPostEmittedFrom(state);
-    console.log(ownProps);
+    //console.log(ownProps.post);
     return {
         post: ownProps.post,
         channel: ownProps.channel,

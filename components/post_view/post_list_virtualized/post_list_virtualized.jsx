@@ -300,6 +300,7 @@ export default class PostList extends React.PureComponent {
     };
 
     renderRow = ({data, itemId, style}) => {
+        console.log(itemId);
         const index = data.indexOf(itemId);
         let className = '';
         const basePaddingClass = 'post-row__padding';
