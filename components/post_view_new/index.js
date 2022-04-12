@@ -17,9 +17,7 @@ export const isChannelLoading = (params, channel, team, teammate, teamMembership
         var channelObj = window.localStorage.getItem('defaultChannel');
         channel = JSON.parse(channelObj);
     }
-    console.log('Params: ',params);
-    console.log('Channel: ',channel);
-    console.log('Team: ',team);
+    console.log('success');
     if (params.postid) {
         return false;
     }
