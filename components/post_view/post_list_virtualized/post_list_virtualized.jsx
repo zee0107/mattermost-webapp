@@ -209,7 +209,7 @@ export default class PostList extends React.PureComponent {
 
         if (snapshot) {
             const postlistScrollHeight = this.postListRef.current.scrollHeight;
-            const postsAddedAtTop = presentPostsCount !== prevPostsCount && this.props.postListIds[0] === prevProps.postListIds[0];
+            const postsAddedAtTop = presentPostsCount === prevPostsCount && this.props.postListIds[0] !== prevProps.postListIds[0];
             const channelHeaderAdded = this.props.atOldestPost !== prevProps.atOldestPost;
             if ((postsAddedAtTop || channelHeaderAdded) && !this.state.atBottom && snapshot) {
                 const scrollValue = snapshot.previousScrollTop + (postlistScrollHeight - snapshot.previousScrollHeight);
@@ -301,7 +301,6 @@ export default class PostList extends React.PureComponent {
 
     renderRow = ({data, itemId, style}) => {
         const index = data.indexOf(itemId);
-        console.log(data + ' X ' + itemId);
         let className = '';
         const basePaddingClass = 'post-row__padding';
         const previousItemId = (index !== -1 && index < data.length - 1) ? data[index + 1] : '';

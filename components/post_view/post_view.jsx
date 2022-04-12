@@ -37,7 +37,6 @@ export default class PostView extends React.PureComponent {
                 channelLoading: props.channelLoading,
             };
         }
-
         return null;
     }
 
