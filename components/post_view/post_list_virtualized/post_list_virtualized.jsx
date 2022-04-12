@@ -131,7 +131,7 @@ export default class PostList extends React.PureComponent {
             isScrolling: false,
 
             /* Intentionally setting null so that toast can determine when the first time this state is defined */
-            atBottom: null,
+            atBottom: false,
             lastViewedBottom: Date.now(),
             postListIds: [channelIntroMessage],
             topPostId: '',
