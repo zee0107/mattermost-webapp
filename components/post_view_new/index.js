@@ -17,12 +17,12 @@ export const isChannelLoading = (params, channel, team, teammate, teamMembership
         return false;
     }
 
-    /*if(!channel){
+    if(!channel){
         var channelObj = window.localStorage.getItem('defaultChannel');
         channel = JSON.parse(channelObj);
         console.log('Channel Success', channel);
-    }*/
-
+    }
+    
     if (channel && team) {
         if (channel.type !== Constants.DM_CHANNEL && channel.name !== params.identifier) {
             return true;
@@ -49,8 +49,6 @@ function makeMapStateToProps() {
         ownProps.match.params.channel = 'town-square';
         const team = getTeamByName(state, ownProps.match.params.team);
         let teammate;
-        console.log('Own Props: ', ownProps);
-        console.log('State: ', state);
         const channel = getChannel(state, ownProps.channelId);
         let lastViewedAt = state.views.channel.lastChannelViewTime[ownProps.channelId];
         if (channel) {
