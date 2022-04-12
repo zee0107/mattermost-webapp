@@ -16,9 +16,6 @@ export const isChannelLoading = (params, channel, team, teammate, teamMembership
     if (params.postid) {
         return false;
     }
-
-    console.log('Team: ',team);
-    
     if (channel && team) {
         if (channel.type !== Constants.DM_CHANNEL && channel.name !== params.identifier) {
             return true;

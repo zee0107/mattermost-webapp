@@ -41,7 +41,7 @@ const postListStyle = {
 const virtListStyles = {
     position: 'absolute',
     bottom: '0',
-    maxHeight: '100%',
+    //maxHeight: '100%',
 };
 
 const OFFSET_TO_SHOW_TOAST = -50;
@@ -524,11 +524,11 @@ export default class PostList extends React.PureComponent {
     }
 
     scrollToBottom = () => {
-        this.listRef.current.scrollToItem(0, 'end');
+        this.listRef.current.scrollToItem(0, 'start');
     }
 
     scrollToNewMessage = () => {
-        this.listRef.current.scrollToItem(getNewMessageIndex(this.state.postListIds), 'start', OFFSET_TO_SHOW_TOAST);
+        this.listRef.current.scrollToItem(getNewMessageIndex(this.state.postListIds), 'end', OFFSET_TO_SHOW_TOAST);
     }
 
     updateNewMessagesAtInChannel = (lastViewedAt = Date.now()) => {
@@ -565,7 +565,7 @@ export default class PostList extends React.PureComponent {
             <div
                 role='list'
                 className='a11y__region'
-                data-a11y-sort-order='1'
+                data-a11y-sort-order='0'
                 data-a11y-focus-child={true}
                 data-a11y-order-reversed={false}
                 data-a11y-loop-navigation={false}
@@ -608,7 +608,7 @@ export default class PostList extends React.PureComponent {
 
                                             {this.renderToasts(width)}
                                         </div>
-                                        {this.renderRow}
+
                                         <DynamicSizeList
                                             ref={this.listRef}
                                             height={height}
