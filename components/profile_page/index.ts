@@ -63,5 +63,4 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
     };
 }
 
-
 export default connect(makeMapStateToProps, mapDispatchToProps)(ProfilPage);

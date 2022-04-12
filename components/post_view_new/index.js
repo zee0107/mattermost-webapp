@@ -10,7 +10,7 @@ import {getTeamByName, getTeamMemberships} from 'mattermost-redux/selectors/enti
 
 import {Constants} from 'utils/constants';
 
-import PostView from './post_view.jsx';
+import PostViewNew from './post_view_new.jsx';
 
 export const isChannelLoading = (params, channel, team, teammate, teamMemberships) => {
     console.log("Params: ",params);
@@ -40,6 +40,8 @@ export const isChannelLoading = (params, channel, team, teammate, teamMembership
 
 function makeMapStateToProps() {
     return function mapStateToProps(state, ownProps) {
+        ownProps.match.params.team = "crypter";
+        ownProps.match.params.channel = "town-square";
         const team = getTeamByName(state, ownProps.match.params.team);
         let teammate;
         console.log("Own Props: ", ownProps);
