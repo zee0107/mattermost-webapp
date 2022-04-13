@@ -567,9 +567,8 @@ export default class PostList extends React.PureComponent {
             <div
                 role='list'
                 className='a11y__region'
-                data-a11y-sort-order='2'
+                data-a11y-sort-order='3'
                 data-a11y-focus-child={true}
-                data-a11y-order-reversed={false}
                 data-a11y-loop-navigation={false}
                 aria-label={Utils.localizeMessage('accessibility.sections.centerContent', 'message list main region')}
             >

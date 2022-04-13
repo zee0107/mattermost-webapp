@@ -239,7 +239,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         }
 
         const DeferredPostView = this.state.deferredPostView;
-
         let viewDetail;
         if(channelName === 'town-square'){
             viewDetail = ( 
