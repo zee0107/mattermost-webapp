@@ -179,7 +179,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
 
     handleDotMenuOpened = (open: boolean) => {
         this.setState({showDotMenu: open});
-        this.props.handleDropdownOpened(open || this.state.showEmojiPicker);
+        //this.props.handleDropdownOpened(open || this.state.showEmojiPicker);
     };
 
     getDotMenu = (): HTMLDivElement => {
