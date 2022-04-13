@@ -372,7 +372,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                             </div>
                                         </div>
                                     </div>
-                                    
                                     {/*<div className='col-lg-3 removePaddingRight margin-top-share'>
                                         <select id='selectDesktop' className='share-select small'>
                                             <option value='Everyone'>&#127760; Everyone</option>
