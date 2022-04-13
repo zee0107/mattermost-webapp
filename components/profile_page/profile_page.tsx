@@ -98,9 +98,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
+
         this.state = {openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
     }
-
+    
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
