@@ -349,6 +349,7 @@ export default class Post extends React.PureComponent {
             post,
             hasReplies,
             isCollapsedThreadsEnabled,
+            currentUserId,
         } = this.props;
         if (!post.id) {
             return null;
@@ -386,8 +387,10 @@ export default class Post extends React.PureComponent {
             centerClass = 'center';
         }
 
-        return (
-            <div className='mbot-20 chat-box'>
+        let postView;
+        if(post.user_id === currentUserId){
+            postView = (
+                <div className='mbot-20 chat-box'>
                 <PostContext.Provider value={{handlePopupOpened: this.handleDropdownOpened}}>
                     <PostAriaLabelDiv
                         ref={this.postRef}
@@ -446,6 +449,13 @@ export default class Post extends React.PureComponent {
                     </PostAriaLabelDiv>
                 </PostContext.Provider>
             </div>
+            );
+        }
+
+        return (
+            <>
+                {postView}
+            </>
         );
     }
 }
