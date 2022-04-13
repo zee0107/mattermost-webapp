@@ -566,13 +566,10 @@ export default class PostList extends React.PureComponent {
         return (
             <>
                 <LatestPostReader postIds={this.props.postListIds}/>
-                            <AutoSizer>
-                                {({height, width}) => (
-                                    <React.Fragment>
-                                        <DynamicSizeList
+                <DynamicSizeList
                                             ref={this.listRef}
-                                            height={height}
-                                            width={width}
+                                            height={'100%'}
+                                            width={'100%'}
                                             className='post-list__dynamic'
                                             itemData={this.state.postListIds}
                                             overscanCountForward={OVERSCAN_COUNT_FORWARD}
@@ -591,9 +588,6 @@ export default class PostList extends React.PureComponent {
                                         >
                                             {this.renderRow}
                                         </DynamicSizeList>
-                                    </React.Fragment>
-                                )}
-                            </AutoSizer>
             </>
             /*<div
                 role='list'
