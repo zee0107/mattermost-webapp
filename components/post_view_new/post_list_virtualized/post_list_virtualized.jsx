@@ -573,7 +573,74 @@ export default class PostList extends React.PureComponent {
                 data-a11y-loop-navigation={false}
                 aria-label={Utils.localizeMessage('accessibility.sections.centerContent', 'message list main region')}
             >
-                {this.renderRow}
+                {this.props.isMobileView} {/*&& (
+                    {/*<React.Fragment>
+                        /*<FloatingTimestamp
+                            isScrolling={this.state.isScrolling}
+                            postId={this.state.topPostId}
+                        />
+                        <ScrollToBottomArrows
+                            isScrolling={this.state.isScrolling}
+                            atBottom={this.state.atBottom}
+                            onClick={this.scrollToBottom}
+                        />
+                    </React.Fragment>
+                )}*/}
+
+                 <div
+                    role='presentation'
+                    className='post-list-holder-by-time'
+                    key={'postlist-' + channelId}
+                >
+                    <div
+                        role='presentation'
+                        className='post-list__table'
+                    >
+                        <div
+                            id='postListContent'
+                            className='post-list__content'
+                        >
+                            <LatestPostReader postIds={this.props.postListIds}/>
+                            {this.renderRow}
+                            {/*<AutoSizer>
+                                {({height, width}) => (
+                                    <React.Fragment>
+                                        <div>
+                                            <Pluggable
+                                                pluggableName='ChannelToast'
+                                            />
+
+                                            {this.renderToasts(width)}
+                                        </div>
+                                        
+                                        <DynamicSizeList
+                                            ref={this.listRef}
+                                            height={height}
+                                            width={width}
+                                            className='post-list__dynamic'
+                                            itemData={this.state.postListIds}
+                                            overscanCountForward={OVERSCAN_COUNT_FORWARD}
+                                            overscanCountBackward={OVERSCAN_COUNT_BACKWARD}
+                                            onScroll={this.onScroll}
+                                            initScrollToIndex={this.initScrollToIndex}
+                                            canLoadMorePosts={this.props.actions.canLoadMorePosts}
+                                            innerRef={this.postListRef}
+                                            style={{...virtListStyles, ...dynamicListStyle}}
+                                            innerListStyle={postListStyle}
+                                            initRangeToRender={this.initRangeToRender}
+                                            loaderId={PostListRowListIds.OLDER_MESSAGES_LOADER}
+                                            correctScrollToBottom={this.props.atLatestPost}
+                                            onItemsRendered={this.onItemsRendered}
+                                            scrollToFailed={this.scrollToFailed}
+                                        >
+                                            {this.renderRow}
+                                        </DynamicSizeList>
+                                    </React.Fragment>
+                                )}
+                                </AutoSizer>*/}
+                        </div>
+                    </div>
+                </div>
             </div>
             /*<div
                 role='list'
