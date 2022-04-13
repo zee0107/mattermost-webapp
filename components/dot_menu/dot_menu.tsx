@@ -399,7 +399,7 @@ export class DotMenuClass extends React.PureComponent<Props, State> {
         const spaceOnBottom = (totalSpace - (spaceOnTop + Constants.POST_AREA_HEIGHT));
 
         this.setState({
-            openUp: (spaceOnTop > spaceOnBottom),
+            openUp: false/*(spaceOnTop > spaceOnBottom)*/,
         });
     }
 
@@ -481,7 +481,6 @@ export class DotMenuClass extends React.PureComponent<Props, State> {
                         })}
                         type='button'
                         aria-expanded='false'
-                        style={{marginTop: -25,}}
                     >
                         {/*<DotsHorizontalIcon className={'icon icon--small'}/>*/}
                         <i class="bi bi-chevron-down"></i>
