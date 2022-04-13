@@ -94,10 +94,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         );
     }
 
-    static defaultProps = {
-        userId: '',
-        profilePicture: '',
-    }
+    static defaultProps = {userId: '',profilePicture: '',}
 
     constructor(props: Props) {
         super(props);
