@@ -567,13 +567,13 @@ export class DotMenuClass extends React.PureComponent<Props, State> {
                     <Menu.ItemAction
                         id={`edit_post_${this.props.post.id}`}
                         show={this.state.canEdit}
-                        text={Utils.localizeMessage('post_info.edit', 'Edit')}
+                        text={Utils.localizeMessage('post_info.edit', 'Edit Post')}
                         onClick={this.handleEditMenuItemActivated}
                     />
                     <Menu.ItemAction
                         id={`delete_post_${this.props.post.id}`}
                         show={this.state.canDelete}
-                        text={Utils.localizeMessage('post_info.del', 'Delete')}
+                        text={Utils.localizeMessage('post_info.del', 'Remove Post')}
                         onClick={this.handleDeleteMenuItemActivated}
                         isDangerous={true}
                     />
