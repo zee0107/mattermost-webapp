@@ -564,7 +564,38 @@ export default class PostList extends React.PureComponent {
         const {dynamicListStyle} = this.state;
 
         return (
-            <div
+            <>
+                <LatestPostReader postIds={this.props.postListIds}/>
+                            <AutoSizer>
+                                {({height, width}) => (
+                                    <React.Fragment>
+                                        <DynamicSizeList
+                                            ref={this.listRef}
+                                            height={height}
+                                            width={width}
+                                            className='post-list__dynamic'
+                                            itemData={this.state.postListIds}
+                                            overscanCountForward={OVERSCAN_COUNT_FORWARD}
+                                            overscanCountBackward={OVERSCAN_COUNT_BACKWARD}
+                                            onScroll={this.onScroll}
+                                            initScrollToIndex={this.initScrollToIndex}
+                                            canLoadMorePosts={this.props.actions.canLoadMorePosts}
+                                            innerRef={this.postListRef}
+                                            style={{...virtListStyles, ...dynamicListStyle}}
+                                            innerListStyle={postListStyle}
+                                            initRangeToRender={this.initRangeToRender}
+                                            loaderId={PostListRowListIds.OLDER_MESSAGES_LOADER}
+                                            correctScrollToBottom={this.props.atLatestPost}
+                                            onItemsRendered={this.onItemsRendered}
+                                            scrollToFailed={this.scrollToFailed}
+                                        >
+                                            {this.renderRow}
+                                        </DynamicSizeList>
+                                    </React.Fragment>
+                                )}
+                            </AutoSizer>
+            </>
+            /*<div
                 role='list'
                 className='a11y__region'
                 data-a11y-sort-order='3'
@@ -603,14 +634,6 @@ export default class PostList extends React.PureComponent {
                             <AutoSizer>
                                 {({height, width}) => (
                                     <React.Fragment>
-                                        {/*<div>
-                                            <Pluggable
-                                                pluggableName='ChannelToast'
-                                            />
-
-                                            {this.renderToasts(width)}
-                                        </div>*/}
-                                        
                                         <DynamicSizeList
                                             ref={this.listRef}
                                             height={height}
@@ -639,7 +662,7 @@ export default class PostList extends React.PureComponent {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*/
         );
     }
 }
