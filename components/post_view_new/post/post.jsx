@@ -12,11 +12,11 @@ import * as PostUtils from 'utils/post_utils';
 import Constants, {A11yCustomEventTypes} from 'utils/constants';
 
 import PostProfilePicture from 'components/post_profile_picture';
-import PostAriaLabelDiv from 'components/post_view/post_aria_label_div';
-import PostBody from 'components/post_view/post_body';
-import PostHeader from 'components/post_view/post_header';
-import PostContext from 'components/post_view/post_context';
-import PostPreHeader from 'components/post_view/post_pre_header';
+import PostAriaLabelDiv from 'components/post_view_new/post_aria_label_div';
+import PostBody from 'components/post_view_new/post_body';
+import PostHeader from 'components/post_view_new/post_header';
+import PostContext from 'components/post_view_new/post_context';
+import PostPreHeader from 'components/post_view_new/post_pre_header';
 import ThreadFooter from 'components/threading/channel_threads/thread_footer';
 import {trackEvent} from 'actions/telemetry_actions';
 

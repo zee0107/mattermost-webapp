@@ -4,8 +4,8 @@
 import {shallow} from 'enzyme';
 import React from 'react';
 
-import PostAriaLabelDiv from 'components/post_view/post_aria_label_div';
-import PostPreHeader from 'components/post_view/post_pre_header';
+import PostAriaLabelDiv from 'components/post_view_new/post_aria_label_div';
+import PostPreHeader from 'components/post_view_new/post_pre_header';
 import ThreadFooter from 'components/threading/channel_threads/thread_footer';
 
 import Post from './post';

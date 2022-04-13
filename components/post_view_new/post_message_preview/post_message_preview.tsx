@@ -11,7 +11,7 @@ import {UserProfile} from 'mattermost-redux/types/users';
 import Avatar from 'components/widgets/users/avatar';
 import * as PostUtils from 'utils/post_utils';
 import * as Utils from 'utils/utils';
-import PostMessageView from 'components/post_view/post_message_view';
+import PostMessageView from 'components/post_view_new/post_message_view';
 
 import Timestamp from 'components/timestamp';
 import PostAttachmentContainer from '../post_attachment_container/post_attachment_container';

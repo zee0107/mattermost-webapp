@@ -15,9 +15,9 @@ import DelayedAction from 'utils/delayed_action';
 import {getPreviousPostId, getLatestPostId, getNewMessageIndex} from 'utils/post_utils';
 import * as Utils from 'utils/utils.jsx';
 
-import FloatingTimestamp from 'components/post_view/floating_timestamp';
-import PostListRow from 'components/post_view/post_list_row';
-import ScrollToBottomArrows from 'components/post_view/scroll_to_bottom_arrows';
+import FloatingTimestamp from 'components/post_view_new/floating_timestamp';
+import PostListRow from 'components/post_view_new/post_list_row';
+import ScrollToBottomArrows from 'components/post_view_new/scroll_to_bottom_arrows';
 import ToastWrapper from 'components/toast_wrapper';
 
 import Pluggable from 'plugins/pluggable';

@@ -8,7 +8,7 @@ import {DATE_LINE} from 'mattermost-redux/utils/post_list';
 
 import {PostListRowListIds, PostRequestTypes} from 'utils/constants';
 
-import PostListRow from 'components/post_view/post_list_row';
+import PostListRow from 'components/post_view_new/post_list_row';
 
 import PostList from './post_list_virtualized';
 

@@ -1,3 +1,4 @@
+
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
@@ -9,7 +10,7 @@ import {UserProfile} from 'mattermost-redux/types/users';
 
 import {sendAddToChannelEphemeralPost} from 'actions/global_actions';
 import {TestHelper} from 'utils/test_helper';
-import PostAddChannelMember, {Props} from 'components/post_view/post_add_channel_member/post_add_channel_member';
+import PostAddChannelMember, {Props} from 'components/post_view_new/post_add_channel_member/post_add_channel_member';
 
 jest.mock('actions/global_actions', () => {
     return {

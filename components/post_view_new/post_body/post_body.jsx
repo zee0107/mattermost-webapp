@@ -11,12 +11,12 @@ import * as Utils from 'utils/utils.jsx';
 import DelayedAction from 'utils/delayed_action';
 import Constants, {Locations} from 'utils/constants.jsx';
 
-import CommentedOn from 'components/post_view/commented_on';
+import CommentedOn from 'components/post_view_new/commented_on';
 import FileAttachmentListContainer from 'components/file_attachment_list';
-import FailedPostOptions from 'components/post_view/failed_post_options';
-import PostBodyAdditionalContent from 'components/post_view/post_body_additional_content';
-import PostMessageView from 'components/post_view/post_message_view';
-import ReactionList from 'components/post_view/reaction_list';
+import FailedPostOptions from 'components/post_view_new/failed_post_options';
+import PostBodyAdditionalContent from 'components/post_view_new/post_body_additional_content';
+import PostMessageView from 'components/post_view_new/post_message_view';
+import ReactionList from 'components/post_view_new/reaction_list';
 import LoadingSpinner from 'components/widgets/loading/loading_spinner';
 
 import {FormattedMessage} from 'react-intl';
@@ -24,16 +24,17 @@ import * as ReduxPostUtils from 'mattermost-redux/utils/post_utils';
 
 import {Post} from 'mattermost-redux/types/posts';
 import {ExtendedPost} from 'mattermost-redux/actions/posts';
-import CommentIcon from 'components/post_view/comment_icon';
+import CommentIcon from 'components/post_view_new/comment_icon';
 import DotMenu from 'components/dot_menu';
 import OverlayTrigger from 'components/overlay_trigger';
 import Tooltip from 'components/tooltip';
-import PostFlagIcon from 'components/post_view/post_flag_icon';
-import PostReaction from 'components/post_view/post_reaction';
-import PostRecentReactions from 'components/post_view/post_recent_reactions';
-import PostTime from 'components/post_view/post_time';
+import PostFlagIcon from 'components/post_view_new/post_flag_icon';
+import PostReaction from 'components/post_view_new/post_reaction';
+import PostRecentReactions from 'components/post_view_new/post_recent_reactions';
+import PostTime from 'components/post_view_new/post_time';
 import InfoSmallIcon from 'components/widgets/icons/info_small_icon';
 import {Emoji} from 'mattermost-redux/types/emojis';
+
 
 const SENDING_ANIMATION_DELAY = 3000;
 
@@ -77,6 +78,7 @@ type State = {
 export default class PostBody extends React.PureComponent<Props,State> {
     private postHeaderRef: React.RefObject<HTMLDivElement>;
     private dotMenuRef: React.RefObject<HTMLDivElement>;
+    private chevronMenuRef: React.RefObject<HTMLDivElement>;
 
     static propTypes = {
 
@@ -146,6 +148,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
         this.state = {sending: false,showEmojiPicker: false,showDotMenu: false, showOptionsMenuWithoutHover: true};
 
         this.dotMenuRef = React.createRef();
+        this.chevMenuRef = React.createRef();
     }
 
     toggleEmojiPicker = (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
@@ -179,12 +182,69 @@ export default class PostBody extends React.PureComponent<Props,State> {
 
     handleDotMenuOpened = (open: boolean) => {
         this.setState({showDotMenu: open});
-        this.props.handleDropdownOpened(open || this.state.showEmojiPicker);
+        //this.props.handleDropdownOpened(open || this.state.showEmojiPicker);
     };
 
     getDotMenu = (): HTMLDivElement => {
         return this.dotMenuRef.current as HTMLDivElement;
     };
+
+    getChevronMenu = (): HTMLDivElement => {
+        return this.chevMenuRef.current as HTMLDivElement;
+    };
+
+    buildOptionChevron = (post: Post, isSystemMessage: boolean, fromAutoResponder: boolean) => {
+        if (!this.props.shouldShowDotMenu) {
+            return null;
+        }
+
+        const {isMobile, isReadOnly, collapsedThreadsEnabled} = this.props;
+        const hover = this.props.hover || this.state.showEmojiPicker || this.state.showDotMenu || this.state.showOptionsMenuWithoutHover;
+
+        const showRecentlyUsedReactions = !isMobile && !isSystemMessage && hover && !isReadOnly && this.props.oneClickReactionsEnabled && this.props.enableEmojiPicker;
+        let showRecentReacions;
+        if (showRecentlyUsedReactions) {
+            showRecentReacions = (
+                <PostRecentReactions
+                    channelId={post.channel_id}
+                    postId={post.id}
+                    emojis={this.props.recentEmojis}
+                    teamId={this.props.teamId}
+                    getDotMenuRef={this.getDotMenu}
+                />
+            );
+        }
+
+        const showDotMenuIcon = isMobile || hover;
+        let dotMenu;
+        if (showDotMenuIcon) {
+            dotMenu = (
+                <DotMenu
+                    post={post}
+                    isFlagged={this.props.isFlagged}
+                    handleCommentClick={this.props.handleCommentClick}
+                    handleDropdownOpened={this.handleDotMenuOpened}
+                    handleAddReactionClick={this.toggleEmojiPicker}
+                    isMenuOpen={this.state.showDotMenu}
+                    isReadOnly={isReadOnly}
+                    enableEmojiPicker={this.props.enableEmojiPicker}
+                />
+            );
+        }
+
+        return (
+            <div
+                ref={this.chevMenuRef}
+                data-testid={`post-menu-${post.id}`}
+                className={'float-end'}
+                style={{marginTop: -25}}
+            >
+                {!collapsedThreadsEnabled && !showRecentlyUsedReactions && dotMenu}
+                {(collapsedThreadsEnabled || showRecentlyUsedReactions) && dotMenu}
+            </div>
+        );
+
+    }
 
     buildOptions = (post: Post, isSystemMessage: boolean, fromAutoResponder: boolean) => {
         if (!this.props.shouldShowDotMenu) {
@@ -208,7 +268,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
             );
         }
 
-        /*const showRecentlyUsedReactions = !isMobile && !isSystemMessage && hover && !isReadOnly && this.props.oneClickReactionsEnabled && this.props.enableEmojiPicker;
+        const showRecentlyUsedReactions = !isMobile && !isSystemMessage && hover && !isReadOnly && this.props.oneClickReactionsEnabled && this.props.enableEmojiPicker;
         let showRecentReacions;
         if (showRecentlyUsedReactions) {
             showRecentReacions = (
@@ -220,7 +280,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
                     getDotMenuRef={this.getDotMenu}
                 />
             );
-        }*/
+        }
 
         const showReactionIcon = !isSystemMessage && hover && !isReadOnly && this.props.enableEmojiPicker;
         let postReaction;
@@ -410,8 +470,12 @@ export default class PostBody extends React.PureComponent<Props,State> {
             ephemeralPostClass = 'post--ephemeral';
         }
 
+        let chevronMenu = this.buildOptionChevron(post, isSystemMessage, fromAutoResponder);
+
+
         return (
             <div>
+                {chevronMenu}
                 {comment}
                 <div
                     id={`${post.id}_message`}

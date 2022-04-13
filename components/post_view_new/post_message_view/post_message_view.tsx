@@ -13,9 +13,9 @@ import * as Utils from 'utils/utils';
 
 import PostMarkdown from 'components/post_markdown';
 import Pluggable from 'plugins/pluggable';
-import ShowMore from 'components/post_view/show_more';
+import ShowMore from 'components/post_view_new/show_more';
 import {TextFormattingOptions} from 'utils/text_formatting';
-import {AttachmentTextOverflowType} from 'components/post_view/show_more/show_more';
+import {AttachmentTextOverflowType} from 'components/post_view_new/show_more/show_more';
 
 type Props = {
     post: Post; /* The post to render the message for */

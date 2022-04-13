@@ -12,7 +12,7 @@ import {Emoji} from 'mattermost-redux/types/emojis';
 import {isCustomEmoji} from 'mattermost-redux/utils/emoji_utils';
 
 import Constants from 'utils/constants';
-import Reaction from 'components/post_view/reaction';
+import Reaction from 'components/post_view_new/reaction';
 import EmojiPickerOverlay from 'components/emoji_picker/emoji_picker_overlay.jsx';
 import AddReactionIcon from 'components/widgets/icons/add_reaction_icon';
 import OverlayTrigger from 'components/overlay_trigger';
