@@ -8,6 +8,7 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import deferComponentRender from 'components/deferComponentRender';
 import PostView from 'components/post_view_new';
+import SidebarRight from 'components/sidebar_right';
 
 import homeImage from 'images/homeFeed.png';
 import coverImage from 'images/cover-photo.png';
@@ -241,6 +242,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
         return (
             <div>
+                <SidebarRight/>
                 <div className='profile-header-desktop'>
                     <section id='profile' className='profile-views'>
                         <div className='container'>
