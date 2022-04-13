@@ -218,6 +218,7 @@ export default class SidebarRight extends React.PureComponent {
                 id='sidebar-right'
                 role='complementary'
                 ref={this.sidebarRight}
+                style={{top: 70,}}
             >
                 <div
                     onClick={this.onShrink}
