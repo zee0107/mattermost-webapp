@@ -551,7 +551,7 @@ ProfilePopoverState
                 </div>,
             );
         }
-        if (this.props.user.id !== this.props.currentUserId && !haveOverrideProp) {
+       /*if (this.props.user.id !== this.props.currentUserId && !haveOverrideProp) {
             dataContent.push(
                 <div
                     data-toggle='tooltip'
@@ -617,7 +617,7 @@ ProfilePopoverState
                     </div>,
                 );
             }
-        }
+        }*/
         dataContent.push(
             <Pluggable
                 key='profilePopoverPluggable3'
