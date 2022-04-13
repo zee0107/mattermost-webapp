@@ -321,7 +321,6 @@ export default class PostList extends React.PureComponent {
         // Since the first in the list is the latest message
         const lastIndex = this.state.postListIds.length-1;
         const isLastPost = itemId === this.state.postListIds[lastIndex];
-        console.log(isLastPost);
 
         return (
             <div
@@ -569,7 +568,7 @@ export default class PostList extends React.PureComponent {
                 className='a11y__region'
                 data-a11y-sort-order='3'
                 data-a11y-focus-child={true}
-                data-a11y-order-reversed={false}
+                data-a11y-order-reversed={true}
                 data-a11y-loop-navigation={false}
                 aria-label={Utils.localizeMessage('accessibility.sections.centerContent', 'message list main region')}
             >
