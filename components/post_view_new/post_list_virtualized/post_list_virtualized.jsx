@@ -564,7 +564,10 @@ export default class PostList extends React.PureComponent {
         const {dynamicListStyle} = this.state;
 
         return (
-            <div
+            <div>
+                {this.renderRow}
+            </div>
+            /*<div
                 role='list'
                 className='a11y__region'
                 data-a11y-sort-order='3'
@@ -610,7 +613,7 @@ export default class PostList extends React.PureComponent {
 
                                             {this.renderToasts(width)}
                                         </div>
-                                        {this.renderRow}
+                                        
                                         <DynamicSizeList
                                             ref={this.listRef}
                                             height={height}
@@ -639,7 +642,7 @@ export default class PostList extends React.PureComponent {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*/
         );
     }
 }
