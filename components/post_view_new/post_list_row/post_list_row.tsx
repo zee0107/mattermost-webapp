@@ -156,14 +156,14 @@ export default class PostListRow extends React.PureComponent<PostListRowProps> {
             isLastPost: this.props.isLastPost,
         };
 
-        if (PostListUtils.isCombinedUserActivityPost(listId)) {
+        /*if (PostListUtils.isCombinedUserActivityPost(listId)) {
             return (
                 <CombinedUserActivityPost
                     combinedId={listId}
                     {...postProps}
                 />
             );
-        }
+        }*/
 
         return (
             <Post
