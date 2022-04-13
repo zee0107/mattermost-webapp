@@ -200,6 +200,20 @@ export default class PostBody extends React.PureComponent<Props,State> {
         const {isMobile, isReadOnly, collapsedThreadsEnabled} = this.props;
         const hover = this.props.hover || this.state.showEmojiPicker || this.state.showDotMenu || this.state.showOptionsMenuWithoutHover;
 
+        const showRecentlyUsedReactions = !isMobile && !isSystemMessage && hover && !isReadOnly && this.props.oneClickReactionsEnabled && this.props.enableEmojiPicker;
+        let showRecentReacions;
+        if (showRecentlyUsedReactions) {
+            showRecentReacions = (
+                <PostRecentReactions
+                    channelId={post.channel_id}
+                    postId={post.id}
+                    emojis={this.props.recentEmojis}
+                    teamId={this.props.teamId}
+                    getDotMenuRef={this.getDotMenu}
+                />
+            );
+        }
+        
         const showDotMenuIcon = isMobile || hover;
         let dotMenu;
         if (showDotMenuIcon) {
