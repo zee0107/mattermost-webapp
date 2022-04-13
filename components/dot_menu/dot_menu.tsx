@@ -476,7 +476,7 @@ export class DotMenuClass extends React.PureComponent<Props, State> {
                         ref={this.buttonRef}
                         id={`${this.props.location}_button_${this.props.post.id}`}
                         aria-label={Utils.localizeMessage('post_info.dot_menu.tooltip.more_actions', 'More actions').toLowerCase()}
-                        className={classNames('post-menu__item', {
+                        className={classNames('post-menu__item float-right', {
                             'post-menu__item--active': this.props.isMenuOpen,
                         })}
                         type='button'
