@@ -481,7 +481,7 @@ export class DotMenuClass extends React.PureComponent<Props, State> {
                         })}
                         type='button'
                         aria-expanded='false'
-                        style={{ marginTop=(-25)}}
+                        style={{marginTop=-25}}
                     >
                         <DotsHorizontalIcon className={'icon icon--small'}/>
                     </button>
