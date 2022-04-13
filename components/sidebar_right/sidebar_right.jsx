@@ -31,6 +31,7 @@ export default class SidebarRight extends React.PureComponent {
         rhsChannel: PropTypes.object,
         selectedPostId: PropTypes.string,
         selectedPostCardId: PropTypes.string,
+        topLevel: PropTypes.number,
         actions: PropTypes.shape({
             setRhsExpanded: PropTypes.func.isRequired,
             showPinnedPosts: PropTypes.func.isRequired,
@@ -182,6 +183,7 @@ export default class SidebarRight extends React.PureComponent {
             isPluginView,
             isOpen,
             isExpanded,
+            topLevel,
         } = this.props;
 
         let content = null;
@@ -218,7 +220,7 @@ export default class SidebarRight extends React.PureComponent {
                 id='sidebar-right'
                 role='complementary'
                 ref={this.sidebarRight}
-                style={{top: 70,}}
+                style={{top: topLevel,}}
             >
                 <div
                     onClick={this.onShrink}
