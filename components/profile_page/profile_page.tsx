@@ -241,6 +241,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
         return (
             <div>
+                <div className='col-md-12'>
+                    <SidebarRight/>
+                </div>
                 <div className='profile-header-desktop'>
                     <section id='profile' className='profile-views'>
                         <div className='container'>
@@ -366,7 +369,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     </section>
                 </div>
                 <div className='container'>
-                    <SidebarRight/>
                     <div className='col-lg-12 removePadding'>
                         <div className='row'>
                             <div className='col-lg-8'>
