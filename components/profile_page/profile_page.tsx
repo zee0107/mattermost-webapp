@@ -235,6 +235,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         else{
             photoAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
         }
+
         const DeferredPostView = this.state.deferredPostView;
 
         return (
