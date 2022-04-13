@@ -539,7 +539,7 @@ export class DotMenuClass extends React.PureComponent<Props, State> {
                         text={Utils.localizeMessage('post_info.permalink', 'Copy Link')}
                         onClick={this.copyLink}
                     />
-                    <Menu.ItemAction
+                    {/*<Menu.ItemAction
                         show={isMobile && !isSystemMessage && this.props.isFlagged}
                         text={Utils.localizeMessage('rhs_root.mobile.unflag', 'Remove from Saved')}
                         onClick={this.handleFlagMenuItemActivated}
@@ -548,7 +548,7 @@ export class DotMenuClass extends React.PureComponent<Props, State> {
                         show={isMobile && !isSystemMessage && !this.props.isFlagged}
                         text={Utils.localizeMessage('rhs_root.mobile.flag', 'Save')}
                         onClick={this.handleFlagMenuItemActivated}
-                    />
+                    />*/}
                     {/*<Menu.ItemAction
                         id={`unpin_post_${this.props.post.id}`}
                         show={!isSystemMessage && !this.props.isReadOnly && this.props.post.is_pinned}

@@ -77,6 +77,7 @@ type State = {
 export default class PostBody extends React.PureComponent<Props,State> {
     private postHeaderRef: React.RefObject<HTMLDivElement>;
     private dotMenuRef: React.RefObject<HTMLDivElement>;
+    private chevronMenuRef: React.RefObject<HTMLDivElement>;
 
     static propTypes = {
 
@@ -146,6 +147,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
         this.state = {sending: false,showEmojiPicker: false,showDotMenu: false, showOptionsMenuWithoutHover: true};
 
         this.dotMenuRef = React.createRef();
+        this.chevMenuRef = React.createRef();
     }
 
     toggleEmojiPicker = (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
@@ -185,6 +187,48 @@ export default class PostBody extends React.PureComponent<Props,State> {
     getDotMenu = (): HTMLDivElement => {
         return this.dotMenuRef.current as HTMLDivElement;
     };
+
+    getChevronMenu = (): HTMLDivElement => {
+        return this.chevMenuRef.current as HTMLDivElement;
+    };
+
+    buildOptionChevron = (post: Post, isSystemMessage: boolean, fromAutoResponder: boolean) => {
+        if (!this.props.shouldShowDotMenu) {
+            return null;
+        }
+
+        const {isMobile, isReadOnly, collapsedThreadsEnabled} = this.props;
+        const hover = this.props.hover || this.state.showEmojiPicker || this.state.showDotMenu || this.state.showOptionsMenuWithoutHover;
+
+        const showDotMenuIcon = isMobile || hover;
+        let dotMenu;
+        if (showDotMenuIcon) {
+            dotMenu = (
+                <DotMenu
+                    post={post}
+                    isFlagged={this.props.isFlagged}
+                    handleCommentClick={this.props.handleCommentClick}
+                    handleDropdownOpened={this.handleDotMenuOpened}
+                    handleAddReactionClick={this.toggleEmojiPicker}
+                    isMenuOpen={this.state.showDotMenu}
+                    isReadOnly={isReadOnly}
+                    enableEmojiPicker={this.props.enableEmojiPicker}
+                />
+            );
+        }
+
+        return (
+            <div
+                ref={this.chevMenuRef}
+                data-testid={`post-menu-${post.id}`}
+                className={'float-end'}
+            >
+                {!collapsedThreadsEnabled && !showRecentlyUsedReactions && dotMenu}
+                {(collapsedThreadsEnabled || showRecentlyUsedReactions) && dotMenu}
+            </div>
+        );
+
+    }
 
     buildOptions = (post: Post, isSystemMessage: boolean, fromAutoResponder: boolean) => {
         if (!this.props.shouldShowDotMenu) {
@@ -272,7 +316,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
                 data-testid={`post-menu-${post.id}`}
                 className={'col-md-12 removePadding'}
             >
-                {!collapsedThreadsEnabled && !showRecentlyUsedReactions && dotMenu}
+                {/*!collapsedThreadsEnabled && !showRecentlyUsedReactions && dotMenu*/}
                 {/*{showRecentReacions}*/}
                 {postReaction}
                 {commentIcon}
@@ -280,7 +324,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
                     <path fillRule="evenodd" clip-rule="evenodd" d="M14.3725 1.67834L7.73697 13.0138C7.52806 13.3707 6.99231 13.2986 6.88518 12.8992L5.1772 6.53044L5.16311 6.51054C5.15043 6.48856 5.13974 6.46599 5.13098 6.44301L0.461145 1.77238C0.167737 1.47898 0.37554 0.977295 0.790481 0.977295H13.9706C14.3303 0.977295 14.5543 1.36785 14.3725 1.67834ZM12.6955 2.69866L6.13054 6.48895L7.49599 11.5813L12.6955 2.69866ZM1.91545 1.90879L12.2025 1.90821L5.68053 5.67366L1.91545 1.90879Z" fill="#3e425080"/>
                 </svg></a>
                 {postFlagIcon}
-                {(collapsedThreadsEnabled || showRecentlyUsedReactions) && dotMenu}
+                {/*(collapsedThreadsEnabled || showRecentlyUsedReactions) && dotMenu*/}
             </div>
         );
     };
@@ -410,8 +454,12 @@ export default class PostBody extends React.PureComponent<Props,State> {
             ephemeralPostClass = 'post--ephemeral';
         }
 
+        let chevronMenu = this.buildOptionChevron(post, isSystemMessage, fromAutoResponder);
+
+
         return (
             <div>
+                {chevronMenu}
                 {comment}
                 <div
                     id={`${post.id}_message`}
