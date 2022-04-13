@@ -635,13 +635,13 @@ export class EditPostModal extends React.PureComponent<Props, State> {
                             <div className='post-body__actions'>{emojiPicker}</div>
                         </div>
                         <div className='post-create-footer'>
-                            <TextboxLinks
+                            {/*<TextboxLinks
                                 isMarkdownPreviewEnabled={this.props.canEditPost && this.props.markdownPreviewFeatureIsEnabled}
                                 characterLimit={this.props.maxPostSize}
                                 showPreview={this.props.shouldShowPreview}
                                 updatePreview={this.setShowPreview}
                                 message={this.state.editText}
-                            />
+                            />*/}
                             <div className={errorBoxClass}>{postError}</div>
                         </div>
                     </div>
@@ -649,7 +649,7 @@ export class EditPostModal extends React.PureComponent<Props, State> {
                 <Modal.Footer>
                     <button
                         type='button'
-                        className='btn btn-link'
+                        className='btn buttonBgWhite btn-sm'
                         onClick={() => this.handleHide()}
                     >
                         <FormattedMessage
@@ -660,7 +660,7 @@ export class EditPostModal extends React.PureComponent<Props, State> {
                     <button
                         id='editButton'
                         type='button'
-                        className='btn btn-primary'
+                        className='btn buttonBgGreen btn-padding btn-sm'
                         disabled={this.isSaveDisabled()}
                         onClick={this.handleEdit}
                     >

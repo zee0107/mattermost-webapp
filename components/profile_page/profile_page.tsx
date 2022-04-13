@@ -7,6 +7,7 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import deferComponentRender from 'components/deferComponentRender';
 import PostView from 'components/post_view_new';
+import EditPostModal from 'components/edit_post_modal';
 
 import homeImage from 'images/homeFeed.png';
 import coverImage from 'images/cover-photo.png';
@@ -855,6 +856,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     </div>
                 </div>
             </div>
+            <EditPostModal/>
         </div>
         );
     }
