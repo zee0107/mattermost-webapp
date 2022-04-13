@@ -491,6 +491,7 @@ export class DotMenuClass extends React.PureComponent<Props, State> {
                     openLeft={true}
                     openUp={this.state.openUp}
                     ariaLabel={Utils.localizeMessage('post_info.menuAriaLabel', 'Post extra options')}
+                    className={'top-25'}
                 >
                     {/*<Menu.ItemAction
                         show={!isSystemMessage && this.props.location === Locations.CENTER}
