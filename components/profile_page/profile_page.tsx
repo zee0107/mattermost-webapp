@@ -204,8 +204,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
         
         if(shareInfo === 'private'){
-            shareInfoBtn = (<button className='box-live-post btn-sm width-100' data-toggle='modal' data-target='#staticBackdropShare'><i className='bi bi-person'></i> Private <i className='bi bi-chevron-down'></i></button>);
-            shareInfoDd = (<a className='onSelectactiononlyme text-primary' data-toggle='modal' data-target='#staticBackdropShare' data-dismiss='modal'><i className='bi-person'></i> Private <i className='bi-chevron-down'></i></a>);
+            shareInfoBtn = (<button className='box-live-post btn-sm width-100' data-toggle='modal' data-target='#staticBackdropShare'><i className='bi bi-person-fill'></i> Private <i className='bi bi-chevron-down'></i></button>);
+            shareInfoDd = (<a className='onSelectactiononlyme text-primary' data-toggle='modal' data-target='#staticBackdropShare' data-dismiss='modal'><i className='bi-person-fill'></i> Private <i className='bi-chevron-down'></i></a>);
         }else if(shareInfo === 'friends'){
             shareInfoBtn = (<button className='box-live-post btn-sm width-100' data-toggle='modal' data-target='#staticBackdropShare'><i className='bi bi-people-fill'></i> Friends <i className='bi bi-chevron-down'></i></button>);
             shareInfoDd = (<a className='onSelectactionfriends text-primary' data-toggle='modal' data-target='#staticBackdropShare' data-dismiss='modal'><i className='bi-people-fill'></i> Friends <i className='bi-chevron-down'></i></a>);
@@ -542,8 +542,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='row'>
-                                        <div className='col-md-12'>
-                                            <br/>
+                                        <div className='col-md-12 mt-3'>
                                             <CreatePostProfile uploading={this.state.uploading} />
                                         </div>
                                     </div>
