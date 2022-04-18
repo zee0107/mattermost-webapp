@@ -200,13 +200,18 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let nameAvailable;
         let locationAvailable;
         let shareInfoBtn;
+        let shareInfoDd;
         let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
+        
         if(shareInfo === 'private'){
             shareInfoBtn = (<button className='box-live-post btn-sm width-100' data-toggle='modal' data-target='#staticBackdropShare'><i className='bi bi-person'></i> Private <i className='bi bi-chevron-down'></i></button>);
+            shareInfoDd = (<a className='onSelectactiononlyme text-primary' data-toggle='modal' data-target='#staticBackdropShare' data-dismiss='modal'><i className='bi-person'></i> Private <i className='bi-chevron-down'></i></a>);
         }else if(shareInfo === 'friends'){
             shareInfoBtn = (<button className='box-live-post btn-sm width-100' data-toggle='modal' data-target='#staticBackdropShare'><i className='bi bi-people-fill'></i> Friends <i className='bi bi-chevron-down'></i></button>);
+            shareInfoDd = (<a className='onSelectactionfriends text-primary' data-toggle='modal' data-target='#staticBackdropShare' data-dismiss='modal'><i className='bi-people-fill'></i> Friends <i className='bi-chevron-down'></i></a>);
         }else{
             shareInfoBtn = (<button className='box-live-post btn-sm width-100' data-toggle='modal' data-target='#staticBackdropShare'><i className='bi bi-globe'></i> Everyone <i className='bi bi-chevron-down'></i></button>);
+            shareInfoDd = (<a className='onSelectactionpublic text-primary' data-toggle='modal' data-target='#staticBackdropShare' data-dismiss='modal'><i className='bi-globe'></i> Everyone <i className='bi-chevron-down'></i></a>);
         }
 
         if(currentUser.first_name !== '' && currentUser.first_name !== '' && currentUser.first_name !== null && currentUser.first_name !== null){
@@ -533,13 +538,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <a href='#' className='activities text-primary'><small className='text-muted'>Activities</small> &#128151;</a> 
                                             </strong>
                                             <br />
-                                            <a className='onSelectactionfriends text-primary' data-toggle='modal' data-target='#staticBackdropShare' data-dismiss='modal'><i className='bi-people-fill'></i> Friends <i className='bi-chevron-down'></i></a>
-                                            <a className='onSelectactionpublic text-primary'><i className='bi-globe'></i> Everyone <i className='bi-chevron-down'></i></a>
-                                            <a className='onSelectactiononlyme text-primary'><i className='bi-person'></i> Private <i className='bi-chevron-down'></i></a>
+                                            {shareInfoDd}
                                         </div>
                                     </div>
                                     <div className='row'>
                                         <div className='col-md-12'>
+                                            <br/>
                                             <CreatePostProfile uploading={this.state.uploading} />
                                         </div>
                                     </div>
