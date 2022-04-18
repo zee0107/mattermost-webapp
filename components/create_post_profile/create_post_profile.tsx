@@ -404,7 +404,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
         }
 
         if(this.props.uploading !== null){
-            this.setState(uploading: this.props.uploading);
+            this.setState({uploading: this.props.uploading});
         }
 
         if (useGroupMentions) {
