@@ -56,7 +56,7 @@ export function handleNewPost(post, msg) {
             }
         }
 
-        return {data: post};
+        return {data: true};
     };
 }
 

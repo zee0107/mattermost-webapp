@@ -101,9 +101,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-
         this.state = {shareInfo: 'everyone',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
+        this.onChangeShareInfo = this.onChangeShareInfo.bind(this);
     }
+
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
@@ -167,6 +168,11 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                 url={this.props.profilePicture}
             />
         );
+    }
+
+    onChangeShareInfo = (event) => {
+        this.setState({shareInfo: event.target.value});
+        console.log(event.target.value);
     }
 
     renderProfilePictureText = (size: TAvatarSizeToken): ReactNode => {
@@ -295,7 +301,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         </div>
                     </section>
                 </div>
-                
+
                 <div className='profile-header-mobile'>
                     <section id='profile-mobile' className='profile-views'>
                             <div className='container-fluid'>
@@ -841,12 +847,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <a className='onBacktopost float-end' data-toggle='modal' data-target='#staticBackdrop' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
                         </div>
 
-                        <div className='modal-body'>
+                        <div className='modal-body' onChange>
                             <div className='row'>
                                 <div className='col-md-10'>Everyone</div>
                                 <div className='col-md-2'>
                                     <div className='form-check float-end'>
-                                        <input className='form-check-input onPublicselect' type='radio' name='flexRadioDefault' id='flexRadioPublicselect'/>
+                                        <input className='form-check-input onPublicselect' type='radio' name='flexRadioDefault' value='everyone' onChange={this.onChangeShareInfo} id='flexRadioPublicselect'/>
                                         <label className='form-check-label' htmlFor='flexRadioPublicselect'></label>
                                     </div>
                                 </div>
@@ -855,7 +861,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 <div className='col-md-10'>Friends</div>
                                 <div className='col-md-2'>
                                     <div className='form-check float-end'>
-                                            <input className='form-check-input onFriendselect' type='radio' name='flexRadioDefault' id='flexRadioFriendselect'/>
+                                            <input className='form-check-input onFriendselect' type='radio' name='flexRadioDefault' value='friends' onChange={this.onChangeShareInfo} id='flexRadioFriendselect'/>
                                             <label className='form-check-label' htmlFor='flexRadioFriendselect'></label>
                                     </div>
                                 </div>
@@ -864,7 +870,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 <div className='col-md-10'>Private</div>
                                 <div className='col-md-2'>
                                     <div className='form-check float-end'>
-                                            <input className='form-check-input onOnlyme' type='radio' name='flexRadioDefault' id='flexRadioOnlyme'/>
+                                            <input className='form-check-input onOnlyme' type='radio' name='flexRadioDefault' value='private' onChange={this.onChangeShareInfo} id='flexRadioOnlyme'/>
                                             <label className='form-check-label' htmlFor='flexRadioOnlyme'></label>
                                     </div>
                                 </div>
