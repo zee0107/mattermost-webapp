@@ -199,8 +199,15 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let photoAvailable;
         let nameAvailable;
         let locationAvailable;
-        let uploaderView;
+        let shareInfoBtn;
         let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
+        if(shareInfo === 'private'){
+            shareInfoBtn = (<button className='box-live-post btn-sm width-100' data-toggle='modal' data-target='#staticBackdropShare'><i className='bi bi-person'></i> Private <i className='bi bi-chevron-down'></i></button>);
+        }else if(shareInfo === 'friends'){
+            shareInfoBtn = (<button className='box-live-post btn-sm width-100' data-toggle='modal' data-target='#staticBackdropShare'><i className='bi bi-people-fill'></i> Friends <i className='bi bi-chevron-down'></i></button>);
+        }else{
+            shareInfoBtn = (<button className='box-live-post btn-sm width-100' data-toggle='modal' data-target='#staticBackdropShare'><i className='bi bi-globe'></i> Everyone <i className='bi bi-chevron-down'></i></button>);
+        }
 
         if(currentUser.first_name !== '' && currentUser.first_name !== '' && currentUser.first_name !== null && currentUser.first_name !== null){
             nameAvailable = (<img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/>);
@@ -375,7 +382,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             </div>
                                         </div>
                                         <div className='col-md-3'><div className='d-grid'>
-                                            <button className='box-live-post btn-sm width-100' data-toggle='modal' data-target='#staticBackdropShare'><img width='18' className='img-fluid' src={GlobeIcon}/>Everyone</button></div></div>
+                                            {shareInfoBtn}{/*<button className='box-live-post btn-sm width-100' data-toggle='modal' data-target='#staticBackdropShare'><img width='18' className='img-fluid' src={GlobeIcon}/>Everyone</button>*/}</div></div>
                                             <div className='col-md-2'><div className='d-grid'><button className='box-live-post btn-sm width-100' onClick={() => { this.setState({uploading: true});}} aria-describedby='basic-addon1010' data-toggle='modal' data-target='#staticBackdrop'><svg xmlns='http://www.w3.org/2000/svg' width='19' height='19' fill='var(--text-primary)' className='bi bi-camera-video side-menu-align' viewBox='0 0 16 16'>
                                                     <path fillRule='evenodd' d='M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z' fill='var(--text-primary)'/>
                                                     </svg> Live</button></div>
@@ -852,7 +859,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 <div className='col-md-10'>Everyone</div>
                                 <div className='col-md-2'>
                                     <div className='form-check float-end'>
-                                        <input className='form-check-input onPublicselect' type='radio' name='flexRadioDefault' value='everyone' onChange={this.onChangeShareInfo} id='flexRadioPublicselect'/>
+                                        <input className='form-check-input onPublicselect' type='radio' name='flexRadioDefault' value='everyone' onChange={this.onChangeShareInfo} checked={this.state.shareInfo === 'everyone'} id='flexRadioPublicselect'/>
                                         <label className='form-check-label' htmlFor='flexRadioPublicselect'></label>
                                     </div>
                                 </div>
@@ -861,7 +868,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 <div className='col-md-10'>Friends</div>
                                 <div className='col-md-2'>
                                     <div className='form-check float-end'>
-                                            <input className='form-check-input onFriendselect' type='radio' name='flexRadioDefault' value='friends' onChange={this.onChangeShareInfo} id='flexRadioFriendselect'/>
+                                            <input className='form-check-input onFriendselect' type='radio' name='flexRadioDefault' value='friends' onChange={this.onChangeShareInfo} checked={this.state.shareInfo === 'friends'} id='flexRadioFriendselect'/>
                                             <label className='form-check-label' htmlFor='flexRadioFriendselect'></label>
                                     </div>
                                 </div>
@@ -870,7 +877,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 <div className='col-md-10'>Private</div>
                                 <div className='col-md-2'>
                                     <div className='form-check float-end'>
-                                            <input className='form-check-input onOnlyme' type='radio' name='flexRadioDefault' value='private' onChange={this.onChangeShareInfo} id='flexRadioOnlyme'/>
+                                            <input className='form-check-input onOnlyme' type='radio' name='flexRadioDefault' value='private' onChange={this.onChangeShareInfo} checked={this.state.shareInfo === 'private'} id='flexRadioOnlyme'/>
                                             <label className='form-check-label' htmlFor='flexRadioOnlyme'></label>
                                     </div>
                                 </div>
