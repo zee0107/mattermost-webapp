@@ -843,8 +843,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
                         <div className='modal-body'>
                             <div className='row'>
-                                <div className='col-10'>Everyone</div>
-                                <div className='col-2'>
+                                <div className='col-md-10'>Everyone</div>
+                                <div className='col-md-2'>
                                     <div className='form-check float-end'>
                                         <input className='form-check-input onPublicselect' type='radio' name='flexRadioDefault' id='flexRadioPublicselect'/>
                                         <label className='form-check-label' htmlFor='flexRadioPublicselect'></label>
@@ -852,8 +852,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                             <div className='row mt-2'>
-                                <div className='col-10'>Friends</div>
-                                <div className='col-2'>
+                                <div className='col-md-10'>Friends</div>
+                                <div className='col-md-2'>
                                     <div className='form-check float-end'>
                                             <input className='form-check-input onFriendselect' type='radio' name='flexRadioDefault' id='flexRadioFriendselect'/>
                                             <label className='form-check-label' htmlFor='flexRadioFriendselect'></label>
@@ -861,8 +861,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                             <div className='row mt-2'>
-                                <div className='col-10'>Private</div>
-                                <div className='col-2'>
+                                <div className='col-md-10'>Private</div>
+                                <div className='col-md-2'>
                                     <div className='form-check float-end'>
                                             <input className='form-check-input onOnlyme' type='radio' name='flexRadioDefault' id='flexRadioOnlyme'/>
                                             <label className='form-check-label' htmlFor='flexRadioOnlyme'></label>
