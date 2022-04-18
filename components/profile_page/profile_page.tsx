@@ -519,7 +519,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <a href='#' className='activities text-primary'><small className='text-muted'>Activities</small> &#128151;</a> 
                                             </strong>
                                             <br />
-                                            <a className='onSelectactionfriends text-primary' data-toggle='modal' data-target='#staticBackdropShare'><i className='bi-people-fill'></i> Friends <i className='bi-chevron-down'></i></a>
+                                            <a className='onSelectactionfriends text-primary' data-toggle='modal' data-target='#staticBackdropShare' data-dismiss='modal'><i className='bi-people-fill'></i> Friends <i className='bi-chevron-down'></i></a>
                                             <a className='onSelectactionpublic text-primary'><i className='bi-globe'></i> Everyone <i className='bi-chevron-down'></i></a>
                                             <a className='onSelectactiononlyme text-primary'><i className='bi-person'></i> Private <i className='bi-chevron-down'></i></a>
                                         </div>
