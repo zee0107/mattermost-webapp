@@ -847,7 +847,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <a className='onBacktopost float-end' data-toggle='modal' data-target='#staticBackdrop' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
                         </div>
 
-                        <div className='modal-body' onChange>
+                        <div className='modal-body'>
                             <div className='row'>
                                 <div className='col-md-10'>Everyone</div>
                                 <div className='col-md-2'>
