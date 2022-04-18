@@ -78,8 +78,8 @@ type State = {
     currentUser: UserProfile;
     uploading: boolean;
     deferredPostView: any;
-    location: string;
-    activity: string;
+    userLocation: string;
+    userActivity: string;
     shareInfo: string;
 };
 
@@ -101,8 +101,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {shareInfo: 'everyone',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
+        this.state = {userLocation: '',shareInfo: 'everyone',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
         this.onChangeShareInfo = this.onChangeShareInfo.bind(this);
+        this.onChangeLocation = this.onChangeLocation.bind(this);
+        this.onChangeActivity = this.onChangeActivity.bind(this);
     }
 
     componentDidMount(){
@@ -172,7 +174,14 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     onChangeShareInfo = (event) => {
         this.setState({shareInfo: event.target.value});
-        console.log(event.target.value);
+    }
+
+    onChangeLocation = (event) => {
+        this.setState({userLocation: event.target.value});
+    }
+
+    onChangeActivity = (event) => {
+        this.setState({userActivity: event.target.value});
     }
 
     renderProfilePictureText = (size: TAvatarSizeToken): ReactNode => {
@@ -194,15 +203,20 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser, profilePicture} = this.props;
-        const { coverUrl,completionResult, uploading, shareInfo} = this.state;
+        const { coverUrl,completionResult, uploading, shareInfo, userLocation} = this.state;
 
         let photoAvailable;
         let nameAvailable;
         let locationAvailable;
         let shareInfoBtn;
         let shareInfoDd;
+        let location;
         let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
         
+        if(userLocation !== null && userLocation !== ''){
+            location = (<a href='#' className='locationviewpost text-primary'><small className='text-muted'>is in</small> {userLocation}</a> );
+        }
+
         if(shareInfo === 'private'){
             shareInfoBtn = (<button className='box-live-post btn-sm width-100' data-toggle='modal' data-target='#staticBackdropShare'><i className='bi bi-person-fill'></i> Private <i className='bi bi-chevron-down'></i></button>);
             shareInfoDd = (<a className='onSelectactiononlyme text-primary' data-toggle='modal' data-target='#staticBackdropShare' data-dismiss='modal'><i className='bi-person-fill'></i> Private <i className='bi-chevron-down'></i></a>);
@@ -533,7 +547,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <strong>
                                                 <a href='#' className='text-primary'>{currentUser.first_name} {currentUser.last_name}</a> 
                                                 <a href='#' className='feelingspost text-primary'><small className='text-muted'>is feeling Grinning smile</small> &#128512;</a>
-                                                <a href='#' className='locationviewpost text-primary'><small className='text-muted'>is in</small> Muntinlupa City</a> 
+                                                {location}
                                                 <a href='#' className='tagviewpost text-primary'><small className='text-muted'>with</small> Friend name goes here</a> 
                                                 <a href='#' className='activities text-primary'><small className='text-muted'>Activities</small> &#128151;</a> 
                                             </strong>
@@ -642,8 +656,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                 </div>
-                
-                
+
                 <div className='modal selectlocation' id='staticBackdropLoc' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
                     <div className='modal-dialog modal-dialog-centered'>
                         <div className='modal-content'>
@@ -671,7 +684,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-md-2 text-center'>
                                             <div className='form-check mt-3'>
-                                                <input className='form-check-input onAddlocation' type='radio' name='locationRadios' id='locationRadios4' value='option4'/>
+                                                <input className='form-check-input onAddlocation' type='radio' name='locationRadios' value='Muntinlupa City' onChange={this.onChangeLocation} id='locationRadios4' value='option4'/>
                                                 <label className='form-check-label' htmlFor='locationRadios4'></label>
                                             </div>
                                         </div>
@@ -685,7 +698,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-md-2 text-center'>
                                             <div className='form-check mt-3'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios5' value='option5'/>
+                                                <input className='form-check-input' type='radio' name='locationRadios' value='Makati City' onChange={this.onChangeLocation} id='locationRadios5' value='option5'/>
                                                 <label className='form-check-label' htmlFor='locationRadios5'></label>
                                             </div>
                                         </div>
@@ -699,7 +712,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-md-2 text-center'>
                                             <div className='form-check mt-3'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios6' value='option6'/>
+                                                <input className='form-check-input' type='radio' name='locationRadios' value='Taguig City' onChange={this.onChangeLocation} id='locationRadios6' value='option6'/>
                                                 <label className='form-check-label' htmlFor='locationRadios6'></label>
                                             </div>
                                         </div>
@@ -713,7 +726,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-md-2 text-center'>
                                             <div className='form-check mt-3'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios7' value='option6'/>
+                                                <input className='form-check-input' type='radio' name='locationRadios' value='Santa Rosa City' onChange={this.onChangeLocation} id='locationRadios7' value='option6'/>
                                                 <label className='form-check-label' htmlFor='locationRadios6'></label>
                                             </div>
                                         </div>
@@ -727,7 +740,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-md-2 text-center'>
                                             <div className='form-check mt-3'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' id='locationRadios8' value='option6'/>
+                                                <input className='form-check-input' type='radio' name='locationRadios' value='San Pedro City' onChange={this.onChangeLocation} id='locationRadios8' value='option6'/>
                                                 <label className='form-check-label' htmlFor='locationRadios6'></label>
                                             </div>
                                         </div>
