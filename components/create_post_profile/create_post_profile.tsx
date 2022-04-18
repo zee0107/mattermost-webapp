@@ -810,6 +810,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
 
             return hookResult;
         }
+        console.log(hookResult);
         post = hookResult.data;
 
         actions.onSubmitPost(post, draft.fileInfos);
