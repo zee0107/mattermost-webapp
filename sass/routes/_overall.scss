@@ -3,6 +3,12 @@
   z-index: 99;
 }
 
+@media (max-width: 768px) {
+  .crypter-section-profile-mobile{
+    display: none;
+  }
+}
+
 .top-25{
   top: 25px !important;
 }
