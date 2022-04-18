@@ -635,8 +635,6 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
         if (shouldCompleteTip) {
             this.completePostTip('send_message');
         }
-
-        console.log(post);
     }
 
     handleNotifyAllConfirmation = () => {
@@ -816,7 +814,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
 
         actions.onSubmitPost(post, draft.fileInfos);
         actions.scrollPostListToBottom();
-
+        console.log(post);
         this.setState({
             submitting: false,
         });
