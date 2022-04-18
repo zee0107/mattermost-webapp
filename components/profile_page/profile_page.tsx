@@ -179,15 +179,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         );
     }
 
-    onClickUploader = () => {
-        if (this.state.uploading){
-            this.setState({uploading: false});
-        }
-        else{
-            this.setState({uploading: true});
-        }
+    closeModal = () => {
+        this.setState({uploading: false});
     }
-
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser, profilePicture} = this.props;
@@ -196,21 +190,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let photoAvailable;
         let nameAvailable;
         let locationAvailable;
-        let uploaderView;
         let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
-        
-
-        if (uploading){
-            uploaderView = (<div className='post-photo-content'>
-            <div className='row'>
-                <div className='col-md-9'><strong>Add Photos / Music / Video</strong></div>
-                <div className='col-md-3'><a className='closePhotocontent' onClick={() => {this.setState({uploading: false})}}><i className='bi-x float-end'></i></a></div>
-                <div className='text-center'>
-                    <input className='form-control form-control-lg' id='formFileLg' type='file'/>
-                </div>
-            </div>
-        </div>);
-        }
 
         if(currentUser.first_name !== '' && currentUser.first_name !== '' && currentUser.first_name !== null && currentUser.first_name !== null){
             nameAvailable = (<img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/>);
@@ -519,7 +499,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <div className='form'>
                                 <div className='modal-header'>
                                     <h6 className='modal-title'>Create post</h6>
-                                    <a className='btn-close-canvas shadow onClosecreatepost float-end' data-dismiss='modal' aria-label='Close' onClick={() => {this.setState({uploading: false});}}><img src={xIcon}/></a>
+                                    <a className='btn-close-canvas shadow onClosecreatepost float-end' data-dismiss='modal' aria-label='Close' onClick={this.closeModal()}><img src={xIcon}/></a>
                                 </div>
 
                                 <div className='modal-body'>
