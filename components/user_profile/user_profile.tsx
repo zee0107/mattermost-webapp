@@ -132,6 +132,8 @@ export default class UserProfile extends PureComponent<UserProfileProps> {
                         className='user-popover style--none'
                     >
                         {name}
+                        <br />
+                        {user.position}
                     </button>
                 </OverlayTrigger>
                 {sharedIcon}
