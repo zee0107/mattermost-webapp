@@ -838,7 +838,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     <div className='modal-content'>
                         <div className='modal-header'>
                             <h6 className='modal-title' id='staticBackdropLabel'>Select audience</h6>
-                            <a className='onBacktopost'><i className='bi-arrow-left-circle'></i></a>
+                            <a className='onBacktopost float-end'><i className='bi-arrow-left-circle'></i></a>
                         </div>
 
                         <div className='modal-body'>
