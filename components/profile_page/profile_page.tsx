@@ -295,6 +295,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         </div>
                     </section>
                 </div>
+                
                 <div className='profile-header-mobile'>
                     <section id='profile-mobile' className='profile-views'>
                             <div className='container-fluid'>
