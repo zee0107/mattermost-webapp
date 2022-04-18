@@ -575,7 +575,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         <div className='modal-content'>
                             <div className='modal-header'>
                                 <h6 className='modal-title' id='staticBackdropLabel'>Tag people</h6>
-                                <a className='onBacktotag float-end' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
+                                <a className='onBacktotag float-end' data-toggle='modal' data-target='#staticBackdrop' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
                             </div>
                             <div className='modal-body'>
                                 <div className='input-group d-flex mb-0'>
@@ -650,7 +650,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         <div className='modal-content'>
                             <div className='modal-header'>
                                 <h6 className='modal-title' id='staticBackdropLabel'>Search for location</h6>
-                                <a className='onBacktolocation float-end' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
+                                <a className='onBacktolocation float-end' data-toggle='modal' data-target='#staticBackdrop' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
                             </div>
                             <div className='modal-body'>
                                 <div className=''>
@@ -744,7 +744,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     <div className='modal-content'>
                         <div className='modal-header'>
                             <h6 className='modal-title' id='staticBackdropLabel'>How are you feeling?</h6>
-                            <a className='onBacktoemoticons float-end' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
+                            <a className='onBacktoemoticons float-end' data-toggle='modal' data-target='#staticBackdrop' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
                         </div>
             
                         <div className='modal-body'>
