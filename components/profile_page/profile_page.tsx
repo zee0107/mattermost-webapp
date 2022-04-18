@@ -78,6 +78,9 @@ type State = {
     currentUser: UserProfile;
     uploading: boolean;
     deferredPostView: any;
+    location: string;
+    activity: string;
+    shareInfo: string;
 };
 
 export default class ProfilPage extends React.PureComponent<Props, State> {
@@ -99,7 +102,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = {openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
+        this.state = {shareInfo: 'everyone',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
     }
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
@@ -304,14 +307,13 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <div className='blur-effects-mobile text-white'>
                                             <div className='row'>
                                                 <div className='col-lg-3 text-center'>
-                                                    {this.renderProfilePicture('mxl')}
+                                                    {this.renderProfilePicture('Xxl')}
                                                 </div>
                                                 <div className='col-lg-5 text-center'>
                                                     <h3 className='name-query-mobile-style text-white'>{`${currentUser.first_name} ${currentUser.last_name}`}</h3>
-                                                    <br />
                                                     <h4 className='hash-name text-white'>{'@' + currentUser.username}</h4>
-                                                    <br />
                                                     <h4 className='little-medium-text name-quuery-at text-muted'>{currentUser.position}</h4>
+                                                    <br />
                                                 </div>
                                                 <div className='col-lg-4'>
                                                     <div className='d-grid w-50 mx-auto'>
@@ -831,6 +833,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     </div>
                 </div>
             </div>
+            
             <EditPostModal/>
         </div>
         );
