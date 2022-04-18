@@ -435,9 +435,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <div className='col-md-4 text-center mt-3'>
                                             <a className='onSelectactionfriendsdesktop'><img width='24' className='mt-1' src={GlobeMobile} /></a></div>
                                         <div className='col-md-4 text-center mt-3'>
-                                            <a className='onPhotoaddpost'><img width='24' className='mt-1' src={VideoMobile} /></a></div>
+                                            <a className='onPhotoaddpost' onClick={() => { this.setState({uploading: true});}} aria-describedby='basic-addon1011' data-toggle='modal' data-target='#staticBackdrop'><img width='24' className='mt-1' src={VideoMobile} /></a></div>
                                         <div className='col-md-4 text-center mt-3'>
-                                            <a className='onCreatepost' data-bs-toggle='modal' data-bs-target='#staticBackdrop'><img width='24' className='mt-1' src={ShareMobile} /></a></div>
+                                            <a className='onCreatepost' data-toggle='modal' data-target='#staticBackdrop'><img width='24' className='mt-1' src={ShareMobile} /></a></div>
                                         </div>
                                     </div>
                                 </div>
