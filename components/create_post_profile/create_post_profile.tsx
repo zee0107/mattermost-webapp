@@ -415,7 +415,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
 
     componentDidUpdate(prevProps: Props, prevState: State) {
         const {useGroupMentions, isTimezoneEnabled, actions, uploading} = this.props;
-        const {currentChannel, uploading} = this.state;
+        const {currentChannel} = this.state;
         if (prevState.currentChannel.id !== currentChannel.id){
             if(this.props.currentChannel !== null){
                 Promise.resolve(currentChannel).then(value => {this.setState({currentChannel: value})});
