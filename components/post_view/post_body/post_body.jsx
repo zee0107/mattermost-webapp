@@ -236,7 +236,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
                 ref={this.chevMenuRef}
                 data-testid={`post-menu-${post.id}`}
                 className={'float-end'}
-                style={{marginTop: -25}}
+                style={{marginTop: -40}}
             >
                 {!collapsedThreadsEnabled && !showRecentlyUsedReactions && dotMenu}
                 {(collapsedThreadsEnabled || showRecentlyUsedReactions) && dotMenu}

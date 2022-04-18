@@ -529,7 +529,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <CreatePostProfile uploading={this.state.uploading} />
                                         </div>
                                     </div>
-
                                     <div className='post-music-content'>
                                         <div className='container'>
                                             <div className='row'>
