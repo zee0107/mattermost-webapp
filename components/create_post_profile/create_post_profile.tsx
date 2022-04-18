@@ -618,7 +618,6 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                 this.setState({message: ''});
             }
         }
-        console.log(post);
         this.setState({
             submitting: false,
             postError: null,
@@ -810,7 +809,6 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
 
             return hookResult;
         }
-        console.log(hookResult);
         post = hookResult.data;
 
         actions.onSubmitPost(post, draft.fileInfos);
