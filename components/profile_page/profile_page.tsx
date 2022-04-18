@@ -214,7 +214,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
         
         if(userLocation !== null && userLocation !== ''){
-            location = (<a href='#' className='locationviewpost text-primary'><small className='text-muted'>is in</small> {userLocation}</a> );
+            location = (<a href='#' className='locationviewpost text-primary'><small className='text-muted'> is in</small> {userLocation}</a> );
         }
 
         if(shareInfo === 'private'){
@@ -684,7 +684,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-md-2 text-center'>
                                             <div className='form-check mt-3'>
-                                                <input className='form-check-input onAddlocation' type='radio' name='locationRadios' value='Muntinlupa City' onChange={this.onChangeLocation} id='locationRadios4' value='option4'/>
+                                                <input className='form-check-input onAddlocation' type='radio' name='locationRadios' value='Muntinlupa City' onChange={this.onChangeLocation} id='locationRadios4' />
                                                 <label className='form-check-label' htmlFor='locationRadios4'></label>
                                             </div>
                                         </div>
@@ -698,7 +698,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-md-2 text-center'>
                                             <div className='form-check mt-3'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' value='Makati City' onChange={this.onChangeLocation} id='locationRadios5' value='option5'/>
+                                                <input className='form-check-input' type='radio' name='locationRadios' value='Makati City' onChange={this.onChangeLocation} id='locationRadios5' />
                                                 <label className='form-check-label' htmlFor='locationRadios5'></label>
                                             </div>
                                         </div>
@@ -712,7 +712,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-md-2 text-center'>
                                             <div className='form-check mt-3'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' value='Taguig City' onChange={this.onChangeLocation} id='locationRadios6' value='option6'/>
+                                                <input className='form-check-input' type='radio' name='locationRadios' value='Taguig City' onChange={this.onChangeLocation} id='locationRadios6' />
                                                 <label className='form-check-label' htmlFor='locationRadios6'></label>
                                             </div>
                                         </div>
@@ -726,7 +726,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-md-2 text-center'>
                                             <div className='form-check mt-3'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' value='Santa Rosa City' onChange={this.onChangeLocation} id='locationRadios7' value='option6'/>
+                                                <input className='form-check-input' type='radio' name='locationRadios' value='Santa Rosa City' onChange={this.onChangeLocation} id='locationRadios7' />
                                                 <label className='form-check-label' htmlFor='locationRadios6'></label>
                                             </div>
                                         </div>
@@ -740,7 +740,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-md-2 text-center'>
                                             <div className='form-check mt-3'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' value='San Pedro City' onChange={this.onChangeLocation} id='locationRadios8' value='option6'/>
+                                                <input className='form-check-input' type='radio' name='locationRadios' value='San Pedro City' onChange={this.onChangeLocation} id='locationRadios8' />
                                                 <label className='form-check-label' htmlFor='locationRadios6'></label>
                                             </div>
                                         </div>
