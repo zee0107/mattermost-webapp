@@ -133,7 +133,7 @@ export default class UserProfile extends PureComponent<UserProfileProps> {
                     >
                         {name}
                         <br />
-                        {user.position}
+                        <span className='text-muted small'>{user.position}</span>
                     </button>
                 </OverlayTrigger>
                 {sharedIcon}
