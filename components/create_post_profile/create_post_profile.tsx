@@ -1483,7 +1483,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                         type='button'
                         aria-label={emojiButtonAriaLabel}
                         onClick={this.toggleEmojiPicker}
-                        className={classNames('emoji-picker__container', 'post-action', {
+                        className={classNames('emoji-picker__container', 'post-action','mr-5','mt-2', {
                             'post-action--active': this.state.showEmojiPicker,
                         })}
                     >
