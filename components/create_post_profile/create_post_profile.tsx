@@ -635,6 +635,8 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
         if (shouldCompleteTip) {
             this.completePostTip('send_message');
         }
+
+        console.log(post);
     }
 
     handleNotifyAllConfirmation = () => {
