@@ -219,6 +219,8 @@ type Props = {
   */
     shouldShowPreview: boolean;
 
+    uploading: boolean;
+
     actions: {
 
         /**
@@ -401,6 +403,10 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             Promise.resolve(currentChannel).then(value => {this.setState({currentChannel: value})});
         }
 
+        if(this.props.uploading !== null){
+            this.setState(uploading: this.props.uploading);
+        }
+
         if (useGroupMentions) {
             actions.getChannelMemberCountsByGroup(this.state.currentChannel.id, isTimezoneEnabled);
         }
@@ -408,12 +414,16 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
     }
 
     componentDidUpdate(prevProps: Props, prevState: State) {
-        const {useGroupMentions, isTimezoneEnabled, actions} = this.props;
-        const {currentChannel} = this.state;
+        const {useGroupMentions, isTimezoneEnabled, actions, uploading} = this.props;
+        const {currentChannel, uploading} = this.state;
         if (prevState.currentChannel.id !== currentChannel.id){
             if(this.props.currentChannel !== null){
                 Promise.resolve(currentChannel).then(value => {this.setState({currentChannel: value})});
             }
+        }
+
+        if(uploading !== prevProps.uploading){
+            this.setState({uploading: this.props.uploading});
         }
         
         if(prevState.currentChannel.id !== currentChannel.id){
