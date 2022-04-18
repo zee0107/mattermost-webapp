@@ -113,7 +113,7 @@ export function createPost(post, files) {
         } else {
             dispatch(storeDraft(post.channel_id, null));
         }
-
+        console.log('Result From action: ',result);
         return result;
     };
 }
