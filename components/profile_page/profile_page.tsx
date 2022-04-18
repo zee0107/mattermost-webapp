@@ -307,7 +307,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <div className='blur-effects-mobile text-white'>
                                             <div className='row'>
                                                 <div className='col-lg-3 text-center'>
-                                                    {this.renderProfilePicture('Xxl')}
+                                                    {this.renderProfilePicture('xxl')}
                                                 </div>
                                                 <div className='col-lg-5 text-center'>
                                                     <h3 className='name-query-mobile-style text-white'>{`${currentUser.first_name} ${currentUser.last_name}`}</h3>

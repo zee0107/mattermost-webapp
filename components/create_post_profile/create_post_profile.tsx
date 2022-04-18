@@ -633,6 +633,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
 
         const shouldCompleteTip = this.props.tutorialStep === Constants.TutorialSteps.POST_POPOVER;
         if (shouldCompleteTip) {
+            console.log(post);
             this.completePostTip('send_message');
         }
     }
@@ -809,8 +810,6 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
 
             return hookResult;
         }
-
-        console.log('Hook Result: ', hookResult.data);
         post = hookResult.data;
 
         actions.onSubmitPost(post, draft.fileInfos);
