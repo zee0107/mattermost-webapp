@@ -618,7 +618,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                 this.setState({message: ''});
             }
         }
-        console.log(post.post_id);
+        console.log(post);
         this.setState({
             submitting: false,
             postError: null,
