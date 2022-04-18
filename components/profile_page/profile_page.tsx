@@ -519,7 +519,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <div className='form'>
                                 <div className='modal-header'>
                                     <h6 className='modal-title'>Create post</h6>
-                                    <a className='btn-close-canvas shadow onClosecreatepost float-end' data-dismiss='modal' aria-label='Close'><img src={xIcon}/></a>
+                                    <a className='btn-close-canvas shadow onClosecreatepost float-end' data-dismiss='modal' aria-label='Close' onClick={() => {this.setState({uploading: false});}}><img src={xIcon}/></a>
                                 </div>
 
                                 <div className='modal-body'>
