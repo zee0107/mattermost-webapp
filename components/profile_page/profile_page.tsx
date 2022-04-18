@@ -115,7 +115,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         if(this.state.coverUrl === undefined || this.state.coverUrl === 'unavailable' || this.state.coverUrl === ''){
             this.setState({coverUrl: coverImage});
         }
-
+        console.log(this.props.userId);
         this.getCompletionRate();
     }
 
@@ -188,7 +188,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser, profilePicture} = this.props;
-        const { coverUrl,completionResult, uploading } = this.state;
+        const { coverUrl,completionResult, uploading, shareInfo} = this.state;
 
         let photoAvailable;
         let nameAvailable;
