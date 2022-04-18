@@ -618,7 +618,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
                 this.setState({message: ''});
             }
         }
-
+        console.log(post.post_id);
         this.setState({
             submitting: false,
             postError: null,
@@ -633,7 +633,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
 
         const shouldCompleteTip = this.props.tutorialStep === Constants.TutorialSteps.POST_POPOVER;
         if (shouldCompleteTip) {
-            console.log(post);
+            
             this.completePostTip('send_message');
         }
     }
