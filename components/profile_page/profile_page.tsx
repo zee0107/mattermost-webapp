@@ -25,6 +25,9 @@ import UndoneIcon from 'images/profiles/undone.svg';
 import postImage from 'images/post-1.png';
 import postPic from 'images/profiles/user-profile-2.png';
 import completion from 'images/profiles/completion.png';
+import ShareMobile from 'images/icon-share2.png';
+import GlobeMobile from 'images/icon-globe2.png';
+import VideoMobile from 'images/icon-cideo-camera.png';
 import styled from 'styled-components';
 
 import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
@@ -409,8 +412,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='col-md-2'><div className='d-grid'><button className='box-button-share btn-sm text-white onCreatepost width-100' aria-describedby='basic-addon99' data-toggle='modal' data-target='#staticBackdrop'>Share</button></div>
                                         </div>
                                     </div>
-
-                                    <div className='d-flex crypter-section-profile-mobile'>
+                                </div>
+                                <div className='d-flex crypter-section-profile-mobile'>
                                         <div className='whats-going-on-here-style float-start'>
                                             <div className='input-group bg-inputs-whats'>
                                                 <span className='input-group-text input-search-crypter-whats-going-on' id='basic-addon22'>
@@ -430,15 +433,14 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <div className='button-share-camera-globe'>
                                             <div className='d-flex'>
                                             <div className='col-md-4 text-center mt-2'>
-                                                <a className='onSelectactionfriendsdesktop'><img width='24' className='mt-2' src='assets/images/icon-globe2.png' /></a></div>
+                                                <a className='onSelectactionfriendsdesktop'><img width='24' className='mt-2' src={GlobeMobile} /></a></div>
                                             <div className='col-md-4 text-center mt-2'>
-                                                <a className='onPhotoaddpost'><img width='24' className='mt-2' src='assets/images/icon-cideo-camera.png' /></a></div>
+                                                <a className='onPhotoaddpost'><img width='24' className='mt-2' src={VideoMobile} /></a></div>
                                             <div className='col-md-4 text-center mt-2'>
-                                                <a className='onCreatepost' data-bs-toggle='modal' data-bs-target='#staticBackdrop'><img width='24' className='mt-2' src='assets/images/icon-share2.png' /></a></div>
+                                                <a className='onCreatepost' data-bs-toggle='modal' data-bs-target='#staticBackdrop'><img width='24' className='mt-2' src={ShareMobile} /></a></div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 <div className='mtop-20'>
                                     <DeferredPostView
                                         channelId='kqe4sihhdid47gprhk6dwbuc4o'
