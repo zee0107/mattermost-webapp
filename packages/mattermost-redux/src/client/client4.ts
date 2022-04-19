@@ -1995,10 +1995,10 @@ export default class Client4 {
             {method: 'get'},
         );
 
-        let data1 = {} as OtherDetails;
-        let data2 = {} as Post;
-        Promise.resolve(otherData).then(value => { data1 = value});
-        Promise.resolve(postData).then(value => { data2 = value});
+        let data1 = Promise.resolve(otherData).then(value => value);
+        let data2 = Promise.resolve(postData).then(value => value);
+        
+        
         console.log('Post Data: ',data1);
         console.log('Other Data: ',data2);
         const postDetailed = {} as PostDetailed;
