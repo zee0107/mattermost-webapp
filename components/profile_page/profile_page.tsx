@@ -295,11 +295,11 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         </div>
     
                         <div className='d-flex mt-1'>
-                        <div className='col-md- width-50 text-center'>
+                        <div className='col-md-6 width-50 text-center'>
                             <p className='border p-1 onFeelingselect' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128562;</label> <br /> <small>Astonished face</small></p>
                         </div>
-                        <div className='col-md-6 width-50 text-center' style={{border: '1px solid grey', borderRadius: 8,}}>
-                            <p className='border p-1'><label style={{fontSize: 20}}>&#128564;</label> <br /> <small>Sleeping face</small></p>
+                        <div className='col-md-6 width-50 text-center'>
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128564;</label> <br /> <small>Sleeping face</small></p>
                         </div>
                         </div>
     
