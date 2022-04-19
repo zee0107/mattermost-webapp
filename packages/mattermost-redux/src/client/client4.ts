@@ -1982,25 +1982,21 @@ export default class Client4 {
         );
     };
 
-    getPostDetailed = (postId: string) => {
+    getPostDetailed = async (postId: string) => {
         console.log('Post Id: ', postId)
 
-        const otherData = this.doFetch<OtherDetails>(
+        const otherData = await this.doFetch<OtherDetails>(
             `https://localhost:44312/api/crypter/getuserpost?postId=${postId}`,
             {method: 'get'},
         );
 
-        const postData = this.doFetch<Post>(
+        const postData = await this.doFetch<Post>(
             `${this.getPostRoute(postId)}`,
             {method: 'get'},
-        );
-
-        let data1 = Promise.resolve(otherData).then( value => { return value; });
-        let data2 = Promise.resolve(postData).then( value => { return value; });
+        );       
         
-        
-        console.log('Post Data: ',data1);
-        console.log('Other Data: ',data2);
+        console.log('Post Data: ',otherData);
+        console.log('Other Data: ',postData);
         const postDetailed = {} as PostDetailed;
         postDetailed.id = postData.id;
         postDetailed.create_at = postData.create_at;
