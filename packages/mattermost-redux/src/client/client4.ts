@@ -1983,6 +1983,7 @@ export default class Client4 {
     };
 
     getPostDetailed = (postId: string) => {
+        console.log('Post Id: ', postId)
         type otherDetails = {
             post_id: string;
             location: string;
@@ -2031,7 +2032,8 @@ export default class Client4 {
         postDetailed.location = otherData.location;
         postDetailed.actvity = otherData.activity;
         postDetailed.share_info = otherData.share_info;
-
+        
+        console.log('Details: ', postDetailed);
         return postDetailed;
     };
 
