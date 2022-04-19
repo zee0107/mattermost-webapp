@@ -234,37 +234,37 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     <div id='searchfeelings'>
                         <div className='d-flex mt-3'>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128512;</label> <br /> <small>Grinning face</small></p> 
+                            <p className='border p-1 onFeelingselect' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128512;</label> <br /> <small>Grinning face</small></p> 
                         </div>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1'><label style={{fontSize: 20}}>&#128513;</label> <br /> <small>Smiling eyes</small></p>
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128513;</label> <br /> <small>Smiling eyes</small></p>
                         </div>
                         </div>
     
                         <div className='d-flex'>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1'><label style={{fontSize: 20}}>&#128514;</label> <br /> <small>Tears of joy</small></p> 
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128514;</label> <br /> <small>Tears of joy</small></p> 
                         </div>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1'><label style={{fontSize: 20}}>&#128515;</label> <br /> <small>Open mounth</small></p> 
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128515;</label> <br /> <small>Open mounth</small></p> 
                         </div>
                         </div>
     
                         <div className='d-flex'>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1'><label style={{fontSize: 20}}>&#128516;</label> <br /> <small>Smiling eyes</small></p> 
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128516;</label> <br /> <small>Smiling eyes</small></p> 
                         </div>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1'><label style={{fontSize: 20}}>&#128517;</label> <br /> <small>Cold sweat</small></p>
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128517;</label> <br /> <small>Cold sweat</small></p>
                         </div>
                         </div>
     
                         <div className='d-flex'>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1'><label style={{fontSize: 20}}>&#128518;</label> <br /> <small>Tightly closed eye</small></p>
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128518;</label> <br /> <small>Tightly closed eye</small></p>
                         </div>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1'><label style={{fontSize: 20}}>&#128519;</label> <br /> <small>Smiling with halo</small></p>
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128519;</label> <br /> <small>Smiling with halo</small></p>
                         </div>
                         </div>
                     </div>
@@ -287,28 +287,28 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     <div id='searchactivities'>
                         <div className='d-flex mt-1'>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1 onActivitiesselect'><label style={{fontSize: 20}}>&#128151;</label> <br /> <small>Loving</small></p> 
+                            <p className='border p-1 onActivitiesselect' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128151;</label> <br /> <small>Loving</small></p> 
                         </div>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1'><label style={{fontSize: 20}}>&#128561;</label> <br /> <small>Face screaming in fear</small></p> 
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128561;</label> <br /> <small>Face screaming in fear</small></p> 
                         </div>
                         </div>
     
                         <div className='d-flex mt-1'>
                         <div className='col-md- width-50 text-center'>
-                            <p className='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128562;</label> <br /> <small>Astonished face</small></p>
+                            <p className='border p-1 onFeelingselect' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128562;</label> <br /> <small>Astonished face</small></p>
                         </div>
-                        <div className='col-md-6 width-50 text-center'>
+                        <div className='col-md-6 width-50 text-center' style={{border: '1px solid grey', borderRadius: 8,}}>
                             <p className='border p-1'><label style={{fontSize: 20}}>&#128564;</label> <br /> <small>Sleeping face</small></p>
                         </div>
                         </div>
     
                         <div className='d-flex mt-1'>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128565;</label> <br /> <small>Dizzy face</small></p>
+                            <p className='border p-1 onFeelingselect' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128565;</label> <br /> <small>Dizzy face</small></p>
                         </div>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1'><label style={{fontSize: 20}}>&#128567;</label> <br /> <small>Face with medical mask</small></p>
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128567;</label> <br /> <small>Face with medical mask</small></p>
                         </div>
                         </div>
                     </div>
