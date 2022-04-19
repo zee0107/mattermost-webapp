@@ -125,6 +125,7 @@ export default class Post extends React.PureComponent {
             a11yActive: false,
             ariaHidden: true,
             fadeOutHighlight: false,
+            postDetail: {},
         };
     }
 
@@ -142,6 +143,10 @@ export default class Post extends React.PureComponent {
             this.highlightTimeout = setTimeout(() => {
                 this.setState({fadeOutHighlight: true});
             }, Constants.PERMALINK_FADEOUT);
+        }
+
+        if(this.props.postDetailed !== null){
+            Promise.resolve(postDetailed).then(value => { this.setState({postDetail: value}); });
         }
     }
 
@@ -352,6 +357,8 @@ export default class Post extends React.PureComponent {
             currentUserId,
             postDetailed,
         } = this.props;
+
+        const { postDetail } = this.state;
         if (!post.id) {
             return null;
         }
@@ -387,7 +394,7 @@ export default class Post extends React.PureComponent {
         if (this.props.center) {
             centerClass = 'center';
         }
-        console.log(postDetailed);
+        console.log(postDetail);
         let postView;
         if(post.user_id === currentUserId){
             postView = (
@@ -424,7 +431,7 @@ export default class Post extends React.PureComponent {
                             <div>
                                 <PostHeader
                                     post={post}
-                                    postDetailed={postDetailed}
+                                    postDetailed={postDetail}
                                     handleCommentClick={this.handleCommentClick}
                                     handleCardClick={this.handleCardClick}
                                     handleDropdownOpened={this.handleDropdownOpened}
