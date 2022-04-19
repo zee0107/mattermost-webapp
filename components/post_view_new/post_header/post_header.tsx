@@ -181,13 +181,13 @@ export default class PostHeader extends React.PureComponent<Props> {
         let shareInfoIcon;
         if(postDetailed.share_info !== null && postDetailed.share_info !== ''){
             if(postDetailed.share_info === 'private'){
-                shareInfoIcon = (<i className='bi bi-person-fill'></i>);
+                shareInfoIcon = (<i className='bi bi-person-fill' title='Private'></i>);
             }
             else if(postDetailed.share_info === 'friends'){
-                shareInfoIcon = (<i className='bi bi-people-fill'></i>);
+                shareInfoIcon = (<i className='bi bi-people-fill' title='Friends'></i>);
             }
             else{
-                shareInfoIcon = (<i className='bi bi-globe'></i>);
+                shareInfoIcon = (<i className='bi bi-globe' title='Everyone'></i>);
             }
 
             if(postDetailed.actvity !== null && postDetailed.actvity !== ''){
