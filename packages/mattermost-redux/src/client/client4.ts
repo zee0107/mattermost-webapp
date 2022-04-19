@@ -1995,8 +1995,8 @@ export default class Client4 {
             {method: 'get'},
         );
 
-        let data1 = Promise.resolve(otherData).then(value => value);
-        let data2 = Promise.resolve(postData).then(value => value);
+        let data1 = Promise.resolve(otherData).then( value => { return value; });
+        let data2 = Promise.resolve(postData).then( value => { return value; });
         
         
         console.log('Post Data: ',data1);
