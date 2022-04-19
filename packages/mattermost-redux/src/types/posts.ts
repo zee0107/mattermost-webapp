@@ -112,6 +112,13 @@ export type PostDetailed = {
     share_info: string;
 };
 
+export type OtherDetails = {
+    post_id: string;
+    location: string;
+    activity: string;
+    share_info: string;
+}
+
 export type UserActivityPost = Post & {
     system_post_ids: string[];
     user_activity_posts: Post[];

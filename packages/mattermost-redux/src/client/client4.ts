@@ -75,7 +75,7 @@ import type {
     MarketplaceApp,
     MarketplacePlugin,
 } from 'mattermost-redux/types/marketplace';
-import {Post, PostList, PostSearchResults, OpenGraphMetadata, PostDetailed} from 'mattermost-redux/types/posts';
+import {Post, PostList, PostSearchResults, OpenGraphMetadata, PostDetailed, OtherDetails} from 'mattermost-redux/types/posts';
 import {PreferenceType} from 'mattermost-redux/types/preferences';
 import {Reaction} from 'mattermost-redux/types/reactions';
 import {Role} from 'mattermost-redux/types/roles';
@@ -1984,14 +1984,8 @@ export default class Client4 {
 
     getPostDetailed = (postId: string) => {
         console.log('Post Id: ', postId)
-        type otherDetails = {
-            post_id: string;
-            location: string;
-            activity: string;
-            share_info: string;
-        }
 
-        const otherData = this.doFetch<otherDetails>(
+        const otherData = this.doFetch<OtherDetails>(
             `https://localhost:44312/api/crypter/getuserpost?postId=${postId}`,
             {method: 'get'},
         );
@@ -2001,7 +1995,7 @@ export default class Client4 {
             {method: 'get'},
         );
 
-        let data1 = {} as otherDetails;
+        let data1 = {} as OtherDetails;
         let data2 = {} as Post;
         Promise.resolve(otherData).then(value => { data1 = value});
         Promise.resolve(postData).then(value => { data2 = value});
