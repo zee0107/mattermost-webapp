@@ -191,7 +191,7 @@ export default class PostHeader extends React.PureComponent<Props> {
             }
 
             if(postDetailed.actvity !== null && postDetailed.actvity !== ''){
-                const activityValue = postDetailed.actvity.split('&');
+                const activityValue = postDetailed.actvity.toString().split('&');
                 let textValue = activityValue[0];
                 let icon = String.fromCodePoint(activityValue[1].substring(1, activityValue[1].length - 1));
                 if(postDetailed.location !== null && postDetailed.location !== ''){
