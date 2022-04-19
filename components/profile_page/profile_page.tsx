@@ -223,7 +223,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let icon;
         if(this.state.userActivity !== null && this.state.userActivity !== ''){
             const activityValue = this.state.userActivity.split('&');
-            text = activityValue[0];
+            textValue = activityValue[0];
             icon = String.fromCodePoint('&'+activityValue[1]);
         }
 
