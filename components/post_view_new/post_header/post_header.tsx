@@ -178,34 +178,45 @@ export default class PostHeader extends React.PureComponent<Props> {
         );
 
         let shareInfoDetails;
+        let shareInfoIcon;
         if(postDetailed.share_info !== null && postDetailed.share_info !== ''){
+            if(postDetailed.share_info === 'private'){
+                shareInfoIcon = (<i className='bi bi-person-fill'></i>);
+            }
+            else if(postDetailed.share_info === 'friends'){
+                shareInfoIcon = (<i className='bi bi-people-fill'></i>);
+            }
+            else{
+                shareInfoIcon = (<i className='bi bi-globe'></i>);
+            }
+
             if(postDetailed.actvity !== null && postDetailed.actvity !== ''){
                 if(postDetailed.location !== null && postDetailed.location !== ''){
                     shareInfoDetails = (
-                        <span> is feeling <label>{postDetailed.actvity}</label> is in <label>{postDetailed.location}</label> {postDetailed.share_info}</span>
+                        <span> is feeling <label>{postDetailed.actvity}</label> is in <label>{postDetailed.location}</label> {shareInfoIcon}</span>
                     );
                 }
                 else{
                     shareInfoDetails = (
-                        <span> is feeling <label>{postDetailed.actvity}</label> {postDetailed.share_info}</span>
+                        <span> is feeling <label>{postDetailed.actvity}</label> {shareInfoIcon}</span>
                     );
                 }
             }
             else if(postDetailed.location !== null && postDetailed.location !== ''){
                 if(postDetailed.actvity === null && postDetailed.actvity === ''){
                     shareInfoDetails = (
-                        <span> is in <label>{postDetailed.location}</label> {postDetailed.share_info}</span>
+                        <span> is in <label>{postDetailed.location}</label> {shareInfoIcon}</span>
                     );
                 }
                 else{
                     shareInfoDetails = (
-                        <span>{postDetailed.share_info}</span>
+                        <span> {shareInfoIcon}</span>
                     );
                 }
             }
             else {
                 shareInfoDetails = (
-                    <span> {postDetailed.share_info}</span>
+                    <span> {shareInfoIcon}</span>
                 );
             }
         }
