@@ -715,7 +715,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 </div>
                 
                                 <div className='row mt-3'>
-                                    {this.state.userLocation && <a className='locationviewpost onUnselectlocation ml-4' onClick={() => {this.setState({userLocation: ''});}}><label className='text-primary'>{this.state.userLocation} <i className='bi-x-lg'></i></label></a>}
+                                    {this.state.userLocation && <a className='locationviewpost onUnselectlocation ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userLocation: ''});}}><label className='text-primary'>{this.state.userLocation} <i className='bi-x-lg'></i></label></a>}
                                 </div>
                 
                                 <div id='searchforlocations'>
