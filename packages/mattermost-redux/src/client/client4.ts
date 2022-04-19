@@ -1954,7 +1954,7 @@ export default class Client4 {
         }
         const resultOtherDetails = await this.doFetch<boolean>(
             'https://localhost:44312/api/crypter/userpostdetailed',
-            {method: 'post', body: JSON.stringify(postNew)},
+            {method: 'post', body: JSON.stringify(dataToSend)},
         );
         const analyticsData = {channel_id: result.channel_id, post_id: result.id, user_actual_id: result.user_id, root_id: result.root_id};
         this.trackEvent('api', 'api_posts_create', analyticsData);
