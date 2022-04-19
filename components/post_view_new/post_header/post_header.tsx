@@ -179,7 +179,7 @@ export default class PostHeader extends React.PureComponent<Props> {
         let shareInfoDetails;
         if(postDetailed.share_info !== null && postDetailed.share_info !== ''){
             shareInfoDetails = (
-                <span className='border'>{postDetailed.share_info}</span>
+                <label>{postDetailed.share_info}</label>
             );
         }
 
