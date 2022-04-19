@@ -1983,8 +1983,6 @@ export default class Client4 {
     };
 
     getPostDetailed = async (postId: string) => {
-        console.log('Post Id: ', postId)
-
         const otherData = await this.doFetch<OtherDetails>(
             `https://localhost:44312/api/crypter/getuserpost?postId=${postId}`,
             {method: 'get'},
@@ -1993,10 +1991,8 @@ export default class Client4 {
         const postData = await this.doFetch<Post>(
             `${this.getPostRoute(postId)}`,
             {method: 'get'},
-        );       
-        
-        console.log('Post Data: ',otherData);
-        console.log('Other Data: ',postData);
+        );
+
         const postDetailed = {} as PostDetailed;
         postDetailed.id = postData.id;
         postDetailed.create_at = postData.create_at;
@@ -2029,7 +2025,6 @@ export default class Client4 {
         postDetailed.actvity = otherData.activity;
         postDetailed.share_info = otherData.share_info;
         
-        console.log('Details: ', postDetailed);
         return postDetailed;
     };
 
