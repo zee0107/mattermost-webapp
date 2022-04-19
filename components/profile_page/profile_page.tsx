@@ -804,10 +804,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             
                         <div className='modal-body'>
                             <div className='container'>
-                                <div className='row mt-1 mb-4 gap-1'>
-                                    <div className='col-md-3 text-center border rounded p-1'>
+                                <div className='d-flex mt-1 mb-4 gap-1'>
+                                    <div className='col-md-3 text-center rounded p-1' style={{border: '1px solid grey'}}>
                                     <a className='onFeelings'><small> Feelings</small></a></div>
-                                    <div className='col-md-3 text-center border rounded p-1'>
+                                    <div className='col-md-3 text-center rounded p-1' style={{border: '1px solid grey'}}>
                                     <a className='onActivities'><small> Activities</small></a></div>
                                 </div>
                             </div>
@@ -823,7 +823,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 </div>
                 
                                 <div id='searchfeelings'>
-                                    <div className='row mt-3'>
+                                    <div className='d-flex mt-3'>
                                     <div className='col-md-6 text-center'>
                                         <p className='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128512;</label> <br /> <small>Grinning face</small></p> 
                                     </div>
@@ -832,7 +832,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     </div>
                                     </div>
                 
-                                    <div className='row'>
+                                    <div className='d-flex'>
                                     <div className='col-md-6 text-center'>
                                         <p className='border p-1'><label style={{fontSize: 20}}>&#128514;</label> <br /> <small>Tears of joy</small></p> 
                                     </div>
@@ -841,7 +841,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     </div>
                                     </div>
                 
-                                    <div className='row'>
+                                    <div className='d-flex'>
                                     <div className='col-md-6 text-center'>
                                         <p className='border p-1'><label style={{fontSize: 20}}>&#128516;</label> <br /> <small>Smiling eyes</small></p> 
                                     </div>
@@ -850,7 +850,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     </div>
                                     </div>
                 
-                                    <div className='row'>
+                                    <div className='d-flex'>
                                     <div className='col-md-6 text-center'>
                                         <p className='border p-1'><label style={{fontSize: 20}}>&#128518;</label> <br /> <small>Tightly closed eye</small></p>
                                     </div>
@@ -873,7 +873,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 </div>
                 
                                 <div id='searchactivities'>
-                                    <div className='row mt-1'>
+                                    <div className='d-flex mt-1'>
                                     <div className='col-md-6 text-center'>
                                         <p className='border p-1 onActivitiesselect'><label style={{fontSize: 20}}>&#128151;</label> <br /> <small>Loving</small></p> 
                                     </div>
@@ -882,7 +882,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     </div>
                                     </div>
                 
-                                    <div className='row mt-1'>
+                                    <div className='d-flex mt-1'>
                                     <div className='col-md-6 text-center'>
                                         <p className='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128562;</label> <br /> <small>Astonished face</small></p>
                                     </div>
@@ -891,7 +891,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     </div>
                                     </div>
                 
-                                    <div className='row mt-1'>
+                                    <div className='d-flex mt-1'>
                                     <div className='col-md-6 text-center'>
                                         <p className='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128565;</label> <br /> <small>Dizzy face</small></p>
                                     </div>
