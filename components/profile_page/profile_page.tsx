@@ -803,12 +803,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         </div>
             
                         <div className='modal-body'>
-                            <div className='container'>
+                            <div>
                                 <div className='d-flex mt-1 mb-4 gap-1'>
-                                    <div className='col-md-3 text-center rounded p-1' style={{border: '1px solid grey'}}>
-                                    <a className='onFeelings'><small> Feelings</small></a></div>
-                                    <div className='col-md-3 text-center rounded p-1' style={{border: '1px solid grey'}}>
-                                    <a className='onActivities'><small> Activities</small></a></div>
+                                    <div className='col-md-3 text-center rounded p-1 mr-2' style={{border: '1px solid grey', borderRadius: 8}}>
+                                    <a className='onFeelings text-primary'><small> Feelings</small></a></div>
+                                    <div className='col-md-3 text-center rounded p-1' style={{border: '1px solid grey', borderRadius: 8}}>
+                                    <a className='onActivities text-primary'><small> Activities</small></a></div>
                                 </div>
                             </div>
                 
