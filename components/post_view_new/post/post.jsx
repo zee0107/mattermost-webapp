@@ -146,7 +146,7 @@ export default class Post extends React.PureComponent {
         }
 
         if(this.props.postDetailed !== null){
-            Promise.resolve(postDetailed).then(value => { this.setState({postDetail: value}); });
+            Promise.resolve(this.props.postDetailed).then(value => { this.setState({postDetail: value}); });
         }
     }
 
