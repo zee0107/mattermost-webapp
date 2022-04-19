@@ -1947,7 +1947,7 @@ export default class Client4 {
         );
         
         const dataToSend = {
-            post_id: post.id,
+            post_id: result.id,
             location: post.location,
             activity: post.actvity,
             share_info: post.share_info,
