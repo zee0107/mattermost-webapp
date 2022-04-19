@@ -165,6 +165,7 @@ export default class PostListRow extends React.PureComponent<PostListRowProps> {
             );
         }
 
+        console.log(listId);
         return (
             <Post
                 postId={listId}
