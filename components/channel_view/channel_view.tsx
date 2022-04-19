@@ -555,23 +555,25 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                         id='app-content'
                         className='app__content'
                         >
+                        
                         <div className='col-md-12 share-div'>
                             <FileUploadOverlay overlayType='center'/>
+                            {createPost}
                             {/*<ChannelHeader
                             {...this.props}
                             />*/}
-                            <div className='d-flex'>
+                            {/*<div className='d-flex'>
                                 <div className='col-md-9 share-div-input removePaddingRight'>
                                     <div className='d-flex'>
                                         <div className='col-sm-2 removePadding'>
                                             {this.renderProfilePicture('md')}
                                             </div>
                                             <div className='col-sm-10 removePadding'>
-                                                {createPost}
+                                                
                                             </div>
                                         </div>
                                     </div>
-                                    {/*<div className='col-lg-3 removePaddingRight margin-top-share'>
+                                    <div className='col-lg-3 removePaddingRight margin-top-share'>
                                         <select id='selectDesktop' className='share-select small'>
                                             <option value='Everyone'>&#127760; Everyone</option>
                                             <option value='Friends'>&#128101; Friends Only</option>
@@ -582,7 +584,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                             <option value='Friends'>&#128101;</option>
                                             <option value='Private'>&#128100;</option>
                                         </select>
-                                    </div>*/}
+                                    </div>
                                     <div className='col-md-3 removePaddingRight margin-top-share'>
                                         <div id='buttonsDesktop'>
                                             <a href='#' className='btn buttonBgWhite btn-margin-right btn-sm'><svg xmlns="http://www.w3.org/2000/svg" width="10" height="12" fill="#44cc4b" className="bi bi-camera-video" viewBox="0 -2 16 16">
@@ -601,7 +603,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>*/}
                             <div className='col-md-12 pbot-20 bgGrey'></div>
                             <div className='col-md-12 removePadding'>
                                <DeferredPostView
