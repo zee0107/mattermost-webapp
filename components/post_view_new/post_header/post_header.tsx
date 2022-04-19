@@ -193,30 +193,30 @@ export default class PostHeader extends React.PureComponent<Props> {
             if(postDetailed.actvity !== null && postDetailed.actvity !== ''){
                 if(postDetailed.location !== null && postDetailed.location !== ''){
                     shareInfoDetails = (
-                        <span> is feeling <label>{postDetailed.actvity}</label> is in <label>{postDetailed.location}</label> {shareInfoIcon}</span>
+                        <span>&nbsp;is feeling <label>{postDetailed.actvity}</label> is in <label>{postDetailed.location}</label> {shareInfoIcon}</span>
                     );
                 }
                 else{
                     shareInfoDetails = (
-                        <span> is feeling <label>{postDetailed.actvity}</label> {shareInfoIcon}</span>
+                        <span>&nbsp;is feeling <label>{postDetailed.actvity}</label> {shareInfoIcon}</span>
                     );
                 }
             }
             else if(postDetailed.location !== null && postDetailed.location !== ''){
                 if(postDetailed.actvity === null && postDetailed.actvity === ''){
                     shareInfoDetails = (
-                        <span> is in <label>{postDetailed.location}</label> {shareInfoIcon}</span>
+                        <span>&nbsp;is in <label>{postDetailed.location}</label> {shareInfoIcon}</span>
                     );
                 }
                 else{
                     shareInfoDetails = (
-                        <span> {shareInfoIcon}</span>
+                        <span>&nbsp;{shareInfoIcon}</span>
                     );
                 }
             }
             else {
                 shareInfoDetails = (
-                    <span> {shareInfoIcon}</span>
+                    <span>&nbsp;{shareInfoIcon}</span>
                 );
             }
         }
