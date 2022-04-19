@@ -46,13 +46,17 @@ export function isFirstReply(post: Post, previousPost: Post): boolean {
     return false;
 }
 
+async function getPostDetails(postId: string) {
+    const data = await Client4.getPostDetailed(postId);
+    return data;
+}
 function makeMapStateToProps() {
     const getReplyCount = makeGetCommentCountForPost();
     const isPostCommentMention = makeIsPostCommentMention();
 
     return (state: GlobalState, ownProps: OwnProps) => {
         const post = ownProps.post || getPost(state, ownProps.postId);
-        const postDetailed = Client4.getPostDetailed(post.id);
+        const postDetailed = getPostDetails(post.id);
         const channel = getChannel(state, post.channel_id);
         let previousPost = null;
         if (ownProps.previousPostId) {
