@@ -176,6 +176,13 @@ export default class PostHeader extends React.PureComponent<Props> {
             />
         );
 
+        let shareInfoDetails;
+        if(postDetailed.share_info !== null && postDetailed.share_info !== ''){
+            shareInfoDetails = (
+                <span className='border'>{postDetailed.share_info}</span>
+            );
+        }
+
         return (
             <div className='post__header'>
                 <div className='col col__name'>
@@ -183,7 +190,7 @@ export default class PostHeader extends React.PureComponent<Props> {
                     {colon}
                     {indicator}
                     {customStatus}
-                    {postDetailed.share_info}
+                    {shareInfoDetails}
                 </div>
                 <div className='col'>
                     <PostInfo
