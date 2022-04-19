@@ -275,9 +275,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         else{
             feelactView = (
                 <div className='activitiescontent'>
-                    <div className='input-group mb-0'>
-                            <span className='input-group-text input-search-crypter-span' id='basic-addon1'><i className='bi-search'></i></span>
-                            <input id='searchActivities' type='text' className='form-control form-control-dark input-search-crypter' placeholder='Search' aria-label='Search'/>
+                    <div className='input-group d-flex mb-0'>
+                        <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
+                        <input id='searchActivities' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Search' aria-label='Search'/>
                     </div>
     
                     <div className='row mt-3 mb-3'>
