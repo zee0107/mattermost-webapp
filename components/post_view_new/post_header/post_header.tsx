@@ -192,8 +192,8 @@ export default class PostHeader extends React.PureComponent<Props> {
 
             if(postDetailed.actvity !== null && postDetailed.actvity !== ''){
                 const activityValue = postDetailed.actvity.split('&');
-                const textValue = activityValue[0];
-                const icon = String.fromCodePoint(activityValue[1].substring(1, activityValue[1].length - 1));
+                let textValue = activityValue[0];
+                let icon = String.fromCodePoint(activityValue[1].substring(1, activityValue[1].length - 1));
                 if(postDetailed.location !== null && postDetailed.location !== ''){
                     shareInfoDetails = (
                         <span><label className='small'>&nbsp;is feeling&nbsp;</label><label>{textValue}&nbsp;{icon}</label><label className='small'>&nbsp;is in&nbsp;</label><label>{postDetailed.location}</label> {shareInfoIcon}</span>
