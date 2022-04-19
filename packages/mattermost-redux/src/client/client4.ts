@@ -2000,8 +2000,13 @@ export default class Client4 {
             `${this.getPostRoute(postId)}`,
             {method: 'get'},
         );
-        console.log('Post Data: ',postData);
-        console.log('Other Data: ',otherData);
+
+        let data1 = {} as otherDetails;
+        let data2 = {} as Post;
+        Promise.resolve(otherData).then(value => { data1 = value});
+        Promise.resolve(postData).then(value => { data2 = value});
+        console.log('Post Data: ',data1);
+        console.log('Other Data: ',data2);
         const postDetailed = {} as PostDetailed;
         postDetailed.id = postData.id;
         postDetailed.create_at = postData.create_at;
