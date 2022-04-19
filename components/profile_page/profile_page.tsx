@@ -216,6 +216,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let shareInfoBtn;
         let shareInfoDd;
         let location;
+        let feelact;
         let feelactView;
         let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
         
@@ -225,6 +226,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             const activityValue = this.state.userActivity.split('&');
             textValue = activityValue[0];
             icon = String.fromCodePoint(activityValue[1].substring(1, activityValue[1].length - 1));
+            feelact = (
+                <a href='#' className='feelingspost text-primary'><small className='text-muted'>is feeling {textValue}</small> {icon}&nbsp;</a>
+            );
         }
 
         if(feeling){
@@ -236,7 +240,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     </div>
     
                     <div className='row mt-3'>
-                    {this.state.userActivity && <a className='feelingspost onClosefeelingsviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-primary'>{textValue} {icon}<i className='bi-x-lg'></i></label></a>}
+                        {this.state.userActivity && <a className='feelingspost onClosefeelingsviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-primary'>{textValue} {icon}<i className='bi-x-lg'></i></label></a>}
                     </div>
     
                     <div id='searchfeelings'>
@@ -245,34 +249,34 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <p className='border p-1 onFeelingselect' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Grinning face &#128512;'}); }}>&#128512;</label> <br /> <small>Grinning face</small></p> 
                         </div>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128513;</label> <br /> <small>Smiling eyes</small></p>
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Smiling eyes &#128513;'}); }}>&#128513;</label> <br /> <small>Smiling eyes</small></p>
                         </div>
                         </div>
     
                         <div className='d-flex'>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128514;</label> <br /> <small>Tears of joy</small></p> 
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Tears of joy &#128514;'}); }}>&#128514;</label> <br /> <small>Tears of joy</small></p> 
                         </div>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128515;</label> <br /> <small>Open mounth</small></p> 
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Open mouth &#128515;'}); }}>&#128515;</label> <br /> <small>Open mouth</small></p> 
                         </div>
                         </div>
     
                         <div className='d-flex'>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128516;</label> <br /> <small>Smiling eyes</small></p> 
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Smilling eyes &#128516;'}); }}>&#128516;</label> <br /> <small>Smiling eyes</small></p> 
                         </div>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128517;</label> <br /> <small>Cold sweat</small></p>
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Cold sweat &#128517;'}); }}>&#128517;</label> <br /> <small>Cold sweat</small></p>
                         </div>
                         </div>
     
                         <div className='d-flex'>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128518;</label> <br /> <small>Tightly closed eye</small></p>
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Tightly closed eye &#128518;'}); }}>&#128518;</label> <br /> <small>Tightly closed eye</small></p>
                         </div>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128519;</label> <br /> <small>Smiling with halo</small></p>
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Smiling with halo &#128519;'}); }}>&#128519;</label> <br /> <small>Smiling with halo</small></p>
                         </div>
                         </div>
                     </div>
@@ -289,7 +293,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     </div>
     
                     <div className='row mt-3 mb-3'>
-                        <a href='#' className='activitiespost onCloseactivitiessviews'><label>Loving &#128151;</label> <i className='bi-x-lg'></i></a>
+                        {this.state.userActivity && <a className='activitiespost onCloseactivitiessviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-primary'>{textValue} {icon}<i className='bi-x-lg'></i></label></a>}
                     </div>
     
                     <div id='searchactivities'>
@@ -298,25 +302,25 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <p className='border p-1 onActivitiesselect' style={{border: '1px solid grey', borderRadius: 8,}} onClick={() => { this.setState({userActivity: 'Loving &#128151;'}); }}><label style={{fontSize: 20}}>&#128151;</label> <br /> <small>Loving</small></p> 
                         </div>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128561;</label> <br /> <small>Face screaming in fear</small></p> 
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Face screaming in fear &#128561;'}); }}>&#128561;</label> <br /> <small>Face screaming in fear</small></p> 
                         </div>
                         </div>
     
                         <div className='d-flex mt-1'>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1 onFeelingselect' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128562;</label> <br /> <small>Astonished face</small></p>
+                            <p className='border p-1 onFeelingselect' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Astonished face &#128562;'}); }}>&#128562;</label> <br /> <small>Astonished face</small></p>
                         </div>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128564;</label> <br /> <small>Sleeping face</small></p>
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Sleeping face &#128564;'}); }}>&#128564;</label> <br /> <small>Sleeping face</small></p>
                         </div>
                         </div>
     
                         <div className='d-flex mt-1'>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1 onFeelingselect' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128565;</label> <br /> <small>Dizzy face</small></p>
+                            <p className='border p-1 onFeelingselect' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Dizzy face &#128565;'}); }}>&#128565;</label> <br /> <small>Dizzy face</small></p>
                         </div>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128567;</label> <br /> <small>Face with medical mask</small></p>
+                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Face with medical mask &#128567;'}); }}>&#128567;</label> <br /> <small>Face with medical mask</small></p>
                         </div>
                         </div>
                     </div>
@@ -696,10 +700,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <div className='col-md-10 text-left'>
                                             <strong>
                                                 <a href='#' className='text-primary'>{currentUser.first_name} {currentUser.last_name}</a> 
-                                                <a href='#' className='feelingspost text-primary'><small className='text-muted'>is feeling Grinning smile</small> &#128512;</a>
+                                                {feelact}
                                                 {location}
-                                                <a href='#' className='tagviewpost text-primary'><small className='text-muted'>with</small> Friend name goes here</a> 
-                                                <a href='#' className='activities text-primary'><small className='text-muted'>Activities</small> &#128151;</a> 
+                                                {/*<a href='#' className='tagviewpost text-primary'><small className='text-muted'>with</small> Friend name goes here</a> 
+                                                <a href='#' className='activities text-primary'><small className='text-muted'>Activities</small> &#128151;</a>*/}
                                             </strong>
                                             <br />
                                             {shareInfoDd}
