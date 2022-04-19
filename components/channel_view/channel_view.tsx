@@ -382,7 +382,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         } else if (!this.props.channelRolesLoading) {
             createPost = (
                 <div
-                    className='post-create__container'
                     id='post-create'
                 >
                     {/*<CreatePost
@@ -568,7 +567,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                             className='app__content'
                             >
                             
-                            <div className='col-md-12 share-div'>
+                            <div className='col-md-12 share-div removePadding'>
                                 <FileUploadOverlay overlayType='center'/>
                                 
                                 {/*<ChannelHeader
