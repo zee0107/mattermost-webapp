@@ -219,6 +219,14 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let feelactView;
         let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
         
+        let textValue;
+        let icon;
+        if(this.state.userActivity !== null && this.state.userActivity !== ''){
+            const activityValue = this.state.userActivity.split('&');
+            text = activityValue[0];
+            icon = String.fromCodePoint('&'+activityValue[1]);
+        }
+
         if(feeling){
             feelactView = (
                 <div clasme='feelingscontent'>
@@ -228,7 +236,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     </div>
     
                     <div className='row mt-3'>
-                    {this.state.userActivity && <a className='feelingspost onClosefeelingsviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-primary'>{this.state.userActivity} <i className='bi-x-lg'></i></label></a>}
+                    {this.state.userActivity && <a className='feelingspost onClosefeelingsviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-primary'>{textValue} {icon}<i className='bi-x-lg'></i></label></a>}
                     </div>
     
                     <div id='searchfeelings'>
