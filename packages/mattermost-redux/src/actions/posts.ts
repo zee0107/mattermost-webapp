@@ -387,7 +387,7 @@ export function createPostDetailed(post: PostDetailed, files: any[] = []) {
         if (Selectors.isPostIdSending(state, pendingPostId)) {
             return {data: true};
         }
-        
+        /*
         const postNew = {} as Post;
         postNew.id = post.id;
         postNew.create_at = post.create_at;
@@ -416,9 +416,9 @@ export function createPostDetailed(post: PostDetailed, files: any[] = []) {
         postNew.message_source = post.message_source;
         postNew.is_following = post.is_following;
         postNew.exists = post.exists;
-
+        */
         let newPost = {
-            ...postNew,
+            ...post,
             pending_post_id: pendingPostId,
             create_at: timestamp,
             update_at: timestamp,
@@ -463,7 +463,7 @@ export function createPostDetailed(post: PostDetailed, files: any[] = []) {
 
         (async function createPostWrapper() {
             try {
-                const created = await Client4.createPost({...newPost, create_at: 0});
+                const created = await Client4.createPostDetailed({...newPost, create_at: 0});
 
                 actions = [
                     receivedPost(created, crtEnabled),
@@ -531,7 +531,7 @@ export function createPostImmediatelyDetailed(post: PostDetailed, files: any[] =
         const currentUserId = state.entities.users.currentUserId;
         const timestamp = Date.now();
         const pendingPostId = `${currentUserId}:${timestamp}`;
-
+/*
         const postNew = {} as Post;
         postNew.id = post.id;
         postNew.create_at = post.create_at;
@@ -560,9 +560,9 @@ export function createPostImmediatelyDetailed(post: PostDetailed, files: any[] =
         postNew.message_source = post.message_source;
         postNew.is_following = post.is_following;
         postNew.exists = post.exists;
-
-        let newPost: Post = {
-            ...postNew,
+*/
+        let newPost: PostDetailed = {
+            ...post,
             pending_post_id: pendingPostId,
             create_at: timestamp,
             update_at: timestamp,
@@ -595,7 +595,7 @@ export function createPostImmediatelyDetailed(post: PostDetailed, files: any[] =
         }, crtEnabled));
 
         try {
-            const created = await Client4.createPost({...newPost, create_at: 0});
+            const created = await Client4.createPostDetailed({...newPost, create_at: 0});
             newPost.id = created.id;
             newPost.reply_count = created.reply_count;
         } catch (error) {

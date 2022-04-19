@@ -104,7 +104,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {userLocation: '',shareInfo: 'everyone',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
+        this.state = {userActivity: '',userLocation: '',shareInfo: 'everyone',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
         this.onChangeShareInfo = this.onChangeShareInfo.bind(this);
         this.onChangeLocation = this.onChangeLocation.bind(this);
         this.onChangeActivity = this.onChangeActivity.bind(this);

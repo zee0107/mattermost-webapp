@@ -75,7 +75,7 @@ import type {
     MarketplaceApp,
     MarketplacePlugin,
 } from 'mattermost-redux/types/marketplace';
-import {Post, PostList, PostSearchResults, OpenGraphMetadata} from 'mattermost-redux/types/posts';
+import {Post, PostList, PostSearchResults, OpenGraphMetadata, PostDetailed} from 'mattermost-redux/types/posts';
 import {PreferenceType} from 'mattermost-redux/types/preferences';
 import {Reaction} from 'mattermost-redux/types/reactions';
 import {Role} from 'mattermost-redux/types/roles';
@@ -1909,6 +1909,60 @@ export default class Client4 {
             this.trackEvent('api', 'api_posts_replied', analyticsData);
         }
         return result;
+    };
+
+    createPostDetailed = async (post: PostDetailed) => {
+        const postNew = {} as Post;
+        postNew.id = post.id;
+        postNew.create_at = post.create_at;
+        postNew.update_at = post.update_at;
+        postNew.edit_at = post.edit_at;
+        postNew.delete_at = post.delete_at;
+        postNew.is_pinned = post.is_pinned;
+        postNew.user_id = post.user_id;
+        postNew.channel_id = post.channel_id;
+        postNew.root_id = post.root_id;
+        postNew.original_id = post.original_id;
+        postNew.message = post.message;
+        postNew.type = post.type;
+        postNew.props = post.props;
+        postNew.hashtags = post.hashtags;
+        postNew.pending_post_id = post.pending_post_id;
+        postNew.reply_count = post.reply_count;
+        postNew.file_ids = post.file_ids;
+        postNew.metadata = post.metadata;
+        postNew.failed = post.failed;
+        postNew.user_activity_posts = post.user_activity_posts;
+        postNew.state = post.state;
+        postNew.filenames = post.filenames;
+        postNew.last_reply_at = post.last_reply_at;
+        postNew.participants = post.participants;
+        postNew.message_source = post.message_source;
+        postNew.is_following = post.is_following;
+        postNew.exists = post.exists;
+
+        const result = await this.doFetch<Post>(
+            `${this.getPostsRoute()}`,
+            {method: 'post', body: JSON.stringify(postNew)},
+        );
+        
+        const dataToSend = {
+            post_id: post.id,
+            location: post.location,
+            activity: post.actvity,
+            share_info: post.share_info,
+        }
+        const resultOtherDetails = await this.doFetch<boolean>(
+            'https://localhost:44312/api/crypter/userpostdetailed',
+            {method: 'post', body: JSON.stringify(postNew)},
+        );
+        const analyticsData = {channel_id: result.channel_id, post_id: result.id, user_actual_id: result.user_id, root_id: result.root_id};
+        this.trackEvent('api', 'api_posts_create', analyticsData);
+
+        if (resultOtherDetails && result.root_id != null && result.root_id !== '') {
+            this.trackEvent('api', 'api_posts_replied', analyticsData);
+        }
+        return post;
     };
 
     updatePost = (post: Post) => {
