@@ -195,6 +195,7 @@ export default class PostHeader extends React.PureComponent<Props> {
                 <div className='col'>
                     <PostInfo
                         post={post}
+                        postDetailed={postDetailed}
                         handleCommentClick={this.props.handleCommentClick}
                         handleCardClick={this.props.handleCardClick}
                         handleDropdownOpened={this.props.handleDropdownOpened}

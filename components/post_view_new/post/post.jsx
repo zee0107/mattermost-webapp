@@ -424,6 +424,7 @@ export default class Post extends React.PureComponent {
                             <div>
                                 <PostHeader
                                     post={post}
+                                    postDetailed={postDetailed}
                                     handleCommentClick={this.handleCommentClick}
                                     handleCardClick={this.handleCardClick}
                                     handleDropdownOpened={this.handleDropdownOpened}
