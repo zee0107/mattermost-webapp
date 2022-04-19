@@ -228,13 +228,13 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     </div>
     
                     <div className='row mt-3'>
-                    <a href='#' className='feelingspost onClosefeelingsviews'><label>Grinning face &#128512;</label> <i className='bi-x-lg'></i></a>
+                    {this.state.userActivity && <a className='feelingspost onClosefeelingsviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-primary'>{this.state.userActivity} <i className='bi-x-lg'></i></label></a>}
                     </div>
     
                     <div id='searchfeelings'>
                         <div className='d-flex mt-3'>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1 onFeelingselect' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128512;</label> <br /> <small>Grinning face</small></p> 
+                            <p className='border p-1 onFeelingselect' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Grinning face &#128512;'}); }}>&#128512;</label> <br /> <small>Grinning face</small></p> 
                         </div>
                         <div className='col-md-6 width-50 text-center'>
                             <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128513;</label> <br /> <small>Smiling eyes</small></p>
@@ -287,7 +287,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     <div id='searchactivities'>
                         <div className='d-flex mt-1'>
                         <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1 onActivitiesselect' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128151;</label> <br /> <small>Loving</small></p> 
+                            <p className='border p-1 onActivitiesselect' style={{border: '1px solid grey', borderRadius: 8,}} onClick={() => { this.setState({userActivity: 'Loving &#128151;'}); }}><label style={{fontSize: 20}}>&#128151;</label> <br /> <small>Loving</small></p> 
                         </div>
                         <div className='col-md-6 width-50 text-center'>
                             <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}}>&#128561;</label> <br /> <small>Face screaming in fear</small></p> 
