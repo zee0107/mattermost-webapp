@@ -54,9 +54,9 @@ function makeMapStateToProps() {
     const getReplyCount = makeGetCommentCountForPost();
     const isPostCommentMention = makeIsPostCommentMention();
 
-    return (state: GlobalState, ownProps: OwnProps) => {
+    return async (state: GlobalState, ownProps: OwnProps) => {
         const post = ownProps.post || getPost(state, ownProps.postId);
-        const postDetailed = getPostDetails(post.id);
+        const postDetailed = await getPostDetails(post.id);
         const channel = getChannel(state, post.channel_id);
         let previousPost = null;
         if (ownProps.previousPostId) {
