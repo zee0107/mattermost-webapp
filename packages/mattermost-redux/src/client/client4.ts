@@ -1954,7 +1954,7 @@ export default class Client4 {
             share_info: post.share_info,
         }
         const resultOtherDetails = await this.doFetch<boolean>(
-            'https://localhost:44312/api/crypter/userpostdetailed',
+            'https://crypterfighter.polywickstudio.ph/api/crypter/userpostdetailed',
             {method: 'post', body: JSON.stringify(dataToSend)},
         );
         const analyticsData = {channel_id: result.channel_id, post_id: result.id, user_actual_id: result.user_id, root_id: result.root_id};
@@ -1984,7 +1984,7 @@ export default class Client4 {
 
     getPostDetailed = async (postId: string) => {
         const otherData = await this.doFetch<OtherDetails>(
-            `https://localhost:44312/api/crypter/getuserpost?postId=${postId}`,
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getuserpost?postId=${postId}`,
             {method: 'get'},
         );
 
