@@ -179,6 +179,18 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         }
     }
 
+    onChangeShareInfo = (event) => {
+        this.setState({shareInfo: event.target.value});
+    }
+
+    onChangeLocation = (event) => {
+        this.setState({userLocation: event.target.value});
+    }
+
+    onChangeActivity = (event) => {
+        this.setState({userActivity: event.target.value});
+    }
+
     render() {
         const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName,channelDisplayName,channelId, currentUser} = this.props;
         const {uploading, shareInfo, userLocation, feeling} = this.state;
@@ -558,12 +570,13 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                         
                         <div className='col-md-12 share-div'>
                             <FileUploadOverlay overlayType='center'/>
-                            {createPost}
+                            
                             {/*<ChannelHeader
                             {...this.props}
                             />*/}
-                            {/*<div className='d-flex'>
-                                <div className='col-md-9 share-div-input removePaddingRight'>
+                            <div className='d-flex'>
+                                {createPost}
+                               {/* <div className='col-md-9 share-div-input removePaddingRight'>
                                     <div className='d-flex'>
                                         <div className='col-sm-2 removePadding'>
                                             {this.renderProfilePicture('md')}
@@ -602,8 +615,8 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                             </svg></a>
                                         </div>
                                     </div>
-                                </div>
-                            </div>*/}
+                                </div>*/}
+                            </div>
                             <div className='col-md-12 pbot-20 bgGrey'></div>
                             <div className='col-md-12 removePadding'>
                                <DeferredPostView
