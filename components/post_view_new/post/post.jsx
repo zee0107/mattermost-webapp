@@ -394,7 +394,7 @@ export default class Post extends React.PureComponent {
         if (this.props.center) {
             centerClass = 'center';
         }
-        console.log(postDetail);
+        
         let postView;
         if(post.user_id === currentUserId){
             postView = (

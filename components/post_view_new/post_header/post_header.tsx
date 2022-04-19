@@ -16,6 +16,7 @@ import Badge from 'components/widgets/badges/badge';
 import PostHeaderCustomStatus from './post_header_custom_status';
 
 import './post_header.scss';
+import { postDeleted } from 'mattermost-redux/actions/posts';
 
 export type Props = {
 
@@ -178,9 +179,35 @@ export default class PostHeader extends React.PureComponent<Props> {
 
         let shareInfoDetails;
         if(postDetailed.share_info !== null && postDetailed.share_info !== ''){
-            shareInfoDetails = (
-                <label>{postDetailed.share_info}</label>
-            );
+            if(postDetailed.actvity !== null && postDetailed.actvity !== ''){
+                if(postDetailed.location !== null && postDetailed.location !== ''){
+                    shareInfoDetails = (
+                        <span> is feeling <label>{postDetailed.actvity}</label> is in <label>{postDetailed.location}</label> {postDetailed.share_info}</span>
+                    );
+                }
+                else{
+                    shareInfoDetails = (
+                        <span> is feeling <label>{postDetailed.actvity}</label> {postDetailed.share_info}</span>
+                    );
+                }
+            }
+            else if(postDetailed.actvity === null && postDetailed.actvity === ''){
+                if(postDetailed.location !== null && postDetailed.location !== ''){
+                    shareInfoDetails = (
+                        <span> is in <label>{postDetailed.location}</label> {postDetailed.share_info}</span>
+                    );
+                }
+                else{
+                    shareInfoDetails = (
+                        <span>{postDetailed.share_info}</span>
+                    );
+                }
+            }
+            else {
+                shareInfoDetails = (
+                    <span>{postDetailed.share_info}</span>
+                );
+            }
         }
 
         return (
