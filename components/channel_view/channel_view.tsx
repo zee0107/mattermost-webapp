@@ -1125,6 +1125,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             </div>
         </div>
         </div>
+        </div>
         );
     }
 }
