@@ -252,6 +252,7 @@ export function createPost(post: Post, files: any[] = []) {
                     });
                 }
 
+                console.log(created);
                 dispatch(batchActions(actions, 'BATCH_CREATE_POST'));
             } catch (error) {
                 const data = {
@@ -276,7 +277,6 @@ export function createPost(post: Post, files: any[] = []) {
                 dispatch(batchActions(actions, 'BATCH_CREATE_POST_FAILED'));
             }
         }());
-        console.log(post);
         return {data: true};
     };
 }
