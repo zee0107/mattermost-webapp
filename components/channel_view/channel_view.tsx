@@ -11,7 +11,7 @@ import RigthSideView from 'components/right_side_view';
 import GroupLogo from 'images/groupcover.png';
 import deferComponentRender from 'components/deferComponentRender';
 import ChannelHeader from 'components/channel_header';
-import CreatePost from 'components/create_post_all';
+import CreatePost from 'components/create_post';
 import FileUploadOverlay from 'components/file_upload_overlay';
 import PostView from 'components/post_view_all';
 import {clearMarks, mark, measure, trackEvent} from 'actions/telemetry_actions.jsx';
@@ -24,17 +24,12 @@ import VideoIcon from 'images/profiles/camera-video.svg';
 import GeoIcon from 'images/profiles/geo-alt.svg';
 import AttachIcon from 'images/profiles/paperclip.svg';
 import SplitIcon from 'images/profiles/menu-icon.svg';
-import ShareMobile from 'images/icon-share2.png';
-import GlobeMobile from 'images/icon-globe2.png';
-import VideoMobile from 'images/icon-cideo-camera.png';
+
 import profPic from 'images/profiles/user-profile-1.png';
 import postImage from 'images/post-1.png';
 import postImage2 from 'images/post-image.png';
 import postPic from 'images/profiles/user-profile-2.png';
 import postPic2 from 'images/profiles/user-profile-3.png';
-import GlobeIcon from 'images/icon-global2.png';
-import SmileIcon from 'images/emoji-smile-fill.svg';
-import xIcon from 'images/x.svg';
 import GroupHeader from 'components/group_header';
 
 import {browserHistory} from 'utils/browser_history';
@@ -78,12 +73,6 @@ type State = {
     deferredPostView: any;
     result_leave: boolean;
     serverError: JSX.Element | string | null;
-    uploading: boolean;
-    deferredPostView: any;
-    userLocation: string;
-    userActivity: string;
-    shareInfo: string;
-    feeling: boolean;
 };
 
 export default class ChannelView extends React.PureComponent<Props, State> {
@@ -133,7 +122,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             focusedPostId: props.match.params.postid,
             deferredPostView: ChannelView.createDeferredPostView(),
             result_leave: false,
-            feeling: true,userActivity: '',userLocation: '',shareInfo: 'everyone'
         };
 
         this.channelViewRef = React.createRef();
@@ -179,150 +167,8 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         }
     }
 
-    onChangeShareInfo = (event) => {
-        this.setState({shareInfo: event.target.value});
-    }
-
-    onChangeLocation = (event) => {
-        this.setState({userLocation: event.target.value});
-    }
-
-    onChangeActivity = (event) => {
-        this.setState({userActivity: event.target.value});
-    }
-
     render() {
-        const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName,channelDisplayName,channelId, currentUser} = this.props;
-        const {uploading, shareInfo, userLocation, feeling} = this.state;
-        let shareInfoBtn;
-        let shareInfoDd;
-        let location;
-        let feelact;
-        let feelactView;
-
-        let textValue;
-        let icon;
-        if(this.state.userActivity !== null && this.state.userActivity !== ''){
-            const activityValue = this.state.userActivity.split('&');
-            textValue = activityValue[0];
-            icon = String.fromCodePoint(activityValue[1].substring(1, activityValue[1].length - 1));
-            feelact = (
-                <a href='#' className='feelingspost text-primary'><small className='text-muted'>is feeling {textValue}</small> {icon}&nbsp;</a>
-            );
-        }
-
-        if(feeling){
-            feelactView = (
-                <div className='feelingscontent'>
-                    <div className='input-group d-flex mb-0'>
-                        <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
-                        <input id='searchFeelings' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Search' aria-label='Search'/>
-                    </div>
-    
-                    <div className='row mt-3'>
-                        {this.state.userActivity && <a className='feelingspost onClosefeelingsviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-primary'>{textValue} {icon}<i className='bi-x-lg'></i></label></a>}
-                    </div>
-    
-                    <div id='searchfeelings'>
-                        <div className='d-flex mt-3'>
-                        <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1 onFeelingselect' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Grinning face &#128512;'}); }}>&#128512;</label> <br /> <small>Grinning face</small></p> 
-                        </div>
-                        <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Smiling eyes &#128513;'}); }}>&#128513;</label> <br /> <small>Smiling eyes</small></p>
-                        </div>
-                        </div>
-    
-                        <div className='d-flex'>
-                        <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Tears of joy &#128514;'}); }}>&#128514;</label> <br /> <small>Tears of joy</small></p> 
-                        </div>
-                        <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Open mouth &#128515;'}); }}>&#128515;</label> <br /> <small>Open mouth</small></p> 
-                        </div>
-                        </div>
-    
-                        <div className='d-flex'>
-                        <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Smilling eyes &#128516;'}); }}>&#128516;</label> <br /> <small>Smiling eyes</small></p> 
-                        </div>
-                        <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Cold sweat &#128517;'}); }}>&#128517;</label> <br /> <small>Cold sweat</small></p>
-                        </div>
-                        </div>
-    
-                        <div className='d-flex'>
-                        <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Tightly closed eye &#128518;'}); }}>&#128518;</label> <br /> <small>Tightly closed eye</small></p>
-                        </div>
-                        <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Smiling with halo &#128519;'}); }}>&#128519;</label> <br /> <small>Smiling with halo</small></p>
-                        </div>
-                        </div>
-                    </div>
-    
-                </div>
-            );
-        }
-        else{
-            feelactView = (
-                <div className='activitiescontent'>
-                    <div className='input-group d-flex mb-0'>
-                        <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
-                        <input id='searchActivities' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Search' aria-label='Search'/>
-                    </div>
-    
-                    <div className='row mt-3 mb-3'>
-                        {this.state.userActivity && <a className='activitiespost onCloseactivitiessviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-primary'>{textValue} {icon}<i className='bi-x-lg'></i></label></a>}
-                    </div>
-    
-                    <div id='searchactivities'>
-                        <div className='d-flex mt-1'>
-                        <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1 onActivitiesselect' style={{border: '1px solid grey', borderRadius: 8,}} onClick={() => { this.setState({userActivity: 'Loving &#128151;'}); }}><label style={{fontSize: 20}}>&#128151;</label> <br /> <small>Loving</small></p> 
-                        </div>
-                        <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Face screaming in fear &#128561;'}); }}>&#128561;</label> <br /> <small>Face screaming in fear</small></p> 
-                        </div>
-                        </div>
-    
-                        <div className='d-flex mt-1'>
-                        <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1 onFeelingselect' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Astonished face &#128562;'}); }}>&#128562;</label> <br /> <small>Astonished face</small></p>
-                        </div>
-                        <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Sleeping face &#128564;'}); }}>&#128564;</label> <br /> <small>Sleeping face</small></p>
-                        </div>
-                        </div>
-    
-                        <div className='d-flex mt-1'>
-                        <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1 onFeelingselect' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Dizzy face &#128565;'}); }}>&#128565;</label> <br /> <small>Dizzy face</small></p>
-                        </div>
-                        <div className='col-md-6 width-50 text-center'>
-                            <p className='border p-1' style={{border: '1px solid grey', borderRadius: 8,}}><label style={{fontSize: 20}} onClick={() => { this.setState({userActivity: 'Face with medical mask &#128567;'}); }}>&#128567;</label> <br /> <small>Face with medical mask</small></p>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            );
-        }
-
-        if(userLocation !== null && userLocation !== ''){
-            location = (<a href='#' className='locationviewpost text-primary'><small className='text-muted'> is in</small> {userLocation}</a> );
-        }
-
-        if(shareInfo === 'private'){
-            shareInfoBtn = (<button className='box-live-post btn-sm width-100' data-toggle='modal' data-target='#staticBackdropShare'><i className='bi bi-person-fill'></i> Private <i className='bi bi-chevron-down'></i></button>);
-            shareInfoDd = (<a className='onSelectactiononlyme text-primary' data-toggle='modal' data-target='#staticBackdropShare' data-dismiss='modal'><i className='bi-person-fill'></i> Private <i className='bi-chevron-down'></i></a>);
-        }else if(shareInfo === 'friends'){
-            shareInfoBtn = (<button className='box-live-post btn-sm width-100' data-toggle='modal' data-target='#staticBackdropShare'><i className='bi bi-people-fill'></i> Friends <i className='bi bi-chevron-down'></i></button>);
-            shareInfoDd = (<a className='onSelectactionfriends text-primary' data-toggle='modal' data-target='#staticBackdropShare' data-dismiss='modal'><i className='bi-people-fill'></i> Friends <i className='bi-chevron-down'></i></a>);
-        }else{
-            shareInfoBtn = (<button className='box-live-post btn-sm width-100' data-toggle='modal' data-target='#staticBackdropShare'><i className='bi bi-globe'></i> Everyone <i className='bi bi-chevron-down'></i></button>);
-            shareInfoDd = (<a className='onSelectactionpublic text-primary' data-toggle='modal' data-target='#staticBackdropShare' data-dismiss='modal'><i className='bi-globe'></i> Everyone <i className='bi-chevron-down'></i></a>);
-        }
-
+        const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName,channelDisplayName,channelId} = this.props;
         if (enableOnboardingFlow && showNextSteps && !showNextStepsEphemeral) {
             this.props.actions.setShowNextStepsView(true);
             browserHistory.push(`${teamUrl}/tips`);
@@ -382,69 +228,12 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         } else if (!this.props.channelRolesLoading) {
             createPost = (
                 <div
+                    className='post-create__container'
                     id='post-create'
                 >
-                    {/*<CreatePost
+                    <CreatePost
                         getChannelView={this.getChannelView}
-                    />*/}
-                    <div className='box-middle-panel crypter-section-profile-desktop'>
-                        <div className='row'>
-                            <div className='col-md-5 text-center removePaddingRight'>
-                                <div className='d-flex input-group float-start width-100'>
-                                    <span className='input-group-text input-search-crypter-whats-going-on' id='basic-addon22'>
-                                        {this.renderProfilePicture('md')}</span>
-                                    <input type='text' className='form-control input-search-crypter-whats-going-on onCreatepost mt-1' placeholder={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-label={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-describedby='basic-addon55' data-toggle='modal' data-target='#staticBackdrop'/>
-                                    <span className='input-group-text input-search-crypter-whats-going-on onPhotoaddpost mt-1' onClick={() => {this.setState({uploading: true});}} id='basic-addon33' data-toggle='modal' data-target='#staticBackdrop'>
-                                        <a href='#'><svg width='21' height='21' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                                            <path d='M13.7555 4.41165H11.7685L10.6215 3.15802H6.86061V4.41165H10.0699L11.217 5.66527H13.7555V13.187H3.72656V7.54571H2.47293V13.187C2.47293 13.8765 3.03706 14.4406 3.72656 14.4406H13.7555C14.445 14.4406 15.0092 13.8765 15.0092 13.187V5.66527C15.0092 4.97578 14.445 4.41165 13.7555 4.41165ZM5.60699 9.42614C5.60699 11.1561 7.01105 12.5602 8.74105 12.5602C10.4711 12.5602 11.8751 11.1561 11.8751 9.42614C11.8751 7.69614 10.4711 6.29208 8.74105 6.29208C7.01105 6.29208 5.60699 7.69614 5.60699 9.42614ZM8.74105 7.54571C9.77529 7.54571 10.6215 8.3919 10.6215 9.42614C10.6215 10.4604 9.77529 11.3066 8.74105 11.3066C7.70681 11.3066 6.86061 10.4604 6.86061 9.42614C6.86061 8.3919 7.70681 7.54571 8.74105 7.54571ZM3.72656 4.41165H5.60699V3.15802H3.72656V1.27759H2.47293V3.15802H0.592499V4.41165H2.47293V6.29208H3.72656V4.41165Z' fill='var(--text-primary)'/>
-                                        </svg></a></span>
-                                    <span className='input-group-text input-search-crypter-whats-going-on onEmoji p-2 mt-1' id='basic-addon44' data-toggle='modal' data-target='#staticBackdropAct'>
-                                        <a href='#'><svg width='18' height='18' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                                            <path d='M8.75 7.875C8.75 8.10706 8.65781 8.32962 8.49372 8.49372C8.32962 8.65781 8.10706 8.75 7.875 8.75C7.64294 8.75 7.42038 8.65781 7.25628 8.49372C7.09219 8.32962 7 8.10706 7 7.875C7 7.64294 7.09219 7.42038 7.25628 7.25628C7.42038 7.09219 7.64294 7 7.875 7C8.10706 7 8.32962 7.09219 8.49372 7.25628C8.65781 7.42038 8.75 7.64294 8.75 7.875V7.875ZM13.125 8.75C13.3571 8.75 13.5796 8.65781 13.7437 8.49372C13.9078 8.32962 14 8.10706 14 7.875C14 7.64294 13.9078 7.42038 13.7437 7.25628C13.5796 7.09219 13.3571 7 13.125 7C12.8929 7 12.6704 7.09219 12.5063 7.25628C12.3422 7.42038 12.25 7.64294 12.25 7.875C12.25 8.10706 12.3422 8.32962 12.5063 8.49372C12.6704 8.65781 12.8929 8.75 13.125 8.75V8.75ZM1.75 5.25C1.75 4.32174 2.11875 3.4315 2.77513 2.77513C3.4315 2.11875 4.32174 1.75 5.25 1.75H15.75C16.6783 1.75 17.5685 2.11875 18.2249 2.77513C18.8812 3.4315 19.25 4.32174 19.25 5.25V13.125C19.2502 13.24 19.2277 13.3539 19.1839 13.4602C19.1401 13.5665 19.0757 13.6631 18.9945 13.7445L13.7445 18.9945C13.6631 19.0757 13.5665 19.1401 13.4602 19.1839C13.3539 19.2277 13.24 19.2502 13.125 19.25H5.25C4.32174 19.25 3.4315 18.8812 2.77513 18.2249C2.11875 17.5685 1.75 16.6783 1.75 15.75V5.25ZM5.25 3.5C4.78587 3.5 4.34075 3.68437 4.01256 4.01256C3.68437 4.34075 3.5 4.78587 3.5 5.25V15.75C3.5 16.2141 3.68437 16.6592 4.01256 16.9874C4.34075 17.3156 4.78587 17.5 5.25 17.5H10.5V14.0175H10.493C9.3065 14.0175 8.442 13.419 7.91175 12.8852C7.59864 12.5698 7.33015 12.213 7.11375 11.8247L7.09975 11.7985L7.09625 11.7897L7.0945 11.7862L7.09275 11.7845C6.99319 11.5745 6.98115 11.3335 7.05925 11.1146C7.13736 10.8957 7.29923 10.7168 7.50925 10.6172C7.71927 10.5177 7.96023 10.5056 8.17913 10.5838C8.39804 10.6619 8.57694 10.8237 8.6765 11.0337C8.80777 11.2579 8.9665 11.4649 9.149 11.6497C9.492 11.9927 9.9365 12.2675 10.493 12.2675C10.6679 12.2677 10.8417 12.2394 11.0075 12.1835C11.62 11.1737 12.7312 10.5 14 10.5H17.5V5.25C17.5 4.78587 17.3156 4.34075 16.9874 4.01256C16.6592 3.68437 16.2141 3.5 15.75 3.5H5.25ZM17.5 12.25H14C13.5359 12.25 13.0908 12.4344 12.7626 12.7626C12.4344 13.0908 12.25 13.5359 12.25 14V17.5H12.7627L17.5 12.7627V12.25Z' fill='var(--text-primary)'/>
-                                        </svg></a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div className='col-md-3'><div className='d-grid'>
-                                {shareInfoBtn}</div></div>
-                                <div className='col-md-2'><div className='d-grid'><button className='box-live-post btn-sm width-100' onClick={() => { this.setState({uploading: true});}} aria-describedby='basic-addon1010' data-toggle='modal' data-target='#staticBackdrop'><svg xmlns='http://www.w3.org/2000/svg' width='19' height='19' fill='var(--text-primary)' className='bi bi-camera-video side-menu-align' viewBox='0 0 16 16'>
-                                        <path fillRule='evenodd' d='M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z' fill='var(--text-primary)'/>
-                                        </svg> Live</button></div>
-                                </div>
-                                <div className='col-md-2'><div className='d-grid'><button className='box-button-share btn-sm text-white onCreatepost width-100' aria-describedby='basic-addon99' data-toggle='modal' data-target='#staticBackdrop'>Share</button></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id='post-mobile'>
-                        <div className='d-flex'>
-                            <div className='whats-going-on-here-style float-start'>
-                                <div className='input-group d-flex bg-inputs-whats'>
-                                    <span className='input-group-text input-search-crypter-whats-going-on' id='basic-addon22'>
-                                    {this.renderProfilePicture('md')}</span>
-                                    <input type='text' className='form-control input-search-crypter-whats-going-on onCreatepost mt-1' placeholder={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-label={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-describedby='basic-addon55' data-toggle='modal' data-target='#staticBackdrop' />
-                                    <span className='input-group-text input-search-crypter-whats-going-on onPhotoaddpost mt-1' onClick={() => { this.setState({uploading: true});}} aria-describedby='basic-addon1011' data-toggle='modal' data-target='#staticBackdrop'>
-                                        <a href='#'><svg width='21' height='21' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                                            <path d='M13.7555 4.41165H11.7685L10.6215 3.15802H6.86061V4.41165H10.0699L11.217 5.66527H13.7555V13.187H3.72656V7.54571H2.47293V13.187C2.47293 13.8765 3.03706 14.4406 3.72656 14.4406H13.7555C14.445 14.4406 15.0092 13.8765 15.0092 13.187V5.66527C15.0092 4.97578 14.445 4.41165 13.7555 4.41165ZM5.60699 9.42614C5.60699 11.1561 7.01105 12.5602 8.74105 12.5602C10.4711 12.5602 11.8751 11.1561 11.8751 9.42614C11.8751 7.69614 10.4711 6.29208 8.74105 6.29208C7.01105 6.29208 5.60699 7.69614 5.60699 9.42614ZM8.74105 7.54571C9.77529 7.54571 10.6215 8.3919 10.6215 9.42614C10.6215 10.4604 9.77529 11.3066 8.74105 11.3066C7.70681 11.3066 6.86061 10.4604 6.86061 9.42614C6.86061 8.3919 7.70681 7.54571 8.74105 7.54571ZM3.72656 4.41165H5.60699V3.15802H3.72656V1.27759H2.47293V3.15802H0.592499V4.41165H2.47293V6.29208H3.72656V4.41165Z' fill='var(--text-primary)'/>
-                                        </svg></a></span>
-                                    <span className='input-group-text input-search-crypter-whats-going-on onEmoji p-2 mt-1' id='basic-addon45' data-toggle='modal' data-target='#staticBackdropAct'>
-                                        <a href='#'><svg width='18' height='18' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                                            <path d='M8.75 7.875C8.75 8.10706 8.65781 8.32962 8.49372 8.49372C8.32962 8.65781 8.10706 8.75 7.875 8.75C7.64294 8.75 7.42038 8.65781 7.25628 8.49372C7.09219 8.32962 7 8.10706 7 7.875C7 7.64294 7.09219 7.42038 7.25628 7.25628C7.42038 7.09219 7.64294 7 7.875 7C8.10706 7 8.32962 7.09219 8.49372 7.25628C8.65781 7.42038 8.75 7.64294 8.75 7.875V7.875ZM13.125 8.75C13.3571 8.75 13.5796 8.65781 13.7437 8.49372C13.9078 8.32962 14 8.10706 14 7.875C14 7.64294 13.9078 7.42038 13.7437 7.25628C13.5796 7.09219 13.3571 7 13.125 7C12.8929 7 12.6704 7.09219 12.5063 7.25628C12.3422 7.42038 12.25 7.64294 12.25 7.875C12.25 8.10706 12.3422 8.32962 12.5063 8.49372C12.6704 8.65781 12.8929 8.75 13.125 8.75V8.75ZM1.75 5.25C1.75 4.32174 2.11875 3.4315 2.77513 2.77513C3.4315 2.11875 4.32174 1.75 5.25 1.75H15.75C16.6783 1.75 17.5685 2.11875 18.2249 2.77513C18.8812 3.4315 19.25 4.32174 19.25 5.25V13.125C19.2502 13.24 19.2277 13.3539 19.1839 13.4602C19.1401 13.5665 19.0757 13.6631 18.9945 13.7445L13.7445 18.9945C13.6631 19.0757 13.5665 19.1401 13.4602 19.1839C13.3539 19.2277 13.24 19.2502 13.125 19.25H5.25C4.32174 19.25 3.4315 18.8812 2.77513 18.2249C2.11875 17.5685 1.75 16.6783 1.75 15.75V5.25ZM5.25 3.5C4.78587 3.5 4.34075 3.68437 4.01256 4.01256C3.68437 4.34075 3.5 4.78587 3.5 5.25V15.75C3.5 16.2141 3.68437 16.6592 4.01256 16.9874C4.34075 17.3156 4.78587 17.5 5.25 17.5H10.5V14.0175H10.493C9.3065 14.0175 8.442 13.419 7.91175 12.8852C7.59864 12.5698 7.33015 12.213 7.11375 11.8247L7.09975 11.7985L7.09625 11.7897L7.0945 11.7862L7.09275 11.7845C6.99319 11.5745 6.98115 11.3335 7.05925 11.1146C7.13736 10.8957 7.29923 10.7168 7.50925 10.6172C7.71927 10.5177 7.96023 10.5056 8.17913 10.5838C8.39804 10.6619 8.57694 10.8237 8.6765 11.0337C8.80777 11.2579 8.9665 11.4649 9.149 11.6497C9.492 11.9927 9.9365 12.2675 10.493 12.2675C10.6679 12.2677 10.8417 12.2394 11.0075 12.1835C11.62 11.1737 12.7312 10.5 14 10.5H17.5V5.25C17.5 4.78587 17.3156 4.34075 16.9874 4.01256C16.6592 3.68437 16.2141 3.5 15.75 3.5H5.25ZM17.5 12.25H14C13.5359 12.25 13.0908 12.4344 12.7626 12.7626C12.4344 13.0908 12.25 13.5359 12.25 14V17.5H12.7627L17.5 12.7627V12.25Z' fill='var(--text-primary)'/>
-                                        </svg></a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div className='button-share-camera-globe'>
-                                <div className='d-flex'>
-                                <div className='col-md-4 text-center mt-3'>
-                                    <a className='onSelectactionfriendsdesktop'><img width='24' className='mt-1' src={GlobeMobile} /></a></div>
-                                <div className='col-md-4 text-center mt-3'>
-                                    <a className='onPhotoaddpost' onClick={() => { this.setState({uploading: true});}} aria-describedby='basic-addon1011' data-toggle='modal' data-target='#staticBackdrop'><img width='24' className='mt-1' src={VideoMobile} /></a></div>
-                                <div className='col-md-4 text-center mt-3'>
-                                    <a className='onCreatepost' data-toggle='modal' data-target='#staticBackdrop'><img width='24' className='mt-1' src={ShareMobile} /></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    />
                 </div>
             );
         }
@@ -561,358 +350,70 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 <div className='col-md-8'>
                     {viewDetail}
                     <div className='col-md-12 mtop-10 removePadding'>
-                        <div
-                            ref={this.channelViewRef}
-                            id='app-content'
-                            className='app__content'
-                            >
-                            
-                            <div className='col-md-12 share-div removePadding'>
-                                <FileUploadOverlay overlayType='center'/>
-                                
-                                {/*<ChannelHeader
-                                {...this.props}
-                                />*/}
-                                <div className='d-flex'>
-                                    {createPost}
-                                    {/* <div className='col-md-9 share-div-input removePaddingRight'>
-                                        <div className='d-flex'>
-                                            <div className='col-sm-2 removePadding'>
-                                                {this.renderProfilePicture('md')}
-                                                </div>
-                                                <div className='col-sm-10 removePadding'>
-                                                    
-                                                </div>
+                    <div
+                        ref={this.channelViewRef}
+                        id='app-content'
+                        className='app__content'
+                        >
+                        <div className='col-md-12 share-div'>
+                            <FileUploadOverlay overlayType='center'/>
+                            {/*<ChannelHeader
+                            {...this.props}
+                            />*/}
+                            <div className='d-flex'>
+                                <div className='col-md-9 share-div-input removePaddingRight'>
+                                    <div className='d-flex'>
+                                        <div className='col-sm-2 removePadding'>
+                                            {this.renderProfilePicture('md')}
+                                            </div>
+                                            <div className='col-sm-10 removePadding'>
+                                                {createPost}
                                             </div>
                                         </div>
-                                        <div className='col-lg-3 removePaddingRight margin-top-share'>
-                                            <select id='selectDesktop' className='share-select small'>
-                                                <option value='Everyone'>&#127760; Everyone</option>
-                                                <option value='Friends'>&#128101; Friends Only</option>
-                                                <option value='Private'>&#128100; Private</option>
-                                            </select>
-                                            <select id='selectMobile' className='share-select'>
-                                                <option value='Everyone'>&#127760;</option>
-                                                <option value='Friends'>&#128101;</option>
-                                                <option value='Private'>&#128100;</option>
-                                            </select>
-                                        </div>
-                                        <div className='col-md-3 removePaddingRight margin-top-share'>
-                                            <div id='buttonsDesktop'>
-                                                <a href='#' className='btn buttonBgWhite btn-margin-right btn-sm'><svg xmlns="http://www.w3.org/2000/svg" width="10" height="12" fill="#44cc4b" className="bi bi-camera-video" viewBox="0 -2 16 16">
-                                                <path fillRule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z" fill="#44cc4b"/>
-                                                </svg> Live</a>
-                                                <a href='#' className='btn buttonBgGreen btn-padding btn-sm'>Share</a>
-                                            </div>
-                                            <div id='buttonsMobile'>
-                                                    <a href='#' className='btn-margin-right'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#44cc4b" className="bi bi-camera-video" viewBox="0 0 16 16">
-                                                    <path fillRule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z" fill="var(--text-primary)"/>
-                                                    </svg></a>
-                                                    <a href='#' className='btn-padding'><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                                                    <path fillRule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" fill="var(--text-primary)"/>
-                                                    <path fillRule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" fill="var(--text-primary)"/>
-                                                </svg></a>
-                                            </div>
-                                        </div>
+                                    </div>
+                                    {/*<div className='col-lg-3 removePaddingRight margin-top-share'>
+                                        <select id='selectDesktop' className='share-select small'>
+                                            <option value='Everyone'>&#127760; Everyone</option>
+                                            <option value='Friends'>&#128101; Friends Only</option>
+                                            <option value='Private'>&#128100; Private</option>
+                                        </select>
+                                        <select id='selectMobile' className='share-select'>
+                                            <option value='Everyone'>&#127760;</option>
+                                            <option value='Friends'>&#128101;</option>
+                                            <option value='Private'>&#128100;</option>
+                                        </select>
                                     </div>*/}
+                                    <div className='col-md-3 removePaddingRight margin-top-share'>
+                                        <div id='buttonsDesktop'>
+                                            <a href='#' className='btn buttonBgWhite btn-margin-right btn-sm'><svg xmlns="http://www.w3.org/2000/svg" width="10" height="12" fill="#44cc4b" className="bi bi-camera-video" viewBox="0 -2 16 16">
+                                            <path fillRule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z" fill="#44cc4b"/>
+                                            </svg> Live</a>
+                                            <a href='#' className='btn buttonBgGreen btn-padding btn-sm'>Share</a>
+                                        </div>
+                                        <div id='buttonsMobile'>
+                                                <a href='#' className='btn-margin-right'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#44cc4b" className="bi bi-camera-video" viewBox="0 0 16 16">
+                                                <path fillRule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z" fill="var(--text-primary)"/>
+                                                </svg></a>
+                                                <a href='#' className='btn-padding'><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                                <path fillRule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" fill="var(--text-primary)"/>
+                                                <path fillRule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" fill="var(--text-primary)"/>
+                                            </svg></a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className='col-md-12 pbot-20 bgGrey'></div>
-                                <div className='col-md-12 removePadding'>
-                                <DeferredPostView
-                                        channelId={this.props.channelId}
-                                        focusedPostId={this.state.focusedPostId}
-                                    />
-                                </div>
+                            </div>
+                            <div className='col-md-12 pbot-20 bgGrey'></div>
+                            <div className='col-md-12 removePadding'>
+                               <DeferredPostView
+                                    channelId={this.props.channelId}
+                                    focusedPostId={this.state.focusedPostId}
+                                />
                             </div>
                         </div>
                     </div>
                 </div>
                 <div id='rsvDesktop' className='col-md-4'>
                     <RigthSideView></RigthSideView>
-                </div>
-
-                <div className='modal postcontent' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
-                    <div className='modal-dialog modal-dialog-centered'>
-                        <div className='modal-content'>
-                            <div className='form'>
-                                <div className='modal-header'>
-                                    <h6 className='modal-title'>Create post</h6>
-                                    <a className='btn-close-canvas shadow onClosecreatepost float-end' data-dismiss='modal' aria-label='Close' onClick={() => {this.setState({uploading: false});}}><img src={xIcon}/></a>
-                                </div>
-
-                                <div className='modal-body'>
-                                    <div className='row'>
-                                        <div className='col-md-2 text-center'>
-                                            {this.renderProfilePicture('xl')}
-                                        </div>
-                                        <div className='col-md-10 text-left'>
-                                            <strong>
-                                                <a href='#' className='text-primary'>{currentUser.first_name} {currentUser.last_name}</a> 
-                                                {feelact}
-                                                {location}
-                                                {/*<a href='#' className='tagviewpost text-primary'><small className='text-muted'>with</small> Friend name goes here</a> 
-                                                <a href='#' className='activities text-primary'><small className='text-muted'>Activities</small> &#128151;</a>*/}
-                                            </strong>
-                                            <br />
-                                            {shareInfoDd}
-                                        </div>
-                                    </div>
-                                    <div className='row'>
-                                        <div className='col-md-12 mt-3'>
-                                            <CreatePost getChannelView={this.getChannelView} uploading={this.state.uploading} userActivity={this.state.userActivity} userLocation={this.state.userLocation} shareInfo={this.state.shareInfo} />
-                                        </div>
-                                    </div>
-                                    <div className='post-music-content'>
-                                        <div className='container'>
-                                            <div className='row'>
-                                                <div className='col-md-2 text-left'><img width='50px' className='rounded' src='assets/images/Cover-album.jpg' alt='Cover album' /></div>
-                                                <div className='col-md-8 mt-0'>
-                                                <label className='ms-3'><strong>Lovely</strong></label>
-                                                <p className='ms-3'><small>Eric Godlow</small></p>
-                                                </div>
-                                                <div className='col-md-2 mt-0'>
-                                                <a className='onClosemusicpost float-end'><i className='bi-x'></i></a>
-                                                </div>
-                                            </div>
-                                            <div className='row'>
-                                                <label className='mb-2'><strong>Lyrics:</strong> <br /><br /> What a wonderful world is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. <br /><br /> when an unknown printer took a galley of type and scrambled it to make a type specimen book.</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div className='modal tagfriends' id='staticBackdropTag' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
-                    <div className='modal-dialog modal-dialog-centered'>
-                        <div className='modal-content'>
-                            <div className='modal-header'>
-                                <h6 className='modal-title' id='staticBackdropLabel'>Tag people</h6>
-                                <a className='onBacktotag float-end' data-toggle='modal' data-target='#staticBackdrop' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
-                            </div>
-                            <div className='modal-body'>
-                                <div className='input-group d-flex mb-0'>
-                                    <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
-                                   <input id='searchforFriends' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Search for friend' aria-label='Search for friend'/>
-                                </div>
-                    
-                                <div className='row mt-3'>
-                                    <a href='#' className='tagviewpost onUntag'>Friend name goes here <i className='bi-x-lg'></i></a>
-                                </div>
-                    
-                                <div id='searchforfriends'>
-                                    <div className='row mt-3'>
-                                        <div className='col-md-10'>
-                                            <p><img width='40px' className='img-fluid' src={profPic} /> Analyn Natividad</p>
-                                        </div>
-                                        <div className='col-md-2'>
-                                                <div className='form-check mt-2 float-end'>
-                                                    <input className='form-check-input onTagfriends' type='checkbox' value=''/>
-                                                </div>
-                                        </div>
-                                    </div>
-                                    <div className='row mt-0'>
-                                        <div className='col-md-10'>
-                                            <p><img width='40px' className='img-fluid' src={profPic} /> Mark Tristan</p>
-                                        </div>
-                                        <div className='col-md-2'>
-                                            <div className='form-check mt-2 float-end'>
-                                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault2'/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='row mt-0'>
-                                        <div className='col-md-10'>
-                                            <p><img width='40px' className='img-fluid' src={profPic} /> Dysania Marie</p>
-                                        </div>
-                                        <div className='col-md-2'>
-                                            <div className='form-check mt-2 float-end'>
-                                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault3'/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='row mt-0'>
-                                        <div className='col-md-10'>
-                                            <p><img width='40px' className='img-fluid' src={profPic} /> Jason Born</p>
-                                        </div>
-                                        <div className='col-md-2'>
-                                            <div className='form-check mt-2 float-end'>
-                                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault3'/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='row mt-0'>
-                                        <div className='col-md-10'>
-                                            <p><img width='40px' className='img-fluid' src={profPic} /> John Doe</p>
-                                        </div>
-                                        <div className='col-md-2'>
-                                            <div className='form-check mt-2 float-end'>
-                                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault2'/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className='modal selectlocation' id='staticBackdropLoc' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
-                    <div className='modal-dialog modal-dialog-centered'>
-                        <div className='modal-content'>
-                            <div className='modal-header'>
-                                <h6 className='modal-title' id='staticBackdropLabel'>Search for location</h6>
-                                <a className='onBacktolocation float-end' data-toggle='modal' data-target='#staticBackdrop' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
-                            </div>
-                            <div className='modal-body'>
-                                <div className=''>
-                                    <div className='input-group d-flex mb-0'>
-                                    <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
-                                    <input id='searchLocations' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Where are you?' aria-label='Where are you?'/>
-                                </div>
-                
-                                <div className='row mt-3 mb-4'>
-                                    {this.state.userLocation && <a className='locationviewpost onUnselectlocation ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userLocation: ''});}}><label className='text-primary'>{this.state.userLocation} <i className='bi-x-lg'></i></label></a>}
-                                </div>
-                
-                                <div id='searchforlocations'>
-                                    <div className='d-flex'>
-                                        <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
-                                        <label className='onAddlocation'>Muntinlupa City</label>
-                                        <p><small>Muntinlupa City Philippines</small></p>
-                                        </div>
-                                        <div className='col-md-2 text-center'>
-                                            <div className='form-check mt-3'>
-                                                <input className='form-check-input onAddlocation' type='radio' name='locationRadios' value='Muntinlupa City' onChange={this.onChangeLocation} id='locationRadios4' />
-                                                <label className='form-check-label' htmlFor='locationRadios4'></label>
-                                            </div>
-                                        </div>
-                                    </div>
-                
-                                    <div className='d-flex'>
-                                        <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
-                                        <label>Makati City</label>
-                                        <p><small>Makati City Philippines</small></p>
-                                        </div>
-                                        <div className='col-md-2 text-center'>
-                                            <div className='form-check mt-3'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' value='Makati City' onChange={this.onChangeLocation} id='locationRadios5' />
-                                                <label className='form-check-label' htmlFor='locationRadios5'></label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                
-                                    <div className='d-flex'>
-                                        <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
-                                        <label>Taguig City</label>
-                                        <p><small>Taguig City Philippines</small></p>
-                                        </div>
-                                        <div className='col-md-2 text-center'>
-                                            <div className='form-check mt-3'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' value='Taguig City' onChange={this.onChangeLocation} id='locationRadios6' />
-                                                <label className='form-check-label' htmlFor='locationRadios6'></label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className='d-flex'>
-                                        <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
-                                        <label>Santa Rosa City</label>
-                                        <p><small>Santa Rosa City Philippines</small></p>
-                                        </div>
-                                        <div className='col-md-2 text-center'>
-                                            <div className='form-check mt-3'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' value='Santa Rosa City' onChange={this.onChangeLocation} id='locationRadios7' />
-                                                <label className='form-check-label' htmlFor='locationRadios6'></label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className='d-flex'>
-                                        <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
-                                            <label>San Pedro City</label>
-                                            <p><small>San Pedro City Philippines</small></p>
-                                        </div>
-                                        <div className='col-md-2 text-center'>
-                                            <div className='form-check mt-3'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' value='San Pedro City' onChange={this.onChangeLocation} id='locationRadios8' />
-                                                <label className='form-check-label' htmlFor='locationRadios6'></label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div className='modal selectemoticons' id='staticBackdropAct' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
-                    <div className='modal-dialog modal-dialog-centered'>
-                        <div className='modal-content'>
-                            <div className='modal-header'>
-                                <h6 className='modal-title' id='staticBackdropLabel'>How are you feeling?</h6>
-                                <a className='onBacktoemoticons float-end' data-toggle='modal' data-target='#staticBackdrop' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
-                            </div>
-                
-                            <div className='modal-body'>
-                                <div>
-                                    <div className='d-flex mt-1 mb-4 gap-1'>
-                                        <div className='col-md-3 text-center rounded p-1 mr-2' style={{border: '1px solid grey', borderRadius: 8}}>
-                                        <a className='onFeelings text-primary' onClick={() => { this.setState({feeling: true});}}><small> Feelings</small></a></div>
-                                        <div className='col-md-3 text-center rounded p-1' style={{border: '1px solid grey', borderRadius: 8}}>
-                                        <a className='onActivities text-primary' onClick={() => { this.setState({feeling: false});}}><small> Activities</small></a></div>
-                                    </div>
-                                </div>
-                                {feelactView}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className='modal selectaudience' id='staticBackdropShare' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
-                    <div className='modal-dialog modal-dialog-centered'>
-                        <div className='modal-content'>
-                            <div className='modal-header'>
-                                <h6 className='modal-title' id='staticBackdropLabel'>Select audience</h6>
-                                <a className='onBacktopost float-end' data-toggle='modal' data-target='#staticBackdrop' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
-                            </div>
-
-                            <div className='modal-body'>
-                                <div className='row'>
-                                    <div className='col-md-10'>Everyone</div>
-                                    <div className='col-md-2'>
-                                        <div className='form-check float-end'>
-                                            <input className='form-check-input onPublicselect' type='radio' name='flexRadioDefault' value='everyone' onChange={this.onChangeShareInfo} checked={this.state.shareInfo === 'everyone'} id='flexRadioPublicselect'/>
-                                            <label className='form-check-label' htmlFor='flexRadioPublicselect'></label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='row mt-2'>
-                                    <div className='col-md-10'>Friends</div>
-                                    <div className='col-md-2'>
-                                        <div className='form-check float-end'>
-                                                <input className='form-check-input onFriendselect' type='radio' name='flexRadioDefault' value='friends' onChange={this.onChangeShareInfo} checked={this.state.shareInfo === 'friends'} id='flexRadioFriendselect'/>
-                                                <label className='form-check-label' htmlFor='flexRadioFriendselect'></label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='row mt-2'>
-                                    <div className='col-md-10'>Private</div>
-                                    <div className='col-md-2'>
-                                        <div className='form-check float-end'>
-                                                <input className='form-check-input onOnlyme' type='radio' name='flexRadioDefault' value='private' onChange={this.onChangeShareInfo} checked={this.state.shareInfo === 'private'} id='flexRadioOnlyme'/>
-                                                <label className='form-check-label' htmlFor='flexRadioOnlyme'></label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         );
