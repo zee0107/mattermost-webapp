@@ -31,7 +31,7 @@ export default class Post extends React.PureComponent {
          * The post to render
          */
         post: PropTypes.object.isRequired,
-
+        postDetailed: PropTypes.object.isRequired,
         /**
          * The logged in user ID
          */
@@ -350,6 +350,7 @@ export default class Post extends React.PureComponent {
             hasReplies,
             isCollapsedThreadsEnabled,
             currentUserId,
+            postDetailed,
         } = this.props;
         if (!post.id) {
             return null;

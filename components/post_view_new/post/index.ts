@@ -22,6 +22,7 @@ import {Preferences} from 'utils/constants';
 import {areConsecutivePostsBySameUser} from 'utils/post_utils';
 
 import PostComponent from './post';
+import { Client4 } from 'mattermost-redux/client';
 
 interface OwnProps {
     post?: Post;
@@ -51,6 +52,7 @@ function makeMapStateToProps() {
 
     return (state: GlobalState, ownProps: OwnProps) => {
         const post = ownProps.post || getPost(state, ownProps.postId);
+        const postDetailed = Client4.getPostDetailed(post.id);
         const channel = getChannel(state, post.channel_id);
 
         let previousPost = null;
@@ -68,6 +70,7 @@ function makeMapStateToProps() {
 
         return {
             post,
+            postDetailed,
             currentUserId: getCurrentUserId(state),
             isFirstReply: previousPost ? isFirstReply(post, previousPost) : false,
             consecutivePostByUser,

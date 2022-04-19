@@ -4,7 +4,7 @@
 import React, {EventHandler, MouseEvent} from 'react';
 import {FormattedMessage} from 'react-intl';
 
-import {Post} from 'mattermost-redux/types/posts';
+import {Post, PostDetailed} from 'mattermost-redux/types/posts';
 
 import Constants from 'utils/constants';
 import * as PostUtils from 'utils/post_utils';
@@ -24,6 +24,7 @@ export type Props = {
      */
     post: Post;
 
+    postDetailed: PostDetailed;
     /*
      * Function called when the comment icon is clicked
      */
@@ -87,7 +88,7 @@ export type Props = {
 
 export default class PostHeader extends React.PureComponent<Props> {
     render(): JSX.Element {
-        const {post} = this.props;
+        const {post, postDetailed} = this.props;
         const isSystemMessage = PostUtils.isSystemMessage(post);
         const fromAutoResponder = PostUtils.fromAutoResponder(post);
         const fromWebhook = post?.props?.from_webhook === 'true';
@@ -182,6 +183,7 @@ export default class PostHeader extends React.PureComponent<Props> {
                     {colon}
                     {indicator}
                     {customStatus}
+                    {postDetailed.share_info}
                 </div>
                 <div className='col'>
                     <PostInfo

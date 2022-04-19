@@ -120,6 +120,7 @@ import {UserThreadList, UserThread, UserThreadWithPost} from 'mattermost-redux/t
 
 import {TelemetryHandler} from './telemetry';
 import { AllListing, Coins, GainerListing, NewListing, ProjectList, ProjectsEndedList, ProjectsUpcomingList, TrendListing } from 'mattermost-redux/types/crypto';
+import { type } from 'os';
 
 const FormData = require('form-data');
 const HEADER_AUTH = 'Authorization';
@@ -1979,6 +1980,59 @@ export default class Client4 {
             `${this.getPostRoute(postId)}`,
             {method: 'get'},
         );
+    };
+
+    getPostDetailed = (postId: string) => {
+        type otherDetails = {
+            post_id: string;
+            location: string;
+            activity: string;
+            share_info: string;
+        }
+
+        const otherData = this.doFetch<otherDetails>(
+            `https://localhost:44312/api/crypter/getuserpost?postId=${postId}`,
+            {method: 'get'},
+        );
+
+        const postData = this.doFetch<Post>(
+            `${this.getPostRoute(postId)}`,
+            {method: 'get'},
+        );
+
+        const postDetailed = {} as PostDetailed;
+        postDetailed.id = postData.id;
+        postDetailed.create_at = postData.create_at;
+        postDetailed.update_at = postData.update_at;
+        postDetailed.edit_at = postData.edit_at;
+        postDetailed.delete_at = postData.delete_at;
+        postDetailed.is_pinned = postData.is_pinned;
+        postDetailed.user_id = postData.user_id;
+        postDetailed.channel_id = postData.channel_id;
+        postDetailed.root_id = postData.root_id;
+        postDetailed.original_id = postData.original_id;
+        postDetailed.message = postData.message;
+        postDetailed.type = postData.type;
+        postDetailed.props = postData.props;
+        postDetailed.hashtags = postData.hashtags;
+        postDetailed.pending_post_id = postData.pending_post_id;
+        postDetailed.reply_count = postData.reply_count;
+        postDetailed.file_ids = postData.file_ids;
+        postDetailed.metadata = postData.metadata;
+        postDetailed.failed = postData.failed;
+        postDetailed.user_activity_posts = postData.user_activity_posts;
+        postDetailed.state = postData.state;
+        postDetailed.filenames = postData.filenames;
+        postDetailed.last_reply_at = postData.last_reply_at;
+        postDetailed.participants = postData.participants;
+        postDetailed.message_source = postData.message_source;
+        postDetailed.is_following = postData.is_following;
+        postDetailed.exists = postData.exists;
+        postDetailed.location = otherData.location;
+        postDetailed.actvity = otherData.activity;
+        postDetailed.share_info = otherData.share_info;
+
+        return postDetailed;
     };
 
     patchPost = (postPatch: Partial<Post> & {id: string}) => {

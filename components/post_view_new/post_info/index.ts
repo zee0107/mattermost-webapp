@@ -11,7 +11,7 @@ import {makeGetCommentCountForPost} from 'mattermost-redux/selectors/entities/po
 import {get, isCollapsedThreadsEnabled} from 'mattermost-redux/selectors/entities/preferences';
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
 
-import {Post} from 'mattermost-redux/types/posts';
+import {Post, PostDetailed} from 'mattermost-redux/types/posts';
 
 import {GlobalState} from 'types/store';
 
@@ -27,6 +27,7 @@ import PostInfo from './post_info';
 
 type OwnProps = {
     post: Post;
+    postDetailed: PostDetailed;
 }
 
 function removePostAndCloseRHS(post: ExtendedPost) {

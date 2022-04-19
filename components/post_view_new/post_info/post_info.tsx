@@ -7,7 +7,7 @@ import {FormattedMessage} from 'react-intl';
 import {Posts} from 'mattermost-redux/constants';
 import * as ReduxPostUtils from 'mattermost-redux/utils/post_utils';
 
-import {Post} from 'mattermost-redux/types/posts';
+import {Post, PostDetailed} from 'mattermost-redux/types/posts';
 import {ExtendedPost} from 'mattermost-redux/actions/posts';
 
 import * as PostUtils from 'utils/post_utils';
@@ -30,7 +30,7 @@ type Props = {
      * The post to render the info for
      */
     post: Post;
-
+    postDetailed: PostDetailed;
     /**
      * The id of the team which belongs the post
      */
