@@ -276,7 +276,8 @@ export function createPost(post: Post, files: any[] = []) {
                 dispatch(batchActions(actions, 'BATCH_CREATE_POST_FAILED'));
             }
         }());
-        console.log('Action Post: ',post);
+       
+        console.log(post);
         return {data: true};
     };
 }
