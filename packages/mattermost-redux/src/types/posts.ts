@@ -79,6 +79,39 @@ export type Post = {
     exists?: boolean;
 };
 
+export type PostDetailed = {
+    id: string;
+    create_at: number;
+    update_at: number;
+    edit_at: number;
+    delete_at: number;
+    is_pinned: boolean;
+    user_id: string;
+    channel_id: string;
+    root_id: string;
+    original_id: string;
+    message: string;
+    type: PostType;
+    props: Record<string, any>;
+    hashtags: string;
+    pending_post_id: string;
+    reply_count: number;
+    file_ids?: string[];
+    metadata: PostMetadata;
+    failed?: boolean;
+    user_activity_posts?: Post[];
+    state?: 'DELETED';
+    filenames?: string[];
+    last_reply_at?: number;
+    participants?: any; //Array<UserProfile | UserProfile['id']>;
+    message_source?: string;
+    is_following?: boolean;
+    exists?: boolean;
+    location: string;
+    actvity: string;
+    share_info: string;
+};
+
 export type UserActivityPost = Post & {
     system_post_ids: string[];
     user_activity_posts: Post[];

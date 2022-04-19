@@ -117,6 +117,33 @@ export function createPost(post, files) {
     };
 }
 
+export function createPostDetailed(post, files) {
+    return async (dispatch) => {
+        // parse message and emit emoji event
+        const emojis = matchEmoticons(post.message);
+        if (emojis) {
+            for (const emoji of emojis) {
+                const trimmed = emoji.substring(1, emoji.length - 1);
+                dispatch(addRecentEmoji(trimmed));
+            }
+        }
+
+        let result;
+        if (UserAgent.isIosClassic()) {
+            result = await dispatch(PostActions.createPostImmediatelyDetailed(post, files));
+        } else {
+            result = await dispatch(PostActions.createPostDetailed(post, files));
+        }
+
+        if (post.root_id) {
+            dispatch(storeCommentDraft(post.root_id, null));
+        } else {
+            dispatch(storeDraft(post.channel_id, null));
+        }
+        return result;
+    };
+}
+
 export function storeDraft(channelId, draft) {
     return (dispatch) => {
         dispatch(StorageActions.setGlobalItem('draft_' + channelId, draft));

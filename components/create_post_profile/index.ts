@@ -7,7 +7,7 @@ import {ActionCreatorsMapObject, bindActionCreators, Dispatch} from 'redux';
 import {GlobalState} from 'types/store/index.js';
 import {Client4} from 'mattermost-redux/client';
 
-import {Post} from 'mattermost-redux/types/posts.js';
+import {Post, PostDetailed} from 'mattermost-redux/types/posts.js';
 
 import {FileInfo} from 'mattermost-redux/types/files.js';
 
@@ -37,6 +37,7 @@ import {
 import {getAssociatedGroupsForReferenceByMention} from 'mattermost-redux/selectors/entities/groups';
 import {
     addMessageIntoHistory,
+    createPostDetailed,
     moveHistoryIndexBack,
     moveHistoryIndexForward,
     removeReaction,
@@ -135,9 +136,9 @@ function makeMapStateToProps() {
     };
 }
 
-function onSubmitPost(post: Post, fileInfos: FileInfo[]) {
+function onSubmitPost(post: PostDetailed, fileInfos: FileInfo[]) {
     return (dispatch: Dispatch) => {
-        dispatch(createPost(post, fileInfos) as any);
+        dispatch(createPostDetailed(post, fileInfos) as any);
     };
 }
 
@@ -147,7 +148,7 @@ type Actions = {
     moveHistoryIndexBack: (index: string) => Promise<void>;
     moveHistoryIndexForward: (index: string) => Promise<void>;
     addReaction: (postId: string, emojiName: string) => void;
-    onSubmitPost: (post: Post, fileInfos: FileInfo[]) => void;
+    onSubmitPost: (post: PostDetailed, fileInfos: FileInfo[]) => void;
     removeReaction: (postId: string, emojiName: string) => void;
     clearDraftUploads: () => void;
     runMessageWillBePostedHooks: (originalPost: Post) => ActionResult;

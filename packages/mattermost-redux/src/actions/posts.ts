@@ -15,7 +15,7 @@ import {isCombinedUserActivityPost} from 'mattermost-redux/utils/post_list';
 import {Action, ActionResult, batchActions, DispatchFunc, GetStateFunc} from 'mattermost-redux/types/actions';
 import {ChannelUnread} from 'mattermost-redux/types/channels';
 import {GlobalState} from 'mattermost-redux/types/store';
-import {Post, PostList} from 'mattermost-redux/types/posts';
+import {Post, PostDetailed, PostList} from 'mattermost-redux/types/posts';
 import {Reaction} from 'mattermost-redux/types/reactions';
 import {UserProfile} from 'mattermost-redux/types/users';
 import {isCollapsedThreadsEnabled} from 'mattermost-redux/selectors/entities/preferences';
@@ -290,6 +290,279 @@ export function createPostImmediately(post: Post, files: any[] = []) {
 
         let newPost: Post = {
             ...post,
+            pending_post_id: pendingPostId,
+            create_at: timestamp,
+            update_at: timestamp,
+            reply_count: 0,
+        };
+
+        if (post.root_id) {
+            newPost.reply_count = Selectors.getPostRepliesCount(state, post.root_id) + 1;
+        }
+
+        if (files.length) {
+            const fileIds = files.map((file) => file.id);
+
+            newPost = {
+                ...newPost,
+                file_ids: fileIds,
+            };
+
+            dispatch({
+                type: FileTypes.RECEIVED_FILES_FOR_POST,
+                postId: pendingPostId,
+                data: files,
+            });
+        }
+
+        const crtEnabled = isCollapsedThreadsEnabled(state);
+        dispatch(receivedNewPost({
+            ...newPost,
+            id: pendingPostId,
+        }, crtEnabled));
+
+        try {
+            const created = await Client4.createPost({...newPost, create_at: 0});
+            newPost.id = created.id;
+            newPost.reply_count = created.reply_count;
+        } catch (error) {
+            forceLogoutIfNecessary(error, dispatch, getState);
+            dispatch(batchActions([
+                {type: PostTypes.CREATE_POST_FAILURE, data: newPost, error},
+                removePost({
+                    ...newPost,
+                    id: pendingPostId,
+                }) as any,
+                logError(error),
+            ]));
+            return {error};
+        }
+
+        const actions: Action[] = [
+            receivedPost(newPost, crtEnabled),
+            {
+                type: PostTypes.CREATE_POST_SUCCESS,
+            },
+            {
+                type: ChannelTypes.INCREMENT_TOTAL_MSG_COUNT,
+                data: {
+                    channelId: newPost.channel_id,
+                    amount: 1,
+                    amountRoot: newPost.root_id === '' ? 1 : 0,
+                },
+            },
+            {
+                type: ChannelTypes.DECREMENT_UNREAD_MSG_COUNT,
+                data: {
+                    channelId: newPost.channel_id,
+                    amount: 1,
+                    amountRoot: newPost.root_id === '' ? 1 : 0,
+                },
+            },
+        ];
+
+        if (files) {
+            actions.push({
+                type: FileTypes.RECEIVED_FILES_FOR_POST,
+                postId: newPost.id,
+                data: files,
+            });
+        }
+
+        dispatch(batchActions(actions));
+
+        return {data: newPost};
+    };
+}
+
+export function createPostDetailed(post: PostDetailed, files: any[] = []) {
+    return async (dispatch: DispatchFunc, getState: GetStateFunc) => {
+        const state = getState();
+        const currentUserId = state.entities.users.currentUserId;
+
+        const timestamp = Date.now();
+        const pendingPostId = post.pending_post_id || `${currentUserId}:${timestamp}`;
+        let actions: Action[] = [];
+
+        if (Selectors.isPostIdSending(state, pendingPostId)) {
+            return {data: true};
+        }
+        
+        const postNew = {} as Post;
+        postNew.id = post.id;
+        postNew.create_at = post.create_at;
+        postNew.update_at = post.update_at;
+        postNew.edit_at = post.edit_at;
+        postNew.delete_at = post.delete_at;
+        postNew.is_pinned = post.is_pinned;
+        postNew.user_id = post.user_id;
+        postNew.channel_id = post.channel_id;
+        postNew.root_id = post.root_id;
+        postNew.original_id = post.original_id;
+        postNew.message = post.message;
+        postNew.type = post.type;
+        postNew.props = post.props;
+        postNew.hashtags = post.hashtags;
+        postNew.pending_post_id = post.pending_post_id;
+        postNew.reply_count = post.reply_count;
+        postNew.file_ids = post.file_ids;
+        postNew.metadata = post.metadata;
+        postNew.failed = post.failed;
+        postNew.user_activity_posts = post.user_activity_posts;
+        postNew.state = post.state;
+        postNew.filenames = post.filenames;
+        postNew.last_reply_at = post.last_reply_at;
+        postNew.participants = post.participants;
+        postNew.message_source = post.message_source;
+        postNew.is_following = post.is_following;
+        postNew.exists = post.exists;
+
+        let newPost = {
+            ...postNew,
+            pending_post_id: pendingPostId,
+            create_at: timestamp,
+            update_at: timestamp,
+            reply_count: 0,
+        };
+
+        if (post.root_id) {
+            newPost.reply_count = Selectors.getPostRepliesCount(state, post.root_id) + 1;
+        }
+
+        // We are retrying a pending post that had files
+        if (newPost.file_ids && !files.length) {
+            files = newPost.file_ids.map((id) => state.entities.files.files[id]); // eslint-disable-line
+        }
+
+        if (files.length) {
+            const fileIds = files.map((file) => file.id);
+
+            newPost = {
+                ...newPost,
+                file_ids: fileIds,
+            };
+
+            actions.push({
+                type: FileTypes.RECEIVED_FILES_FOR_POST,
+                postId: pendingPostId,
+                data: files,
+            });
+        }
+
+        const crtEnabled = isCollapsedThreadsEnabled(getState());
+        actions.push({
+            type: PostTypes.RECEIVED_NEW_POST,
+            data: {
+                ...newPost,
+                id: pendingPostId,
+            },
+            features: {crtEnabled},
+        });
+
+        dispatch(batchActions(actions, 'BATCH_CREATE_POST_INIT'));
+
+        (async function createPostWrapper() {
+            try {
+                const created = await Client4.createPost({...newPost, create_at: 0});
+
+                actions = [
+                    receivedPost(created, crtEnabled),
+                    {
+                        type: PostTypes.CREATE_POST_SUCCESS,
+                    },
+                    {
+                        type: ChannelTypes.INCREMENT_TOTAL_MSG_COUNT,
+                        data: {
+                            channelId: newPost.channel_id,
+                            amount: 1,
+                            amountRoot: created.root_id === '' ? 1 : 0,
+                        },
+                    },
+                    {
+                        type: ChannelTypes.DECREMENT_UNREAD_MSG_COUNT,
+                        data: {
+                            channelId: newPost.channel_id,
+                            amount: 1,
+                            amountRoot: created.root_id === '' ? 1 : 0,
+                        },
+                    },
+                ];
+
+                if (files) {
+                    actions.push({
+                        type: FileTypes.RECEIVED_FILES_FOR_POST,
+                        postId: created.id,
+                        data: files,
+                    });
+                }
+
+                console.log(post);
+                dispatch(batchActions(actions, 'BATCH_CREATE_POST'));
+            } catch (error) {
+                const data = {
+                    ...newPost,
+                    id: pendingPostId,
+                    failed: true,
+                    update_at: Date.now(),
+                };
+                actions = [{type: PostTypes.CREATE_POST_FAILURE, error}];
+
+                // If the failure was because: the root post was deleted or
+                // TownSquareIsReadOnly=true then remove the post
+                if (error.server_error_id === 'api.post.create_post.root_id.app_error' ||
+                    error.server_error_id === 'api.post.create_post.town_square_read_only' ||
+                    error.server_error_id === 'plugin.message_will_be_posted.dismiss_post'
+                ) {
+                    actions.push(removePost(data) as any);
+                } else {
+                    actions.push(receivedPost(data, crtEnabled));
+                }
+
+                dispatch(batchActions(actions, 'BATCH_CREATE_POST_FAILED'));
+            }
+        }());
+        return {data: true};
+    };
+}
+
+export function createPostImmediatelyDetailed(post: PostDetailed, files: any[] = []) {
+    return async (dispatch: DispatchFunc, getState: GetStateFunc) => {
+        const state = getState();
+        const currentUserId = state.entities.users.currentUserId;
+        const timestamp = Date.now();
+        const pendingPostId = `${currentUserId}:${timestamp}`;
+
+        const postNew = {} as Post;
+        postNew.id = post.id;
+        postNew.create_at = post.create_at;
+        postNew.update_at = post.update_at;
+        postNew.edit_at = post.edit_at;
+        postNew.delete_at = post.delete_at;
+        postNew.is_pinned = post.is_pinned;
+        postNew.user_id = post.user_id;
+        postNew.channel_id = post.channel_id;
+        postNew.root_id = post.root_id;
+        postNew.original_id = post.original_id;
+        postNew.message = post.message;
+        postNew.type = post.type;
+        postNew.props = post.props;
+        postNew.hashtags = post.hashtags;
+        postNew.pending_post_id = post.pending_post_id;
+        postNew.reply_count = post.reply_count;
+        postNew.file_ids = post.file_ids;
+        postNew.metadata = post.metadata;
+        postNew.failed = post.failed;
+        postNew.user_activity_posts = post.user_activity_posts;
+        postNew.state = post.state;
+        postNew.filenames = post.filenames;
+        postNew.last_reply_at = post.last_reply_at;
+        postNew.participants = post.participants;
+        postNew.message_source = post.message_source;
+        postNew.is_following = post.is_following;
+        postNew.exists = post.exists;
+
+        let newPost: Post = {
+            ...postNew,
             pending_post_id: pendingPostId,
             create_at: timestamp,
             update_at: timestamp,

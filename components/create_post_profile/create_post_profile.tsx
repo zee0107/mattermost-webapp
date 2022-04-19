@@ -57,7 +57,7 @@ import profPic from 'images/profiles/user-profile-1.png';
 import MessageSubmitError from 'components/message_submit_error';
 import {Channel, ChannelMemberCountsByGroup} from 'mattermost-redux/types/channels';
 import {PostDraft} from 'types/store/rhs';
-import {Post, PostMetadata} from 'mattermost-redux/types/posts';
+import {Post, PostDetailed, PostMetadata} from 'mattermost-redux/types/posts';
 import {PreferenceType} from 'mattermost-redux/types/preferences';
 import EmojiMap from 'utils/emoji_map';
 import {ActionResult} from 'mattermost-redux/types/actions';
@@ -221,6 +221,10 @@ type Props = {
 
     uploading: boolean;
 
+    userLocation: string;
+    userActivity: string;
+    shareInfo: string;
+
     actions: {
 
         /**
@@ -251,7 +255,7 @@ type Props = {
         /**
       *  func called for posting message
       */
-        onSubmitPost: (post: Post, fileInfos: FileInfo[]) => void;
+        onSubmitPost: (post: PostDetailed, fileInfos: FileInfo[]) => void;
 
         /**
       *  func called for removing a reaction
@@ -770,7 +774,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
         await this.doSubmit(e);
     }
 
-    sendMessage = async (originalPost: Post) => {
+    sendMessage = async (originalPost: PostDetailed) => {
         const {
             actions,
             currentChannel,
@@ -779,6 +783,9 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             useGroupMentions,
             useChannelMentions,
             groupsWithAllowReference,
+            userLocation,
+            userActivity,
+            shareInfo,
         } = this.props;
 
         let post = originalPost;
@@ -792,6 +799,10 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
         post.create_at = time;
         post.metadata = {} as PostMetadata;
         post.props = {};
+        post.share_info = shareInfo;
+        post.actvity = userActivity;
+        post.location = userLocation;
+        
         if (!useChannelMentions && containsAtChannel(post.message, {checkAllMentions: true})) {
             post.props.mentionHighlightDisabled = true;
         }
