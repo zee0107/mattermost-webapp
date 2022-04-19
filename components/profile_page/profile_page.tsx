@@ -413,7 +413,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                 </div>
-                                <div className='d-flex' id='crypter-section-profile-mobile'>
+                                <div className='d-flex' id='post-mobile'>
                                     <div className='whats-going-on-here-style float-start'>
                                         <div className='input-group d-flex bg-inputs-whats'>
                                             <span className='input-group-text input-search-crypter-whats-going-on' id='basic-addon22'>
