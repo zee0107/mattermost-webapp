@@ -714,14 +714,14 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     <input id='searchLocations' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Where are you?' aria-label='Where are you?'/>
                                 </div>
                 
-                                <div className='row mt-3'>
+                                <div className='row mt-3 mb-4'>
                                     {this.state.userLocation && <a className='locationviewpost onUnselectlocation ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userLocation: ''});}}><label className='text-primary'>{this.state.userLocation} <i className='bi-x-lg'></i></label></a>}
                                 </div>
                 
                                 <div id='searchforlocations'>
-                                    <div className='row mt-3'>
+                                    <div className='d-flex'>
                                         <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8'>
+                                        <div className='col-md-8 width-100'>
                                         <label className='onAddlocation'>Muntinlupa City</label>
                                         <p><small>Muntinlupa City Philippines</small></p>
                                         </div>
@@ -733,9 +733,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                 
-                                    <div className='row'>
+                                    <div className='d-flex'>
                                         <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8'>
+                                        <div className='col-md-8 width-100'>
                                         <label>Makati City</label>
                                         <p><small>Makati City Philippines</small></p>
                                         </div>
@@ -747,9 +747,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                 
-                                    <div className='row'>
+                                    <div className='d-flex'>
                                         <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8'>
+                                        <div className='col-md-8 width-100'>
                                         <label>Taguig City</label>
                                         <p><small>Taguig City Philippines</small></p>
                                         </div>
@@ -761,9 +761,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
 
-                                    <div className='row'>
+                                    <div className='d-flex'>
                                         <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8'>
+                                        <div className='col-md-8 width-100'>
                                         <label>Santa Rosa City</label>
                                         <p><small>Santa Rosa City Philippines</small></p>
                                         </div>
@@ -775,9 +775,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
 
-                                    <div className='row'>
+                                    <div className='d-flex'>
                                         <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8'>
+                                        <div className='col-md-8 width-100'>
                                         <label>San Pedro City</label>
                                         <p><small>San Pedro City Philippines</small></p>
                                         </div>
