@@ -190,7 +190,7 @@ export default class PostHeader extends React.PureComponent<Props> {
                 shareInfoIcon = (<i className='bi bi-globe' title='Everyone'></i>);
             }
 
-            if(postDetailed.actvity !== null && postDetailed.actvity !== ''){
+            if(postDetailed.actvity !== null && postDetailed.actvity !== '' && postDetailed.actvity){
                 const activityValue = postDetailed.actvity.toString().split('&');
                 let textValue = activityValue[0];
                 let icon = String.fromCodePoint(activityValue[1].substring(1, activityValue[1].length - 1));
