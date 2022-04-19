@@ -84,6 +84,7 @@ type State = {
     userLocation: string;
     userActivity: string;
     shareInfo: string;
+    feeling: boolean;
 };
 
 export default class ProfilPage extends React.PureComponent<Props, State> {
@@ -104,7 +105,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {userActivity: '',userLocation: '',shareInfo: 'everyone',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
+        this.state = {feeling: true,userActivity: '',userLocation: '',shareInfo: 'everyone',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
         
         this.onChangeShareInfo = this.onChangeShareInfo.bind(this);
         this.onChangeLocation = this.onChangeLocation.bind(this);
@@ -207,7 +208,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser, profilePicture} = this.props;
-        const { coverUrl,completionResult, uploading, shareInfo, userLocation} = this.state;
+        const { coverUrl,completionResult, uploading, shareInfo, userLocation, feeling} = this.state;
 
         let photoAvailable;
         let nameAvailable;
@@ -215,8 +216,106 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let shareInfoBtn;
         let shareInfoDd;
         let location;
+        let feelactView;
         let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
         
+        if(feeling){
+            feelactView = (
+                <div clasme='feelingscontent'>
+                    <div className='input-group d-flex mb-0'>
+                        <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
+                        <input id='searchFeelings' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Search' aria-label='Search'/>
+                    </div>
+    
+                    <div className='row mt-3'>
+                    <a href='#' className='feelingspost onClosefeelingsviews'><label>Grinning face &#128512;</label> <i className='bi-x-lg'></i></a>
+                    </div>
+    
+                    <div id='searchfeelings'>
+                        <div className='d-flex mt-3'>
+                        <div className='col-md-6 width-50 text-center'>
+                            <p className='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128512;</label> <br /> <small>Grinning face</small></p> 
+                        </div>
+                        <div className='col-md-6 width-50 text-center'>
+                            <p className='border p-1'><label style={{fontSize: 20}}>&#128513;</label> <br /> <small>Smiling eyes</small></p>
+                        </div>
+                        </div>
+    
+                        <div className='d-flex'>
+                        <div className='col-md-6 width-50 text-center'>
+                            <p className='border p-1'><label style={{fontSize: 20}}>&#128514;</label> <br /> <small>Tears of joy</small></p> 
+                        </div>
+                        <div className='col-md-6 width-50 text-center'>
+                            <p className='border p-1'><label style={{fontSize: 20}}>&#128515;</label> <br /> <small>Open mounth</small></p> 
+                        </div>
+                        </div>
+    
+                        <div className='d-flex'>
+                        <div className='col-md-6 width-50 text-center'>
+                            <p className='border p-1'><label style={{fontSize: 20}}>&#128516;</label> <br /> <small>Smiling eyes</small></p> 
+                        </div>
+                        <div className='col-md-6 width-50 text-center'>
+                            <p className='border p-1'><label style={{fontSize: 20}}>&#128517;</label> <br /> <small>Cold sweat</small></p>
+                        </div>
+                        </div>
+    
+                        <div className='d-flex'>
+                        <div className='col-md-6 width-50 text-center'>
+                            <p className='border p-1'><label style={{fontSize: 20}}>&#128518;</label> <br /> <small>Tightly closed eye</small></p>
+                        </div>
+                        <div className='col-md-6 width-50 text-center'>
+                            <p className='border p-1'><label style={{fontSize: 20}}>&#128519;</label> <br /> <small>Smiling with halo</small></p>
+                        </div>
+                        </div>
+                    </div>
+    
+                </div>
+            );
+        }
+        else{
+            feelactView = (
+                <div className='activitiescontent'>
+                    <div className='input-group mb-0'>
+                            <span className='input-group-text input-search-crypter-span' id='basic-addon1'><i className='bi-search'></i></span>
+                            <input id='searchActivities' type='text' className='form-control form-control-dark input-search-crypter' placeholder='Search' aria-label='Search'/>
+                    </div>
+    
+                    <div className='row mt-3 mb-3'>
+                        <a href='#' className='activitiespost onCloseactivitiessviews'><label>Loving &#128151;</label> <i className='bi-x-lg'></i></a>
+                    </div>
+    
+                    <div id='searchactivities'>
+                        <div className='d-flex mt-1'>
+                        <div className='col-md-6 width-50 text-center'>
+                            <p className='border p-1 onActivitiesselect'><label style={{fontSize: 20}}>&#128151;</label> <br /> <small>Loving</small></p> 
+                        </div>
+                        <div className='col-md-6 width-50 text-center'>
+                            <p className='border p-1'><label style={{fontSize: 20}}>&#128561;</label> <br /> <small>Face screaming in fear</small></p> 
+                        </div>
+                        </div>
+    
+                        <div className='d-flex mt-1'>
+                        <div className='col-md- width-50 text-center'>
+                            <p className='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128562;</label> <br /> <small>Astonished face</small></p>
+                        </div>
+                        <div className='col-md-6 width-50 text-center'>
+                            <p className='border p-1'><label style={{fontSize: 20}}>&#128564;</label> <br /> <small>Sleeping face</small></p>
+                        </div>
+                        </div>
+    
+                        <div className='d-flex mt-1'>
+                        <div className='col-md-6 width-50 text-center'>
+                            <p className='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128565;</label> <br /> <small>Dizzy face</small></p>
+                        </div>
+                        <div className='col-md-6 width-50 text-center'>
+                            <p className='border p-1'><label style={{fontSize: 20}}>&#128567;</label> <br /> <small>Face with medical mask</small></p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
         if(userLocation !== null && userLocation !== ''){
             location = (<a href='#' className='locationviewpost text-primary'><small className='text-muted'> is in</small> {userLocation}</a> );
         }
@@ -806,101 +905,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <div>
                                 <div className='d-flex mt-1 mb-4 gap-1'>
                                     <div className='col-md-3 text-center rounded p-1 mr-2' style={{border: '1px solid grey', borderRadius: 8}}>
-                                    <a className='onFeelings text-primary'><small> Feelings</small></a></div>
+                                    <a className='onFeelings text-primary' onClick={() => { this.setState({feeling: true});}}><small> Feelings</small></a></div>
                                     <div className='col-md-3 text-center rounded p-1' style={{border: '1px solid grey', borderRadius: 8}}>
-                                    <a className='onActivities text-primary'><small> Activities</small></a></div>
+                                    <a className='onActivities text-primary' onClick={() => { this.setState({feeling: false});}}><small> Activities</small></a></div>
                                 </div>
                             </div>
-                
-                            <div className='feelingscontent'>
-                                <div className='input-group d-flex mb-0'>
-                                    <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
-                                    <input id='searchFeelings' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Search' aria-label='Search'/>
-                                </div>
-                
-                                <div className='row mt-3'>
-                                <a href='#' className='feelingspost onClosefeelingsviews'><label>Grinning face &#128512;</label> <i className='bi-x-lg'></i></a>
-                                </div>
-                
-                                <div id='searchfeelings'>
-                                    <div className='d-flex mt-3'>
-                                    <div className='col-md-6 text-center'>
-                                        <p className='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128512;</label> <br /> <small>Grinning face</small></p> 
-                                    </div>
-                                    <div className='col-md-6 text-center'>
-                                        <p className='border p-1'><label style={{fontSize: 20}}>&#128513;</label> <br /> <small>Smiling eyes</small></p>
-                                    </div>
-                                    </div>
-                
-                                    <div className='d-flex'>
-                                    <div className='col-md-6 text-center'>
-                                        <p className='border p-1'><label style={{fontSize: 20}}>&#128514;</label> <br /> <small>Tears of joy</small></p> 
-                                    </div>
-                                    <div className='col-md-6 text-center'>
-                                        <p className='border p-1'><label style={{fontSize: 20}}>&#128515;</label> <br /> <small>Open mounth</small></p> 
-                                    </div>
-                                    </div>
-                
-                                    <div className='d-flex'>
-                                    <div className='col-md-6 text-center'>
-                                        <p className='border p-1'><label style={{fontSize: 20}}>&#128516;</label> <br /> <small>Smiling eyes</small></p> 
-                                    </div>
-                                    <div className='col-md-6 text-center'>
-                                        <p className='border p-1'><label style={{fontSize: 20}}>&#128517;</label> <br /> <small>Cold sweat</small></p>
-                                    </div>
-                                    </div>
-                
-                                    <div className='d-flex'>
-                                    <div className='col-md-6 text-center'>
-                                        <p className='border p-1'><label style={{fontSize: 20}}>&#128518;</label> <br /> <small>Tightly closed eye</small></p>
-                                    </div>
-                                    <div className='col-md-6 text-center'>
-                                        <p className='border p-1'><label style={{fontSize: 20}}>&#128519;</label> <br /> <small>Smiling with halo</small></p>
-                                    </div>
-                                    </div>
-                                </div>
-                
-                            </div>
-                
-                            <div className='activitiescontent'>
-                                <div className='input-group mb-0'>
-                                        <span className='input-group-text input-search-crypter-span' id='basic-addon1'><i className='bi-search'></i></span>
-                                        <input id='searchActivities' type='text' className='form-control form-control-dark input-search-crypter' placeholder='Search' aria-label='Search'/>
-                                </div>
-                
-                                <div className='row mt-3 mb-3'>
-                                    <a href='#' className='activitiespost onCloseactivitiessviews'><label>Loving &#128151;</label> <i className='bi-x-lg'></i></a>
-                                </div>
-                
-                                <div id='searchactivities'>
-                                    <div className='d-flex mt-1'>
-                                    <div className='col-md-6 text-center'>
-                                        <p className='border p-1 onActivitiesselect'><label style={{fontSize: 20}}>&#128151;</label> <br /> <small>Loving</small></p> 
-                                    </div>
-                                    <div className='col-md-6 text-center'>
-                                        <p className='border p-1'><label style={{fontSize: 20}}>&#128561;</label> <br /> <small>Face screaming in fear</small></p> 
-                                    </div>
-                                    </div>
-                
-                                    <div className='d-flex mt-1'>
-                                    <div className='col-md-6 text-center'>
-                                        <p className='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128562;</label> <br /> <small>Astonished face</small></p>
-                                    </div>
-                                    <div className='col-md-6 text-center'>
-                                        <p className='border p-1'><label style={{fontSize: 20}}>&#128564;</label> <br /> <small>Sleeping face</small></p>
-                                    </div>
-                                    </div>
-                
-                                    <div className='d-flex mt-1'>
-                                    <div className='col-md-6 text-center'>
-                                        <p className='border p-1 onFeelingselect'><label style={{fontSize: 20}}>&#128565;</label> <br /> <small>Dizzy face</small></p>
-                                    </div>
-                                    <div className='col-md-6 text-center'>
-                                        <p className='border p-1'><label style={{fontSize: 20}}>&#128567;</label> <br /> <small>Face with medical mask</small></p>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
+                            {feelactView}
                         </div>
                     </div>
                 </div>
