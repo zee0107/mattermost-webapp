@@ -191,8 +191,8 @@ export default class PostHeader extends React.PureComponent<Props> {
                     );
                 }
             }
-            else if(postDetailed.actvity === null && postDetailed.actvity === ''){
-                if(postDetailed.location !== null && postDetailed.location !== ''){
+            else if(postDetailed.location !== null && postDetailed.location !== ''){
+                if(postDetailed.actvity === null && postDetailed.actvity === ''){
                     shareInfoDetails = (
                         <span> is in <label>{postDetailed.location}</label> {postDetailed.share_info}</span>
                     );
