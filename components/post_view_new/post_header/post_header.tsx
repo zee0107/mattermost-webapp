@@ -205,7 +205,7 @@ export default class PostHeader extends React.PureComponent<Props> {
             }
             else {
                 shareInfoDetails = (
-                    <span>{postDetailed.share_info}</span>
+                    <span> {postDetailed.share_info}</span>
                 );
             }
         }
