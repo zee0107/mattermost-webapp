@@ -659,227 +659,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='row'>
                                         <div className='col-md-12 mt-3'>
-                                            <CreatePost  uploading={this.state.uploading} userActivity={this.state.userActivity} userLocation={this.state.userLocation} shareInfo={this.state.shareInfo} />
-                                        </div>
-                                    </div>
-                                    <div className='post-music-content'>
-                                        <div className='container'>
-                                            <div className='row'>
-                                                <div className='col-md-2 text-left'><img width='50px' className='rounded' src='assets/images/Cover-album.jpg' alt='Cover album' /></div>
-                                                <div className='col-md-8 mt-0'>
-                                                <label className='ms-3'><strong>Lovely</strong></label>
-                                                <p className='ms-3'><small>Eric Godlow</small></p>
-                                                </div>
-                                                <div className='col-md-2 mt-0'>
-                                                <a className='onClosemusicpost float-end'><i className='bi-x'></i></a>
-                                                </div>
-                                            </div>
-                                            <div className='row'>
-                                                <label className='mb-2'><strong>Lyrics:</strong> <br /><br /> What a wonderful world is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. <br /><br /> when an unknown printer took a galley of type and scrambled it to make a type specimen book.</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div className='modal tagfriends' id='staticBackdropTag' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
-                    <div className='modal-dialog modal-dialog-centered'>
-                        <div className='modal-content'>
-                            <div className='modal-header'>
-                                <h6 className='modal-title' id='staticBackdropLabel'>Tag people</h6>
-                                <a className='onBacktotag float-end' data-toggle='modal' data-target='#staticBackdrop' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
-                            </div>
-                            <div className='modal-body'>
-                                <div className='input-group d-flex mb-0'>
-                                    <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
-                                   <input id='searchforFriends' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Search for friend' aria-label='Search for friend'/>
-                                </div>
-                    
-                                <div className='row mt-3'>
-                                    <a href='#' className='tagviewpost onUntag'>Friend name goes here <i className='bi-x-lg'></i></a>
-                                </div>
-                    
-                                <div id='searchforfriends'>
-                                    <div className='row mt-3'>
-                                        <div className='col-md-10'>
-                                            <p><img width='40px' className='img-fluid' src={profPic} /> Analyn Natividad</p>
-                                        </div>
-                                        <div className='col-md-2'>
-                                                <div className='form-check mt-2 float-end'>
-                                                    <input className='form-check-input onTagfriends' type='checkbox' value=''/>
-                                                </div>
-                                        </div>
-                                    </div>
-                                    <div className='row mt-0'>
-                                        <div className='col-md-10'>
-                                            <p><img width='40px' className='img-fluid' src={profPic} /> Mark Tristan</p>
-                                        </div>
-                                        <div className='col-md-2'>
-                                            <div className='form-check mt-2 float-end'>
-                                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault2'/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='row mt-0'>
-                                        <div className='col-md-10'>
-                                            <p><img width='40px' className='img-fluid' src={profPic} /> Dysania Marie</p>
-                                        </div>
-                                        <div className='col-md-2'>
-                                            <div className='form-check mt-2 float-end'>
-                                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault3'/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='row mt-0'>
-                                        <div className='col-md-10'>
-                                            <p><img width='40px' className='img-fluid' src={profPic} /> Jason Born</p>
-                                        </div>
-                                        <div className='col-md-2'>
-                                            <div className='form-check mt-2 float-end'>
-                                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault3'/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='row mt-0'>
-                                        <div className='col-md-10'>
-                                            <p><img width='40px' className='img-fluid' src={profPic} /> John Doe</p>
-                                        </div>
-                                        <div className='col-md-2'>
-                                            <div className='form-check mt-2 float-end'>
-                                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault2'/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className='modal selectlocation' id='staticBackdropLoc' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
-                    <div className='modal-dialog modal-dialog-centered'>
-                        <div className='modal-content'>
-                            <div className='modal-header'>
-                                <h6 className='modal-title' id='staticBackdropLabel'>Search for location</h6>
-                                <a className='onBacktolocation float-end' data-toggle='modal' data-target='#staticBackdrop' data-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
-                            </div>
-                            <div className='modal-body'>
-                                <div className=''>
-                                    <div className='input-group d-flex mb-0'>
-                                    <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
-                                    <input id='searchLocations' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Where are you?' aria-label='Where are you?'/>
-                                </div>
-                
-                                <div className='row mt-3 mb-4'>
-                                    {this.state.userLocation && <a className='locationviewpost onUnselectlocation ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userLocation: ''});}}><label className='text-primary'>{this.state.userLocation} <i className='bi-x-lg'></i></label></a>}
-                                </div>
-                
-                                <div id='searchforlocations'>
-                                    <div className='d-flex'>
-                                        <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
-                                        <label className='onAddlocation'>Muntinlupa City</label>
-                                        <p><small>Muntinlupa City Philippines</small></p>
-                                        </div>
-                                        <div className='col-md-2 text-center'>
-                                            <div className='form-check mt-3'>
-                                                <input className='form-check-input onAddlocation' type='radio' name='locationRadios' value='Muntinlupa City' onChange={this.onChangeLocation} id='locationRadios4' />
-                                                <label className='form-check-label' htmlFor='locationRadios4'></label>
-                                            </div>
-                                        </div>
-                                    </div>
-                
-                                    <div className='d-flex'>
-                                        <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
-                                        <label>Makati City</label>
-                                        <p><small>Makati City Philippines</small></p>
-                                        </div>
-                                        <div className='col-md-2 text-center'>
-                                            <div className='form-check mt-3'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' value='Makati City' onChange={this.onChangeLocation} id='locationRadios5' />
-                                                <label className='form-check-label' htmlFor='locationRadios5'></label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                
-                                    <div className='d-flex'>
-                                        <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
-                                        <label>Taguig City</label>
-                                        <p><small>Taguig City Philippines</small></p>
-                                        </div>
-                                        <div className='col-md-2 text-center'>
-                                            <div className='form-check mt-3'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' value='Taguig City' onChange={this.onChangeLocation} id='locationRadios6' />
-                                                <label className='form-check-label' htmlFor='locationRadios6'></label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className='d-flex'>
-                                        <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
-                                        <label>Santa Rosa City</label>
-                                        <p><small>Santa Rosa City Philippines</small></p>
-                                        </div>
-                                        <div className='col-md-2 text-center'>
-                                            <div className='form-check mt-3'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' value='Santa Rosa City' onChange={this.onChangeLocation} id='locationRadios7' />
-                                                <label className='form-check-label' htmlFor='locationRadios6'></label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className='d-flex'>
-                                        <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
-                                        <label>San Pedro City</label>
-                                        <p><small>San Pedro City Philippines</small></p>
-                                        </div>
-                                        <div className='col-md-2 text-center'>
-                                            <div className='form-check mt-3'>
-                                                <input className='form-check-input' type='radio' name='locationRadios' value='San Pedro City' onChange={this.onChangeLocation} id='locationRadios8' />
-                                                <label className='form-check-label' htmlFor='locationRadios6'></label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className='modal postcontent' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
-                    <div className='modal-dialog modal-dialog-centered'>
-                        <div className='modal-content'>
-                            <div className='form'>
-                                <div className='modal-header'>
-                                    <h6 className='modal-title'>Create post</h6>
-                                    <a className='btn-close-canvas shadow onClosecreatepost float-end' data-dismiss='modal' aria-label='Close' onClick={() => {this.setState({uploading: false});}}><img src={xIcon}/></a>
-                                </div>
-
-                                <div className='modal-body'>
-                                    <div className='row'>
-                                        <div className='col-md-2 text-center'>
-                                            {this.renderProfilePicture('xl')}
-                                        </div>
-                                        <div className='col-md-10 text-left'>
-                                            <strong>
-                                                <a href='#' className='text-primary'>{currentUser.first_name} {currentUser.last_name}</a> 
-                                                {feelact}
-                                                {location}
-                                                {/*<a href='#' className='tagviewpost text-primary'><small className='text-muted'>with</small> Friend name goes here</a> 
-                                                <a href='#' className='activities text-primary'><small className='text-muted'>Activities</small> &#128151;</a>*/}
-                                            </strong>
-                                            <br />
-                                            {shareInfoDd}
-                                        </div>
-                                    </div>
-                                    <div className='row'>
-                                        <div className='col-md-12 mt-3'>
                                             <CreatePost getChannelView={this.getChannelView} uploading={this.state.uploading} userActivity={this.state.userActivity} userLocation={this.state.userLocation} shareInfo={this.state.shareInfo} />
                                         </div>
                                     </div>
@@ -979,7 +758,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                 </div>
-
                 <div className='modal selectlocation' id='staticBackdropLoc' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
                     <div className='modal-dialog modal-dialog-centered'>
                         <div className='modal-content'>
@@ -1058,8 +836,8 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                     <div className='d-flex'>
                                         <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
                                         <div className='col-md-8 width-100'>
-                                        <label>San Pedro City</label>
-                                        <p><small>San Pedro City Philippines</small></p>
+                                            <label>San Pedro City</label>
+                                            <p><small>San Pedro City Philippines</small></p>
                                         </div>
                                         <div className='col-md-2 text-center'>
                                             <div className='form-check mt-3'>
@@ -1071,6 +849,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
                 <div className='modal selectemoticons' id='staticBackdropAct' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
@@ -1136,8 +915,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
         </div>
         );
     }
