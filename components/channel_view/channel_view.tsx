@@ -32,6 +32,9 @@ import postImage from 'images/post-1.png';
 import postImage2 from 'images/post-image.png';
 import postPic from 'images/profiles/user-profile-2.png';
 import postPic2 from 'images/profiles/user-profile-3.png';
+import GlobeIcon from 'images/icon-global2.png';
+import SmileIcon from 'images/emoji-smile-fill.svg';
+import xIcon from 'images/x.svg';
 import GroupHeader from 'components/group_header';
 
 import {browserHistory} from 'utils/browser_history';
