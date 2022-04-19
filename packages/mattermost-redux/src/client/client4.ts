@@ -2000,7 +2000,8 @@ export default class Client4 {
             `${this.getPostRoute(postId)}`,
             {method: 'get'},
         );
-
+        console.log('Post Data: ',postData);
+        console.log('Other Data: ',otherData);
         const postDetailed = {} as PostDetailed;
         postDetailed.id = postData.id;
         postDetailed.create_at = postData.create_at;
