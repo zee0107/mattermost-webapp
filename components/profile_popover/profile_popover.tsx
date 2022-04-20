@@ -186,6 +186,10 @@ ProfilePopoverState
                 channelId,
             );
         }
+        
+        if(this.props.followData !== null){
+            Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
+        }
 
         this.getFollowDetail();
     }
@@ -280,9 +284,6 @@ ProfilePopoverState
     }
 
     getFollowDetail = async () =>{
-        if(this.props.followData !== null){
-            Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
-        }
         console.log(this.state.followData);
         if(this.state.followData.status === '1'){
             this.setState({followStatus: 1});
