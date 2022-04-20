@@ -195,7 +195,7 @@ ProfilePopoverState
     }
 
     componentDidUpdate (prevState: state){
-        if(this.props.followData !== prevState.followData){
+        if(this.state.followData !== prevState.followData){
             console.log('State: ',this.state.followData);
             console.log('PrevState: ',prevState.followData);
             if(this.state.followData !== undefined){
