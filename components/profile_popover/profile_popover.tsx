@@ -149,7 +149,6 @@ interface ProfilePopoverProps extends Omit<React.ComponentProps<typeof Popover>,
 type ProfilePopoverState = {
     loadingDMChannel?: string;
     followStatus: number;
-    dataFollow: Promise<RequestList>;
     followData: RequestList;
 };
 
@@ -176,7 +175,6 @@ ProfilePopoverState
         this.state = {
             loadingDMChannel: undefined,
             followStatus: 0,
-            followData: {},
         };
         this.handleFollow = this.handleFollow.bind(this);
         this.handleAccept = this.handleAccept.bind(this);
@@ -196,9 +194,14 @@ ProfilePopoverState
         }
     }
 
-    componentDidUpdate (prevProps: props,prevState: state){
-        if(this.props.followData !== prevProps.followData && this.state.followData !== prevState.followData){
-            Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
+    componentDidUpdate (prevState: state){
+        if(this.state.followData !== prevState.followData){
+            if(this.state.followData !== undefined){
+                if(this.state.followStatus === prevState.followData.status)
+                {
+                    this.setState({followStatus: this.state.followData.status});
+                }
+            }
         }
     }
     handleShowDirectChannel = (e: React.MouseEvent<HTMLAnchorElement>) => {
