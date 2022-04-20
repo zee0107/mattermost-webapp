@@ -612,7 +612,7 @@ ProfilePopoverState
                     key='user-popover-dm'
                     className='popover__row first'
                 >
-                    {this.getFollowDetail}
+                    {this.getFollowDetail()}
                 </div>
                 /*<div
                     data-toggle='tooltip'
