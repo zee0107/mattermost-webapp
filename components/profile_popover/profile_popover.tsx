@@ -176,6 +176,7 @@ ProfilePopoverState
             followStatus: 0,
         };
         this.handleFollow = this.handleFollow.bind(this);
+        this.handleAccept = this.handleAccept.bind(this);
     }
     componentDidMount() {
         const {currentTeamId, userId, channelId} = this.props;
@@ -428,7 +429,7 @@ ProfilePopoverState
                     <a
                         href='#'
                         className='text-nowrap user-popover__email'
-                        //onClick={this.handleFollow}
+                        onClick={this.handleAccept}
                     >
                         <i class="bi bi-person-check"></i>
                         Accept Request
