@@ -135,6 +135,7 @@ interface ProfilePopoverProps extends Omit<React.ComponentProps<typeof Popover>,
     actions: {
         openModal: <P>(modalData: ModalData<P>) => void;
         closeModal: (modalId: string) => void;
+        onFollowRequest: (user_id: string, friend_id: string) => void;
         openDirectChannelToUserId: (userId?: string) => Promise<{error: ServerError}>;
         getMembershipForEntities: (teamId: string, userId: string, channelId?: string) => Promise<void>;
     };
@@ -258,6 +259,15 @@ ProfilePopoverState
             }
         }
     };
+
+    handleFollow = (userId: string, friend_id:string) => {
+        const {actions} = this.props;
+        if (userId !== '' && friend_id !== '')
+        {
+            actions.onFollowRequest(userId,friend_id);
+        }
+    }
+
     renderCustomStatus() {
         const {
             customStatus,
@@ -561,7 +571,7 @@ ProfilePopoverState
                     <a
                         href='#'
                         className='text-nowrap user-popover__email'
-                        //onClick={this.handleShowDirectChannel}
+                        onClick={this.handleFollow(this.props.currentUserId,this.props.userId)}
                     >
                         <i className='bi bi-person-plus'></i>
                         Follow

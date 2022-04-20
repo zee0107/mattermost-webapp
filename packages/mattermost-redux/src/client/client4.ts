@@ -119,7 +119,7 @@ import {isSystemAdmin} from 'mattermost-redux/utils/user_utils';
 import {UserThreadList, UserThread, UserThreadWithPost} from 'mattermost-redux/types/threads';
 
 import {TelemetryHandler} from './telemetry';
-import { AllListing, Coins, GainerListing, NewListing, ProjectList, ProjectsEndedList, ProjectsUpcomingList, TrendListing } from 'mattermost-redux/types/crypto';
+import { AllListing, Coins, GainerListing, NewListing, ProjectList, ProjectsEndedList, ProjectsUpcomingList, RequestList, SocialCount, TrendListing } from 'mattermost-redux/types/crypto';
 import { type } from 'os';
 
 const FormData = require('form-data');
@@ -3954,6 +3954,67 @@ export default class Client4 {
             return imageObjectURL;
         }
     }
+
+    getRequestList = (userId: string) => {
+        return this.doFetch<RequestList[]>(
+            `https://localhost:44312/api/crypter/getrequest?userId=${userId}`,{method: 'get'}
+        );
+    }
+
+    getFriendList = (userId: string) => {
+        return this.doFetch<RequestList[]>(
+            `https://localhost:44312/api/crypter/getfriendlist?userId=${userId}`,{method: 'get'}
+        );
+    }
+
+    getSocialCount = (userId: string) => {
+        return this.doFetch<SocialCount>(
+            `https://localhost:44312/api/crypter/socialcount?userId=${userId}`,{method: 'get'}
+        );
+    } 
+
+    followRequest = (user_id: string, friend_id: string) => {
+        const body = {
+            user_id: user_id,
+            friend_id: friend_id,
+        }
+        return this.doFetch<string>(
+            `https://localhost:44312/api/crypter/followrequest`
+            ,{method: 'post',body: JSON.stringify(body)}
+        );
+    }
+
+    unfollowUser = (user_id: string, friend_id: string) => {
+        const body = {
+            user_id: user_id,
+            friend_id: friend_id,
+        }
+        return this.doFetch<string>(
+            `https://localhost:44312/api/crypter/unfollowuser`
+            ,{method: 'post',body: JSON.stringify(body)}
+        );
+    }
+
+    acceptRequest = (requestId: string) =>{
+        const body = {
+            requestid: requestId,
+        }
+        return this.doFetch<boolean>(
+            `https://localhost:44312/api/crypter/acceptrequest`
+            ,{method: 'post',body: JSON.stringify(body)}
+        );
+    }
+
+    declineRequest = (requestId: string) =>{
+        const body = {
+            requestid: requestId,
+        }
+        return this.doFetch<boolean>(
+            `https://localhost:44312/api/crypter/declinerequest`
+            ,{method: 'post',body: JSON.stringify(body)}
+        );
+    }
+
 
 
     // Client Helpers

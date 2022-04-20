@@ -33,6 +33,7 @@ import {GlobalState} from 'types/store';
 import {ServerError} from 'mattermost-redux/types/errors';
 
 import ProfilePopover from './profile_popover';
+import { followRequest } from 'mattermost-redux/actions/posts';
 
 type OwnProps = {
     userId: string;
@@ -82,17 +83,26 @@ function makeMapStateToProps() {
     };
 }
 
+function onFollowRequest(user_id: string, friend_id: string) {
+    return (dispatch: Dispatch) => {
+        dispatch(followRequest(user_id, friend_id) as any);
+    };
+}
+
 type Actions = {
     openModal: <P>(modalData: ModalData<P>) => void;
     closeModal: (modalId: string) => void;
+    onFollowRequest: (user_id: string, friend_id: string) => void;
     openDirectChannelToUserId: (userId?: string) => Promise<{error: ServerError}>;
     getMembershipForEntities: (teamId: string, userId: string, channelId?: string) => Promise<void>;
 }
+
 
 function mapDispatchToProps(dispatch: Dispatch) {
     return {
         actions: bindActionCreators<ActionCreatorsMapObject<Action>, Actions>({
             closeModal,
+            onFollowRequest,
             openDirectChannelToUserId,
             openModal,
             getMembershipForEntities,

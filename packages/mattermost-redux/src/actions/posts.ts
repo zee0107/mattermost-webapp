@@ -160,6 +160,19 @@ export function getPost(postId: string) {
     };
 }
 
+export function followRequest(userId: string, friend_id:string){
+    return async () => {
+        const result = await Client4.followRequest(userId,friend_id);
+
+        if(result === 'Requested'){
+            return {data: true};
+        }
+        else{
+            return {data: false};
+        }
+    };
+}
+
 export function createPost(post: Post, files: any[] = []) {
     return async (dispatch: DispatchFunc, getState: GetStateFunc) => {
         const state = getState();

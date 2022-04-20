@@ -191,3 +191,16 @@ export type ProjectsAllList = {
     link: string,
 }
 
+export type RequestList = {
+    id: string;
+    user_id: string;
+    friend_id: string;
+    status: string;
+    date_request: string;
+    date_confirmed: string;
+}
+
+export type SocialCount = {
+    followingCount: number;
+    followersCount: number;
+}
