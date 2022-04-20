@@ -260,7 +260,8 @@ ProfilePopoverState
         }
     };
 
-    handleFollow = (userId: string, friend_id:string) => {
+    handleFollow = (e: React.MouseEvent<HTMLAnchorElement>,userId: string, friend_id:string) => {
+        e.preventDefault();
         const {actions} = this.props;
         if (userId !== '' && friend_id !== '')
         {
