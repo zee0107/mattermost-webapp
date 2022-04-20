@@ -170,14 +170,7 @@ ProfilePopoverState
         status: UserStatuses.OFFLINE,
         customStatus: null,
     };
-
-    static getDerivedStateFromProps(props: Props, state: State) {
-        if(props.followData !== state.dataFollow){
-            Promise.resolve(props.followData).then(value => { this.setState({followData: value}); });
-        }
-
-        return null;
-    }
+    
     constructor(props: ProfilePopoverProps) {
         super(props);
         this.state = {
@@ -196,6 +189,10 @@ ProfilePopoverState
                 userId,
                 channelId,
             );
+        }
+
+        if(this.props.followData !== state.dataFollow){
+            Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
         }
         console.log(this.state.followData);
         this.setState({followStatus: this.state.followData.status});
