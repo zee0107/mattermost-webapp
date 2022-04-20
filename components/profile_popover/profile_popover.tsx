@@ -170,7 +170,7 @@ ProfilePopoverState
         status: UserStatuses.OFFLINE,
         customStatus: null,
     };
-    
+
     constructor(props: ProfilePopoverProps) {
         super(props);
         this.state = {
@@ -191,7 +191,7 @@ ProfilePopoverState
             );
         }
 
-        if(this.props.followData !== state.dataFollow){
+        if(this.props.followData !== null){
             Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
         }
         console.log(this.state.followData);
