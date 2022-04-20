@@ -32,6 +32,7 @@ import {ModalData} from 'types/actions';
 
 import './profile_popover.scss';
 import { Client4 } from 'mattermost-redux/client';
+import { RequestList } from 'mattermost-redux/types/crypto';
 
 interface ProfilePopoverProps extends Omit<React.ComponentProps<typeof Popover>, 'id'>{
 
@@ -145,6 +146,7 @@ interface ProfilePopoverProps extends Omit<React.ComponentProps<typeof Popover>,
 type ProfilePopoverState = {
     loadingDMChannel?: string;
     followStatus: number;
+    followData: RequestList;
 };
 
 /**
@@ -271,48 +273,13 @@ ProfilePopoverState
 
         const {actions, userId, currentUserId} = this.props;
         actions.onFollowRequest(currentUserId,userId);
+        this.getFollowDetail();
     }
 
     getFollowDetail = async () =>{
         const {userId, currentUserId} = this.props;
         const data = await Client4.getFollowDetail(currentUserId,userId);
-        console.log(data);
-        /*if(data.status === '1'){
-            return (
-                <a
-                        href='#'
-                        className='text-nowrap user-popover__email'
-                        //onClick={this.handleFollow}
-                    >
-                        <i class="bi bi-person-x"></i>
-                        Cancel Request
-                    </a>
-            );
-        }
-        else if(data.status === '2'){
-            return (
-                <a
-                        href='#'
-                        className='text-nowrap user-popover__email'
-                        //onClick={this.handleFollow}
-                    >
-                        <i class="bi bi-person-check"></i>
-                        Following
-                    </a>
-            );
-        }
-        else{
-            return (
-                <a
-                        href='#'
-                        className='text-nowrap user-popover__email'
-                        onClick={this.handleFollow}
-                    >
-                        <i className='bi bi-person-plus'></i>
-                        Follow
-                    </a>
-            );
-        }*/
+        this.setState({followData: data});
     }
 
     renderCustomStatus() {
@@ -389,7 +356,7 @@ ProfilePopoverState
         if (!this.props.user) {
             return null;
         }
-
+        const {followData} = this.state;
         const keysToBeRemoved: Array<keyof ProfilePopoverProps> = ['user', 'userId', 'channelId', 'src', 'status', 'hideStatus', 'isBusy',
             'hide', 'isRHS', 'hasMention', 'enableTimezone', 'currentUserId', 'currentTeamId', 'teamUrl', 'actions', 'isTeamAdmin',
             'isChannelAdmin', 'canManageAnyChannelMembersInCurrentTeam', 'intl'];
@@ -398,6 +365,46 @@ ProfilePopoverState
         const {formatMessage} = this.props.intl;
         const dataContent = [];
         const urlSrc = this.props.overwriteIcon ? this.props.overwriteIcon : this.props.src;
+
+        let followBtn;
+        if(followData.status === '1'){
+            followBtn = (
+                <a
+                    href='#'
+                    className='text-nowrap user-popover__email'
+                    //onClick={this.handleFollow}
+                >
+                    <i class="bi bi-person-x"></i>
+                    Cancel Request
+                </a>
+            );
+        }
+        else if(followData.status === '2'){
+            followBtn =(
+                <a
+                    href='#'
+                    className='text-nowrap user-popover__email'
+                    //onClick={this.handleFollow}
+                >
+                    <i class="bi bi-person-check"></i>
+                    Following
+                </a>
+            );
+        }
+        else{
+            followBtn =(
+                <a
+                    href='#'
+                    className='text-nowrap user-popover__email'
+                    onClick={this.handleFollow}
+                >
+                    <i className='bi bi-person-plus'></i>
+                    Follow
+                </a>
+            );
+        }
+
+
         dataContent.push(
             <div
                 className='user-popover-image'
@@ -615,14 +622,7 @@ ProfilePopoverState
                     key='user-popover-dm'
                     className='popover__row first'
                 >
-                    <a
-                        href='#'
-                        className='text-nowrap user-popover__email'
-                        onClick={this.handleFollow}
-                    >
-                        <i className='bi bi-person-plus'></i>
-                        Follow
-                    </a>
+                    {followBtn}
                 </div>
                 /*<div
                     data-toggle='tooltip'
