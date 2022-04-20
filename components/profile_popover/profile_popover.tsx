@@ -196,7 +196,9 @@ ProfilePopoverState
 
     componentDidUpdate (prevState: state){
         if(this.state.followData !== prevState.followData){
-            this.setState({followStatus: this.state.followData.status});
+            if(this.state.followData !== undefined){
+                this.setState({followStatus: this.state.followData.status});
+            }
         }
     }
     handleShowDirectChannel = (e: React.MouseEvent<HTMLAnchorElement>) => {
