@@ -388,7 +388,7 @@ ProfilePopoverState
         let followBtn;
         if(followData !== undefined){
             console.log(followData.status);
-            if(followData.status === '1'){
+            if(followData.status === 1){
                 followBtn = (
                     <a
                         href='#'
@@ -400,7 +400,7 @@ ProfilePopoverState
                     </a>
                 );
             }
-            else if(followData.status === '2'){
+            else if(followData.status === 2){
                 followBtn =(
                     <a
                         href='#'
