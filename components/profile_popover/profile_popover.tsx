@@ -194,15 +194,13 @@ ProfilePopoverState
         if(this.props.followData !== null){
             Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
         }
-        console.log(this.state.followData);
-        this.setState({followStatus: this.state.followData.status});
     }
 
-    componentDidUpdate (prevProps: props,prevState: state){
+    /*componentDidUpdate (prevProps: props,prevState: state){
         if(this.props.followData !== prevProps.followData){
             Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
         }
-    }
+    }*/
     handleShowDirectChannel = (e: React.MouseEvent<HTMLAnchorElement>) => {
         const {actions} = this.props;
         e.preventDefault();
