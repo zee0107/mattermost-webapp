@@ -3957,25 +3957,25 @@ export default class Client4 {
 
     getRequestList = (userId: string) => {
         return this.doFetch<RequestList[]>(
-            `https://localhost:44312/api/crypter/getrequest?userId=${userId}`,{method: 'get'}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getrequest?userId=${userId}`,{method: 'get'}
         );
     }
 
     getFriendList = (userId: string) => {
         return this.doFetch<RequestList[]>(
-            `https://localhost:44312/api/crypter/getfriendlist?userId=${userId}`,{method: 'get'}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getfriendlist?userId=${userId}`,{method: 'get'}
         );
     }
 
     getFollowDetail = (userId: string, friendId: string) => {
         return this.doFetch<RequestList>(
-            `https://localhost:44312/api/crypter/getfollowdetail?userId=${userId}&friendId=${friendId}`,{method: 'get'}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getfollowdetail?userId=${userId}&friendId=${friendId}`,{method: 'get'}
         );
     }
 
     getSocialCount = (userId: string) => {
         return this.doFetch<SocialCount>(
-            `https://localhost:44312/api/crypter/socialcount?userId=${userId}`,{method: 'get'}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/socialcount?userId=${userId}`,{method: 'get'}
         );
     } 
 
@@ -3985,7 +3985,7 @@ export default class Client4 {
             friend_id: friend_id,
         }
         return this.doFetch<string>(
-            `https://localhost:44312/api/crypter/followrequest`
+            `https://crypterfighter.polywickstudio.ph/api/crypter/followrequest`
             ,{method: 'post',body: JSON.stringify(body)}
         );
     }
@@ -3996,7 +3996,7 @@ export default class Client4 {
             friend_id: friend_id,
         }
         return this.doFetch<boolean>(
-            `https://localhost:44312/api/crypter/unfollowuser`
+            `https://crypterfighter.polywickstudio.ph/api/crypter/unfollowuser`
             ,{method: 'post',body: JSON.stringify(body)}
         );
     }
@@ -4006,7 +4006,7 @@ export default class Client4 {
             requestid: requestId,
         }
         return this.doFetch<boolean>(
-            `https://localhost:44312/api/crypter/acceptrequest`
+            `https://crypterfighter.polywickstudio.ph/api/crypter/acceptrequest`
             ,{method: 'post',body: JSON.stringify(body)}
         );
     }
@@ -4016,7 +4016,7 @@ export default class Client4 {
             requestid: requestId,
         }
         return this.doFetch<boolean>(
-            `https://localhost:44312/api/crypter/CancelRequest`
+            `https://crypterfighter.polywickstudio.ph/api/crypter/CancelRequest`
             ,{method: 'post',body: JSON.stringify(body)}
         );
     }
@@ -4026,7 +4026,7 @@ export default class Client4 {
             requestid: requestId,
         }
         return this.doFetch<boolean>(
-            `https://localhost:44312/api/crypter/declinerequest`
+            `https://crypterfighter.polywickstudio.ph/api/crypter/declinerequest`
             ,{method: 'post',body: JSON.stringify(body)}
         );
     }
