@@ -630,8 +630,8 @@ ProfilePopoverState
                         </a>
                     </div>,
                 );
-            }
-        }*/
+            }*/
+        }
         dataContent.push(
             <Pluggable
                 key='profilePopoverPluggable3'
