@@ -186,7 +186,7 @@ ProfilePopoverState
                 channelId,
             );
         }
-        
+
         if(this.props.followData !== null){
             Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
         }
@@ -368,7 +368,7 @@ ProfilePopoverState
         if (!this.props.user) {
             return null;
         }
-        const {followStatus} = this.state;
+        const {followData,followStatus} = this.state;
         const keysToBeRemoved: Array<keyof ProfilePopoverProps> = ['user', 'userId', 'channelId', 'src', 'status', 'hideStatus', 'isBusy',
             'hide', 'isRHS', 'hasMention', 'enableTimezone', 'currentUserId', 'currentTeamId', 'teamUrl', 'actions', 'isTeamAdmin',
             'isChannelAdmin', 'canManageAnyChannelMembersInCurrentTeam', 'intl'];
@@ -379,6 +379,7 @@ ProfilePopoverState
         const urlSrc = this.props.overwriteIcon ? this.props.overwriteIcon : this.props.src;
 
         let followBtn;
+        console.log(followData);
         console.log(followStatus);
         if(followStatus === 1){
             followBtn = (
