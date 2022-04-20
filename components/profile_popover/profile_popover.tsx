@@ -197,7 +197,8 @@ ProfilePopoverState
                 channelId,
             );
         }
-        //this.setState({followStatus: this.state.followData.status});
+        console.log(this.state.followData);
+        this.setState({followStatus: this.state.followData.status});
     }
 
     componentDidUpdate (prevProps: props,prevState: state){
