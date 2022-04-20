@@ -54,7 +54,7 @@ function makeMapStateToProps() {
         const teamMember = getTeamMember(state, team.id, userId);
         const isTeamAdmin = Boolean(teamMember && teamMember.scheme_admin);
         const channelMember = getChannelMembersInChannels(state)?.[channelId]?.[userId];
-        const currentUserId= getCurrentUserId(state)
+        const currentUserId= getCurrentUserId(state);
         let isChannelAdmin = false;
         if (getRhsState(state) !== 'search' && channelMember != null && channelMember.scheme_admin) {
             isChannelAdmin = true;
@@ -64,7 +64,7 @@ function makeMapStateToProps() {
         return {
             currentTeamId: team.id,
             currentUserId,
-            followData: Client4.getFollowDetail(currentUserId,userId);
+            followData: Client4.getFollowDetail(currentUserId,userId),
             enableTimezone: areTimezonesEnabledAndSupported(state),
             isTeamAdmin,
             isChannelAdmin,
