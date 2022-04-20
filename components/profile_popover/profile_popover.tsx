@@ -261,12 +261,11 @@ ProfilePopoverState
         }
     };
 
-    handleFollow = (userId: string, friend_id:string) => {
-        const {actions} = this.props;
-        if (userId !== '' && friend_id !== '')
-        {
-            actions.onFollowRequest(userId,friend_id);
-        }
+    handleFollow = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+
+        const {actions, userId, currentUserId} = this.props;
+        actions.onFollowRequest(currentUserId,userId);
     }
 
     renderCustomStatus() {
@@ -572,7 +571,7 @@ ProfilePopoverState
                     <a
                         href='#'
                         className='text-nowrap user-popover__email'
-                        onClick={this.handleFollow(this.props.currentUserId,this.props.userId)}
+                        onClick={this.handleFollow}
                     >
                         <i className='bi bi-person-plus'></i>
                         Follow
