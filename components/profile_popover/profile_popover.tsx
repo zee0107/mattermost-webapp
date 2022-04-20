@@ -563,7 +563,7 @@ ProfilePopoverState
                         className='text-nowrap user-popover__email'
                         //onClick={this.handleShowDirectChannel}
                     >
-                        <i className='bi bi-person-plus'></i>&nbsp;
+                        <i className='bi bi-person-plus'></i>
                         Follow
                     </a>
                 </div>
