@@ -347,7 +347,7 @@ ProfilePopoverState
                 key='user-popover-image'
             >
                 <Avatar
-                    size='xxl'
+                    size='xl'
                     username={this.props.user?.username || ''}
                     url={urlSrc}
                 />
@@ -551,9 +551,23 @@ ProfilePopoverState
                 </div>,
             );
         }
-       /*if (this.props.user.id !== this.props.currentUserId && !haveOverrideProp) {
+       if (this.props.user.id !== this.props.currentUserId && !haveOverrideProp) {
             dataContent.push(
                 <div
+                    data-toggle='tooltip'
+                    key='user-popover-dm'
+                    className='popover__row first'
+                >
+                    <a
+                        href='#'
+                        className='text-nowrap user-popover__email'
+                        //onClick={this.handleShowDirectChannel}
+                    >
+                        <i className='bi bi-person-plus'></i>&nbsp;
+                        Follow
+                    </a>
+                </div>
+                /*<div
                     data-toggle='tooltip'
                     key='user-popover-dm'
                     className='popover__row first'
@@ -575,9 +589,9 @@ ProfilePopoverState
                             defaultMessage='Send Message'
                         />
                     </a>
-                </div>,
+                </div>*/,
             );
-            if (
+        /*if (
                 this.props.canManageAnyChannelMembersInCurrentTeam &&
         this.props.isInCurrentTeam
             ) {
