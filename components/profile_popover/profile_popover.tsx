@@ -188,24 +188,17 @@ ProfilePopoverState
                 channelId,
             );
         }
-
-        if(this.props.followData !== null){
-            Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
-        }
-        
-        console.log('DidMount: ', this.state.followData.status);
-        
-        if(this.state.followData !== undefined){
-            
-            this.setState({followStatus: this.state.followData.status});
-        }
+        console.log(this.state.followData);
+        this.setState({followStatus: this.state.followData.status});
     }
 
-    /*componentDidUpdate (prevState: state){
-        if(this.state.followData !== prevState.followData){
-           
+    componentDidUpdate (prevProps: props,prevState: state){
+        if(this.props.followData !== prevProps.followData){
+            if(this.props.followData !== null){
+                Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
+            }
         }
-    }*/
+    }
     handleShowDirectChannel = (e: React.MouseEvent<HTMLAnchorElement>) => {
         const {actions} = this.props;
         e.preventDefault();
