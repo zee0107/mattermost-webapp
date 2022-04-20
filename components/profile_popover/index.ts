@@ -33,7 +33,7 @@ import {GlobalState} from 'types/store';
 import {ServerError} from 'mattermost-redux/types/errors';
 
 import ProfilePopover from './profile_popover';
-import { followRequest } from 'mattermost-redux/actions/posts';
+import { acceptRequest, followRequest } from 'mattermost-redux/actions/posts';
 import { Client4 } from 'mattermost-redux/client';
 
 type OwnProps = {
@@ -90,10 +90,17 @@ function onFollowRequest(user_id: string, friend_id: string) {
     };
 }
 
+function onAcceptRequest(request_id: string) {
+    return (dispatch: Dispatch) => {
+        dispatch(acceptRequest(request_id) as any);
+    };
+}
+
 type Actions = {
     openModal: <P>(modalData: ModalData<P>) => void;
     closeModal: (modalId: string) => void;
     onFollowRequest: (user_id: string, friend_id: string) => void;
+    onAcceptRequest: (request_id: string) => void;
     openDirectChannelToUserId: (userId?: string) => Promise<{error: ServerError}>;
     getMembershipForEntities: (teamId: string, userId: string, channelId?: string) => Promise<void>;
 }
@@ -104,6 +111,7 @@ function mapDispatchToProps(dispatch: Dispatch) {
         actions: bindActionCreators<ActionCreatorsMapObject<Action>, Actions>({
             closeModal,
             onFollowRequest,
+            onAcceptRequest,
             openDirectChannelToUserId,
             openModal,
             getMembershipForEntities,

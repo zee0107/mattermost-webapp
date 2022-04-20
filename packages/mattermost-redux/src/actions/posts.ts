@@ -173,6 +173,19 @@ export function followRequest(userId: string, friend_id:string){
     };
 }
 
+export function acceptRequest(requestId: string){
+    return async () => {
+        const result = await Client4.acceptRequest(requestId);
+
+        if(result){
+            return {data: true};
+        }
+        else{
+            return {data: false};
+        }
+    };
+}
+
 export function createPost(post: Post, files: any[] = []) {
     return async (dispatch: DispatchFunc, getState: GetStateFunc) => {
         const state = getState();

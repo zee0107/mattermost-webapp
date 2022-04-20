@@ -139,6 +139,7 @@ interface ProfilePopoverProps extends Omit<React.ComponentProps<typeof Popover>,
         openModal: <P>(modalData: ModalData<P>) => void;
         closeModal: (modalId: string) => void;
         onFollowRequest: (user_id: string, friend_id: string) => void;
+        onAcceptRequest: (request_id: string) => void;
         openDirectChannelToUserId: (userId?: string) => Promise<{error: ServerError}>;
         getMembershipForEntities: (teamId: string, userId: string, channelId?: string) => Promise<void>;
     };
@@ -285,7 +286,17 @@ ProfilePopoverState
 
         const {actions, userId, currentUserId} = this.props;
         actions.onFollowRequest(currentUserId,userId);
-        this.getFollowDetail();
+        this.setState({followStatus: 1});
+    }
+
+    handleAccept = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        const {actions} = this.props;
+        const {followData} = this.state;
+        if(followData !== undefined){
+            actions.onAcceptRequest(followData.id);
+            this.setState({followStatus: 2});
+        }
     }
 
     getFollowDetail = () =>{
@@ -409,6 +420,18 @@ ProfilePopoverState
                     >
                         <i class="bi bi-person-check"></i>
                         Following
+                    </a>
+                );
+            }
+            else if(followData.status === 5){
+                followBtn =(
+                    <a
+                        href='#'
+                        className='text-nowrap user-popover__email'
+                        //onClick={this.handleFollow}
+                    >
+                        <i class="bi bi-person-check"></i>
+                        Accept Request
                     </a>
                 );
             }
