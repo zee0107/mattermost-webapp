@@ -166,7 +166,9 @@ ProfilePopoverState
         hasMention: false,
         status: UserStatuses.OFFLINE,
         customStatus: null,
+        followStatus: 0,
     };
+
     constructor(props: ProfilePopoverProps) {
         super(props);
         this.state = {
@@ -281,6 +283,14 @@ ProfilePopoverState
         if(this.props.followData !== null){
             Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
         }
+
+        if(this.state.followData.status === '1'){
+            this.setState({followStatus: 1});
+        }else if(this.state.followData.status === '2'){
+            this.setState({followStatus: 2});
+        }else{
+            this.setState({followStatus: 0});
+        }
     }
 
     renderCustomStatus() {
@@ -357,7 +367,7 @@ ProfilePopoverState
         if (!this.props.user) {
             return null;
         }
-        const {followData} = this.state;
+        const {followStatus} = this.state;
         const keysToBeRemoved: Array<keyof ProfilePopoverProps> = ['user', 'userId', 'channelId', 'src', 'status', 'hideStatus', 'isBusy',
             'hide', 'isRHS', 'hasMention', 'enableTimezone', 'currentUserId', 'currentTeamId', 'teamUrl', 'actions', 'isTeamAdmin',
             'isChannelAdmin', 'canManageAnyChannelMembersInCurrentTeam', 'intl'];
@@ -368,8 +378,8 @@ ProfilePopoverState
         const urlSrc = this.props.overwriteIcon ? this.props.overwriteIcon : this.props.src;
 
         let followBtn;
-        console.log(followData);
-        /*if(followData.status === '1'){
+        console.log(followStatus);
+        if(followStatus === 1){
             followBtn = (
                 <a
                     href='#'
@@ -381,7 +391,7 @@ ProfilePopoverState
                 </a>
             );
         }
-        else if(followData.status === '2'){
+        else if(followStatus === 2){
             followBtn =(
                 <a
                     href='#'
@@ -404,7 +414,7 @@ ProfilePopoverState
                     Follow
                 </a>
             );
-        }*/
+        }
 
         dataContent.push(
             <div
