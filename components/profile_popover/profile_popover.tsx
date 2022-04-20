@@ -181,6 +181,8 @@ ProfilePopoverState
                 channelId,
             );
         }
+
+        this.getFollowDetail();
     }
     handleShowDirectChannel = (e: React.MouseEvent<HTMLAnchorElement>) => {
         const {actions} = this.props;
@@ -613,7 +615,6 @@ ProfilePopoverState
                     key='user-popover-dm'
                     className='popover__row first'
                 >
-                    {this.getFollowDetail()}
                     <a
                         href='#'
                         className='text-nowrap user-popover__email'
