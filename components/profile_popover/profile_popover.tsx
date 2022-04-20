@@ -192,6 +192,12 @@ ProfilePopoverState
 
         this.getFollowDetail();
     }
+
+    componentDidUpdate (prevState: state){
+        if(this.state.followData !== prevState.followData){
+            this.getFollowDetail();
+        }
+    }
     handleShowDirectChannel = (e: React.MouseEvent<HTMLAnchorElement>) => {
         const {actions} = this.props;
         e.preventDefault();
