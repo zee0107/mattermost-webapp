@@ -167,6 +167,7 @@ ProfilePopoverState
         this.state = {
             loadingDMChannel: undefined,
         };
+        this.handleFollow = this.handleFollow.bind();
     }
     componentDidMount() {
         const {currentTeamId, userId, channelId} = this.props;
