@@ -31,6 +31,7 @@ import {ServerError} from 'mattermost-redux/types/errors';
 import {ModalData} from 'types/actions';
 
 import './profile_popover.scss';
+import { Client4 } from 'mattermost-redux/client';
 
 interface ProfilePopoverProps extends Omit<React.ComponentProps<typeof Popover>, 'id'>{
 
@@ -143,6 +144,7 @@ interface ProfilePopoverProps extends Omit<React.ComponentProps<typeof Popover>,
 }
 type ProfilePopoverState = {
     loadingDMChannel?: string;
+    followStatus: number;
 };
 
 /**
@@ -166,6 +168,7 @@ ProfilePopoverState
         super(props);
         this.state = {
             loadingDMChannel: undefined,
+
         };
         this.handleFollow = this.handleFollow.bind(this);
     }
@@ -266,6 +269,47 @@ ProfilePopoverState
 
         const {actions, userId, currentUserId} = this.props;
         actions.onFollowRequest(currentUserId,userId);
+    }
+
+    getFollowDetail = async () =>{
+        const {userId, currentUserId} = this.props;
+        const data = await Client4.getFollowDetail(currentUserId,userId);
+        if(data.status === '1'){
+            return (
+                <a
+                        href='#'
+                        className='text-nowrap user-popover__email'
+                        //onClick={this.handleFollow}
+                    >
+                        <i class="bi bi-person-x"></i>
+                        Cancel Request
+                    </a>
+            );
+        }
+        else if(data.status === '2'){
+            return (
+                <a
+                        href='#'
+                        className='text-nowrap user-popover__email'
+                        //onClick={this.handleFollow}
+                    >
+                        <i class="bi bi-person-check"></i>
+                        Following
+                    </a>
+            );
+        }
+        else{
+            return (
+                <a
+                        href='#'
+                        className='text-nowrap user-popover__email'
+                        onClick={this.handleFollow}
+                    >
+                        <i className='bi bi-person-plus'></i>
+                        Follow
+                    </a>
+            );
+        }
     }
 
     renderCustomStatus() {
@@ -568,14 +612,7 @@ ProfilePopoverState
                     key='user-popover-dm'
                     className='popover__row first'
                 >
-                    <a
-                        href='#'
-                        className='text-nowrap user-popover__email'
-                        onClick={this.handleFollow}
-                    >
-                        <i className='bi bi-person-plus'></i>
-                        Follow
-                    </a>
+                    {this.getFollowDetail}
                 </div>
                 /*<div
                     data-toggle='tooltip'

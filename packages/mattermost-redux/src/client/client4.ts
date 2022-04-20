@@ -3967,6 +3967,12 @@ export default class Client4 {
         );
     }
 
+    getFollowDetail = (userId: string, friendId: string) => {
+        return this.doFetch<RequestList>(
+            `https://localhost:44312/api/crypter/getfollowdetail?userId=${userId}&friendId=${friendId}`,{method: 'get'}
+        );
+    }
+
     getSocialCount = (userId: string) => {
         return this.doFetch<SocialCount>(
             `https://localhost:44312/api/crypter/socialcount?userId=${userId}`,{method: 'get'}
