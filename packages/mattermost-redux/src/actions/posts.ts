@@ -199,6 +199,19 @@ export function declineRequest(request_id: string){
     };
 }
 
+export function cancelRequest(request_id: string){
+    return async () => {
+        const result = await Client4.cancelRequest(request_id);
+
+        if(result){
+            return {data: true};
+        }
+        else{
+            return {data: false};
+        }
+    };
+}
+
 export function unfollow(userId: string, friend_id:string){
     return async () => {
         const result = await Client4.unfollowUser(userId,friend_id);

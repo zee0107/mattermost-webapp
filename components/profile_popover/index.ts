@@ -33,7 +33,7 @@ import {GlobalState} from 'types/store';
 import {ServerError} from 'mattermost-redux/types/errors';
 
 import ProfilePopover from './profile_popover';
-import { acceptRequest, followRequest, unfollow } from 'mattermost-redux/actions/posts';
+import { acceptRequest, cancelRequest, followRequest, unfollow } from 'mattermost-redux/actions/posts';
 import { Client4 } from 'mattermost-redux/client';
 
 type OwnProps = {
@@ -96,6 +96,12 @@ function onAcceptRequest(request_id: string) {
     };
 }
 
+function onCancelRequest(request_id: string) {
+    return (dispatch: Dispatch) => {
+        dispatch(cancelRequest(request_id) as any);
+    };
+}
+
 function onUnfollowUser(user_id: string, friend_id: string) {
     return (dispatch: Dispatch) => {
         dispatch(unfollow(user_id, friend_id) as any);
@@ -108,6 +114,7 @@ type Actions = {
     onFollowRequest: (user_id: string, friend_id: string) => void;
     onAcceptRequest: (request_id: string) => void;
     onUnfollowUser: (user_id: string, friend_id: string) => void;
+    onCancelRequest: (request_id: string) => void;
     openDirectChannelToUserId: (userId?: string) => Promise<{error: ServerError}>;
     getMembershipForEntities: (teamId: string, userId: string, channelId?: string) => Promise<void>;
 }
@@ -120,6 +127,7 @@ function mapDispatchToProps(dispatch: Dispatch) {
             onFollowRequest,
             onAcceptRequest,
             onUnfollowUser,
+            onCancelRequest,
             openDirectChannelToUserId,
             openModal,
             getMembershipForEntities,

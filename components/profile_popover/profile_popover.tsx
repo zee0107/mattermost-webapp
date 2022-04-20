@@ -141,6 +141,7 @@ interface ProfilePopoverProps extends Omit<React.ComponentProps<typeof Popover>,
         onFollowRequest: (user_id: string, friend_id: string) => void;
         onAcceptRequest: (request_id: string) => void;
         onUnfollowUser: (user_id: string, friend_id: string) => void;
+        onCancelRequest: (request_id: string) => void;
         openDirectChannelToUserId: (userId?: string) => Promise<{error: ServerError}>;
         getMembershipForEntities: (teamId: string, userId: string, channelId?: string) => Promise<void>;
     };
@@ -178,6 +179,7 @@ ProfilePopoverState
         };
         this.handleFollow = this.handleFollow.bind(this);
         this.handleAccept = this.handleAccept.bind(this);
+        this.handleCancelRequest = this.handleCancelRequest.bind(this);
     }
     componentDidMount() {
         const {currentTeamId, userId, channelId} = this.props;
@@ -306,6 +308,16 @@ ProfilePopoverState
         }
     }
 
+    handleCancelRequest = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        const {actions} = this.props;
+        const {followData} = this.state;
+        if(followData !== undefined){
+            actions.onCancelRequest(followData.id.toString());
+            this.setState({followStatus: 5});
+        }
+    }
+
     handleUnfollow = (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
         const {actions, userId, currentUserId} = this.props;
@@ -406,7 +418,7 @@ ProfilePopoverState
                     <a
                         href='#'
                         className='text-nowrap user-popover__email'
-                        //onClick={this.handleFollow}
+                        onClick={this.handleCancelRequest}
                     >
                         <i class="bi bi-person-x"></i>
                         Cancel Request

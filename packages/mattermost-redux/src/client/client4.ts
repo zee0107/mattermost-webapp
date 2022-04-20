@@ -4011,6 +4011,16 @@ export default class Client4 {
         );
     }
 
+    cancelRequest = (requestId: string) =>{
+        const body = {
+            requestid: requestId,
+        }
+        return this.doFetch<boolean>(
+            `https://localhost:44312/api/crypter/CancelRequest`
+            ,{method: 'post',body: JSON.stringify(body)}
+        );
+    }
+
     declineRequest = (requestId: string) =>{
         const body = {
             requestid: requestId,
