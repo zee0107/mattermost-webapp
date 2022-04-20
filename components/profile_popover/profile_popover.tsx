@@ -171,9 +171,9 @@ ProfilePopoverState
         customStatus: null,
     };
 
-    static getDerivedStateFromProps(props, state) {
+    static getDerivedStateFromProps(props: Props, state: State) {
         if(props.followData !== state.dataFollow){
-            Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
+            Promise.resolve(props.followData).then(value => { this.setState({followData: value}); });
         }
 
         return null;
