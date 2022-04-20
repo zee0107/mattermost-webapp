@@ -134,6 +134,7 @@ interface ProfilePopoverProps extends Omit<React.ComponentProps<typeof Popover>,
      * @internal
      */
     enableTimezone: boolean;
+    followData: Promise<RequestList>;
     actions: {
         openModal: <P>(modalData: ModalData<P>) => void;
         closeModal: (modalId: string) => void;
@@ -277,9 +278,9 @@ ProfilePopoverState
     }
 
     getFollowDetail = async () =>{
-        const {userId, currentUserId} = this.props;
-        const data = await Client4.getFollowDetail(currentUserId,userId);
-        this.setState({followData: data});
+        if(this.props.followData !== null){
+            Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
+        }
     }
 
     renderCustomStatus() {

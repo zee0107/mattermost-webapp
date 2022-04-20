@@ -34,6 +34,7 @@ import {ServerError} from 'mattermost-redux/types/errors';
 
 import ProfilePopover from './profile_popover';
 import { followRequest } from 'mattermost-redux/actions/posts';
+import { Client4 } from 'mattermost-redux/client';
 
 type OwnProps = {
     userId: string;
@@ -51,10 +52,9 @@ function makeMapStateToProps() {
     return (state: GlobalState, {userId, channelId = getDefaultChannelId(state)}: OwnProps) => {
         const team = getCurrentTeam(state);
         const teamMember = getTeamMember(state, team.id, userId);
-
         const isTeamAdmin = Boolean(teamMember && teamMember.scheme_admin);
         const channelMember = getChannelMembersInChannels(state)?.[channelId]?.[userId];
-
+        const currentUserId= getCurrentUserId(state)
         let isChannelAdmin = false;
         if (getRhsState(state) !== 'search' && channelMember != null && channelMember.scheme_admin) {
             isChannelAdmin = true;
@@ -63,7 +63,8 @@ function makeMapStateToProps() {
         const customStatus = getCustomStatus(state, userId);
         return {
             currentTeamId: team.id,
-            currentUserId: getCurrentUserId(state),
+            currentUserId,
+            followData: Client4.getFollowDetail(currentUserId,userId);
             enableTimezone: areTimezonesEnabledAndSupported(state),
             isTeamAdmin,
             isChannelAdmin,
