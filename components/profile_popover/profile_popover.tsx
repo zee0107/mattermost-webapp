@@ -388,42 +388,45 @@ ProfilePopoverState
         let followBtn;
         console.log(followData);
         console.log(followStatus);
-        if(followStatus === 1){
-            followBtn = (
-                <a
-                    href='#'
-                    className='text-nowrap user-popover__email'
-                    //onClick={this.handleFollow}
-                >
-                    <i class="bi bi-person-x"></i>
-                    Cancel Request
-                </a>
-            );
+        if(followData !== undefined){
+            if(followData.status === '1'){
+                followBtn = (
+                    <a
+                        href='#'
+                        className='text-nowrap user-popover__email'
+                        //onClick={this.handleFollow}
+                    >
+                        <i class="bi bi-person-x"></i>
+                        Cancel Request
+                    </a>
+                );
+            }
+            else if(followData.status === '2'){
+                followBtn =(
+                    <a
+                        href='#'
+                        className='text-nowrap user-popover__email'
+                        //onClick={this.handleFollow}
+                    >
+                        <i class="bi bi-person-check"></i>
+                        Following
+                    </a>
+                );
+            }
+            else{
+                followBtn =(
+                    <a
+                        href='#'
+                        className='text-nowrap user-popover__email'
+                        onClick={this.handleFollow}
+                    >
+                        <i className='bi bi-person-plus'></i>
+                        Follow
+                    </a>
+                );
+            }
         }
-        else if(followStatus === 2){
-            followBtn =(
-                <a
-                    href='#'
-                    className='text-nowrap user-popover__email'
-                    //onClick={this.handleFollow}
-                >
-                    <i class="bi bi-person-check"></i>
-                    Following
-                </a>
-            );
-        }
-        else{
-            followBtn =(
-                <a
-                    href='#'
-                    className='text-nowrap user-popover__email'
-                    onClick={this.handleFollow}
-                >
-                    <i className='bi bi-person-plus'></i>
-                    Follow
-                </a>
-            );
-        }
+        
 
         dataContent.push(
             <div
