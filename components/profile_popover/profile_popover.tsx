@@ -166,14 +166,13 @@ ProfilePopoverState
         hasMention: false,
         status: UserStatuses.OFFLINE,
         customStatus: null,
-        followStatus: 0,
     };
 
     constructor(props: ProfilePopoverProps) {
         super(props);
         this.state = {
             loadingDMChannel: undefined,
-
+            followStatus: 0,
         };
         this.handleFollow = this.handleFollow.bind(this);
     }
@@ -283,14 +282,16 @@ ProfilePopoverState
         this.getFollowDetail();
     }
 
-    getFollowDetail = async () =>{
-        console.log(this.state.followData);
-        if(this.state.followData.status === '1'){
-            this.setState({followStatus: 1});
-        }else if(this.state.followData.status === '2'){
-            this.setState({followStatus: 2});
-        }else{
-            this.setState({followStatus: 0});
+    getFollowDetail = () =>{
+        if(this.state.followData !== undefined){
+            console.log(this.state.followData);
+            if(this.state.followData.status === '1'){
+                this.setState({followStatus: 1});
+            }else if(this.state.followData.status === '2'){
+                this.setState({followStatus: 2});
+            }else{
+                this.setState({followStatus: 0});
+            }
         }
     }
 
