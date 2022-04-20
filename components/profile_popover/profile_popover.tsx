@@ -192,15 +192,19 @@ ProfilePopoverState
         if(this.props.followData !== null){
             Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
         }
+
+        if(this.state.followData !== undefined){
+            this.setState({followStatus: this.state.followData.status});
+        }
     }
 
-    componentDidUpdate (prevState: state){
+    /*componentDidUpdate (prevState: state){
         if(this.state.followData !== prevState.followData){
             if(this.state.followData !== undefined){
                 this.setState({followStatus: this.state.followData.status});
             }
         }
-    }
+    }*/
     handleShowDirectChannel = (e: React.MouseEvent<HTMLAnchorElement>) => {
         const {actions} = this.props;
         e.preventDefault();
@@ -413,7 +417,7 @@ ProfilePopoverState
                     <a
                         href='#'
                         className='text-nowrap user-popover__email'
-                        //onClick={this.handleFollow}
+                        onClick={this.handleUnfollow}
                     >
                         <i class="bi bi-person-check"></i>
                         Following
