@@ -149,6 +149,7 @@ interface ProfilePopoverProps extends Omit<React.ComponentProps<typeof Popover>,
 type ProfilePopoverState = {
     loadingDMChannel?: string;
     followStatus: number;
+    dataFollow: Promise<RequestList>;
     followData: RequestList;
 };
 
@@ -170,11 +171,19 @@ ProfilePopoverState
         customStatus: null,
     };
 
+    static getDerivedStateFromProps(props, state) {
+        if(props.followData !== state.dataFollow){
+            Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
+        }
+
+        return null;
+    }
     constructor(props: ProfilePopoverProps) {
         super(props);
         this.state = {
             loadingDMChannel: undefined,
             followStatus: 0,
+            followData: {},
         };
         this.handleFollow = this.handleFollow.bind(this);
         this.handleAccept = this.handleAccept.bind(this);
