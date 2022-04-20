@@ -3995,7 +3995,7 @@ export default class Client4 {
             user_id: user_id,
             friend_id: friend_id,
         }
-        return this.doFetch<string>(
+        return this.doFetch<boolean>(
             `https://localhost:44312/api/crypter/unfollowuser`
             ,{method: 'post',body: JSON.stringify(body)}
         );

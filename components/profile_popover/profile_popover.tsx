@@ -140,6 +140,7 @@ interface ProfilePopoverProps extends Omit<React.ComponentProps<typeof Popover>,
         closeModal: (modalId: string) => void;
         onFollowRequest: (user_id: string, friend_id: string) => void;
         onAcceptRequest: (request_id: string) => void;
+        onUnfollowUser: (user_id: string, friend_id: string) => void;
         openDirectChannelToUserId: (userId?: string) => Promise<{error: ServerError}>;
         getMembershipForEntities: (teamId: string, userId: string, channelId?: string) => Promise<void>;
     };
@@ -191,13 +192,11 @@ ProfilePopoverState
         if(this.props.followData !== null){
             Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
         }
-
-        this.getFollowDetail();
     }
 
     componentDidUpdate (prevState: state){
         if(this.state.followData !== prevState.followData){
-            this.getFollowDetail();
+            this.setState({followStatus: this.state.followData.status});
         }
     }
     handleShowDirectChannel = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -295,22 +294,16 @@ ProfilePopoverState
         const {actions} = this.props;
         const {followData} = this.state;
         if(followData !== undefined){
-            actions.onAcceptRequest(followData.id);
+            actions.onAcceptRequest(followData.id.toString());
             this.setState({followStatus: 2});
         }
     }
 
-    getFollowDetail = () =>{
-        if(this.state.followData !== undefined){
-            console.log(this.state.followData);
-            if(this.state.followData.status === '1'){
-                this.setState({followStatus: 1});
-            }else if(this.state.followData.status === '2'){
-                this.setState({followStatus: 2});
-            }else{
-                this.setState({followStatus: 0});
-            }
-        }
+    handleUnfollow = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        const {actions, userId, currentUserId} = this.props;
+        actions.onUnfollowUser(currentUserId,userId);
+        this.setState({followStatus: 4});
     }
 
     renderCustomStatus() {
@@ -400,7 +393,8 @@ ProfilePopoverState
         let followBtn;
         if(followData !== undefined){
             console.log(followData.status);
-            if(followData.status === 1){
+            console.log(followStatus);
+            if(followStatus === 1){
                 followBtn = (
                     <a
                         href='#'
@@ -412,7 +406,7 @@ ProfilePopoverState
                     </a>
                 );
             }
-            else if(followData.status === 2){
+            else if(followStatus === 2){
                 followBtn =(
                     <a
                         href='#'
@@ -424,7 +418,7 @@ ProfilePopoverState
                     </a>
                 );
             }
-            else if(followData.status === 5){
+            else if(followStatus === 6){
                 followBtn =(
                     <a
                         href='#'

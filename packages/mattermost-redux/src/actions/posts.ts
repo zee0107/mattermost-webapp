@@ -173,9 +173,35 @@ export function followRequest(userId: string, friend_id:string){
     };
 }
 
-export function acceptRequest(requestId: string){
+export function acceptRequest(request_id: string){
     return async () => {
-        const result = await Client4.acceptRequest(requestId);
+        const result = await Client4.acceptRequest(request_id);
+
+        if(result){
+            return {data: true};
+        }
+        else{
+            return {data: false};
+        }
+    };
+}
+
+export function declineRequest(request_id: string){
+    return async () => {
+        const result = await Client4.declineRequest(request_id);
+
+        if(result){
+            return {data: true};
+        }
+        else{
+            return {data: false};
+        }
+    };
+}
+
+export function unfollow(userId: string, friend_id:string){
+    return async () => {
+        const result = await Client4.unfollowUser(userId,friend_id);
 
         if(result){
             return {data: true};
