@@ -367,7 +367,8 @@ ProfilePopoverState
         const urlSrc = this.props.overwriteIcon ? this.props.overwriteIcon : this.props.src;
 
         let followBtn;
-        if(followData.status === '1'){
+        console.log(followData);
+        /*if(followData.status === '1'){
             followBtn = (
                 <a
                     href='#'
@@ -402,8 +403,7 @@ ProfilePopoverState
                     Follow
                 </a>
             );
-        }
-
+        }*/
 
         dataContent.push(
             <div
