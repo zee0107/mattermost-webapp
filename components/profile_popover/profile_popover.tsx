@@ -193,8 +193,10 @@ ProfilePopoverState
             Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
         }
         
+        console.log('DidMount: ', this.state.followData.status);
+        
         if(this.state.followData !== undefined){
-            console.log('DidMount: ', this.state.followData.status);
+            
             this.setState({followStatus: this.state.followData.status});
         }
     }
