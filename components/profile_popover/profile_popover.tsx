@@ -188,15 +188,12 @@ ProfilePopoverState
                 channelId,
             );
         }
-        console.log(this.state.followData);
-        this.setState({followStatus: this.state.followData.status});
+        //this.setState({followStatus: this.state.followData.status});
     }
 
     componentDidUpdate (prevProps: props,prevState: state){
         if(this.props.followData !== prevProps.followData){
-            if(this.props.followData !== null){
-                Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
-            }
+            Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
         }
     }
     handleShowDirectChannel = (e: React.MouseEvent<HTMLAnchorElement>) => {
