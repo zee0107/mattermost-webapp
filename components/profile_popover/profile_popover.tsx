@@ -274,7 +274,8 @@ ProfilePopoverState
     getFollowDetail = async () =>{
         const {userId, currentUserId} = this.props;
         const data = await Client4.getFollowDetail(currentUserId,userId);
-        if(data.status === '1'){
+        console.log(data);
+        /*if(data.status === '1'){
             return (
                 <a
                         href='#'
@@ -309,7 +310,7 @@ ProfilePopoverState
                         Follow
                     </a>
             );
-        }
+        }*/
     }
 
     renderCustomStatus() {
@@ -613,6 +614,14 @@ ProfilePopoverState
                     className='popover__row first'
                 >
                     {this.getFollowDetail()}
+                    <a
+                        href='#'
+                        className='text-nowrap user-popover__email'
+                        onClick={this.handleFollow}
+                    >
+                        <i className='bi bi-person-plus'></i>
+                        Follow
+                    </a>
                 </div>
                 /*<div
                     data-toggle='tooltip'
