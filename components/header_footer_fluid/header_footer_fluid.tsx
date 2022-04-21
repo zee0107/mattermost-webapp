@@ -186,19 +186,21 @@ export default class LoggedInHFTF extends React.PureComponent<Props> {
                             <ChannelHeaderMobile classes={'removeMargin'} isDark={this.state.isDark}/>
                         </div>
                     </div>
-                    <div className='row content bgGrey pbot-10'>
+                    <div className='content bgGrey pbot-10'>
                         <div className='container-fluid'>
-                            <div className='col-md-2 removePadding'>
-                                <Sidebar/>
-                            </div>
-                            <div className='col-md-10 removePadding'>
-                                {React.cloneElement(this.props.children, {mode: this.state.isDark})}
+                            <div className='row'>
+                                <div className='col-md-2 removePadding'>
+                                    <Sidebar/>
+                                </div>
+                                <div className='col-md-10 removePadding'>
+                                    {React.cloneElement(this.props.children, {mode: this.state.isDark})}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className='row footer border-top'>
+                <div className='footer border-top'>
                     <div id='footer_section' className='footer-pane col-xs-12'>
                         <br />
                         <div className="col-lg-12 text-center">
