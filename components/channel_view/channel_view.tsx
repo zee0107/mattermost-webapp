@@ -495,13 +495,9 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             );
         }else{
             viewDetail = (
-                <div className='row'>
-                    <div className='col-md-12'>
-                        <GroupHeader
-                            channelId={channelId}
-                            channelDisplayName={channelDisplayName} />
-                    </div>
-                </div>
+                <GroupHeader
+                    channelId={channelId}
+                    channelDisplayName={channelDisplayName} />
             );
         }
 

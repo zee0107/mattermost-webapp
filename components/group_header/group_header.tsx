@@ -190,18 +190,35 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         }
 
         return (
-            <div>
-                <div className='col-md-12 group-cover-box mtop-10 p-0'>
-                    {cover}
-                    <div className='col-md-12'>
-                        <div className='float-start'>
-                            <h5 className='text-primary'>{channelDisplayName}</h5>
-                            <h6 className='text-secondary'><GroupDetails channelId={channelId}/></h6>
+            <div className='col-md-12'>
+                <div className='crypter-section-profile-desktop'>
+                    <div className='col-md-12 group-cover-box mtop-10 p-0'>
+                        {cover}
+                        <div className='col-md-12'>
+                            <div className='float-start'>
+                                <h5 className='text-primary'>{channelDisplayName}</h5>
+                                <h6 className='text-secondary'><GroupDetails channelId={channelId}/></h6>
+                            </div>
+                            {buttonAction}
                         </div>
-                        {buttonAction}
                     </div>
+                    {upload}
                 </div>
-                {upload}
+                <div className='post-mobile'>
+                    <div className='box-middle-pannel mt-13'>
+                        <div className='col-md-12'>
+                            {cover}
+                        </div>
+                        <div className='col-md-12'>
+                            <div className='float-start'>
+                                <h5 className='text-primary'>{channelDisplayName}</h5>
+                                <h6 className='text-secondary'><GroupDetails channelId={channelId}/></h6>
+                            </div>
+                            {buttonAction}
+                        </div>
+                    </div>
+                    {upload}
+                </div>
             </div>
         );
     }
