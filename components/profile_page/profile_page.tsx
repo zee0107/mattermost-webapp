@@ -585,8 +585,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 
                                 <div className='mtop-20'>
                                     <DeferredPostView
-                                        channelId='kqe4sihhdid47gprhk6dwbuc4o'
-                                        //channelId='dodurztr1fbupnpenjgxqjso3a'
+                                        //channelId='kqe4sihhdid47gprhk6dwbuc4o'
+                                        channelId='dodurztr1fbupnpenjgxqjso3a'
                                         focusedPostId={''}
                                     />
                                 </div>
