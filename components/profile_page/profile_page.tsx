@@ -403,7 +403,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 style={{background: `Url(${coverUrl}) no-repeat center bottom #222222`}}
                             >
                                 <div className='row'>
-                                    <div className='col-md-4'>
+                                    <div className='col-md-5'>
                                         <div className='blur-effects text-white'>
                                             <div className='row'>
                                                 <div className='p-0'>
@@ -431,7 +431,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col-md-8'>
+                                    <div className='col-md-7'>
                                         <div className='row'>
                                             <div className='col-md-4'></div>
                                             <div className='col-md-8'>
