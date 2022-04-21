@@ -572,7 +572,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                             <div className='col-md-12 pbot-20 bgGrey'></div>
-                            <div className='col-md-12 removePadding'>
+                            <div className='col-md-12 removePaddingView'>
                             <DeferredPostView
                                     channelId={this.props.channelId}
                                     focusedPostId={this.state.focusedPostId}
