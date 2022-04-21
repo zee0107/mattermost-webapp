@@ -1541,7 +1541,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
                                     onBlur={this.handleBlur}
                                     emojiEnabled={this.props.enableEmojiPicker}
                                     createMessage={createMessage}
-                                    channelId={channelId}
+                                    channelId={currentChannel.id}
                                     id='post_textbox'
                                     ref={this.textboxRef}
                                     disabled={readOnlyChannel}
