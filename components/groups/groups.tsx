@@ -719,13 +719,13 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         </div>
                         <div className='box-middle-panel-marketplace-mobile mt-3'>
                             <div className='d-flex'>
-                                <div className='col-md-4 text-center p-0'>
+                                <div className='col-md-4 width-100 text-center p-0'>
                                     <a className='onMygroupspages btn-md p-2'><small>MyGroups</small></a>
                                 </div>
-                                <div className='col-md-4 text-center p-0'>
+                                <div className='col-md-4 width-100 text-center p-0'>
                                     <a className='onMycarts btn-md p-2'><small>Suggested</small></a>
                                 </div>
-                                <div className='col-md-4 text-center p-0'>
+                                <div className='col-md-4 width-100 text-center p-0'>
                                     <a className='onMyjoined btn-md p-2'><small className='ms-2'>Joined</small></a>
                                 </div>
                             </div>
