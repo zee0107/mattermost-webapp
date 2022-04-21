@@ -703,7 +703,6 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                         </div>
-                        {viewDetails}
                     </div>
                     
                     <div className='crypter-section-mobile'>
