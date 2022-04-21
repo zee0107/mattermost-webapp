@@ -708,11 +708,11 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                     
                     <div className='crypter-section-mobile'>
                         <div className='position-sticky float-middle-panel'>
-                            <div className='d-flex'>
-                                <div className='col-md-7'><a className='onCartmarketplaceicon onMarketplace float-start'><i className='bi-people-fill'></i></a>
-                                    <strong className='float-start mt-2 ms-2 text-mygroups'>Groups</strong>
+                            <div className='d-flex mt-2'>
+                                <div className='col-md-7 width-100'><a className='onCartmarketplaceicon onMarketplace float-start'><i className='bi-people-fill'></i></a>
+                                    <strong className='float-start mt-3 ml-2 text-mygroups'>Groups</strong>
                                 </div>
-                                <div className='col-md-5'><a className='float-end rounded onCreategroupsdesktop btn-sm text-center mt-0'>
+                                <div className='col-md-5 width-100'><a className='float-end rounded onCreategroupsdesktop btn-sm text-center mt-3' onClick={() => { this.setState({group_view: 'creategroup'})}}>
                                     <i className='bi-plus'></i> Create</a>
                                 </div>
                             </div>
