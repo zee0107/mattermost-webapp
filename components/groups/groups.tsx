@@ -706,6 +706,31 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         {viewDetails}
                     </div>
                     
+                    <div className='crypter-section-mobile'>
+                        <div className='position-sticky float-middle-panel'>
+                            <div className='d-flex'>
+                                <div className='col-md-7'><a className='onCartmarketplaceicon onMarketplace float-start'><i className='bi-people-fill'></i></a>
+                                    <strong className='float-start mt-2 ms-2 text-mygroups'>Groups</strong>
+                                </div>
+                                <div className='col-md-5'><a className='float-end rounded onCreategroupsdesktop btn-sm text-center mt-0'>
+                                    <i className='bi-plus'></i> Create</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='box-middle-panel-marketplace-mobile mt-3'>
+                            <div className='d-flex'>
+                                <div className='col-md-4 text-center p-0'>
+                                    <a className='onMygroupspages btn-md p-2'><small>MyGroups</small></a>
+                                </div>
+                                <div className='col-md-4 text-center p-0'>
+                                    <a className='onMycarts btn-md p-2'><small>Suggested</small></a>
+                                </div>
+                                <div className='col-md-4 text-center p-0'>
+                                    <a className='onMyjoined btn-md p-2'><small className='ms-2'>Joined</small></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className='col-md-3' id='rightSideView'>
                     <RightSideView/>
