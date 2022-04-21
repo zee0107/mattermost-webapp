@@ -242,7 +242,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         let viewDetail;
         if(channelName === 'town-square'){
             viewDetail = ( 
-                <div>
+                <div className='mobile-margin-top'>
                     <div className='col-md-12 chat-box mtop-10'>
                         <div className='d-flex'>
                             <div className='col-md-2 mtop-10'>
