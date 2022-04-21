@@ -406,7 +406,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         }
 
         return (
-            <div className='mygroupcontent col-md-12'>
+            <div className='mygroupcontent'>
                 {errorServer}
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                     {this.state.mygroups.map((item,index) => {
