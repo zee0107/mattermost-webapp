@@ -27,8 +27,8 @@ import completion from 'images/profiles/completion.png';
 import ShareMobile from 'images/icon-share2.png';
 import GlobeMobile from 'images/icon-globe2.png';
 import VideoMobile from 'images/icon-cideo-camera.png';
-import DoneIcon from 'images/profile/done.svg';
-import UndoneIcon from 'images/profile/undone.svg';
+import DoneIcon from 'images/profiles/done.svg';
+import UndoneIcon from 'images/profiles/undone.svg';
 import styled from 'styled-components';
 
 import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
