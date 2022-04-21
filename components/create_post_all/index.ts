@@ -6,7 +6,7 @@ import {ActionCreatorsMapObject, bindActionCreators, Dispatch} from 'redux';
 
 import {GlobalState} from 'types/store/index.js';
 
-import {Post, PostDetailed} from 'mattermost-redux/types/posts.js';
+import {Post} from 'mattermost-redux/types/posts.js';
 
 import {FileInfo} from 'mattermost-redux/types/files.js';
 
@@ -22,7 +22,7 @@ import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general
 import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
 
 import {getCurrentChannel, getCurrentChannelStats, getChannelMemberCountsByGroup as selectChannelMemberCountsByGroup} from 'mattermost-redux/selectors/entities/channels';
-import {getCurrentUserId, getStatusForUserId, getUser, getCurrentUser} from 'mattermost-redux/selectors/entities/users';
+import {getCurrentUserId, getStatusForUserId, getUser} from 'mattermost-redux/selectors/entities/users';
 import {haveICurrentChannelPermission} from 'mattermost-redux/selectors/entities/roles';
 import {getChannelTimezones, getChannelMemberCountsByGroup} from 'mattermost-redux/actions/channels';
 import {get, getInt, getBool} from 'mattermost-redux/selectors/entities/preferences';
@@ -36,7 +36,6 @@ import {
 import {getAssociatedGroupsForReferenceByMention} from 'mattermost-redux/selectors/entities/groups';
 import {
     addMessageIntoHistory,
-    createPostDetailed,
     moveHistoryIndexBack,
     moveHistoryIndexForward,
     removeReaction,
@@ -134,9 +133,9 @@ function makeMapStateToProps() {
     };
 }
 
-function onSubmitPost(post: PostDetailed, fileInfos: FileInfo[]) {
+function onSubmitPost(post: Post, fileInfos: FileInfo[]) {
     return (dispatch: Dispatch) => {
-        dispatch(createPostDetailed(post, fileInfos) as any);
+        dispatch(createPost(post, fileInfos) as any);
     };
 }
 
@@ -146,7 +145,7 @@ type Actions = {
     moveHistoryIndexBack: (index: string) => Promise<void>;
     moveHistoryIndexForward: (index: string) => Promise<void>;
     addReaction: (postId: string, emojiName: string) => void;
-    onSubmitPost: (post: PostDetailed, fileInfos: FileInfo[]) => void;
+    onSubmitPost: (post: Post, fileInfos: FileInfo[]) => void;
     removeReaction: (postId: string, emojiName: string) => void;
     clearDraftUploads: () => void;
     runMessageWillBePostedHooks: (originalPost: Post) => ActionResult;

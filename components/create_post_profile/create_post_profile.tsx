@@ -337,7 +337,7 @@ type State = {
     serverError: (ServerError & {submittedMessage?: string}) | null;
     postError?: React.ReactNode;
     channelId: string;
-    uploading: boolen;
+    uploading: boolean;
 }
 
 class CreatePostProfile extends React.PureComponent<Props, State> {

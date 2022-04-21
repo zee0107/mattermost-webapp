@@ -100,7 +100,7 @@ type Props = {
     /**
   *  Data used in multiple places of the component
   */
-    currentChannel: Promise<Channel>;
+    currentChannel: Channel;
 
     /**
   *  Data used for DM prewritten messages
@@ -332,12 +332,11 @@ type State = {
     uploadsProgressPercent: {[clientID: string]: FilePreviewInfo};
     renderScrollbar: boolean;
     scrollbarWidth: number;
-    //currentChannel: Channel;
+    currentChannel: Channel;
     errorClass: string | null;
     serverError: (ServerError & {submittedMessage?: string}) | null;
     postError?: React.ReactNode;
-    channelId: string;
-    uploading: boolen;
+    uploading: boolean;
 }
 
 class CreatePostAll extends React.PureComponent<Props, State> {
@@ -356,7 +355,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
     private fileUploadRef: React.RefObject<FileUploadClass>;
     private createPostControlsRef: React.RefObject<HTMLSpanElement>;
 
-    /*static getDerivedStateFromProps(props: Props, state: State): Partial<State> {
+    static getDerivedStateFromProps(props: Props, state: State): Partial<State> {
         let updatedState: Partial<State> = {currentChannel: props.currentChannel};
         if (props.currentChannel.id !== state.currentChannel.id) {
             updatedState = {
@@ -367,7 +366,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
             };
         }
         return updatedState;
-    }*/
+    }
 
     constructor(props: Props) {
         super(props);
@@ -379,11 +378,10 @@ class CreatePostAll extends React.PureComponent<Props, State> {
             uploadsProgressPercent: {},
             renderScrollbar: false,
             scrollbarWidth: 0,
+            currentChannel: props.currentChannel,
             errorClass: null,
             serverError: null,
-            currentChannel: {},
-            channelId: 'kqe4sihhdid47gprhk6dwbuc4o',
-            uploading: false,
+	        uploading: false, 
         };
 
         this.topDiv = React.createRef<HTMLFormElement>();
@@ -403,34 +401,22 @@ class CreatePostAll extends React.PureComponent<Props, State> {
         window.addEventListener('beforeunload', this.unloadHandler);
         this.setOrientationListeners();
 
-        if(currentChannel !== null){
-            Promise.resolve(currentChannel).then(value => {this.setState({currentChannel: value})});
-        }
-
         if(this.props.uploading !== null){
             this.setState({uploading: this.props.uploading});
         }
-
         if (useGroupMentions) {
-            actions.getChannelMemberCountsByGroup(this.state.currentChannel.id, isTimezoneEnabled);
+            actions.getChannelMemberCountsByGroup(currentChannel.id, isTimezoneEnabled);
         }
-        this.setState({channelId: 'kqe4sihhdid47gprhk6dwbuc4o'});
     }
 
     componentDidUpdate(prevProps: Props, prevState: State) {
-        const {useGroupMentions, isTimezoneEnabled, actions, uploading} = this.props;
-        const {currentChannel} = this.state;
-        if (prevState.currentChannel.id !== currentChannel.id){
-            if(this.props.currentChannel !== null){
-                Promise.resolve(currentChannel).then(value => {this.setState({currentChannel: value})});
-            }
-        }
-
+        const {useGroupMentions, currentChannel, isTimezoneEnabled, actions, uploading} = this.props;
+	
         if(uploading !== prevProps.uploading){
             this.setState({uploading: this.props.uploading});
         }
-        
-        if(prevState.currentChannel.id !== currentChannel.id){
+
+        if (prevProps.currentChannel.id !== currentChannel.id) {
             this.lastChannelSwitchAt = Date.now();
             this.focusTextbox();
             this.saveDraft(prevProps);
@@ -439,17 +425,13 @@ class CreatePostAll extends React.PureComponent<Props, State> {
             }
         }
 
-        if (currentChannel.id !== prevState.currentChannel.id) {
+        if (currentChannel.id !== prevProps.currentChannel.id) {
             actions.setShowPreview(false);
         }
 
         // Focus on textbox when emoji picker is closed
         if (prevState.showEmojiPicker && !this.state.showEmojiPicker) {
             this.focusTextbox();
-        }
-
-        if (prevState.channelId !== this.state.channelId){
-            this.setState({channelId: 'kqe4sihhdid47gprhk6dwbuc4o'});
         }
     }
 
@@ -465,9 +447,9 @@ class CreatePostAll extends React.PureComponent<Props, State> {
         this.saveDraft();
     }
 
-    saveDraft = (props = this.props, state = this.state) => {
-        if (this.saveDraftFrame && state.currentChannel) {
-            const channelId = this.state.channelId;
+    saveDraft = (props = this.props) => {
+        if (this.saveDraftFrame && props.currentChannel) {
+            const channelId = props.currentChannel.id;
             props.actions.setDraft(StoragePrefixes.DRAFT + channelId, this.draftsForChannel[channelId]);
             clearTimeout(this.saveDraftFrame);
             this.saveDraftFrame = null;
@@ -529,7 +511,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
     }
 
     doSubmit = async (e?: React.FormEvent) => {
-        const channelId = this.state.channelId;
+        const channelId = this.props.currentChannel.id;
         if (e) {
             e.preventDefault();
         }
@@ -622,6 +604,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
                 this.setState({message: ''});
             }
         }
+
         this.setState({
             submitting: false,
             postError: null,
@@ -636,7 +619,6 @@ class CreatePostAll extends React.PureComponent<Props, State> {
 
         const shouldCompleteTip = this.props.tutorialStep === Constants.TutorialSteps.POST_POPOVER;
         if (shouldCompleteTip) {
-            
             this.completePostTip('send_message');
         }
     }
@@ -790,7 +772,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
 
         let post = originalPost;
 
-        post.channel_id = this.state.currentChannel.id;
+        post.channel_id = currentChannel.id;
 
         const time = Utils.getTimestamp();
         const userId = currentUserId;
@@ -820,10 +802,12 @@ class CreatePostAll extends React.PureComponent<Props, State> {
 
             return hookResult;
         }
+
         post = hookResult.data;
 
         actions.onSubmitPost(post, draft.fileInfos);
         actions.scrollPostListToBottom();
+
         this.setState({
             submitting: false,
         });
@@ -832,7 +816,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
     }
 
     sendReaction(isReaction: RegExpExecArray) {
-        const channelId = this.state.channelId;
+        const channelId = this.props.currentChannel.id;
         const action = isReaction[1];
         const emojiName = isReaction[2];
         const postId = this.props.latestReplyablePostId;
@@ -908,13 +892,13 @@ class CreatePostAll extends React.PureComponent<Props, State> {
     }
 
     emitTypingEvent = () => {
-        const channelId = this.state.channelId;
+        const channelId = this.props.currentChannel.id;
         GlobalActions.emitLocalUserTypingEvent(channelId, '');
     }
 
     handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const message = e.target.value;
-        const channelId = this.state.channelId;
+        const channelId = this.props.currentChannel.id;
 
         let serverError = this.state.serverError;
         if (isErrorInvalidSlashCommand(serverError)) {
@@ -1046,7 +1030,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
     removePreview = (id: string) => {
         let modifiedDraft = {} as PostDraft;
         const draft = {...this.props.draft};
-        const channelId = this.state.channelId;
+        const channelId = this.props.currentChannel.id;
 
         // Clear previous errors
         this.setState({serverError: null});
@@ -1274,7 +1258,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
             ...this.props.draft,
             message,
         };
-        const channelId = this.state.channelId;
+        const channelId = this.props.currentChannel.id;
         this.props.actions.setDraft(StoragePrefixes.DRAFT + channelId, draft);
         this.draftsForChannel[channelId] = draft;
 
@@ -1363,7 +1347,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
         } = this.props;
         const readOnlyChannel = !canPost;
         const {formatMessage} = this.props.intl;
-        const {renderScrollbar, channelId, uploading} = this.state;
+        const {renderScrollbar, uploading} = this.state;
         const ariaLabelMessageInput = Utils.localizeMessage('accessibility.sections.centerFooter', 'message input complimentary region');
 
         let serverError = null;
@@ -1405,7 +1389,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
             tutorialTip = (
                 <CreatePostTip
                     prefillMessage={this.prefillMessage}
-                    currentChannel={this.state.currentChannel}
+                    currentChannel={this.props.currentChannel}
                     currentUserId={this.props.currentUserId}
                     currentChannelTeammateUsername={this.props.currentChannelTeammateUsername}
                 />
