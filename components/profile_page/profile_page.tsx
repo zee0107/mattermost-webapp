@@ -28,6 +28,8 @@ import completion from 'images/profiles/completion.png';
 import ShareMobile from 'images/icon-share2.png';
 import GlobeMobile from 'images/icon-globe2.png';
 import VideoMobile from 'images/icon-cideo-camera.png';
+import DoneIcon from 'images/profile/done.svg';
+import UndoneIcon from 'images/profile/undone.svg';
 import styled from 'styled-components';
 
 import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
@@ -218,7 +220,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let location;
         let feelact;
         let feelactView;
-        let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
+        let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src={UndoneIcon} alt=''/>);
         
         let textValue;
         let icon;
@@ -344,24 +346,24 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         }
 
         if(currentUser.first_name !== '' && currentUser.first_name !== '' && currentUser.first_name !== null && currentUser.first_name !== null){
-            nameAvailable = (<img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/>);
+            nameAvailable = (<img className='bg-check-arrow rounded-circle' src={DoneIcon} alt=''/>);
         }
         else{
-            nameAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
+            nameAvailable = (<img className='bg-check-arrow-plus rounded-circle' src={UndoneIcon} alt=''/>);
         }
 
         if (currentUser.position !== '' && currentUser.position !== null){
-            locationAvailable = (<img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/>);
+            locationAvailable = (<img className='bg-check-arrow rounded-circle' src={DoneIcon} alt=''/>);
         }
         else{
-            locationAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
+            locationAvailable = (<img className='bg-check-arrow-plus rounded-circle' src={UndoneIcon} alt=''/>);
         }
 
         if (profilePicture.includes('image?')){
-            photoAvailable = (<img className='bg-check-arrow rounded-circle' src='https://crypter.polywickstudio.ph/static/files/36b5fa1eb4642d0032b03f7d37373b95.svg' alt=''/>);
+            photoAvailable = (<img className='bg-check-arrow rounded-circle' src={DoneIcon} alt=''/>);
         }
         else{
-            photoAvailable = (<img className='bg-check-arrow-plus rounded-circle' src='https://crypter.polywickstudio.ph/static/files/c6f3df12536981a6cbac7d57f3198df6.svg' alt=''/>);
+            photoAvailable = (<img className='bg-check-arrow-plus rounded-circle' src={UndoneIcon} alt=''/>);
         }
 
         let completionView;
@@ -584,7 +586,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 
                                 <div className='mtop-20'>
                                     <DeferredPostView
-                                        channelId='kqe4sihhdid47gprhk6dwbuc4o'
+                                        //channelId='kqe4sihhdid47gprhk6dwbuc4o'
+                                        channelId='dodurztr1fbupnpenjgxqjso3a'
                                         focusedPostId={''}
                                     />
                                 </div>
