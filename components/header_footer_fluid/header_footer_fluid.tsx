@@ -192,7 +192,7 @@ export default class LoggedInHFTF extends React.PureComponent<Props> {
                                 <div className='col-md-2 removePadding'>
                                     <Sidebar/>
                                 </div>
-                                <div className='col-md-10 removePadding'>
+                                <div className='col-md-10'>
                                     {React.cloneElement(this.props.children, {mode: this.state.isDark})}
                                 </div>
                             </div>
