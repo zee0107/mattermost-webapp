@@ -190,8 +190,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         }
 
         return (
-            <div>
-                <div className='col-md-12 group-cover-box mtop-10 p-0'>
+            <div className='col-md-12'>
+                <div className='group-cover-box mtop-10 p-0'>
                     {cover}
                     <div className='col-md-12'>
                         <div className='float-start'>
