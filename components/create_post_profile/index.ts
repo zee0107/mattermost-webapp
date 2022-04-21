@@ -68,7 +68,8 @@ function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
 
     return (state: GlobalState) => {
-        const channelId = 'kqe4sihhdid47gprhk6dwbuc4o';
+        //const channelId = 'kqe4sihhdid47gprhk6dwbuc4o';
+        const channelId = 'dodurztr1fbupnpenjgxqjso3a';
         const config = getConfig(state);
         const currentUser = getCurrentUser(state);
         const license = getLicense(state);
@@ -91,7 +92,8 @@ function makeMapStateToProps() {
         const isLDAPEnabled = license?.IsLicensed === 'true' && license?.LDAPGroups === 'true';
         const useGroupMentions = isLDAPEnabled && haveICurrentChannelPermission(state, Permissions.USE_GROUP_MENTIONS);
         const channelMemberCountsByGroup = selectChannelMemberCountsByGroup(state, channelId);
-        const currentTeamId = 'u57ytznuttyzbgapem9sqj4oyc';
+        //const currentTeamId = 'u57ytznuttyzbgapem9sqj4oyc';
+        const currentTeamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
         const groupsWithAllowReference = useGroupMentions ? getAssociatedGroupsForReferenceByMention(state, currentTeamId, channelId) : null;
         const enableTutorial = config.EnableTutorial === 'true';
         const showTutorialTip = enableTutorial && tutorialStep === TutorialSteps.POST_POPOVER;
