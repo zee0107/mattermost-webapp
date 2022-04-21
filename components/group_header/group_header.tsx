@@ -157,12 +157,14 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                         <div className='col-md-12'>
                             <label className='text-secondary small'>Upload Group Cover Photo</label>
                         </div>
-                        <div className='col-md-8'>
-                            <input type='file' className='form-control float-start' onChange={this.handelChange} required />
-                        </div>
-                        <div className='col-md-4'>
-                            <button className='btn buttonBgGreen text-white float-end btn-sm' type='button' onClick={() => {this.setState({uploadImage: false})}}>Cancel</button>
-                            <button className='btn buttonBgGreen text-white float-end btn-sm mr-2' type='button' onClick={this.handleSubmit}>Upload</button>
+                        <div className='d-flex'>
+                            <div className='col-md-8'>
+                                <input type='file' className='form-control float-start' onChange={this.handelChange} required />
+                            </div>
+                            <div className='col-md-4'>
+                                <button className='btn buttonBgGreen text-white float-end btn-sm' type='button' onClick={() => {this.setState({uploadImage: false})}}>Cancel</button>
+                                <button className='btn buttonBgGreen text-white float-end btn-sm mr-2' type='button' onClick={this.handleSubmit}>Upload</button>
+                            </div>
                         </div>
                         {uploadError}
                     </div>
