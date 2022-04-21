@@ -720,17 +720,27 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                         <div className='box-middle-panel-marketplace-mobile mt-3'>
                             <div className='d-flex'>
                                 <div className='col-md-4 width-100 text-center p-0'>
-                                    <a className='onMygroupspages btn-md p-2'><small>MyGroups</small></a>
+                                    <a 
+                                        className={group_view === 'joined' ? 'onMygroupspages btn-md p-2 border-3 border-bottom border-top-0 border-start-0 border-end-0 border-success text-success' : 'onMygroupspages btn-md p-2'}
+                                        onClick={() => { this.setState({group_view: 'mygroups', result_create: false, result_joined: false, result_leave: false, result_remove: false, result_update: false , serverError: ''})}}
+                                    ><small>MyGroups</small></a>
                                 </div>
                                 <div className='col-md-4 width-100 text-center p-0'>
-                                    <a className='onMycarts btn-md p-2'><small>Suggested</small></a>
+                                    <a 
+                                        className={group_view === 'joined' ? 'onMycarts btn-md p-2 border-3 border-bottom border-top-0 border-start-0 border-end-0 border-success text-success' : 'onMycarts btn-md p-2'}
+                                        onClick={() => { this.setState({group_view: 'suggested', result_create: false, result_joined: false, result_leave: false, result_remove: false, result_update: false, serverError: ''})}}
+                                    ><small>Suggested</small></a>
                                 </div>
                                 <div className='col-md-4 width-100 text-center p-0'>
-                                    <a className='onMyjoined btn-md p-2'><small className='ms-2'>Joined</small></a>
+                                    <a 
+                                        className={group_view === 'joined' ? 'onMyjoined btn-md p-2 border-3 border-bottom border-top-0 border-start-0 border-end-0 border-success text-success' : 'onMyjoined btn-md p-2'}><small className='ms-2'
+                                        onClick={() => { this.setState({group_view: 'joined', result_create: false, result_joined: false, result_leave: false, result_remove: false, result_update: false, serverError: ''})}}
+                                    >Joined</small></a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    {viewDetails}
                 </div>
                 <div className='col-md-3' id='rightSideView'>
                     <RightSideView/>
