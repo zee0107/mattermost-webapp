@@ -32,7 +32,7 @@ import EditChannelHeaderModal from 'components/edit_channel_header_modal';
 import EditChannelPurposeModal from 'components/edit_channel_purpose_modal';
 import EmojiPickerOverlay from 'components/emoji_picker/emoji_picker_overlay.jsx';
 import FilePreview from 'components/file_preview';
-import FileUpload from 'components/file_upload';
+import FileUpload from 'components/file_upload_new';
 import {FileUpload as FileUploadClass} from 'components/file_upload/file_upload';
 import CallButton from 'components/call_button';
 import LocalizedIcon from 'components/localized_icon';
@@ -1436,7 +1436,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
                                 onUploadError={this.handleUploadError}
                                 onUploadProgress={this.handleUploadProgress}
                                 postType='post'
-                                channelId={channelId}
+                                channelId={currentChannel.id}
                             >
                                 test
                             </FileUpload>
