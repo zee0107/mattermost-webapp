@@ -351,18 +351,18 @@ height: 65px;
 }
 .onFollowsuggested {
   cursor: pointer;
-  background: rgb(127,207,87);
-  background: -moz-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
-  background: -webkit-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
-  background: linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+  background: rgb(127,207,87) !important;
+  background: -moz-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%) !important;
+  background: -webkit-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%) !important;
+  background: linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%) !important;
   width: 100%;
 }
 .onUnfollowsuggested {
   cursor: pointer;
-  background: #CFF3DE;
+  background: #CFF3DE !important;
   padding: 6px 6px 6px 6px;
   border-radius: 11px !important;
-  color: #44CD68;
+  color: #44CD68 !important;
   width: 100%;
 }
 /*.suggestedcontent, .joinedcontent, .create-new-group {
@@ -482,7 +482,7 @@ color: #F9D556;
   color: #41CB4E;
   border-radius: 10px;
   background: #E4F7E4;
-  padding: 11px 11px 11px 11px;
+  padding: 11px 11px 5px 11px;
   font-size: 12px;
 }
 .onDeletegroups {
@@ -490,7 +490,7 @@ color: #F9D556;
   color: #FF1944;
   background: #FFDCE3;
   border-radius: 10px;
-  padding: 11px 11px 11px 11px;
+  padding: 11px 11px 5px 11px;
   margin: 0px 0px 0px -11px;
   font-size: 12px;
 }

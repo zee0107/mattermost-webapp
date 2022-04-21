@@ -421,11 +421,11 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                             <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
                                             </p>
         
-                                            <div className='row'>
-                                                <div className='col-md-6 mt-2 mb-3'><button type='button' className='float-end onEditgroups' onClick={() => {
+                                            <div className='d-flex'>
+                                                <div className='col-md-6 mt-2 mb-3 width-100'><button type='button' className='float-end onEditgroups' onClick={() => {
                                                     this.setState({group_view: 'update_group',channelId: item.id, channelName: item.name,channelDisplayName: item.display_name,channelPurpose: item.purpose,channelHeader: item.header,channelType: item.type })
                                                 }}><label>Edit</label></button></div>
-                                                <div className='col-md-6 mt-2 mb-3'><button type='button' className='float-start onDeletegroups' onClick={this.removeGroup.bind(this,item)}><label>Delete</label></button></div>
+                                                <div className='col-md-6 mt-2 mb-3  width-100'><button type='button' className='float-start onDeletegroups' onClick={this.removeGroup.bind(this,item)}><label>Delete</label></button></div>
                                             </div>
                                         </div>
                                     </div>
