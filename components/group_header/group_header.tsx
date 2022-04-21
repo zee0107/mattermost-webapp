@@ -167,9 +167,9 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                         {uploadError}
                     </div>
                     <div id='post-mobile'>
-                        <div className='row mt-2'>
+                        <div className='mt-2'>
                             <div className='col-md-12'>
-                                <label className='text-secondary small'>Upload Group Cover Photo</label>
+                                <label className='text-secondary small mt-2'>Upload Group Cover Photo</label>
                             </div>
                             <div className='d-flex'>
                                 <div className='col-md-8'>
