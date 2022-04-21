@@ -204,20 +204,22 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                     </div>
                     {upload}
                 </div>
-                <div className='post-mobile'>
-                    <div className='box-middle-pannel mt-13'>
-                        <div className='col-md-12'>
-                            {cover}
-                        </div>
-                        <div className='col-md-12'>
-                            <div className='float-start'>
-                                <h5 className='text-primary'>{channelDisplayName}</h5>
-                                <h6 className='text-secondary'><GroupDetails channelId={channelId}/></h6>
+                <div id='post-mobile'>
+                    <div className='row'>
+                        <div className='box-middle-pannel mt-13'>
+                            <div className='col-md-12'>
+                                {cover}
                             </div>
-                            {buttonAction}
+                            <div className='col-md-12'>
+                                <div className='float-start'>
+                                    <h5 className='text-primary'>{channelDisplayName}</h5>
+                                    <h6 className='text-secondary'><GroupDetails channelId={channelId}/></h6>
+                                </div>
+                                {buttonAction}
+                            </div>
                         </div>
+                        {upload}
                     </div>
-                    {upload}
                 </div>
             </div>
         );
