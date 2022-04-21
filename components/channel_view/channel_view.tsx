@@ -495,7 +495,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             );
         }else{
             viewDetail = (
-                <div>
+                <div className='col-md-12 chat-box'>
                     <GroupHeader
                         channelId={channelId}
                         channelDisplayName={channelDisplayName} />
