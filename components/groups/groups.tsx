@@ -406,7 +406,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         }
 
         return (
-            <div className='mygroupcontent'>
+            <div className='mygroupcontent col-md-12'>
                 {errorServer}
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                     {this.state.mygroups.map((item,index) => {
@@ -716,17 +716,17 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                         </div>
-                        <div className='box-middle-panel-marketplace-mobile mt-3'>
+                        <div className='box-middle-panel-marketplace-mobile mt-3 col-md-12'>
                             <div className='d-flex'>
                                 <div className='col-md-4 width-100 text-center p-0'>
                                     <a 
-                                        className={group_view === 'joined' ? 'onMygroupspages btn-md p-2 active-group-menu text-success' : 'onMygroupspages btn-md p-2'}
+                                        className={group_view === 'mygroups' ? 'onMygroupspages btn-md p-2 active-group-menu text-success' : 'onMygroupspages btn-md p-2'}
                                         onClick={() => { this.setState({group_view: 'mygroups', result_create: false, result_joined: false, result_leave: false, result_remove: false, result_update: false , serverError: ''})}}
                                     ><small>MyGroups</small></a>
                                 </div>
                                 <div className='col-md-4 width-100 text-center p-0'>
                                     <a 
-                                        className={group_view === 'joined' ? 'onMycarts btn-md p-2 active-group-menu text-success' : 'onMycarts btn-md p-2'}
+                                        className={group_view === 'suggested' ? 'onMycarts btn-md p-2 active-group-menu text-success' : 'onMycarts btn-md p-2'}
                                         onClick={() => { this.setState({group_view: 'suggested', result_create: false, result_joined: false, result_leave: false, result_remove: false, result_update: false, serverError: ''})}}
                                     ><small>Suggested</small></a>
                                 </div>
