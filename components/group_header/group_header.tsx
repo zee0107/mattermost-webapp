@@ -190,7 +190,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         }
 
         return (
-            <div className='col-md-12'>
+            <div>
                 <div className='crypter-section-profile-desktop'>
                     <div className='col-md-12 group-cover-box mtop-10 p-0'>
                         {cover}
@@ -207,15 +207,15 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                 <div id='post-mobile'>
                     <div className='row'>
                         <div className='box-middle-pannel mt-13'>
-                            <div className='col-md-12'>
+                            <div className='col-md-12 group-cover-box'>
                                 {cover}
                                 <div className='d-flex'>
-                                    <div className='col-md-7'>
+                                    <div className='col-md-7 width-100'>
                                         <h5 className='text-primary'>{channelDisplayName}</h5>
                                         <h6 className='text-secondary'><GroupDetails channelId={channelId}/></h6>
                                     </div>
-                                    <div className='col-md-5'>
-                                    {buttonAction}
+                                    <div className='col-md-5 width-100'>
+                                        {buttonAction}
                                     </div>
                                 </div>
                             </div>
