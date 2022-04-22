@@ -832,7 +832,7 @@
         }
 
         > a {
-            color: inherit;
+            //color: inherit;
             opacity: 0.6;
             text-decoration: none;
             transition: all 0.1s ease-in;
@@ -842,11 +842,11 @@
             }
 
             &:focus {
-                color: inherit;
+                //color: inherit;
             }
 
             &.active {
-                color: $primary-color;
+                //color: $primary-color;
                 opacity: 1;
 
                 .icon {
