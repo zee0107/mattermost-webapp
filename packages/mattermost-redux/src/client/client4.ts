@@ -121,6 +121,8 @@ import {UserThreadList, UserThread, UserThreadWithPost} from 'mattermost-redux/t
 import {TelemetryHandler} from './telemetry';
 import { AllListing, Coins, GainerListing, NewListing, ProjectList, ProjectsEndedList, ProjectsUpcomingList, RequestList, SocialCount, TrendListing } from 'mattermost-redux/types/crypto';
 import { type } from 'os';
+import list from 'components/more_direct_channels/list';
+import { ValidationError } from 'webpack';
 
 const FormData = require('form-data');
 const HEADER_AUTH = 'Authorization';
@@ -2058,6 +2060,15 @@ export default class Client4 {
             `${this.getChannelRoute(channelId)}/posts${buildQueryString({page, per_page: perPage, skipFetchThreads: !fetchThreads, collapsedThreads, collapsedThreadsExtended})}`,
             {method: 'get'},
         );
+    };
+
+    getPostsUser = (channelId: string,userId: string) => {
+        const postList = this.getPosts(channelId);
+        let listPost = {} as PostList;
+        Promise.resolve(postList).then(value => { listPost = value; });
+        const listValue = listPost.posts.values();
+        console.log(listValue);
+        return null;
     };
 
     getPostsUnread = (channelId: string, userId: string, limitAfter = DEFAULT_LIMIT_AFTER, limitBefore = DEFAULT_LIMIT_BEFORE, fetchThreads = true, collapsedThreads = false, collapsedThreadsExtended = false) => {
