@@ -112,7 +112,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {feeling: true,userActivity: '',userLocation: '',shareInfo: 'everyone',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
+        this.state = {postValues:[],listId:[],feeling: true,userActivity: '',userLocation: '',shareInfo: 'everyone',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
         
         this.onChangeShareInfo = this.onChangeShareInfo.bind(this);
         this.onChangeLocation = this.onChangeLocation.bind(this);
@@ -138,6 +138,13 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
         if(this.props.getPostList !== null){
             Promise.resolve(this.props.getPostList).then(value => { this.setState({postList: value}); });
+        }
+
+        if(this.state.postList !== null && this.state.postList !== undefined){
+            this.setState({
+                postValue: this.state.postList.posts,
+                listId: this.state.postList.order,
+            });
         }
     }
 
@@ -222,7 +229,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser, profilePicture} = this.props;
-        const { coverUrl,completionResult, uploading, shareInfo, userLocation, feeling, socialCount, postList} = this.state;
+        const { coverUrl,completionResult, uploading, shareInfo, userLocation, feeling, socialCount, postList, postValues, listId} = this.state;
 
         let photoAvailable;
         let nameAvailable;
@@ -238,7 +245,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let icon;
 
         if(postList !== null && postList !== undefined){
-            console.log(postList);
+            console.log(postValues);
+            console.log(listId);
         }
         if(this.state.userActivity !== null && this.state.userActivity !== ''){
             const activityValue = this.state.userActivity.split('&');
