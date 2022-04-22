@@ -65,7 +65,7 @@ export default class GroupImage extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const {channelId, channelName, suggested} = this.props;
         const { img_url } = this.state;
-
+        console.log(suggested)
         let cover;
         if(img_url === 'unavailable'){
             if(suggested){
