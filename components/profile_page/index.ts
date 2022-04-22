@@ -30,6 +30,7 @@ function makeMapStateToProps() {
         const userId = currentUser?.id;
         const customStatus = getCustomStatus(state, userId);
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
+        const socialCount = Client4.getSocialCount(userId);
         
         return {
             userId,
@@ -39,6 +40,7 @@ function makeMapStateToProps() {
             status: getStatusForUserId(state, userId),
             customStatus,
             currentUser,
+            socialCount,
             isCustomStatusEnabled: isCustomStatusEnabled(state),
             isCustomStatusExpired: isCustomStatusExpired(state, customStatus),
             isMilitaryTime,

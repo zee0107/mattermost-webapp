@@ -44,6 +44,7 @@ import SidebarRight from 'components/sidebar_right';
 import SidebarRightMenu from 'components/sidebar_right_menu';
 import { CssFontSource } from '@stripe/stripe-js';
 import { toggleRHSPlugin } from 'actions/views/rhs';
+import { SocialCount } from 'mattermost-redux/types/crypto';
 
 type Props = {
     status?: string;
@@ -57,6 +58,7 @@ type Props = {
         unsetCustomStatus: () => ActionFunc;
         setStatusDropdown: (open: boolean) => void;
     };
+    socialCount: Promise<SocialCount>;
     customStatus?: UserCustomStatus;
     currentUser: UserProfile;
     isCustomStatusEnabled: boolean;
@@ -86,6 +88,7 @@ type State = {
     userActivity: string;
     shareInfo: string;
     feeling: boolean;
+    socialCount: SocialCount;
 };
 
 export default class ProfilPage extends React.PureComponent<Props, State> {
@@ -124,8 +127,11 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         if(this.state.coverUrl === undefined || this.state.coverUrl === 'unavailable' || this.state.coverUrl === ''){
             this.setState({coverUrl: coverImage});
         }
-        console.log(this.props.userId);
         this.getCompletionRate();
+
+        if(this.props.socialCount !== null){
+            Promise.resolve(this.props.socialCount).then(value => { this.setState({socialCount: value});});
+        }
     }
 
     componentDidUpdate(){
@@ -209,7 +215,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser, profilePicture} = this.props;
-        const { coverUrl,completionResult, uploading, shareInfo, userLocation, feeling} = this.state;
+        const { coverUrl,completionResult, uploading, shareInfo, userLocation, feeling, socialCount} = this.state;
 
         let photoAvailable;
         let nameAvailable;
@@ -390,6 +396,16 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             );
         }
 
+        let followerView;
+        let followingView;
+        if(socialCount !== undefined  && socialCount !== null){
+            followerView = (<h4><strong>{socialCount.followersCount}</strong></h4>);
+            followingView = (<h4><strong>{socialCount.followingCount}</strong></h4>);
+        }else{
+            followerView = (<h4><strong>0</strong></h4>);
+            followingView = (<h4><strong>0</strong></h4>);
+        }
+
         const DeferredPostView = this.state.deferredPostView;
 
         return (
@@ -437,9 +453,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='col-md-8'>
                                                 <div className='row'>
                                                     <div className='col-md-3 mt-5 text-center text-white'><p></p><br /><h4><label></label></h4></div>
-                                                    <div className='col-md-3 mt-5 text-center text-white'><p>Posts<br /></p><h4><label>2.6K</label></h4></div>
-                                                    <div className='col-md-3 mt-5 text-center text-white'><p>Following<br /></p><h4><label>561</label></h4></div>
-                                                    <div className='col-md-3 mt-5 text-center text-white'><p>Followers<br /></p><h4><label>16.2K</label></h4></div>
+                                                    <div className='col-md-3 mt-5 text-center text-white'><p>Posts<br /></p><h4><strong>0</strong></h4></div>
+                                                    <div className='col-md-3 mt-5 text-center text-white'><p>Following<br /></p>{followerView}</div>
+                                                    <div className='col-md-3 mt-5 text-center text-white'><p>Followers<br /></p>{followerView}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -510,8 +526,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     <div className='col-md-10 mx-auto mt-3 mb-1'>
                                         <div className='d-flex'>
                                             <div className='col-md-4 text-center text-white width-100'><p>Posts</p><br /><h4><strong>0</strong></h4></div>
-                                            <div className='col-md-4 text-center text-white width-100'><p>Following</p><br /><h4><strong>0</strong></h4></div>
-                                            <div className='col-md-4 text-center text-white width-100'><p>Followers</p><br /><h4><strong>0</strong></h4></div>
+                                            <div className='col-md-4 text-center text-white width-100'><p>Following</p><br />{followingView}</div>
+                                            <div className='col-md-4 text-center text-white width-100'><p>Followers</p><br />{followerView}</div>
                                         </div>
                                     </div>
                                 </div>
