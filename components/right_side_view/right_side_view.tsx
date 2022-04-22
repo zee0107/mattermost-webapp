@@ -30,6 +30,7 @@ import { SocialCount } from 'mattermost-redux/types/crypto';
 type Props = {
     profilePicture: string;
     currentUser: UserProfile;
+    socialCount: Promise<SocialCount>;
  }
 
 
@@ -64,11 +65,9 @@ export default class RightSideView extends React.PureComponent<Props, State> {
         this.setState({isDark: ThemeValue});
 
         this.getSocialCount();
-    }
-
-    getSocialCount = async () => {
-        const response = await Client4.getSocialCount(this.props.currentUser.id);
-        Promise.resolve(response).then(value => { this.setState({socialCount: value});});
+        if(this.props.socialCount !== null){
+            Promise.resolve(this.props.socialCount).then(value => { this.setState({socialCount: value});});
+        }
     }
 
     setDocumentTitle = (siteName: string) => {
@@ -85,6 +84,17 @@ export default class RightSideView extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
         const {socialCount} = this.state;
+
+        let followerView;
+        let followingView;
+        if(socialCount !== undefined  && socialCount !== null){
+            followerView = (<h4 className='fw-bold'>{socialCount.followersCount}</h4>);
+            followingView = (<h4 className='fw-bold'>{socialCount.followingCount}</h4>);
+        }else{
+            followerView = (<h4 className='fw-bold'>0</h4>);
+            followingView = (<h4 className='fw-bold'>0</h4>);
+        }
+
         return (
             <div>
                 <div className='col-md-12 chat-box removePadding mtop-10'>
@@ -118,11 +128,11 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                             </div>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Following</p>
-                                                <h4 className='fw-bold'>{socialCount.followingCount}</h4>
+                                                {followerView}
                                             </div>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Followers</p>
-                                                <h4 className='fw-bold'>{socialCount.followersCount}</h4>
+                                                {followerView}
                                             </div>
                                         </div>
                                     </div>
