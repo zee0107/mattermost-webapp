@@ -49,10 +49,10 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
             console.log(error);
         }); 
 
-        /*this.getStats();*/
+        this.getStats();
     }
 
-    /*getStats = async () => {
+    getStats = async () => {
         const uri = `./api/v4/channels/${this.props.channelId}/stats`;
         const config = {
             method: "GET",
@@ -62,9 +62,8 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
         }
 
         const response = await fetch(uri,config);
-        Promise.resolve(response.clone().json()).then(value => {this.setState({data: value});})
         console.log(response.clone().json());
-    }*/
+    }
 
     render= (): JSX.Element => {
         const {channelId} = this.props;
