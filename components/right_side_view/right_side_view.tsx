@@ -68,7 +68,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
 
     getSocialCount = async () => {
         const response = await Client4.getSocialCount(this.props.currentUser.id);
-        Promise.resolve(response).then(value => { this.setState({socialCount = value});});
+        Promise.resolve(response).then(value => { this.setState({socialCount: value});});
     }
 
     setDocumentTitle = (siteName: string) => {
