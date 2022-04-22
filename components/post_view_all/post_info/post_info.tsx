@@ -141,7 +141,6 @@ type State = {
 export default class PostInfo extends React.PureComponent<Props, State> {
     private postHeaderRef: React.RefObject<HTMLDivElement>;
     private dotMenuRef: React.RefObject<HTMLDivElement>;
-    private chevMenuRef: React.RefObject<HTMLDivElement>;
 
     constructor(props: Props) {
         super(props);
@@ -154,7 +153,6 @@ export default class PostInfo extends React.PureComponent<Props, State> {
 
         this.postHeaderRef = React.createRef();
         this.dotMenuRef = React.createRef();
-        this.chevMenuRef = React.createRef();
     }
 
     toggleEmojiPicker = (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
@@ -194,63 +192,6 @@ export default class PostInfo extends React.PureComponent<Props, State> {
     getDotMenu = (): HTMLDivElement => {
         return this.dotMenuRef.current as HTMLDivElement;
     };
-
-    getChevronMenu = (): HTMLDivElement => {
-        return this.chevMenuRef.current as HTMLDivElement;
-    };
-
-    buildOptionChevron = (post: Post, isSystemMessage: boolean, fromAutoResponder: boolean) => {
-        if (!this.props.shouldShowDotMenu) {
-            return null;
-        }
-
-        const {isMobile, isReadOnly, collapsedThreadsEnabled} = this.props;
-        const hover = this.props.hover || this.state.showEmojiPicker || this.state.showDotMenu || this.state.showOptionsMenuWithoutHover;
-
-        const showRecentlyUsedReactions = !isMobile && !isSystemMessage && hover && !isReadOnly && this.props.oneClickReactionsEnabled && this.props.enableEmojiPicker;
-        let showRecentReacions;
-        if (showRecentlyUsedReactions) {
-            showRecentReacions = (
-                <PostRecentReactions
-                    channelId={post.channel_id}
-                    postId={post.id}
-                    emojis={this.props.recentEmojis}
-                    teamId={this.props.teamId}
-                    getDotMenuRef={this.getDotMenu}
-                />
-            );
-        }
-
-        const showDotMenuIcon = isMobile || hover;
-        let dotMenu;
-        if (showDotMenuIcon) {
-            dotMenu = (
-                <DotMenu
-                    post={post}
-                    isFlagged={this.props.isFlagged}
-                    handleCommentClick={this.props.handleCommentClick}
-                    handleDropdownOpened={this.handleDotMenuOpened}
-                    handleAddReactionClick={this.toggleEmojiPicker}
-                    isMenuOpen={this.state.showDotMenu}
-                    isReadOnly={isReadOnly}
-                    enableEmojiPicker={this.props.enableEmojiPicker}
-                />
-            );
-        }
-
-        return (
-            <div
-                ref={this.chevMenuRef}
-                data-testid={`post-menu-${post.id}`}
-                className={'float-end'}
-                style={{marginTop: -40}}
-            >
-                {!collapsedThreadsEnabled && !showRecentlyUsedReactions && dotMenu}
-                {(collapsedThreadsEnabled || showRecentlyUsedReactions) && dotMenu}
-            </div>
-        );
-
-    }
 
     buildOptions = (post: Post, isSystemMessage: boolean, fromAutoResponder: boolean) => {
         if (!this.props.shouldShowDotMenu) {
@@ -465,8 +406,6 @@ export default class PostInfo extends React.PureComponent<Props, State> {
             );
         }
 
-        let chevronMenu = this.buildOptionChevron(post, isSystemMessage, fromAutoResponder);
-
         return (
             <div
                 className='post__header--info'
@@ -477,7 +416,7 @@ export default class PostInfo extends React.PureComponent<Props, State> {
                     {postInfoIcon}
                     {visibleMessage}
                 </div>
-                {chevronMenu}
+                {/*options*/}
             </div>
         );
     }
