@@ -249,7 +249,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let PostViewData;
         if(postList !== null && postList !== undefined){
             postList.order.map((item,index) => {
-                console.log(item[index-1]);
                 PostViewData =(<Post postId={item}/>);
             });
             const postVal = postList.posts;
@@ -637,7 +636,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         channelId='kqe4sihhdid47gprhk6dwbuc4o'
                                         //channelId='dodurztr1fbupnpenjgxqjso3a'
                                         focusedPostId={''}
-                                    />*/PostViewData}
+                                    />*/}
+                                    {postList.order.map((item,index) => {
+                                        return (<Post postId={item}/>);
+                                    })}
                                 </div>
                             </div>
                             <div className='col-lg-4' id='rsvDesktop'>
