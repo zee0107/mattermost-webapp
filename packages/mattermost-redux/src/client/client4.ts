@@ -2067,6 +2067,7 @@ export default class Client4 {
         let listPost = {} as PostList;
         Promise.resolve(postList).then(value => { listPost = value; });
         const listValue = listPost.posts;
+        console.log(listPost);
         console.log(listValue);
         return null;
     };
