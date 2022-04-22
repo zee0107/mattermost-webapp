@@ -45,23 +45,18 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
         }).catch(function(error) {
             console.log(error);
         });  
+
+        getStats();
     }
 
-    componentDidUpdate(prevState){
-        if(this.state.data !== prevState.data){
-            const uri = `./api/v4/channels/${this.props.channelId}/stats`;
-            const config = {
-                method: "GET"
-            }
-    
-            fetch(uri,config).then(response => response.json()).then(response => {
-                if(response != null){
-                    Promise.resolve(response).then(value => {this.setState({data: value});})
-                }
-            }).catch(function(error) {
-                console.log(error);
-            });  
+    getStats = async () => {
+        const uri = `./api/v4/channels/${this.props.channelId}/stats`;
+        const config = {
+            method: "GET"
         }
+
+        const response = await fetch(uri,config);
+        console.log(response.json());
     }
 
     render= (): JSX.Element => {
