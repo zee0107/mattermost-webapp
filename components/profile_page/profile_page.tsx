@@ -45,6 +45,7 @@ import SidebarRightMenu from 'components/sidebar_right_menu';
 import { CssFontSource } from '@stripe/stripe-js';
 import { toggleRHSPlugin } from 'actions/views/rhs';
 import { SocialCount } from 'mattermost-redux/types/crypto';
+import { PostList } from 'mattermost-redux/types/posts';
 
 type Props = {
     status?: string;
@@ -71,6 +72,7 @@ type Props = {
     lhsOpen: boolean;
     rhsOpen: boolean;
     rhsMenuOpen: boolean;
+    getPostList: Promise<PostList>;
 }
 
 type State = {
@@ -89,6 +91,7 @@ type State = {
     shareInfo: string;
     feeling: boolean;
     socialCount: SocialCount;
+    postList: PostList;
 };
 
 export default class ProfilPage extends React.PureComponent<Props, State> {
@@ -131,6 +134,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
         if(this.props.socialCount !== null){
             Promise.resolve(this.props.socialCount).then(value => { this.setState({socialCount: value});});
+        }
+
+        if(this.props.getPostList !== null){
+            Promise.resolve(this.props.getPostList).then(value => { this.setState({postList: value}); });
         }
     }
 
@@ -215,7 +222,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser, profilePicture} = this.props;
-        const { coverUrl,completionResult, uploading, shareInfo, userLocation, feeling, socialCount} = this.state;
+        const { coverUrl,completionResult, uploading, shareInfo, userLocation, feeling, socialCount, postList} = this.state;
 
         let photoAvailable;
         let nameAvailable;
@@ -229,6 +236,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         
         let textValue;
         let icon;
+
+        if(postList !== null && postList !== undefined){
+            console.log(postList);
+        }
         if(this.state.userActivity !== null && this.state.userActivity !== ''){
             const activityValue = this.state.userActivity.split('&');
             textValue = activityValue[0];
