@@ -29,6 +29,9 @@ export type UserProfileProps = {
     isRHS?: boolean;
     overwriteImage?: React.ReactNode;
     channelId?: string;
+    location?: string;
+    activity?: string;
+    shareInfo?: string;
 }
 
 export default class UserProfile extends PureComponent<UserProfileProps> {
@@ -69,6 +72,9 @@ export default class UserProfile extends PureComponent<UserProfileProps> {
             user,
             userId,
             channelId,
+            location,
+            activity,
+            shareInfo,
         } = this.props;
 
         let name: React.ReactNode;
@@ -104,6 +110,46 @@ export default class UserProfile extends PureComponent<UserProfileProps> {
             );
         }
 
+        let shareInfoDetails;
+        let shareInfoIcon;
+        if(shareInfo !== null && shareInfo !== ''){
+            if(shareInfo === 'private'){
+                shareInfoIcon = (<i className='bi bi-person-fill' title='Private'></i>);
+            }
+            else if(shareInfo === 'friends'){
+                shareInfoIcon = (<i className='bi bi-people-fill' title='Friends'></i>);
+            }
+            else{
+                shareInfoIcon = (<i className='bi bi-globe' title='Everyone'></i>);
+            }
+
+            if(activity !== null && activity !== '' && activity){
+                const activityValue = activity.toString().split('&');
+                let textValue = activityValue[0];
+                let icon = String.fromCodePoint(activityValue[1].substring(1, activityValue[1].length - 1));
+                if(location !== null && location !== ''){
+                    shareInfoDetails = (
+                        <span className='small' style={{marginTop: 2}}><label className='small'>&nbsp;is feeling&nbsp;</label><label id='rsvDesktop'>{textValue}</label><label>&nbsp;{icon}</label><label className='small'>&nbsp;in&nbsp;</label><label>{location}</label></span>
+                    );
+                }
+                else{
+                    shareInfoDetails = (
+                        <span className='small' style={{marginTop: 2}}><label className='small'>&nbsp;is feeling&nbsp;</label><label id='rsvDesktop'>{textValue}&nbsp;</label><label>{icon}</label></span>
+                    );
+                }
+            }
+            else if(location !== null && location !== ''){
+                shareInfoDetails = (
+                    <span className='small' style={{marginTop: 2}}><label className='small'>&nbsp;is in&nbsp;</label><label>{location}</label></span>
+                );
+            }
+            else {
+                shareInfoDetails = (
+                    <span className='small' style={{marginTop: 2}}></span>
+                );
+            }
+        }
+
         return (
             <React.Fragment>
                 <OverlayTrigger
@@ -131,9 +177,9 @@ export default class UserProfile extends PureComponent<UserProfileProps> {
                         aria-label={ariaName}
                         className='user-popover style--none'
                     >
-                        {name}
+                        {name}{shareInfoDetails}
                         <br />
-                        <span className='text-muted small'>{user.position}</span>
+                        <span className='text-muted small'>{user.position}&nbsp;{shareInfoIcon}</span>
                     </button>
                 </OverlayTrigger>
                 {sharedIcon}
