@@ -96,7 +96,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                                     modalId={ModalIdentifiers.USER_SETTINGS}
                                                     dialogType={UserSettingsModal}
                                                     dialogProps={{isContentProductSettings: false}}
-                                                    className={'btn btneditProfile'}
+                                                    className={'btneditProfile btn-sm'}
                                                     showUnread={false}
                                                 >Edit</ToggleModalButtonRedux>
                                             </div>
@@ -105,15 +105,15 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                         <div className='d-flex'>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Post</p>
-                                                <h4 className='fw-bold'>2.0k</h4>
+                                                <h4 className='fw-bold'>0</h4>
                                             </div>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Following</p>
-                                                <h4 className='fw-bold'>2.0k</h4>
+                                                <h4 className='fw-bold'>0</h4>
                                             </div>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Followers</p>
-                                                <h4 className='fw-bold'>2.0k</h4>
+                                                <h4 className='fw-bold'>0</h4>
                                             </div>
                                         </div>
                                     </div>

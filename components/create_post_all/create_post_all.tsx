@@ -1580,7 +1580,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
                             </div>
                         </div>
                         
-                        <div className='col-12 text-center'>
+                        <div className='col-12 text-center mt-2'>
                             <div className='d-grid'>
                                 <a
                                     role='button'
@@ -1589,7 +1589,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
                                         id: 'send_message',
                                         defaultMessage: 'Post',
                                     })}
-                                    className='btn btn-primary btn-md btn-create-post width-100 text-white'
+                                    className='btneditProfile btn-md btn-create-post width-100 text-white p-2'
                                     onClick={this.handleSubmit}
                                 >
                                     <LocalizedIcon
@@ -1598,8 +1598,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
                                             id: t('create_post.icon'),
                                             defaultMessage: 'Create a post',
                                         }}
-                                    />
-                                    Post
+                                    />&nbsp;Post
                                 </a>
                             </div>
                         </div>
