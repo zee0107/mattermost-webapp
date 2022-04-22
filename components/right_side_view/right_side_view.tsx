@@ -25,6 +25,7 @@ import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
 import UserSettingsModal from 'components/user_settings/modal_profile';
 import {ModalData} from 'types/actions';
 import {ModalIdentifiers} from 'utils/constants';
+import { SocialCount } from 'mattermost-redux/types/crypto';
 
 type Props = {
     profilePicture: string;
@@ -39,6 +40,7 @@ type State = {
     isDark: string;
     img_path: string;
     middleView: string;
+    socialCount: SocialCount;
 };
 
 export default class RightSideView extends React.PureComponent<Props, State> {
@@ -60,6 +62,13 @@ export default class RightSideView extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+
+        this.getSocialCount();
+    }
+
+    getSocialCount = async () => {
+        const response = await Client4.getSocialCount(this.props.currentUser.id);
+        Promise.resolve(response).then(value => { this.setState({socialCount = value});});
     }
 
     setDocumentTitle = (siteName: string) => {
@@ -75,7 +84,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
-        
+        const {socialCount} = this.state;
         return (
             <div>
                 <div className='col-md-12 chat-box removePadding mtop-10'>
@@ -109,11 +118,11 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                             </div>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Following</p>
-                                                <h4 className='fw-bold'>0</h4>
+                                                <h4 className='fw-bold'>{socialCount.followingCount}</h4>
                                             </div>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Followers</p>
-                                                <h4 className='fw-bold'>0</h4>
+                                                <h4 className='fw-bold'>{socialCount.followersCount}</h4>
                                             </div>
                                         </div>
                                     </div>
