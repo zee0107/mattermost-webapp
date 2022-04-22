@@ -26,11 +26,13 @@ import UserSettingsModal from 'components/user_settings/modal_profile';
 import {ModalData} from 'types/actions';
 import {ModalIdentifiers} from 'utils/constants';
 import { SocialCount } from 'mattermost-redux/types/crypto';
+import { PostList } from 'mattermost-redux/types/posts';
 
 type Props = {
     profilePicture: string;
     currentUser: UserProfile;
     socialCount: Promise<SocialCount>;
+    getPostList: Promise<PostList>;
  }
 
 
@@ -42,6 +44,7 @@ type State = {
     img_path: string;
     middleView: string;
     socialCount: SocialCount;
+    postList: PostList;
 };
 
 export default class RightSideView extends React.PureComponent<Props, State> {
@@ -67,6 +70,10 @@ export default class RightSideView extends React.PureComponent<Props, State> {
         if(this.props.socialCount !== null){
             Promise.resolve(this.props.socialCount).then(value => { this.setState({socialCount: value});});
         }
+
+        if(this.props.getPostList !== null){
+            Promise.resolve(this.props.getPostList).then(value => {this.setState({postList: value});});
+        }
     }
 
     setDocumentTitle = (siteName: string) => {
@@ -82,10 +89,21 @@ export default class RightSideView extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
-        const {socialCount} = this.state;
+        const {socialCount, postList} = this.state;
 
         let followerView;
         let followingView;
+
+        let postCount = 0 as number;
+        if(postList !== undefined && postList !== null){
+            const postVal = postList.posts;
+            Object.keys(postVal).map((key,index) => {
+                const fixVal = postVal[key];
+                if(fixVal.user_id === currentUser.id){
+                    postCount++;
+                }
+            });
+        }
         if(socialCount !== undefined  && socialCount !== null){
             followerView = (<h4 className='fw-bold'>{socialCount.followersCount}</h4>);
             followingView = (<h4 className='fw-bold'>{socialCount.followingCount}</h4>);
@@ -123,7 +141,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                         <div className='d-flex'>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Post</p>
-                                                <h4 className='fw-bold'>0</h4>
+                                                <h4 className='fw-bold'>{postCount}</h4>
                                             </div>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Following</p>

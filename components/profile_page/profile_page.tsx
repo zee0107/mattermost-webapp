@@ -256,10 +256,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                 const fixVal = postVal[key];
                 if(fixVal.user_id === currentUser.id){
                     PostCount++;
-                    
                 }
             });
-
         }
         if(this.state.userActivity !== null && this.state.userActivity !== ''){
             const activityValue = this.state.userActivity.split('&');

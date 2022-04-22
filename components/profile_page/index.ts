@@ -32,6 +32,7 @@ function makeMapStateToProps() {
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
         const socialCount = Client4.getSocialCount(userId);
         const getPostList = Client4.getPosts('kqe4sihhdid47gprhk6dwbuc4o');
+        //const getPostList = Client4.getPosts('dodurztr1fbupnpenjgxqjso3a');
         
         return {
             userId,
