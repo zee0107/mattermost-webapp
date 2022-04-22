@@ -35,7 +35,10 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
         this.setState({isDark: ThemeValue});
         const uri = `./api/v4/channels/${this.props.channelId}/stats`;
         const config = {
-            method: "GET"
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
         }
 
         fetch(uri,config).then(response => response.json()).then(response => {
@@ -52,7 +55,10 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
     getStats = async () => {
         const uri = `./api/v4/channels/${this.props.channelId}/stats`;
         const config = {
-            method: "GET"
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
         }
 
         const response = await fetch(uri,config);
