@@ -62,8 +62,8 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
         }
 
         const response = await fetch(uri,config);
-        Promise.resolve(response.json()).then(value => {this.setState({data: value});})
-        console.log(response.json());
+        Promise.resolve(response.clone().json()).then(value => {this.setState({data: value});})
+        console.log(response.clone().json());
     }
 
     render= (): JSX.Element => {
