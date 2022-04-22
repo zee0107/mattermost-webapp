@@ -6,6 +6,7 @@ import {ChannelStats} from 'mattermost-redux/types/channels';
 
 type Props = {
     channelId:string;
+    channelStats: Promise<ChannelStats>;
 }
 
 type State = {
@@ -33,37 +34,29 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
-        const uri = `./api/v4/channels/${this.props.channelId}/stats`;
-        const config = {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json',
-            }
+
+        if(this.props.channelStats !== null){
+            Promise.resolve(this.props.channelStats).then(value => {this.setState({data: value});})
         }
-
-        fetch(uri,config).then(response => response.clone().json()).then(response => {
-            if(response != null){
-                Promise.resolve(response).then(value => {this.setState({data: value});})
+        else{
+            const uri = `./api/v4/channels/${this.props.channelId}/stats`;
+            const config = {
+                method: "GET",
+                headers: {
+                    'Content-Type': 'application/json',
+                }
             }
-        }).catch(function(error) {
-            console.log(error);
-        }); 
-
-        this.getStats();
+    
+            fetch(uri,config).then(response => response.clone().json()).then(response => {
+                if(response != null){
+                    Promise.resolve(response).then(value => {this.setState({data: value});})
+                }
+            }).catch(function(error) {
+                console.log(error);
+            }); 
+        }
     }
 
-    getStats = async () => {
-        const uri = `./api/v4/channels/${this.props.channelId}/stats`;
-        const config = {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        }
-
-        const response = await fetch(uri,config);
-        Promise.resolve(response.text()).then(value => {console.log (value)});
-    }
 
     render= (): JSX.Element => {
         const {channelId} = this.props;

@@ -19,19 +19,22 @@ import {makeGetCustomStatus, isCustomStatusEnabled, showStatusDropdownPulsatingD
 import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
 import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
+import { getCurrentChannel } from 'mattermost-redux/selectors/entities/channels';
 
 import GroupsDetails from './group_details'
+
 
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
 
     return function mapStateToProps(state: GlobalState) {
         const currentUser = getCurrentUser(state);
-
+        const channel = getCurrentChannel(state);
         const userId = currentUser?.id;
-        
+        const channelStats = Client4.getChannelStats(channel.id);
         return {
             userId,
+            channelStats,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
         };
