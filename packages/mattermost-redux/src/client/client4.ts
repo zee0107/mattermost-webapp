@@ -2065,7 +2065,7 @@ export default class Client4 {
     getPostsUser = (channelId: string,userId: string) => {
         const postList = this.getPosts(channelId);
         let listPost = {} as PostList;
-        Promise.resolve(postList).then(value => { console.log(value) });
+        Promise.resolve(postList).then(value => { console.log(value.order) });
         const listValue = listPost.order;
         console.log(listPost);
         console.log(listValue);
