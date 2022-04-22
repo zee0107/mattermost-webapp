@@ -412,7 +412,7 @@ export default class PostInfo extends React.PureComponent<Props, State> {
                 ref={this.postHeaderRef}
             >
                 <div className='col'>
-                    {/*postTime*/}
+                    {postTime}
                     {postInfoIcon}
                     {visibleMessage}
                 </div>
