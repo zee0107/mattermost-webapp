@@ -2,12 +2,10 @@
 // See LICENSE.txt for license information.
 
 import React, {ReactNode} from 'react';
-import {ChannelStats} from 'mattermost-redux/types/channels';
 import { Client4 } from 'mattermost-redux/client';
 
 type Props = {
     channelId:string;
-    channelStats: Promise<ChannelStats>;
 }
 
 type State = {
