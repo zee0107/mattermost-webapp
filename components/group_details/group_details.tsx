@@ -31,7 +31,6 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
     }
 
     componentDidMount(){
-        'use strict';
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
         const uri = `./api/v4/channels/${this.props.channelId}/stats`;
@@ -46,6 +45,23 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
         }).catch(function(error) {
             console.log(error);
         });  
+    }
+
+    componentDidUpdate(prevState){
+        if(this.state.data !== prevState.data){
+            const uri = `./api/v4/channels/${this.props.channelId}/stats`;
+            const config = {
+                method: "GET"
+            }
+    
+            fetch(uri,config).then(response => response.json()).then(response => {
+                if(response != null){
+                    Promise.resolve(response).then(value => {this.setState({data: value});})
+                }
+            }).catch(function(error) {
+                console.log(error);
+            });  
+        }
     }
 
     render= (): JSX.Element => {
