@@ -64,7 +64,6 @@ export default class RightSideView extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
 
-        this.getSocialCount();
         if(this.props.socialCount !== null){
             Promise.resolve(this.props.socialCount).then(value => { this.setState({socialCount: value});});
         }
