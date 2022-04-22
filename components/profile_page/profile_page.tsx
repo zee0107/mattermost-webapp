@@ -247,7 +247,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
         if(postList !== null && postList !== undefined){
             postList.order.map((item,index) => {
-                const postVal = postList.posts.get(item);
+                const postVal = postList.posts.entries();
                 console.log(postVal);
             });
             
