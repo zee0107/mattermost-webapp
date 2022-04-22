@@ -253,7 +253,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             Object.keys(postVal).map((key,index) => {
                 const fixVal = postVal[key];
                 if(fixVal.user_id === currentUser.id){
-                    postCount++;
+                    PostCount++;
                 }
             });
 
