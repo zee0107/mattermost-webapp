@@ -483,7 +483,7 @@ export class DotMenuClass extends React.PureComponent<Props, State> {
                         aria-expanded='false'
                     >
                         {/*<DotsHorizontalIcon className={'icon icon--small'}/>*/}
-                        <i class="bi bi-chevron-down"></i>
+                        <i className="bi bi-chevron-down"></i>
                     </button>
                 </OverlayTrigger>
                 <Menu
