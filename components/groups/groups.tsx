@@ -360,7 +360,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             return(
                                 <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
-                                        <GroupImage channelId={item.id} channelName={item.name} />
+                                        <GroupImage channelId={item.id} channelName={item.name} suggested={false} />
                                         <p onClick={this.handleRedirect.bind(this,item.name,item.id)} className='mt-4 ms-3 ml-5'>
                                         <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
                                         </p>
@@ -416,7 +416,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                 return(
                                     <div className='col-md-3 p-1'>
                                         <div className='box-each-groups'>
-                                            <GroupImage channelId={item.id} channelName={item.name} />
+                                            <GroupImage channelId={item.id} channelName={item.name} suggested={false}/>
                                             <p onClick={this.handleRedirect.bind(this,item.name,item.id)} className='mt-4 ms-3 ml-5'>
                                             <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
                                             </p>
@@ -465,7 +465,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             return(
                                 <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
-                                        <GroupImage channelId={item.id} channelName={item.name} />
+                                        <GroupImage channelId={item.id} channelName={item.name} suggested={true}/>
                                         <p className='mt-4 ms-3 ml-5'>
                                         <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
                                         </p>

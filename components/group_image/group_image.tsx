@@ -11,6 +11,7 @@ import ThemeSetting from 'components/user_settings/display/user_settings_theme/u
 export type Props = {
     channelId:string;
     channelName: string;
+    suggested: boolean;
     actions: {
         leaveChannelNew: (channelId: string) => Promise<ActionResult>;
     }
@@ -62,15 +63,25 @@ export default class GroupImage extends React.PureComponent<Props, State> {
     }
     
     render= (): JSX.Element => {
-        const {channelId, channelName} = this.props;
+        const {channelId, channelName, suggested} = this.props;
         const { img_url } = this.state;
 
         let cover;
         if(img_url === 'unavailable'){
-            cover = (<img onClick={this.handleRedirect.bind(this,channelName,channelId)} width='100%' height='190' className='img-fluid' src={GroupLogo} alt=''/>);
+            if(suggested){
+                cover = (<img width='100%' height='190' className='img-fluid' src={GroupLogo} alt=''/>);
+            }
+            else{
+                cover = (<img onClick={this.handleRedirect.bind(this,channelName,channelId)} width='100%' height='190' className='img-fluid' src={GroupLogo} alt=''/>);
+            }
         }
         else{
-            cover = (<img onClick={this.handleRedirect.bind(this,channelName,channelId)} width='100%' height='190' className='img-fluid' src={img_url} alt=''/>);
+            if(suggested){
+                cover = (<img width='100%' height='190' className='img-fluid' src={img_url} alt=''/>);
+            }
+            else{
+                cover = (<img onClick={this.handleRedirect.bind(this,channelName,channelId)} width='100%' height='190' className='img-fluid' src={img_url} alt=''/>);
+            }
         }
 
         return (
