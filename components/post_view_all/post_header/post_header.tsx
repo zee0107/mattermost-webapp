@@ -237,7 +237,7 @@ export default class PostHeader extends React.PureComponent<Props> {
             <div className='post__header'>
                 <div className='col col__name'>
                     {userProfile}
-                    {/*colon*/}
+                    {colon}
                     {indicator}
                     {/*customStatus*/}
                     {/*shareInfoDetails*/}
