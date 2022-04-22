@@ -3,6 +3,7 @@
 
 import React, {ReactNode} from 'react';
 import {ChannelStats} from 'mattermost-redux/types/channels';
+import { Client4 } from 'mattermost-redux/client';
 
 type Props = {
     channelId:string;
@@ -34,27 +35,29 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
-
-        if(this.props.channelStats !== null){
-            Promise.resolve(this.props.channelStats).then(value => {this.setState({data: value});})
-        }
-        else{
-            const uri = `./api/v4/channels/${this.props.channelId}/stats`;
-            const config = {
-                method: "GET",
-                headers: {
-                    'Content-Type': 'application/json',
-                }
+        
+        const uri = `./api/v4/channels/${this.props.channelId}/stats`;
+        const config = {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
             }
-    
-            fetch(uri,config).then(response => response.clone().json()).then(response => {
-                if(response != null){
-                    Promise.resolve(response).then(value => {this.setState({data: value});})
-                }
-            }).catch(function(error) {
-                console.log(error);
-            }); 
         }
+
+        fetch(uri,config).then(response => response.clone().json()).then(response => {
+            if(response != null){
+                Promise.resolve(response).then(value => {this.setState({data: value});})
+            }
+        }).catch(function(error) {
+            console.log(error);
+        }); 
+
+        this.getStats();
+    }
+
+    getStats = async () => {
+        const response = await Client4.getChannelStats(this.props.channelId);
+        console.log(response);
     }
 
 
