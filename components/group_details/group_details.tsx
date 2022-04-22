@@ -37,7 +37,7 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
         const config = {
             method: "GET",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             }
         }
 
@@ -57,12 +57,12 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
         const config = {
             method: "GET",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             }
         }
 
         const response = await fetch(uri,config);
-        console.log(response.blob);
+        console.log(response.json);
     }
 
     render= (): JSX.Element => {
