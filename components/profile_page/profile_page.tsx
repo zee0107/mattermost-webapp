@@ -246,11 +246,14 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let icon;
 
         if(postList !== null && postList !== undefined){
-            postList.order.map((item,index) => {
-                const postVal = postList.posts;
-                console.log(postVal);
+            /*postList.order.map((item,index) => {
+                
+            });*/
+            const postVal = postList.posts;
+            Object.keys(postVal).map((key,index) => {
+                const fixVal = postVal[key];
+                console.log(fixVal);
             });
-            
 
         }
         if(this.state.userActivity !== null && this.state.userActivity !== ''){
