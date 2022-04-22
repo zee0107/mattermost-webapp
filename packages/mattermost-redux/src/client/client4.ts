@@ -2062,16 +2062,6 @@ export default class Client4 {
         );
     };
 
-    getPostsUser = (channelId: string,userId: string) => {
-        const postList = this.getPosts(channelId);
-        let listPost = {} as PostList;
-        Promise.resolve(postList).then(value => { listPost = value; });
-        const listValue = listPost.posts;
-        console.log(listPost);
-        console.log(listValue);
-        return null;
-    };
-
     getPostsUnread = (channelId: string, userId: string, limitAfter = DEFAULT_LIMIT_AFTER, limitBefore = DEFAULT_LIMIT_BEFORE, fetchThreads = true, collapsedThreads = false, collapsedThreadsExtended = false) => {
         return this.doFetch<PostList>(
             `${this.getUserRoute(userId)}/channels/${channelId}/posts/unread${buildQueryString({limit_after: limitAfter, limit_before: limitBefore, skipFetchThreads: !fetchThreads, collapsedThreads, collapsedThreadsExtended})}`,
