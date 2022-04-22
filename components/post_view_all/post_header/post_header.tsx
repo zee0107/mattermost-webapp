@@ -221,7 +221,7 @@ export default class PostHeader extends React.PureComponent<Props> {
                     {userProfile}
                     {colon}
                     {indicator}
-                    {customStatus}
+                    {/*customStatus*/}
                     {shareInfoDetails}
                 </div>
                 <div className='col'>
