@@ -244,7 +244,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         
         let textValue;
         let icon;
-
+        let PostCount = 0 as number;
         if(postList !== null && postList !== undefined){
             /*postList.order.map((item,index) => {
                 
@@ -252,7 +252,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             const postVal = postList.posts;
             Object.keys(postVal).map((key,index) => {
                 const fixVal = postVal[key];
-                console.log(fixVal);
+                if(fixVal.user_id === currentUser.id){
+                    postCount++;
+                }
             });
 
         }
@@ -480,7 +482,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='col-md-8'>
                                                 <div className='row'>
                                                     <div className='col-md-3 mt-5 text-center text-white'><p></p><br /><h4><label></label></h4></div>
-                                                    <div className='col-md-3 mt-5 text-center text-white'><p>Posts<br /></p><h4><strong>0</strong></h4></div>
+                                                    <div className='col-md-3 mt-5 text-center text-white'><p>Posts<br /></p><h4><strong>{PostCount}</strong></h4></div>
                                                     <div className='col-md-3 mt-5 text-center text-white'><p>Following<br /></p>{followingView}</div>
                                                     <div className='col-md-3 mt-5 text-center text-white'><p>Followers<br /></p>{followerView}</div>
                                                 </div>
@@ -552,7 +554,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='col-md-10 mx-auto mt-3 mb-1'>
                                         <div className='d-flex'>
-                                            <div className='col-md-4 text-center text-white width-100'><p>Posts</p><br /><h4><strong>0</strong></h4></div>
+                                            <div className='col-md-4 text-center text-white width-100'><p>Posts</p><br /><h4><strong>{PostCount}</strong></h4></div>
                                             <div className='col-md-4 text-center text-white width-100'><p>Following</p><br />{followingView}</div>
                                             <div className='col-md-4 text-center text-white width-100'><p>Followers</p><br />{followerView}</div>
                                         </div>
