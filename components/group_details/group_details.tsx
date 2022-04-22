@@ -33,7 +33,7 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
-        const uri = `./api/v4/channels/${this.props.channelId}/stats`;
+        /*const uri = `./api/v4/channels/${this.props.channelId}/stats`;
         const config = {
             method: "GET",
             headers: {
@@ -47,7 +47,7 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
             }
         }).catch(function(error) {
             console.log(error);
-        });  
+        });  */
 
         this.getStats();
     }
@@ -62,7 +62,8 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
         }
 
         const response = await fetch(uri,config);
-        console.log(response.json);
+        Promise.resolve(response.json()).then(value => {this.setState({data: value});})
+        console.log(response.json());
     }
 
     render= (): JSX.Element => {
