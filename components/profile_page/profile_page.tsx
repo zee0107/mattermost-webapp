@@ -46,6 +46,7 @@ import { CssFontSource } from '@stripe/stripe-js';
 import { toggleRHSPlugin } from 'actions/views/rhs';
 import { SocialCount } from 'mattermost-redux/types/crypto';
 import { PostList } from 'mattermost-redux/types/posts';
+import { post } from 'jquery';
 
 type Props = {
     status?: string;
@@ -246,12 +247,11 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
         if(postList !== null && postList !== undefined){
             postList.order.map((item,index) => {
-                postList.posts.map((item2,index2) => {
-                    if(item2.id === item){
-                        console.log(item2)
-                    }
-                });
+                const postVal = postList.posts.get(item);
+                console.log(postVal);
             });
+            
+
         }
         if(this.state.userActivity !== null && this.state.userActivity !== ''){
             const activityValue = this.state.userActivity.split('&');
