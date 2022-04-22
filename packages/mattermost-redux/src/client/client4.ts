@@ -2066,7 +2066,7 @@ export default class Client4 {
         const postList = this.getPosts(channelId);
         let listPost = {} as PostList;
         Promise.resolve(postList).then(value => { listPost = value; });
-        const listValue = listPost.posts.values();
+        const listValue = listPost.posts;
         console.log(listValue);
         return null;
     };
