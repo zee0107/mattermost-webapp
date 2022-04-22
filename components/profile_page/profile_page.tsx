@@ -8,6 +8,7 @@ import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/
 import deferComponentRender from 'components/deferComponentRender';
 import PostView from 'components/post_view_new';
 import EditPostModal from 'components/edit_post_modal';
+import Post from 'components/post_view_new/post';
 
 import homeImage from 'images/homeFeed.png';
 import coverImage from 'images/cover-photo.png';
@@ -245,15 +246,18 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let textValue;
         let icon;
         let PostCount = 0 as number;
+        let PostViewData;
         if(postList !== null && postList !== undefined){
-            /*postList.order.map((item,index) => {
-                
-            });*/
+            postList.order.map((item,index) => {
+                console.log(item[index-1]);
+                PostViewData =(<Post postId={item}/>);
+            });
             const postVal = postList.posts;
             Object.keys(postVal).map((key,index) => {
                 const fixVal = postVal[key];
                 if(fixVal.user_id === currentUser.id){
                     PostCount++;
+                    
                 }
             });
 
@@ -629,11 +633,11 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 </div>
                                 
                                 <div className='mtop-20'>
-                                    <DeferredPostView
+                                    {/*<DeferredPostView
                                         channelId='kqe4sihhdid47gprhk6dwbuc4o'
                                         //channelId='dodurztr1fbupnpenjgxqjso3a'
                                         focusedPostId={''}
-                                    />
+                                    />*/PostViewData}
                                 </div>
                             </div>
                             <div className='col-lg-4' id='rsvDesktop'>
