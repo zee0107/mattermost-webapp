@@ -96,6 +96,9 @@ export default class PostHeader extends React.PureComponent<Props> {
             <UserProfile
                 userId={post.user_id}
                 hasMention={true}
+                location={postDetailed.location}
+                activity={postDetailed.actvity}
+                shareInfo={postDetailed.share_info}
             />
         );
         let indicator;
@@ -109,6 +112,9 @@ export default class PostHeader extends React.PureComponent<Props> {
                         hideStatus={true}
                         overwriteName={post.props.override_username}
                         overwriteIcon={this.props.overwriteIcon}
+                        location={postDetailed.location}
+                        activity={postDetailed.actvity}
+                        shareInfo={postDetailed.share_info}
                     />
                 );
             } else {
@@ -116,6 +122,9 @@ export default class PostHeader extends React.PureComponent<Props> {
                     <UserProfile
                         userId={post.user_id}
                         hideStatus={true}
+                        location={postDetailed.location}
+                        activity={postDetailed.actvity}
+                        shareInfo={postDetailed.share_info}
                     />
                 );
             }
@@ -129,6 +138,9 @@ export default class PostHeader extends React.PureComponent<Props> {
                     userId={post.user_id}
                     hideStatus={true}
                     hasMention={true}
+                    location={postDetailed.location}
+                    activity={postDetailed.actvity}
+                    shareInfo={postDetailed.share_info}
                 />
             );
 
@@ -145,6 +157,9 @@ export default class PostHeader extends React.PureComponent<Props> {
                 <UserProfile
                     userId={post.user_id}
                     hideStatus={true}
+                    location={postDetailed.location}
+                    activity={postDetailed.actvity}
+                    shareInfo={postDetailed.share_info}
                 />
             );
         } else if (isSystemMessage) {
@@ -159,6 +174,9 @@ export default class PostHeader extends React.PureComponent<Props> {
                     }
                     overwriteImage={Constants.SYSTEM_MESSAGE_PROFILE_IMAGE}
                     disablePopover={true}
+                    location={postDetailed.location}
+                    activity={postDetailed.actvity}
+                    shareInfo={postDetailed.share_info}
                 />
             );
         }
