@@ -127,7 +127,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                             </div>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Following</p>
-                                                {followerView}
+                                                {followingView}
                                             </div>
                                             <div className='col-md-4'>
                                                 <p className='text-secondary'>Followers</p>
