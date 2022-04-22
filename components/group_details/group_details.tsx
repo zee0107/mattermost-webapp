@@ -62,7 +62,7 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
         }
 
         const response = await fetch(uri,config);
-        Promise.resolve(reponse.text()).then(value => {console.log (value)});
+        Promise.resolve(response.text()).then(value => {console.log (value)});
     }
 
     render= (): JSX.Element => {
