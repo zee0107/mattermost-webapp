@@ -46,7 +46,7 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
             console.log(error);
         });  
 
-        getStats();
+        this.getStats();
     }
 
     getStats = async () => {
