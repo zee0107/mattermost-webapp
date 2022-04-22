@@ -1582,7 +1582,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
                         
                         <div className='col-12 text-center mt-2'>
                             <div className='d-grid'>
-                                <a
+                                <button
                                     role='button'
                                     tabIndex={0}
                                     aria-label={formatMessage({
@@ -1599,7 +1599,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
                                             defaultMessage: 'Create a post',
                                         }}
                                     />&nbsp;Post
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
