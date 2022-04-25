@@ -132,7 +132,7 @@ export default class NewHeader extends React.PureComponent<Props, State> {
                 <div className='crypter-menu-desktop'>
                     <div className='container-fluid'>
                         <div className='d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start'>
-                            <a href='/cryter/channels/town-square' className='d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none'>
+                            <a href='/crypter/channels/town-square' className='d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none'>
                                 <img className='img-fluid' src={LogoBlack} alt='logo' title='logo'/>
                             </a>
                             <div className='col-12 me-lg-auto mb-2 justify-content-center mb-md-0 col-lg-3 input-search-div'>

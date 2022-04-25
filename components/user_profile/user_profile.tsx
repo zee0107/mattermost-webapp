@@ -179,7 +179,8 @@ export default class UserProfile extends PureComponent<UserProfileProps> {
                     >
                         {name}{shareInfoDetails}
                         <br />
-                        <span className='text-muted small'>{user.position}&nbsp;{shareInfoIcon}</span>
+                        {user && <span className='text-muted small'>{user.position}&nbsp;{shareInfoIcon}</span>}
+                        {!user && <span className='text-muted small'>&nbsp;{shareInfoIcon}</span>}
                     </button>
                 </OverlayTrigger>
                 {sharedIcon}
