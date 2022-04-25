@@ -520,10 +520,13 @@ export default class Root extends React.PureComponent {
                                         )}
                                     />
                                 ))}
-                                <LoginHFTRouteNS
-                                    path={'/profile'}
-                                    component={ProfilePage}
-                                />
+                                 <LoggedIn {...props}>
+                                    <LoginHFTRouteNS
+                                        path={'/profile'}
+                                        component={ProfilePage}
+                                    />
+                                 </LoggedIn>
+                                
                                  <LoginHFTRoute
                                     path={'/launchpad'}
                                     component={LaunchPad}
