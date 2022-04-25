@@ -42,6 +42,7 @@ import {browserHistory} from 'utils/browser_history';
 import { ChannelStats } from 'mattermost-redux/types/channels';
 import GroupDetail from 'components/group_details';
 import { result } from 'lodash';
+import { PostList } from 'mattermost-redux/types/posts';
 
 type Props = {
     channelId: string;
@@ -84,6 +85,7 @@ type State = {
     userActivity: string;
     shareInfo: string;
     feeling: boolean;
+    postList: PostList;
 };
 
 export default class ChannelView extends React.PureComponent<Props, State> {
@@ -138,7 +140,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             userActivity: '',
             userLocation: '',
             shareInfo: 'everyone',
-            postList: {},
         };
 
         this.onChangeShareInfo = this.onChangeShareInfo.bind(this);
