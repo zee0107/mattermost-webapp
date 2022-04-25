@@ -15,7 +15,7 @@ import ChannelHeader from 'components/channel_header';
 import CreatePost from 'components/create_post_all';
 import FileUploadOverlay from 'components/file_upload_overlay';
 import PostView from 'components/post_view_all';
-import Post from 'components/post_view_new/post';
+import Post from 'components/post_view_all/post';
 import {clearMarks, mark, measure, trackEvent} from 'actions/telemetry_actions.jsx';
 import FormattedMarkdownMessage from 'components/formatted_markdown_message';
 
@@ -603,10 +603,13 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                             </div>
                             <div className='col-md-12 pbot-20 bgGrey'></div>
                             <div className='col-md-12 removePadding'>
-                                <DeferredPostView
+                                {/*<DeferredPostView
                                         channelId={this.props.channelId}
                                         focusedPostId={this.state.focusedPostId}
-                                />
+                                />*/}
+                                {postList && postList.order.map((item,index) => {
+                                    return (<Post postId={item}></Post>);
+                                })}
                             </div>
                         </div>
                     </div>
