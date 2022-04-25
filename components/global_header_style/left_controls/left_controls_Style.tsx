@@ -8,7 +8,7 @@ import {isDesktopApp} from 'utils/user_agent';
 
 import HistoryButtons from './history_buttons';
 import ProductMenu from './product_menu';
-import Logo from 'images/logoLight.png';
+import Logo from 'images/logoBlack.png';
 
 const LeftControlsContainer = styled.div`
     display: flex;
