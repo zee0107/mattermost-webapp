@@ -42,11 +42,12 @@ const GlobalHeaderStyle = (): JSX.Element | null => {
     }
 
     return (
-        /*<GlobalHeaderContainer id='global-header'>
+        <>
+        <GlobalHeaderContainer id='global-header'>
             <LeftControls/>
             <CenterControls productId={currentProductID}/>
             <RightControls productId={currentProductID}/>
-        </GlobalHeaderContainer>*/
+        </GlobalHeaderContainer>
 
 
         <header className='header-crypter-menu position-sticky float-top-panel header-menus'>
@@ -238,6 +239,7 @@ const GlobalHeaderStyle = (): JSX.Element | null => {
                 </div>
             </div>*/}
         </header>
+        </>
     );
 };
 
