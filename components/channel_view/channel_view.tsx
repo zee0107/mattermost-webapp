@@ -14,6 +14,7 @@ import ChannelHeader from 'components/channel_header';
 import CreatePost from 'components/create_post_all';
 import FileUploadOverlay from 'components/file_upload_overlay';
 import PostView from 'components/post_view_all';
+import Post from 'components/post_view_all/post';
 import {clearMarks, mark, measure, trackEvent} from 'actions/telemetry_actions.jsx';
 import FormattedMarkdownMessage from 'components/formatted_markdown_message';
 
@@ -136,6 +137,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             userActivity: '',
             userLocation: '',
             shareInfo: 'everyone',
+            postList: {},
         };
 
         this.onChangeShareInfo = this.onChangeShareInfo.bind(this);
@@ -193,17 +195,27 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             if (this.props.channelIsArchived && !this.props.viewArchivedChannels) {
                 this.props.actions.goToLastViewedChannel();
             }
+
+            this.getPosts(this.props.channelId);
+        }
+    }
+
+    getPosts = async(id: string) => {
+        var response = await Client4.getPosts(id);
+        if (response !== null){
+            Promise.resolve(response).then(value => { this.setState({postList: value});});
         }
     }
 
     render() {
         const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName,channelDisplayName,channelId, currentUser} = this.props;
-        const { uploading, shareInfo, userLocation, feeling } = this.state;
+        const { uploading, shareInfo, userLocation, feeling, postList } = this.state;
         if (enableOnboardingFlow && showNextSteps && !showNextStepsEphemeral) {
             this.props.actions.setShowNextStepsView(true);
             browserHistory.push(`${teamUrl}/tips`);
         }
 
+        console.log(postList);
         let shareInfoBtn;
         let shareInfoDd;
         let location;
