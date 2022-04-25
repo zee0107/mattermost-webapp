@@ -174,7 +174,7 @@ export default class NewHeader extends React.PureComponent<Props, State> {
                                     {this.renderProfilePicture('md')} Crypter User <i className='bi-chevron-down'></i>
                                     </button>
                                     <ul className='dropdown-menu dropdown-menu-dark mt-1' aria-labelledby='dropdownMenuButton1'>
-                                    <li><a className='dropdown-item' href='profile.html'><i className='bi-person'></i> Profile</a></li>
+                                    <li><a className='dropdown-item' href='/profile'><i className='bi-person'></i> Profile</a></li>
                                     <li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
                                     <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>
                                     <li><a className='dropdown-item onSettingsandprivacy'><i className='bi-gear-wide'></i> Settings & Privacy</a></li>
