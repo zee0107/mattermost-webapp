@@ -656,6 +656,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
     };
 
     handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
         const {
             currentChannel: updateChannel,
             userIsOutOfOffice,
