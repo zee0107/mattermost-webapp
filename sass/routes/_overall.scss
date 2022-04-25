@@ -28,7 +28,6 @@ z-index: 99;
   border-radius: 50%;
 }
 
-
 button {
   ////font-family: "Montserrat-Regular";
   border: 0px;
@@ -67,54 +66,7 @@ p {
   //font-family: "Montserrat-Regular";
   font-size: 12px;
 }
-.box-mobile-top-search-products {
-  padding: 0px 0px 0px 0px;
-}
-.sort-by-content, .rating-content, .price-content, .categories-content {
-  display: none;
-}
-.onMarketsortby, .onMarketcategories, .onMarketprice, .onMarketrating {
-  cursor: pointer;
-  padding: 9px 8px 9px 8px;
-  margin: 0px 0px 0px 0px;
-  border-radius: 7px;
-}
-.marketsubmenu-active {
-  background: #62D443;
-  padding: 9px 8px 9px 8px;
-  margin: 0px 0px 0px 0px;
-  border-radius: 7px;
-  color:#ffffff;
-}
-.marketsubmenu-normal {
-  cursor: pointer;
-  background: #F4F9FD;
-  padding: 9px 8px 9px 8px;
-  margin: 0px 0px 0px 0px;
-  border-radius: 7px;
-  color:#222222;
-}
-.onViewentry {
-  cursor: pointer;
-  font-size: 24px;
-  padding: 10px 12px 10px 12px;
-  border-radius: 99px;
-  background: rgb(52,200,84);
-  background: linear-gradient(103deg, rgba(52,200,84,1) 0%, rgba(99,210,58,1) 42%, rgba(94,211,69,1) 48%, rgba(68,215,124,1) 100%);
-}
-.onViewentryclose {
-  display: none;
-  cursor: pointer;
-  font-size: 17px;
-  padding: 10px 12px 10px 12px;
-  border-radius: 99px;
-  background: rgb(52,200,84);
-  background: linear-gradient(103deg, rgba(52,200,84,1) 0%, rgba(99,210,58,1) 42%, rgba(94,211,69,1) 48%, rgba(68,215,124,1) 100%);
-}
-.data-entry-viewer {
-  display: none;
-}
-.onOverviewdown, .onBillingsummarydown, .onDiscountcodeup {
+.onOverviewdown {
 display: none;
 }
 .onDocmenu {
@@ -227,16 +179,6 @@ background: #F3F8FC;
   border: 0px;
   border-radius: 11px;
 }
-.select-search-forums:hover {
-  background: #F4F9FD;
-  border: 0px;
-  border-radius: 11px;
-}
-.select-search-forums:foru m{
-  background: #F4F9FD;
-  border: 0px;
-  border-radius: 11px;
-}
 .onSearchforums {
   padding: 11px 34px 11px 34px;
   box-shadow: 0px;
@@ -257,21 +199,12 @@ background: #F3F8FC;
   border-radius: 14px;
   padding: 8px 11px 8px 11px;
   border: 0px;
-  font-size: 14px;
 }
 .send-fund-inputs:hover {
   background: #F4F9FD;
   border-radius: 14px;
   padding: 8px 11px 8px 11px;
   border: 0px;
-  font-size: 14px;
-}
-.send-fund-inputs:focus {
-  background: #F4F9FD;
-  border-radius: 14px;
-  padding: 8px 11px 8px 11px;
-  border: 0px;
-  font-size: 14px;
 }
 .content-tokens, .content-transactions, .content-swap, .content-activity, .content-apps {
   display: none;
@@ -891,9 +824,8 @@ color: #F9D556;
 font-size:21px;
 }
 .marketplace-search-style {
-  width: 70%; 
-  z-index: 0;
-  margin: 9px 0px 0px 0px;
+width: 70%; 
+z-index: 0;
 }
 .search-icon-bg {
 background: #F4F9FD;
@@ -924,14 +856,6 @@ background: #F4F9FD;
   background: #80CF57;
   border-radius: 34px;
   padding: 0px 5px 0px 5px;
-  color: #fff;
-}
-.onBuyamounts {
-  cursor: pointer;
-  background: rgb(52,200,84);
-  background: linear-gradient(103deg, rgba(52,200,84,1) 0%, rgba(99,210,58,1) 40%, rgba(94,211,69,1) 51%, rgba(68,215,124,1) 100%);
-  border-radius: 8px;
-  padding: 4px 21px 4px 21px;
   color: #fff;
 }
 .selectaudiencephotosandvideos {
@@ -1072,13 +996,6 @@ background: #F4F9FD;
   padding: 195px 11px 195px 11px;
   margin: 0px 0px 0px 0px;
   border-radius: 6px;
-  background-size: cover; 
-}
-.box-top-profile-mobile {
-  background: url('../../assets/images/crypter-cover-profile-version.png') no-repeat center bottom #222222;
-  padding: 0px 0px 0px 0px;
-  margin: 0px 0px 0px 0px;
-  border-radius: 34px;
 
   background-size: cover; 
 }
@@ -1461,19 +1378,7 @@ margin:-12px 0px 0px 0px;
 }
 .editfieldssize {
   font-size: 12px;
-  background: #ffffff;
-}
-.editfieldssize:hover {
-  font-size: 12px;
-  background: #ffffff;
-}
-.editfieldssize:focus {
-  font-size: 12px;
-  background: #ffffff;
-}
-.editfieldssizemobile {
-  font-size: 12px;
-  background: #F4F9FD;
+background: #F4F9FD;
 }
 .editfieldssize:hover {
 font-size: 12px;
@@ -1594,7 +1499,7 @@ background: #F4F9FD;
   font-size: 10px;
 }
 .little-medium-text {
-  font-size: 12px;
+  font-size: 11px;
 }
 .hash-name {
 font-size: 12px;
@@ -1849,14 +1754,9 @@ z-index: 1;
   margin: 0px 0px 0px 0px;
   color: #fff;
 }
-.marketplace-title-content {
-  margin: -14px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-}
 .onForum {
   cursor: pointer;
-  background: rgb(52,200,84);
-  background: linear-gradient(103deg, rgba(52,200,84,1) 0%, rgba(99,210,58,1) 42%, rgba(94,211,69,1) 48%, rgba(68,215,124,1) 100%);
+  background: #80CF57;
   border-radius: 34px;
   padding: 12px 0px 7px 0px;
   margin: 0px 0px 0px 0px;
@@ -1864,8 +1764,7 @@ z-index: 1;
 }
 .onCartmarketplaceicon {
   cursor: pointer;
-background: rgb(52,200,84);
-background: linear-gradient(103deg, rgba(52,200,84,1) 0%, rgba(99,210,58,1) 42%, rgba(94,211,69,1) 48%, rgba(68,215,124,1) 100%);
+  background: #80CF57;
   border-radius: 34px;
   padding: 10px 15px 10px 15px;
   margin: 0px 0px 0px 0px;
@@ -2061,13 +1960,6 @@ color: #fff;
   background: #80CF57;
   border-radius: 34px;
   padding: 0px 5px 0px 5px;
-  color: #fff;
-}
-.onClosemarketplacecontent {
-  cursor: pointer;
-  background: #80CF57;
-  border-radius: 34px;
-  padding: 4px 7px 4px 7px;
   color: #fff;
 }
 .onCloseyourprivacy {
@@ -3048,9 +2940,6 @@ color: #fff;
 .onPublicselect, .onFriendselect, .onOnlyme {
   cursor: pointer;
 }
-.onSelectactionpublic, .onSelectactiononlyme {
-  display: none;
-}
 .onBacktopost {
   cursor: pointer;
 }
@@ -3312,14 +3201,6 @@ overflow-y: scroll;
   display: none;
   color: #7ACD5B;
   cursor: pointer;
-}
-.pagination-right-arrow {
-  color: #000;
-  margin: 0px 7px 0px 7px;
-}
-.pagination-left-arrow {
-  color: #000;
-  margin: 0px 7px 0px 7px;
 }
 .bi-chevron-right {
   background: #7DCE58;;
@@ -3759,12 +3640,6 @@ font-size: 15px;
   padding: 14px 14px 14px 14px;
 margin: 8px 0px 8px 0px;
 }
-.box-left-rating-panel {
-  background: #ffffff;
-  border-radius: 19px;
-  padding: 14px 14px 14px 14px;
-  margin: 8px 0px 8px 0px;
-}
 .box-left-panel-introduction {
 background: #ffffff;
 border-radius: 19px;
@@ -4106,16 +3981,6 @@ border: 0px;
 background: #F4F9FD;
 border-radius: 12px;
 }
-.input-create-new-group-amount-max:hover {
-  border: 0px;
-  background: #F4F9FD;
-  border-radius: 12px;
-}
-.input-create-new-group-amount-max:focus {
-  border: 0px;
-  background: #F4F9FD;
-  border-radius: 12px;
-}
 .input-create-new-group {
   border: 0px;
   background: #F4F9FD;
@@ -4132,62 +3997,59 @@ background: #F4F9FD;
 border-radius: 4px;
 }
 .onLockbutton {
-  background: #ffffff;
-  border: 1px solid #33C855;
-  border-radius: 8px;
-  padding: 8px 27px 8px 27px;
-  color: #33C855;
+background: #ffffff;
+border: 1px solid #33C855;
+border-radius: 14px;
+padding: 12px 27px 12px 27px;
+color: #33C855;
 }
 .onLockbuttoncreate {
-background: rgb(52,200,84);
-background: linear-gradient(103deg, rgba(52,200,84,1) 0%, rgba(99,210,58,1) 40%, rgba(94,211,69,1) 51%, rgba(68,215,124,1) 100%);
-  border: 1px solid #33C855;
-  border-radius: 9px;
-  padding: 8px 27px 8px 27px;
-  color: #ffffff;
-  font-size: 12px;
+background: #33C855;
+border: 1px solid #33C855;
+border-radius: 9px;
+padding: 8px 27px 8px 27px;
+color: #ffffff;
+font-size: 12px;
 }
 .onLockbuttoncreatemobile {
-background: rgb(52,200,84);
-background: linear-gradient(103deg, rgba(52,200,84,1) 0%, rgba(99,210,58,1) 40%, rgba(94,211,69,1) 51%, rgba(68,215,124,1) 100%);
-  border: 1px solid #33C855;
-  border-radius: 8px;
-  padding: 8px 7px 8px 7px;
-  color: #ffffff;
-  font-size: 11px;
+background: #33C855;
+border: 1px solid #33C855;
+border-radius: 9px;
+padding: 8px 21px 8px 21px;
+color: #ffffff;
+font-size: 11px;
 }
 .onLockbuttoncreatenormalmobile {
-  background: #ffffff;
-  border: 1px solid #33C855;
-  border-radius: 9px;
-  padding: 8px 7px 8px 7px;
-  color: #33C855;
-  font-size: 11px;
+background: #ffffff;
+border: 1px solid #33C855;
+border-radius: 9px;
+padding: 8px 21px 8px 21px;
+color: #33C855;
+font-size: 11px;
 }
 .onLockbuttoncreatenormal {
-  background: #ffffff;
-  border: 1px solid #33C855;
-  border-radius: 9px;
-  padding: 8px 27px 8px 27px;
-  color: #33C855;
-  font-size: 12px;
+background: #ffffff;
+border: 1px solid #33C855;
+border-radius: 9px;
+padding: 8px 27px 8px 27px;
+color: #33C855;
+font-size: 12px;
 }
 .onLockbuttongoback {
-  background: #ffffff;
-  border: 1px solid #33C855;
-  border-radius: 9px;
-  padding: 8px 8px 8px 8px;
-  color: #33C855;
-  font-size: 12px;
+background: #ffffff;
+border: 1px solid #33C855;
+border-radius: 9px;
+padding: 8px 27px 8px 27px;
+color: #33C855;
+font-size: 12px;
 }
 .onLockbuttonunlocksin {
-background: rgb(52,200,84);
-background: linear-gradient(103deg, rgba(52,200,84,1) 0%, rgba(99,210,58,1) 40%, rgba(94,211,69,1) 51%, rgba(68,215,124,1) 100%);
-  border: 1px solid #33C855;
-  border-radius: 9px;
-  padding: 8px 12px 8px 12px;
-  color: #ffffff;
-  font-size: 12px;
+background: #3DCA50;
+border: 1px solid #33C855;
+border-radius: 9px;
+padding: 8px 12px 8px 12px;
+color: #ffffff;
+font-size: 12px;
 }
 .style-img-liquidity {
 margin: 0px 0px 0px -21px;
@@ -4196,22 +4058,21 @@ margin: 0px 0px 0px -21px;
 margin: -26px 0px 0px 0px;
 }
 .onLockbuttonunlocksinmobile {
-background: rgb(52,200,84);
-background: linear-gradient(103deg, rgba(52,200,84,1) 0%, rgba(99,210,58,1) 40%, rgba(94,211,69,1) 51%, rgba(68,215,124,1) 100%);
-  border: 1px solid #33C855;
-  border-radius: 8px;
-  padding: 8px 3px 8px 3px;
-  margin: 0px 0px 0px 0px;
-  color: #ffffff;
-  font-size: 11px;
+background: #3DCA50;
+border: 1px solid #33C855;
+border-radius: 9px;
+padding: 8px 3px 8px 3px;
+margin: 0px 12px 0px 12px;
+color: #ffffff;
+font-size: 11px;
 }
 .onLockbuttonumbers {
-  background: #ffffff;
-  border: 1px solid #33C855;
-  border-radius: 8px;
-  padding: 8px 12px 8px 12px;
-  color: #33C855;
-  font-size: 12px;
+background: #ffffff;
+border: 1px solid #33C855;
+border-radius: 9px;
+padding: 8px 12px 8px 12px;
+color: #33C855;
+font-size: 12px;
 }
 .arrow-head-down {
 font-size: 38px;
@@ -4359,12 +4220,6 @@ background: #ffffff;
 border-left: 4px solid #1867FF;
 padding: 10px 3px 10px 3px;
 margin: 0px 0px 0px 0px;
-}
-.box-middle-panel-fund-middle:focus {
-  background: #ffffff;
-  border-left: 4px solid #1867FF;
-  padding: 10px 3px 10px 3px;
-  margin: 0px 0px 0px 0px;
 }
 .box-middle-panel-fund-right {
 background: #ffffff;
@@ -4949,18 +4804,6 @@ margin:-39px 0px 0px 0px;
 width: 60%;
 margin: 0px 0px 0px 0px;
 padding: 0px 0px 0px 0px;
-}
-.onSelectactionfriendsdesktop {
-  cursor: pointer;
-}
-.whats-going-on-here-desktop-style {
-  width: 70%;
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-}
-.button-share-camera-desktop-globe {
-  width: 30%;
-  margin: 0px 0px 0px 0px;
 }
 .button-share-camera-globe {
 width: 40%;
