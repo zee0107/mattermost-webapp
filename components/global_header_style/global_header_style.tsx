@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import CenterControls from './center_controls/center_controls_style';
 import LeftControls from './left_controls/left_controls_Style';
 import RightControls from './right_controls/right_controls_style';
+import LogoBlack from 'images/logoBlack.png'
 
 import {useCurrentProductId, useIsLoggedIn, useProducts} from './hooks';
 
@@ -55,7 +56,7 @@ const GlobalHeaderStyle = (): JSX.Element | null => {
                 <div className='container-fluid'>
                     <div className='d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start'>
                         <a href='/cryter/channels/town-square' className='d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none'>
-                            <img className='img-fluid' src='assets/images/logo.png' alt='logo' title='logo'/>
+                            <img className='img-fluid' src={LogoBlack} alt='logo' title='logo'/>
                         </a>
                         <div className='col-12 me-lg-auto mb-2 justify-content-center mb-md-0 col-lg-3 input-search-div'>
                             <form>
@@ -92,7 +93,10 @@ const GlobalHeaderStyle = (): JSX.Element | null => {
                                 </ul>
                         </div>
                         <div className='text-end'>
-                            <a className='onLogout'><img className='img-fluid' src='assets/images/icon-logout.png' alt='Logout' title='Logout' />Logout</a>
+                            <a className='onLogout'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-box-arrow-in-right logout-icon" viewBox="0 0 16 16">
+                                <path fillRule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" fill='var(--text-primary)'/>
+                                <path fillRule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" fill='var(--text-primary)'/>
+                            </svg> Logout</a>
                         </div>
                     </div>
                 </div>
