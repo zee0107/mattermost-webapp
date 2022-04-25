@@ -221,7 +221,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         if(postList !== null && postList !== undefined)
         {
             console.log(postList);
-            postData = (
+            PostData = (
                 <>
                     {postList.order.map((item,index) => {
                         return (<Post postId={item}/>);
