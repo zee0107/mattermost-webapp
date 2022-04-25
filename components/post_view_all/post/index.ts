@@ -53,7 +53,7 @@ function makeMapStateToProps() {
     return (state: GlobalState, ownProps: OwnProps) => {
         const post = ownProps.post || getPost(state, ownProps.postId);
         console.log('Post: ',ownProps.postId);
-        const postDetailed = Client4.getPostDetailed(post.id);
+        const postDetailed = Client4.getPostDetailed(ownProps.postId);
         const channel = getChannel(state, post.channel_id);
 
         let previousPost = null;
