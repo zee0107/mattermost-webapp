@@ -217,6 +217,11 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             browserHistory.push(`${teamUrl}/tips`);
         }
 
+
+        if(postList !== null && postList !== undefined)
+        {
+            console.log(postList);
+        }
         /*let PostData;
         if(postList !== null && postList !== undefined)
         {
@@ -602,7 +607,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                     channelId={this.props.channelId}
                                     focusedPostId={this.state.focusedPostId}
                             />*/}
-                            {postList && postList.order.map((item,index) => {
+                            {!postList && postList.order.map((item,index) => {
                                         return (<Post postId={item}/>);
                                     })}
                             </div>
