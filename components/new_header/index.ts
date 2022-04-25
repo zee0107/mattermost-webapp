@@ -37,11 +37,11 @@ function makeMapStateToProps() {
         return {
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
-            coverPhoto: Client4.getProfileCover(userId),
+            currentUser,
+            /*coverPhoto: Client4.getProfileCover(userId),
             autoResetPref: get(state, Preferences.CATEGORY_AUTO_RESET_MANUAL_STATUS, userId, ''),
             status: getStatusForUserId(state, userId),
             customStatus,
-            currentUser,
             socialCount,
             getPostList,
             isCustomStatusEnabled: isCustomStatusEnabled(state),
@@ -52,12 +52,12 @@ function makeMapStateToProps() {
             timezone: getCurrentUserTimezone(state),
             lhsOpen: getIsLhsOpen(state),
             rhsOpen: getIsRhsOpen(state),
-            rhsMenuOpen: getIsRhsMenuOpen(state),
+            rhsMenuOpen: getIsRhsMenuOpen(state),*/
         };
     };
 }
 
-function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
+/*function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
     return {
         actions: bindActionCreators({
             openModal,
@@ -66,6 +66,6 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
             setStatusDropdown,
         }, dispatch),
     };
-}
+}*/
 
-export default connect(makeMapStateToProps, mapDispatchToProps)(NewHeader);
+export default connect(makeMapStateToProps/*, mapDispatchToProps*/)(NewHeader);

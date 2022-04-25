@@ -51,11 +51,12 @@ import { PostList } from 'mattermost-redux/types/posts';
 import { post } from 'jquery';
 
 type Props = {
-    status?: string;
+    //status?: string;
     userId: string;
-    coverPhoto: Promise<string>;
+    //coverPhoto: Promise<string>;
     profilePicture: string;
-    autoResetPref?: string;
+    currentUser: UserProfile;
+    /*autoResetPref?: string;
     actions: {
         openModal: <P>(modalData: ModalData<P>) => void;
         setStatus: (status: UserStatus) => ActionFunc;
@@ -64,7 +65,6 @@ type Props = {
     };
     socialCount: Promise<SocialCount>;
     customStatus?: UserCustomStatus;
-    currentUser: UserProfile;
     isCustomStatusEnabled: boolean;
     isCustomStatusExpired: boolean;
     isMilitaryTime: boolean;
@@ -75,7 +75,7 @@ type Props = {
     lhsOpen: boolean;
     rhsOpen: boolean;
     rhsMenuOpen: boolean;
-    getPostList: Promise<PostList>;
+    getPostList: Promise<PostList>;*/
 }
 
 type State = {
@@ -124,7 +124,7 @@ export default class NewHeader extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {globalHeader, currentUser, profilePicture} = this.props;
+        const {currentUser} = this.props;
 
         return (
             <header className='header-crypter-menu position-sticky float-top-panel header-menus'>
