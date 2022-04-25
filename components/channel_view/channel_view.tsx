@@ -589,11 +589,11 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                             {/*<DeferredPostView
                                     channelId={this.props.channelId}
                                     focusedPostId={this.state.focusedPostId}
-                                />
-                            </div>*/}
-                            {postList && postList.order.map((item,index) => {
+                            />*/}
+                                {postList && postList.order.map((item,index) => {
                                         return (<Post postId={item}/>);
                                     })}
+                            </div>
                         </div>
                     </div>
                 </div>
