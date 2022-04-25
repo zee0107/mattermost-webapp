@@ -217,18 +217,18 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             browserHistory.push(`${teamUrl}/tips`);
         }
 
-        /*let PostData;
+        let PostData;
         if(postList !== null && postList !== undefined)
         {
             console.log(postList);
-            PostData = (
+            /*PostData = (
                 <>
                     {postList.order.map((item,index) => {
                         return (<Post postId={item}/>);
                     })}
                 </>
-            );
-        }*/
+            );*/
+        }
         let shareInfoBtn;
         let shareInfoDd;
         let location;
