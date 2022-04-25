@@ -5,6 +5,7 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
+import Client4 from 'mattermost-redux/client/client4';
 import {UserProfile} from 'mattermost-redux/types/users';
 import UserStory from 'components/user_story/user_story';
 import RigthSideView from 'components/right_side_view';
