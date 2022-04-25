@@ -128,6 +128,7 @@ export default class NewHeader extends React.PureComponent<Props, State> {
         console.log(currentUser);
 
         return (
+            <>
             <div className='crypter-menu-desktop position-sticky float-top-panel'>
                 <header className='header-crypter-menu header-menus'>
                     <div className='container-fluid'>
@@ -190,6 +191,65 @@ export default class NewHeader extends React.PureComponent<Props, State> {
                     </div>
                 </header>
             </div>
+            <div style={{ zIndex: 8,}} className='offcanvas offcanvas-end shadow-lg' data-scroll='true' data-backdrop='false' tabIndex='-1' id='offcanvasRightLabelfriendsdesktop' aria-labelledby='offcanvasRightLabelfriendsdesktop'>
+                <div className='chat-list-indexes'>
+                    <div className='offcanvas-header'>
+                        <h6 id='offcanvasRightLabelfriendsdesktop'>
+                            <i className='bi-person-plus-fill'></i> Friends</h6>
+                            <a className='btn-close-canvas shadow' data-dismiss='offcanvas' aria-label='Close'><i className='bi-x'></i></a>
+                    </div>
+                <div className='offcanvas-body'>
+                    <div className='list-group mt-3 mb-3'>
+                        <strong>Friend request</strong>
+                        <div className='list-group-item list-group-item-action border-0 friends-contents'>
+                            <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
+                                <label className='mb-0'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-6.png' alt='User name' title='Username'/> Firstname</label>
+                                <label className='mt-2 approve-reject-text'><a className='approveActions'>Confirm</a> | <a className='rejeectActions'>Delete</a></label>
+                                <label className='mt-2 approve-text'><i className='bi-check-lg'></i> Approve</label>
+                                <label className='mt-2 reject-text'><a className='reject-actions'><i className='bi-x-lg'></i> Delete</a></label>
+                            </div>
+                        </div>
+                        <div className='list-group-item list-group-item-action border-0'>
+                            <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
+                                <label className='mb-0'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-5.png' alt='User name' title='Username'/> Firstname</label>
+                                <label className='mt-2'>Confirm | Delete</label>
+                            </div>
+                        </div>
+                        <div className='list-group-item list-group-item-action border-0'>
+                            <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
+                                <label className='mb-0'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-4.png' alt='User name' title='Username'/> Firstname</label>
+                                <label className='mt-2'>Confirm | Delete</label>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div className='list-group mt-3 mb-3'>
+                        <strong>People You May Know</strong>
+                        <div className='list-group-item list-group-item-action border-0 add-friends-contents'>
+                            <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
+                                <label className='mb-0'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture.png' alt='User name' title='Username'/> Firstname</label>
+                                <label className='mt-2 addfriend-remove-text'><a className='addfriendActions'>Add Friend</a> | <a className='removeActions'>Remove</a></label>
+                                <label className='mt-2 addfriend-text'><i className='bi-check-lg'></i> Add Friend Request Sent</label>
+                                <label className='mt-2 remove-text'><a className='removehideActions'><i className='bi-x-lg'></i> Remove</a></label>
+                            </div>
+                        </div>
+                        <div className='list-group-item list-group-item-action border-0'>
+                            <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
+                                <label className='mb-0'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'/> Firstname</label>
+                                <label className='mt-2'>Add Friend | Remove</label>
+                            </div>
+                        </div>
+                        <div className='list-group-item list-group-item-action border-0'>
+                            <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
+                                <label className='mb-0'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> Firstname</label>
+                                <label className='mt-2'>Add Friend | Remove</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </>
         );
     }
 }
