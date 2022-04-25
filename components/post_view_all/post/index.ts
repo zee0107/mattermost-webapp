@@ -4,7 +4,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators, Dispatch} from 'redux';
 
-import {getChannel} from 'mattermost-redux/selectors/entities/channels';
+import {getChannel, getCurrentChannel} from 'mattermost-redux/selectors/entities/channels';
 import {getPost, makeIsPostCommentMention, makeGetCommentCountForPost} from 'mattermost-redux/selectors/entities/posts';
 import {get, isCollapsedThreadsEnabled} from 'mattermost-redux/selectors/entities/preferences';
 import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
@@ -54,7 +54,7 @@ function makeMapStateToProps() {
         const post = ownProps.post || getPost(state, ownProps.postId);
         console.log('State: ',state);
         const postDetailed = Client4.getPostDetailed(ownProps.postId);
-        const channel = getChannel(state, post.channel_id);
+        const channel = getCurrentChannel(state);
 
         let previousPost = null;
         if (ownProps.previousPostId) {
