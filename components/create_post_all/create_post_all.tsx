@@ -1591,6 +1591,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
                                     })}
                                     className='btneditProfile btn-md btn-create-post width-100 text-white p-2'
                                     onClick={this.handleSubmit}
+                                    data-dismiss='modal'
                                 >
                                     <LocalizedIcon
                                         className='fa fa-paper-plane'
