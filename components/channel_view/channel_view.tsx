@@ -222,11 +222,11 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         {
             console.log(postList);
             PostData = (
-                <> 
+                <div> 
                     {postList.order.map((item,index) => {
                         return (<Post postId={item}/>);
                     })}
-                </>
+                </div>
             );
         }
         let shareInfoBtn;
