@@ -15,7 +15,7 @@ import ChannelHeader from 'components/channel_header';
 import CreatePost from 'components/create_post_all';
 import FileUploadOverlay from 'components/file_upload_overlay';
 import PostView from 'components/post_view_all';
-import Post from 'components/post_view_all/post';
+import Post from 'components/post_view_new/post';
 import {clearMarks, mark, measure, trackEvent} from 'actions/telemetry_actions.jsx';
 import FormattedMarkdownMessage from 'components/formatted_markdown_message';
 
