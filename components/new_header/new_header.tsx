@@ -160,7 +160,7 @@ export default class NewHeader extends React.PureComponent<Props, State> {
                             </div>
                             <div className='dropdown'>
                                     <button className='btn-crypter-user' type='button' id='dropdownMenuButton1' data-toggle='dropdown' aria-expanded='false'>
-                                    {/*<img width='25' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture.png' alt='User name' title='Username'/>*/ this.renderProfilePicture('md')} {/*currentUser.first_name} <i className='bi bi-chevron-down'></i>
+                                    {/*<img width='25' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture.png' alt='User name' title='Username'/>*/ this.renderProfilePicture('md')} {/*currentUser.first_name} <i className='bi bi-chevron-down'>*/}</i>
                                     </button>
                                     <ul className='dropdown-menu dropdown-menu-dark mt-1' aria-labelledby='dropdownMenuButton1'>
                                         <li><a className='dropdown-item' href='profile.html'><i className='bi bi-person'></i> Profile</a></li>
