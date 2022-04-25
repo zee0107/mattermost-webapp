@@ -521,6 +521,7 @@ export default class Root extends React.PureComponent {
                                     />
                                 ))}
                                 <LoginHFTRouteNS
+                                    {...this.props}
                                     path={'/profile'}
                                     component={ProfilePage}
                                 />
