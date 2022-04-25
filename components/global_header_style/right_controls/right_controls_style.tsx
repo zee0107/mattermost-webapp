@@ -73,13 +73,13 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
             <path fillRule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" fill='var(--text-primary)'/>
             </svg> Logout</button>
 
-            <div style=' z-index: 8;' className='offcanvas offcanvas-end shadow-lg' data-bs-scroll='true' data-bs-backdrop='false' tabIndex='-2' id='offcanvasRightLabelfriendsdesktop' aria-labelledby='offcanvasRightLabelfriendsdesktop'>
+            <div style={{ zIndex: 8}} className='offcanvas offcanvas-end shadow-lg' data-bs-scroll='true' data-bs-backdrop='false' tabIndex='-2' id='offcanvasRightLabelfriendsdesktop' aria-labelledby='offcanvasRightLabelfriendsdesktop'>
                 <div className='chat-list-indexes'>
-                <div className='offcanvas-header'>
-                    <h6 id='offcanvasRightLabelfriendsdesktop'>
-                        <i className='bi-person-plus-fill'></i> Friends</h6>
-                        <a className='btn-close-canvas shadow' data-dismiss='offcanvas' aria-label='Close'><i className='bi-x'></i></a>
-                </div>
+                    <div className='offcanvas-header'>
+                        <h6 id='offcanvasRightLabelfriendsdesktop'>
+                            <i className='bi-person-plus-fill'></i> Friends</h6>
+                            <a className='btn-close-canvas shadow' data-dismiss='offcanvas' aria-label='Close'><i className='bi-x'></i></a>
+                    </div>
                 <div className='offcanvas-body'>
                     <div className='list-group mt-3 mb-3'>
                         <strong>Friend request</strong>
