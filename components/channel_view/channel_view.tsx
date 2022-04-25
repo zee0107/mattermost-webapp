@@ -617,7 +617,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 <div id='rsvDesktop' className='col-md-4'>
                     <RigthSideView></RigthSideView>
                 </div>
-
                 <div className='modal postcontent' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
                     <div className='modal-dialog modal-dialog-centered'>
                         <div className='modal-content'>
