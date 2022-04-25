@@ -220,7 +220,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
         if(postList !== null && postList !== undefined)
         {
-            Object.keys(postList.posts).map((item,index) => { console.log(item);});
+            Object.keys(postList.posts).map((item,index) => { console.log(postList.posts[item]);});
         }
         /*let PostData;
         if(postList !== null && postList !== undefined)
