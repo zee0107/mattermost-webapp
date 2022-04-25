@@ -217,7 +217,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             browserHistory.push(`${teamUrl}/tips`);
         }
 
-        let PostData;
+        /*let PostData;
         if(postList !== null && postList !== undefined)
         {
             console.log(postList);
@@ -228,7 +228,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     })}
                 </>
             );
-        }
+        }*/
         let shareInfoBtn;
         let shareInfoDd;
         let location;
@@ -598,11 +598,10 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                             </div>
                             <div className='col-md-12 pbot-20 bgGrey'></div>
                             <div className='col-md-12 removePadding'>
-                            {/*<DeferredPostView
+                            <DeferredPostView
                                     channelId={this.props.channelId}
                                     focusedPostId={this.state.focusedPostId}
-                            />*/}
-                                    {PostData}
+                            />
                             </div>
                         </div>
                     </div>
