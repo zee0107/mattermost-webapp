@@ -228,7 +228,7 @@ export default class LaunchpadToken extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                 </div>
-                                <div className='col-sm-3' id="side_menu_right">
+                                <div className='col-sm-3 removePaddingRight' id="side_menu_right">
                                     {btcContent}
                                     {ltcContent}
                                     {ethContent}

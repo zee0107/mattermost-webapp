@@ -130,7 +130,7 @@ export default class LaunchpadCreatetoken extends React.PureComponent<Props, Sta
                                 <div className='col-sm-9'>
                                     <CreateLock/>
                                 </div>
-                                <div className='col-sm-3' id="side_menu_right">
+                                <div className='col-sm-3 removePaddingRight' id="side_menu_right">
                                     {btcContent}
                                     {ltcContent}
                                     {ethContent}

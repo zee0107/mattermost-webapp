@@ -143,7 +143,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                 <div className='col-sm-9'>
                                     {middleRender}
                                 </div>
-                                <div className='col-sm-3' id="side_menu_right">
+                                <div className='col-sm-3 removePaddingRight' id="side_menu_right">
                                     {btcContent}
                                     {ltcContent}
                                     {ethContent}
