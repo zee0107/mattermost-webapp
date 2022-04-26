@@ -59,9 +59,9 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                 <div className='container'>
                     <div className='row'>
                         <div className='col-12'>
-                            <a className='btn onLockbuttoncreate float-end ms-1'><small>Connect</small></a>
-                            <a className='onLockbuttoncreatenormal float-end ms-1 me-1'><small>BSC Mainnet</small></a>
-                            <a className="btn onLockbuttoncreate float-end me-1"><small>Create</small></a>
+                            <a className='onLockbuttoncreate float-end mr-1'><small>Connect</small></a>
+                            <a className='onLockbuttoncreatenormal float-end mr-1 ml-1'><small>BSC Mainnet</small></a>
+                            <a className="onLockbuttoncreate float-end ml-1"><small>Create</small></a>
                         </div>
                     </div>
                     <div className='d-flex mb-2'>
