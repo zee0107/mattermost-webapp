@@ -162,13 +162,13 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                 <div className='row'>
                     {this.state.data.filter(t => t.status === 'ENDED').map((item,key) => {
                         let projectName;
-                        if(item.project_name.length >== 33){
-                            projectName = item.project_name.substring(0, 33);
+                        if (item.project_name.length > 32){
+                            projectName = item.project_name.substring(0,33);
                         }
                         else{
                             projectName = item.project_name;
                         }
-                        
+
                         return(
                             <div className='col-md-4'>
                                 <div className='col-md-12 project-item-box'>
