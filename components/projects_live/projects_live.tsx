@@ -64,7 +64,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.projects).then(value => {this.setState({data: value});})
         }
 
-        var filter = window.locaStrorage.getItem('filter');
+        var filter = locaStrorage.getItem('filter');
         if(filter !== '' && filter!== undefined && filter !== null){
             this.setState({ filter: filter});
         }
@@ -72,7 +72,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
 
     changeFilter(event) {
         this.setState({filter: event.target.value});
-        window.localStorage.setItem('filter',event.target.value);
+        localStorage.setItem('filter',event.target.value);
     }
 
     renderTime = (date: string) =>{
