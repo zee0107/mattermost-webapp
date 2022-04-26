@@ -279,7 +279,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-md-12'>
-                                        <h5 className='text-primary' key={key + item.coin.symbol + '-name'}>{projectName.toLowerCase()}</h5>
+                                        <h5 className='text-primary' key={key + item.coin.symbol + '-name'}>{projectName.toLowerCase()}..</h5>
                                         <CurrencyCap symbol={item.coin.symbol} />
                                         <br></br>
                                         <p className='small text-secondary'>
