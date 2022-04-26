@@ -172,21 +172,21 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                                 <div className='row'>
                                     <div className='btn-group' role='group' aria-label='Basic example'>
-                                    <a className='btn onLockbuttoncreate'><small>Connect</small></a>
-                                    <a className='btn onLockbuttoncreatenormal'><small>BSC Mainnet</small></a>
-                                    <a className='btn onLockbuttoncreate'><small>Create</small></a>
+                                    <a className='onLockbuttoncreate'><small>Connect</small></a>
+                                    <a className='onLockbuttoncreatenormal'><small>BSC Mainnet</small></a>
+                                    <a className='onLockbuttoncreate'><small>Create</small></a>
                                     </div>
                                 </div>
 
-                                <div className='row mb-2 mt-4'>
-                                <div className='col-2 mt-3'><span className='count-steps rounded-circle text-white'>1</span></div>
-                                <div className='col-10'>
-                                    <h6 className='mt-2 mb-3'>Verify Token</h6>
-                                    <p>Enter the token address and verify</p></div>
+                                <div className='d-flex mb-2 mt-4'>
+                                    <div className='col-2 mt-3 mr-3'><span className='count-steps rounded-circle text-white'>1</span></div>
+                                    <div className='col-10'>
+                                        <h4 className='mt-2 mb-3'>Verify Token</h4>
+                                        <p>Enter the token address and verify</p></div>
                                 </div>
 
                                 <div className='launchpad-create-lock-mobile'>
-                                    <div className='row'>
+                                    <div className='col-md-12'>
                                         <form>
                                             <div className='row'>
                                             <div className='col-12 mt-2 mb-2'>
@@ -198,7 +198,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                             <div className='row mt-2'>
                                             <div className='col-12'>
                                                 <small className='float-start mt-1'>Create pool fee: 1 BNB</small>
-                                                <button type='button' className='btn btn-sm btn-create-token float-end onCreatetokens'>Create token</button>
+                                                <button type='button' className='btn-sm btn-create-token float-end onCreatetokens'>Create token</button>
                                             </div>
                                             </div>
 
@@ -235,7 +235,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                                             <div className='row mt-3'>
                                             <div className='col-lg-12 text-center'>
-                                                <button type='button' className='btn btn-sm btn-create-token' disabled>Next</button>
+                                                <button type='button' className='btn-sm btn-create-token' disabled>Next</button>
                                             </div>
                                             </div>
                                             
@@ -251,30 +251,29 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                                 </div>
                                             </div>
                                             </div>
-                                        
-                                        </form>  
+                                        </form>
                                     </div>
                                 </div>
 
-                                <div className='row mt-4'>
-                                <div className='col-2 mt-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>2</span></div>
-                                <div className='col-10'>
-                                    <h6 className='mt-2 mb-3'>Defi Launchpad Info</h6>
-                                    <p>Enter the launchpad information that you want to raise , that should be enter all details about your presale</p></div>
+                                <div className='d-flex mt-4'>
+                                    <div className='col-2 mt-3 mr-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>2</span></div>
+                                    <div className='col-10'>
+                                        <h4 className='mt-2 mb-3'>Defi Launchpad Info</h4>
+                                        <p>Enter the launchpad information that you want to raise , that should be enter all details about your presale</p></div>
                                 </div>
 
-                                <div className='row mt-4'>
-                                <div className='col-2 mt-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>3</span></div>
-                                <div className='col-10'>
-                                    <h6 className='mt-2 mb-3'>Additional Info</h6>
-                                    <p>Let people know who you are</p></div>
+                                <div className='d-flex mt-4'>
+                                    <div className='col-2 mt-3 mr-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>3</span></div>
+                                    <div className='col-10'>
+                                        <h4 className='mt-2 mb-3'>Additional Info</h4>
+                                        <p>Let people know who you are</p></div>
                                 </div>
 
-                                <div className='row mt-4'>
-                                <div className='col-2 mt-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>4</span></div>
-                                <div className='col-10'>
-                                    <h6 className='mt-2 mb-3'>Finish</h6>
-                                    <p>Review your information</p></div>
+                                <div className='d-flex mt-4'>
+                                    <div className='col-2 mt-3 mr-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>4</span></div>
+                                    <div className='col-10'>
+                                        <h4 className='mt-2 mb-3'>Finish</h4>
+                                        <p>Review your information</p></div>
                                 </div>
 
                                 <div className='row'>
