@@ -537,9 +537,9 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     {viewDetail}
                     <div className='col-md-12 mtop-10 removePadding'>
                         <div
-                            /*ref={this.channelViewRef}
+                            ref={this.channelViewRef}
                             id='app-content'
-                            className='app__content pt-0'*/
+                            className='app__content pt-0'
                             >
                             <FileUploadOverlay overlayType='center'/>
                             <div className='box-middle-panel crypter-section-profile-desktop'>
@@ -603,10 +603,13 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                             </div>
                             <div className='col-md-12 pbot-20 bgGrey'></div>
                             <div className='col-md-12 removePadding'>
-                                {<DeferredPostView
+                                <DeferredPostView
                                         channelId={this.props.channelId}
                                         focusedPostId={this.state.focusedPostId}
-                                />}
+                                />
+                                {/*postList && postList.order.map((item,index) => {
+                                    Object.keys(postList.posts).map((item2,index2) => {return (<Post postId={item} post={postList.posts[item2]}></Post>);});
+                                })*/}
                             </div>
                         </div>
                     </div>

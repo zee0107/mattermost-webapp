@@ -55,72 +55,115 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         return (
-            <div id="createToken" className='col-lg-12'>
-                <div className='d-flex margin-top-30-responsive'>
-                    <div className='col-lg-2'>
-                        <div className='d-flex'>
-                            <img src={fillImage} className='fill-img'></img>
-                            <p className='fill-text'>1</p>
+            <div className='crypter-section-desktop' id="crypter-section" >
+                <div className='container'>
+                    <div className='row'>
+                        <div className='col-12'>
+                            <a className='btn onLockbuttoncreate float-end ms-1'><small>Connect</small></a>
+                            <a className='btn onLockbuttoncreatenormal float-end ms-1 me-1'><small>BSC Mainnet</small></a>
+                            <a className="btn onLockbuttoncreate float-end me-1"><small>Create</small></a>
                         </div>
                     </div>
-                    <div className='col-lg-10 removePaddingLeft'>
-                        <h3 className='text-primary'>Verify Token</h3>
-                        <p className='text-primary'>Please enter your verification token from your account.</p>
-                    </div>
-                </div>
-                <div className='create-token-box'>
-                    <h4 className='text-primary'>* Token Address</h4>
-                    <input type='text' className='form-control custom-token-input' placeholder='Ex. PinkMoon'></input>
-                    <div className='d-flex padding-top'>
-                        <div className='col-md-6 width-50'>
-                            <label className='currency-value-text small'>Create Pool Fee: 1 BNB</label>
-                        </div>
-                        <div className='col-md-6 token-buttom-div'>
-                            <button type='button' className='btn buttonBgWhite'>Create Token</button>
-                        </div>
-                    </div>
-                </div>
-                <div className='d-flex margin-top-30-responsive'>
-                    <div className='col-lg-2'>
-                        <div className='d-flex'>
-                            <img src={fillImage} className="fill-img"></img>
-                            <p className='fill-text'>2</p>
-                        </div>
-                    </div>
-                    <div className='col-lg-10 removePaddingLeft'>
-                        <h3 className='text-primary'>Defi Launchpad Info</h3>
-                        <p className='text-primary'>Fill in your defi launchpad information</p>
-                    </div>
-                </div>
-                <div className='d-flex margin-top-30-responsive'>
-                    <div className='col-lg-2'>
-                        <div className='d-flex'>
-                            <img src={fillImage} className="fill-img"></img>
-                            <p className='fill-text'>3</p>
-                        </div>
-                    </div>
-                    <div className='col-lg-10 removePaddingLeft'>
-                        <h3 className='text-primary'>Additional Info</h3>
-                        <p className='text-primary'>Othre information.</p>
-                    </div>
-                </div>
-                <div className='d-flex margin-top-30-responsive'>
-                    <div className='col-lg-2'>
-                        <div className='d-flex'>
-                            <img src={fillImage} className="fill-img"></img>
-                            <p className='fill-text'>4</p>
-                        </div>
-                    </div>
-                    <div className='col-lg-10 removePaddingLeft'>
-                        <h3 className='text-primary'>Finish</h3>
-                        <p className='text-primary'>Save all information to your launchpad.</p>
-                    </div>
-                </div>
+                    <div className='launchpad-create-lock'>
+                        <div className='row'>
+                            <form>
+                                <div className='row'>
+                                    <div className='col-12 mt-2 mb-2'>
+                                        <label htmlFor='formGroupExampleInput2' className='form-label'><small>* Token Address</small></label>
+                                        <input type='text' className='form-control input-create-create-lock-text' id='' placeholder='Ex: PinkMoon' value='Ex: PinkMoon'/>
+                                    </div>
+                                </div>
 
-                <div className='col-lg-12 text-center margin-top-30-responsive'>
-                    <label className='text-secondary small'>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences.</label>
+                                <div className='row mt-2'>
+                                <div className='col-12'>
+                                    <small className='float-start mt-1'>Create pool fee: 1 BNB</small>
+                                    <button type='button' className='btn btn-sm btn-create-token float-end onCreatetokens'>Create token</button>
+                                </div>
+                                </div>
+
+                                <div className='row mt-3'>
+                                <div className='col-12'>
+                                    <p><strong>Currency</strong></p>
+                                    <div className='form-check'>
+                                    <input className='form-check-input onBnbcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault1' checked/>
+                                    <label className='form-check-label ms-1' htmlFor='flexRadioDefault1'>
+                                        BNB
+                                    </label>
+                                    </div>
+                                    <div className='form-check'>
+                                    <input className='form-check-input onBusdcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault2'/>
+                                    <label className='form-check-label ms-1' htmlFor='flexRadioDefault2'>
+                                        BUSD
+                                    </label>
+                                    </div>
+                                    <div className='form-check'>
+                                    <input className='form-check-input onUsdtcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault3'/>
+                                    <label className='form-check-label ms-1' htmlFor='flexRadioDefault3'>
+                                        USDT
+                                    </label>
+                                    </div>
+                                    <p>
+                                    <small>Users will pay with 
+                                        <span className='currencytypebnb'>BNB</span> 
+                                        <span className='currencytypebusd'>BUSD</span> 
+                                        <span className='currencytypeusdt'>USDT</span>
+                                        for your token</small>
+                                    </p>
+                                </div>
+                                </div>
+
+                                <div className='row mt-3'>
+                                <div className='col-lg-12 text-center'>
+                                    <button type='button' className='btn btn-sm btn-create-token' disabled>Next</button>
+                                </div>
+                                </div>
+                                
+                                <div className='row busd-info mt-4'>
+                                <div className='col-12'>
+                                    <div className='alert alert-warning text-center' role='alert'>
+                                        <div className='position-absolute top-0 start-100 translate-middle'>
+                                        <a className='float-end onClosebusdinfo shadow'><i className='bi-x'></i></a>
+                                        </div>
+
+                                        <small className='text-center'>
+                                        <i className='bi-exclamation-circle-fill'></i> Do not use this currency for auto liquidity tokens, or tokens that depend on WETH pair. It will lead to error when finalizing the pool or transfering the tokens (for example Liquidity Generator Token, Baby Token, Buyback Baby Token).Contact Pinksale for more information.</small>
+                                    </div>
+                                </div>
+                                </div>
+                            
+                            </form>  
+                        </div>
+                    </div>
+
+                    <div className='row mt-4'>
+                    <div className='col-1 mt-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>2</span></div>
+                    <div className='col-11'>
+                        <h6 className='mt-2 mb-3'>Defi Launchpad Info</h6>
+                        <p>Enter the launchpad information that you want to raise , that should be enter all details about your presale</p></div>
+                    </div>
+
+                    <div className='row mt-4'>
+                    <div className='col-1 mt-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>3</span></div>
+                    <div className='col-11'>
+                        <h6 className='mt-2 mb-3'>Additional Info</h6>
+                        <p>Let people know who you are</p></div>
+                    </div>
+
+                    <div className='row mt-4'>
+                    <div className='col-1 mt-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>4</span></div>
+                    <div className='col-11'>
+                        <h6 className='mt-2 mb-3'>Finish</h6>
+                        <p>Review your information</p></div>
+                    </div>
+
+                    <div className='row'>
+                        <div className='col-11 mx-auto text-center mt-4 mb-4'>
+                            <small>Disclaimer: The information provided shall not in any way constitute a recommendation as to whether you should invest in any product discussed. We accept no liability for any loss occasioned to any person acting or refraining from action as a result of any material provided or published.</small>
+                        </div>
+                    </div>
+
+                    </div>
                 </div>
-            </div>
         );
     }
 }
