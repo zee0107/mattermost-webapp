@@ -59,6 +59,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
     changeTokenType(event) {
         this.setState({tokenType: event.target.value});
+        console.log(event.target.value);
     }
 
     render= (): JSX.Element => {
