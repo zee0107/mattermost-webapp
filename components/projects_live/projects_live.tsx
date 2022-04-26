@@ -70,6 +70,13 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         console.log(this.state.filter);
     }
 
+    titleCase = (str: string) => {
+        return str
+            .split(' ')
+            .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase())
+            .join(' ');
+    }
+
     renderTime = (date: string) =>{
         var dateNow = new Date();
         var dateConverted = Date.parse(date.toString());
@@ -101,6 +108,14 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
             <div className='col-md-12'>
                 <div className='row'>
                     {this.state.data.filter(t => t.status === 'ONGOING').map((item,key) => {
+                        let projectName;
+                        if (item.project_name.length > 32){
+                            projectName = item.project_name.substring(0,33);
+                        }
+                        else{
+                            projectName = item.project_name;
+                        }
+
                         return(
                             <div className='col-md-4'>
                                 <div className='col-md-12 project-item-box'>
@@ -115,7 +130,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-md-12'>
-                                        <h5 className='text-primary' key={key + item.coin.symbol + '-name'}>{item.project_name}</h5>
+                                        <h5 className='text-primary' key={key + item.coin.symbol + '-name'}>{this.titleCase(projectName)}..</h5>
                                         <CurrencyCap symbol={item.coin.symbol} />
                                         <br></br>
                                         <p className='small text-secondary'>
@@ -183,7 +198,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-md-12'>
-                                        <h5 className='text-primary' key={key + item.coin.symbol + '-name'}>{projectName}..</h5>
+                                        <h5 className='text-primary' key={key + item.coin.symbol + '-name'}>{this.titleCase(projectName)}..</h5>
                                         <CurrencyCap symbol={item.coin.symbol} />
                                         <br></br>
                                         <p className='small text-secondary'>
