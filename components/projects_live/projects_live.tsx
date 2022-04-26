@@ -70,11 +70,14 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         console.log(this.state.filter);
     }
 
-    titleCase = (str) => {
-        return str
-            .split(' ')
-            .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase())
-            .join(' ');
+    titleCase(str) {
+        if(str !== '' && str !== undefined && str !== null){
+            return str
+                .split(' ')
+                .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase())
+                .join(' ');
+        }
+        return null;
     }
 
     renderTime = (date: string) =>{
