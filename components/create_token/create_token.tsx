@@ -57,8 +57,8 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         this.setState({isDark: ThemeValue});
     }
 
-    changeTokenType = (event) => {
-        this.setState({ tokenType: event.target.value});
+    changeTokenType(event) {
+        this.setState({tokenType: event.target.value});
     }
 
     render= (): JSX.Element => {
