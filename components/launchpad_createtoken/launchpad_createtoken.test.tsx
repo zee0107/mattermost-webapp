@@ -7,9 +7,9 @@ import {MemoryRouter} from 'react-router';
 
 import {mountWithIntl} from 'tests/helpers/intl-test-helper';
 
-import LaunchPad from './launch_pad';
+import LaunchpadCreatetoken from './launchpad_createtoken';
 
-describe('components/launch_pad', () => {
+describe('components/launchpad_createtoken', () => {
     const baseProps = {
         actions: {
             sendPasswordResetEmail: jest.fn().mockResolvedValue({data: true}),

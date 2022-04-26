@@ -544,7 +544,7 @@ export default class Root extends React.PureComponent {
                                     component={LaunchPadUpcoming}
                                 />
                                 <LoginHFTRouteF
-                                    path={'/laucnhpad-create-token'}
+                                    path={'/laucnhpad-create-lock'}
                                     component={LaunchPadCreateToken}
                                 />
                                 <LoginHFTRouteF
