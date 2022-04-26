@@ -537,9 +537,9 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     {viewDetail}
                     <div className='col-md-12 mtop-10 removePadding'>
                         <div
-                            ref={this.channelViewRef}
+                            /*ref={this.channelViewRef}
                             id='app-content'
-                            className='app__content pt-0'
+                            className='app__content pt-0'*/
                             >
                             <FileUploadOverlay overlayType='center'/>
                             <div className='box-middle-panel crypter-section-profile-desktop'>
