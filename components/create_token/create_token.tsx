@@ -67,29 +67,24 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                     <div className='row mb-2'>
                         <div className='col-1 mt-3'><span className='count-steps rounded-circle text-white'>1</span></div>
                         <div className='col-11'>
-                            <h6 className='mt-2 mb-3'>Verify Token</h6>
+                            <h4 className='mt-2 mb-3'>Verify Token</h4>
                             <p>Enter the token address and verify</p>
                         </div>
                     </div>
                     <div className='launchpad-create-lock'>
                         <div className='row'>
                             <form>
-                                <div className='row'>
-                                    <div className='col-12 mt-2 mb-2'>
-                                        <label htmlFor='formGroupExampleInput2' className='form-label'><small>* Token Address</small></label>
-                                        <input type='text' className='form-control input-create-create-lock-text' id='' placeholder='Ex: PinkMoon' value='Ex: PinkMoon'/>
-                                    </div>
+                                <div className='col-12 mt-2 mb-2'>
+                                    <label htmlFor='formGroupExampleInput2' className='form-label'><small>* Token Address</small></label>
+                                    <input type='text' className='form-control input-create-create-lock-text' id='' placeholder='Ex: PinkMoon' value='Ex: PinkMoon'/>
                                 </div>
 
-                                <div className='row mt-2'>
-                                <div className='col-12'>
+                                <div className='col-12 mt-2'>
                                     <small className='float-start mt-1'>Create pool fee: 1 BNB</small>
                                     <button type='button' className='btn btn-sm btn-create-token float-end onCreatetokens'>Create token</button>
                                 </div>
-                                </div>
 
-                                <div className='row mt-3'>
-                                <div className='col-12'>
+                                <div className='col-12 mt-3'>
                                     <p><strong>Currency</strong></p>
                                     <div className='form-check'>
                                     <input className='form-check-input onBnbcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault1' checked/>
@@ -117,12 +112,9 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                         for your token</small>
                                     </p>
                                 </div>
-                                </div>
 
-                                <div className='row mt-3'>
-                                <div className='col-lg-12 text-center'>
+                                <div className='col-lg-12 text-center mt-3'>
                                     <button type='button' className='btn btn-sm btn-create-token' disabled>Next</button>
-                                </div>
                                 </div>
                                 
                                 <div className='row busd-info mt-4'>
@@ -137,7 +129,6 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 </div>
-                            
                             </form>  
                         </div>
                     </div>
@@ -145,21 +136,21 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                     <div className='row mt-4'>
                     <div className='col-1 mt-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>2</span></div>
                     <div className='col-11'>
-                        <h6 className='mt-2 mb-3'>Defi Launchpad Info</h6>
+                        <h4 className='mt-2 mb-3'>Defi Launchpad Info</h4>
                         <p>Enter the launchpad information that you want to raise , that should be enter all details about your presale</p></div>
                     </div>
 
                     <div className='row mt-4'>
                     <div className='col-1 mt-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>3</span></div>
                     <div className='col-11'>
-                        <h6 className='mt-2 mb-3'>Additional Info</h6>
+                        <h4 className='mt-2 mb-3'>Additional Info</h4>
                         <p>Let people know who you are</p></div>
                     </div>
 
                     <div className='row mt-4'>
                     <div className='col-1 mt-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>4</span></div>
                     <div className='col-11'>
-                        <h6 className='mt-2 mb-3'>Finish</h6>
+                        <h4 className='mt-2 mb-3'>Finish</h4>
                         <p>Review your information</p></div>
                     </div>
 
