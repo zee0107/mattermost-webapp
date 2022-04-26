@@ -94,8 +94,8 @@ export default class ProjectsUpcoming extends React.PureComponent<Props, State> 
                 <div className='row'>
                     {this.state.data.filter(t => t.status === 'ONGOING').map((item,key) => {
                         let projectName;
-                        if (item.project_name.length > 32){
-                            projectName = item.project_name.substring(0,33);
+                        if (item.project_name.length > 42){
+                            projectName = item.project_name.substring(0,43);
                         }
                         else{
                             projectName = item.project_name;

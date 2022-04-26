@@ -102,8 +102,8 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                 <div className='row'>
                     {this.state.data.filter(t => t.status === 'ONGOING').map((item,key) => {
                         let projectName;
-                        if (item.project_name.length > 32){
-                            projectName = item.project_name.substring(0,33);
+                        if (item.project_name.length > 42){
+                            projectName = item.project_name.substring(0,43);
                         }
                         else{
                             projectName = item.project_name;
@@ -170,8 +170,8 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                 <div className='row'>
                     {this.state.data.filter(t => t.status === 'ENDED').map((item,key) => {
                         let projectName;
-                        if (item.project_name.length > 32){
-                            projectName = item.project_name.substring(0,33);
+                        if (item.project_name.length > 42){
+                            projectName = item.project_name.substring(0,43);
                         }
                         else{
                             projectName = item.project_name;
@@ -260,8 +260,8 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                 <div className='row'>
                     {this.state.data.map((item,key) => {
                         let projectName;
-                        if (item.project_name.length > 32){
-                            projectName = item.project_name.substring(0,33);
+                        if (item.project_name.length > 42){
+                            projectName = item.project_name.substring(0,43);
                         }
                         else{
                             projectName = item.project_name;
@@ -279,7 +279,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-md-12'>
-                                        <h5 className='text-primary' key={key + item.coin.symbol + '-name'}>{projectName}</h5>
+                                        <h5 className='text-primary' key={key + item.coin.symbol + '-name'}>{projectName.toLowerCase()}</h5>
                                         <CurrencyCap symbol={item.coin.symbol} />
                                         <br></br>
                                         <p className='small text-secondary'>
