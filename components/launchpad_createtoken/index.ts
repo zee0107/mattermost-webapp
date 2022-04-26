@@ -20,7 +20,7 @@ import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
 import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
 
-import LaunchpadCreatetoken from './Launchpad_createtoken';
+import LaunchpadCreatetoken from './launchpad_createtoken';
 
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
