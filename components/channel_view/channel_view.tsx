@@ -603,15 +603,10 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                             </div>
                             <div className='col-md-12 pbot-20 bgGrey'></div>
                             <div className='col-md-12 removePadding'>
-                                {/*<DeferredPostView
+                                {<DeferredPostView
                                         channelId={this.props.channelId}
                                         focusedPostId={this.state.focusedPostId}
-                                />*/}
-                                {postList && Object.keys(postList.posts).map((item2,index2) => {
-                                        return (<Post postId={item} post={postList.posts[item2]}></Post>);})}
-                                {/*postList && postList.order.map((item,index) => {
-                                    
-                                })*/}
+                                />}
                             </div>
                         </div>
                     </div>
