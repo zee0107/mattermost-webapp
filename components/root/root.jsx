@@ -59,6 +59,9 @@ const LazyNewsFeed = React.lazy(() => import('components/newsfeed'));
 const LazyGroup = React.lazy(() => import('components/groups'));
 const LazyLaunchPad = React.lazy(() => import('components/launch_pad'));
 const LazyLaunchPadToken = React.lazy(() => import('components/launchpad_token'));
+const LazyLaunchPadLive = React.lazy(() => import('components/launchpad_live'));
+const LazyLaunchPadUpcoming = React.lazy(() => import('components/launchpad_upcoming'));
+const LazyLaunchPadCreateToken = React.lazy(() => import('components/launchpad_createtoken'));
 const LazyTermsOfService = React.lazy(() => import('components/terms_of_service'));
 const LazyShouldVerifyEmail = React.lazy(() => import('components/should_verify_email'));
 const LazyDoVerifyEmail = React.lazy(() => import('components/do_verify_email'));
@@ -102,6 +105,9 @@ const NewsFeed = makeAsyncComponent('Newsfeed', LazyNewsFeed);
 const Groups = makeAsyncComponent('Group', LazyGroup);
 const LaunchPad = makeAsyncComponent('LaunchPad', LazyLaunchPad);
 const LaunchPadToken = makeAsyncComponent('LaunchPadToken', LazyLaunchPadToken);
+const LaunchPadLive = makeAsyncComponent('LaunchPadLive', LazyLaunchPadLive);
+const LaunchPadUpcoming = makeAsyncComponent('LaunchPadUpcoming', LazyLaunchPadUpcoming);
+const LaunchPadCreateToken = makeAsyncComponent('LaunchPadCreateToken', LazyLaunchPadCreateToken);
 const ShouldVerifyEmail = makeAsyncComponent('ShouldVerifyEmail', LazyShouldVerifyEmail);
 const DoVerifyEmail = makeAsyncComponent('DoVerifyEmail', LazyDoVerifyEmail);
 const ClaimController = makeAsyncComponent('ClaimController', LazyClaimController);
@@ -525,11 +531,22 @@ export default class Root extends React.PureComponent {
                                     path={'/profile'}
                                     component={ProfilePage}
                                 />
-                                 <LoginHFTRoute
+                                <LoginHFTRouteF
                                     path={'/launchpad'}
                                     component={LaunchPad}
                                 />
-                                
+                                <LoginHFTRouteF
+                                    path={'/launchpad-live'}
+                                    component={LaunchPadLive}
+                                />
+                                <LoginHFTRouteF
+                                    path={'/launchpad-upcoming'}
+                                    component={LaunchPadUpcoming}
+                                />
+                                <LoginHFTRouteF
+                                    path={'/laucnhpad-create-token'}
+                                    component={LaunchPadCreateToken}
+                                />
                                 <LoginHFTRouteF
                                     path={'/mygroups'}
                                     component={Groups}
