@@ -60,7 +60,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                     <div className='row'>
                         <div className='col-12'>
                             <a className='btn onLockbuttoncreate float-end ms-1'><small>Connect</small></a>
-                            <a className='btn onLockbuttoncreatenormal float-end ms-1 me-1'><small>BSC Mainnet</small></a>
+                            <a className='onLockbuttoncreatenormal float-end ms-1 me-1'><small>BSC Mainnet</small></a>
                             <a className="btn onLockbuttoncreate float-end me-1"><small>Create</small></a>
                         </div>
                     </div>
@@ -72,66 +72,64 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                     <div className='launchpad-create-lock'>
-                        <div className='col-md-12'>
-                            <div className='row'>
-                                <form>
-                                    <div className='col-12 mt-2 mb-2'>
-                                        <label htmlFor='formGroupExampleInput2' className='form-label'><small>* Token Address</small></label>
-                                        <input type='text' className='form-control input-create-create-lock-text' id='' placeholder='Ex: PinkMoon' value='Ex: PinkMoon'/>
-                                    </div>
+                        <div className='row'>
+                            <form>
+                                <div className='col-12 mt-2 mb-2'>
+                                    <label htmlFor='formGroupExampleInput2' className='form-label'><small>* Token Address</small></label>
+                                    <input type='text' className='form-control input-create-create-lock-text' id='' placeholder='Ex: PinkMoon' value='Ex: PinkMoon'/>
+                                </div>
 
-                                    <div className='col-12 mt-2'>
-                                        <small className='float-start mt-1'>Create pool fee: 0.1 BNB</small>
-                                        <button type='button' className='btn-sm btn-create-token float-end onCreatetokens'>Create token</button>
-                                    </div>
+                                <div className='col-12 mt-2'>
+                                    <small className='float-start mt-1'>Create pool fee: 0.1 BNB</small>
+                                    <button type='button' className='btn-sm btn-create-token float-end onCreatetokens'>Create token</button>
+                                </div>
 
-                                    <div className='col-12 mt-3'>
-                                        <p><strong>Currency</strong></p>
-                                        <div className='form-check'>
-                                        <input className='form-check-input onBnbcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault1' checked/>
-                                        <label className='form-check-label ms-1' htmlFor='flexRadioDefault1'>
-                                            BNB
-                                        </label>
-                                        </div>
-                                        <div className='form-check'>
-                                        <input className='form-check-input onBusdcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault2'/>
-                                        <label className='form-check-label ms-1' htmlFor='flexRadioDefault2'>
-                                            BUSD
-                                        </label>
-                                        </div>
-                                        <div className='form-check'>
-                                        <input className='form-check-input onUsdtcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault3'/>
-                                        <label className='form-check-label ms-1' htmlFor='flexRadioDefault3'>
-                                            USDT
-                                        </label>
-                                        </div>
-                                        <p>
-                                        <small>Users will pay with 
-                                            <span className='currencytypebnb'>BNB</span> 
-                                            <span className='currencytypebusd'>BUSD</span> 
-                                            <span className='currencytypeusdt'>USDT</span>
-                                            for your token</small>
-                                        </p>
+                                <div className='col-12 mt-3'>
+                                    <p><strong>Currency</strong></p>
+                                    <div className='form-check'>
+                                    <input className='form-check-input onBnbcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault1' checked/>
+                                    <label className='form-check-label ms-1' htmlFor='flexRadioDefault1'>
+                                        BNB
+                                    </label>
                                     </div>
+                                    <div className='form-check'>
+                                    <input className='form-check-input onBusdcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault2'/>
+                                    <label className='form-check-label ms-1' htmlFor='flexRadioDefault2'>
+                                        BUSD
+                                    </label>
+                                    </div>
+                                    <div className='form-check'>
+                                    <input className='form-check-input onUsdtcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault3'/>
+                                    <label className='form-check-label ms-1' htmlFor='flexRadioDefault3'>
+                                        USDT
+                                    </label>
+                                    </div>
+                                    <p>
+                                    <small>Users will pay with 
+                                        <span className='currencytypebnb'>BNB</span> 
+                                        <span className='currencytypebusd'>BUSD</span> 
+                                        <span className='currencytypeusdt'>USDT</span>
+                                        for your token</small>
+                                    </p>
+                                </div>
 
-                                    <div className='col-lg-12 text-center mt-3'>
-                                        <button type='button' className='btn-sm btn-create-token' disabled>Next</button>
-                                    </div>
-                                    
-                                    <div className='row busd-info mt-4'>
-                                    <div className='col-12'>
-                                        <div className='alert alert-warning text-center' role='alert'>
-                                            <div className='position-absolute top-0 start-100 translate-middle'>
-                                            <a className='float-end onClosebusdinfo shadow'><i className='bi-x'></i></a>
-                                            </div>
-
-                                            <small className='text-center'>
-                                            <i className='bi-exclamation-circle-fill'></i> Do not use this currency for auto liquidity tokens, or tokens that depend on WETH pair. It will lead to error when finalizing the pool or transfering the tokens (for example Liquidity Generator Token, Baby Token, Buyback Baby Token).Contact Pinksale for more information.</small>
+                                <div className='col-lg-12 text-center mt-3'>
+                                    <button type='button' className='btn-sm btn-create-token' disabled>Next</button>
+                                </div>
+                                
+                                <div className='row busd-info mt-4'>
+                                <div className='col-12'>
+                                    <div className='alert alert-warning text-center' role='alert'>
+                                        <div className='position-absolute top-0 start-100 translate-middle'>
+                                        <a className='float-end onClosebusdinfo shadow'><i className='bi-x'></i></a>
                                         </div>
+
+                                        <small className='text-center'>
+                                        <i className='bi-exclamation-circle-fill'></i> Do not use this currency for auto liquidity tokens, or tokens that depend on WETH pair. It will lead to error when finalizing the pool or transfering the tokens (for example Liquidity Generator Token, Baby Token, Buyback Baby Token).Contact Pinksale for more information.</small>
                                     </div>
-                                    </div>
-                                </form>  
-                            </div>
+                                </div>
+                                </div>
+                            </form>  
                         </div>
                     </div>
 
