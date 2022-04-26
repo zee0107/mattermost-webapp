@@ -1306,7 +1306,7 @@ input[type="checkbox"]:checked ~ ul{
 .custom-token-input{
   background: var(--background);
   color: var(--input-color-text);
-  border: transparent !important;
+  //border: transparent !important;
 
   @media (max-width: 768px) {
     background: var(--bgDiv);
