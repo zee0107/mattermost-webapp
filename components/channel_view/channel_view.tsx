@@ -607,9 +607,11 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                         channelId={this.props.channelId}
                                         focusedPostId={this.state.focusedPostId}
                                 />*/}
-                                {postList && postList.order.map((item,index) => {
-                                    Object.keys(postList.posts).map((item2,index2) => {return (<Post postId={item} post={postList.posts[item2]}></Post>);});
-                                })}
+                                {Object.keys(postList.posts).map((item2,index2) => {
+                                        return (<Post postId={item} post={postList.posts[item2]}></Post>);})}
+                                {/*postList && postList.order.map((item,index) => {
+                                    
+                                })*/}
                             </div>
                         </div>
                     </div>
