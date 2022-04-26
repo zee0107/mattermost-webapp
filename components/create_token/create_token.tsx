@@ -72,7 +72,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                     <div className='launchpad-create-lock'>
-                        <div className='row'>
+                        <div className='row pr-5 pl-5'>
                             <form>
                                 <div className='col-12 mt-2 mb-2'>
                                     <label htmlFor='formGroupExampleInput2' className='form-label'><small>* Token Address</small></label>
@@ -85,6 +85,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 </div>
 
                                 <div className='col-12 mt-3'>
+                                    <br></br>
                                     <p><strong>Currency</strong></p>
                                     <div className='form-check'>
                                     <input className='form-check-input onBnbcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault1' checked/>
