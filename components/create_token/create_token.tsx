@@ -62,7 +62,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                         <div className='col-12'>
                             <a className='onLockbuttoncreate float-end mr-1'><small>Connect</small></a>
                             <a className='onLockbuttoncreatenormal float-end mr-1 ml-1'><small>BSC Mainnet</small></a>
-                            <a className="onLockbuttoncreate float-end ml-1"><small>Create</small></a>
+                            <a className="onLockbuttoncreate float-end ml-1" data-toggle='modal' data-target='#staticBackdropCreateToken'><small>Create</small></a>
                         </div>
                     </div>
                     <div className='d-flex mb-2'>
@@ -82,7 +82,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                                 <div className='col-12 mt-2'>
                                     <small className='float-start mt-1'>Create pool fee: 0.1 BNB</small>
-                                    <button type='button' className='btn-sm btn-create-token float-end onCreatetokens' data-toggle='modal' data-target='staticBackdropCreateToken'>Create token</button>
+                                    <button type='button' className='btn-sm btn-create-token float-end onCreatetokens' data-toggle='modal' data-target='#staticBackdropCreateToken'>Create token</button>
                                 </div>
 
                                 <div className='col-12 mt-3'>
@@ -198,7 +198,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                             <div className='row mt-2'>
                                             <div className='col-12'>
                                                 <small className='float-start mt-1'>Create pool fee: 1 BNB</small>
-                                                <button type='button' className='btn-sm btn-create-token float-end onCreatetokens'>Create token</button>
+                                                <button type='button' data-toggle='modal' data-target='#staticBackdropCreateToken' className='btn-sm btn-create-token float-end onCreatetokens'>Create token</button>
                                             </div>
                                             </div>
 
