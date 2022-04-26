@@ -171,10 +171,10 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                             <div className='box-middle-panel-products-mobile'>
 
                                 <div className='row'>
-                                    <div className='btn-group' role='group' aria-label='Basic example'>
-                                    <a className='onLockbuttoncreate'><small>Connect</small></a>
-                                    <a className='onLockbuttoncreatenormal'><small>BSC Mainnet</small></a>
-                                    <a className='onLockbuttoncreate'><small>Create</small></a>
+                                    <div className='btn-group float-end' role='group' aria-label='Basic example'>
+                                    <a className='onLockbuttoncreate mr-1'><small>Connect</small></a>
+                                    <a className='onLockbuttoncreatenormal ml-1 mr-1'><small>BSC Mainnet</small></a>
+                                    <a className='onLockbuttoncreate ml-1'><small>Create</small></a>
                                     </div>
                                 </div>
 
