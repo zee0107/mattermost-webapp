@@ -64,6 +64,13 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                             <a className="btn onLockbuttoncreate float-end me-1"><small>Create</small></a>
                         </div>
                     </div>
+                    <div className='row mb-2'>
+                        <div className='col-1 mt-3'><span className='count-steps rounded-circle text-white'>1</span></div>
+                        <div className='col-11'>
+                            <h6 className='mt-2 mb-3'>Verify Token</h6>
+                            <p>Enter the token address and verify</p>
+                        </div>
+                    </div>
                     <div className='launchpad-create-lock'>
                         <div className='row'>
                             <form>
@@ -164,6 +171,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                     </div>
                 </div>
+                
         );
     }
 }
