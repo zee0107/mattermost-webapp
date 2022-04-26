@@ -531,19 +531,19 @@ export default class Root extends React.PureComponent {
                                     path={'/profile'}
                                     component={ProfilePage}
                                 />
-                                <LoginHFTRoute
+                                <LoginHFTRouteF
                                     path={'/launchpad'}
                                     component={LaunchPad}
                                 />
-                                <LoginHFTRoute
+                                <LoginHFTRouteF
                                     path={'/launchpad-live'}
                                     component={LaunchPadLive}
                                 />
-                                <LoginHFTRoute
+                                <LoginHFTRouteF
                                     path={'/launchpad-upcoming'}
                                     component={LaunchPadUpcoming}
                                 />
-                                <LoginHFTRoute
+                                <LoginHFTRouteF
                                     path={'/laucnhpad-create-lock'}
                                     component={LaunchPadCreateToken}
                                 />
@@ -551,7 +551,7 @@ export default class Root extends React.PureComponent {
                                     path={'/mygroups'}
                                     component={Groups}
                                 />
-                                <LoginHFTRoute
+                                <LoginHFTRouteF
                                     path={'/launchpadtoken'}
                                     component={LaunchPadToken}
                                 />
