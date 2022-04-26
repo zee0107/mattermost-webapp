@@ -80,8 +80,8 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 </div>
 
                                 <div className='col-12 mt-2'>
-                                    <small className='float-start mt-1'>Create pool fee: 1 BNB</small>
-                                    <button type='button' className='btn btn-sm btn-create-token float-end onCreatetokens'>Create token</button>
+                                    <small className='float-start mt-1'>Create pool fee: 0.1 BNB</small>
+                                    <button type='button' className='btn-sm btn-create-token float-end onCreatetokens'>Create token</button>
                                 </div>
 
                                 <div className='col-12 mt-3'>
@@ -114,7 +114,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 </div>
 
                                 <div className='col-lg-12 text-center mt-3'>
-                                    <button type='button' className='btn btn-sm btn-create-token' disabled>Next</button>
+                                    <button type='button' className='btn-sm btn-create-token' disabled>Next</button>
                                 </div>
                                 
                                 <div className='row busd-info mt-4'>
