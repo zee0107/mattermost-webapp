@@ -206,19 +206,19 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                             <div className='col-12'>
                                                 <p><strong>Currency</strong></p>
                                                 <div className='form-check'>
-                                                <input className='form-check-input onBnbcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault1' checked/>
+                                                <input className='form-check-input onBnbcurrency mr-1' type='radio' name='flexRadioDefault' id='flexRadioDefault1' checked/>
                                                 <label className='form-check-label ms-1' htmlFor='flexRadioDefault1'>
                                                     BNB
                                                 </label>
                                                 </div>
                                                 <div className='form-check'>
-                                                <input className='form-check-input onBusdcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault2'/>
+                                                <input className='form-check-input onBusdcurrency mr-1' type='radio' name='flexRadioDefault' id='flexRadioDefault2'/>
                                                 <label className='form-check-label ms-1' htmlFor='flexRadioDefault2'>
                                                     BUSD
                                                 </label>
                                                 </div>
                                                 <div className='form-check'>
-                                                <input className='form-check-input onUsdtcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault3'/>
+                                                <input className='form-check-input onUsdtcurrency mr-1' type='radio' name='flexRadioDefault' id='flexRadioDefault3'/>
                                                 <label className='form-check-label ms-1' htmlFor='flexRadioDefault3'>
                                                     USDT
                                                 </label>
