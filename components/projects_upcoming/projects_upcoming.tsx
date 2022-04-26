@@ -92,12 +92,20 @@ export default class ProjectsUpcoming extends React.PureComponent<Props, State> 
         return (
             <div className='col-md-12'>
                 <div className='row'>
-                    {this.state.data.map((item,key) => {
+                    {this.state.data.filter(t => t.status === 'ONGOING').map((item,key) => {
+                        let projectName;
+                        if (item.project_name.length > 32){
+                            projectName = item.project_name.substring(0,33);
+                        }
+                        else{
+                            projectName = item.project_name;
+                        }
+
                         return(
                             <div className='col-md-4'>
                                 <div className='col-md-12 project-item-box'>
                                     <div className='d-flex'>
-                                        <div className='col-md-3'>
+                                        <div className='col-md-3 width-15'>
                                             <CurrencyIcons code={item.coin.symbol.toString()}></CurrencyIcons>
                                         </div>
                                         <div className='col-md-9 text-end'>
@@ -107,7 +115,7 @@ export default class ProjectsUpcoming extends React.PureComponent<Props, State> 
                                         </div>
                                     </div>
                                     <div className='col-md-12'>
-                                        <h5 className='text-primary' key={key + item.coin.symbol + '-name'}>{item.project_name}</h5>
+                                        <h5 className='text-primary' key={key + item.coin.symbol + '-name'}>{projectName.toLowerCase()}..</h5>
                                         <CurrencyCap symbol={item.coin.symbol} />
                                         <br></br>
                                         <p className='small text-secondary'>
@@ -117,26 +125,26 @@ export default class ProjectsUpcoming extends React.PureComponent<Props, State> 
                                         <br></br>
                                         <br></br>
                                         <p className='small text-secondary'>Progress (0.00%)</p>
-                                        <ProgressBar completed='50' min='1' max={item.total_prize.toString()}></ProgressBar>
+                                        <ProgressBar completed='10' min='1' max={item.total_prize.toString()}></ProgressBar>
                                     </div>
                                     <div className='col-md-12 removePadding'>
                                         <br></br>
                                         <div className='d-flex'>
-                                            <div className='col-md-6'><p className='small text-secondary' key={key + item.coin.symbol + '-start'}>0 {item.coin.symbol}</p></div>
-                                            <div className='col-md-6 text-end'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
+                                            <div className='col-md-6 width-50'><p className='small text-secondary' key={key + item.coin.symbol + '-start'}>0 {item.coin.symbol}</p></div>
+                                            <div className='col-md-6 text-end width-50 removePaddingLeft'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
                                         </div>
                                         <div className='d-flex'>
-                                            <div className='col-md-6'><label className='small text-primary' >Liquidity %:</label></div>
-                                            <div className='col-md-6 text-end'><label className='small text-primary' >51%</label></div>
+                                            <div className='col-md-6 width-50'><label className='small text-primary' >Liquidity %:</label></div>
+                                            <div className='col-md-6 text-end width-50'><label className='small text-primary' >51%</label></div>
                                         </div>
                                         <div className='d-flex'>
-                                            <div className='col-md-6'><label className='small text-primary' >Lockup Time</label></div>
-                                            <div className='col-md-6 text-end'><label className='small text-primary' >180 days</label></div>
+                                            <div className='col-md-6 width-50'><label className='small text-primary' >Lockup Time</label></div>
+                                            <div className='col-md-6 text-end width-50'><label className='small text-primary' >180 days</label></div>
                                         </div>
                                         <hr></hr>
                                         <div className='d-flex'>
-                                            <div className='col-md-6'>{this.renderTime(item.start_date)}</div>
-                                            <div className='col-md-6 text-end'><button type='button' className='btn view-pool-btn'>View Pool</button></div>
+                                            <div className='col-md-6 width-50'>{this.renderTime(item.start_date)}</div>
+                                            <div className='col-md-6 text-end width-50'><button type='button' className='view-pool-btn p-2'>View Pool</button></div>
                                         </div>
                                     </div>
                                 </div>

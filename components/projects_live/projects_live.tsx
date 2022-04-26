@@ -139,7 +139,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         <br></br>
                                         <div className='d-flex'>
                                             <div className='col-md-6 width-50'><p className='small text-secondary' key={key + item.coin.symbol + '-start'}>0 {item.coin.symbol}</p></div>
-                                            <div className='col-md-6 text-end width-50'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
+                                            <div className='col-md-6 text-end width-50 removePaddingLeft'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
                                         </div>
                                         <div className='d-flex'>
                                             <div className='col-md-6 width-50'><label className='small text-primary' >Liquidity %:</label></div>
@@ -152,7 +152,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         <hr></hr>
                                         <div className='d-flex'>
                                             <div className='col-md-6 width-50'>{this.renderTime(item.start_date)}</div>
-                                            <div className='col-md-6 text-end width-50'><button type='button' className='btn view-pool-btn'>View Pool</button></div>
+                                            <div className='col-md-6 text-end width-50'><button type='button' className='view-pool-btn p-2'>View Pool</button></div>
                                         </div>
                                     </div>
                                 </div>
@@ -207,7 +207,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         <br></br>
                                         <div className='d-flex'>
                                             <div className='col-md-6 width-50'><p className='small text-secondary' key={key + item.coin.symbol + '-start'}>0 {item.coin.symbol}</p></div>
-                                            <div className='col-md-6 text-end width-50'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
+                                            <div className='col-md-6 text-end width-50 removePaddingLeft'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
                                         </div>
                                         <div className='d-flex'>
                                             <div className='col-md-6 width-50'><label className='small text-primary' >Liquidity %:</label></div>
@@ -220,7 +220,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         <hr></hr>
                                         <div className='d-flex'>
                                             <div className='col-md-6 width-50'><p className='text-secondary small text-margin-0'>Sale starts in:</p><label className='text-primary'>00:00:00:00</label></div>
-                                            <div className='col-md-6 text-end width-50'><button type='button' className='btn view-pool-btn'>View Pool</button></div>
+                                            <div className='col-md-6 text-end width-50'><button type='button' className='view-pool-btn p-2'>View Pool</button></div>
                                         </div>
                                     </div>
                                 </div>
@@ -295,7 +295,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         <br></br>
                                         <div className='d-flex'>
                                             <div className='col-md-6 width-50'><p className='small text-secondary' key={key + item.coin.symbol + '-start'}>0 {item.coin.symbol}</p></div>
-                                            <div className='col-md-6 text-end width-50'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
+                                            <div className='col-md-6 text-end width-50 removePaddingLeft'><p className='small text-secondary' key={key + item.coin.symbol + '-end'}>{item.total_prize} {item.coin.symbol}</p></div>
                                         </div>
                                         <div className='d-flex'>
                                             <div className='col-md-6'><label className='small text-primary' >Liquidity %:</label></div>
@@ -308,7 +308,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         <hr></hr>
                                         <div className='d-flex'>
                                             <div className='col-md-6 width-50'>{this.renderDate(item.status,item.start_date)}</div>
-                                            <div className='col-md-6 text-end width-50'><button type='button' className='btn view-pool-btn'>View Pool</button></div>
+                                            <div className='col-md-6 text-end width-50'><button type='button' className='view-pool-btn p-2'>View Pool</button></div>
                                         </div>
                                     </div>
                                 </div>
