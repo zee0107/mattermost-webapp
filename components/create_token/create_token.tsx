@@ -70,7 +70,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
             createTokenInfo = (<div className='liquidity-generator-token'>
             <div className='mb-3'>
                 <label htmlFor='formGroupExampleInput' className='form-label'><small>Router*</small></label>
-                <select id='tokentypes' className='from-control'>
+                <select id='tokentypes' className='form-control'>
                 <option selected>Select Router Exchange</option>
                 <option>Pancakeswap</option>
                 <option>MDex</option>
@@ -110,7 +110,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                 <div className='baby-token'>
                     <div className='mb-3'>
                         <label htmlFor='formGroupExampleInput' className='form-label'><small>Router*</small></label>
-                        <select id='tokentypes' className='from-control'>
+                        <select id='tokentypes' className='form-control'>
                         <option selected>Select Router Exchange</option>
                         <option>Pancakeswap</option>
                         <option>MDex</option>
@@ -147,7 +147,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
             createTokenInfo = (<div className='buy-back-baby-token'>
             <div className='mb-3'>
                 <label htmlFor='formGroupExampleInput' className='form-label'><small>Router*</small></label>
-                <select className='from-control'>
+                <select className='form-control'>
                 <option selected>Select Router Exchange</option>
                 <option>Pancakeswap</option>
                 <option>MDex</option>
