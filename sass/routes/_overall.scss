@@ -27,6 +27,7 @@ z-index: 99;
 .rounded-circle{
   border-radius: 50%;
 }
+
 button {
   ////font-family: "Montserrat-Regular";
   border: 0px;
@@ -64,6 +65,72 @@ a {
 p {
   //font-family: "Montserrat-Regular";
   font-size: 12px;
+}
+.box-choose-network {
+  background: #54D458;
+  padding: 38px 0px 20px 0px;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid #ffffff;
+}
+.box-choose-network:hover {
+  background: #54D458;
+  padding: 38px 0px 20px 0px;
+  border-radius: 3px;
+  border: 1px solid #222;
+  cursor: pointer;
+}
+.implementpinkinformation {
+  display: none;
+}
+.onImplementpinkantisystem {
+  cursor: pointer;
+}
+.buy-back-baby-token {
+  display: none;
+}
+.baby-token {
+  display: none;
+}
+.liquidity-generator-token {
+  display: none;
+}
+.bi-x-circle-fill-style {
+  font-size: 12px;
+}
+.onClosebusdinfo {
+  cursor: pointer;
+  background: #80CF57;
+  border-radius: 34px;
+  padding: 0px 6px 0px 6px;
+  color: #fff;
+}
+.busd-info {
+  display: none;
+}
+.onBnbcurrency, .onBusdcurrency, .onUsdtcurrency {
+  cursor: pointer;
+}
+.currencytypebusd, .currencytypeusdt {
+  display: none;
+}
+.btn-create-token {
+  background: #ffffff;
+  border:1px #3FCA57 solid;
+  color: #3FCA57;
+}
+.count-steps {
+  margin: 0px 0px 0px 0px;
+  padding: 8px 14px 8px 14px;
+  background: rgb(127,207,87);
+  background: -moz-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+  background: linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+}
+.count-steps-defaults {
+  margin: 0px 0px 0px 0px;
+  padding: 8px 14px 8px 14px;
+  background: #ffffff;
 }
 .box-mobile-top-search-products {
   padding: 0px 0px 0px 0px;
@@ -262,6 +329,14 @@ background: #F3F8FC;
   border-radius: 14px;
   padding: 8px 11px 8px 11px;
   border: 0px;
+  font-size: 14px;
+}
+.send-fund-inputs:focus {
+  background: #F4F9FD;
+  border-radius: 14px;
+  padding: 8px 11px 8px 11px;
+  border: 0px;
+  font-size: 14px;
 }
 .content-tokens, .content-transactions, .content-swap, .content-activity, .content-apps {
   display: none;
@@ -1451,7 +1526,19 @@ margin:-12px 0px 0px 0px;
 }
 .editfieldssize {
   font-size: 12px;
-background: #F4F9FD;
+  background: #ffffff;
+}
+.editfieldssize:hover {
+  font-size: 12px;
+  background: #ffffff;
+}
+.editfieldssize:focus {
+  font-size: 12px;
+  background: #ffffff;
+}
+.editfieldssizemobile {
+  font-size: 12px;
+  background: #F4F9FD;
 }
 .editfieldssize:hover {
 font-size: 12px;
@@ -2144,6 +2231,20 @@ color: #fff;
   color: #fff;
 }
 .onClosegivefeedback {
+  cursor: pointer;
+  background: #80CF57;
+  border-radius: 34px;
+  padding: 0px 5px 0px 5px;
+  color: #fff;
+}
+.onClosecreatetokens {
+  cursor: pointer;
+  background: #80CF57;
+  border-radius: 34px;
+  padding: 0px 5px 0px 5px;
+  color: #fff;
+}
+.onClosechoosenetwork {
   cursor: pointer;
   background: #80CF57;
   border-radius: 34px;
@@ -4085,6 +4186,16 @@ margin: 8px 0px 8px 0px;
 border: 0px;
 background: #F4F9FD;
 border-radius: 12px;
+}
+.input-create-new-group-amount-max:hover {
+  border: 0px;
+  background: #F4F9FD;
+  border-radius: 12px;
+}
+.input-create-new-group-amount-max:focus {
+  border: 0px;
+  background: #F4F9FD;
+  border-radius: 12px;
 }
 .input-create-new-group {
   border: 0px;
