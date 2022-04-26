@@ -64,7 +64,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                             <a className="btn onLockbuttoncreate float-end me-1"><small>Create</small></a>
                         </div>
                     </div>
-                    <div className='row mb-2'>
+                    <div className='d-flex mb-2'>
                         <div className='col-1 mt-3'><span className='count-steps rounded-circle text-white'>1</span></div>
                         <div className='col-11'>
                             <h4 className='mt-2 mb-3'>Verify Token</h4>
@@ -133,21 +133,21 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                         </div>
                     </div>
 
-                    <div className='row mt-4'>
+                    <div className='d-flex mt-4'>
                     <div className='col-1 mt-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>2</span></div>
                     <div className='col-11'>
                         <h4 className='mt-2 mb-3'>Defi Launchpad Info</h4>
                         <p>Enter the launchpad information that you want to raise , that should be enter all details about your presale</p></div>
                     </div>
 
-                    <div className='row mt-4'>
+                    <div className='d-flex mt-4'>
                     <div className='col-1 mt-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>3</span></div>
                     <div className='col-11'>
                         <h4 className='mt-2 mb-3'>Additional Info</h4>
                         <p>Let people know who you are</p></div>
                     </div>
 
-                    <div className='row mt-4'>
+                    <div className='d-flex mt-4'>
                     <div className='col-1 mt-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>4</span></div>
                     <div className='col-11'>
                         <h4 className='mt-2 mb-3'>Finish</h4>
