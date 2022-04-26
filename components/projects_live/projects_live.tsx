@@ -71,6 +71,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
     }
 
     titleCase(str) {
+        console.log(str);
         if(str !== '' && str !== undefined && str !== null){
             return str
                 .split(' ')
