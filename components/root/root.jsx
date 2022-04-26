@@ -531,19 +531,19 @@ export default class Root extends React.PureComponent {
                                     path={'/profile'}
                                     component={ProfilePage}
                                 />
-                                <LoginHFTRouteF
+                                <LoginHFTRoute
                                     path={'/launchpad'}
                                     component={LaunchPad}
                                 />
-                                <LoginHFTRouteF
+                                <LoginHFTRoute
                                     path={'/launchpad-live'}
                                     component={LaunchPadLive}
                                 />
-                                <LoginHFTRouteF
+                                <LoginHFTRoute
                                     path={'/launchpad-upcoming'}
                                     component={LaunchPadUpcoming}
                                 />
-                                <LoginHFTRouteF
+                                <LoginHFTRoute
                                     path={'/laucnhpad-create-lock'}
                                     component={LaunchPadCreateToken}
                                 />
