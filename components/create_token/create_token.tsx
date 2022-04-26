@@ -55,8 +55,9 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         return (
-            <div className='crypter-section-desktop' id="crypter-section" >
-                <div className='container'>
+            <>
+                <div className='crypter-section-desktop' id="crypter-section" >
+                    <div className='container'>
                     <div className='row'>
                         <div className='col-12'>
                             <a className='onLockbuttoncreate float-end mr-1'><small>Connect</small></a>
@@ -86,30 +87,31 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                                 <div className='col-12 mt-3'>
                                     <br></br>
+                                    <br></br>
                                     <p><strong>Currency</strong></p>
                                     <div className='form-check'>
-                                    <input className='form-check-input onBnbcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault1' checked/>
+                                    <input className='form-check-input onBnbcurrency mr-1' type='radio' name='flexRadioDefault' id='flexRadioDefault1' checked/>
                                     <label className='form-check-label ms-1' htmlFor='flexRadioDefault1'>
                                         BNB
                                     </label>
                                     </div>
                                     <div className='form-check'>
-                                    <input className='form-check-input onBusdcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault2'/>
+                                    <input className='form-check-input onBusdcurrency mr-1' type='radio' name='flexRadioDefault' id='flexRadioDefault2'/>
                                     <label className='form-check-label ms-1' htmlFor='flexRadioDefault2'>
                                         BUSD
                                     </label>
                                     </div>
                                     <div className='form-check'>
-                                    <input className='form-check-input onUsdtcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault3'/>
+                                    <input className='form-check-input onUsdtcurrency mr-1' type='radio' name='flexRadioDefault' id='flexRadioDefault3'/>
                                     <label className='form-check-label ms-1' htmlFor='flexRadioDefault3'>
                                         USDT
                                     </label>
                                     </div>
                                     <p>
                                     <small>Users will pay with 
-                                        <span className='currencytypebnb'>BNB</span> 
-                                        <span className='currencytypebusd'>BUSD</span> 
-                                        <span className='currencytypeusdt'>USDT</span>
+                                        <span className='currencytypebnb'>&nbsp;BNB&nbsp;</span> 
+                                        <span className='currencytypebusd'>&nbsp;BUSD&nbsp;</span> 
+                                        <span className='currencytypeusdt'>&nbsp;USDT&nbsp;</span>
                                         for your token</small>
                                     </p>
                                 </div>
@@ -163,7 +165,128 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                     </div>
                 </div>
-                
+                <div id='crypter-section-mobile' className='crypter-section-mobile'>
+                    <div className='container-fluid'>
+                        <div className='row'>
+                            <div className='box-middle-panel-products-mobile'>
+
+                                <div className='row'>
+                                    <div className='btn-group' role='group' aria-label='Basic example'>
+                                    <a className='btn onLockbuttoncreate'><small>Connect</small></a>
+                                    <a className='btn onLockbuttoncreatenormal'><small>BSC Mainnet</small></a>
+                                    <a className='btn onLockbuttoncreate'><small>Create</small></a>
+                                    </div>
+                                </div>
+
+                                <div className='row mb-2 mt-4'>
+                                <div className='col-2 mt-3'><span className='count-steps rounded-circle text-white'>1</span></div>
+                                <div className='col-10'>
+                                    <h6 className='mt-2 mb-3'>Verify Token</h6>
+                                    <p>Enter the token address and verify</p></div>
+                                </div>
+
+                                <div className='launchpad-create-lock-mobile'>
+                                    <div className='row'>
+                                        <form>
+                                            <div className='row'>
+                                            <div className='col-12 mt-2 mb-2'>
+                                                <label htmlFor='formGroupExampleInput2' className='form-label'><small>* Token Address</small></label>
+                                                <input type='text' className='form-control input-create-create-lock-text' id='' placeholder='Ex: PinkMoon' value='Ex: PinkMoon' />
+                                            </div>
+                                            </div>
+
+                                            <div className='row mt-2'>
+                                            <div className='col-12'>
+                                                <small className='float-start mt-1'>Create pool fee: 1 BNB</small>
+                                                <button type='button' className='btn btn-sm btn-create-token float-end onCreatetokens'>Create token</button>
+                                            </div>
+                                            </div>
+
+                                            <div className='row mt-3'>
+                                            <div className='col-12'>
+                                                <p><strong>Currency</strong></p>
+                                                <div className='form-check'>
+                                                <input className='form-check-input onBnbcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault1' checked/>
+                                                <label className='form-check-label ms-1' htmlFor='flexRadioDefault1'>
+                                                    BNB
+                                                </label>
+                                                </div>
+                                                <div className='form-check'>
+                                                <input className='form-check-input onBusdcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault2'/>
+                                                <label className='form-check-label ms-1' htmlFor='flexRadioDefault2'>
+                                                    BUSD
+                                                </label>
+                                                </div>
+                                                <div className='form-check'>
+                                                <input className='form-check-input onUsdtcurrency' type='radio' name='flexRadioDefault' id='flexRadioDefault3'/>
+                                                <label className='form-check-label ms-1' htmlFor='flexRadioDefault3'>
+                                                    USDT
+                                                </label>
+                                                </div>
+                                                <p>
+                                                <small>Users will pay with 
+                                                    <span className='currencytypebnb'>BNB</span> 
+                                                    <span className='currencytypebusd'>BUSD</span> 
+                                                    <span className='currencytypeusdt'>USDT</span>
+                                                    for your token</small>
+                                                </p>
+                                            </div>
+                                            </div>
+
+                                            <div className='row mt-3'>
+                                            <div className='col-lg-12 text-center'>
+                                                <button type='button' className='btn btn-sm btn-create-token' disabled>Next</button>
+                                            </div>
+                                            </div>
+                                            
+                                            <div className='row busd-info mt-4'>
+                                            <div className='col-12'>
+                                                <div className='alert alert-warning text-center' role='alert'>
+                                                    <div className='position-absolute top-0 start-100 translate-middle'>
+                                                    <a className='float-end onClosebusdinfo shadow'><i className='bi-x'></i></a>
+                                                    </div>
+
+                                                    <small className='text-center'>
+                                                    <i className='bi-exclamation-circle-fill'></i> Do not use this currency for auto liquidity tokens, or tokens that depend on WETH pair. It will lead to error when finalizing the pool or transfering the tokens (for example Liquidity Generator Token, Baby Token, Buyback Baby Token).Contact Pinksale for more information.</small>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        
+                                        </form>  
+                                    </div>
+                                </div>
+
+                                <div className='row mt-4'>
+                                <div className='col-2 mt-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>2</span></div>
+                                <div className='col-10'>
+                                    <h6 className='mt-2 mb-3'>Defi Launchpad Info</h6>
+                                    <p>Enter the launchpad information that you want to raise , that should be enter all details about your presale</p></div>
+                                </div>
+
+                                <div className='row mt-4'>
+                                <div className='col-2 mt-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>3</span></div>
+                                <div className='col-10'>
+                                    <h6 className='mt-2 mb-3'>Additional Info</h6>
+                                    <p>Let people know who you are</p></div>
+                                </div>
+
+                                <div className='row mt-4'>
+                                <div className='col-2 mt-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>4</span></div>
+                                <div className='col-10'>
+                                    <h6 className='mt-2 mb-3'>Finish</h6>
+                                    <p>Review your information</p></div>
+                                </div>
+
+                                <div className='row'>
+                                    <div className='col-12 mx-auto text-center mt-4 mb-4'>
+                                        <small>Disclaimer: The information provided shall not in any way constitute a recommendation as to whether you should invest in any product discussed. We accept no liability for any loss occasioned to any person acting or refraining from action as a result of any material provided or published.</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </>
         );
     }
 }
