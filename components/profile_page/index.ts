@@ -37,9 +37,6 @@ function makeMapStateToProps() {
                 state = JSON.parse(stateValue);
             }
         }
-        else{
-            window.localStorage.setItem('GlobalState',JSON.stringify(state));
-        }
         const searchParam = ownprops.location.search.replace('?u=','');
         const userData = getCurrentUser(state);
         let currentUser;
