@@ -435,28 +435,30 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         }
 
         let completionView;
-        if(completionResult < 100){
-            completionView = (
-                <div className='box-left-panel-egzo'>
-                    <div className='d-flex completion-box-bg'>
-                        <div className='d-flex completion-text width-100'>
-                            <div className='col-lg-9 width-100'>
-                                 <h5>Profile Completion</h5>
-                            </div> 
-                            <div className='col-lg-3'>
-                                <h4 className='competion-text-percent'>{completionResult}%</h4>
+        if(currentUser.id === userData.id){
+            if(completionResult < 100){
+                completionView = (
+                    <div className='box-left-panel-egzo'>
+                        <div className='d-flex completion-box-bg'>
+                            <div className='d-flex completion-text width-100'>
+                                <div className='col-lg-9 width-100'>
+                                     <h5>Profile Completion</h5>
+                                </div> 
+                                <div className='col-lg-3'>
+                                    <h4 className='competion-text-percent'>{completionResult}%</h4>
+                                </div>
                             </div>
+                            <img src={completion} className='completion-img' height='50' width={`${completionResult}%`}></img>
                         </div>
-                        <img src={completion} className='completion-img' height='50' width={`${completionResult}%`}></img>
+                        <ul className='list-group p-3'>
+                            <li className='list-group-item border-transparent'>{photoAvailable} <label className='ms-2'>Add Your Photo</label></li>
+                            <li className='list-group-item border-transparent'>{nameAvailable} <label className='ms-2'>Add Your Name</label></li>
+                            <li className='list-group-item border-transparent'>{WorkspaceAvailable} <label className='ms-2'>Add Your Workspace</label></li>
+                            <li className='list-group-item border-transparent'>{locationAvailable} <label className='ms-2'>Add Your Address</label></li>
+                        </ul>
                     </div>
-                    <ul className='list-group p-3'>
-                        <li className='list-group-item border-transparent'>{photoAvailable} <label className='ms-2'>Add Your Photo</label></li>
-                        <li className='list-group-item border-transparent'>{nameAvailable} <label className='ms-2'>Add Your Name</label></li>
-                        <li className='list-group-item border-transparent'>{WorkspaceAvailable} <label className='ms-2'>Add Your Workspace</label></li>
-                        <li className='list-group-item border-transparent'>{locationAvailable} <label className='ms-2'>Add Your Address</label></li>
-                    </ul>
-                </div>
-            );
+                );
+            }
         }
 
         let followerView;
