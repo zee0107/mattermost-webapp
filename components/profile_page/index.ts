@@ -46,6 +46,7 @@ function makeMapStateToProps() {
             userId = searchParam;
             
         }
+        console.log('CurrentState',state);
         console.log('CurrentUser: ',currentUser);
         const customStatus = getCustomStatus(state, userId);
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
