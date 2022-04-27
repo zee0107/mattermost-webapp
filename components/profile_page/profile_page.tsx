@@ -49,6 +49,7 @@ import { RequestList, SocialCount } from 'mattermost-redux/types/crypto';
 import { PostList } from 'mattermost-redux/types/posts';
 import { post } from 'jquery';
 import { profile } from 'console';
+import { unreadFilterEnabled } from 'reducers/views/channel_sidebar';
 
 type Props = {
     status?: string;
@@ -163,7 +164,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             });
         }
 
-        if(this.props.followData !== null){
+        if(this.props.followData !== null && this.props.followData !== undefined){
             Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
         }
     }
