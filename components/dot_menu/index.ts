@@ -76,7 +76,8 @@ const fetchBindings = makeFetchBindings(AppBindingLocations.POST_MENU_ITEM);
 
 function mapStateToProps(state: GlobalState, ownProps: Props) {
     const {post} = ownProps;
-
+    console.log('Post: ',post);
+    console.log('State: ',state)
     const license = getLicense(state);
     const config = getConfig(state);
     const userId = getCurrentUserId(state);
