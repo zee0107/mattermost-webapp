@@ -32,7 +32,6 @@ function makeMapStateToProps() {
     return function mapStateToProps(state: GlobalState, ownprops: OwnProps) {
         if(state.entities.teams.currentTeamId === "" || state.entities.teams.currentTeamId === null || state.entities.teams.currentTeamId === undefined){
             const stateValue = window.localStorage.getItem('GlobalState');
-            console.log(stateValue);
             state = JSON.parse(stateValue);
         }
         const searchParam = ownprops.location.search.replace('?u=','');
@@ -45,8 +44,9 @@ function makeMapStateToProps() {
         }else{
             currentUser = getOhterUser(state,searchParam);
             userId = searchParam;
-            console.log('CurrentUser: ',currentUser);
+            
         }
+        console.log('CurrentUser: ',currentUser);
         const customStatus = getCustomStatus(state, userId);
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
         const socialCount = Client4.getSocialCount(userId);
