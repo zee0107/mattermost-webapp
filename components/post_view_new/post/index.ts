@@ -52,7 +52,7 @@ function makeMapStateToProps() {
     const isPostCommentMention = makeIsPostCommentMention();
 
     return (state: GlobalState, ownProps: OwnProps) => {
-        const currentUserId = userId;
+        const currentUserId = ownProps.userId;
         const post = ownProps.post || getPost(state, ownProps.postId);
         const postDetailed =  Client4.getPostDetailed(post.id);
         const channel = getChannel(state, post.channel_id);
