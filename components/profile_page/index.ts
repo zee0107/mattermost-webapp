@@ -31,6 +31,15 @@ function makeMapStateToProps() {
 
     return function mapStateToProps(state: GlobalState, ownprops: OwnProps) {
         console.log('State: ',state);
+        if(state.entities.teams.currentTeamId === '' || state.entities.teams.currentTeamId === null || state.entities.teams.currentTeamId === undefined){
+            const stateValue = window.localStorage.getItem('GlobalState');
+            if(stateValue === '' || stateValue === null || stateValue === undefined){
+                state = JSON.parse(stateValue);
+            }
+        }
+        else{
+            window.localStorage.setItem('GlobalState',JSON.stringify(state));
+        }
         const searchParam = ownprops.location.search.replace('?u=','');
         const userData = getCurrentUser(state);
         let currentUser;
