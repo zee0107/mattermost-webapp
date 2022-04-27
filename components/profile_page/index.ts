@@ -1,7 +1,7 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 import {connect} from 'react-redux';
-import {bindActionCreators, Dispatch} from 'redux';
+import {ActionCreatorsMapObject, bindActionCreators, Dispatch} from 'redux';
 
 import {setStatus, unsetCustomStatus} from 'mattermost-redux/actions/users';
 import {Client4} from 'mattermost-redux/client';
@@ -17,11 +17,13 @@ import {getIsLhsOpen} from 'selectors/lhs';
 import {getCurrentUserTimezone} from 'selectors/general';
 import {makeGetCustomStatus, isCustomStatusEnabled, showStatusDropdownPulsatingDot, isCustomStatusExpired} from 'selectors/views/custom_status';
 import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
-import {GenericAction} from 'mattermost-redux/types/actions';
+import {ActionFunc, GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
 import { acceptRequest, cancelRequest, followRequest, unfollow } from 'mattermost-redux/actions/posts';
 
 import ProfilPage from './profile_page'
+import { ModalData } from 'types/actions';
+import { UserStatus } from 'mattermost-redux/types/users';
 
 
 type OwnProps = {
@@ -103,16 +105,26 @@ function onUnfollowUser(user_id: string, friend_id: string) {
     };
 }
 
+type Actions = {
+    openModal: <P>(modalData: ModalData<P>) => void;
+    setStatus: (status: UserStatus) => ActionFunc;
+    onFollowRequest: (user_id: string, friend_id: string) => void;
+    onAcceptRequest: (request_id: string) => void;
+    onUnfollowUser: (user_id: string, friend_id: string) => void;
+    onCancelRequest: (request_id: string) => void;
+    unsetCustomStatus: () => ActionFunc;
+    setStatusDropdown: (open: boolean) => void;
+}
 
-function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
+function mapDispatchToProps(dispatch: Dispatch) {
     return {
-        actions: bindActionCreators({
+        actions: bindActionCreators<ActionCreatorsMapObject<Actions>, Actions>({
             openModal,
             setStatus,
-            onFollowRequest: (user_id: string, friend_id: string) => void,
-            onAcceptRequest: (request_id: string) => void,
-            onUnfollowUser: (user_id: string, friend_id: string) => void,
-            onCancelRequest: (request_id: string) => void,
+            onFollowRequest,
+            onAcceptRequest,
+            onUnfollowUser,
+            onCancelRequest,
             unsetCustomStatus,
             setStatusDropdown,
         }, dispatch),
