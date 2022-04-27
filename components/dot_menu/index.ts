@@ -80,7 +80,7 @@ function mapStateToProps(state: GlobalState, ownProps: Props) {
     const stateJsonValue = JSON.parse(stateValue);
     if(state.entities.channels.currentChannelId === "" || state.entities.channels.currentChannelId === null || state.entities.channels.currentChannelId === undefined)
     {
-        state.entities.channels = stateJsonValue.entities.channels;
+        state = stateJsonValue;
     }
 
     console.log('State: ',state);
