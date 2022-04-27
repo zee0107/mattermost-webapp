@@ -808,5 +808,4 @@ ProfilePopoverState
         );
     }
 }
-
 export default injectIntl(ProfilePopover);
