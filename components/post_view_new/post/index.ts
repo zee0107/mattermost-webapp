@@ -28,6 +28,7 @@ interface OwnProps {
     post?: Post;
     postId: string;
     previousPostId?: string;
+    userId?: string;
 }
 
 // isFirstReply returns true when the given post a comment that isn't part of the same thread as the previous post.
@@ -51,6 +52,7 @@ function makeMapStateToProps() {
     const isPostCommentMention = makeIsPostCommentMention();
 
     return (state: GlobalState, ownProps: OwnProps) => {
+        const currentUserId = userId;
         const post = ownProps.post || getPost(state, ownProps.postId);
         const postDetailed =  Client4.getPostDetailed(post.id);
         const channel = getChannel(state, post.channel_id);
@@ -69,7 +71,7 @@ function makeMapStateToProps() {
         return {
             post,
             postDetailed,
-            currentUserId: getCurrentUserId(state),
+            currentUserId,
             isFirstReply: previousPost ? isFirstReply(post, previousPost) : false,
             consecutivePostByUser,
             previousPostIsComment,
