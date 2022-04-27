@@ -76,9 +76,11 @@ const fetchBindings = makeFetchBindings(AppBindingLocations.POST_MENU_ITEM);
 
 function mapStateToProps(state: GlobalState, ownProps: Props) {
     const {post} = ownProps;
-    if(state.entities.channels.currentChannelId === "" || state.entities.channels.currentChannelId === null || state.entities.channels.currentChannelId === undefined){
-        const stateValue = window.localStorage.getItem('GlobalState');
-        state = JSON.parse(stateValue);
+    const stateValue = window.localStorage.getItem('GlobalState');
+    const stateJsonValue = JSON.parse(stateValue);
+    if(state.entities.channels.currentChannelId === "" || state.entities.channels.currentChannelId === null || state.entities.channels.currentChannelId === undefined)
+    {
+        state.entities.channels = stateJsonValue.entities.channels;
     }
 
     console.log('State: ',state);
