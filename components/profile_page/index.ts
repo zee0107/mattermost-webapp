@@ -21,7 +21,6 @@ import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
 
 import ProfilPage from './profile_page'
-import { param } from 'jquery';
 
 
 type OwnProps = {
