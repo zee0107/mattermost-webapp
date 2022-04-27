@@ -645,7 +645,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         focusedPostId={''}
                                     />*/}
                                     {postList && postList.order.map((item,index) => {
-                                        return (<Post postId={item}/>);
+                                        Object.keys(postList.posts).map((post,ind) => {
+                                            return (<Post postId={item} post={postList.posts[post]}/>);
+                                        });
                                     })}
                                 </div>
                             </div>
