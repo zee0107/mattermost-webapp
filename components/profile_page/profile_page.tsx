@@ -45,7 +45,7 @@ import SidebarRight from 'components/sidebar_right';
 import SidebarRightMenu from 'components/sidebar_right_menu';
 import { CssFontSource } from '@stripe/stripe-js';
 import { toggleRHSPlugin } from 'actions/views/rhs';
-import { SocialCount } from 'mattermost-redux/types/crypto';
+import { RequestList, SocialCount } from 'mattermost-redux/types/crypto';
 import { PostList } from 'mattermost-redux/types/posts';
 import { post } from 'jquery';
 import { profile } from 'console';
@@ -82,6 +82,7 @@ type Props = {
     rhsOpen: boolean;
     rhsMenuOpen: boolean;
     getPostList: Promise<PostList>;
+    followData: Promise<RequestList>;
 }
 
 type State = {
@@ -101,6 +102,8 @@ type State = {
     feeling: boolean;
     socialCount: SocialCount;
     postList: PostList;
+    followData: RequestList;
+    followStatus: number;
 };
 
 export default class ProfilPage extends React.PureComponent<Props, State> {
@@ -121,11 +124,15 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {postValues:[],listId:[],feeling: true,userActivity: '',userLocation: '',shareInfo: 'everyone',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
+        this.state = {followStatus: 0,postValues:[],listId:[],feeling: true,userActivity: '',userLocation: '',shareInfo: 'everyone',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
         
         this.onChangeShareInfo = this.onChangeShareInfo.bind(this);
         this.onChangeLocation = this.onChangeLocation.bind(this);
         this.onChangeActivity = this.onChangeActivity.bind(this);
+        this.handleFollow = this.handleFollow.bind(this);
+        this.handleAccept = this.handleAccept.bind(this);
+        this.handleCancelRequest = this.handleCancelRequest.bind(this);
+        this.handleUnfollow = this.handleUnfollow.bind(this);
     }
 
     componentDidMount(){
@@ -155,9 +162,25 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                 listId: this.state.postList.order,
             });
         }
+
+        if(this.props.followData !== null){
+            Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
+        }
     }
 
-    componentDidUpdate(){
+    componentDidUpdate(prevProps: Props,prevState: State){
+        if(this.props.followData !== prevProps.followData){
+            if(this.props.followData !== null){
+                Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
+            }
+        }
+        if(this.state.followData !== undefined || this.state.followData !== null){
+            if(this.state.followStatus !== prevState.followData.status)
+            {
+                this.setState({followStatus: this.state.followData.status});
+            }
+        }
+        
         this.getCompletionRate();
     }
 
@@ -249,9 +272,45 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         this.setState({uploading: false});
     }
 
+    handleFollow = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+
+        const {actions, currentUser, userData} = this.props;
+        actions.onFollowRequest(userData.id,currentUser.id);
+        this.setState({followStatus: 1});
+    }
+
+    handleAccept = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        const {actions} = this.props;
+        const {followData} = this.state;
+        if(followData !== undefined){
+            actions.onAcceptRequest(followData.id.toString());
+            this.setState({followStatus: 2});
+        }
+    }
+
+    handleCancelRequest = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        const {actions} = this.props;
+        const {followData} = this.state;
+        if(followData !== undefined){
+            actions.onCancelRequest(followData.id.toString());
+            this.setState({followStatus: 5});
+        }
+    }
+
+    handleUnfollow = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        const {actions, currentUser, userData} = this.props;
+        actions.onUnfollowUser(userData.id,currentUser.id);
+        this.setState({followStatus: 4});
+    }
+
+
     render= (): JSX.Element => {
         const {globalHeader, currentUser, profilePicture, userData} = this.props;
-        const { coverUrl,completionResult, uploading, shareInfo, userLocation, feeling, socialCount, postList, postValues, listId} = this.state;
+        const { coverUrl,completionResult, uploading, shareInfo, userLocation, feeling, socialCount, postList, postValues, listId, followData,followStatus} = this.state;
 
         let photoAvailable;
         let nameAvailable;
@@ -278,7 +337,52 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             </ToggleModalButtonRedux>);
         }   
         else{
-            profileBtn = (<button className='float-end onEditclicks mt-1'>Follow</button>);
+            if(followData !== undefined){
+                if(followStatus === 1){
+                    profileBtn = (
+                        <button
+                            className='float-end onEditclicks mt-1'
+                            onClick={this.handleCancelRequest}
+                        >
+                            <i class="bi bi-person-x"></i>
+                            Requested
+                        </button>
+                    );
+                }
+                else if(followStatus === 2){
+                    profileBtn =(
+                        <button
+                            className='float-end onEditclicks mt-1'
+                            onClick={this.handleUnfollow}
+                        >
+                            <i class="bi bi-person-check"></i>
+                            Following
+                        </button>
+                    );
+                }
+                else if(followStatus === 6){
+                    profileBtn =(
+                        <button
+                            className='float-end onEditclicks mt-1'
+                            onClick={this.handleAccept}
+                        >
+                            <i class="bi bi-person-check"></i>
+                            Accept
+                        </button>
+                    );
+                }
+                else{
+                    profileBtn =(
+                        <button
+                            className='float-end onEditclicks mt-1'
+                            onClick={this.handleFollow}
+                        >
+                            <i className='bi bi-person-plus'></i>
+                            Follow
+                        </button>
+                    );
+                }
+            }
         }
         let textValue;
         let icon;

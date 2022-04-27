@@ -41,12 +41,15 @@ function makeMapStateToProps() {
         const userData = getCurrentUser(state);
         let currentUser;
         let userId;
+        let followData;
         if(userData.id === searchParam || searchParam === '' || searchParam === null || searchParam === undefined){
             currentUser = userData
             userId = currentUser.id;
+            followData = null;
         }else{
             currentUser = getOhterUser(state,searchParam);
             userId = searchParam;
+            followData  = Client4.getFollowDetail(userData.id,userId),
         }
 
         
@@ -62,6 +65,7 @@ function makeMapStateToProps() {
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             profilePictureLoggedin: Client4.getProfilePictureUrl(userData.id, userData?.last_picture_update),
             coverPhoto: Client4.getProfileCover(userId),
+            followData,
             autoResetPref: get(state, Preferences.CATEGORY_AUTO_RESET_MANUAL_STATUS, userId, ''),
             status: getStatusForUserId(state, userId),
             customStatus,

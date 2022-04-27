@@ -181,6 +181,7 @@ ProfilePopoverState
         this.handleFollow = this.handleFollow.bind(this);
         this.handleAccept = this.handleAccept.bind(this);
         this.handleCancelRequest = this.handleCancelRequest.bind(this);
+        this.handleUnfollow = this.handleUnfollow.bind(this);
     }
     componentDidMount() {
         const {currentTeamId, userId, channelId} = this.props;
