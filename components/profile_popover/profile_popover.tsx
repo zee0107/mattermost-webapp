@@ -679,12 +679,10 @@ ProfilePopoverState
                         key='user-popover-dm'
                         className='popover__row first'
                     >
-                        <Router>
-                            <Link to='profile' query={{userId: this.props.user.id}}>
-                                <i className='bi bi-person-fill'></i>
-                                &nbsp;View Profile
-                            </Link>
-                        </Router>
+                        <Link to='profile' query={{userId: this.props.user.id}}>
+                            <i className='bi bi-person-fill'></i>
+                            &nbsp;View Profile
+                        </Link>
                     </div>
                     <div
                         data-toggle='tooltip'
