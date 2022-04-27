@@ -33,7 +33,7 @@ import {ModalData} from 'types/actions';
 import './profile_popover.scss';
 import { Client4 } from 'mattermost-redux/client';
 import { RequestList } from 'mattermost-redux/types/crypto';
-import { Link } from 'react-router-dom';
+import { Link, Router } from 'react-router-dom';
 
 interface ProfilePopoverProps extends Omit<React.ComponentProps<typeof Popover>, 'id'>{
 
@@ -679,12 +679,12 @@ ProfilePopoverState
                         key='user-popover-dm'
                         className='popover__row first'
                     >
-                        <React.Fragment>
+                        <Router>
                             <Link to='profile' query={{userId: this.props.user.id}}>
                                 <i className='bi bi-person-fill'></i>
                                 &nbsp;View Profile
                             </Link>
-                        </React.Fragment>
+                        </Router>
                     </div>
                     <div
                         data-toggle='tooltip'
