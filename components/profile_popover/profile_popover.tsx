@@ -673,22 +673,25 @@ ProfilePopoverState
         }
        if (this.props.user.id !== this.props.currentUserId && !haveOverrideProp) {
             dataContent.push(
-                <Link data-toggle='tooltip'
-                    key='user-popover-dm'
-                    className='popover__row first'
-                    to='profile'
-                    query={{userId: this.props.user.id}}
-                >
-                    <i className='bi bi-person-fill'></i>
-                    &nbsp;View Profile
-                </Link>
-                <div
-                    data-toggle='tooltip'
-                    key='user-popover-dm'
-                    className='popover__row first'
-                >
-                    {followBtn}
-                </div>,
+                <>
+                    <div
+                        data-toggle='tooltip'
+                        key='user-popover-dm'
+                        className='popover__row first'
+                    >
+                        <Link to='profile' query={{userId: this.props.user.id}}>
+                            <i className='bi bi-person-fill'></i>
+                            &nbsp;View Profile
+                        </Link>
+                    </div>
+                    <div
+                        data-toggle='tooltip'
+                        key='user-popover-dm'
+                        className='popover__row first'
+                    >
+                        {followBtn}
+                    </div>
+                </>,
             );
         /*if (
                 this.props.canManageAnyChannelMembersInCurrentTeam &&
