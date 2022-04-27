@@ -14,6 +14,10 @@ import {isGuest} from 'mattermost-redux/utils/user_utils';
 import PostHeader, {Props} from './post_header';
 
 function mapStateToProps(state: GlobalState, ownProps: Props) {
+    if(state.entities.teams.currentTeamId === "" || state.entities.teams.currentTeamId === null || state.entities.teams.currentTeamId === undefined){
+        const stateValue = window.localStorage.getItem('GlobalState');
+        state = JSON.parse(stateValue);
+    }
     const config = getConfig(state);
     const enablePostUsernameOverride = config.EnablePostUsernameOverride === 'true';
     const enablePostIconOverride = config.EnablePostIconOverride === 'true';
