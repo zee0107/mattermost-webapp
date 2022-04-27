@@ -82,7 +82,7 @@ type Props = {
     rhsOpen: boolean;
     rhsMenuOpen: boolean;
     getPostList: Promise<PostList>;
-    followData: Promise<RequestList>;
+    followData?: Promise<RequestList>;
 }
 
 type State = {
