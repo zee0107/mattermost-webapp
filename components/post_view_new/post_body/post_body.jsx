@@ -484,7 +484,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
                     {fileAttachmentHolder}
                     {messageWithAdditionalContent}
                     <div className='col-lg-12 mtop-10 removePadding'>
-                        {/*options*/}
+                        {options}
                     </div>
                     <div className='col-lg-12 mtop-10 removePadding'>
                         <ReactionList post={post}/>
