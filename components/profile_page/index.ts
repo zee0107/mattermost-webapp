@@ -36,11 +36,11 @@ function makeMapStateToProps() {
         const userData = getCurrentUser(state);
         let currentUser;
         let userId;
-        if(userData.id === ownprops.userId || ownprops.userId === '' || ownprops.userId === null || ownprops.userId === undefined){
+        if(userData.id === searchParam || searchParam === '' || searchParam === null || searchParam === undefined){
             currentUser = userData
             userId = currentUser.id;
         }else{
-            currentUser = getOhterUser(state,ownprops.userId);
+            currentUser = getOhterUser(state,searchParam);
             userId = currentUser.id;
         }
         const customStatus = getCustomStatus(state, userId);
