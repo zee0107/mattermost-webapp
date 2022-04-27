@@ -673,16 +673,15 @@ ProfilePopoverState
         }
        if (this.props.user.id !== this.props.currentUserId && !haveOverrideProp) {
             dataContent.push(
-                <div
-                    data-toggle='tooltip'
+                <Link data-toggle='tooltip'
                     key='user-popover-dm'
                     className='popover__row first'
+                    to='profile'
+                    query={{userId: this.props.user.id}}
                 >
-                    <Link to='profile' params={{userId: this.props.user.id}}>
-                        <i className='bi bi-person-fill'></i>
-                        &nbsp;View Profile
-                    </Link>
-                </div>
+                    <i className='bi bi-person-fill'></i>
+                    &nbsp;View Profile
+                </Link>
                 <div
                     data-toggle='tooltip'
                     key='user-popover-dm'
