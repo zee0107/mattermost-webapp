@@ -682,7 +682,7 @@ ProfilePopoverState
                         <a href={`/profile?userId=${this.props.userId}`} className='text-nowrap'>
                             <i className='bi bi-person-fill'></i>
                             &nbsp;View Profile
-                        </Link>
+                        </a>
                     </div>
                     <div
                         data-toggle='tooltip'
