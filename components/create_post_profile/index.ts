@@ -21,6 +21,7 @@ import {ModalData} from 'types/actions.js';
 
 import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
 import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
+import {UserProfile} from 'mattermost-redux/types/users';
 
 import {getCurrentChannel, getCurrentChannelStats, getChannelMemberCountsByGroup as selectChannelMemberCountsByGroup} from 'mattermost-redux/selectors/entities/channels';
 import {getCurrentUserId, getStatusForUserId, getUser, getCurrentUser} from 'mattermost-redux/selectors/entities/users';
@@ -63,15 +64,22 @@ import {canUploadFiles} from 'utils/file_utils';
 import {isFeatureEnabled} from 'utils/utils';
 
 import CreatePostProfile from './create_post_profile';
-
+type OwnProps = {
+    userData?: UserProfile;
+}
 function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
 
-    return (state: GlobalState) => {
+    return (state: GlobalState, ownProps: OwnProps) => {
         const channelId = 'kqe4sihhdid47gprhk6dwbuc4o';
         //const channelId = 'dodurztr1fbupnpenjgxqjso3a';
         const config = getConfig(state);
-        const currentUser = getCurrentUser(state);
+        let currentUser;
+        if (ownProps.userData === null || ownProps.userData === undefined){
+            currentUser = getCurrentUser(state);
+        }else{
+            currentUser = ownProps.userData;
+        }
         const license = getLicense(state);
         const currentChannel = Client4.getChannel(channelId);
         const currentChannelTeammateUsername = getUser(state,'')?.username;
