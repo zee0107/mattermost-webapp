@@ -171,13 +171,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     componentDidUpdate(prevProps: Props,prevState: State){
         if(this.props.followData !== prevProps.followData){
-            if(this.props.followData !== null){
+            if(this.props.followData !== null && this.props.followData !== undefined){
                 Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
-            }
-        }
-        if(this.state.followData !== undefined || this.state.followData !== null){
-            if(this.state.followStatus !== prevState.followData.status)
-            {
                 this.setState({followStatus: this.state.followData.status});
             }
         }
