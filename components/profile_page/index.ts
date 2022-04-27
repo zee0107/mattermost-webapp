@@ -32,10 +32,13 @@ function makeMapStateToProps() {
         const userData = getCurrentUser(state);
         let currentUser;
         let userId;
-        if(userData.id === ownprops.userId){
+        if(userData.id === ownprops.userId || ownprops.userId === '' || ownprops.userId === null || ownprops.userId === undefined){
             currentUser = userData
             userId = currentUser.id;
         }
+
+        console.log('State: ',state)
+        console.log('Props: ', currentUser)
         const customStatus = getCustomStatus(state, userId);
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
         const socialCount = Client4.getSocialCount(userId);
