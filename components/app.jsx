@@ -20,10 +20,8 @@ import {makeAsyncComponent} from 'components/async_load';
 
 import CRTPostsChannelResetWatcher from 'components/threading/channel_threads/posts_channel_reset_watcher';
 const LazyRoot = React.lazy(() => import('components/root'));
-const LazyProfile = React.lazy(() => import('components/profile_page'));
 
 const Root = makeAsyncComponent('Root', LazyRoot);
-const Profile = makeAsyncComponent('Profile', LazyProfile);
 
 class App extends React.PureComponent {
     render() {
@@ -34,10 +32,6 @@ class App extends React.PureComponent {
                     <Route
                         path='/'
                         component={Root}
-                    />
-                    <Route
-                        path='/profile'
-                        component={Profile}
                     />
                 </Router>
             </Provider>);
