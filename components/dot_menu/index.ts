@@ -80,6 +80,8 @@ function mapStateToProps(state: GlobalState, ownProps: Props) {
         const stateValue = window.localStorage.getItem('GlobalState');
         state = JSON.parse(stateValue);
     }
+
+    console.log('State: ',state);
     const license = getLicense(state);
     const config = getConfig(state);
     const userId = getCurrentUserId(state);
