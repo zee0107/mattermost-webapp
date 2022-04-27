@@ -679,7 +679,7 @@ ProfilePopoverState
                         key='user-popover-dm-1'
                         className='popover__row first'
                     >
-                        <a href={`/profile?userId=${this.props.userId}`} className='text-nowrap'>
+                        <a href={`/profile/${this.props.userId}`} className='text-nowrap'>
                             <i className='bi bi-person-fill'></i>
                             &nbsp;View Profile
                         </a>

@@ -30,7 +30,8 @@ function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
 
     return function mapStateToProps(state: GlobalState, ownprops: OwnProps) {
-        console.log('OwnProps: ',ownprops.location.search);
+        console.log('OwnProps: ',ownprops);
+        const searchParam = ownprops.location.search;
         const userData = getCurrentUser(state);
         let currentUser;
         let userId;
@@ -41,9 +42,6 @@ function makeMapStateToProps() {
             currentUser = getOhterUser(state,ownprops.userId);
             userId = currentUser.id;
         }
-
-        console.log('State: ',state)
-        console.log('Props: ', currentUser)
         const customStatus = getCustomStatus(state, userId);
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
         const socialCount = Client4.getSocialCount(userId);
