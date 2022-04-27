@@ -58,6 +58,7 @@ function makeMapStateToProps() {
         if (ownProps.previousPostId) {
             previousPost = getPost(state, ownProps.previousPostId);
         }
+        console.log(post);
 
         let consecutivePostByUser = false;
         let previousPostIsComment = false;
