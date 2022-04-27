@@ -344,7 +344,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             onClick={this.handleCancelRequest}
                         >
                             <i class="bi bi-person-x"></i>
-                            Requested
+                            &nbsp;Requested
                         </button>
                     );
                 }
@@ -355,7 +355,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             onClick={this.handleUnfollow}
                         >
                             <i class="bi bi-person-check"></i>
-                            Following
+                            &nbsp;Following
                         </button>
                     );
                 }
@@ -366,7 +366,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             onClick={this.handleAccept}
                         >
                             <i class="bi bi-person-check"></i>
-                            Accept
+                            &nbsp;Accept
                         </button>
                     );
                 }
@@ -377,7 +377,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             onClick={this.handleFollow}
                         >
                             <i className='bi bi-person-plus'></i>
-                            Follow
+                            &nbsp;Follow
                         </button>
                     );
                 }
