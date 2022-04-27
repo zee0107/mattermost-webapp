@@ -644,11 +644,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         //channelId='dodurztr1fbupnpenjgxqjso3a'
                                         focusedPostId={''}
                                     />*/}
-                                    {postList && postList.order.map((item,index) => {
-                                        Object.keys(postList.posts).map((post,ind) => {
-                                            return (<Post postId={item} post={postList.posts[item]}/>);
-                                        });
+                                    {Object.keys(postList.posts).map((post,ind) => {
+                                            return (<Post postId={post} post={postList.posts[post]}/>);
                                     })}
+                                    {/*postList && postList.order.map((item,index) => {
+                                        return (<Post postId={post}/>);
+                                    })*/}
                                 </div>
                             </div>
                             <div className='col-lg-4' id='rsvDesktop'>
