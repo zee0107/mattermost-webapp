@@ -22,12 +22,20 @@ import {GlobalState} from 'types/store';
 
 import ProfilPage from './profile_page'
 
+type OwnProps = {
+    userId: string;
+}
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
 
-    return function mapStateToProps(state: GlobalState) {
-        const currentUser = getCurrentUser(state);
-        const userId = currentUser?.id;
+    return function mapStateToProps(state: GlobalState, ownprops: OwnProps) {
+        const userData = getCurrentUser(state);
+        let currentUser;
+        let userId;
+        if(userData.id === ownprops.userId){
+            currentUser = userData
+            userId = currentUser.id;
+        }
         const customStatus = getCustomStatus(state, userId);
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
         const socialCount = Client4.getSocialCount(userId);
