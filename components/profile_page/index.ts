@@ -44,8 +44,9 @@ function makeMapStateToProps() {
         }else{
             currentUser = getOhterUser(state,searchParam);
             userId = searchParam;
-            
         }
+
+        
         const customStatus = getCustomStatus(state, userId);
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
         const socialCount = Client4.getSocialCount(userId);
@@ -56,6 +57,7 @@ function makeMapStateToProps() {
             userId,
             userData,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
+            profilePictureLoggedin: Client4.getProfilePictureUrl(userData.id, userData?.last_picture_update),
             coverPhoto: Client4.getProfileCover(userId),
             autoResetPref: get(state, Preferences.CATEGORY_AUTO_RESET_MANUAL_STATUS, userId, ''),
             status: getStatusForUserId(state, userId),
