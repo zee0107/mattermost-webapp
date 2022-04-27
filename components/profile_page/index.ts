@@ -21,6 +21,7 @@ import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
 
 import ProfilPage from './profile_page'
+import { param } from 'jquery';
 
 
 type OwnProps = {
@@ -30,8 +31,8 @@ function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
 
     return function mapStateToProps(state: GlobalState, ownprops: OwnProps) {
-        console.log('OwnProps: ',ownprops);
-        const searchParam = ownprops.location.search;
+        const searchParam = ownprops.location.search.replace('?u=','');
+        console.log(searchParam);
         const userData = getCurrentUser(state);
         let currentUser;
         let userId;
