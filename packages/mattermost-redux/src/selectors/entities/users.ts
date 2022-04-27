@@ -8,6 +8,7 @@ import {createSelector} from 'reselect';
 import {
     getCurrentChannelId,
     getCurrentUser,
+    getOhterUser,
     getCurrentUserId,
     getMyCurrentChannelMembership,
     getUsers,
@@ -41,7 +42,7 @@ import {
     RelationOneToOne,
 } from 'mattermost-redux/types/utilities';
 
-export {getCurrentUser, getCurrentUserId, getUsers};
+export {getCurrentUser,getOhterUser, getCurrentUserId, getUsers};
 
 type Filters = {
     role?: string;

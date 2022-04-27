@@ -8,7 +8,7 @@ import {Client4} from 'mattermost-redux/client';
 import {Preferences} from 'mattermost-redux/constants';
 
 import {get, getBool} from 'mattermost-redux/selectors/entities/preferences';
-import {getCurrentUser, getStatusForUserId} from 'mattermost-redux/selectors/entities/users';
+import {getCurrentUser, getStatusForUserId, getOhterUser} from 'mattermost-redux/selectors/entities/users';
 
 import {openModal} from 'actions/views/modals';
 import {setStatusDropdown} from 'actions/views/status_dropdown';
@@ -22,6 +22,7 @@ import {GlobalState} from 'types/store';
 
 import ProfilPage from './profile_page'
 
+
 type OwnProps = {
     userId: string;
 }
@@ -29,11 +30,15 @@ function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
 
     return function mapStateToProps(state: GlobalState, ownprops: OwnProps) {
+        console.log('OwnProps: ',ownprops)
         const userData = getCurrentUser(state);
         let currentUser;
         let userId;
         if(userData.id === ownprops.userId || ownprops.userId === '' || ownprops.userId === null || ownprops.userId === undefined){
             currentUser = userData
+            userId = currentUser.id;
+        }else{
+            currentUser = getOhterUser(state,ownprops.userId);
             userId = currentUser.id;
         }
 
@@ -47,6 +52,7 @@ function makeMapStateToProps() {
         
         return {
             userId,
+            userData,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             coverPhoto: Client4.getProfileCover(userId),
             autoResetPref: get(state, Preferences.CATEGORY_AUTO_RESET_MANUAL_STATUS, userId, ''),

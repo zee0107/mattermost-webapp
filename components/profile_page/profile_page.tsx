@@ -48,6 +48,7 @@ import { toggleRHSPlugin } from 'actions/views/rhs';
 import { SocialCount } from 'mattermost-redux/types/crypto';
 import { PostList } from 'mattermost-redux/types/posts';
 import { post } from 'jquery';
+import { profile } from 'console';
 
 type Props = {
     status?: string;
@@ -63,6 +64,7 @@ type Props = {
     };
     socialCount: Promise<SocialCount>;
     customStatus?: UserCustomStatus;
+    userData: UserProfile;
     currentUser: UserProfile;
     isCustomStatusEnabled: boolean;
     isCustomStatusExpired: boolean;
@@ -230,7 +232,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {globalHeader, currentUser, profilePicture} = this.props;
+        const {globalHeader, currentUser, profilePicture, userData} = this.props;
         const { coverUrl,completionResult, uploading, shareInfo, userLocation, feeling, socialCount, postList, postValues, listId} = this.state;
 
         let photoAvailable;
@@ -243,6 +245,23 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let feelactView;
         let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src={UndoneIcon} alt=''/>);
         
+        let profileBtn;
+        if(userData.id === currentUser.id){
+            profileBtn = (<ToggleModalButtonRedux
+                id='accountSettings'
+                aria-label='Profile'
+                modalId={ModalIdentifiers.USER_SETTINGS}
+                dialogType={UserSettingsModal}
+                dialogProps={{isContentProductSettings: false}}
+                className={'float-end onEditclicks mt-1'}
+                showUnread={false}
+            >
+                Edit
+            </ToggleModalButtonRedux>);
+        }   
+        else{
+            profileBtn = (<button className='float-end onEditclicks mt-1'>Follow</button>);
+        }
         let textValue;
         let icon;
         let PostCount = 0 as number;
@@ -455,17 +474,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 <div className='p-0'>
                                                     <div className='col-md-12'>
                                                         {this.renderProfilePictureText('mxl')}
-                                                        <ToggleModalButtonRedux
-                                                            id='accountSettings'
-                                                            aria-label='Profile'
-                                                            modalId={ModalIdentifiers.USER_SETTINGS}
-                                                            dialogType={UserSettingsModal}
-                                                            dialogProps={{isContentProductSettings: false}}
-                                                            className={'float-end onEditclicks mt-1'}
-                                                            showUnread={false}
-                                                        >
-                                                            Edit
-                                                        </ToggleModalButtonRedux>
+                                                        {profileBtn}
                                                         <h4 className='float-start ml-2 mt-2 name-query-style text-white'>{`${currentUser.first_name} ${currentUser.last_name}`}</h4>
                                                         <br />
                                                         <br />

@@ -33,6 +33,7 @@ import {ModalData} from 'types/actions';
 import './profile_popover.scss';
 import { Client4 } from 'mattermost-redux/client';
 import { RequestList } from 'mattermost-redux/types/crypto';
+import { Link } from 'react-router-dom';
 
 interface ProfilePopoverProps extends Omit<React.ComponentProps<typeof Popover>, 'id'>{
 
@@ -677,31 +678,18 @@ ProfilePopoverState
                     key='user-popover-dm'
                     className='popover__row first'
                 >
-                    {followBtn}
+                    <Link to='profile' params={{userId: this.props.user.id}}>
+                        <i className='bi bi-person-fill'></i>
+                        &nbsp;View Profile
+                    </Link>
                 </div>
-                /*<div
+                <div
                     data-toggle='tooltip'
                     key='user-popover-dm'
                     className='popover__row first'
                 >
-                    <a
-                        href='#'
-                        className='text-nowrap user-popover__email'
-                        onClick={this.handleShowDirectChannel}
-                    >
-                        <LocalizedIcon
-                            className='fa fa-paper-plane'
-                            title={{
-                                id: t('user_profile.send.dm.icon'),
-                                defaultMessage: 'Send Message Icon',
-                            }}
-                        />
-                        <FormattedMessage
-                            id='user_profile.send.dm'
-                            defaultMessage='Send Message'
-                        />
-                    </a>
-                </div>*/,
+                    {followBtn}
+                </div>,
             );
         /*if (
                 this.props.canManageAnyChannelMembersInCurrentTeam &&
