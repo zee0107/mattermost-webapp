@@ -676,7 +676,7 @@ ProfilePopoverState
                 <>
                     <div
                         data-toggle='tooltip'
-                        key='user-popover-dm'
+                        key='user-popover-dm-1'
                         className='popover__row first'
                     >
                         <a href={`/profile?userId=${this.props.userId}`} className='text-nowrap'>
