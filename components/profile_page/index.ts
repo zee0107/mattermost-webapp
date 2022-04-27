@@ -32,7 +32,7 @@ function makeMapStateToProps() {
     return function mapStateToProps(state: GlobalState, ownprops: OwnProps) {
         if(state.entities.teams.currentTeamId === "" || state.entities.teams.currentTeamId === null || state.entities.teams.currentTeamId === undefined){
             const stateValue = window.localStorage.getItem('GlobalState');
-            conseol.log(stateValue);
+            console.log(stateValue);
             state = JSON.parse(stateValue);
         }
         const searchParam = ownprops.location.search.replace('?u=','');
