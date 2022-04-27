@@ -679,10 +679,12 @@ ProfilePopoverState
                         key='user-popover-dm'
                         className='popover__row first'
                     >
-                        <Link to='profile' query={{userId: this.props.user.id}}>
-                            <i className='bi bi-person-fill'></i>
-                            &nbsp;View Profile
-                        </Link>
+                        <React.Fragment>
+                            <Link to='profile' query={{userId: this.props.user.id}}>
+                                <i className='bi bi-person-fill'></i>
+                                &nbsp;View Profile
+                            </Link>
+                        </React.Fragment>
                     </div>
                     <div
                         data-toggle='tooltip'
