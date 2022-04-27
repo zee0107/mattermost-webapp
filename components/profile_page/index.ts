@@ -19,6 +19,7 @@ import {makeGetCustomStatus, isCustomStatusEnabled, showStatusDropdownPulsatingD
 import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
 import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
+import { acceptRequest, cancelRequest, followRequest, unfollow } from 'mattermost-redux/actions/posts';
 
 import ProfilPage from './profile_page'
 
@@ -78,11 +79,40 @@ function makeMapStateToProps() {
     };
 }
 
+function onFollowRequest(user_id: string, friend_id: string) {
+    return (dispatch: Dispatch) => {
+        dispatch(followRequest(user_id, friend_id) as any);
+    };
+}
+
+function onAcceptRequest(request_id: string) {
+    return (dispatch: Dispatch) => {
+        dispatch(acceptRequest(request_id) as any);
+    };
+}
+
+function onCancelRequest(request_id: string) {
+    return (dispatch: Dispatch) => {
+        dispatch(cancelRequest(request_id) as any);
+    };
+}
+
+function onUnfollowUser(user_id: string, friend_id: string) {
+    return (dispatch: Dispatch) => {
+        dispatch(unfollow(user_id, friend_id) as any);
+    };
+}
+
+
 function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
     return {
         actions: bindActionCreators({
             openModal,
             setStatus,
+            onFollowRequest: (user_id: string, friend_id: string) => void,
+            onAcceptRequest: (request_id: string) => void,
+            onUnfollowUser: (user_id: string, friend_id: string) => void,
+            onCancelRequest: (request_id: string) => void,
             unsetCustomStatus,
             setStatusDropdown,
         }, dispatch),

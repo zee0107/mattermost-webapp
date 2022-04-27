@@ -62,6 +62,10 @@ type Props = {
         setStatus: (status: UserStatus) => ActionFunc;
         unsetCustomStatus: () => ActionFunc;
         setStatusDropdown: (open: boolean) => void;
+        onFollowRequest: (user_id: string, friend_id: string) => void;
+        onAcceptRequest: (request_id: string) => void;
+        onUnfollowUser: (user_id: string, friend_id: string) => void;
+        onCancelRequest: (request_id: string) => void;
     };
     socialCount: Promise<SocialCount>;
     customStatus?: UserCustomStatus;
