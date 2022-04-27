@@ -30,7 +30,7 @@ function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
 
     return function mapStateToProps(state: GlobalState, ownprops: OwnProps) {
-        console.log('OwnProps: ',ownprops)
+        console.log('OwnProps: ',ownprops.location.search);
         const userData = getCurrentUser(state);
         let currentUser;
         let userId;
