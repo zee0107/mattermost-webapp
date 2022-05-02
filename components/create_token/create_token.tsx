@@ -254,6 +254,22 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     </p>
                                 </div>
 
+                                <div className='col-12'>
+                                    <label>Fee Options</label>
+                                    <div className='form-check'>
+                                        <input className='form-check-input' type='radio' name='flexRadioDefault' id='flexRadioDefault101' checked/>
+                                        <label className='form-check-label ml-1' htmlFor='flexRadioDefault1'>
+                                            2% BNB raised + 2% token raised
+                                        </label>
+                                    </div>
+                                    <div className='form-check'>
+                                        <input className='form-check-input' type='radio' name='flexRadioDefault' id='flexRadioDefault102'/>
+                                        <label className='form-check-label ml-1' htmlFor='flexRadioDefault2'>
+                                            5% BNB raised only
+                                        </label>
+                                    </div>
+                                </div>
+
                                 <div className='col-lg-12 text-center mt-3'>
                                     <button type='button' className='btn-sm btn-create-token' disabled>Next</button>
                                 </div>
