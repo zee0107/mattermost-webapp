@@ -589,13 +589,9 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 </div>
 
                                 <div className='col-md-12'>
-                                    <div className='col-md-12 mt-0 mb-2'>
+                                    <div className='mt-0 mb-2'>
                                         <div className='mb-3'>
                                             <label htmlFor='exampleFormControlInput1' className='form-label'><small>Reddit</small></label>
-                                            <div className='input-group'>
-                                                
-                                                <input type='text' className='form-control form-control-sm' placeholder='Reddit' aria-label='Reddit' aria-describedby=''/>
-                                            </div>
                                             <div className='d-flex'>
                                                 <div className='col-md-1 pr-0 pt-2 icon-border'>
                                                     <span className='input-group-text bg-white' id=''><i className='bi-discord bi-globe2-style'></i></span>
