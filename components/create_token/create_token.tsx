@@ -474,10 +474,10 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                                 <i className='bi-info-circle-fill bi-info-circle-fill-style' data-bs-toggle='tooltip' data-bs-placement='top' title='URL must end with a supported image extension png, jpg, jpeg, or gif'></i>
                                             </label>
                                             <div className='row'>
-                                                <div className='col-md-2'>
+                                                <div className='col-md-1 pr-0 pt-2 form-control'>
                                                     <span className='input-group-text bg-white' id=''><i className='bi-image bi-image-style'></i></span>
                                                 </div>
-                                                <div className='col-md-10'>
+                                                <div className='col-md-10 pl-0'>
                                                     <input type='text' className='form-control form-control-sm' placeholder='logo url' aria-label='logo url' aria-describedby=''/>
                                                 </div>
                                                 
