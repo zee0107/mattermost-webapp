@@ -473,9 +473,14 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                                 <small>Logo URL*</small> 
                                                 <i className='bi-info-circle-fill bi-info-circle-fill-style' data-bs-toggle='tooltip' data-bs-placement='top' title='URL must end with a supported image extension png, jpg, jpeg, or gif'></i>
                                             </label>
-                                            <div className='input-group'>
-                                                <span className='input-group-text bg-white' id=''><i className='bi-image bi-image-style'></i></span>
-                                                <input type='text' className='form-control form-control-sm' placeholder='logo url' aria-label='logo url' aria-describedby=''/>
+                                            <div className='row'>
+                                                <div className='col-md-2'>
+                                                    <span className='input-group-text bg-white' id=''><i className='bi-image bi-image-style'></i></span>
+                                                </div>
+                                                <div className='col-md-10'>
+                                                    <input type='text' className='form-control form-control-sm' placeholder='logo url' aria-label='logo url' aria-describedby=''/>
+                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -568,7 +573,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
 
-                                <div className='row'>
+                                <div className='col-md-12'>
                                     {/*<style>.bi-emoji-smile-fill, .emoji-smile-fill-style{display: none;}</style>*/}
                                     <div className='col-12 mt-0 mb-2'>
                                         <div className='mb-3'>
@@ -579,7 +584,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 </div>
 
 
-                                <div className='row mt-3'>
+                                <div className='col-md-12 mt-3'>
                                     <div className='col-lg-12 text-center'>
                                     <button type='button' className='btn btn-sm btn-create-token'>Back</button>
                                     <button type='button' className='btn btn-sm btn-create-token ml-2'>Next</button>
