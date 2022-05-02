@@ -27,7 +27,6 @@ z-index: 99;
 .rounded-circle{
   border-radius: 50%;
 }
-
 button {
   ////font-family: "Montserrat-Regular";
   border: 0px;
@@ -66,6 +65,15 @@ p {
   //font-family: "Montserrat-Regular";
   font-size: 12px;
 }
+.onCopyurl {
+  cursor: pointer;
+}
+.copylinkurl {
+  display: none;
+}
+.onConnectwallet {
+  cursor: pointer;
+}
 .box-choose-network {
   background: #54D458;
   padding: 38px 0px 20px 0px;
@@ -90,6 +98,13 @@ p {
   font-size: 12px;
 }
 .onClosebusdinfo {
+  cursor: pointer;
+  background: #80CF57;
+  border-radius: 34px;
+  padding: 0px 6px 0px 6px;
+  color: #fff;
+}
+.onClosealertfinish {
   cursor: pointer;
   background: #80CF57;
   border-radius: 34px;
@@ -1078,6 +1093,9 @@ background: #F4F9FD;
 .onClickaboutprivacyglobal, .onClickaboutprivacyfriends, .onClickaboutprivacyperson {
   cursor: pointer;
   color: #7ECE57;
+}
+.bi-image {
+  font-size: 11px;
 }
 .bi-globe2-style, .bi-people-fill-style, .bi-person-style {
   font-size: 19px;
@@ -2235,7 +2253,21 @@ color: #fff;
   padding: 0px 5px 0px 5px;
   color: #fff;
 }
+.onCloseconnectoawallet {
+  cursor: pointer;
+  background: #80CF57;
+  border-radius: 34px;
+  padding: 0px 5px 0px 5px;
+  color: #fff;
+}
 .onClosechoosenetwork {
+  cursor: pointer;
+  background: #80CF57;
+  border-radius: 34px;
+  padding: 0px 5px 0px 5px;
+  color: #fff;
+}
+.onCloseconnecttoawallet {
   cursor: pointer;
   background: #80CF57;
   border-radius: 34px;
@@ -2367,6 +2399,13 @@ color: #fff;
   background: #80CF57;
   border-radius: 34px;
   padding: 0px 5px 0px 5px;
+  color: #fff;
+}
+.onClosecopiedurl {
+  cursor: pointer;
+  background: #80CF57;
+  border-radius: 34px;
+  padding: 0px 6px 0px 6px;
   color: #fff;
 }
 .btn-close-who-can-see {
@@ -3695,9 +3734,14 @@ margin:0px 0px 0px -32px;
   color: #76CA62;
   font-size: 21px;
 }
-.bi-image {
-  color: #80D98D;
-  font-size: 21px;
+.bi-info-circle-fill-style {
+  font-size: 12px;
+}
+.form-control-description {
+  width: 100%;
+}
+.bi-image-style, .bi-globe2-style {
+  font-size: 16px;
 }
 .onTextcolorpreviews, .onTextbackgroundpreviews {
   cursor: pointer;
@@ -3835,6 +3879,13 @@ background: #ffffff;
 border-radius: 19px;
 padding: 14px 3px 14px 3px;
   margin: 8px 0px 8px 0px;
+}
+.box-bottom-right-copyurl {
+  background: #ffffff;
+  border-radius: 3px;
+  border: 1px solid #54D55C;
+  padding: 14px 14px 14px 14px;
+  margin: 0px 0px 0px 0px;
 }
 .box-left-panel-menu {
   background: #ffffff;
@@ -4348,6 +4399,27 @@ border-radius: 11px;
 color: #33C855;
 font-size: 12px;
 padding: 10px 9px 10px 9px;
+}
+.input-create-launchpad {
+  border: 0px;
+  background: #ffffff;
+  border-radius: 4px;
+  color: #33C855;
+  font-size: 12px;
+}
+.input-create-launchpad:hover {
+  border: 0px;
+  background: #ffffff;
+  border-radius: 4px;
+  color: #33C855;
+  font-size: 12px;
+}
+.input-create-launchpad:focus {
+  border: 0px;
+  background: #ffffff;
+  border-radius: 4px;
+  color: #33C855;
+  font-size: 12px;
 }
 .input-create-create-lock-text {
 border: 0px;
