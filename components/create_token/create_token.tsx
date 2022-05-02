@@ -315,7 +315,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='col-12 mt-2 mb-2'>
                                         <label htmlFor='formGroupExampleInput2' className='form-label'><small>Whitelist</small></label>
                                         <div className='form-check'>
-                                            <input className='form-check-input' type='radio' name='whitelist' id='flexRadioDefaultWL1'/>
+                                            <input className='form-check-input' type='radio' name='whitelist' id='flexRadioDefaultWL1' checked/>
                                             <label className='form-check-label ml-1' htmlFor='flexRadioDefaultWL1'>
                                                 Disable
                                             </label>
@@ -545,6 +545,22 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                             </div>
                                             </div>
 
+                                            <div className='col-12'>
+                                                <label>Fee Options</label>
+                                                <div className='form-check'>
+                                                    <input className='form-check-input' type='radio' name='feeOptions' id='flexRadioDefault101' checked/>
+                                                    <label className='form-check-label ml-1' htmlFor='flexRadioDefault101'>
+                                                        2% BNB raised + 2% token raised
+                                                    </label>
+                                                </div>
+                                                <div className='form-check'>
+                                                    <input className='form-check-input' type='radio' name='feeOptions' id='flexRadioDefault102'/>
+                                                    <label className='form-check-label ml-1' htmlFor='flexRadioDefault102'>
+                                                        5% BNB raised only
+                                                    </label>
+                                                </div>
+                                            </div>
+
                                             <div className='row mt-3'>
                                             <div className='col-lg-12 text-center'>
                                                 <button type='button' className='btn-sm btn-create-token' disabled>Next</button>
@@ -572,6 +588,161 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='col-10'>
                                         <h4 className='mt-2 mb-3'>Defi Launchpad Info</h4>
                                         <p>Enter the launchpad information that you want to raise , that should be enter all details about your presale</p></div>
+                                </div>
+
+                                <div className='launchpad-create-lock'>
+                                    <div className='row'>
+                                        <form>
+                                            <div className='col-md-12'>
+                                                <div className='col-12 mt-2 mb-2'>
+                                                    <label htmlFor='formGroupExampleInput2' className='form-label'><small>Presale rate*</small></label>
+                                                    <input type='text' className='form-control' id='' placeholder='100' value=''/>
+                                                    <small>If I spend 1 BNB how many tokens will I receive?</small>
+                                                </div>
+                                            </div>
+
+                                            <div className='col-md-12'>
+                                                <div className='col-12 mt-2 mb-2'>
+                                                    <label htmlFor='formGroupExampleInput2' className='form-label'><small>Whitelist</small></label>
+                                                    <div className='form-check'>
+                                                        <input className='form-check-input' type='radio' name='whitelist' id='flexRadioDefaultWL1' checked/>
+                                                        <label className='form-check-label ml-1' htmlFor='flexRadioDefaultWL1'>
+                                                            Disable
+                                                        </label>
+                                                    </div>
+                                                    <div className='form-check'>
+                                                        <input className='form-check-input' type='radio' name='whitelist' id='flexRadioDefaultWL2'/>
+                                                        <label className='form-check-label ml-1' htmlFor='flexRadioDefaultWL2'>
+                                                            Enable
+                                                        </label>
+                                                    </div>
+                                                    <small>You can enable/disable whitelist anytime</small>
+                                                </div>
+                                            </div>
+
+                                            <div className='col-md-12 d-flex'>
+                                                <div className='col-md-6 pl-0 mt-2 mb-2'>
+                                                    <label htmlFor='formGroupExampleInput2' className='form-label'><small>Softcap (BNB)*</small></label>
+                                                    <input type='text' className='form-control' id='' placeholder='500' value=''/>
+                                                </div>
+                                                <div className='col-md-6 pr-0 mt-2 mb-2'>
+                                                    <label htmlFor='formGroupExampleInput2' className='form-label'><small>Hardcap (BNB)*</small></label>
+                                                    <input type='text' className='form-control' id='' placeholder='1000' value=''/>
+                                                </div>
+                                            </div>
+
+                                            <div className='col-md-12 d-flex'>
+                                                <div className='col-md-6 pl-0 mt-2 mb-2'>
+                                                    <label htmlFor='formGroupExampleInput2' className='form-label'><small>Minimum buy (BNB)*</small></label>
+                                                    <input type='text' className='form-control' id='' placeholder='0.01' value=''/>
+                                                </div>
+                                                <div className='col-md-6 pr-0 mt-2 mb-2'>
+                                                    <label htmlFor='formGroupExampleInput2' className='form-label'><small>Maximum buy (BNB)*</small></label>
+                                                    <input type='text' className='form-control' id='' placeholder='0.1' value=''/>
+                                                </div>
+                                            </div>
+
+                                            <div className='col-md-12 d-flex'>
+                                                <div className='col-md-6 pl-0 mt-2 mb-2'>
+                                                    <label htmlFor='inputState' className='form-label'><small>Refund</small></label>
+                                                    <select id='inputState' className='form-control form-control-sm'>
+                                                        <option selected>Burn</option>
+                                                        <option>Burn</option>
+                                                    </select>
+                                                </div>
+                                                <div className='col-md-6 pr-0 mt-2 mb-2'>
+                                                    <label htmlFor='inputState' className='form-label'><small>Router*</small></label>
+                                                    <select id='inputState' className='form-control form-control-sm'>
+                                                        <option selected>Pancakeswap</option>
+                                                        <option>Pancakeswap</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div className='col-md-12 d-flex'>
+                                                <div className='col-md-6 pl-0 mt-2 mb-2'>
+                                                    <label htmlFor='inputState' className='form-label'><small>Pancakeswap liquidity (%)*</small></label>
+                                                    <select id='inputState' className='form-control form-control-sm'>
+                                                        <option selected>51</option>
+                                                        <option>51</option>
+                                                    </select>
+                                                </div>
+                                                <div className='col-md-6 pr-0 mt-2 mb-2'>
+                                                    <label htmlFor='inputState' className='form-label'><small>Pancakeswap listing rate (%)*</small></label>
+                                                    <select id='inputState' className='form-control form-control-sm'>
+                                                        <option selected>80</option>
+                                                        <option>80</option>
+                                                    </select>
+                                                    <small>1 BNB = 80 PST</small>
+                                                </div>
+                                            </div>
+
+                                            <div className='col-md-12'>
+                                                <div className='col-12'>
+                                                    <p>
+                                                    <small>Enter the percentage of raised funds that should be allocated to Liquidity on Pancakeswap (Min 51%. Max 100%)</small>
+                                                    <br/>
+                                                    <small>If I spend 1 BNB Pancakeswap how many tokens will I receive? Usually this amount is lower than presale rate to allow for a higher listing price on Pancakeswap</small>
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div className='col-md-12 d-flex'>
+                                                <div className='col-md-6 pl-0 mt-2 mb-2'>
+                                                    <label htmlFor='inputState' className='form-label'><small>Start time (UTC)*</small></label>
+                                                    <select id='inputState' className='form-control form-control-sm'>
+                                                        <option selected>2021-09-17T19:20</option>
+                                                        <option>51</option>
+                                                    </select>
+                                                </div>
+                                                <div className='col-md-6 pr-0 mt-2 mb-2'>
+                                                    <label htmlFor='inputState' className='form-label'><small>End time (UTC)*</small></label>
+                                                    <select id='inputState' className='form-control form-control-sm'>
+                                                        <option selected>2021-09-17T19:20</option>
+                                                        <option>80</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div className='col-md-12'>
+                                                <div className='col-12 mt-2 mb-2'>
+                                                    <label htmlFor='inputState' className='form-label'><small>Start time (UTC)*</small></label>
+                                                    <select id='inputState' className='form-control form-control-sm'>
+                                                        <option selected>30</option>
+                                                        <option>51</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div className='col-md-12 p-3'>
+                                                <div className='form-check'>
+                                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault'/>
+                                                <label className='form-check-label ml-1' htmlFor='flexCheckDefault'>
+                                                    <small>Using Vesting lockup (days)*</small>
+                                                </label>
+                                                </div>
+                                                <div className='form-check'>
+                                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault'/>
+                                                <label className='form-check-label ml-1' htmlFor='flexCheckDefault'>
+                                                    <small>Using Anti-Rug Systm (Team Vesting System)?</small>
+                                                </label>
+                                                </div>
+                                            </div>
+
+                                            <div className='row p-3'>
+                                                <div className='col-12 text-center'>
+                                                    <a>Need 141,984 PST to create launchpad</a>
+                                                </div>
+                                            </div>
+
+                                            <div className='row mt-3'>
+                                                <div className='col-lg-12 text-center'>
+                                                <button type='button' className='btn-sm btn-create-token'>Back</button>
+                                                <button type='button' className='btn-sm btn-create-token ml-2'>Next</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
 
                                 <div className='d-flex mt-4'>
