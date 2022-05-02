@@ -4,7 +4,10 @@
 }
 
 .icon-border{
-  border: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
+  border-radius: 4px 0px 0px 4px;
 }
 
 .top-25{
