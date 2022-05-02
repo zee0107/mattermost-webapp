@@ -447,13 +447,9 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
         return (
             <form>
                 <div className='inner__content'>
-                    <div className={emailContainerStyle}>
+                    {/*<div className={emailContainerStyle}>
                         <h5 id='email_label'>
                             <strong>
-                                {/*<FormattedMessage
-                                    id='signup_user_completed.whatis'
-                                    defaultMessage="What's your email address?"
-                                />*/}
                                 Phone Number
                             </strong>
                         </h5>
@@ -687,9 +683,9 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                             {emailError}
-                            {/*emailHelpText*/}
+                            emailHelpText
                         </div>
-                    </div>
+                    </div>*/}
                     {yourEmailIs}
                     <div className='mt-8'>
                         <h5 id='name_label'>

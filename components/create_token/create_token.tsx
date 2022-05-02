@@ -725,7 +725,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                         <div className='row mt-4 closenitificationalertfinish'>
                             <div className='col-lg-12'>
-                                <div className='alert alert-warning text-center' role='alert'>
+                                {/*<div className='alert alert-warning text-center' role='alert'>
                                     <div className='position-relative'>
                                         <div className='position-absolute top-0 start-100 translate-middle'>
                                             <a className='float-end onClosealertfinish shadow'><i className='bi-x'></i></a>
@@ -735,7 +735,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                         <i className='bi-exclamation-circle-fill'></i> For tokens with burns, rebase or orther special transfers please ensure that you have a way to whitelist multiple addresses or turn off the special transfer events (By setting fees to 0 for example for the duration of the presale)
                                         </small>
                                     </div>
-                                </div>
+                                </div>*/}
                             </div>
                         </div>
 
@@ -1276,7 +1276,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                                     <div className='row mt-4 closenitificationalertfinish'>
                                         <div className='col-lg-12'>
-                                            <div className='alert alert-warning text-center' role='alert'>
+                                            {/*<div className='alert alert-warning text-center' role='alert'>
                                                 <div className='position-relative'>
                                                     <div className='position-absolute top-0 start-100 translate-middle'>
                                                         <a className='float-end onClosealertfinish shadow'><i className='bi-x'></i></a>
@@ -1286,7 +1286,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                                     <i className='bi-exclamation-circle-fill'></i> For tokens with burns, rebase or orther special transfers please ensure that you have a way to whitelist multiple addresses or turn off the special transfer events (By setting fees to 0 for example for the duration of the presale)
                                                     </small>
                                                 </div>
-                                            </div>
+                                            </div>*/}
                                         </div>
                                     </div>
 
@@ -1430,7 +1430,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='col-md-6 text-center'>
                                     </div>
                                 </div>
-                                <div className='row mt-2 mb-2'>
+                                <div className='row pl-5 mt-2 mb-2'>
                                 <small>TESTNET</small>
                                 </div>
                                 <div className='d-flex'>
