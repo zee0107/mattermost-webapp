@@ -629,79 +629,79 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                     <div className='launchpad-create-lock'>
                         <div className='row'>
                             <ul className='list-group list-group-flush'>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 border-width-bot'>
                                 <small>Total token</small><small className='float-end text-danger'>141.984. PST</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Total name</small><small className='float-end text-primary'>CrypterSale Test</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Total symbol</small><small className='float-end text-primary'>PST</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Total decimals</small><small className='float-end text-primary'>18</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Presale rate</small><small className='float-end text-primary'>100 PST</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Listing rate</small><small className='float-end text-primary'>80 PST</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Sale method</small><small className='float-end text-primary'>Public</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Softcap</small><small className='float-end text-primary'>500 BNB</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Hardcap</small><small className='float-end text-primary'>1000 BNB</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Minimum buy</small><small className='float-end text-primary'>0.01 BNB</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Miximum buy</small><small className='float-end text-primary'>0.1 BNB</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Liquidity</small><small className='float-end text-primary'>51%</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Start time</small><small className='float-end text-primary'>2021-09-17T19:28 (UTC)</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>End time</small><small className='float-end text-primary'>2021-09-17T19:20 (UTC)</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Liquidity lookup time</small><small className='float-end text-primary'>1111 minutes</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Website</small><small className='float-end text-danger'>https://www.cryptersal.finance/</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Facebook</small><small className='float-end text-danger'>https://www.facebook.com/Crypter</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Twiiter</small><small className='float-end text-danger'>https://www.twitter.com/Crypter</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Telegram</small><small className='float-end text-danger'>https://www.t.me/Crypter</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Github</small><small className='float-end text-danger'>https://www.github.com/Crypter</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Instagram</small><small className='float-end text-danger'>https://www.instagram.com/Crypter</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Discord</small><small className='float-end text-danger'>https://www.discord.com/Crypter</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Reddit</small><small className='float-end text-danger'>https://www.reddit.com/Crypter</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Description</small><small className='float-end text-primary'>CrpyerSale, the launchpad protocol for Everyone! CrypterSale helps everyone to create their own tokens and token sales in few second.</small>
                             </li>
-                            <li className='list-group-item pt-0'>
+                            <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Using Anti-Rug system (Vesting System)?</small><small className='float-end text-primary'>No</small>
                             </li>
                             </ul>
