@@ -587,7 +587,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                         <div className='mb-3'>
                                             <label htmlFor='exampleFormControlInput1' className='form-label'><small>Reddit</small></label>
                                             <div className='d-flex'>
-                                                <div className='col-md-1 pr-0 pt-2 icon-border'>
+                                                <div className='col-md-1 pt-2 icon-border text-center'>
                                                     <span className='input-group-text bg-white' id=''><i className='bi-discord bi-globe2-style'></i></span>
                                                 </div>
                                                 <div className='col-md-11 pl-0 pr-0'>
@@ -907,6 +907,162 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='col-10'>
                                         <h4 className='mt-2 mb-3'>Additional Info</h4>
                                         <p>Let people know who you are</p></div>
+                                </div>
+
+                                <div className='launchpad-create-lock'>
+                                    <div className='row'>
+                                        <form>
+                                            <div className='col-md-12 d-flex'>
+                                                <div className='col-md-6 pl-0 mt-2 mb-0'>
+                                                    <div className='mb-3'>
+                                                        <label htmlFor='exampleFormControlInput1' className='form-label'>
+                                                            <small>Logo URL*</small> 
+                                                            <i className='bi-info-circle-fill bi-info-circle-fill-style ml-1' data-toggle='tooltip' data-placement='top' title='URL must end with a supported image extension png, jpg, jpeg, or gif'></i>
+                                                        </label>
+                                                        <div className='d-flex'>
+                                                            <div className='col-md-1 pr-0 pt-2 icon-border'>
+                                                                <span className='input-group-text bg-white' id=''><i className='bi-image bi-image-style'></i></span>
+                                                            </div>
+                                                            <div className='col-md-11 pl-0 pr-0'>
+                                                                <input type='text' className='form-control form-control-sm additional-info-input' placeholder='logo url' aria-label='logo url' aria-describedby=''/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className='col-md-6 pr-0 mt-2 mb-0'>
+                                                    <div className='mb-3'>
+                                                        <label htmlFor='exampleFormControlInput1' className='form-label'><small>Website</small></label>
+                                                        <div className='d-flex'>
+                                                            <div className='col-md-1 pr-0 pt-2 icon-border'>
+                                                                <span className='input-group-text bg-white' id=''><i className='bi-globe2 bi-globe2-style'></i></span>
+                                                            </div>
+                                                            <div className='col-md-11 pl-0 pr-0'>
+                                                                <input type='text' className='form-control form-control-sm additional-info-input' placeholder='website' aria-label='website' aria-describedby=''/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className='col-md-12 d-flex'>
+                                                <div className='col-md-6 pl-0 mt-0 mb-2'>
+                                                    <div className='mb-3'>
+                                                        <label htmlFor='exampleFormControlInput1' className='form-label'><small>Facebook</small></label>
+                                                        <div className='d-flex'>
+                                                            <div className='col-md-1 pr-0 pt-2 icon-border'>
+                                                                <span className='input-group-text bg-white' id=''><i className='bi-facebook bi-image-style'></i></span>
+                                                            </div>
+                                                            <div className='col-md-11 pl-0 pr-0'>
+                                                                <input type='text' className='form-control form-control-sm additional-info-input' placeholder='Facebook' aria-label='Facebook' aria-describedby=''/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className='col-md-6 pr-0 mt-0 mb-2'>
+                                                    <div className='mb-3'>
+                                                        <label htmlFor='exampleFormControlInput1' className='form-label'><small>Twitter</small></label>
+                                                        <div className='d-flex'>
+                                                            <div className='col-md-1 pr-0 pt-2 icon-border'>
+                                                                <span className='input-group-text bg-white' id=''><i className='bi-twitter bi-globe2-style'></i></span>
+                                                            </div>
+                                                            <div className='col-md-11 pl-0 pr-0'>
+                                                                <input type='text' className='form-control form-control-sm additional-info-input' placeholder='Twitter' aria-label='Twitter' aria-describedby=''/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className='col-md-12 d-flex'>
+                                                <div className='col-md-6 pl-0 mt-0 mb-2'>
+                                                    <div className='mb-3'>
+                                                        <label htmlFor='exampleFormControlInput1' className='form-label'><small>Github</small></label>
+                                                        <div className='d-flex'>
+                                                            <div className='col-md-1 pr-0 pt-2 icon-border'>
+                                                                <span className='input-group-text bg-white' id=''><i className='bi-github bi-image-style'></i></span>
+                                                            </div>
+                                                            <div className='col-md-11 pl-0 pr-0'>
+                                                                <input type='text' className='form-control form-control-sm additional-info-input' placeholder='Github' aria-label='Github' aria-describedby=''/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className='col-md-6 pr-0 mt-0 mb-2'>
+                                                    <div className='mb-3'>
+                                                        <label htmlFor='exampleFormControlInput1' className='form-label'><small>Telegram</small></label>
+                                                        <div className='d-flex'>
+                                                            <div className='col-md-1 pr-0 pt-2 icon-border'>
+                                                                <span className='input-group-text bg-white' id=''><i className='bi-telegram bi-globe2-style'></i></span>
+                                                            </div>
+                                                            <div className='col-md-11 pl-0 pr-0'>
+                                                                <input type='text' className='form-control form-control-sm additional-info-input' placeholder='Telegram' aria-label='Telegram' aria-describedby=''/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className='col-md-12 d-flex'>
+                                                <div className='col-md-6 pl-0 mt-0 mb-2'>
+                                                    <div className='mb-3'>
+                                                        <label htmlFor='exampleFormControlInput1' className='form-label'><small>Instagram</small></label>
+                                                        <div className='d-flex'>
+                                                            <div className='col-md-1 pr-0 pt-2 icon-border'>
+                                                                <span className='input-group-text bg-white' id=''><i className='bi-instagram bi-image-style'></i></span>
+                                                            </div>
+                                                            <div className='col-md-11 pl-0 pr-0'>
+                                                                <input type='text' className='form-control form-control-sm additional-info-input' placeholder='Instagram' aria-label='Instagram' aria-describedby=''/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className='col-md-6 pr-0 mt-0 mb-2'>
+                                                    <div className='mb-3'>
+                                                        <label htmlFor='exampleFormControlInput1' className='form-label'><small>Discord</small></label>
+                                                        <div className='d-flex'>
+                                                            <div className='col-md-1 pr-0 pt-2 icon-border'>
+                                                                <span className='input-group-text bg-white' id=''><i className='bi-discord bi-globe2-style'></i></span>
+                                                            </div>
+                                                            <div className='col-md-11 pl-0 pr-0'>
+                                                                <input type='text' className='form-control form-control-sm additional-info-input' placeholder='Discord' aria-label='Discord' aria-describedby=''/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className='col-md-12'>
+                                                <div className='mt-0 mb-2'>
+                                                    <div className='mb-3'>
+                                                        <label htmlFor='exampleFormControlInput1' className='form-label'><small>Reddit</small></label>
+                                                        <div className='d-flex'>
+                                                            <div className='col-md-1 pt-2 icon-border text-center'>
+                                                                <span className='input-group-text bg-white' id=''><i className='bi-discord bi-globe2-style'></i></span>
+                                                            </div>
+                                                            <div className='col-md-11 pl-0 pr-0'>
+                                                                <input type='text' className='form-control form-control-sm additional-info-input' placeholder='Reddit' aria-label='Reddit' aria-describedby=''/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className='col-md-12'>
+                                                {/*<style>.bi-emoji-smile-fill, .emoji-smile-fill-style{display: none;}</style>*/}
+                                                <div className='col-12 mt-0 mb-2'>
+                                                    <div className='mb-3'>
+                                                        <label htmlFor='' className='form-label'><small>Description</small></label>
+                                                        <textarea className='form-control' placeholder='Description' id='' rows='3'></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div className='col-md-12 mt-3'>
+                                                <div className='col-lg-12 text-center'>
+                                                <button type='button' className='btn-sm btn-create-token'>Back</button>
+                                                <button type='button' className='btn-sm btn-create-token ml-2'>Next</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
 
                                 <div className='d-flex mt-4'>
