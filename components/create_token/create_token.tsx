@@ -478,7 +478,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                                     <span className='input-group-text bg-white' id=''><i className='bi-image bi-image-style'></i></span>
                                                 </div>
                                                 <div className='col-md-10 pl-0'>
-                                                    <input type='text' className='form-control form-control-sm' placeholder='logo url' aria-label='logo url' aria-describedby=''/>
+                                                    <input type='text' className='form-control form-control-sm additional-info-input' placeholder='logo url' aria-label='logo url' aria-describedby=''/>
                                                 </div>
                                             </div>
                                         </div>
@@ -491,7 +491,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                                     <span className='input-group-text bg-white' id=''><i className='bi-globe2 bi-globe2-style'></i></span>
                                                 </div>
                                                 <div className='col-md-10 pl-0'>
-                                                    <input type='text' className='form-control form-control-sm' placeholder='website' aria-label='website' aria-describedby=''/>
+                                                    <input type='text' className='form-control form-control-sm additional-info-input' placeholder='website' aria-label='website' aria-describedby=''/>
                                                 </div>
                                             </div>
                                         </div>
