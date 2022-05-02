@@ -1314,7 +1314,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                             <div className='modal-header'>
                             <h4 className='modal-title' id='staticBackdropLabel'>Create token</h4>
-                            <a className='onClosecreatetokens shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
+                            <a className='onClosecreatetokens shadow float-end' data-bs-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
 
                             <div className='modal-body'>
@@ -1457,7 +1457,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                         <div className='modal-content shadow-lg'>
                             <div className='modal-header'>
                                 <h6 className='modal-title' id='staticBackdropLabel'>Connect to a wallet</h6>
-                                <a className='onCloseconnectoawallet shadow float-end'><i className='bi-x'></i></a>
+                                <a className='onCloseconnectoawallet shadow float-end' data-bs-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
                                 <div className='d-flex'>
