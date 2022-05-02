@@ -626,6 +626,109 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                         <p>Review your information</p></div>
                     </div>
 
+                    <div className='launchpad-create-lock'>
+                        <div className='row'>
+                            <ul className='list-group list-group-flush'>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Total token</small><small className='float-end text-danger'>141.984. PST</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Total name</small><small className='float-end text-primary'>CrypterSale Test</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Total symbol</small><small className='float-end text-primary'>PST</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Total decimals</small><small className='float-end text-primary'>18</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Presale rate</small><small className='float-end text-primary'>100 PST</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Listing rate</small><small className='float-end text-primary'>80 PST</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Sale method</small><small className='float-end text-primary'>Public</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Softcap</small><small className='float-end text-primary'>500 BNB</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Hardcap</small><small className='float-end text-primary'>1000 BNB</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Minimum buy</small><small className='float-end text-primary'>0.01 BNB</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Miximum buy</small><small className='float-end text-primary'>0.1 BNB</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Liquidity</small><small className='float-end text-primary'>51%</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Start time</small><small className='float-end text-primary'>2021-09-17T19:28 (UTC)</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>End time</small><small className='float-end text-primary'>2021-09-17T19:20 (UTC)</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Liquidity lookup time</small><small className='float-end text-primary'>1111 minutes</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Website</small><small className='float-end text-danger'>https://www.cryptersal.finance/</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Facebook</small><small className='float-end text-danger'>https://www.facebook.com/Crypter</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Twiiter</small><small className='float-end text-danger'>https://www.twitter.com/Crypter</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Telegram</small><small className='float-end text-danger'>https://www.t.me/Crypter</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Github</small><small className='float-end text-danger'>https://www.github.com/Crypter</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Instagram</small><small className='float-end text-danger'>https://www.instagram.com/Crypter</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Discord</small><small className='float-end text-danger'>https://www.discord.com/Crypter</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Reddit</small><small className='float-end text-danger'>https://www.reddit.com/Crypter</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Description</small><small className='float-end text-primary'>CrpyerSale, the launchpad protocol for Everyone! CrypterSale helps everyone to create their own tokens and token sales in few second.</small>
+                            </li>
+                            <li className='list-group-item'>
+                                <small className='float-start'>Using Anti-Rug system (Vesting System)?</small><small className='float-end text-primary'>No</small>
+                            </li>
+                            </ul>
+                        </div>
+
+                        <div className='row mt-4 closenitificationalertfinish'>
+                            <div className='col-lg-12'>
+                                <div className='alert alert-warning text-center' role='alert'>
+                                    <div className='position-absolute top-0 start-100 translate-middle'>
+                                        <a className='float-end onClosealertfinish shadow'><i className='bi-x'></i></a>
+                                    </div>
+
+                                    <small className='text-center'>
+                                    <i className='bi-exclamation-circle-fill'></i> For tokens with burns, rebase or orther special transfers please ensure that you have a way to whitelist multiple addresses or turn off the special transfer events (By setting fees to 0 for example for the duration of the presale)
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='row mt-3'>
+                            <div className='col-lg-12 text-center'>
+                                <button type='button' className='btn btn-sm btn-create-token'>Back</button>
+                                <button type='button' className='btn btn-sm btn-create-token'>Submit</button>
+                            </div>
+                        </div>
+                    </div>
+
                     <div className='row'>
                         <div className='col-11 mx-auto text-center mt-4 mb-4'>
                             <small>Disclaimer: The information provided shall not in any way constitute a recommendation as to whether you should invest in any product discussed. We accept no liability for any loss occasioned to any person acting or refraining from action as a result of any material provided or published.</small>
