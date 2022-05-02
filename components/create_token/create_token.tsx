@@ -471,7 +471,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                         <div className='mb-3'>
                                             <label htmlFor='exampleFormControlInput1' className='form-label'>
                                                 <small>Logo URL*</small> 
-                                                <i className='bi-info-circle-fill bi-info-circle-fill-style' data-bs-toggle='tooltip' data-bs-placement='top' title='URL must end with a supported image extension png, jpg, jpeg, or gif'></i>
+                                                <i className='bi-info-circle-fill bi-info-circle-fill-style ml-1' data-toggle='tooltip' data-placement='top' title='URL must end with a supported image extension png, jpg, jpeg, or gif'></i>
                                             </label>
                                             <div className='d-flex'>
                                                 <div className='col-md-1 pr-0 pt-2 icon-border'>
@@ -497,8 +497,6 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                 </div>
-
-
                                 <div className='col-md-12 d-flex'>
                                     <div className='col-md-6 pl-0 mt-0 mb-2'>
                                         <div className='mb-3'>
@@ -527,8 +525,6 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                 </div>
-
-
                                 <div className='col-md-12 d-flex'>
                                     <div className='col-md-6 pl-0 mt-0 mb-2'>
                                         <div className='mb-3'>
@@ -557,8 +553,6 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                 </div>
-
-
                                 <div className='col-md-12 d-flex'>
                                     <div className='col-md-6 pl-0 mt-0 mb-2'>
                                         <div className='mb-3'>
