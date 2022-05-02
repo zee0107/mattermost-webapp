@@ -7,6 +7,22 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import fillImage from 'images/fill.svg';
 
+import CronosImg from 'images/launchpad/network/ic-cronos.5a2dbab3.svg';
+import FantomImg from 'images/launchpad/network/ic-fantom.306f76f9.svg';
+import AvaxImg from 'images/launchpad/network/ic-avax.234db155.svg';
+import KucoinImg from 'images/launchpad/network/KuCoin.png';
+import MaticImg from 'images/launchpad/network/ic-matic.910e1faf.png';
+import BscImg from 'images/launchpad/network/ic-bsc.419dfaf2.png';
+import EthImg from 'images/launchpad/network/ic-eth.9270fc02.svg';
+import MetamaskImg from 'images/launchpad/connect/Install-Metamask.svg';
+import TrustwalletImg from 'images/launchpad/connect/trustwallet.eb75d105.svg';
+import WalletConnectImg from 'images/launchpad/connect/walletconnect.dfa25e47.svg';
+import CoinbaseImg from 'images/launchpad/connect/coinbase.069f6c82.png';
+import SafepalImg from 'images/launchpad/connect/safepal.d0c33979.svg';
+import TokenpocketImg from 'images/launchpad/connect/tokenpocket.png';
+import MathwalletImg from 'images/launchpad/connect/math-wallet.png';
+
+
 import homeImage from 'images/homeFeed.png';
 
 import {ModalData} from 'types/actions';
@@ -199,7 +215,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                     <div className='row'>
                         <div className='col-12'>
                             <a className='onLockbuttoncreate float-end mr-1'><small>Connect</small></a>
-                            <a className='onLockbuttoncreatenormal float-end mr-1 ml-1'><small>BSC Mainnet</small></a>
+                            <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='staticBackdropNetwork'><small>BSC Mainnet</small></a>
                             <a className="onLockbuttoncreate float-end ml-1" data-toggle='modal' data-target='#staticBackdropCreateToken'><small>Create</small></a>
                         </div>
                     </div>
@@ -747,7 +763,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 <div className='row'>
                                     <div className='btn-group float-end' role='group' aria-label='Basic example'>
                                     <a className='onLockbuttoncreate mr-1'><small>Connect</small></a>
-                                    <a className='onLockbuttoncreatenormal ml-1 mr-1'><small>BSC Mainnet</small></a>
+                                    <a className='onLockbuttoncreatenormal ml-1 mr-1' data-toggle='modal' data-target='staticBackdropNetwork'><small>BSC Mainnet</small></a>
                                     <a className='onLockbuttoncreate ml-1'><small>Create</small></a>
                                     </div>
                                 </div>
@@ -1177,6 +1193,111 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                         <p>Review your information</p></div>
                                 </div>
 
+                                <div className='launchpad-create-lock'>
+                                    <div className='row'>
+                                        <ul className='list-group list-group-flush'>
+                                        <li className='list-group-item pt-0 border-width-bot'>
+                                            <small>Total token</small><small className='float-end text-danger'>141.984. PST</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Total name</small><small className='float-end text-success'>CrypterSale Test</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Total symbol</small><small className='float-end text-success'>PST</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Total decimals</small><small className='float-end text-success'>18</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Presale rate</small><small className='float-end text-success'>100 PST</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Listing rate</small><small className='float-end text-success'>80 PST</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Sale method</small><small className='float-end text-success'>Public</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Softcap</small><small className='float-end text-success'>500 BNB</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Hardcap</small><small className='float-end text-success'>1000 BNB</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Minimum buy</small><small className='float-end text-success'>0.01 BNB</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Miximum buy</small><small className='float-end text-success'>0.1 BNB</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Liquidity</small><small className='float-end text-success'>51%</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Start time</small><small className='float-end text-success'>2021-09-17T19:28 (UTC)</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>End time</small><small className='float-end text-success'>2021-09-17T19:20 (UTC)</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Liquidity lookup time</small><small className='float-end text-success'>1111 minutes</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Website</small><small className='float-end text-danger'>https://www.cryptersal.finance/</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Facebook</small><small className='float-end text-danger'>https://www.facebook.com/Crypter</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Twiiter</small><small className='float-end text-danger'>https://www.twitter.com/Crypter</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Telegram</small><small className='float-end text-danger'>https://www.t.me/Crypter</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Github</small><small className='float-end text-danger'>https://www.github.com/Crypter</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Instagram</small><small className='float-end text-danger'>https://www.instagram.com/Crypter</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Discord</small><small className='float-end text-danger'>https://www.discord.com/Crypter</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Reddit</small><small className='float-end text-danger'>https://www.reddit.com/Crypter</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Description</small><small className='float-end text-success'>CrpyerSale, the launchpad protocol for Everyone! CrypterSale helps everyone to create their own tokens and token sales in few second.</small>
+                                        </li>
+                                        <li className='list-group-item pt-0 mt-1 border-width-bot'>
+                                            <small>Using Anti-Rug system (Vesting System)?</small><small className='float-end text-success'>No</small>
+                                        </li>
+                                        </ul>
+                                    </div>
+
+                                    <div className='row mt-4 closenitificationalertfinish'>
+                                        <div className='col-lg-12'>
+                                            <div className='alert alert-warning text-center' role='alert'>
+                                                <div className='position-relative'>
+                                                    <div className='position-absolute top-0 start-100 translate-middle'>
+                                                        <a className='float-end onClosealertfinish shadow'><i className='bi-x'></i></a>
+                                                    </div>
+
+                                                    <small className='text-center'>
+                                                    <i className='bi-exclamation-circle-fill'></i> For tokens with burns, rebase or orther special transfers please ensure that you have a way to whitelist multiple addresses or turn off the special transfer events (By setting fees to 0 for example for the duration of the presale)
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className='row mt-3'>
+                                        <div className='col-lg-12 text-center'>
+                                            <button type='button' className='btn btn-sm btn-create-token'>Back</button>
+                                            <button type='button' className='btn btn-sm btn-create-token'>Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div className='row'>
                                     <div className='col-12 mx-auto text-center mt-4 mb-4'>
                                         <small>Disclaimer: The information provided shall not in any way constitute a recommendation as to whether you should invest in any product discussed. We accept no liability for any loss occasioned to any person acting or refraining from action as a result of any material provided or published.</small>
@@ -1245,6 +1366,153 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 </form>
                             </div>
 
+                        </div>
+                    </div>
+                </div>
+
+                <div className='modal choosenetwork' id='staticBackdropNetwork' data-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                    <div className='modal-dialog modal-dialog-centered'>
+                        <div className='modal-content shadow-lg'>
+                            <div className='modal-header'>
+                                <h6 className='modal-title' id='staticBackdropLabel'>Choose network</h6>
+                                <a className='onClosechoosenetwork shadow float-end'><i className='bi-x'></i></a>
+                            </div>
+                            <div className='modal-body'>
+                                <div className='d-flex'>
+                                    <div className='col-md-6 text-center'>
+                                        <div className='box-choose-network'>
+                                        <img className='img-fluid' width='40' src={EthImg} alt=''/>
+                                        <p className='mt-3 text-white'>Ethereum</p>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-6 text-center'>
+                                        <div className='box-choose-network'>
+                                        <img className='img-fluid' width='40' src={BscImg} alt=''/>
+                                        <p className='mt-3 text-white'>BNB Smart Chain</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='d-flex'>
+                                    <div className='col-md-6 text-center'>
+                                        <div className='box-choose-network'>
+                                        <img className='img-fluid' width='40' src={MaticImg} alt=''/>
+                                        <p className='mt-3 text-white'>Matic(Polygon)</p>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-6 text-center'>
+                                        <div className='box-choose-network'>
+                                        <img className='img-fluid' width='40' src={KucoinImg} alt=''/>
+                                        <p className='mt-3 text-white'>KuCoin</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='d-flex'>
+                                    <div className='col-md-6 text-center'>
+                                        <div className='box-choose-network'>
+                                        <img className='img-fluid' width='40' src={AvaxImg} alt=''/>
+                                        <p className='mt-3 text-white'>Avalanche</p>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-6 text-center'>
+                                        <div className='box-choose-network'>
+                                        <img className='img-fluid' width='31' src={FantomImg} alt=''/>
+                                        <p className='mt-3 text-white'>Fantom Opera</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='d-flex'>
+                                    <div className='col-md-6 text-center'>
+                                        <div className='box-choose-network'>
+                                        <img className='img-fluid' width='40' src={CronosImg} alt=''/>
+                                        <p className='mt-3 text-white'>Cronos</p>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-6 text-center'>
+                                    </div>
+                                </div>
+                                <div className='row mt-2 mb-2'>
+                                <small>TESTNET</small>
+                                </div>
+                                <div className='d-flex'>
+                                    <div className='col-md-6 text-center'>
+                                        <div className='box-choose-network'>
+                                        <img className='img-fluid' width='40' src={BscImg} alt=''/>
+                                        <p className='mt-3 text-white'>Avalanche</p>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-6 text-center'>
+                                        <div className='box-choose-network'>
+                                        <img className='img-fluid' width='40' src={FantomImg} alt=''/>
+                                        <p className='mt-3 text-white'>Fantom Opera</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='modal connecttowallet' id='staticBackdropConnect' data-backdrop='static' data-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                    <div className='modal-dialog modal-dialog-centered'>
+                        <div className='modal-content shadow-lg'>
+                            <div className='modal-header'>
+                                <h6 className='modal-title' id='staticBackdropLabel'>Connect to a wallet</h6>
+                                <a className='onCloseconnectoawallet shadow float-end'><i className='bi-x'></i></a>
+                            </div>
+                            <div className='modal-body'>
+                                <div className='d-flex'>
+                                    <div className='col-md-6 text-center'>
+                                        <div className='box-choose-network'>
+                                        <img className='img-fluid' width='19' src={MetamaskImg} alt=''/>
+                                        <p className='mt-3 text-white'>Install Metamask</p>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-6 text-center'>
+                                        <div className='box-choose-network'>
+                                        <img className='img-fluid' width='19' src={TrustwalletImg} alt=''/>
+                                        <p className='mt-3 text-white'>TrustWallet</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='d-flex'>
+                                    <div className='col-md-6 text-center'>
+                                        <div className='box-choose-network'>
+                                        <img className='img-fluid' width='19' src={WalletConnectImg} alt=''/>
+                                        <p className='mt-3 text-white'>WalletConnect</p>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-6 text-center'>
+                                        <div className='box-choose-network'>
+                                        <img className='img-fluid' width='19' src={CoinbaseImg} alt=''/>
+                                        <p className='mt-3 text-white'>CoinsBase Wallet</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='d-flex'>
+                                    <div className='col-md-6 text-center'>
+                                        <div className='box-choose-network'>
+                                        <img className='img-fluid' width='19' src={SafepalImg} alt=''/>
+                                        <p className='mt-3 text-white'>SafePal Wallet</p>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-6 text-center'>
+                                        <div className='box-choose-network'>
+                                        <img className='img-fluid' width='19' src={TokenpocketImg} alt=''/>
+                                        <p className='mt-3 text-white'>TokenPocket</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='d-flex'>
+                                    <div className='col-md-6 text-center'>
+                                        <div className='box-choose-network'>
+                                        <img className='img-fluid' width='19' src={MathwalletImg} alt=''/>
+                                        <p className='mt-3 text-white'>Math Wallet</p>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-6 text-center'>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
