@@ -621,8 +621,8 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                                 <div className='col-md-12 mt-3'>
                                     <div className='col-lg-12 text-center'>
-                                    <button type='button' className='btn btn-sm btn-create-token'>Back</button>
-                                    <button type='button' className='btn btn-sm btn-create-token ml-2'>Next</button>
+                                    <button type='button' className='btn-sm btn-create-token'>Back</button>
+                                    <button type='button' className='btn-sm btn-create-token ml-2'>Next</button>
                                     </div>
                                 </div>
                             </form>
