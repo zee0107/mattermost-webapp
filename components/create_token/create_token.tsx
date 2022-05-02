@@ -331,36 +331,36 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 </div>
 
                                 <div className='col-md-12 d-flex'>
-                                    <div className='col-6 mt-2 mb-2'>
+                                    <div className='col-md-6 pl-0 mt-2 mb-2'>
                                         <label htmlFor='formGroupExampleInput2' className='form-label'><small>Softcap (BNB)*</small></label>
                                         <input type='text' className='form-control' id='' placeholder='500' value=''/>
                                     </div>
-                                    <div className='col-6 mt-2 mb-2'>
+                                    <div className='col-md-6 pr-0 mt-2 mb-2'>
                                         <label htmlFor='formGroupExampleInput2' className='form-label'><small>Hardcap (BNB)*</small></label>
                                         <input type='text' className='form-control' id='' placeholder='1000' value=''/>
                                     </div>
                                 </div>
 
                                 <div className='col-md-12 d-flex'>
-                                    <div className='col-6 mt-2 mb-2'>
+                                    <div className='col-md-6 pl-0 mt-2 mb-2'>
                                         <label htmlFor='formGroupExampleInput2' className='form-label'><small>Minimum buy (BNB)*</small></label>
                                         <input type='text' className='form-control' id='' placeholder='0.01' value=''/>
                                     </div>
-                                    <div className='col-6 mt-2 mb-2'>
+                                    <div className='col-md-6 pr-0 mt-2 mb-2'>
                                         <label htmlFor='formGroupExampleInput2' className='form-label'><small>Maximum buy (BNB)*</small></label>
                                         <input type='text' className='form-control' id='' placeholder='0.1' value=''/>
                                     </div>
                                 </div>
 
                                 <div className='col-md-12 d-flex'>
-                                    <div className='col-6 mt-2 mb-2'>
+                                    <div className='col-md-6 pl-0 mt-2 mb-2'>
                                         <label htmlFor='inputState' className='form-label'><small>Refund</small></label>
                                         <select id='inputState' className='form-control form-control-sm'>
                                             <option selected>Burn</option>
                                             <option>Burn</option>
                                         </select>
                                     </div>
-                                    <div className='col-6 mt-2 mb-2'>
+                                    <div className='col-md-6 pr-0 mt-2 mb-2'>
                                         <label htmlFor='inputState' className='form-label'><small>Router*</small></label>
                                         <select id='inputState' className='form-control form-control-sm'>
                                             <option selected>Pancakeswap</option>
@@ -370,14 +370,14 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 </div>
 
                                 <div className='col-md-12 d-flex'>
-                                    <div className='col-6 mt-2 mb-2'>
+                                    <div className='col-md-6 pl-0 mt-2 mb-2'>
                                         <label htmlFor='inputState' className='form-label'><small>Pancakeswap liquidity (%)*</small></label>
                                         <select id='inputState' className='form-control form-control-sm'>
                                             <option selected>51</option>
                                             <option>51</option>
                                         </select>
                                     </div>
-                                    <div className='col-6 mt-2 mb-2'>
+                                    <div className='col-md-6 pr-0 mt-2 mb-2'>
                                         <label htmlFor='inputState' className='form-label'><small>Pancakeswap listing rate (%)*</small></label>
                                         <select id='inputState' className='form-control form-control-sm'>
                                             <option selected>80</option>
@@ -398,14 +398,14 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 </div>
 
                                 <div className='col-md-12 d-flex'>
-                                    <div className='col-6 mt-2 mb-2'>
+                                    <div className='col-md-6 pl-0 mt-2 mb-2'>
                                         <label htmlFor='inputState' className='form-label'><small>Start time (UTC)*</small></label>
                                         <select id='inputState' className='form-control form-control-sm'>
                                             <option selected>2021-09-17T19:20</option>
                                             <option>51</option>
                                         </select>
                                     </div>
-                                    <div className='col-6 mt-2 mb-2'>
+                                    <div className='col-md-6 pr-0 mt-2 mb-2'>
                                         <label htmlFor='inputState' className='form-label'><small>End time (UTC)*</small></label>
                                         <select id='inputState' className='form-control form-control-sm'>
                                             <option selected>2021-09-17T19:20</option>
