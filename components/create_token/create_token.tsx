@@ -633,46 +633,46 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 <small>Total token</small><small className='float-end text-danger'>141.984. PST</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Total name</small><small className='float-end text-primary'>CrypterSale Test</small>
+                                <small>Total name</small><small className='float-end text-success'>CrypterSale Test</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Total symbol</small><small className='float-end text-primary'>PST</small>
+                                <small>Total symbol</small><small className='float-end text-success'>PST</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Total decimals</small><small className='float-end text-primary'>18</small>
+                                <small>Total decimals</small><small className='float-end text-success'>18</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Presale rate</small><small className='float-end text-primary'>100 PST</small>
+                                <small>Presale rate</small><small className='float-end text-success'>100 PST</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Listing rate</small><small className='float-end text-primary'>80 PST</small>
+                                <small>Listing rate</small><small className='float-end text-success'>80 PST</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Sale method</small><small className='float-end text-primary'>Public</small>
+                                <small>Sale method</small><small className='float-end text-success'>Public</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Softcap</small><small className='float-end text-primary'>500 BNB</small>
+                                <small>Softcap</small><small className='float-end text-success'>500 BNB</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Hardcap</small><small className='float-end text-primary'>1000 BNB</small>
+                                <small>Hardcap</small><small className='float-end text-success'>1000 BNB</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Minimum buy</small><small className='float-end text-primary'>0.01 BNB</small>
+                                <small>Minimum buy</small><small className='float-end text-success'>0.01 BNB</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Miximum buy</small><small className='float-end text-primary'>0.1 BNB</small>
+                                <small>Miximum buy</small><small className='float-end text-success'>0.1 BNB</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Liquidity</small><small className='float-end text-primary'>51%</small>
+                                <small>Liquidity</small><small className='float-end text-success'>51%</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Start time</small><small className='float-end text-primary'>2021-09-17T19:28 (UTC)</small>
+                                <small>Start time</small><small className='float-end text-success'>2021-09-17T19:28 (UTC)</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>End time</small><small className='float-end text-primary'>2021-09-17T19:20 (UTC)</small>
+                                <small>End time</small><small className='float-end text-success'>2021-09-17T19:20 (UTC)</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Liquidity lookup time</small><small className='float-end text-primary'>1111 minutes</small>
+                                <small>Liquidity lookup time</small><small className='float-end text-success'>1111 minutes</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Website</small><small className='float-end text-danger'>https://www.cryptersal.finance/</small>
@@ -699,10 +699,10 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 <small>Reddit</small><small className='float-end text-danger'>https://www.reddit.com/Crypter</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Description</small><small className='float-end text-primary'>CrpyerSale, the launchpad protocol for Everyone! CrypterSale helps everyone to create their own tokens and token sales in few second.</small>
+                                <small>Description</small><small className='float-end text-success'>CrpyerSale, the launchpad protocol for Everyone! CrypterSale helps everyone to create their own tokens and token sales in few second.</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Using Anti-Rug system (Vesting System)?</small><small className='float-end text-primary'>No</small>
+                                <small>Using Anti-Rug system (Vesting System)?</small><small className='float-end text-success'>No</small>
                             </li>
                             </ul>
                         </div>
