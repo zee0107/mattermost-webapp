@@ -415,8 +415,8 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
         if (useGroupMentions) {
             actions.getChannelMemberCountsByGroup(this.state.currentChannel.id, isTimezoneEnabled);
         }
-        this.setState({channelId: 'kqe4sihhdid47gprhk6dwbuc4o'});
-        //this.setState({channelId: 'dodurztr1fbupnpenjgxqjso3a'});
+        //this.setState({channelId: 'kqe4sihhdid47gprhk6dwbuc4o'});
+        this.setState({channelId: 'dodurztr1fbupnpenjgxqjso3a'});
     }
 
     componentDidUpdate(prevProps: Props, prevState: State) {

@@ -214,8 +214,8 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                     <div className='container'>
                     <div className='row'>
                         <div className='col-12'>
-                            <a className='onLockbuttoncreate float-end mr-1'><small>Connect</small></a>
-                            <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='staticBackdropNetwork'><small>BSC Mainnet</small></a>
+                            <a className='onLockbuttoncreate float-end mr-1' data-toggle='modal' data-target='#staticBackdropConnect'><small>Connect</small></a>
+                            <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small>BSC Mainnet</small></a>
                             <a className="onLockbuttoncreate float-end ml-1" data-toggle='modal' data-target='#staticBackdropCreateToken'><small>Create</small></a>
                         </div>
                     </div>
@@ -762,8 +762,8 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                                 <div className='row'>
                                     <div className='btn-group float-end' role='group' aria-label='Basic example'>
-                                    <a className='onLockbuttoncreate mr-1'><small>Connect</small></a>
-                                    <a className='onLockbuttoncreatenormal ml-1 mr-1' data-toggle='modal' data-target='staticBackdropNetwork'><small>BSC Mainnet</small></a>
+                                    <a className='onLockbuttoncreate mr-1' data-toggle='modal' data-target='#staticBackdropConnect'><small>Connect</small></a>
+                                    <a className='onLockbuttoncreatenormal ml-1 mr-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small>BSC Mainnet</small></a>
                                     <a className='onLockbuttoncreate ml-1'><small>Create</small></a>
                                     </div>
                                 </div>
@@ -1370,7 +1370,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                     </div>
                 </div>
 
-                <div className='modal choosenetwork' id='staticBackdropNetwork' data-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                <div className='modal choosenetwork' id='staticBackdropNetwork' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
                     <div className='modal-dialog modal-dialog-centered'>
                         <div className='modal-content shadow-lg'>
                             <div className='modal-header'>
@@ -1452,7 +1452,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                     </div>
                 </div>
 
-                <div className='modal connecttowallet' id='staticBackdropConnect' data-backdrop='static' data-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                <div className='modal connecttowallet' id='staticBackdropConnect' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
                     <div className='modal-dialog modal-dialog-centered'>
                         <div className='modal-content shadow-lg'>
                             <div className='modal-header'>
