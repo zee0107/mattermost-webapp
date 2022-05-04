@@ -62,8 +62,6 @@ type State = {
     tokenType: string;
 };
 
-const { activate } = useWeb3React();
-
 export default class CreateToken extends React.PureComponent<Props, State> {
     
     static defaultProps = {userId: '', allCrypto: [],trendCrypto: [],newCrypto: [],gainerCrypto: []}
@@ -111,7 +109,14 @@ export default class CreateToken extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        
+        const {
+            library,
+            chainId,
+            account,
+            activate,
+            deactivate,
+            active
+         } = useWeb3React;
         const { tokenType } = this.state;
         let createTokenInfo;
 
@@ -1494,7 +1499,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                             </div>
                             <div className='modal-body'>
                                 <div className='d-flex'>
-                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { activate(connectors.injected);}}>
+                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { useWeb3React.activate(connectors.injected);}}>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='19' src={MetamaskImg} alt=''/>
                                         <p className='mt-3 text-white'>Metamask</p>
@@ -1508,13 +1513,13 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className='d-flex'>
-                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { activate(connectors.walletConnect);}}>
+                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { useWeb3React.activate(connectors.walletConnect);}}>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='19' src={WalletConnectImg} alt=''/>
                                         <p className='mt-3 text-white'>WalletConnect</p>
                                         </div>
                                     </div>
-                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { activate(connectors.coinbaseWallet);}}>
+                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { useWeb3React.activate(connectors.coinbaseWallet);}}>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='19' src={CoinbaseImg} alt=''/>
                                         <p className='mt-3 text-white'>CoinsBase Wallet</p>
