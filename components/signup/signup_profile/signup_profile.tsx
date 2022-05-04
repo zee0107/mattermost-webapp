@@ -92,6 +92,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
     }
 
     private codeRef: React.RefObject<HTMLInputElement>;
+    private nameRef: React.RefObject<HTMLInputElement>;
     private phoneRef: React.RefObject<HTMLInputElement>;
     private addressRef: React.RefObject<HTMLInputElement>;
     private locationRef: React.RefObject<HTMLInputElement>;
@@ -116,6 +117,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
         this.codeRef = React.createRef();
         this.phoneRef = React.createRef();
         this.addressRef = React.createRef();
+        this.nameRef = React.createRef();
         this.locationRef = React.createRef();
     }
 
@@ -713,10 +715,6 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                     <div className='mt-8'>
                         <h5 id='password_label'>
                             <strong>
-                                {/*<FormattedMessage
-                                    id='signup_user_completed.choosePwd'
-                                    defaultMessage='Choose your password'
-                                />*/}
                                 Country of residence
                             </strong>
                         </h5>
@@ -1061,11 +1059,6 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                                     className='signup-team-logo'
                                     src={logoImage}
                                 />
-                                {/*<h3>
-                                    <a href='javascript:history.go(-1)' className='removeTextDecor'><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="var(--text-primary)" className="bi bi-chevron-left" viewBox="0 0 16 16">
-                                    <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" fill='#000'/>
-                                    </svg> Back</a>
-                                </h3>*/}
                                 <br />
                                 <SiteNameAndDescription
                                     customDescriptionText={customDescriptionText}
@@ -1084,27 +1077,6 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                                         </svg> Your Info is safely secured
                                     </span>
                                 </div>
-                                {/*<span
-                                    id='signin_account'
-                                    className='text-white'
-                                >
-                                    <FormattedMessage
-                                        id='signup_user_completed.haveAccount'
-                                        defaultMessage='Already have an account?'
-                                    />
-                                    {' '}
-                                    <Link
-                                        id='signin_account_link'
-                                        to={'/login' + location!.search}
-                                        onClick={() => trackEvent('signup_email', 'click_signin_account')}
-                                    >
-                                        <FormattedMessage
-                                            id='signup_user_completed.signIn'
-                                            defaultMessage='Click here to sign in.'
-                                        />
-                                    </Link>
-                                </span>*/}
-                                {/*terms*/}
                             </div>
                         </div>
                         <div className='col-md-12'>

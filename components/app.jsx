@@ -12,6 +12,8 @@ import '../scripts';
 import React from 'react';
 import {Provider} from 'react-redux';
 import {Router, Route} from 'react-router-dom';
+import { Web3ReactProvider } from '@web3-react/core'
+import { Web3Provider } from "@ethersproject/providers";
 
 import {browserHistory} from 'utils/browser_history';
 import store from 'stores/redux_store.jsx';
@@ -24,16 +26,22 @@ const LazyRoot = React.lazy(() => import('components/root'));
 const Root = makeAsyncComponent('Root', LazyRoot);
 
 class App extends React.PureComponent {
+    getLibrary(provider) {
+        return new Web3Provider(provider);
+    }
+
     render() {
         return (
             <Provider store={store}>
-                <CRTPostsChannelResetWatcher/>
-                <Router history={browserHistory}>
-                    <Route
-                        path='/'
-                        component={Root}
-                    />
-                </Router>
+                <Web3ReactProvider getLibrary={this.getLibrary}>
+                    <CRTPostsChannelResetWatcher/>
+                    <Router history={browserHistory}>
+                        <Route
+                            path='/'
+                            component={Root}
+                        />
+                    </Router>
+                </Web3ReactProvider>
             </Provider>);
     }
 }
