@@ -234,7 +234,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
 
     handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
-        const [first, ...last] = this.state.name.split('_');
+        const [first, ...last] = this.state.name.split(' ');
         const lastName = last.join(' ');
         console.log(`First Name: ${first}, Last Name: ${lastName}`);
         browserHistory.push('/login');
