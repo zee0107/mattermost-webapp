@@ -21,7 +21,11 @@ export default function ButtonConnect(){
         deactivate();
     };
 
-    console.log(active);
+    useEffect(() => {
+        const provider = window.localStorage.getItem("provider");
+        if (provider) activate(connectors[provider]);
+      }, []);
+
     return (
         <>
             {!active ? (
