@@ -779,8 +779,8 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                         <div className='row mt-3'>
                             <div className='col-lg-12 text-center'>
-                                <button type='button' className='btn btn-sm btn-create-token'>Back</button>
-                                <button type='button' className='btn btn-sm btn-create-token'>Submit</button>
+                                <button type='button' className='btn-sm btn-create-token'>Back</button>
+                                <button type='button' className='btn-sm btn-create-token'>Submit</button>
                             </div>
                         </div>
                     </div>
@@ -1330,8 +1330,8 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                                     <div className='row mt-3'>
                                         <div className='col-lg-12 text-center'>
-                                            <button type='button' className='btn btn-sm btn-create-token'>Back</button>
-                                            <button type='button' className='btn btn-sm btn-create-token'>Submit</button>
+                                            <button type='button' className='btn-sm btn-create-token'>Back</button>
+                                            <button type='button' className='btn-sm btn-create-token'>Submit</button>
                                         </div>
                                     </div>
                                 </div>
