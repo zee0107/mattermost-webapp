@@ -124,7 +124,6 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
         this.codeRef = React.createRef();
         this.phoneRef = React.createRef();
         this.addressRef = React.createRef();
-        this.nameRef = React.createRef();
         this.locationRef = React.createRef();
     }
 
@@ -573,7 +572,6 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                             <input
                                 id='name'
                                 type='text'
-                                ref={nameRef}
                                 className='form-control custom-input'
                                 placeholder='Please enter your fullname'
                                 spellCheck='false'
