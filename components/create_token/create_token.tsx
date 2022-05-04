@@ -109,14 +109,14 @@ export default class CreateToken extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {
+        const [
             library,
             chainId,
             account,
             activate,
             deactivate,
             active
-          } = useWeb3React;
+         ] = useWeb3React();
         const { tokenType } = this.state;
         let createTokenInfo;
 
