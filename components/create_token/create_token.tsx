@@ -5,6 +5,7 @@ import React, {ReactNode, ReactPropTypes} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
+import SelectWalletModal from "./Modal";
 
 import { useWeb3React } from "@web3-react/core";
 import { networkParams } from "../networks";
@@ -1498,58 +1499,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 <a className='onCloseconnectoawallet shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
-                                <div className='d-flex'>
-                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { useWeb3React.activate(connectors.injected);}}>
-                                        <div className='box-choose-network'>
-                                        <img className='img-fluid' width='19' src={MetamaskImg} alt=''/>
-                                        <p className='mt-3 text-white'>Metamask</p>
-                                        </div>
-                                    </div>
-                                    <div className='col-md-6 text-center' data-dismiss='modal'>
-                                        <div className='box-choose-network'>
-                                        <img className='img-fluid' width='19' src={TrustwalletImg} alt=''/>
-                                        <p className='mt-3 text-white'>TrustWallet</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='d-flex'>
-                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { useWeb3React.activate(connectors.walletConnect);}}>
-                                        <div className='box-choose-network'>
-                                        <img className='img-fluid' width='19' src={WalletConnectImg} alt=''/>
-                                        <p className='mt-3 text-white'>WalletConnect</p>
-                                        </div>
-                                    </div>
-                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { useWeb3React.activate(connectors.coinbaseWallet);}}>
-                                        <div className='box-choose-network'>
-                                        <img className='img-fluid' width='19' src={CoinbaseImg} alt=''/>
-                                        <p className='mt-3 text-white'>CoinsBase Wallet</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='d-flex'>
-                                    <div className='col-md-6 text-center' data-dismiss='modal'>
-                                        <div className='box-choose-network'>
-                                        <img className='img-fluid' width='19' src={SafepalImg} alt=''/>
-                                        <p className='mt-3 text-white'>SafePal Wallet</p>
-                                        </div>
-                                    </div>
-                                    <div className='col-md-6 text-center' data-dismiss='modal'>
-                                        <div className='box-choose-network'>
-                                        <img className='img-fluid' width='19' src={TokenpocketImg} alt=''/>
-                                        <p className='mt-3 text-white'>TokenPocket</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='d-flex'>
-                                    <div className='col-md-6 text-center' data-dismiss='modal'>
-                                        <div className='box-choose-network'>
-                                        <img className='img-fluid' width='19' src={MathwalletImg} alt=''/>
-                                        <p className='mt-3 text-white'>Math Wallet</p>
-                                        </div>
-                                    </div>
-                                    <div className='col-md-6 text-center'>
-                                    </div>
-                                </div>
+                                <SelectWalletModal />
                             </div>
                         </div>
                     </div>
