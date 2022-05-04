@@ -53,6 +53,7 @@ export type Props = {
     passwordConfig: Utils.PasswordConfig;
     hasAccounts: boolean;
     actions: Actions;
+    currentUser: UserProfile;
 };
 
 export type State = {
@@ -259,123 +260,12 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
     }
 
     isUserValid = () => {
-        /*const providedEmail = this.emailRef.current?.value.trim();
-        if (!providedEmail) {
-            this.setState({
-                nameError: '',
-                emailError: (<FormattedMessage id='signup_user_completed.required'/>),
-                passwordError: '',
-                serverError: '',
-            });
-            return false;
-        }
-
-        if (!isEmail(providedEmail)) {
-            this.setState({
-                nameError: '',
-                emailError: (<FormattedMessage id='signup_user_completed.validEmail'/>),
-                passwordError: '',
-                serverError: '',
-            });
-            return false;
-        }
-
-        const providedUsername = this.nameRef.current?.value.trim().toLowerCase();
-        if (!providedUsername) {
-            this.setState({
-                nameError: (<FormattedMessage id='signup_user_completed.required'/>),
-                emailError: '',
-                passwordError: '',
-                serverError: '',
-            });
-            return false;
-        }
-
-        const usernameError = Utils.isValidUsername(providedUsername);
-        if (usernameError) {
-            let errObj;
-            if (usernameError.id === ValidationErrors.RESERVED_NAME) {
-                errObj = {
-                    nameError: (<FormattedMessage id='signup_user_completed.reserved'/>),
-                    emailError: '',
-                    passwordError: '',
-                    serverError: '',
-                };
-            } else {
-                errObj = {
-                    nameError: (
-                        <FormattedMessage
-                            id='signup_user_completed.usernameLength'
-                            values={{
-                                min: Constants.MIN_USERNAME_LENGTH,
-                                max: Constants.MAX_USERNAME_LENGTH,
-                            }}
-                        />
-                    ),
-                    emailError: '',
-                    passwordError: '',
-                    serverError: '',
-                };
-            }
-            this.setState(errObj);
-            return false;
-        }
-
-        const providedPassword = this.passwordRef.current?.value ?? '';
-        const {valid, error} = Utils.isValidPassword(providedPassword, this.props.passwordConfig);
-        if (!valid && error) {
-            this.setState({
-                nameError: '',
-                emailError: '',
-                passwordError: error,
-                serverError: '',
-            });
-            return false;
-        }*/
-
         return true;
     }
 
     handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
         browserHistory.push('/login');
-       /* trackEvent('signup_email', 'click_create_account');
-
-        // bail out if a submission is already in progress
-        if (this.state.isSubmitting) {
-            return;
-        }
-
-        if (this.isUserValid()) {
-            this.setState({
-                nameError: '',
-                emailError: '',
-                passwordError: '',
-                serverError: '',
-                isSubmitting: true,
-            });
-
-            const user = {
-                email: this.emailRef.current?.value.trim(),
-                username: this.nameRef.current?.value.trim().toLowerCase(),
-                password: this.passwordRef.current?.value,
-                allow_marketing: true,
-            } as UserProfile;
-
-            const redirectTo = (new URLSearchParams(this.props.location!.search)).get('redirect_to');
-
-            this.props.actions.createUser(user, this.state.token as string, this.state.inviteId as string, redirectTo as string).then((result: {data: UserProfile} | {error: ServerError}) => {
-                if ('error' in result) {
-                    this.setState({
-                        serverError: result.error.message,
-                        isSubmitting: false,
-                    });
-                    return;
-                }
-
-                this.handleSignupSuccess(user, result.data);
-            });
-        }*/
     }
 
     renderEmailSignup = () => {
@@ -689,6 +579,29 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                         </div>
                     </div>*/}
                     {yourEmailIs}
+                    <div className='mt-8'>
+                        <h5 id='name_label'>
+                            <strong>
+                                {/*<FormattedMessage
+                                    id='signup_user_completed.chooseUser'
+                                    defaultMessage='Choose your username'
+                                />*/}
+                                Full name
+                            </strong>
+                        </h5>
+                        <div className={nameDivStyle}>
+                            <input
+                                id='name'
+                                type='text'
+                                className='form-control custom-input'
+                                placeholder='Please enter address'
+                                spellCheck='false'
+                                autoCapitalize='off'
+                            />
+                            {nameError}
+                            {/*nameHelpText*/}
+                        </div>
+                    </div>
                     <div className='mt-8'>
                         <h5 id='name_label'>
                             <strong>

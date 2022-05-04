@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {ActionCreatorsMapObject, bindActionCreators, Dispatch} from 'redux';
 
 import {GenericAction, ActionFunc} from 'mattermost-redux/types/actions';
-
+import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
 import {createUser} from 'mattermost-redux/actions/users';
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
 import {getTeamInviteInfo} from 'mattermost-redux/actions/teams';
@@ -23,6 +23,7 @@ function mapStateToProps(state: GlobalState) {
 
     const enableSignUpWithEmail = config.EnableSignUpWithEmail === 'true';
     const siteName = config.SiteName || '';
+    const currentUser = getCurrentUser(state);
     const termsOfServiceLink = config.TermsOfServiceLink;
     const privacyPolicyLink = config.PrivacyPolicyLink;
     const customDescriptionText = config.CustomDescriptionText;
@@ -31,6 +32,7 @@ function mapStateToProps(state: GlobalState) {
     return {
         enableSignUpWithEmail,
         siteName,
+        currentUser,
         termsOfServiceLink,
         privacyPolicyLink,
         customDescriptionText,
