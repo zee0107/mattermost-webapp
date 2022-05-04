@@ -108,23 +108,12 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         console.log(event.target.value);
     }
 
-    activateCoinbase = () => {
-        const { activate } = useWeb3React();
-        return activate(connectors.coinbaseWallet);
-    }
-
-    activateInjected = () => {
-        const { activate } = useWeb3React();
-        return activate(connectors.injected);
-    }
-
-    activateWallet = () => {
-        const { activate } = useWeb3React();
-        return activate(connectors.walletConnect);
+    activeWallet = () => {
+        const {active} = useWeb3React();
+        return active;
     }
 
     render= (): JSX.Element => {
-        const {library,chainId,account,activate,deactivate,active} = useWeb3React();
         const { tokenType } = this.state;
         let createTokenInfo;
 
@@ -1507,7 +1496,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                             </div>
                             <div className='modal-body'>
                                 <div className='d-flex'>
-                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { this.activateInjected();}}>
+                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { this.activeWallet().injected;}}>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='19' src={MetamaskImg} alt=''/>
                                         <p className='mt-3 text-white'>Metamask</p>
@@ -1521,13 +1510,13 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className='d-flex'>
-                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { this.activateWallet();}}>
+                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { this.activeWallet().walletConnect;}}>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='19' src={WalletConnectImg} alt=''/>
                                         <p className='mt-3 text-white'>WalletConnect</p>
                                         </div>
                                     </div>
-                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { this.activateCoinbase();}}>
+                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { this.activeWallet().coinbaseWallet;}}>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='19' src={CoinbaseImg} alt=''/>
                                         <p className='mt-3 text-white'>CoinsBase Wallet</p>
