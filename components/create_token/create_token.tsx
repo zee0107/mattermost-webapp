@@ -7,7 +7,9 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 
 import { useWeb3React } from "@web3-react/core";
+import { networkParams } from "../networks";
 import { connectors } from "../connectors";
+import { toHex, truncateAddress } from "../wallet_utils";
 
 import fillImage from 'images/fill.svg';
 
@@ -25,7 +27,6 @@ import CoinbaseImg from 'images/launchpad/connect/coinbase.069f6c82.png';
 import SafepalImg from 'images/launchpad/connect/safepal.d0c33979.svg';
 import TokenpocketImg from 'images/launchpad/connect/tokenpocket.png';
 import MathwalletImg from 'images/launchpad/connect/math-wallet.png';
-
 
 import homeImage from 'images/homeFeed.png';
 
@@ -77,6 +78,31 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         this.setState({isDark: ThemeValue});
     }
 
+    switchNetwork = async () => {
+        try {
+          await library.provider.request({
+            method: "wallet_switchEthereumChain",
+            params: [{ chainId: toHex(network) }]
+          });
+        } catch (switchError) {
+          if (switchError.code === 4902) {
+            try {
+              await library.provider.request({
+                method: "wallet_addEthereumChain",
+                params: [networkParams[toHex(network)]]
+              });
+            } catch (error) {
+              setError(error);
+            }
+          }
+        }
+      }
+
+    refreshState = () => {
+        window.localStorage.setItem("provider", undefined);
+        setNetwork("");
+    }
+
     changeTokenType(event) {
         this.setState({tokenType: event.target.value});
         console.log(event.target.value);
@@ -98,6 +124,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
+        const {library,chainId,account,activate,deactivate,active} = useWeb3React();
         const { tokenType } = this.state;
         let createTokenInfo;
 
