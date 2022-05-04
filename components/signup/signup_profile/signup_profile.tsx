@@ -586,7 +586,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                                     id='signup_user_completed.chooseUser'
                                     defaultMessage='Choose your username'
                                 />*/}
-                                Full name
+                                Fullname
                             </strong>
                         </h5>
                         <div className={nameDivStyle}>
