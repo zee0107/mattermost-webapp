@@ -253,7 +253,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
     }
 
     renderEmailSignup = () => {
-        let emailError = null;
+        let locationError = null;
         let emailHelpText: React.ReactNode = (
             <span
                 id='valid_email'
