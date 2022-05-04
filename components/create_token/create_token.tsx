@@ -116,7 +116,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
             activate,
             deactivate,
             active
-          } = useWeb3React;
+          } = useWeb3React();
         const { tokenType } = this.state;
         let createTokenInfo;
 
