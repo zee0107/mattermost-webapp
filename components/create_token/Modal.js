@@ -1,5 +1,5 @@
 import { useWeb3React } from "@web3-react/core";
-import { connectors } from "./connectors";
+import { connectors } from "../connectors";
 
 import MetamaskImg from 'images/launchpad/connect/Install-Metamask.svg';
 import TrustwalletImg from 'images/launchpad/connect/trustwallet.eb75d105.svg';
