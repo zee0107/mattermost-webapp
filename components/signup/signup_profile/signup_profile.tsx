@@ -227,42 +227,6 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
 
     handleSignupSuccess = (user: UserProfile, data: UserProfile) => {
         trackEvent('signup', 'signup_user_02_complete');
-        /*if (this.state.reminderInterval) {
-            trackEvent('signup', 'signup_from_reminder_' + this.state.reminderInterval, {user: user.id});
-        }
-        const redirectTo = (new URLSearchParams(this.props.location!.search)).get('redirect_to');
-
-        this.props.actions.loginById(data.id, user.password, '').then((result: {data: boolean} | {error: ServerError}) => {
-            if ('error' in result) {
-                if (result.error.server_error_id === 'api.user.login.not_verified.app_error') {
-                    let verifyUrl = '/should_verify_email?email=' + encodeURIComponent(user.email);
-                    if (this.state.teamName) {
-                        verifyUrl += '&teamname=' + encodeURIComponent(this.state.teamName);
-                    }
-                    if (redirectTo) {
-                        verifyUrl += '&redirect_to=' + redirectTo;
-                    }
-                    browserHistory.push(verifyUrl);
-                } else {
-                    this.setState({
-                        serverError: result.error.message,
-                        isSubmitting: false,
-                    });
-                }
-
-                return;
-            }
-
-            if (this.state.token && this.state.token.length > 0) {
-                this.props.actions.setGlobalItem(this.state.token, JSON.stringify({usedBefore: true}));
-            }
-
-            if (redirectTo) {
-                browserHistory.push(redirectTo);
-            } else {
-                GlobalActions.redirectUserToDefaultTeam();
-            }
-        });*/
     }
 
     isUserValid = () => {
@@ -285,7 +249,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
         this.setState({name: event.target.value});
     }
 
-    updatedAddress(e: React.ChangeEvent<HTMLInputElement>){
+    updateAddress(e: React.ChangeEvent<HTMLInputElement>){
         this.setState({address: event.target.value});
     }
 
