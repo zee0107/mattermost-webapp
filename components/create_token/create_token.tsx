@@ -1413,17 +1413,17 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                         <div className='modal-content shadow-lg'>
                             <div className='modal-header'>
                                 <h6 className='modal-title' id='staticBackdropLabel'>Choose network</h6>
-                                <a className='onClosechoosenetwork shadow float-end'><i className='bi-x'></i></a>
+                                <a className='onClosechoosenetwork shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
                                 <div className='d-flex'>
-                                    <div className='col-md-6 text-center'>
+                                    <div className='col-md-6 text-center' data-dismiss='modal'>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='40' src={EthImg} alt=''/>
                                         <p className='mt-3 text-white'>Ethereum</p>
                                         </div>
                                     </div>
-                                    <div className='col-md-6 text-center'>
+                                    <div className='col-md-6 text-center' data-dismiss='modal'>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='40' src={BscImg} alt=''/>
                                         <p className='mt-3 text-white'>BNB Smart Chain</p>
@@ -1431,13 +1431,13 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className='d-flex'>
-                                    <div className='col-md-6 text-center'>
+                                    <div className='col-md-6 text-center' data-dismiss='modal'>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='40' src={MaticImg} alt=''/>
                                         <p className='mt-3 text-white'>Matic(Polygon)</p>
                                         </div>
                                     </div>
-                                    <div className='col-md-6 text-center'>
+                                    <div className='col-md-6 text-center' data-dismiss='modal'>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='40' src={KucoinImg} alt=''/>
                                         <p className='mt-3 text-white'>KuCoin</p>
@@ -1445,13 +1445,13 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className='d-flex'>
-                                    <div className='col-md-6 text-center'>
+                                    <div className='col-md-6 text-center' data-dismiss='modal'>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='40' src={AvaxImg} alt=''/>
                                         <p className='mt-3 text-white'>Avalanche</p>
                                         </div>
                                     </div>
-                                    <div className='col-md-6 text-center'>
+                                    <div className='col-md-6 text-center' data-dismiss='modal'>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='31' src={FantomImg} alt=''/>
                                         <p className='mt-3 text-white'>Fantom Opera</p>
@@ -1459,7 +1459,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className='d-flex'>
-                                    <div className='col-md-6 text-center'>
+                                    <div className='col-md-6 text-center' data-dismiss='modal'>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='40' src={CronosImg} alt=''/>
                                         <p className='mt-3 text-white'>Cronos</p>
@@ -1472,13 +1472,13 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 <small>TESTNET</small>
                                 </div>
                                 <div className='d-flex'>
-                                    <div className='col-md-6 text-center'>
+                                    <div className='col-md-6 text-center' data-dismiss='modal'>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='40' src={BscImg} alt=''/>
                                         <p className='mt-3 text-white'>Avalanche</p>
                                         </div>
                                     </div>
-                                    <div className='col-md-6 text-center'>
+                                    <div className='col-md-6 text-center' data-dismiss='modal'>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='40' src={FantomImg} alt=''/>
                                         <p className='mt-3 text-white'>Fantom Opera</p>
@@ -1495,7 +1495,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                         <div className='modal-content shadow-lg'>
                             <div className='modal-header'>
                                 <h6 className='modal-title' id='staticBackdropLabel'>Connect to a wallet</h6>
-                                <a className='onCloseconnectoawallet shadow float-end' data-bs-dismiss='modal'><i className='bi-x'></i></a>
+                                <a className='onCloseconnectoawallet shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
                                 <div className='d-flex'>
