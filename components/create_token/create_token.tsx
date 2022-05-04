@@ -5,6 +5,10 @@ import React, {ReactNode, ReactPropTypes} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
+
+import { useWeb3React } from "@web3-react/core";
+import { connectors } from "./connectors";
+
 import fillImage from 'images/fill.svg';
 
 import CronosImg from 'images/launchpad/network/ic-cronos.5a2dbab3.svg';
@@ -1461,13 +1465,13 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                             </div>
                             <div className='modal-body'>
                                 <div className='d-flex'>
-                                    <div className='col-md-6 text-center'>
+                                    <div className='col-md-6 text-center' data-dismiss='modal'>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='19' src={MetamaskImg} alt=''/>
-                                        <p className='mt-3 text-white'>Install Metamask</p>
+                                        <p className='mt-3 text-white'>Metamask</p>
                                         </div>
                                     </div>
-                                    <div className='col-md-6 text-center'>
+                                    <div className='col-md-6 text-center' data-dismiss='modal'>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='19' src={TrustwalletImg} alt=''/>
                                         <p className='mt-3 text-white'>TrustWallet</p>
@@ -1475,13 +1479,13 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className='d-flex'>
-                                    <div className='col-md-6 text-center'>
+                                    <div className='col-md-6 text-center' data-dismiss='modal'>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='19' src={WalletConnectImg} alt=''/>
                                         <p className='mt-3 text-white'>WalletConnect</p>
                                         </div>
                                     </div>
-                                    <div className='col-md-6 text-center'>
+                                    <div className='col-md-6 text-center' data-dismiss='modal'>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='19' src={CoinbaseImg} alt=''/>
                                         <p className='mt-3 text-white'>CoinsBase Wallet</p>
@@ -1489,13 +1493,13 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className='d-flex'>
-                                    <div className='col-md-6 text-center'>
+                                    <div className='col-md-6 text-center' data-dismiss='modal'>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='19' src={SafepalImg} alt=''/>
                                         <p className='mt-3 text-white'>SafePal Wallet</p>
                                         </div>
                                     </div>
-                                    <div className='col-md-6 text-center'>
+                                    <div className='col-md-6 text-center' data-dismiss='modal'>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='19' src={TokenpocketImg} alt=''/>
                                         <p className='mt-3 text-white'>TokenPocket</p>
@@ -1503,7 +1507,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className='d-flex'>
-                                    <div className='col-md-6 text-center'>
+                                    <div className='col-md-6 text-center' data-dismiss='modal'>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='19' src={MathwalletImg} alt=''/>
                                         <p className='mt-3 text-white'>Math Wallet</p>
