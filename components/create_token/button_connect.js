@@ -1,5 +1,5 @@
 import { useWeb3React } from "@web3-react/core";
-import { connectors } from "./connectors";
+import { connectors } from "../connectors";
 import { toHex, truncateAddress } from "../wallet_utils";
 
 export default function ButtonConnect(){
