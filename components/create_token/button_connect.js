@@ -21,6 +21,7 @@ export default function ButtonConnect(){
         deactivate();
     };
 
+    console.log(active);
     return (
         <>
             {!active ? (
