@@ -24,7 +24,7 @@ export default function SelectWalletModal(){
                     <p className='mt-3 text-white'>Metamask</p>
                     </div>
                 </div>
-                <div className='col-md-6 text-center' data-dismiss='modal'>
+                <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { activate(connectors.injected); setProvider("injected");}}>
                     <div className='box-choose-network'>
                     <img className='img-fluid' width='19' src={TrustwalletImg} alt=''/>
                     <p className='mt-3 text-white'>TrustWallet</p>
@@ -46,13 +46,13 @@ export default function SelectWalletModal(){
                 </div>
             </div>
             <div className='d-flex'>
-                <div className='col-md-6 text-center' data-dismiss='modal'>
+                <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { activate(connectors.injected); setProvider("injected");}}>
                     <div className='box-choose-network'>
                     <img className='img-fluid' width='19' src={SafepalImg} alt=''/>
                     <p className='mt-3 text-white'>SafePal Wallet</p>
                     </div>
                 </div>
-                <div className='col-md-6 text-center' data-dismiss='modal'>
+                <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { activate(connectors.injected); setProvider("injected");}}>
                     <div className='box-choose-network'>
                     <img className='img-fluid' width='19' src={TokenpocketImg} alt=''/>
                     <p className='mt-3 text-white'>TokenPocket</p>
@@ -60,7 +60,7 @@ export default function SelectWalletModal(){
                 </div>
             </div>
             <div className='d-flex'>
-                <div className='col-md-6 text-center' data-dismiss='modal'>
+                <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { activate(connectors.injected); setProvider("injected");}}>
                     <div className='box-choose-network'>
                     <img className='img-fluid' width='19' src={MathwalletImg} alt=''/>
                     <p className='mt-3 text-white'>Math Wallet</p>
