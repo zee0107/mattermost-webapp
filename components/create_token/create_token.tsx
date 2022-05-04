@@ -7,7 +7,7 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 
 import { useWeb3React } from "@web3-react/core";
-import { connectors } from "./connectors";
+import { connectors } from "../../connectors";
 
 import fillImage from 'images/fill.svg';
 
