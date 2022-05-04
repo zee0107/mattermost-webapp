@@ -21,13 +21,6 @@ import KucoinImg from 'images/launchpad/network/KuCoin.png';
 import MaticImg from 'images/launchpad/network/ic-matic.910e1faf.png';
 import BscImg from 'images/launchpad/network/ic-bsc.419dfaf2.png';
 import EthImg from 'images/launchpad/network/ic-eth.9270fc02.svg';
-import MetamaskImg from 'images/launchpad/connect/Install-Metamask.svg';
-import TrustwalletImg from 'images/launchpad/connect/trustwallet.eb75d105.svg';
-import WalletConnectImg from 'images/launchpad/connect/walletconnect.dfa25e47.svg';
-import CoinbaseImg from 'images/launchpad/connect/coinbase.069f6c82.png';
-import SafepalImg from 'images/launchpad/connect/safepal.d0c33979.svg';
-import TokenpocketImg from 'images/launchpad/connect/tokenpocket.png';
-import MathwalletImg from 'images/launchpad/connect/math-wallet.png';
 
 import homeImage from 'images/homeFeed.png';
 
