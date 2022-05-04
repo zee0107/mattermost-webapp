@@ -1499,7 +1499,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                             </div>
                             <div className='modal-body'>
                                 <div className='d-flex'>
-                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { activate.injected;}}>
+                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { activate(connectors.injected);}}>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='19' src={MetamaskImg} alt=''/>
                                         <p className='mt-3 text-white'>Metamask</p>
@@ -1513,13 +1513,13 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className='d-flex'>
-                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { activate.walletConnect;}}>
+                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { activate(connectors.walletConnect);}}>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='19' src={WalletConnectImg} alt=''/>
                                         <p className='mt-3 text-white'>WalletConnect</p>
                                         </div>
                                     </div>
-                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { activate.coinbaseWallet;}}>
+                                    <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => { activate(connectors.coinbaseWallet);}}>
                                         <div className='box-choose-network'>
                                         <img className='img-fluid' width='19' src={CoinbaseImg} alt=''/>
                                         <p className='mt-3 text-white'>CoinsBase Wallet</p>
