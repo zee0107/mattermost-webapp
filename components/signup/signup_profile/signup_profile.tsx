@@ -591,7 +591,6 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                             <input
                                 id='address'
                                 type='text'
-                                ref={addressRef}
                                 className='form-control custom-input'
                                 placeholder='Please enter your city'
                                 spellCheck='false'
@@ -608,7 +607,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                             </strong>
                         </h5>
                         <div className={passwordDivStyle}>
-                            <select id='location' className='form-control custom-input' ref={locationRef} onChange={this.changeLocation} value={this.state.location}>
+                            <select id='location' className='form-control custom-input' onChange={this.changeLocation} value={this.state.location}>
                                 <option selected>Please select</option>
                                 <option value="AF">Afghanistan</option>
                                 <option value="AL">Albania</option>
