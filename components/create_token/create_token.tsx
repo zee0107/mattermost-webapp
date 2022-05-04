@@ -6,6 +6,7 @@ import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import SelectWalletModal from "./Modal";
+import ButtonConnect from "./button_connect";
 
 import { useWeb3React } from "@web3-react/core";
 import { networkParams } from "../networks";
@@ -103,14 +104,6 @@ export default class CreateToken extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {
-            library,
-            chainId,
-            account,
-            activate,
-            deactivate,
-            active
-         } = useWeb3React;
         const { tokenType } = this.state;
         let createTokenInfo;
 
@@ -246,7 +239,8 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                     <div className='container'>
                     <div className='row'>
                         <div className='col-12'>
-                            <a className='onLockbuttoncreate float-end mr-1' data-toggle='modal' data-target='#staticBackdropConnect'><small>Connect</small></a>
+                            {/*<a className='onLockbuttoncreate float-end mr-1' data-toggle='modal' data-target='#staticBackdropConnect'><small>Connect</small></a>*/}
+                            <ButtonConnect />
                             <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small>BSC Mainnet</small></a>
                             <a className="onLockbuttoncreate float-end ml-1" data-toggle='modal' data-target='#staticBackdropCreateToken'><small>Create</small></a>
                         </div>
