@@ -66,12 +66,15 @@ export type State = {
     noOpenServerError?: boolean;
     isSubmitting?: boolean;
     nameError?: React.ReactNode;
-    emailError?: React.ReactNode;
+    locationError?: React.ReactNode;
     passwordError?: React.ReactNode;
     serverError?: React.ReactNode;
     isDark?: string;
     img_path?: string;
     isMatchWidth: boolean;
+    name: string;
+    address: string;
+    location: string;
 };
 
 export default class SignupProfile extends React.PureComponent<Props, State> {
@@ -115,6 +118,9 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
             };
         }
 
+        this.changeLocation = this.changeLocation.bind(this);
+        this.updateName = this.updateName.bind(this);
+        this.updateAddress = this.updateAddress.bind(this);
         this.codeRef = React.createRef();
         this.phoneRef = React.createRef();
         this.addressRef = React.createRef();
@@ -265,7 +271,22 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
 
     handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
+        const [first, ...last] = this.state.name.split('_');
+        const lastName = last.join(' ');
+        console.log(`First Name: ${first}, Last Name: ${lastName}`);
         browserHistory.push('/login');
+    }
+
+    changeLocation(event) {
+        this.setState({location: event.target.value});
+    }
+
+    updateName(e: React.ChangeEvent<HTMLInputElement>){
+        this.setState({name: event.target.value});
+    }
+
+    updatedAddress(e: React.ChangeEvent<HTMLInputElement>){
+        this.setState({address: event.target.value});
     }
 
     renderEmailSignup = () => {
@@ -283,8 +304,8 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
             </span>
         );
         let emailDivStyle = 'form-group';
-        if (this.state.emailError) {
-            emailError = (<label className='control-label'>{this.state.emailError}</label>);
+        if (this.state.locationError) {
+            locationError = (<label className='control-label'>{this.state.locationError}</label>);
             emailHelpText = '';
             emailDivStyle += ' has-error';
         }
@@ -578,14 +599,9 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                             emailHelpText
                         </div>
                     </div>*/}
-                    {yourEmailIs}
                     <div className='mt-8'>
                         <h5 id='name_label'>
                             <strong>
-                                {/*<FormattedMessage
-                                    id='signup_user_completed.chooseUser'
-                                    defaultMessage='Choose your username'
-                                />*/}
                                 Fullname
                             </strong>
                         </h5>
@@ -593,22 +609,19 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                             <input
                                 id='name'
                                 type='text'
+                                ref={nameRef}
                                 className='form-control custom-input'
-                                placeholder='Please enter address'
+                                placeholder='Please enter your fullname'
                                 spellCheck='false'
                                 autoCapitalize='off'
+                                onChange={this.updateName}
                             />
                             {nameError}
-                            {/*nameHelpText*/}
                         </div>
                     </div>
                     <div className='mt-8'>
                         <h5 id='name_label'>
                             <strong>
-                                {/*<FormattedMessage
-                                    id='signup_user_completed.chooseUser'
-                                    defaultMessage='Choose your username'
-                                />*/}
                                 Your Address
                             </strong>
                         </h5>
@@ -616,13 +629,14 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                             <input
                                 id='address'
                                 type='text'
+                                ref={addressRef}
                                 className='form-control custom-input'
-                                placeholder='Please enter address'
+                                placeholder='Please enter your city'
                                 spellCheck='false'
                                 autoCapitalize='off'
+                                onChange={this.updateAddress}
                             />
-                            {nameError}
-                            {/*nameHelpText*/}
+                            {locationError}
                         </div>
                     </div>
                     <div className='mt-8'>
@@ -632,7 +646,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                             </strong>
                         </h5>
                         <div className={passwordDivStyle}>
-                            <select id='location' className='form-control custom-input'>
+                            <select id='location' className='form-control custom-input' ref={locationRef} onChange={this.changeLocation} value={this.state.location}>
                                 <option selected>Please select</option>
                                 <option value="AF">Afghanistan</option>
                                 <option value="AL">Albania</option>
@@ -876,7 +890,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                                 <option value="ZM">Zambia</option>
                                 <option value="ZW">Zimbabwe</option>
                             </select>
-                            {passwordError}
+                            {locationError}
                         </div>
                     </div>
                     <p className='mt-5'>
