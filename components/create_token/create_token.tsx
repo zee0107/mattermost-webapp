@@ -62,6 +62,8 @@ type State = {
     tokenType: string;
 };
 
+const { activate } = useWeb3React();
+
 export default class CreateToken extends React.PureComponent<Props, State> {
     
     static defaultProps = {userId: '', allCrypto: [],trendCrypto: [],newCrypto: [],gainerCrypto: []}
@@ -109,14 +111,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {
-            library,
-            chainId,
-            account,
-            activate,
-            deactivate,
-            active
-         } = useWeb3React;
+        
         const { tokenType } = this.state;
         let createTokenInfo;
 
