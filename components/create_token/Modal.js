@@ -11,7 +11,6 @@ import MathwalletImg from 'images/launchpad/connect/math-wallet.png';
 
 export default function SelectWalletModal(){
     const { activate } = useWeb3React();
-
     const setProvider = (type) => {
         window.localStorage.setItem("provider", type);
     };
