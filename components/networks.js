@@ -7,6 +7,7 @@ const kuCoin = toHex('321');
 const avax = toHex('43114');
 const fantom = toHex('250');
 const cronos = toHex('25');
+const eth = toHex('1');
 
 export const networkParams = {
     '0x63564c40': {
@@ -105,6 +106,16 @@ export const networkParams = {
       blockExplorerUrl: ['https://cronoscan.com'],
       iconUrls: [
         'https://cronoscan.com/images/svg/brands/mainbrand-1.svg?v=22.4.4.0'
+      ]
+    },
+    eth: {
+      chainId: eth,
+      rpcUrls: ['https://mainnet.infura.io/v3/'],
+      chainName: 'KuCoin',
+      nativeCurrency: { name: 'ETH', decimals: 18, symbol: 'ETH' },
+      blockExplorerUrl: ['https://etherscan.io'],
+      iconUrls: [
+        'https://etherscan.io/images/svg/brands/ethereum-1.svg'
       ]
     }
   };

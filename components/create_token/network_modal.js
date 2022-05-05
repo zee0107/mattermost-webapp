@@ -34,6 +34,16 @@ export default function NetworkModal (props){
         setNetwork(Number(id));
         
         try {
+            await library.provider.request({
+                method: "wallet_addEthereumChain",
+                params: [networkParams[toHex(network)]]
+            });
+            props.changeNetwork(id);
+            window.localStorage.setItem('chainNetwork',id);
+        } catch (error) {
+          setError(error);
+        }
+        /*try {
           await library.provider.request({
             method: "wallet_switchEthereumChain",
             params: [{ chainId: toHex(network) }]
@@ -53,7 +63,7 @@ export default function NetworkModal (props){
               setError(error);
             }
           }
-        }
+        }*/
     };
 
     return(
