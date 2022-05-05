@@ -8,7 +8,6 @@ const avax = toHex('43114');
 const fantom = toHex('250');
 const cronos = toHex('25');
 
-console.log(mumbai);
 export const networkParams = {
     '0x63564c40': {
       chainId: '0x63564c40',

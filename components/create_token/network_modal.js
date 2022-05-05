@@ -32,7 +32,8 @@ export default function NetworkModal (){
     const switchNetwork = async (chainId: string) => {
         const id = chainId;
         setNetwork(Number(id));
-        console.log(toHex(network))
+
+        window.localStorage.setItem('chainNetwork',id);
         try {
           await library.provider.request({
             method: "wallet_switchEthereumChain",
