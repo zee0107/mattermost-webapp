@@ -66,6 +66,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,tokenType:'standard_token'};
 
         this.changeTokenType = this.changeTokenType.bind(this);
+        this.handleNetworkChange = this.handleNetworkChange.bind(this);
     }
 
     componentDidMount(){
