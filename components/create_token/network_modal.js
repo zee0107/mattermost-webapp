@@ -23,7 +23,7 @@ export default function NetworkModal (){
     } = useWeb3React();
 
     const [network, setNetwork] = useState(undefined);
-
+    const [error, setError] = useState("");
     /*const handleNetwork = (e) => {
         const id = e.target.value;
         setNetwork(Number(id));
@@ -54,6 +54,11 @@ export default function NetworkModal (){
 
     return(
         <>
+            <div className='col-md-12'>
+                <div className='aler alert-danger'>
+                    {error}
+                </div>
+            </div>
             <div className='d-flex'>
                 <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => switchNetwork('1')}>
                     <div className='box-choose-network'>
