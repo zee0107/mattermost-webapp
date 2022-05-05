@@ -9,11 +9,22 @@ import fillImage from 'images/fill.svg';
 import CurrencyIcons from 'components/currency_icons';
 import ProgressBar from 'components/progress_bar_new';
 import CurrencyCap from 'components/currency_cap/currency_cap';
+import SelectWalletModal from "components/create_token/Modal";
+import ButtonConnect from "components/create_token/button_connect";
+import NetworkModal from "components/create_token/network_modal";
 
 import homeImage from 'images/homeFeed.png';
+import CronosImg from 'images/launchpad/network/ic-cronos.5a2dbab3.svg';
+import FantomImg from 'images/launchpad/network/ic-fantom.306f76f9.svg';
+import AvaxImg from 'images/launchpad/network/ic-avax.234db155.svg';
+import KucoinImg from 'images/launchpad/network/KuCoin.png';
+import MaticImg from 'images/launchpad/network/ic-matic.910e1faf.png';
+import BscImg from 'images/launchpad/network/ic-bsc.419dfaf2.png';
+import EthImg from 'images/launchpad/network/ic-eth.9270fc02.svg';
 
 import {ModalData} from 'types/actions';
 import { AllListing, ProjectList, ProjectsEndedList } from 'mattermost-redux/types/crypto';
+import { StringLocale } from 'yup/lib/locale';
 
 type Props = {
     status?: string;
@@ -44,6 +55,7 @@ type State = {
     isDark: string;
     img_path: string;
     filter: string;
+    network: string;
 };
 
 export default class ProjectsLive extends React.PureComponent<Props, State> {
@@ -54,6 +66,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: [],filter: 'all'};
 
         this.changeFilter = this.changeFilter.bind(this);
+        this.handleNetworkChange = this.handleNetworkChange.bind(this);
     }
 
     componentDidMount(){
@@ -63,6 +76,19 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         if(this.props.projects != null){
             Promise.resolve(this.props.projects).then(value => {this.setState({data: value});})
         }
+
+        const savedNetwork = window.localStorage.getItem('chainNetwork');
+        if(savedNetwork !== undefined && savedNetwork !== null && savedNetwork !== '')
+        {
+            this.setState({network: savedNetwork});
+        }
+        else{
+            this.setState({network: '1'});
+        }
+    }
+
+    handleNetworkChange = (data) => {
+        this.setState({network: data});
     }
 
     changeFilter(event) {
@@ -320,6 +346,46 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
+        const {network} = this.state;
+        let networkButton;
+        if(network === '137'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MATIC MAINNET</small></a>
+            );
+        }else if(network === '80001'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MUMBAI</small></a>
+            );
+        }else if(network === '56'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={BscImg}/>&nbsp;BSC MAINNET</small></a>
+            );
+        }else if(network === '97'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' className='img-fluid' src={BscImg}/>&nbsp;BSC TESTNET</small></a>
+            );
+        }else if(network === '321'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={KucoinImg}/>&nbsp;KCC MAINNET</small></a>
+            );
+        }else if(network === '43114'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={AvaxImg}/>&nbsp;AVAX</small></a>
+            );
+        }else if(network === '250'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' height='16' src={FantomImg}/>&nbsp;Fantom</small></a>
+            );
+        }else if(network === '25'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' height='16' src={CronosImg}/>&nbsp;Cronos</small></a>
+            );
+        }else{
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={EthImg}/>&nbsp;ETH MAINNET</small></a>
+            );
+        }
+
         let list;
         if(this.state.fitler === 'filled'){
             
@@ -336,61 +402,27 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         }
 
         return (
-            <div className='margin-top-20'>
-                <div id='desktopProjectMenu' className='col-md-12'>
-                    <button type='button' className='btn button-anchor'>All Laucnhpads</button>
-                    <button type='button' className='btn button-anchor'>My Contributiions</button>
-                    <button type='button' className='btn buttonBgGreen create-lock-btn'>Connect</button>
-                    <button type='button' className='btn buttonBgWhite create-lock-btn'>BSC Mainnet</button>
-                    <button type='button' className='btn buttonBgWhite create-lock-btn'>Create</button>
-                </div>
-                <div id='mobileProjectFilter' className='col-md-12'>
-                    <div className='d-flex'>
-                        <div className='search-filter-icon'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-search side-menu-align" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                            </svg>
-                        </div>
-                        <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
+            <>
+                <div className='margin-top-20'>
+                    <div id='desktopProjectMenu' className='col-md-12'>
+                        <button type='button' className='btn button-anchor'>All Laucnhpads</button>
+                        <button type='button' className='btn button-anchor'>My Contributiions</button>
+                        <ButtonConnect />
+                        {networkButton}
+                        <a className="onLockbuttoncreate float-end ml-1" data-toggle='modal' data-target='#staticBackdropCreateToken'><small>Create</small></a>
                     </div>
-                    <br></br>
-                    <div className='d-flex'>
-                        <div className='col-md-6 width-50 removePaddingLeft'>
-                            <label className='small text-secondary'>filter By</label>
-                            <select id='fitlerInput' onChange={this.changeFilter} value={this.state.filter} className='form-control custom-token-input'>
-                                <option value='all'>All Status</option>
-                                <option value='live'>Live</option>
-                                <option value='kyc'>KYC</option>
-                                <option value='filled'>Filled</option>
-                                <option value='ended' >Ended</option>
-                            </select>
-                        </div>
-                        <div className='col-md-6 width-50 removePaddingRight'>
-                            <label className='small text-secondary'>Sort By</label>
-                            <select id='sortFilter' className='form-control custom-token-input'>
-                                <option value=''>No filters</option>
-                                <option value='start'>Start Date</option>
-                                <option value='end'>End Date</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <br></br>
-                <br></br>
-                <div id='desktopProjectFilter' className='col-md-12'>
-                    <div className='search-filter-box'>
-                        <div className='row'>
-                            <div className='col-md-7'>
-                                <div className='d-flex'>
-                                    <div className='search-filter-icon'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-search" viewBox="0 0 16 16">
-                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                                        </svg>
-                                    </div>
-                                    <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
-                                </div>
+                    <div id='mobileProjectFilter' className='col-md-12'>
+                        <div className='d-flex'>
+                            <div className='search-filter-icon'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-search side-menu-align" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
                             </div>
-                            <div className='col-md-2'>
+                            <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
+                        </div>
+                        <br></br>
+                        <div className='d-flex'>
+                            <div className='col-md-6 width-50 removePaddingLeft'>
                                 <label className='small text-secondary'>filter By</label>
                                 <select id='fitlerInput' onChange={this.changeFilter} value={this.state.filter} className='form-control custom-token-input'>
                                     <option value='all'>All Status</option>
@@ -400,7 +432,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                     <option value='ended' >Ended</option>
                                 </select>
                             </div>
-                            <div className='col-md-2'>
+                            <div className='col-md-6 width-50 removePaddingRight'>
                                 <label className='small text-secondary'>Sort By</label>
                                 <select id='sortFilter' className='form-control custom-token-input'>
                                     <option value=''>No filters</option>
@@ -408,14 +440,140 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                     <option value='end'>End Date</option>
                                 </select>
                             </div>
-                            <div className='col-md-1'>
-                                    
+                        </div>
+                    </div>
+                    <br></br>
+                    <br></br>
+                    <div id='desktopProjectFilter' className='col-md-12'>
+                        <div className='search-filter-box'>
+                            <div className='row'>
+                                <div className='col-md-7'>
+                                    <div className='d-flex'>
+                                        <div className='search-filter-icon'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-search" viewBox="0 0 16 16">
+                                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                            </svg>
+                                        </div>
+                                        <input id='seachInput' type='text' className='form-control search-filter-input' placeholder='Enter Token Name or Token Symbol'></input>
+                                    </div>
+                                </div>
+                                <div className='col-md-2'>
+                                    <label className='small text-secondary'>filter By</label>
+                                    <select id='fitlerInput' onChange={this.changeFilter} value={this.state.filter} className='form-control custom-token-input'>
+                                        <option value='all'>All Status</option>
+                                        <option value='live'>Live</option>
+                                        <option value='kyc'>KYC</option>
+                                        <option value='filled'>Filled</option>
+                                        <option value='ended' >Ended</option>
+                                    </select>
+                                </div>
+                                <div className='col-md-2'>
+                                    <label className='small text-secondary'>Sort By</label>
+                                    <select id='sortFilter' className='form-control custom-token-input'>
+                                        <option value=''>No filters</option>
+                                        <option value='start'>Start Date</option>
+                                        <option value='end'>End Date</option>
+                                    </select>
+                                </div>
+                                <div className='col-md-1'>
+                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {list}
+                </div>
+
+                <div className='modal createtoken' id='staticBackdropCreateToken' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                    <div className='modal-dialog modal-dialog-centered'>
+                        <div className='modal-content shadow-lg'>
+
+                            <div className='modal-header'>
+                            <h4 className='modal-title' id='staticBackdropLabel'>Create token</h4>
+                            <a className='onClosecreatetokens shadow float-end' data-bs-dismiss='modal'><i className='bi-x'></i></a>
+                            </div>
+
+                            <div className='modal-body'>
+                                <form>
+                                <div className='mb-3'>
+                                    <label htmlFor='inputState' className='form-label form-control-sm'><small>(*) is required field.</small><br/>Token Type*</label>
+                                    <select id='tokentypes' onChange={this.changeTokenType} value={this.state.tokenType} className='form-control'>
+                                        <option value='standard_token'>Standard Token</option>
+                                        <option value='LiquidityGeneratorToken'>Liquidity Generator Token</option>
+                                        <option value='babytoken'>Baby Token</option>
+                                        <option value='BuybackBabyToken'>Buyback Baby Token</option>
+                                    </select>
+                                    <small>Fee: 0.2 BNB</small>
+                                </div>
+
+                                <div className='mb-3'>
+                                    <label htmlFor='formGroupExampleInput' className='form-label'><small>Name*</small></label>
+                                    <input type='text' className='form-control form-control-sm' id='formGroupExampleInput' placeholder='Ex: Ethereum'/>
+                                </div>
+
+                                <div className='mb-3'>
+                                    <label htmlFor='formGroupExampleInput' className='form-label'><small>Symbol*</small></label>
+                                    <input type='text' className='form-control form-control-sm' id='formGroupExampleInput' placeholder='Ex: RTH'/>
+                                </div>
+
+                                <div className='mb-3'>
+                                    <label htmlFor='formGroupExampleInput' className='form-label'><small>Decimals*</small></label>
+                                    <input type='text' className='form-control form-control-sm' id='formGroupExampleInput' placeholder='Ex: 18'/>
+                                </div>
+
+                                <div className='mb-3'>
+                                    <label htmlFor='formGroupExampleInput' className='form-label'><small>Total supply*</small></label>
+                                    <input type='text' className='form-control form-control-sm' id='formGroupExampleInput' placeholder='Ex: 1000000000000'/>
+                                </div>
+
+                                {createTokenInfo}
+
+                                <div className='form-check mt-3'>
+                                    <input className='form-check-input onImplementpinkantisystem' type='checkbox' value='' id='flexCheckDefault'/>
+                                    <label className='form-check-label' htmlFor='flexCheckDefault'>
+                                    <small>Implement Pink Anti-Bot System?</small>
+                                    </label>
+                                    <p className='mt-2 implementpinkinformation'>Please visit <a className='text-success' target='_self'><strong>https://www.crypter.com/#antibot</strong></a> to active Pink Anti-Bot after creating the token. Check out the tutorial here: <a className='text-success' target='_self'><strong>https://www.crypter.com/pink-anti-bot/pink-anti-bot-guide</strong></a></p>
+                                </div>
+
+                                <div className='col-lg-12 text-center mt-3'>
+                                        <button type='button' className='btn-sm btn-create-token'>Create token</button>
+                                </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <div className='modal choosenetwork' id='staticBackdropNetwork' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                    <div className='modal-dialog modal-dialog-centered'>
+                        <div className='modal-content shadow-lg'>
+                            <div className='modal-header'>
+                                <h6 className='modal-title' id='staticBackdropLabel'>Choose network</h6>
+                                <a className='onClosechoosenetwork shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
+                            </div>
+                            <div className='modal-body'>
+                                <NetworkModal changeNetwork={this.handleNetworkChange}/>
                             </div>
                         </div>
                     </div>
                 </div>
-                {list}
-            </div>
+
+                <div className='modal connecttowallet' id='staticBackdropConnect' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                    <div className='modal-dialog modal-dialog-centered'>
+                        <div className='modal-content shadow-lg'>
+                            <div className='modal-header'>
+                                <h6 className='modal-title' id='staticBackdropLabel'>Connect to a wallet</h6>
+                                <a className='onCloseconnectoawallet shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
+                            </div>
+                            <div className='modal-body'>
+                                <SelectWalletModal />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </>
         );
     }
 }

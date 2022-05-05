@@ -32,7 +32,6 @@ export default function NetworkModal (props){
     const switchNetwork = async (chainId: string) => {
         const id = chainId;
         const paramId = Number(id);
-        setNetwork(Number(id));
 
         if (!active) {
             props.changeNetwork(id);
