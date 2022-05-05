@@ -29,11 +29,11 @@ export default function NetworkModal (props){
         setNetwork(Number(id));
     };*/
 
-    const switchNetwork = async (chainId: string) => {
+    const switchNetwork = (chainId: string) => {
         const id = chainId;
         setNetwork(Number(id));
         try {
-          await library.provider.request({
+           library.provider.request({
             method: "wallet_switchEthereumChain",
             params: [{ chainId: toHex(network) }]
           });
@@ -42,7 +42,7 @@ export default function NetworkModal (props){
         } catch (switchError) {
           if (switchError.code === 4902) {
             try {
-                await library.provider.request({
+                 library.provider.request({
                     method: "wallet_addEthereumChain",
                     params: [networkParams[toHex(network)]]
                 });
