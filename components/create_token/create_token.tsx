@@ -75,12 +75,21 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
         const savedNetwork = window.localStorage.getItem('chainNetwork');
+        const savedSymbol = window.localStorage.getItem('chainSymbol');
         if(savedNetwork !== undefined && savedNetwork !== null && savedNetwork !== '')
         {
             this.setState({network: savedNetwork});
         }
         else{
-            this.setState({network: '1',sysmbol: 'ETH'});
+            this.setState({network: '1'});
+        }
+
+        if(savedSymbol !== undefined && savedSymbol !== null && savedSymbol !== '')
+        {
+            this.setState({sysmbol: savedSymbol});
+        }
+        else{
+            this.setState({sysmbol: 'ETH'});
         }
     }
 
