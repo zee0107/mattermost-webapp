@@ -8,22 +8,18 @@ import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/
 import classNames from 'classnames';
 import CurrencyIcons from 'components/currency_icons';
 import TrendingListComp from 'components/trending_crypto';
+import SelectWalletModal from "components/create_token/Modal";
+import ButtonConnect from "components/create_token/button_connect";
+import NetworkModal from "components/create_token/network_modal";
 
 import homeImage from 'images/homeFeed.png';
-import rocketImage from 'images/rocket.svg';
-import fillImage from 'images/fill.svg';
-import trendImage from 'images/trending-up.svg';
-import trenddownImage from 'images/trending-down.svg';
-import fireImage from 'images/fire.png';
-import clockImage from 'images/clock.svg';
-import btcImage from 'images/currency-icons/btc.svg';
-import ltcImage from 'images/currency-icons/ltc.svg';
-import bnbImage from 'images/currency-icons/bnb.svg';
-import ethImage from 'images/currency-icons/eth.svg';
-import graphImage from 'images/graph-up.svg';
-import graphdownImage from 'images/graph-down.svg';
-import triangleupImage from 'images/caret-up.svg';
-import triangledownImage from 'images/caret-down.svg';
+import CronosImg from 'images/launchpad/network/ic-cronos.5a2dbab3.svg';
+import FantomImg from 'images/launchpad/network/ic-fantom.306f76f9.svg';
+import AvaxImg from 'images/launchpad/network/ic-avax.234db155.svg';
+import KucoinImg from 'images/launchpad/network/KuCoin.png';
+import MaticImg from 'images/launchpad/network/ic-matic.910e1faf.png';
+import BscImg from 'images/launchpad/network/ic-bsc.419dfaf2.png';
+import EthImg from 'images/launchpad/network/ic-eth.9270fc02.svg';
 
 import {ModalData} from 'types/actions';
 import ChannelHeaderMobile from 'components/channel_header_mobile';
@@ -58,6 +54,8 @@ type State = {
     isStatusSet: boolean;
     isDark: string;
     img_path: string;
+    network: string;
+    tokenType: string;
 };
 
 export default class LaunchPad extends React.PureComponent<Props, State> {
@@ -65,61 +63,339 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,tokenType:'standard_token'};
+
+        this.handleNetworkChange = this.handleNetworkChange.bind(this);
+        this.changeTokenType = this.changeTokenType.bind(this);
     }
 
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+
+        const savedNetwork = window.localStorage.getItem('chainNetwork');
+        if(savedNetwork !== undefined && savedNetwork !== null && savedNetwork !== '')
+        {
+            this.setState({network: savedNetwork});
+        }
+        else{
+            this.setState({network: '1'});
+        }
+    }
+
+    handleNetworkChange = (data) => {
+        this.setState({network: data});
+    }
+
+    changeTokenType(event) {
+        this.setState({tokenType: event.target.value});
     }
 
     render= (): JSX.Element => {
-        return (
-            <div className='margin-top-20'>
-                <div className='col-md-12 removePadding'>
-                    <button type='button' className='btn buttonBgGreen create-lock-btn'>Connect</button>
-                    <button type='button' className='btn buttonBgWhite create-lock-btn'>BSC Mainnet</button>
-                    <button type='button' className='btn buttonBgWhite create-lock-btn'>Create</button>
-                </div>
-                <br></br>
-                <br></br>
-                <div id='create-lock' className='col-md-12 create-token-box'>
-                    <div className='col-md-12'>
-                        <h4 className='text-primary'>Create Your Lock</h4>
+        const {tokenType,network} = this.state;
+        let networkButton;
+        if(network === '137'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MATIC MAINNET</small></a>
+            );
+        }else if(network === '80001'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MUMBAI</small></a>
+            );
+        }else if(network === '56'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={BscImg}/>&nbsp;BSC MAINNET</small></a>
+            );
+        }else if(network === '97'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' className='img-fluid' src={BscImg}/>&nbsp;BSC TESTNET</small></a>
+            );
+        }else if(network === '321'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={KucoinImg}/>&nbsp;KCC MAINNET</small></a>
+            );
+        }else if(network === '43114'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={AvaxImg}/>&nbsp;AVAX</small></a>
+            );
+        }else if(network === '250'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' height='16' src={FantomImg}/>&nbsp;Fantom</small></a>
+            );
+        }else if(network === '25'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' height='16' src={CronosImg}/>&nbsp;Cronos</small></a>
+            );
+        }else{
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={EthImg}/>&nbsp;ETH MAINNET</small></a>
+            );
+        }
+
+        let createTokenInfo;
+        if(tokenType === 'LiquidityGeneratorToken'){
+            createTokenInfo = (<div className='liquidity-generator-token'>
+            <div className='mb-3'>
+                <label htmlFor='formGroupExampleInput' className='form-label'><small>Router*</small></label>
+                <select id='tokentypes' className='form-control'>
+                <option selected>Select Router Exchange</option>
+                <option>Pancakeswap</option>
+                <option>MDex</option>
+                <option>Biswap</option>
+                <option>ApeSwap</option>
+                <option>PinkSwap</option>
+                </select>
+            </div>
+
+            <div className='row'>
+            <div className='col-md-6'>
+                <label htmlFor='inputEmail4' className='form-label'><small>Transaction fee to generate yield (%)</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 1'/>
+            </div>
+            <div className='col-md-6'>
+                <label htmlFor='inputPassword4' className='form-label'><small>Transaction fee to generate liquidity (%)</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 1'/>
+            </div>
+            </div>
+
+            <div className='row'>
+            <div className='col-md-12'>
+                <label htmlFor='inputEmail4' className='form-label'><small>Charity/Marketing address</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 0x....'/>
+            </div>
+            </div>
+
+            <div className='row'>
+            <div className='col-md-12'>
+                <label htmlFor='inputEmail4' className='form-label'><small>Charity/Marketing percent (%)</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='Ex - 25'/>
+            </div>
+            </div>
+        </div>);
+        }else if(tokenType === 'babytoken'){
+            createTokenInfo = (
+                <div className='baby-token'>
+                    <div className='mb-3'>
+                        <label htmlFor='formGroupExampleInput' className='form-label'><small>Router*</small></label>
+                        <select id='tokentypes' className='form-control'>
+                        <option selected>Select Router Exchange</option>
+                        <option>Pancakeswap</option>
+                        <option>MDex</option>
+                        <option>Biswap</option>
+                        <option>ApeSwap</option>
+                        <option>PinkSwap</option>
+                        </select>
                     </div>
-                    <div className='col-md-12 removePadding border-bot-div'></div>
-                    <div className='col-md-12'>
-                        <div className='create-lock-input'>
-                            <h5 className='text-secondary'>PinkSale is Audited by Certik</h5>
-                            <input type='text' className='form-control custom-token-input' placeholder='Ex. https://leaderboard.certik.io/group/links'></input>
+                    <div className='row'>
+                    <div className='col-md-5'>
+                        <label htmlFor='inputEmail4' className='form-label'><small>Reward token*</small></label>
+                        <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 0x...'/>
+                        <small data-bs-toggle='tooltip' data-bs-placement='top' title='If you want to reward DOGE Please enter 0xba2ae424d960c26247dd6c32edc70b295c744c43.'><i className='bi-info-circle-fill'></i></small>
+                    </div>
+                    <div className='col-md-7'>
+                        <label htmlFor='inputPassword4' className='form-label'><small>Minimum token balance for dividends *</small></label>
+                        <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 100000000000'/>
+                        <small data-bs-toggle='tooltip' data-bs-placement='top' title='Min hold each wallet must be over $50 to receive rewards.'><i className='bi-info-circle-fill'></i></small>
+                    </div>
+                    </div>
+                    <div className='row mt-3'>
+                    <div className='col-md-5'>
+                        <label htmlFor='inputEmail4' className='form-label'><small>Marketing fee (%)*</small></label>
+                        <input type='text' className='form-control form-control-sm' id='' placeholder='0 - 100'/>
+                    </div>
+                    <div className='col-md-7'>
+                        <label htmlFor='inputPassword4' className='form-label'><small>Marketing wallet*</small></label>
+                        <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 0x...'/>
+                    </div>
+                    </div>
+                </div>
+            );
+        }else if(tokenType === 'BuybackBabyToken'){
+            createTokenInfo = (<div className='buy-back-baby-token'>
+            <div className='mb-3'>
+                <label htmlFor='formGroupExampleInput' className='form-label'><small>Router*</small></label>
+                <select className='form-control'>
+                <option selected>Select Router Exchange</option>
+                <option>Pancakeswap</option>
+                <option>MDex</option>
+                <option>Biswap</option>
+                <option>ApeSwap</option>
+                <option>PinkSwap</option>
+                </select>
+            </div>
+
+            <div className='row mt-3'>
+            <div className='col-md-5'>
+                <label htmlFor='inputDoge4' className='form-label'><small>Reward token*</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 0x...'/>
+                <small data-bs-toggle='tooltip' data-bs-placement='top' title='If you want to reward DOGE Please enter 0xba2ae424d960c26247dd6c32edc70b295c744c43.'><i className='bi-info-circle-fill'></i></small>
+            </div>
+            <div className='col-md-7'>
+                <label htmlFor='inputPassword4' className='form-label'><small>Liquidity Fee (%)</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='0 - 100'/>
+            </div>
+            </div>
+
+            <div className='row mt-3'>
+            <div className='col-md-5'>
+                <label htmlFor='inputEmail4' className='form-label'><small>Buyback Fee (%)</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='3'/>
+            </div>
+            <div className='col-md-7'>
+                <label htmlFor='inputPassword4' className='form-label'><small>Reflection Fee (%)</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='8'/>
+            </div>
+            </div>
+
+            <div className='row mt-3'>
+            <div className='col-md-12'>
+                <label htmlFor='inputEmail4' className='form-label'><small>Marketing fee (%)*</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='0 - 100'/>
+            </div>
+            </div>
+
+        </div>);
+        }else{
+
+        }
+
+        return (
+            <>
+                <div className='margin-top-20'>
+                    <div className='col-md-12 removePadding'>
+                        <ButtonConnect />
+                        {networkButton}
+                        <a className="onLockbuttoncreate float-end ml-1" data-toggle='modal' data-target='#staticBackdropCreateToken'><small>Create</small></a>
+                    </div>
+                    <br></br>
+                    <br></br>
+                    <div id='create-lock' className='col-md-12 create-token-box'>
+                        <div className='col-md-12'>
+                            <h4 className='text-primary'>Create Your Lock</h4>
                         </div>
-                        <div className='create-lock-input'>
-                            <h5 className='text-secondary'>Token or LP Token Address</h5>
-                            <input type='text' className='form-control custom-token-input' placeholder='Token or LP Token Address'></input>
+                        <div className='col-md-12 removePadding border-bot-div'></div>
+                        <div className='col-md-12'>
+                            <div className='create-lock-input'>
+                                <h5 className='text-secondary'>PinkSale is Audited by Certik</h5>
+                                <input type='text' className='form-control custom-token-input' placeholder='Ex. https://leaderboard.certik.io/group/links'></input>
+                            </div>
+                            <div className='create-lock-input'>
+                                <h5 className='text-secondary'>Token or LP Token Address</h5>
+                                <input type='text' className='form-control custom-token-input' placeholder='Token or LP Token Address'></input>
+                            </div>
+                            <div className='create-lock-input'>
+                                <h5 className='text-secondary'>* Amount</h5>
+                                <input type='text' className='form-control custom-token-input' placeholder='Ex. PinkMoon'></input>
+                            </div>
+                            <div className='create-lock-input'>
+                                <h5 className='text-secondary'>Lock Until</h5>
+                                <input type='date' className='form-control custom-token-input' placeholder='Select Time'></input>
+                            </div>
+                            <div className='info-lock-box'>
+                                <p className='small-font'>we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process.</p>
+                            </div>
+                            <div className='text-center create-lock-input'>
+                                <label className='text-secondary'>You will pay <label className='text-percent'>0.00</label> BTC</label>
+                                <br></br>
+                                <button type='button' className='btn buttonBgWhite'>LOCK</button>
+                            </div>
                         </div>
-                        <div className='create-lock-input'>
-                            <h5 className='text-secondary'>* Amount</h5>
-                            <input type='text' className='form-control custom-token-input' placeholder='Ex. PinkMoon'></input>
-                        </div>
-                        <div className='create-lock-input'>
-                            <h5 className='text-secondary'>Lock Until</h5>
-                            <input type='date' className='form-control custom-token-input' placeholder='Select Time'></input>
-                        </div>
-                        <div className='info-lock-box'>
-                            <p className='small-font'>we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process.</p>
-                        </div>
-                        <div className='text-center create-lock-input'>
-                            <label className='text-secondary'>You will pay <label className='text-percent'>0.00</label> BTC</label>
-                            <br></br>
-                            <button type='button' className='btn buttonBgWhite'>LOCK</button>
+                    </div>
+
+                    <div className='col-lg-12 text-center margin-top-30-responsive'>
+                        <label className='text-secondary small'>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences.</label>
+                    </div>
+                </div>
+                <div className='modal createtoken' id='staticBackdropCreateToken' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                    <div className='modal-dialog modal-dialog-centered'>
+                        <div className='modal-content shadow-lg'>
+
+                            <div className='modal-header'>
+                            <h4 className='modal-title' id='staticBackdropLabel'>Create token</h4>
+                            <a className='onClosecreatetokens shadow float-end'  data-dismiss='modal'><i className='bi-x'></i></a>
+                            </div>
+
+                            <div className='modal-body'>
+                                <form>
+                                <div className='mb-3'>
+                                    <label htmlFor='inputState' className='form-label form-control-sm'><small>(*) is required field.</small><br/>Token Type*</label>
+                                    <select id='tokentypes' onChange={this.changeTokenType} value={this.state.tokenType} className='form-control'>
+                                        <option value='standard_token'>Standard Token</option>
+                                        <option value='LiquidityGeneratorToken'>Liquidity Generator Token</option>
+                                        <option value='babytoken'>Baby Token</option>
+                                        <option value='BuybackBabyToken'>Buyback Baby Token</option>
+                                    </select>
+                                    <small>Fee: 0.2 BNB</small>
+                                </div>
+
+                                <div className='mb-3'>
+                                    <label htmlFor='formGroupExampleInput' className='form-label'><small>Name*</small></label>
+                                    <input type='text' className='form-control form-control-sm' id='formGroupExampleInput' placeholder='Ex: Ethereum'/>
+                                </div>
+
+                                <div className='mb-3'>
+                                    <label htmlFor='formGroupExampleInput' className='form-label'><small>Symbol*</small></label>
+                                    <input type='text' className='form-control form-control-sm' id='formGroupExampleInput' placeholder='Ex: RTH'/>
+                                </div>
+
+                                <div className='mb-3'>
+                                    <label htmlFor='formGroupExampleInput' className='form-label'><small>Decimals*</small></label>
+                                    <input type='text' className='form-control form-control-sm' id='formGroupExampleInput' placeholder='Ex: 18'/>
+                                </div>
+
+                                <div className='mb-3'>
+                                    <label htmlFor='formGroupExampleInput' className='form-label'><small>Total supply*</small></label>
+                                    <input type='text' className='form-control form-control-sm' id='formGroupExampleInput' placeholder='Ex: 1000000000000'/>
+                                </div>
+
+                                {createTokenInfo}
+
+                                <div className='form-check mt-3'>
+                                    <input className='form-check-input onImplementpinkantisystem' type='checkbox' value='' id='flexCheckDefault'/>
+                                    <label className='form-check-label' htmlFor='flexCheckDefault'>
+                                    <small>Implement Pink Anti-Bot System?</small>
+                                    </label>
+                                    <p className='mt-2 implementpinkinformation'>Please visit <a className='text-success' target='_self'><strong>https://www.crypter.com/#antibot</strong></a> to active Pink Anti-Bot after creating the token. Check out the tutorial here: <a className='text-success' target='_self'><strong>https://www.crypter.com/pink-anti-bot/pink-anti-bot-guide</strong></a></p>
+                                </div>
+
+                                <div className='col-lg-12 text-center mt-3'>
+                                        <button type='button' className='btn-sm btn-create-token'>Create token</button>
+                                </div>
+                                </form>
+                            </div>
+
                         </div>
                     </div>
                 </div>
 
-                <div className='col-lg-12 text-center margin-top-30-responsive'>
-                    <label className='text-secondary small'>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences.</label>
+                <div className='modal choosenetwork' id='staticBackdropNetwork' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                    <div className='modal-dialog modal-dialog-centered'>
+                        <div className='modal-content shadow-lg'>
+                            <div className='modal-header'>
+                                <h6 className='modal-title' id='staticBackdropLabel'>Choose network</h6>
+                                <a className='onClosechoosenetwork shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
+                            </div>
+                            <div className='modal-body'>
+                                <NetworkModal changeNetwork={this.handleNetworkChange}/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+
+                <div className='modal connecttowallet' id='staticBackdropConnect' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                    <div className='modal-dialog modal-dialog-centered'>
+                        <div className='modal-content shadow-lg'>
+                            <div className='modal-header'>
+                                <h6 className='modal-title' id='staticBackdropLabel'>Connect to a wallet</h6>
+                                <a className='onCloseconnectoawallet shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
+                            </div>
+                            <div className='modal-body'>
+                                <SelectWalletModal />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </>
         );
     }
 }
