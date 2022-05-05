@@ -81,6 +81,13 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         }
     }
 
+    componentDidUpdate(){
+        const savedNetwork = window.localStorage.getItem('chainNetwork');  
+        if(this.state.network !== savedNetwork){
+            this.setState({network: savedNetwork});
+        }
+    }
+
     refreshState = () => {
         window.localStorage.setItem("provider", undefined);
         setNetwork("");
