@@ -1,5 +1,6 @@
 import { toHex } from './wallet_utils';
 const polygon = toHex("137");
+const mumbai = toHex("80001");
 export const networkParams = {
     "0x63564c40": {
       chainId: "0x63564c40",
@@ -22,7 +23,18 @@ export const networkParams = {
     polygon: {
       chainId: polygon,
       rpcUrls: ["https://polygon-rpc.com/"],
-      chainName: "Polygon(Matic)",
+      chainName: "Matic(Polygon)",
+      nativeCurrency: { name: "MATIC", decimals: 18, symbol: "MATIC" },
+      blockExplorerUrl: ["https://polygonscan.com/"],
+      iconUrls: [
+        "https://polygonscan.com/images/svg/brands/polygon.svg"
+      ]
+    }
+    ,
+    mumbai: {
+      chainId: mumbai,
+      rpcUrls: ["https://rpc-mumbai.maticvigil.com"],
+      chainName: "Matic Mumbai",
       nativeCurrency: { name: "MATIC", decimals: 18, symbol: "MATIC" },
       blockExplorerUrl: ["https://polygonscan.com/"],
       iconUrls: [
