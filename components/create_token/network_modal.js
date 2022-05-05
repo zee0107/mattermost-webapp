@@ -39,6 +39,7 @@ export default function NetworkModal (props){
             params: [{ chainId: toHex(network) }]
           });
           props.changeNetwork(id);
+          window.localStorage.setItem('chainNetwork',id);
         } catch (switchError) {
           if (switchError.code === 4902) {
             try {
@@ -47,6 +48,7 @@ export default function NetworkModal (props){
                     params: [networkParams[toHex(network)]]
                 });
                 props.changeNetwork(id);
+                window.localStorage.setItem('chainNetwork',id);
             } catch (error) {
               setError(error);
             }

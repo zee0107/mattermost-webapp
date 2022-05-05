@@ -63,7 +63,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {netowrk: '1',openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,tokenType:'standard_token'};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,tokenType:'standard_token'};
 
         this.changeTokenType = this.changeTokenType.bind(this);
         this.handleNetworkChange = this.handleNetworkChange.bind(this);
@@ -72,6 +72,14 @@ export default class CreateToken extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+        const savedNetwork = window.localStorage.getItem('chainNetwork');
+        if(savedNetwork !== undefined && savedNetwork !== null && savedNetwork !== '')
+        {
+            this.setState({network: savedNetwork});
+        }
+        else{
+            this.setState({network: '1'});
+        }
     }
 
     handleNetworkChange = (data) => {
