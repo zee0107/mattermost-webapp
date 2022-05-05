@@ -56,6 +56,7 @@ type State = {
     img_path: string;
     filter: string;
     network: string;
+    tokenType: string;
 };
 
 export default class ProjectsLive extends React.PureComponent<Props, State> {
@@ -63,10 +64,11 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: [],filter: 'all'};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: [],filter: 'all',tokenType:'standard_token'};
 
         this.changeFilter = this.changeFilter.bind(this);
         this.handleNetworkChange = this.handleNetworkChange.bind(this);
+        this.changeTokenType = this.changeTokenType.bind(this);
     }
 
     componentDidMount(){
@@ -89,6 +91,10 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
 
     handleNetworkChange = (data) => {
         this.setState({network: data});
+    }
+
+    changeTokenType(event) {
+        this.setState({tokenType: event.target.value});
     }
 
     changeFilter(event) {
@@ -346,7 +352,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {network} = this.state;
+        const {tokenType,network} = this.state;
         let networkButton;
         if(network === '137'){
             networkButton = (
@@ -384,6 +390,133 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={EthImg}/>&nbsp;ETH MAINNET</small></a>
             );
+        }
+
+        let createTokenInfo;
+        if(tokenType === 'LiquidityGeneratorToken'){
+            createTokenInfo = (<div className='liquidity-generator-token'>
+            <div className='mb-3'>
+                <label htmlFor='formGroupExampleInput' className='form-label'><small>Router*</small></label>
+                <select id='tokentypes' className='form-control'>
+                <option selected>Select Router Exchange</option>
+                <option>Pancakeswap</option>
+                <option>MDex</option>
+                <option>Biswap</option>
+                <option>ApeSwap</option>
+                <option>PinkSwap</option>
+                </select>
+            </div>
+
+            <div className='row'>
+            <div className='col-md-6'>
+                <label htmlFor='inputEmail4' className='form-label'><small>Transaction fee to generate yield (%)</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 1'/>
+            </div>
+            <div className='col-md-6'>
+                <label htmlFor='inputPassword4' className='form-label'><small>Transaction fee to generate liquidity (%)</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 1'/>
+            </div>
+            </div>
+
+            <div className='row'>
+            <div className='col-md-12'>
+                <label htmlFor='inputEmail4' className='form-label'><small>Charity/Marketing address</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 0x....'/>
+            </div>
+            </div>
+
+            <div className='row'>
+            <div className='col-md-12'>
+                <label htmlFor='inputEmail4' className='form-label'><small>Charity/Marketing percent (%)</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='Ex - 25'/>
+            </div>
+            </div>
+        </div>);
+        }else if(tokenType === 'babytoken'){
+            createTokenInfo = (
+                <div className='baby-token'>
+                    <div className='mb-3'>
+                        <label htmlFor='formGroupExampleInput' className='form-label'><small>Router*</small></label>
+                        <select id='tokentypes' className='form-control'>
+                        <option selected>Select Router Exchange</option>
+                        <option>Pancakeswap</option>
+                        <option>MDex</option>
+                        <option>Biswap</option>
+                        <option>ApeSwap</option>
+                        <option>PinkSwap</option>
+                        </select>
+                    </div>
+                    <div className='row'>
+                    <div className='col-md-5'>
+                        <label htmlFor='inputEmail4' className='form-label'><small>Reward token*</small></label>
+                        <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 0x...'/>
+                        <small data-bs-toggle='tooltip' data-bs-placement='top' title='If you want to reward DOGE Please enter 0xba2ae424d960c26247dd6c32edc70b295c744c43.'><i className='bi-info-circle-fill'></i></small>
+                    </div>
+                    <div className='col-md-7'>
+                        <label htmlFor='inputPassword4' className='form-label'><small>Minimum token balance for dividends *</small></label>
+                        <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 100000000000'/>
+                        <small data-bs-toggle='tooltip' data-bs-placement='top' title='Min hold each wallet must be over $50 to receive rewards.'><i className='bi-info-circle-fill'></i></small>
+                    </div>
+                    </div>
+                    <div className='row mt-3'>
+                    <div className='col-md-5'>
+                        <label htmlFor='inputEmail4' className='form-label'><small>Marketing fee (%)*</small></label>
+                        <input type='text' className='form-control form-control-sm' id='' placeholder='0 - 100'/>
+                    </div>
+                    <div className='col-md-7'>
+                        <label htmlFor='inputPassword4' className='form-label'><small>Marketing wallet*</small></label>
+                        <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 0x...'/>
+                    </div>
+                    </div>
+                </div>
+            );
+        }else if(tokenType === 'BuybackBabyToken'){
+            createTokenInfo = (<div className='buy-back-baby-token'>
+            <div className='mb-3'>
+                <label htmlFor='formGroupExampleInput' className='form-label'><small>Router*</small></label>
+                <select className='form-control'>
+                <option selected>Select Router Exchange</option>
+                <option>Pancakeswap</option>
+                <option>MDex</option>
+                <option>Biswap</option>
+                <option>ApeSwap</option>
+                <option>PinkSwap</option>
+                </select>
+            </div>
+
+            <div className='row mt-3'>
+            <div className='col-md-5'>
+                <label htmlFor='inputDoge4' className='form-label'><small>Reward token*</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 0x...'/>
+                <small data-bs-toggle='tooltip' data-bs-placement='top' title='If you want to reward DOGE Please enter 0xba2ae424d960c26247dd6c32edc70b295c744c43.'><i className='bi-info-circle-fill'></i></small>
+            </div>
+            <div className='col-md-7'>
+                <label htmlFor='inputPassword4' className='form-label'><small>Liquidity Fee (%)</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='0 - 100'/>
+            </div>
+            </div>
+
+            <div className='row mt-3'>
+            <div className='col-md-5'>
+                <label htmlFor='inputEmail4' className='form-label'><small>Buyback Fee (%)</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='3'/>
+            </div>
+            <div className='col-md-7'>
+                <label htmlFor='inputPassword4' className='form-label'><small>Reflection Fee (%)</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='8'/>
+            </div>
+            </div>
+
+            <div className='row mt-3'>
+            <div className='col-md-12'>
+                <label htmlFor='inputEmail4' className='form-label'><small>Marketing fee (%)*</small></label>
+                <input type='text' className='form-control form-control-sm' id='' placeholder='0 - 100'/>
+            </div>
+            </div>
+
+        </div>);
+        }else{
+
         }
 
         let list;
@@ -545,7 +678,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                 </div>
-                
+
                 <div className='modal choosenetwork' id='staticBackdropNetwork' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
                     <div className='modal-dialog modal-dialog-centered'>
                         <div className='modal-content shadow-lg'>
