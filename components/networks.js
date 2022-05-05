@@ -1,6 +1,7 @@
 import { toHex } from './wallet_utils';
 const polygon = toHex('137');
 const mumbai = toHex('80001');
+console.log(mumbai);
 export const networkParams = {
     '0x63564c40': {
       chainId: '0x63564c40',
