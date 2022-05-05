@@ -15,7 +15,13 @@ import { connectors } from "../connectors";
 import { toHex, truncateAddress } from "../wallet_utils";
 
 import fillImage from 'images/fill.svg';
-
+import CronosImg from 'images/launchpad/network/ic-cronos.5a2dbab3.svg';
+import FantomImg from 'images/launchpad/network/ic-fantom.306f76f9.svg';
+import AvaxImg from 'images/launchpad/network/ic-avax.234db155.svg';
+import KucoinImg from 'images/launchpad/network/KuCoin.png';
+import MaticImg from 'images/launchpad/network/ic-matic.910e1faf.png';
+import BscImg from 'images/launchpad/network/ic-bsc.419dfaf2.png';
+import EthImg from 'images/launchpad/network/ic-eth.9270fc02.svg';
 import homeImage from 'images/homeFeed.png';
 
 import {ModalData} from 'types/actions';
@@ -48,6 +54,7 @@ type State = {
     isDark: string;
     img_path: string;
     tokenType: string;
+    network: string;
 };
 
 export default class CreateToken extends React.PureComponent<Props, State> {
@@ -64,27 +71,15 @@ export default class CreateToken extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
-    }
-
-    switchNetwork = async () => {
-        try {
-          await library.provider.request({
-            method: "wallet_switchEthereumChain",
-            params: [{ chainId: toHex(network) }]
-          });
-        } catch (switchError) {
-          if (switchError.code === 4902) {
-            try {
-              await library.provider.request({
-                method: "wallet_addEthereumChain",
-                params: [networkParams[toHex(network)]]
-              });
-            } catch (error) {
-              setError(error);
-            }
-          }
+        const savedNetwork = window.localStorage.getItem('chainNetwork');
+        if(savedNetwork !== undefined && savedNetwork !== null && savedNetwork !== '')
+        {
+            this.setState({network: savedNetwork});
         }
-      }
+        else{
+            this.setState({network: '1'});
+        }
+    }
 
     refreshState = () => {
         window.localStorage.setItem("provider", undefined);
@@ -97,9 +92,47 @@ export default class CreateToken extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const { tokenType } = this.state;
-        let createTokenInfo;
+        const { tokenType,network } = this.state;
+        let networkButton;
+        if(network === '137'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img src={MaticImg}/>&nsbp;MATIC MAINNET</small></a>
+            );
+        }else if(network === '80001'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img src={MaticImg}/>&nsbp;MUMBAI</small></a>
+            );
+        }else if(network === '56'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img src={BscImg}/>&nsbp;BSC MAINNET</small></a>
+            );
+        }else if(network === '97'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img src={BscImg}/>&nsbp;BSC TESTNET</small></a>
+            );
+        }else if(network === '321'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img src={KucoinImg}/>&nsbp;KCC MAINNET</small></a>
+            );
+        }else if(network === '43114'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img src={AvaxImg}/>&nsbp;AVAX</small></a>
+            );
+        }else if(network === '250'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img src={FantomImg}/>&nsbp;Fantom</small></a>
+            );
+        }else if(network === '25'){
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img src={CronosImg}/>&nsbp;Cronos</small></a>
+            );
+        }else{
+            networkButton = (
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img src={EthImg}/>&nsbp;ETH MAINNET</small></a>
+            );
+        }
 
+        let createTokenInfo;
         if(tokenType === 'LiquidityGeneratorToken'){
             createTokenInfo = (<div className='liquidity-generator-token'>
             <div className='mb-3'>
@@ -234,7 +267,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                         <div className='col-12'>
                             {/*<a className='onLockbuttoncreate float-end mr-1' data-toggle='modal' data-target='#staticBackdropConnect'><small>Connect</small></a>*/}
                             <ButtonConnect />
-                            <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small>BSC Mainnet</small></a>
+                            <networkButton />
                             <a className="onLockbuttoncreate float-end ml-1" data-toggle='modal' data-target='#staticBackdropCreateToken'><small>Create</small></a>
                         </div>
                     </div>
@@ -781,8 +814,8 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                                 <div className='row'>
                                     <div className='btn-group float-end' role='group' aria-label='Basic example'>
-                                    <a className='onLockbuttoncreate mr-1' data-toggle='modal' data-target='#staticBackdropConnect'><small>Connect</small></a>
-                                    <a className='onLockbuttoncreatenormal ml-1 mr-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small>BSC Mainnet</small></a>
+                                    <ButtonConnect />
+                                    <networkButton />
                                     <a className='onLockbuttoncreate ml-1'><small>Create</small></a>
                                     </div>
                                 </div>
