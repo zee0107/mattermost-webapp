@@ -36,7 +36,7 @@ export const networkParams = {
       rpcUrls: ["https://rpc-mumbai.matic.today"],
       chainName: "Matic Mumbai",
       nativeCurrency: { name: "MATIC", decimals: 18, symbol: "MATIC" },
-      blockExplorerUrl: ["https://polygonscan.com/"],
+      blockExplorerUrl: ["https://explorer-mumbai.maticvigil.com/"],
       iconUrls: [
         "https://polygonscan.com/images/svg/brands/polygon.svg"
       ]
