@@ -33,26 +33,30 @@ export default function NetworkModal (props){
         const id = chainId;
         setNetwork(Number(id));
         console.log(active);
-        try {
-            await library.provider.request({
-            method: "wallet_switchEthereumChain",
-            params: [{ chainId: toHex(network) }]
-          });
-          props.changeNetwork(id);
-          window.localStorage.setItem('chainNetwork',id);
-        } catch (switchError) {
-          if (switchError.code === 4902) {
+        if (!active) {
+            props.changeNetwork(id);
+            window.localStorage.setItem('chainNetwork',id);
+        }
+        else{
             try {
                 await library.provider.request({
-                    method: "wallet_addEthereumChain",
-                    params: [networkParams[toHex(network)]]
-                });
-                props.changeNetwork(id);
-                window.localStorage.setItem('chainNetwork',id);
-            } catch (error) {
-              setError(error);
+                method: "wallet_switchEthereumChain",
+                params: [{ chainId: toHex(network) }]
+              });
+              props.changeNetwork(id);
+              window.localStorage.setItem('chainNetwork',id);
+            } catch (switchError) {
+              if (switchError.code === 4902) {
+                try {
+                    await library.provider.request({
+                        method: "wallet_addEthereumChain",
+                        params: [networkParams[toHex(network)]]
+                    });
+                } catch (error) {
+                  setError(error);
+                }
+              }
             }
-          }
         }
     };
 
