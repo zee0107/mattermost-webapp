@@ -30,9 +30,10 @@ export default function NetworkModal (props){
     };*/
 
     const switchNetwork = async (chainId: string) => {
+        const {handleNetworkChange} = props;
         const id = chainId;
         setNetwork(Number(id));
-        props.handleNetworkChange(id);
+        handleNetworkChange(id);
         window.localStorage.setItem('chainNetwork',id);
         try {
           await library.provider.request({
