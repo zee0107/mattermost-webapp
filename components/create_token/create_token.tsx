@@ -101,7 +101,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         let networkButton;
         if(network === '137'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nsbp;MATIC MAINNET</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MATIC MAINNET</small></a>
             );
         }else if(network === '80001'){
             networkButton = (
@@ -125,7 +125,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
             );
         }else if(network === '250'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={FantomImg}/>&nbsp;Fantom</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' height="16" src={FantomImg}/>&nbsp;Fantom</small></a>
             );
         }else if(network === '25'){
             networkButton = (
