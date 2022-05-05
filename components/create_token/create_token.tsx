@@ -55,6 +55,7 @@ type State = {
     img_path: string;
     tokenType: string;
     network: string;
+    sysmbol: string;
 };
 
 export default class CreateToken extends React.PureComponent<Props, State> {
@@ -67,6 +68,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
         this.changeTokenType = this.changeTokenType.bind(this);
         this.handleNetworkChange = this.handleNetworkChange.bind(this);
+        this.handleSymbolChange = this.handleSymbolChange.bind(this);
     }
 
     componentDidMount(){
@@ -78,12 +80,16 @@ export default class CreateToken extends React.PureComponent<Props, State> {
             this.setState({network: savedNetwork});
         }
         else{
-            this.setState({network: '1'});
+            this.setState({network: '1',sysmbol: 'ETH'});
         }
     }
 
     handleNetworkChange = (data) => {
         this.setState({network: data});
+    }
+
+    handleSymbolChange = (data) => {
+        this.setState({sysmbol: data});
     }
 
     refreshState = () => {
@@ -1434,7 +1440,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 <a className='onClosechoosenetwork shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
-                                <NetworkModal changeNetwork={this.handleNetworkChange}/>
+                                <NetworkModal changeNetwork={this.handleNetworkChange} symbolChange={this.handleSymbolChange}/>
                             </div>
                         </div>
                     </div>
