@@ -12,7 +12,7 @@ import MaticImg from 'images/launchpad/network/ic-matic.910e1faf.png';
 import BscImg from 'images/launchpad/network/ic-bsc.419dfaf2.png';
 import EthImg from 'images/launchpad/network/ic-eth.9270fc02.svg';
 
-export default function NetworkModal (props){
+export default function NetworkModal ({handleNetworkChange}){
     const {
         library,
         chainId,
@@ -30,7 +30,6 @@ export default function NetworkModal (props){
     };*/
 
     const switchNetwork = async (chainId: string) => {
-        const {handleNetworkChange} = props;
         const id = chainId;
         setNetwork(Number(id));
         handleNetworkChange(id);
