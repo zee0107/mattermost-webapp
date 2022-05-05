@@ -81,11 +81,8 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         }
     }
 
-    componentDidUpdate(){
-        const savedNetwork = window.localStorage.getItem('chainNetwork');  
-        if(this.state.network !== savedNetwork){
-            this.setState({network: savedNetwork});
-        }
+    handleNetworkChange = (data) => {
+        this.setState({network: data});
     }
 
     refreshState = () => {
@@ -1437,7 +1434,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 <a className='onClosechoosenetwork shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
-                                <NetworkModal />
+                                <NetworkModal changeNetwork={this.handleNetworkChange}/>
                             </div>
                         </div>
                     </div>
