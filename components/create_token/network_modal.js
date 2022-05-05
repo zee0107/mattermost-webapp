@@ -35,7 +35,7 @@ export default function NetworkModal (props){
 
         try {
             await library.provider.request({
-                method: "wallet_addEthereumChain",
+                method: "wallet_switchEthereumChain",
                 params: [networkParams[toHex(network)]]
             });
             props.changeNetwork(id);
