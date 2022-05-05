@@ -1,3 +1,5 @@
+import { toHex } from './wallet_utils';
+const polygon = toHex("137");
 export const networkParams = {
     "0x63564c40": {
       chainId: "0x63564c40",
@@ -15,6 +17,16 @@ export const networkParams = {
       blockExplorerUrl: ["https://explorer.celo.org"],
       iconUrls: [
         "https://celo.org/images/marketplace-icons/icon-celo-CELO-color-f.svg"
+      ]
+    },
+    polygon: {
+      chainId: polygon,
+      rpcUrls: ["https://polygon-rpc.com/"],
+      chainName: "Polygon(Matic)",
+      nativeCurrency: { name: "MATIC", decimals: 18, symbol: "MATIC" },
+      blockExplorerUrl: ["https://polygonscan.com/"],
+      iconUrls: [
+        "https://polygonscan.com/images/svg/brands/polygon.svg"
       ]
     }
   };

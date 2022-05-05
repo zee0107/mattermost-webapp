@@ -7,6 +7,7 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import SelectWalletModal from "./Modal";
 import ButtonConnect from "./button_connect";
+import NetworkModal from "./network_modal";
 
 import { useWeb3React } from "@web3-react/core";
 import { networkParams } from "../networks";
@@ -1404,75 +1405,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 <a className='onClosechoosenetwork shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
-                                <div className='d-flex'>
-                                    <div className='col-md-6 text-center' data-dismiss='modal'>
-                                        <div className='box-choose-network'>
-                                        <img className='img-fluid' width='40' src={EthImg} alt=''/>
-                                        <p className='mt-3 text-white'>Ethereum</p>
-                                        </div>
-                                    </div>
-                                    <div className='col-md-6 text-center' data-dismiss='modal'>
-                                        <div className='box-choose-network'>
-                                        <img className='img-fluid' width='40' src={BscImg} alt=''/>
-                                        <p className='mt-3 text-white'>BNB Smart Chain</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='d-flex'>
-                                    <div className='col-md-6 text-center' data-dismiss='modal'>
-                                        <div className='box-choose-network'>
-                                        <img className='img-fluid' width='40' src={MaticImg} alt=''/>
-                                        <p className='mt-3 text-white'>Matic(Polygon)</p>
-                                        </div>
-                                    </div>
-                                    <div className='col-md-6 text-center' data-dismiss='modal'>
-                                        <div className='box-choose-network'>
-                                        <img className='img-fluid' width='40' src={KucoinImg} alt=''/>
-                                        <p className='mt-3 text-white'>KuCoin</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='d-flex'>
-                                    <div className='col-md-6 text-center' data-dismiss='modal'>
-                                        <div className='box-choose-network'>
-                                        <img className='img-fluid' width='40' src={AvaxImg} alt=''/>
-                                        <p className='mt-3 text-white'>Avalanche</p>
-                                        </div>
-                                    </div>
-                                    <div className='col-md-6 text-center' data-dismiss='modal'>
-                                        <div className='box-choose-network'>
-                                        <img className='img-fluid' width='31' src={FantomImg} alt=''/>
-                                        <p className='mt-3 text-white'>Fantom Opera</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='d-flex'>
-                                    <div className='col-md-6 text-center' data-dismiss='modal'>
-                                        <div className='box-choose-network'>
-                                        <img className='img-fluid' width='40' src={CronosImg} alt=''/>
-                                        <p className='mt-3 text-white'>Cronos</p>
-                                        </div>
-                                    </div>
-                                    <div className='col-md-6 text-center'>
-                                    </div>
-                                </div>
-                                <div className='row pl-5 mt-2 mb-2'>
-                                <small>TESTNET</small>
-                                </div>
-                                <div className='d-flex'>
-                                    <div className='col-md-6 text-center' data-dismiss='modal'>
-                                        <div className='box-choose-network'>
-                                        <img className='img-fluid' width='40' src={BscImg} alt=''/>
-                                        <p className='mt-3 text-white'>Avalanche</p>
-                                        </div>
-                                    </div>
-                                    <div className='col-md-6 text-center' data-dismiss='modal'>
-                                        <div className='box-choose-network'>
-                                        <img className='img-fluid' width='40' src={FantomImg} alt=''/>
-                                        <p className='mt-3 text-white'>Fantom Opera</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <NetworkModal />
                             </div>
                         </div>
                     </div>
