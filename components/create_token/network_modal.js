@@ -32,7 +32,7 @@ export default function NetworkModal (props){
     const switchNetwork = async (chainId: string) => {
         const id = chainId;
         setNetwork(Number(id));
-        
+
         try {
             await library.provider.request({
                 method: "wallet_addEthereumChain",
@@ -42,6 +42,7 @@ export default function NetworkModal (props){
             window.localStorage.setItem('chainNetwork',id);
         } catch (error) {
           setError(error);
+          console.log(error);
         }
         /*try {
           await library.provider.request({
