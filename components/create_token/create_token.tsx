@@ -267,7 +267,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                         <div className='col-12'>
                             {/*<a className='onLockbuttoncreate float-end mr-1' data-toggle='modal' data-target='#staticBackdropConnect'><small>Connect</small></a>*/}
                             <ButtonConnect />
-                            <networkButton />
+                            {networkButton }
                             <a className="onLockbuttoncreate float-end ml-1" data-toggle='modal' data-target='#staticBackdropCreateToken'><small>Create</small></a>
                         </div>
                     </div>
@@ -815,7 +815,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 <div className='row'>
                                     <div className='btn-group float-end' role='group' aria-label='Basic example'>
                                     <ButtonConnect />
-                                    <networkButton />
+                                    {networkButton }
                                     <a className='onLockbuttoncreate ml-1'><small>Create</small></a>
                                     </div>
                                 </div>
