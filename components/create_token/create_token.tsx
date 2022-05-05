@@ -64,7 +64,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,tokenType:'standard_token'};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,tokenType:'standard_token',sysmbol: 'ETH'};
 
         this.changeTokenType = this.changeTokenType.bind(this);
         this.handleNetworkChange = this.handleNetworkChange.bind(this);
@@ -297,7 +297,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 </div>
 
                                 <div className='col-12 mt-2'>
-                                    <small className='float-start mt-1'>Create pool fee: 0.1 BNB</small>
+                                    <small className='float-start mt-1'>Create pool fee: 0.1 {this.state.sysmbol}</small>
                                     <button type='button' className='btn-sm btn-create-token float-end onCreatetokens' data-toggle='modal' data-target='#staticBackdropCreateToken'>Create token</button>
                                 </div>
 
@@ -308,7 +308,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='form-check'>
                                     <input className='form-check-input onBnbcurrency mr-1' type='radio' name='flexRadioDefault' id='flexRadioDefault1' checked/>
                                     <label className='form-check-label ms-1' htmlFor='flexRadioDefault1'>
-                                        BNB
+                                        {this.state.sysmbol}
                                     </label>
                                     </div>
                                     <div className='form-check'>
