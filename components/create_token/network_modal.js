@@ -43,7 +43,7 @@ export default function NetworkModal (props){
                 method: "wallet_switchEthereumChain",
                 params: [{ chainId: toHex(paramId) }]
               });
-              console.log('Symbol : ',networkParams);
+              console.log('Symbol : ',networkParams[id].nativeCurrency.symbol);
               props.changeNetwork(id);
               window.localStorage.setItem('chainNetwork',id);
             } catch (switchError) {
@@ -53,7 +53,7 @@ export default function NetworkModal (props){
                         method: "wallet_addEthereumChain",
                         params: [networkParams[toHex(paramId)]]
                     });
-                    console.log('Symbol : ',networkParams);
+                    console.log('Symbol : ',networkParams[id].nativeCurrency.symbol);
                     props.changeNetwork(id);
                     window.localStorage.setItem('chainNetwork',id);
                 } catch (error) {

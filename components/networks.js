@@ -28,7 +28,7 @@ export const networkParams = {
         'https://celo.org/images/marketplace-icons/icon-celo-CELO-color-f.svg'
       ]
     },
-    polygon: {
+    '137': {
       chainId: polygon,
       rpcUrls: ['https://polygon-rpc.com/'],
       chainName: 'Matic(Polygon)',
@@ -38,7 +38,7 @@ export const networkParams = {
         'https://polygonscan.com/images/svg/brands/polygon.svg'
       ]
     },
-    mumbai: {
+    '80001': {
       chainId: mumbai,
       rpcUrls: ['https://rpc-mumbai.matic.today'],
       chainName: 'Matic Mumbai',
@@ -48,7 +48,7 @@ export const networkParams = {
         'https://polygonscan.com/images/svg/brands/polygon.svg'
       ]
     },
-    bnbMAin: {
+    '56': {
       chainId: bnbMAin,
       rpcUrls: ['https://bsc-dataseed1.ninicoin.io'],
       chainName: 'BNB Smart Chain',
@@ -58,7 +58,7 @@ export const networkParams = {
         'https://bscscan.com/images/svg/brands/bnb-1.svg?v=1.3'
       ]
     },
-    bnbTest: {
+    '97': {
       chainId: bnbTest,
       rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545'],
       chainName: 'BNB Smart Chain',
@@ -68,7 +68,7 @@ export const networkParams = {
         'https://testnet.bscscan.com/images/svg/brands/bnb-1.svg?v=1.3'
       ]
     },
-    kuCoin: {
+    '321': {
       chainId: kuCoin,
       rpcUrls: ['https://rpc-mainnet.kcc.network'],
       chainName: 'KuCoin',
@@ -78,7 +78,7 @@ export const networkParams = {
         'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADj0lEQVR4XuWbu4vUUBSHVwXBJ2Ip62Nys1gsPjoFsVVr/wDR0kLQ2mZALFTcmWTdQrCYYquBmWRZFR+VYiV2NmqzighabqHYrOPJuHcm/nImycljXveDr0nu+Z2bOBvznJkZUyzPeaQ8pxPW9us3cNzUoVYWbNxw8CfWTA+dzhZmg1mxdPKpVrfiRiaJEcVBkwn+NXBxWSjPfYYbl1q/fgnzMkOBHyMNPOczjisSyl9jeoqkA+YS5oo4sPpwJ4ai9lN3L9blhXLXsU9WrbbzCvNTg2GDxLo8UN4G5hfgJ+yTCBU9YYIGuYb1WWByC9Py3KvYLxYMSBLrpWBeGdpevYZ9B4LFSWK9BKr/g3kl+hr7szCFsWJ9WjBnSH7DeURgimLF+iRUa/EMZgzb7nnNIHBwklgfB42/hvVS7ZY7a/nOFVwu9YhX24fz64IDk8T6QdDYBtZKnW8u7dZ5tCNO43qpc379VHiOXXBQkljPQaenb7BOKmYGWKvOIRwnFTML3wE05ivWSMXMMLRz7+J4qUdX7uzpBzID4gzNJQKdhFzH8VIxk4Muni5jndTg17QZFl0ZJ8ylh+07yzhWKmbGUWm7J7BeajcIFyYJ8+hCy9/jOKmYmYbgyI45Qt/m3gG4XqrtOS8wUwrl/MbctIo3oNe12dyG6+TWb4W2IxeU9yWan2ymHVBpPTiMy6VabfcibkRelO88xj5JineAajsXIsuEznm1kzj5osBecVZ896yooAhnmwv7cdJFQ32+Y1/GfxdKzIrybDs3Ya6lQf38SP++L8MDcWUp2n79fGh+6aCruOPP7+2iX82OrHepg6dJdLD9oYL7j3SMwPXD2QH+/YPYNw7LXzym+JsnGzg2N0yTIhVPmMmIaHvuOazLDIYX6Dr2SmK+Wd3O5LBibWYwuCDfYZ80UN0vJou37d7G+kxEgvPbwB5pYbLiFP95sTDBeW1gj7QwWXGO7Q4INPpPQGv0QVAr/pkyGREn5b/BvgafCPU0+1RYa/LFkHbyL4dNvyESNDH6llivm8k3RaFxZIzEyb0tHkKZ/GBEY/SjMY3RD0c1yuTH4xqjX5DQKJNfkdEok1+S0hj9mlwYzBmSo39RMozib3KU5Xi9KqvBvDKUvixt9uvyARgySKzLgxqXDyYCgvtuTNh/TvUnMxoK+oDByoSPpiKY+tncSBmrDydHhdGfzm5i9sfTIYb1+fxfsoeUcSUQ3cwAAAAASUVORK5CYII='
       ]
     },
-    avax: {
+    '43114': {
       chainId: avax,
       rpcUrls: ['https://api.avax.network/ext/bc/C/rpc'],
       chainName: 'KuCoin',
@@ -88,7 +88,7 @@ export const networkParams = {
         'https://snowtrace.io/images/svg/brands/mainbrand-1.svg?v=22.4.4.0'
       ]
     },
-    fantom: {
+    '250': {
       chainId: fantom,
       rpcUrls: ['https://rpc.ftm.tools'],
       chainName: 'KuCoin',
@@ -98,7 +98,7 @@ export const networkParams = {
         'https://ftmscan.com/images/svg/brands/fantom.svg?v=1.3'
       ]
     },
-    cronos: {
+    '25': {
       chainId: cronos,
       rpcUrls: ['https://evm-cronos.crypto.org'],
       chainName: 'KuCoin',
@@ -108,7 +108,7 @@ export const networkParams = {
         'https://cronoscan.com/images/svg/brands/mainbrand-1.svg?v=22.4.4.0'
       ]
     },
-    eth: {
+    '1': {
       chainId: eth,
       rpcUrls: ['https://mainnet.infura.io/v3/'],
       chainName: 'KuCoin',
