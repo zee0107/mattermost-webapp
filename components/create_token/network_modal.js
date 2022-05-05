@@ -29,11 +29,11 @@ export default function NetworkModal (props){
         setNetwork(Number(id));
     };*/
 
-    const switchNetwork = (chainId: string) => {
+    const switchNetwork = async (chainId: string) => {
         const id = chainId;
         setNetwork(Number(id));
         try {
-           library.provider.request({
+          await library.provider.request({
             method: "wallet_switchEthereumChain",
             params: [{ chainId: toHex(network) }]
           });
@@ -42,7 +42,7 @@ export default function NetworkModal (props){
         } catch (switchError) {
           if (switchError.code === 4902) {
             try {
-                 library.provider.request({
+                await library.provider.request({
                     method: "wallet_addEthereumChain",
                     params: [networkParams[toHex(network)]]
                 });
@@ -58,13 +58,13 @@ export default function NetworkModal (props){
     return(
         <>
             <div className='d-flex'>
-                <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => switchNetwork('1')}>
+                <div className='col-md-6 text-center' data-dismiss='modal' onClick={async () =>  await switchNetwork('1')}>
                     <div className='box-choose-network'>
                     <img className='img-fluid' width='40' src={EthImg} alt=''/>
                     <p className='mt-3 text-white'>Ethereum</p>
                     </div>
                 </div>
-                <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => switchNetwork('56')}>
+                <div className='col-md-6 text-center' data-dismiss='modal' onClick={async () => await switchNetwork('56')}>
                     <div className='box-choose-network'>
                     <img className='img-fluid' width='40' src={BscImg} alt=''/>
                     <p className='mt-3 text-white'>BNB Smart Chain</p>
@@ -72,13 +72,13 @@ export default function NetworkModal (props){
                 </div>
             </div>
             <div className='d-flex'>
-                <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => switchNetwork('137')}>
+                <div className='col-md-6 text-center' data-dismiss='modal' onClick={async () => await switchNetwork('137')}>
                     <div className='box-choose-network'>
                     <img className='img-fluid' width='40' src={MaticImg} alt=''/>
                     <p className='mt-3 text-white'>Matic(Polygon)</p>
                     </div>
                 </div>
-                <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => switchNetwork('321')}>
+                <div className='col-md-6 text-center' data-dismiss='modal' onClick={async () => await switchNetwork('321')}>
                     <div className='box-choose-network'>
                     <img className='img-fluid' width='40' src={KucoinImg} alt=''/>
                     <p className='mt-3 text-white'>KuCoin</p>
@@ -86,13 +86,13 @@ export default function NetworkModal (props){
                 </div>
             </div>
             <div className='d-flex'>
-                <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => switchNetwork('43114')}>
+                <div className='col-md-6 text-center' data-dismiss='modal' onClick={async () => await switchNetwork('43114')}>
                     <div className='box-choose-network'>
                     <img className='img-fluid' width='40' src={AvaxImg} alt=''/>
                     <p className='mt-3 text-white'>Avalanche</p>
                     </div>
                 </div>
-                <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => switchNetwork('250')}>
+                <div className='col-md-6 text-center' data-dismiss='modal' onClick={async () => await switchNetwork('250')}>
                     <div className='box-choose-network'>
                     <img className='img-fluid' width='31' src={FantomImg} alt=''/>
                     <p className='mt-3 text-white'>Fantom Opera</p>
@@ -100,7 +100,7 @@ export default function NetworkModal (props){
                 </div>
             </div>
             <div className='d-flex'>
-                <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => switchNetwork('25')}>
+                <div className='col-md-6 text-center' data-dismiss='modal' onClick={async () => await switchNetwork('25')}>
                     <div className='box-choose-network'>
                     <img className='img-fluid' width='40' src={CronosImg} alt=''/>
                     <p className='mt-3 text-white'>Cronos</p>
@@ -113,13 +113,13 @@ export default function NetworkModal (props){
             <small>TESTNET</small>
             </div>
             <div className='d-flex'>
-                <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => switchNetwork('97')}>
+                <div className='col-md-6 text-center' data-dismiss='modal' onClick={async () => await switchNetwork('97')}>
                     <div className='box-choose-network'>
                     <img className='img-fluid' width='40' src={BscImg} alt=''/>
                     <p className='mt-3 text-white'>BNB Smart Chain</p>
                     </div>
                 </div>
-                <div className='col-md-6 text-center' data-dismiss='modal' onClick={() => switchNetwork('80001')}>
+                <div className='col-md-6 text-center' data-dismiss='modal' onClick={async () => await switchNetwork('80001')}>
                     <div className='box-choose-network'>
                     <img className='img-fluid' width='40' src={MaticImg} alt=''/>
                     <p className='mt-3 text-white'>Matic Mumbai</p>
