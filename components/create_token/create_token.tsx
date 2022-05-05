@@ -103,39 +103,39 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         let networkButton;
         if(network === '137'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img src={MaticImg}/>&nsbp;MATIC MAINNET</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nsbp;MATIC MAINNET</small></a>
             );
         }else if(network === '80001'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img src={MaticImg}/>&nbsp;MUMBAI</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MUMBAI</small></a>
             );
         }else if(network === '56'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img src={BscImg}/>&nbsp;BSC MAINNET</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={BscImg}/>&nbsp;BSC MAINNET</small></a>
             );
         }else if(network === '97'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img className='img-fluid' src={BscImg}/>&nbsp;BSC TESTNET</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' className='img-fluid' src={BscImg}/>&nbsp;BSC TESTNET</small></a>
             );
         }else if(network === '321'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img src={KucoinImg}/>&nbsp;KCC MAINNET</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={KucoinImg}/>&nbsp;KCC MAINNET</small></a>
             );
         }else if(network === '43114'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img src={AvaxImg}/>&nbsp;AVAX</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={AvaxImg}/>&nbsp;AVAX</small></a>
             );
         }else if(network === '250'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img src={FantomImg}/>&nbsp;Fantom</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={FantomImg}/>&nbsp;Fantom</small></a>
             );
         }else if(network === '25'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img src={CronosImg}/>&nbsp;Cronos</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={CronosImg}/>&nbsp;Cronos</small></a>
             );
         }else{
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img src={EthImg}/>&nbsp;ETH MAINNET</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={EthImg}/>&nbsp;ETH MAINNET</small></a>
             );
         }
 
