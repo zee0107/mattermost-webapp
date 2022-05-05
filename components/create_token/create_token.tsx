@@ -16,14 +16,6 @@ import { toHex, truncateAddress } from "../wallet_utils";
 
 import fillImage from 'images/fill.svg';
 
-import CronosImg from 'images/launchpad/network/ic-cronos.5a2dbab3.svg';
-import FantomImg from 'images/launchpad/network/ic-fantom.306f76f9.svg';
-import AvaxImg from 'images/launchpad/network/ic-avax.234db155.svg';
-import KucoinImg from 'images/launchpad/network/KuCoin.png';
-import MaticImg from 'images/launchpad/network/ic-matic.910e1faf.png';
-import BscImg from 'images/launchpad/network/ic-bsc.419dfaf2.png';
-import EthImg from 'images/launchpad/network/ic-eth.9270fc02.svg';
-
 import homeImage from 'images/homeFeed.png';
 
 import {ModalData} from 'types/actions';
