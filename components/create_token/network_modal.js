@@ -31,8 +31,9 @@ export default function NetworkModal (props){
 
     const switchNetwork = async (chainId: string) => {
         const id = chainId;
+        const paramId = Number(id);
         setNetwork(Number(id));
-        console.log(active);
+
         if (!active) {
             props.changeNetwork(id);
             window.localStorage.setItem('chainNetwork',id);
@@ -41,7 +42,7 @@ export default function NetworkModal (props){
             try {
                 await library.provider.request({
                 method: "wallet_switchEthereumChain",
-                params: [{ chainId: toHex(network) }]
+                params: [{ chainId: toHex(paramId) }]
               });
               props.changeNetwork(id);
               window.localStorage.setItem('chainNetwork',id);
@@ -50,7 +51,7 @@ export default function NetworkModal (props){
                 try {
                     await library.provider.request({
                         method: "wallet_addEthereumChain",
-                        params: [networkParams[toHex(network)]]
+                        params: [networkParams[toHex(paramId)]]
                     });
                 } catch (error) {
                   setError(error);
