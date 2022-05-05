@@ -61,6 +61,7 @@ type State = {
     middleView: string;
     network: string;
     tokenType: string;
+    symbol: string;
 };
 
 export default class LaunchpadToken extends React.PureComponent<Props, State> {
@@ -68,10 +69,11 @@ export default class LaunchpadToken extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light',img_path: homeImage,logo_url: [], data: [],tokenType:'standard_token'};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light',img_path: homeImage,logo_url: [], data: [],tokenType:'standard_token',sysmbol: 'ETH'};
 
         this.handleNetworkChange = this.handleNetworkChange.bind(this);
         this.changeTokenType = this.changeTokenType.bind(this);
+        this.handleSymbolChange = this.handleSymbolChange.bind(this);
     }
 
     componentDidMount(){
@@ -86,10 +88,23 @@ export default class LaunchpadToken extends React.PureComponent<Props, State> {
         else{
             this.setState({network: '1'});
         }
+
+        const savedSymbol = window.localStorage.getItem('chainSymbol');
+        if(savedSymbol !== undefined && savedSymbol !== null && savedSymbol !== '')
+        {
+            this.setState({sysmbol: savedSymbol});
+        }
+        else{
+            this.setState({sysmbol: 'ETH'});
+        }
     }
 
     handleNetworkChange = (data) => {
         this.setState({network: data});
+    }
+
+    handleSymbolChange = (data) => {
+        this.setState({sysmbol: data});
     }
 
     changeTokenType(event) {
@@ -510,7 +525,7 @@ export default class LaunchpadToken extends React.PureComponent<Props, State> {
                                 <a className='onClosechoosenetwork shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
-                                <NetworkModal changeNetwork={this.handleNetworkChange}/>
+                                <NetworkModal changeNetwork={this.handleNetworkChange} symbolChange={this.handleSymbolChange}/>
                             </div>
                         </div>
                     </div>

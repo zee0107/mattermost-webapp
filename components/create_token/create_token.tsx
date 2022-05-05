@@ -75,7 +75,6 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
         const savedNetwork = window.localStorage.getItem('chainNetwork');
-        const savedSymbol = window.localStorage.getItem('chainSymbol');
         if(savedNetwork !== undefined && savedNetwork !== null && savedNetwork !== '')
         {
             this.setState({network: savedNetwork});
@@ -84,6 +83,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
             this.setState({network: '1'});
         }
 
+        const savedSymbol = window.localStorage.getItem('chainSymbol');
         if(savedSymbol !== undefined && savedSymbol !== null && savedSymbol !== '')
         {
             this.setState({sysmbol: savedSymbol});
