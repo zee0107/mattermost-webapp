@@ -33,7 +33,7 @@ export default function ButtonConnect(props){
             {!active ? (
                 <a className='onLockbuttoncreate float-end mr-1' data-toggle='modal' data-target='#staticBackdropConnect'><small>Connect</small></a>
             ) : (
-                <a onClick={disconnect} className='onLockbuttoncreate float-end mr-1'><small><i className='bi bi-person-fill' title={props.balance}></i>{truncateAddress(account)}</small></a>
+                <a onClick={disconnect} className='onLockbuttoncreate float-end mr-1' title={props.balance}><small><i className='bi bi-person-fill'></i>{truncateAddress(account)}</small></a>
             )}
         </>
     );
