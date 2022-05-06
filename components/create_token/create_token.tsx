@@ -8,6 +8,7 @@ import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/
 import SelectWalletModal from "./Modal";
 import ButtonConnect from "./button_connect";
 import NetworkModal from "./network_modal";
+import web3 from 'web3';
 
 import { useWeb3React } from "@web3-react/core";
 import { networkParams } from "../networks";
@@ -71,9 +72,13 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         this.handleSymbolChange = this.handleSymbolChange.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount = async () =>{
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+
+        const web3Info = await web3();
+        const accounts = await web3Info.user.eth.getAccounts();
+        console.log(accounts);
         const savedNetwork = window.localStorage.getItem('chainNetwork');
         if(savedNetwork !== undefined && savedNetwork !== null && savedNetwork !== '')
         {
