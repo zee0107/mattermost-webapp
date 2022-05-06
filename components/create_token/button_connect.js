@@ -25,7 +25,7 @@ export default function ButtonConnect(props){
 
     useEffect(() => {
         const provider = window.localStorage.getItem("provider");
-        if (provider) {activate(connectors[provider]);}
+        if (provider) {activate(connectors[provider]); props.account(account);}
       }, []);
 
     return (
