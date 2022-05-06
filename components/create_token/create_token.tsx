@@ -103,7 +103,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
             this.setState({symbol: 'ETH'});
         }
 
-        const web3Info = await new Web3();
+        const web3Info = await new Web3(new Web3.providers.HttpProvider(this.state.rpcUrls));
         if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
         {
             const balance = await web3Info.eth.getBalance(this.state.account);
@@ -112,7 +112,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
     }
 
     componentDidUpdate = async () => {
-        const web3Info = await new Web3();
+        const web3Info = await new Web3(new Web3.providers.HttpProvider(this.state.rpcUrls));
         if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
         {
             const balance = await web3Info.eth.getBalance(this.state.account);
