@@ -62,6 +62,7 @@ type State = {
     token_symbol: string;
     total_supply: number;
     decimal: number;
+    account: string;
 };
 
 export default class CreateToken extends React.PureComponent<Props, State> {
@@ -75,6 +76,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         this.changeTokenType = this.changeTokenType.bind(this);
         this.handleNetworkChange = this.handleNetworkChange.bind(this);
         this.handleSymbolChange = this.handleSymbolChange.bind(this);
+        this.handleAccount = this.handleAccount.bind(this);
     }
 
     componentDidMount = async () =>{
@@ -82,8 +84,12 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         this.setState({isDark: ThemeValue});
 
         const web3Info = await new Web3();
-        const accounts = await web3Info.user.eth.getAccounts();
-        console.log(accounts);
+        if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
+        {
+            const balance = await web3Info.eth.getBalance();
+            console.log(balance);
+        }
+        
         const savedNetwork = window.localStorage.getItem('chainNetwork');
         if(savedNetwork !== undefined && savedNetwork !== null && savedNetwork !== '')
         {
@@ -110,6 +116,11 @@ export default class CreateToken extends React.PureComponent<Props, State> {
     handleSymbolChange = (data) => {
         this.setState({symbol: data});
     }
+
+    handleAccount = (data) => {
+        this.setState({account: data});
+    }
+
 
     refreshState = () => {
         window.localStorage.setItem("provider", undefined);
@@ -315,7 +326,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                     <div className='row'>
                         <div className='col-12'>
                             {/*<a className='onLockbuttoncreate float-end mr-1' data-toggle='modal' data-target='#staticBackdropConnect'><small>Connect</small></a>*/}
-                            <ButtonConnect />
+                            <ButtonConnect account={this.handleAccount}/>
                             {networkButton }
                             <a className="onLockbuttoncreate float-end ml-1" data-toggle='modal' data-target='#staticBackdropCreateToken'><small>Create</small></a>
                         </div>
@@ -863,7 +874,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                                 <div className='row'>
                                     <div className='btn-group float-end' role='group' aria-label='Basic example'>
-                                    <ButtonConnect />
+                                    <ButtonConnect ButtonConnect account={this.handleAccount}/>
                                     {networkButton }
                                     <a className='onLockbuttoncreate ml-1'><small>Create</small></a>
                                     </div>

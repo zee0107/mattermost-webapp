@@ -3,7 +3,8 @@ import { useWeb3React } from "@web3-react/core";
 import { connectors } from "../connectors";
 import { toHex, truncateAddress } from "../wallet_utils";
 
-export default function ButtonConnect(){
+export default function ButtonConnect(props){
+    props.account(account);
     const {
         library,
         chainId,
@@ -25,7 +26,7 @@ export default function ButtonConnect(){
 
     useEffect(() => {
         const provider = window.localStorage.getItem("provider");
-        if (provider) activate(connectors[provider]);
+        if (provider) {activate(connectors[provider]);}
       }, []);
 
     return (
