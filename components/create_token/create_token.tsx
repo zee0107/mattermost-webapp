@@ -77,9 +77,9 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
 
-        const web3Info = web3();
+        /*const web3Info = web3();
         const accounts = web3Info.user.eth.getAccounts();
-        console.log(accounts);
+        console.log(accounts);*/
         const savedNetwork = window.localStorage.getItem('chainNetwork');
         if(savedNetwork !== undefined && savedNetwork !== null && savedNetwork !== '')
         {
