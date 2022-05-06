@@ -589,7 +589,7 @@ export default class LaunchpadToken extends React.PureComponent<Props, State> {
                                 <a className='onClosechoosenetwork shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
-                                <<NetworkModal changeNetwork={this.handleNetworkChange} symbolChange={this.handleSymbolChange} rpcUrls={this.handleRpcUrls}/>
+                                <NetworkModal changeNetwork={this.handleNetworkChange} symbolChange={this.handleSymbolChange} rpcUrls={this.handleRpcUrls}/>
                             </div>
                         </div>
                     </div>
