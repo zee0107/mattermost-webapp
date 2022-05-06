@@ -113,42 +113,62 @@ export default class CreateToken extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const { tokenType,network } = this.state;
         let networkButton;
+        let poolFee;
+        let createFee;
         if(network === '137'){
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MATIC MAINNET</small></a>
             );
+            poolFee = 100;
+            createFee = 30;
         }else if(network === '80001'){
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MUMBAI</small></a>
             );
+            poolFee = 100;
+            createFee = 0.01;
         }else if(network === '56'){
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={BscImg}/>&nbsp;BSC MAINNET</small></a>
             );
+            poolFee = 1;
+            createFee = 0.2;
         }else if(network === '97'){
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' className='img-fluid' src={BscImg}/>&nbsp;BSC TESTNET</small></a>
             );
+            poolFee = 0.01;
+            createFee = 0.01;
         }else if(network === '321'){
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={KucoinImg}/>&nbsp;KCC MAINNET</small></a>
             );
+            poolFee = 35;
+            createFee = 10;
         }else if(network === '43114'){
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={AvaxImg}/>&nbsp;AVAX</small></a>
             );
+            poolFee = 10;
+            createFee = 1;
         }else if(network === '250'){
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' height='16' src={FantomImg}/>&nbsp;Fantom</small></a>
             );
+            poolFee = 150;
+            createFee = 30;
         }else if(network === '25'){
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' height='16' src={CronosImg}/>&nbsp;Cronos</small></a>
             );
+            poolFee = 1000;
+            createFee = 100;
         }else{
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={EthImg}/>&nbsp;ETH MAINNET</small></a>
             );
+            poolFee = 0.2;
+            createFee = 0.1;
         }
 
         let createTokenInfo;
@@ -306,7 +326,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 </div>
 
                                 <div className='col-12 mt-2'>
-                                    <small className='float-start mt-1'>Create pool fee: 0.1 {this.state.symbol}</small>
+                                    <small className='float-start mt-1'>Create pool fee: {poolFee} {this.state.symbol}</small>
                                     <button type='button' className='btn-sm btn-create-token float-end onCreatetokens' data-toggle='modal' data-target='#staticBackdropCreateToken'>Create token</button>
                                 </div>
 
@@ -858,7 +878,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                                             <div className='row mt-2'>
                                             <div className='col-12'>
-                                                <small className='float-start mt-1'>Create pool fee: 1 {this.state.symbol}</small>
+                                                <small className='float-start mt-1'>Create pool fee: {poolFee} {this.state.symbol}</small>
                                                 <button type='button' data-toggle='modal' data-target='#staticBackdropCreateToken' className='btn-sm btn-create-token float-end onCreatetokens'>Create token</button>
                                             </div>
                                             </div>
@@ -1398,7 +1418,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                         <option value='babytoken'>Baby Token</option>
                                         <option value='BuybackBabyToken'>Buyback Baby Token</option>
                                     </select>
-                                    <small>Fee: 0.2 {this.state.symbol}</small>
+                                    <small>Fee: {createFee} {this.state.symbol}</small>
                                 </div>
 
                                 <div className='mb-3'>
