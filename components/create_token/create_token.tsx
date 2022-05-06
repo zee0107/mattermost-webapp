@@ -136,13 +136,8 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         }
     }
 
-    handleChangeAntiBot = (event) => {
-        this.setState((prevState) => {
-           return {
-              ...prevState,
-              antiBot: !prevState.status
-           }
-        })
+    handleChangeAntiBot = (e: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({antiBot: e.target.checked});
     }
 
     handleNetworkChange = (data) => {
