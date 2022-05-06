@@ -68,7 +68,7 @@ export default class ProjectsUpcoming extends React.PureComponent<Props, State> 
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: [],tokenType:'standard_token',sysmbol: 'ETH'};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: [],tokenType:'standard_token',symbol: 'ETH'};
 
         this.handleNetworkChange = this.handleNetworkChange.bind(this);
         this.changeTokenType = this.changeTokenType.bind(this);
@@ -97,10 +97,10 @@ export default class ProjectsUpcoming extends React.PureComponent<Props, State> 
         const savedSymbol = window.localStorage.getItem('chainSymbol');
         if(savedSymbol !== undefined && savedSymbol !== null && savedSymbol !== '')
         {
-            this.setState({sysmbol: savedSymbol});
+            this.setState({symbol: savedSymbol});
         }
         else{
-            this.setState({sysmbol: 'ETH'});
+            this.setState({symbol: 'ETH'});
         }
 
         if (typeof window.ethereum !== 'undefined') {
@@ -146,7 +146,7 @@ export default class ProjectsUpcoming extends React.PureComponent<Props, State> 
     }
 
     handleSymbolChange = (data) => {
-        this.setState({sysmbol: data});
+        this.setState({symbol: data});
     }
 
     changeTokenType(event) {
