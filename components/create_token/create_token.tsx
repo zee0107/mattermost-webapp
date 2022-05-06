@@ -115,6 +115,9 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                     const covertedBal = web3Info.utils.fromWei(balance, 'ether');
                     this.setState({balance: covertedBal});
                 }
+                else{
+                    this.setState({balance: 0});
+                }
             }
         }
     }
