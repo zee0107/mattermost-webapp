@@ -231,6 +231,10 @@ export default class CreateToken extends React.PureComponent<Props, State> {
             createFee = 0.1;
         }
 
+        let antiBotInfo;
+        if(antiBot){
+            antiBotInfo = (<p className='mt-2 implementpinkinformation'>Please visit <a className='text-success' target='_self'><strong>https://www.crypter.com/#antibot</strong></a> to active Pink Anti-Bot after creating the token. Check out the tutorial here: <a className='text-success' target='_self'><strong>https://www.crypter.com/pink-anti-bot/pink-anti-bot-guide</strong></a></p>);
+        }
         let createTokenInfo;
         if(tokenType === 'LiquidityGeneratorToken'){
             createTokenInfo = (<div className='liquidity-generator-token'>
@@ -1508,7 +1512,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <label className='form-check-label ml-2' htmlFor='antiBot'>
                                         <small>Implement Pink Anti-Bot System?</small>
                                     </label>
-                                    {antiBot && <p className='mt-2 implementpinkinformation'>Please visit <a className='text-success' target='_self'><strong>https://www.crypter.com/#antibot</strong></a> to active Pink Anti-Bot after creating the token. Check out the tutorial here: <a className='text-success' target='_self'><strong>https://www.crypter.com/pink-anti-bot/pink-anti-bot-guide</strong></a></p>}
+                                    {antiBotInfo}
                                 </div>
 
                                 <div className='col-lg-12 text-center mt-3'>
