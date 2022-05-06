@@ -414,7 +414,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='col-12 mt-2 mb-2'>
                                         <label htmlFor='formGroupExampleInput2' className='form-label'><small>Presale rate*</small></label>
                                         <input type='text' className='form-control' id='' placeholder='100' value=''/>
-                                        <small>If I spend 1 BNB how many tokens will I receive?</small>
+                                        <small>If I spend 1 {this.state.symbol} how many tokens will I receive?</small>
                                     </div>
                                 </div>
 
@@ -439,22 +439,22 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                                 <div className='col-md-12 d-flex'>
                                     <div className='col-md-6 pl-0 mt-2 mb-2'>
-                                        <label htmlFor='formGroupExampleInput2' className='form-label'><small>Softcap (BNB)*</small></label>
+                                        <label htmlFor='formGroupExampleInput2' className='form-label'><small>Softcap ({this.state.symbol})*</small></label>
                                         <input type='text' className='form-control' id='' placeholder='500' value=''/>
                                     </div>
                                     <div className='col-md-6 pr-0 mt-2 mb-2'>
-                                        <label htmlFor='formGroupExampleInput2' className='form-label'><small>Hardcap (BNB)*</small></label>
+                                        <label htmlFor='formGroupExampleInput2' className='form-label'><small>Hardcap ({this.state.symbol})*</small></label>
                                         <input type='text' className='form-control' id='' placeholder='1000' value=''/>
                                     </div>
                                 </div>
 
                                 <div className='col-md-12 d-flex'>
                                     <div className='col-md-6 pl-0 mt-2 mb-2'>
-                                        <label htmlFor='formGroupExampleInput2' className='form-label'><small>Minimum buy (BNB)*</small></label>
+                                        <label htmlFor='formGroupExampleInput2' className='form-label'><small>Minimum buy ({this.state.symbol})*</small></label>
                                         <input type='text' className='form-control' id='' placeholder='0.01' value=''/>
                                     </div>
                                     <div className='col-md-6 pr-0 mt-2 mb-2'>
-                                        <label htmlFor='formGroupExampleInput2' className='form-label'><small>Maximum buy (BNB)*</small></label>
+                                        <label htmlFor='formGroupExampleInput2' className='form-label'><small>Maximum buy ({this.state.symbol})*</small></label>
                                         <input type='text' className='form-control' id='' placeholder='0.1' value=''/>
                                     </div>
                                 </div>
@@ -490,7 +490,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                             <option selected>80</option>
                                             <option>80</option>
                                         </select>
-                                        <small>1 BNB = 80 PST</small>
+                                        <small>1 {this.state.symbol} = 80 PST</small>
                                     </div>
                                 </div>
 
@@ -499,7 +499,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                         <p>
                                         <small>Enter the percentage of raised funds that should be allocated to Liquidity on Pancakeswap (Min 51%. Max 100%)</small>
                                         <br/>
-                                        <small>If I spend 1 BNB Pancakeswap how many tokens will I receive? Usually this amount is lower than presale rate to allow for a higher listing price on Pancakeswap</small>
+                                        <small>If I spend 1 {this.state.symbol} Pancakeswap how many tokens will I receive? Usually this amount is lower than presale rate to allow for a higher listing price on Pancakeswap</small>
                                         </p>
                                     </div>
                                 </div>
@@ -758,16 +758,16 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 <small>Sale method</small><small className='float-end text-success'>Public</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Softcap</small><small className='float-end text-success'>500 BNB</small>
+                                <small>Softcap</small><small className='float-end text-success'>500 {this.state.symbol}</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Hardcap</small><small className='float-end text-success'>1000 BNB</small>
+                                <small>Hardcap</small><small className='float-end text-success'>1000 {this.state.symbol}</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Minimum buy</small><small className='float-end text-success'>0.01 BNB</small>
+                                <small>Minimum buy</small><small className='float-end text-success'>0.01 {this.state.symbol}</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                <small>Miximum buy</small><small className='float-end text-success'>0.1 BNB</small>
+                                <small>Miximum buy</small><small className='float-end text-success'>0.1 {this.state.symbol}</small>
                             </li>
                             <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                 <small>Liquidity</small><small className='float-end text-success'>51%</small>
@@ -966,7 +966,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                                 <div className='col-12 mt-2 mb-2'>
                                                     <label htmlFor='formGroupExampleInput2' className='form-label'><small>Presale rate*</small></label>
                                                     <input type='text' className='form-control' id='' placeholder='100' value=''/>
-                                                    <small>If I spend 1 BNB how many tokens will I receive?</small>
+                                                    <small>If I spend 1 {this.state.symbol} how many tokens will I receive?</small>
                                                 </div>
                                             </div>
 
@@ -991,22 +991,22 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                                             <div className='col-md-12 d-flex'>
                                                 <div className='col-md-6 width-100 pl-0 mt-2 mb-2'>
-                                                    <label htmlFor='formGroupExampleInput2' className='form-label'><small>Softcap (BNB)*</small></label>
+                                                    <label htmlFor='formGroupExampleInput2' className='form-label'><small>Softcap ({this.state.symbol})*</small></label>
                                                     <input type='text' className='form-control' id='' placeholder='500' value=''/>
                                                 </div>
                                                 <div className='col-md-6 width-100 pr-0 mt-2 mb-2'>
-                                                    <label htmlFor='formGroupExampleInput2' className='form-label'><small>Hardcap (BNB)*</small></label>
+                                                    <label htmlFor='formGroupExampleInput2' className='form-label'><small>Hardcap ({this.state.symbol})*</small></label>
                                                     <input type='text' className='form-control' id='' placeholder='1000' value=''/>
                                                 </div>
                                             </div>
 
                                             <div className='col-md-12 d-flex'>
                                                 <div className='col-md-6 width-100 pl-0 mt-2 mb-2'>
-                                                    <label htmlFor='formGroupExampleInput2' className='form-label'><small>Minimum buy (BNB)*</small></label>
+                                                    <label htmlFor='formGroupExampleInput2' className='form-label'><small>Minimum buy ({this.state.symbol})*</small></label>
                                                     <input type='text' className='form-control' id='' placeholder='0.01' value=''/>
                                                 </div>
                                                 <div className='col-md-6 width-100 pr-0 mt-2 mb-2'>
-                                                    <label htmlFor='formGroupExampleInput2' className='form-label'><small>Maximum buy (BNB)*</small></label>
+                                                    <label htmlFor='formGroupExampleInput2' className='form-label'><small>Maximum buy ({this.state.symbol})*</small></label>
                                                     <input type='text' className='form-control' id='' placeholder='0.1' value=''/>
                                                 </div>
                                             </div>
@@ -1042,7 +1042,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                                         <option selected>80</option>
                                                         <option>80</option>
                                                     </select>
-                                                    <small>1 BNB = 80 PST</small>
+                                                    <small>1 {this.state.symbol} = 80 PST</small>
                                                 </div>
                                             </div>
 
@@ -1051,7 +1051,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                                     <p>
                                                     <small>Enter the percentage of raised funds that should be allocated to Liquidity on Pancakeswap (Min 51%. Max 100%)</small>
                                                     <br/>
-                                                    <small>If I spend 1 BNB Pancakeswap how many tokens will I receive? Usually this amount is lower than presale rate to allow for a higher listing price on Pancakeswap</small>
+                                                    <small>If I spend 1 {this.state.symbol} Pancakeswap how many tokens will I receive? Usually this amount is lower than presale rate to allow for a higher listing price on Pancakeswap</small>
                                                     </p>
                                                 </div>
                                             </div>
@@ -1309,16 +1309,16 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                             <small>Sale method</small><small className='float-end text-success'>Public</small>
                                         </li>
                                         <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                            <small>Softcap</small><small className='float-end text-success'>500 BNB</small>
+                                            <small>Softcap</small><small className='float-end text-success'>500 {this.state.symbol}</small>
                                         </li>
                                         <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                            <small>Hardcap</small><small className='float-end text-success'>1000 BNB</small>
+                                            <small>Hardcap</small><small className='float-end text-success'>1000 {this.state.symbol}</small>
                                         </li>
                                         <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                            <small>Minimum buy</small><small className='float-end text-success'>0.01 BNB</small>
+                                            <small>Minimum buy</small><small className='float-end text-success'>0.01 {this.state.symbol}</small>
                                         </li>
                                         <li className='list-group-item pt-0 mt-1 border-width-bot'>
-                                            <small>Miximum buy</small><small className='float-end text-success'>0.1 BNB</small>
+                                            <small>Miximum buy</small><small className='float-end text-success'>0.1 {this.state.symbol}</small>
                                         </li>
                                         <li className='list-group-item pt-0 mt-1 border-width-bot'>
                                             <small>Liquidity</small><small className='float-end text-success'>51%</small>
