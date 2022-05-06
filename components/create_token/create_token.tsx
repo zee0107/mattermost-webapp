@@ -58,6 +58,10 @@ type State = {
     tokenType: string;
     network: string;
     symbol: string;
+    token_name: string;
+    token_symbol: string;
+    total_supply: number;
+    decimal: number;
 };
 
 export default class CreateToken extends React.PureComponent<Props, State> {
