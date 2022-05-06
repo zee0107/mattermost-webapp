@@ -106,8 +106,6 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
         if (typeof window.ethereum !== 'undefined') {
             const web3Info = await new Web3(window.ethereum);
-            var accounts = await web3Info.eth.getAccounts();
-            console.log('Accounts: ', accounts);
             if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
             {
                 const balance = await web3Info.eth.getBalance(this.state.account);
@@ -125,8 +123,6 @@ export default class CreateToken extends React.PureComponent<Props, State> {
     componentDidUpdate = async () => {
         if (typeof window.ethereum !== 'undefined') {
             const web3Info = await new Web3(window.ethereum);
-            var accounts = await web3Info.eth.getAccounts();
-            console.log('Accounts: ', accounts);
             if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
             {
                 const balance = await web3Info.eth.getBalance(this.state.account);
