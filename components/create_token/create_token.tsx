@@ -106,8 +106,8 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         const web3Info = await new Web3();
         if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
         {
-            const balance = await web3Info.eth.getBalance();
-            console.log(balance);
+            const balance = await web3Info.eth.getBalance(this.state.account);
+            console.log('Balance: ',balance);
         }
     }
 
@@ -115,8 +115,8 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         const web3Info = await new Web3();
         if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
         {
-            const balance = await web3Info.eth.getBalance();
-            console.log(balance);
+            const balance = await web3Info.eth.getBalance(this.state.account);
+            console.log('Balance: ',balance);
         }
     }
 
