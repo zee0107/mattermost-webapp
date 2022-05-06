@@ -4,7 +4,6 @@ import { connectors } from "../connectors";
 import { toHex, truncateAddress } from "../wallet_utils";
 
 export default function ButtonConnect(props){
-    props.account(account);
     const {
         library,
         chainId,
