@@ -56,8 +56,10 @@ type State = {
     img_path: string;
     network: string;
     tokenType: string;
-    
-    sysmbol: string;
+    symbol: string;
+    account: string;
+    rpcUrls: string;
+    balance: float;
 };
 
 export default class LaunchPad extends React.PureComponent<Props, State> {
@@ -70,6 +72,8 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         this.handleNetworkChange = this.handleNetworkChange.bind(this);
         this.changeTokenType = this.changeTokenType.bind(this);
         this.handleSymbolChange = this.handleSymbolChange.bind(this);
+        this.handleAccount = this.handleAccount.bind(this);
+        this.handleRpcUrls = this.handleRpcUrls.bind(this);
     }
 
     componentDidMount(){
@@ -88,15 +92,45 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         const savedSymbol = window.localStorage.getItem('chainSymbol');
         if(savedSymbol !== undefined && savedSymbol !== null && savedSymbol !== '')
         {
-            this.setState({sysmbol: savedSymbol});
+            this.setState({symbol: savedSymbol});
         }
         else{
-            this.setState({sysmbol: 'ETH'});
+            this.setState({symbol: 'ETH'});
+        }
+
+        
+        if (typeof window.ethereum !== 'undefined') {
+            const web3Info = await new Web3(window.ethereum);
+            if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
+            {
+                const balance = await web3Info.eth.getBalance(this.state.account);
+                if(balance !== undefined && balance !== null){
+                    const covertedBal = web3Info.utils.fromWei(balance, 'ether');
+                    this.setState({balance: covertedBal});
+                }
+                else{
+                    this.setState({balance: 0});
+                }
+            }
+        }
+    }
+
+    componentDidUpdate = async () => {
+        if (typeof window.ethereum !== 'undefined') {
+            const web3Info = await new Web3(window.ethereum);
+            if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
+            {
+                const balance = await web3Info.eth.getBalance(this.state.account);
+                if(balance !== undefined && balance !== null){
+                    const covertedBal = web3Info.utils.fromWei(balance, 'ether');
+                    this.setState({balance: covertedBal});
+                }
+            }
         }
     }
 
     handleSymbolChange = (data) => {
-        this.setState({sysmbol: data});
+        this.setState({symbol: data});
     }
 
     handleNetworkChange = (data) => {
@@ -107,45 +141,74 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         this.setState({tokenType: event.target.value});
     }
 
+    handleAccount = (data) => {
+        this.setState({account: data});
+    }
+
+    handleRpcUrls = (data) => {
+        this.setState({rpcUrls: data});
+    }
+
+
     render= (): JSX.Element => {
         const {tokenType,network} = this.state;
         let networkButton;
+        let poolFee;
+        let createFee;
         if(network === '137'){
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MATIC MAINNET</small></a>
             );
+            poolFee = 100;
+            createFee = 30;
         }else if(network === '80001'){
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MUMBAI</small></a>
             );
+            poolFee = 100;
+            createFee = 0.01;
         }else if(network === '56'){
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={BscImg}/>&nbsp;BSC MAINNET</small></a>
             );
+            poolFee = 1;
+            createFee = 0.2;
         }else if(network === '97'){
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' className='img-fluid' src={BscImg}/>&nbsp;BSC TESTNET</small></a>
             );
+            poolFee = 0.01;
+            createFee = 0.01;
         }else if(network === '321'){
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={KucoinImg}/>&nbsp;KCC MAINNET</small></a>
             );
+            poolFee = 35;
+            createFee = 10;
         }else if(network === '43114'){
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={AvaxImg}/>&nbsp;AVAX</small></a>
             );
+            poolFee = 10;
+            createFee = 1;
         }else if(network === '250'){
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' height='16' src={FantomImg}/>&nbsp;Fantom</small></a>
             );
+            poolFee = 150;
+            createFee = 30;
         }else if(network === '25'){
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' height='16' src={CronosImg}/>&nbsp;Cronos</small></a>
             );
+            poolFee = 1000;
+            createFee = 100;
         }else{
             networkButton = (
                 <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={EthImg}/>&nbsp;ETH MAINNET</small></a>
             );
+            poolFee = 0.2;
+            createFee = 0.1;
         }
 
         let createTokenInfo;
@@ -279,7 +342,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
             <>
                 <div className='margin-top-20'>
                     <div className='col-md-12 removePadding'>
-                        <ButtonConnect />
+                        <ButtonConnect account={this.handleAccount} balance={`${this.state.balance} ${this.state.symbol}`}/>
                         {networkButton}
                         <a className="onLockbuttoncreate float-end ml-1" data-toggle='modal' data-target='#staticBackdropCreateToken'><small>Create</small></a>
                     </div>
@@ -341,7 +404,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                         <option value='babytoken'>Baby Token</option>
                                         <option value='BuybackBabyToken'>Buyback Baby Token</option>
                                     </select>
-                                    <small>Fee: 0.2 {this.state.symbol}</small>
+                                    <small>Fee: {createFee} {this.state.symbol}</small>
                                 </div>
 
                                 <div className='mb-3'>
@@ -392,7 +455,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                 <a className='onClosechoosenetwork shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
-                                <NetworkModal changeNetwork={this.handleNetworkChange}  symbolChange={this.handleSymbolChange}/>
+                            <NetworkModal changeNetwork={this.handleNetworkChange} symbolChange={this.handleSymbolChange} rpcUrls={this.handleRpcUrls}/>
                             </div>
                         </div>
                     </div>
