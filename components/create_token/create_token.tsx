@@ -65,6 +65,7 @@ type State = {
     account: string;
     rpcUrls: string;
     balance: float;
+    antiBot: boolean;
 };
 
 export default class CreateToken extends React.PureComponent<Props, State> {
@@ -73,13 +74,14 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,tokenType:'standard_token',symbol: 'ETH'};
+        this.state = {antiBot: false,openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,tokenType:'standard_token',symbol: 'ETH'};
 
         this.changeTokenType = this.changeTokenType.bind(this);
         this.handleNetworkChange = this.handleNetworkChange.bind(this);
         this.handleSymbolChange = this.handleSymbolChange.bind(this);
         this.handleAccount = this.handleAccount.bind(this);
         this.handleRpcUrls = this.handleRpcUrls.bind(this);
+        this.handleChangeAntiBot = this.handleChangeAntiBot.bind(this);
     }
 
     componentDidMount = async () =>{
@@ -134,6 +136,15 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         }
     }
 
+    handleChangeAntiBot = (event) => {
+        this.setState((prevState) => {
+           return {
+              ...prevState,
+              antiBot: !prevState.status
+           }
+        })
+    }
+
     handleNetworkChange = (data) => {
         this.setState({network: data});
     }
@@ -160,7 +171,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const { tokenType,network } = this.state;
+        const { tokenType,network, antiBot } = this.state;
         let networkButton;
         let poolFee;
         let createFee;
@@ -1493,11 +1504,11 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 {createTokenInfo}
 
                                 <div className='form-check mt-3'>
-                                    <input className='form-check-input onImplementpinkantisystem' type='checkbox' value='' id='flexCheckDefault'/>
-                                    <label className='form-check-label' htmlFor='flexCheckDefault'>
-                                    <small>Implement Pink Anti-Bot System?</small>
+                                    <input className='form-check-input onImplementpinkantisystem' value={antiBot} onChange={this.handleChangeAntiBot} type='checkbox' id='antiBot'/>
+                                    <label className='form-check-label ml-2' htmlFor='antiBot'>
+                                        <small>Implement Pink Anti-Bot System?</small>
                                     </label>
-                                    <p className='mt-2 implementpinkinformation'>Please visit <a className='text-success' target='_self'><strong>https://www.crypter.com/#antibot</strong></a> to active Pink Anti-Bot after creating the token. Check out the tutorial here: <a className='text-success' target='_self'><strong>https://www.crypter.com/pink-anti-bot/pink-anti-bot-guide</strong></a></p>
+                                    {antiBot && <p className='mt-2 implementpinkinformation'>Please visit <a className='text-success' target='_self'><strong>https://www.crypter.com/#antibot</strong></a> to active Pink Anti-Bot after creating the token. Check out the tutorial here: <a className='text-success' target='_self'><strong>https://www.crypter.com/pink-anti-bot/pink-anti-bot-guide</strong></a></p>}
                                 </div>
 
                                 <div className='col-lg-12 text-center mt-3'>
