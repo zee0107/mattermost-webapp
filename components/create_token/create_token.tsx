@@ -110,7 +110,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
             if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
             {
                 const balance = await web3Info.eth.getBalance(this.state.account);
-                console.log('Balance: ', web3Info.fromWei(balance, 'ether'));
+                console.log('Balance: ', web3Info.utils.fromWei(balance, 'ether'));
             }
         }
     }
@@ -123,7 +123,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
             if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
             {
                 const balance = await web3Info.eth.getBalance(this.state.account);
-                console.log('Balance: ', web3Info.fromWei(balance, 'ether'));
+                console.log('Balance: ', web3Info.utils.fromWei(balance, 'ether'));
             }
         }
     }
