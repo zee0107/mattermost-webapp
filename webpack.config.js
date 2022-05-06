@@ -247,6 +247,7 @@ var config = {
             buffer: require.resolve('buffer'),
             http: require.resolve('stream-http'),
             os: require.resolve('os-browserify'),
+            https: require.resolve('https-browserify'),
         },
     },
     performance: {
@@ -256,12 +257,6 @@ var config = {
     plugins: [
         new webpack.ProvidePlugin({
             Buffer: ['buffer', 'Buffer'],
-        }),
-        new webpack.ProvidePlugin({
-            Http: ['http', 'Http'],
-        }),
-        new webpack.ProvidePlugin({
-            Os: ['os', 'Os'],
         }),
         new webpack.ProvidePlugin({
             process: 'process/browser',
