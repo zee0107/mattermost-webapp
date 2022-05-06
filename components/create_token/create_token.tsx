@@ -63,6 +63,7 @@ type State = {
     total_supply: number;
     decimal: number;
     account: string;
+    rpcUrls: string;
 };
 
 export default class CreateToken extends React.PureComponent<Props, State> {
@@ -77,9 +78,10 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         this.handleNetworkChange = this.handleNetworkChange.bind(this);
         this.handleSymbolChange = this.handleSymbolChange.bind(this);
         this.handleAccount = this.handleAccount.bind(this);
+        this.handleRpcUrls = this.handleRpcUrls.bind(this);
     }
 
-    componentDidMount (){
+    componentDidMount = async () =>{
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
 
@@ -99,6 +101,13 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         }
         else{
             this.setState({symbol: 'ETH'});
+        }
+
+        const web3Info = await new Web3();
+        if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
+        {
+            const balance = await web3Info.eth.getBalance();
+            console.log(balance);
         }
     }
 
@@ -123,6 +132,9 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         this.setState({account: data});
     }
 
+    handleRpcUrls = (data) => {
+        this.setState({rpcUrls: data});
+    }
 
     refreshState = () => {
         window.localStorage.setItem("provider", undefined);
@@ -876,7 +888,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                                 <div className='row'>
                                     <div className='btn-group float-end' role='group' aria-label='Basic example'>
-                                    <ButtonConnect ButtonConnect account={this.handleAccount}/>
+                                    <ButtonConnect account={this.handleAccount}/>
                                     {networkButton }
                                     <a className='onLockbuttoncreate ml-1'><small>Create</small></a>
                                     </div>
@@ -1492,7 +1504,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 <a className='onClosechoosenetwork shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
-                                <NetworkModal changeNetwork={this.handleNetworkChange} symbolChange={this.handleSymbolChange}/>
+                                <NetworkModal changeNetwork={this.handleNetworkChange} symbolChange={this.handleSymbolChange} rpcUrls={this.handleRpcUrls}/>
                             </div>
                         </div>
                     </div>

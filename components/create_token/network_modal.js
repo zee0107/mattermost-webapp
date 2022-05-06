@@ -45,8 +45,10 @@ export default function NetworkModal (props){
               });
               props.changeNetwork(id);
               props.symbolChange(networkParams[id].nativeCurrency.symbol);
+              props.rpcUrls(networkParams[id].rpcUrls);
               window.localStorage.setItem('chainNetwork',id);
               window.localStorage.setItem('chainSymbol',networkParams[id].nativeCurrency.symbol);
+              window.localStorage.setItem('chainUrl',networkParams[id].rpcUrls);
             } catch (switchError) {
               if (switchError.code === 4902) {
                 try {
@@ -55,9 +57,11 @@ export default function NetworkModal (props){
                         params: [networkParams[toHex(paramId)]]
                     });
                     props.changeNetwork(id);
-                    props.symbolChange(networkParams[id].nativeCurrency.symbol);
+                    props.symbolChange(networkParams[id].nativeCurrency.symbol);+
+                    props.rpcUrls(networkParams[id].rpcUrls);
                     window.localStorage.setItem('chainNetwork',id);
                     window.localStorage.setItem('chainSymbol',networkParams[id].nativeCurrency.symbol);
+                    window.localStorage.setItem('chainUrl',networkParams[id].rpcUrls);
                 } catch (error) {
                   setError(error);
                 }

@@ -13,7 +13,7 @@ export default function ButtonConnect(props){
         deactivate,
         active
     } = useWeb3React();
-
+    props.account(account);
     const refreshState = () => {
         window.localStorage.setItem("provider", undefined);
     };
@@ -25,7 +25,7 @@ export default function ButtonConnect(props){
 
     useEffect(() => {
         const provider = window.localStorage.getItem("provider");
-        if (provider) {activate(connectors[provider]); props.account(account);}
+        if (provider) {activate(connectors[provider]);}
       }, []);
 
     return (
