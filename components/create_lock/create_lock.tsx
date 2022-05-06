@@ -341,7 +341,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
                                         <option value='babytoken'>Baby Token</option>
                                         <option value='BuybackBabyToken'>Buyback Baby Token</option>
                                     </select>
-                                    <small>Fee: 0.2 BNB</small>
+                                    <small>Fee: 0.2 {this.state.symbol}</small>
                                 </div>
 
                                 <div className='mb-3'>
