@@ -64,6 +64,7 @@ type State = {
     decimal: number;
     account: string;
     rpcUrls: string;
+    balance: float;
 };
 
 export default class CreateToken extends React.PureComponent<Props, State> {
@@ -110,7 +111,10 @@ export default class CreateToken extends React.PureComponent<Props, State> {
             if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
             {
                 const balance = await web3Info.eth.getBalance(this.state.account);
-                console.log('Balance: ', web3Info.utils.fromWei(balance, 'ether'));
+                if(balance !== undefined && balance !== null){
+                    const covertedBal = web3Info.utils.fromWei(balance, 'ether');
+                    this.setState({balance: covertedBal});
+                }
             }
         }
     }
@@ -123,7 +127,10 @@ export default class CreateToken extends React.PureComponent<Props, State> {
             if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
             {
                 const balance = await web3Info.eth.getBalance(this.state.account);
-                console.log('Balance: ', web3Info.utils.fromWei(balance, 'ether'));
+                if(balance !== undefined && balance !== null){
+                    const covertedBal = web3Info.utils.fromWei(balance, 'ether');
+                    this.setState({balance: covertedBal});
+                }
             }
         }
     }
@@ -348,7 +355,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                     <div className='row'>
                         <div className='col-12'>
                             {/*<a className='onLockbuttoncreate float-end mr-1' data-toggle='modal' data-target='#staticBackdropConnect'><small>Connect</small></a>*/}
-                            <ButtonConnect account={this.handleAccount}/>
+                            <ButtonConnect account={this.handleAccount} balance={`${this.state.balance} ${this.state.symbol}`}/>
                             {networkButton }
                             <a className="onLockbuttoncreate float-end ml-1" data-toggle='modal' data-target='#staticBackdropCreateToken'><small>Create</small></a>
                         </div>
@@ -896,7 +903,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                                 <div className='row'>
                                     <div className='btn-group float-end' role='group' aria-label='Basic example'>
-                                    <ButtonConnect account={this.handleAccount}/>
+                                    <ButtonConnect account={this.handleAccount} balance={`${this.state.balance} ${this.state.symbol}`}/>
                                     {networkButton }
                                     <a className='onLockbuttoncreate ml-1'><small>Create</small></a>
                                     </div>
