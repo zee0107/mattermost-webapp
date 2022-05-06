@@ -382,8 +382,8 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             errorClass: null,
             serverError: null,
             currentChannel: {},
-            channelId: 'kqe4sihhdid47gprhk6dwbuc4o',
-            //channelId: 'dodurztr1fbupnpenjgxqjso3a',
+            //channelId: 'kqe4sihhdid47gprhk6dwbuc4o',
+            channelId: 'dodurztr1fbupnpenjgxqjso3a',
             uploading: false,
         };
 
