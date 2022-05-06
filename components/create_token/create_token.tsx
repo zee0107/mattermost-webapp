@@ -79,17 +79,10 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         this.handleAccount = this.handleAccount.bind(this);
     }
 
-    componentDidMount = async () =>{
+    componentDidMount (){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
 
-        const web3Info = await new Web3();
-        if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
-        {
-            const balance = await web3Info.eth.getBalance();
-            console.log(balance);
-        }
-        
         const savedNetwork = window.localStorage.getItem('chainNetwork');
         if(savedNetwork !== undefined && savedNetwork !== null && savedNetwork !== '')
         {
@@ -106,6 +99,15 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         }
         else{
             this.setState({symbol: 'ETH'});
+        }
+    }
+
+    componentDidUpdate = async () => {
+        const web3Info = await new Web3();
+        if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
+        {
+            const balance = await web3Info.eth.getBalance();
+            console.log(balance);
         }
     }
 
