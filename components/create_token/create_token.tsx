@@ -55,7 +55,7 @@ type State = {
     img_path: string;
     tokenType: string;
     network: string;
-    sysmbol: string;
+    symbol: string;
 };
 
 export default class CreateToken extends React.PureComponent<Props, State> {
@@ -64,7 +64,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,tokenType:'standard_token',sysmbol: 'ETH'};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,tokenType:'standard_token',symbol: 'ETH'};
 
         this.changeTokenType = this.changeTokenType.bind(this);
         this.handleNetworkChange = this.handleNetworkChange.bind(this);
@@ -86,10 +86,10 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         const savedSymbol = window.localStorage.getItem('chainSymbol');
         if(savedSymbol !== undefined && savedSymbol !== null && savedSymbol !== '')
         {
-            this.setState({sysmbol: savedSymbol});
+            this.setState({symbol: savedSymbol});
         }
         else{
-            this.setState({sysmbol: 'ETH'});
+            this.setState({symbol: 'ETH'});
         }
     }
 
@@ -98,7 +98,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
     }
 
     handleSymbolChange = (data) => {
-        this.setState({sysmbol: data});
+        this.setState({symbol: data});
     }
 
     refreshState = () => {
@@ -306,7 +306,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 </div>
 
                                 <div className='col-12 mt-2'>
-                                    <small className='float-start mt-1'>Create pool fee: 0.1 {this.state.sysmbol}</small>
+                                    <small className='float-start mt-1'>Create pool fee: 0.1 {this.state.symbol}</small>
                                     <button type='button' className='btn-sm btn-create-token float-end onCreatetokens' data-toggle='modal' data-target='#staticBackdropCreateToken'>Create token</button>
                                 </div>
 
@@ -317,7 +317,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='form-check'>
                                         <input className='form-check-input onBnbcurrency mr-1' type='radio' name='flexRadioDefault' id='flexRadioDefault1' checked/>
                                         <label className='form-check-label ms-1' htmlFor='flexRadioDefault1'>
-                                            {this.state.sysmbol}
+                                            {this.state.symbol}
                                         </label>
                                     </div>
                                     {/*<div className='form-check'>
@@ -334,7 +334,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     </div>*/}
                                     <p>
                                     <small>Users will pay with 
-                                        <span className='currencytypebnb'>&nbsp;{this.state.sysmbol}&nbsp;</span> 
+                                        <span className='currencytypebnb'>&nbsp;{this.state.symbol}&nbsp;</span> 
                                         <span className='currencytypebusd'>&nbsp;BUSD&nbsp;</span> 
                                         <span className='currencytypeusdt'>&nbsp;USDT&nbsp;</span>
                                         for your token</small>
@@ -346,13 +346,13 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='form-check'>
                                         <input className='form-check-input' type='radio' name='feeOptions' id='flexRadioDefault101' checked/>
                                         <label className='form-check-label ml-1' htmlFor='flexRadioDefault101'>
-                                            2%&nbsp;{this.state.sysmbol}&nbsp;raised + 2% token raised
+                                            2%&nbsp;{this.state.symbol}&nbsp;raised + 2% token raised
                                         </label>
                                     </div>
                                     <div className='form-check'>
                                         <input className='form-check-input' type='radio' name='feeOptions' id='flexRadioDefault102'/>
                                         <label className='form-check-label ml-1' htmlFor='flexRadioDefault102'>
-                                            5%&nbsp;{this.state.sysmbol}&nbsp;raised only
+                                            5%&nbsp;{this.state.symbol}&nbsp;raised only
                                         </label>
                                     </div>
                                 </div>
@@ -858,7 +858,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                                             <div className='row mt-2'>
                                             <div className='col-12'>
-                                                <small className='float-start mt-1'>Create pool fee: 1 {this.state.sysmbol}</small>
+                                                <small className='float-start mt-1'>Create pool fee: 1 {this.state.symbol}</small>
                                                 <button type='button' data-toggle='modal' data-target='#staticBackdropCreateToken' className='btn-sm btn-create-token float-end onCreatetokens'>Create token</button>
                                             </div>
                                             </div>
@@ -869,7 +869,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                                 <div className='form-check'>
                                                     <input className='form-check-input onBnbcurrency mr-1' type='radio' name='flexRadioDefault' id='flexRadioDefault1' checked/>
                                                     <label className='form-check-label ms-1' htmlFor='flexRadioDefault1'>
-                                                        {this.state.sysmbol}
+                                                        {this.state.symbol}
                                                     </label>
                                                 </div>
                                                 {/*<div className='form-check'>
@@ -886,7 +886,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                                 </div>*/}
                                                 <p>
                                                 <small>Users will pay with 
-                                                    <span className='currencytypebnb'>&nbsp;{this.state.sysmbol}&nbsp;</span> 
+                                                    <span className='currencytypebnb'>&nbsp;{this.state.symbol}&nbsp;</span> 
                                                     <span className='currencytypebusd'>BUSD</span> 
                                                     <span className='currencytypeusdt'>USDT</span>
                                                     for your token</small>
@@ -899,13 +899,13 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                                 <div className='form-check'>
                                                     <input className='form-check-input' type='radio' name='feeOptions' id='flexRadioDefault101' checked/>
                                                     <label className='form-check-label ml-1' htmlFor='flexRadioDefault101'>
-                                                        2%&nbsp;{this.state.sysmbol}&nbsp;raised + 2% token raised
+                                                        2%&nbsp;{this.state.symbol}&nbsp;raised + 2% token raised
                                                     </label>
                                                 </div>
                                                 <div className='form-check'>
                                                     <input className='form-check-input' type='radio' name='feeOptions' id='flexRadioDefault102'/>
                                                     <label className='form-check-label ml-1' htmlFor='flexRadioDefault102'>
-                                                        5%&nbsp;{this.state.sysmbol}&nbsp;raised only
+                                                        5%&nbsp;{this.state.symbol}&nbsp;raised only
                                                     </label>
                                                 </div>
                                             </div>
