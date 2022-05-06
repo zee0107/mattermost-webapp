@@ -12,6 +12,8 @@ import SelectWalletModal from "components/create_token/Modal";
 import ButtonConnect from "components/create_token/button_connect";
 import NetworkModal from "components/create_token/network_modal";
 
+import Web3 from 'web3';
+
 import homeImage from 'images/homeFeed.png';
 import CronosImg from 'images/launchpad/network/ic-cronos.5a2dbab3.svg';
 import FantomImg from 'images/launchpad/network/ic-fantom.306f76f9.svg';
