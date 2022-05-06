@@ -78,7 +78,7 @@ export default class LaunchPad extends React.PureComponent<Props, State> {
         this.handleRpcUrls = this.handleRpcUrls.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount = async () =>{
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
 
