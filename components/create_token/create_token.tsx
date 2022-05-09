@@ -1339,56 +1339,51 @@ export default class CreateToken extends React.PureComponent<Props, State> {
             <>
                 <div className='crypter-section-desktop' id="crypter-section" >
                     <div className='container'>
-                    <div className='row'>
-                        <div className='col-12'>
-                            {/*<a className='onLockbuttoncreate float-end mr-1' data-toggle='modal' data-target='#staticBackdropConnect'><small>Connect</small></a>*/}
-                            <ButtonConnect account={this.handleAccount} balance={`${this.state.balance} ${this.state.symbol}`}/>
-                            {networkButton }
-                            <a className="onLockbuttoncreate float-end ml-1" data-toggle='modal' data-target='#staticBackdropCreateToken'><small>Create</small></a>
+                        <div className='row'>
+                            <div className='col-12'>
+                                {/*<a className='onLockbuttoncreate float-end mr-1' data-toggle='modal' data-target='#staticBackdropConnect'><small>Connect</small></a>*/}
+                                <ButtonConnect account={this.handleAccount} balance={`${this.state.balance} ${this.state.symbol}`}/>
+                                {networkButton }
+                                <a className="onLockbuttoncreate float-end ml-1" data-toggle='modal' data-target='#staticBackdropCreateToken'><small>Create</small></a>
+                            </div>
                         </div>
-                    </div>
-                    <div className='d-flex mb-2'>
-                        <div className='col-1 mt-3 mr-3'><span className='count-steps rounded-circle text-white'>1</span></div>
-                        <div className='col-11'>
-                            <h4 className='mt-2 mb-3'>Verify Token</h4>
-                            <p>Enter the token address and verify</p>
+                        <div className='d-flex mb-2'>
+                            <div className='col-1 mt-3 mr-3'><span className='count-steps rounded-circle text-white'>1</span></div>
+                            <div className='col-11'>
+                                <h4 className='mt-2 mb-3'>Verify Token</h4>
+                                <p>Enter the token address and verify</p>
+                            </div>
                         </div>
-                    </div>
-                    {step1RenderDesktop}
-                   
-
-                    <div className='d-flex mt-4'>
-                        <div className='col-1 mt-3 mr-3'>
-                            <span className='count-steps-defaults border border-1 rounded-circle text-dark'>2</span>
+                        {step1RenderDesktop}
+                        <div className='d-flex mt-4'>
+                            {step === 2 ? <div className='col-1 mt-3 mr-3'><span className='count-steps rounded-circle text-white'>2</span></div> : <div className='col-1 mt-3 mr-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>2</span></div>}
+                            <div className='col-11'>
+                                <h4 className='mt-2 mb-3'>Defi Launchpad Info</h4>
+                                <p>Enter the launchpad information that you want to raise , that should be enter all details about your presale</p>
+                            </div>
                         </div>
-                        <div className='col-11'>
-                            <h4 className='mt-2 mb-3'>Defi Launchpad Info</h4>
-                            <p>Enter the launchpad information that you want to raise , that should be enter all details about your presale</p>
+                        {step2RenderDesktop}
+                        <div className='d-flex mt-4'>
+                            {step === 3 ? <div className='col-1 mt-3 mr-3'><span className='count-steps rounded-circle text-white'>3</span></div> : <div className='col-1 mt-3 mr-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>3</span></div>}
+                            <div className='col-11'>
+                                <h4 className='mt-2 mb-3'>Additional Info</h4>
+                                <p>Let people know who you are</p>
+                            </div>
                         </div>
-                    </div>
-                    {step2RenderDesktop}
-                    <div className='d-flex mt-4'>
-                        <div className='col-1 mt-3 mr-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>3</span></div>
-                        <div className='col-11'>
-                            <h4 className='mt-2 mb-3'>Additional Info</h4>
-                            <p>Let people know who you are</p>
+                        {step3RenderDesktop}
+                        <div className='d-flex mt-4'>
+                            {step === 4 ? <div className='col-1 mt-3 mr-3'><span className='count-steps rounded-circle text-white'>4</span></div> : <div className='col-1 mt-3 mr-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>4</span></div>}
+                            <div className='col-11'>
+                                <h4 className='mt-2 mb-3'>Finish</h4>
+                                <p>Review your information</p>
+                            </div>
                         </div>
-                    </div>
-                    {step3RenderDesktop}
-                    <div className='d-flex mt-4'>
-                        <div className='col-1 mt-3 mr-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>4</span></div>
-                        <div className='col-11'>
-                            <h4 className='mt-2 mb-3'>Finish</h4>
-                            <p>Review your information</p>
+                        {step4RenderDesktop}
+                        <div className='row'>
+                            <div className='col-11 mx-auto text-center mt-4 mb-4'>
+                                <small>Disclaimer: The information provided shall not in any way constitute a recommendation as to whether you should invest in any product discussed. We accept no liability for any loss occasioned to any person acting or refraining from action as a result of any material provided or published.</small>
+                            </div>
                         </div>
-                    </div>
-                    {step4RenderDesktop}
-                    <div className='row'>
-                        <div className='col-11 mx-auto text-center mt-4 mb-4'>
-                            <small>Disclaimer: The information provided shall not in any way constitute a recommendation as to whether you should invest in any product discussed. We accept no liability for any loss occasioned to any person acting or refraining from action as a result of any material provided or published.</small>
-                        </div>
-                    </div>
-
                     </div>
                 </div>
                 <div id='crypter-section-mobile' className='crypter-section-mobile'>
