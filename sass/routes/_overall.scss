@@ -80,6 +80,61 @@ p {
   //font-family: "Montserrat-Regular";
   font-size: 12px;
 }
+.infoclaim {
+  display: none;
+}
+.onInfo, .onOwnerzone {
+  cursor: pointer;
+}
+.temvestingforms, .usingvestinglockup {
+  display: none;
+}
+.active-docs {
+  background: #DAFDC4;
+  padding: 9px 11px 11px 11px;
+  width: 100%;
+  border-left: 4px solid #000;
+}
+.darkmodeandlightsmode {
+  z-index: 150;
+}
+.onLightsmoredocsoff {
+  display: none;
+}
+.onLightsmoredocsoff {
+  display: none;
+  cursor: pointer;
+}
+.onLightsmoredocson {
+  cursor: pointer;
+}
+.onDarkmoredocson, .onDarkmoredocsoff {
+  cursor: pointer;
+}
+.onDarkmoredocsoff {
+  display: none;
+}
+.bi-moon-fill-style {
+  font-size: 24px;
+}
+.free-option-three, .free-option-two {
+  display: none;
+}
+.bi-search-style {
+  font-size: 15px;
+}
+.search-docs-title {
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid #DDE2E6;
+
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
 .onCopyurl {
   cursor: pointer;
 }
@@ -102,6 +157,9 @@ p {
   border-radius: 3px;
   border: 1px solid #222;
   cursor: pointer;
+}
+.implementpinkinformation {
+  display: none;
 }
 .onImplementpinkantisystem {
   cursor: pointer;
@@ -3985,7 +4043,6 @@ padding: 14px 3px 14px 3px;
 .person-heart-fill-style {
   font-size: 13px;
 }
-.box-middle-panel {
   background: #ffffff;
   border-radius: 19px;
   padding: 10px 14px 10px 14px;
@@ -4135,30 +4192,41 @@ border-radius: 19px;
 cursor: pointer;
 }
 .onSalelivemobile {
-background: #DEF6E7;
-padding: 5px 12px 5px 12px;
-margin: 3px 0px 0px 5px;
-border-radius: 19px;
-cursor: pointer;
+  background: #DEF6E7;
+  padding: 5px 12px 5px 12px;
+  margin: 3px 0px 0px 5px;
+  border-radius: 19px;
+  cursor: pointer;
+  color: #23C562;
 }
 .onAudit {
-background: #DCE8FF;
-padding: 5px 12px 5px 12px;
-border-radius: 19px;
-cursor: pointer;
+  background: #DCE8FF;
+  padding: 5px 12px 5px 12px;
+  border-radius: 19px;
+  cursor: pointer;
+  color: #226DFF;
 }
 .onSalelive {
-background: #DEF6E7;
-padding: 5px 12px 5px 12px;
-margin: 0px 0px 0px 5px;
-border-radius: 19px;
-cursor: pointer;
+  background: #DEF6E7;
+  padding: 5px 12px 5px 12px;
+  margin: 0px 0px 0px 5px;
+  border-radius: 19px;
+  cursor: pointer;
+  color: #23C562;
 }
 .launchpad-token-body-kyc-audit {
-background: #ffffff;
-padding: 12px 12px 12px 12px;
-margin: 0px 0px 0px 0px;
-border-radius: 19px;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 12px 12px 12px 12px;
+  margin: 0px 0px 0px 0px;
+  border-radius: 6px;
+}
+.launchpad-token-body-kyc-audit:hover {
+  background: #ffffff;
+  border: 1px solid #97D872;
+  padding: 12px 12px 12px 12px;
+  margin: 0px 0px 0px 0px;
+  border-radius: 6px;
 }
 .bi-arrow-left-previews-style {
 font-size: 16px;
@@ -4304,6 +4372,14 @@ border-radius: 9px;
 padding: 8px 27px 8px 27px;
 color: #33C855;
 font-size: 12px;
+}
+.onLockbuttoncreatenormalbnbsmartchain {
+  background: #ffffff;
+  border: 1px solid #33C855;
+  border-radius: 9px;
+  padding: 8px 27px 8px 27px;
+  color: #33C855;
+  font-size: 12px;
 }
 .onLockbuttongoback {
 background: #ffffff;

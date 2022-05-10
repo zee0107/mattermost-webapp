@@ -203,9 +203,9 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                         <p>
                             <img className='img-fluid float-start rounded-circle border-info' width='45' src={EthImg}/>
                             <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src={BscImg}/>
-                            <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
+                            <a className='float-start ml-2'><strong>Lorem Ipsum</strong></a>
                             <br/>
-                            <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
+                            <a href='#' className='ml-2'><small className='text-muted'>LEP / EHP</small></a>
                         </p>
                         </div>
                         <div className='col-md-4'><small>900.5320 LEP</small></div>
@@ -216,9 +216,9 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                         <p>
                             <img className='img-fluid float-start rounded-circle border-info' width='45' src={BscImg}/>
                             <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src={EthImg}/>
-                            <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
+                            <a className='float-start ml-2'><strong>Lorem Ipsum</strong></a>
                             <br/>
-                            <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
+                            <a href='#' className='ml-2'><small className='text-muted'>LEP / EHP</small></a>
                         </p>
                         </div>
                         <div className='col-md-4'><small>900.5320 LEP</small></div>
@@ -229,9 +229,9 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                         <p>
                             <img className='img-fluid float-start rounded-circle border-info' width='45' src={BscImg}/>
                             <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src={EthImg}/>
-                            <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
+                            <a className='float-start ml-2'><strong>Lorem Ipsum</strong></a>
                             <br/>
-                            <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
+                            <a href='#' className='ml-2'><small className='text-muted'>LEP / EHP</small></a>
                         </p>
                         </div>
                         <div className='col-md-4'><small>900.5320 LEP</small></div>
@@ -242,9 +242,9 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                         <p>
                             <img className='img-fluid float-start rounded-circle border-info' width='45' src={EthImg}/>
                             <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src={BscImg}/>
-                            <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
+                            <a className='float-start ml-2'><strong>Lorem Ipsum</strong></a>
                             <br/>
-                            <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
+                            <a href='#' className='ml-2'><small className='text-muted'>LEP / EHP</small></a>
                         </p>
                         </div>
                         <div className='col-md-4'><small>900.5320 LEP</small></div>
@@ -272,9 +272,9 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                             <p>
                                 <img className='img-fluid float-start rounded-circle border-info' width='45' src={EthImg}/>
                                 <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src={BscImg}/>
-                                <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
+                                <a className='float-start ml-2'><strong>Lorem Ipsum</strong></a>
                                 <br/>
-                                <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
+                                <a href='#' className='ml-2'><small className='text-muted'>LEP / EHP</small></a>
                             </p>
                         </div>
                         <div className='col-md-4'><small>900.5320 LEP</small></div>
@@ -285,9 +285,9 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                             <p>
                                 <img className='img-fluid float-start rounded-circle border-info' width='45' src={EthImg}/>
                                 <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src={BscImg}/>
-                                <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
+                                <a className='float-start ml-2'><strong>Lorem Ipsum</strong></a>
                                 <br/>
-                                <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
+                                <a href='#' className='ml-2'><small className='text-muted'>LEP / EHP</small></a>
                             </p>
                         </div>
                         <div className='col-md-4'><small>900.5320 LEP</small></div>
@@ -298,9 +298,9 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                             <p>
                                 <img className='img-fluid float-start rounded-circle border-info' width='45' src={BscImg}/>
                                 <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src={EthImg}/>
-                                <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
+                                <a className='float-start ml-2'><strong>Lorem Ipsum</strong></a>
                                 <br/>
-                                <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
+                                <a href='#' className='ml-2'><small className='text-muted'>LEP / EHP</small></a>
                             </p>
                         </div>
                         <div className='col-md-4'><small>900.5320 LEP</small></div>
@@ -526,7 +526,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                                                     <div className='col-md-5'><h6 className='float-start mt-4'>Liquidity Token</h6></div>
                                                     <div className='col-md-7'>
                                                     <a className='float-end onMylocktoken mt-4'><strong>My Lock</strong></a>
-                                                    <a className='float-end onAlltoken ml-2 mt-4'><strong>All</strong></a>
+                                                    <a className='float-end onAlltoken mr-2 mt-4'><strong>All</strong></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -541,19 +541,14 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                                                     <div className='token-pagination float-end'>
                                                         <a className='float-start'>1 of 4</a>
                                                         <a className='float-end onPaginationnext'><i className='bi-arrow-right text-success'></i></a>
-                                                        <a className='float-end onPaginationprev'><i className='bi-arrow-left ml-2'></i></a>
+                                                        <a className='float-end onPaginationprev'><i className='bi-arrow-left mr-2'></i></a>
                                                     </div>
                                                 </div>
                                             </div>
-                                                <div className='row'>
-                                                    <div className='col-md-11 mx-auto text-center mt-4 mb-4'>
-                                                        <small>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small>
-                                                    </div>
-                                                </div>
                                             </div>
 
                                             <div className='col-lg-12 text-center margin-top-30-responsive'>
-                                                <label className='text-secondary small'>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences.</label>
+                                                <label className='text-secondary small'>Disclaimer: The information provided shall not in any way constitute a recommendation as to whether you should invest in any product discussed. We accept no liability for any loss occasioned to any person acting or refraining from action as a result of any material provided or published.</label>
                                             </div>
                                         </div>
                                     </div>
