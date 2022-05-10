@@ -420,8 +420,8 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                                                     <div className='row p-2'>
                                                         <div className='col-md-5'>
                                                         <p>
-                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src='assets/images/chat-msg-picture.png'/>
-                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src='assets/images/chat-msg-picture-2.png'/>
+                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src={EthImg}/>
+                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src={BscImg}/>
                                                             <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
                                                             <br/>
                                                             <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
@@ -435,8 +435,8 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                                                     <div className='row p-2'>
                                                         <div className='col-md-5'>
                                                         <p>
-                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src='assets/images/chat-msg-picture.png'/>
-                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src='assets/images/chat-msg-picture-5.png'/>
+                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src={BscImg}/>
+                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src={EthImg}/>
                                                             <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
                                                             <br/>
                                                             <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
@@ -450,8 +450,8 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                                                     <div className='row p-2'>
                                                         <div className='col-md-5'>
                                                         <p>
-                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src='assets/images/chat-msg-picture.png'/>
-                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src='assets/images/chat-msg-picture-4.png'/>
+                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src={BscImg}/>
+                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src={EthImg}/>
                                                             <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
                                                             <br/>
                                                             <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
@@ -464,8 +464,8 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                                                     <div className='row p-2'>
                                                         <div className='col-md-5'>
                                                         <p>
-                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src='assets/images/chat-msg-picture.png'/>
-                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src='assets/images/chat-msg-picture-3.png'/>
+                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src={EthImg}/>
+                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src={BscImg}/>
                                                             <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
                                                             <br/>
                                                             <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
@@ -494,8 +494,8 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                                                     <div className='row p-2'>
                                                         <div className='col-md-5'>
                                                         <p>
-                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src='assets/images/chat-msg-picture.png'/>
-                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src='assets/images/chat-msg-picture-4.png'/>
+                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src={EthImg}/>
+                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src={BscImg}/>
                                                             <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
                                                             <br/>
                                                             <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
@@ -508,8 +508,8 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                                                     <div className='row p-2'>
                                                         <div className='col-md-5'>
                                                         <p>
-                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src='assets/images/chat-msg-picture.png'/>
-                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src='assets/images/chat-msg-picture-5.png'/>
+                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src={EthImg}/>
+                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src={BscImg}/>
                                                             <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
                                                             <br/>
                                                             <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
@@ -523,8 +523,8 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                                                     <div className='row p-2'>
                                                         <div className='col-md-5'>
                                                         <p>
-                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src='assets/images/chat-msg-picture.png'/>
-                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src='assets/images/chat-msg-picture-6.png'/>
+                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src={BscImg}/>
+                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src={EthImg}/>
                                                             <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
                                                             <br/>
                                                             <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
