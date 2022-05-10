@@ -379,7 +379,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
             <>
                 <div className='div-bg'>
                     <div className='col-lg-12 bodyBgElipseLaunchpad bgGrey'>
-                        <div>
+                        <div className='crypter-section-desktop'>
                             <div className='col-lg-12 removePadding'>
                                 <div className='row'>
                                     <div className='col-sm-9'>
@@ -389,116 +389,168 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                                                 {networkButton}
                                                 <a className="onLockbuttoncreate float-end ml-1" data-toggle='modal' data-target='#staticBackdropCreateToken'><small>Create</small></a>
                                             </div>
-                                            <br></br>
-                                            <br></br>
+                                            <br/>
+                                            <br/>
                                             <div id='create-lock' className='col-md-12 create-token-box'>
-                                                <div className='col-md-12'>
-                                                    <div className='d-flex'>
-                                                        <div className='width-50'>
-                                                            <h4 className='text-primary'>Token</h4>
-                                                        </div>
-                                                        <div className='width-50 text-end'>
-                                                            <a href='#' className='sidemenu-title-img'><label>All</label></a>
-                                                            <a href='#' className='sidemenu-title-img'><label>My Lock</label></a>
-                                                        </div>
+                                            <div className='launchpad-token'>
+                                                <div className='row'>
+                                                    <div className='col-md-5'><h6 className='float-start mt-4'>Token</h6></div>
+                                                    <div className='col-md-7'>
+                                                    <a className='float-end onMylocktoken mt-4'><strong>My Lock</strong></a>
+                                                    <a className='float-end onAlltoken me-2 mt-4'><strong>All</strong></a>
                                                     </div>
                                                 </div>
-                                                <div className='col-md-12'>
-                                                    <hr></hr>
-                                                    <input type='text' className='form-control custom-token-input' placeholder='Search by Token'></input>
-                                                    <hr></hr>
+                                            </div>
+                                            <div className='launchpad-token-body'>
+                                                <div className='launchpad-token-all'>
+                                                    <hr/>
+                                                    <div className='row'>
+                                                        <div className='col-md-11 mx-auto'>
+                                                            <input type='text' className='form-control input-create-create-lock-text' placeholder='Search by Token Address' aria-label='Search by Token Address'/>
+                                                        </div>
+                                                    </div>
+                                                    <hr/>
+
+                                                    <div className='row p-3'>
+                                                        <div className='col-md-5'><strong><small>Token</small></strong></div>
+                                                        <div className='col-md-4'><strong><small>Amount</small></strong></div>
+                                                        <div className='col-md-3'></div>
+                                                    </div>
+
+                                                    <div className='row p-2'>
+                                                        <div className='col-md-5'>
+                                                        <p>
+                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src='assets/images/chat-msg-picture.png'/>
+                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src='assets/images/chat-msg-picture-2.png'/>
+                                                            <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
+                                                            <br/>
+                                                            <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
+                                                        </p>
+
+                                                        </div>
+                                                        <div className='col-md-4'><small>900.5320 LEP</small></div>
+                                                        <div className='col-md-3 text-center'><a className='onViewtext'>View</a></div>
+                                                    </div>
+
+                                                    <div className='row p-2'>
+                                                        <div className='col-md-5'>
+                                                        <p>
+                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src='assets/images/chat-msg-picture.png'/>
+                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src='assets/images/chat-msg-picture-5.png'/>
+                                                            <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
+                                                            <br/>
+                                                            <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
+                                                        </p>
+
+                                                        </div>
+                                                        <div className='col-md-4'><small>900.5320 LEP</small></div>
+                                                        <div className='col-md-3 text-center'><a className='onViewtext'>View</a></div>
+                                                    </div>
+
+                                                    <div className='row p-2'>
+                                                        <div className='col-md-5'>
+                                                        <p>
+                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src='assets/images/chat-msg-picture.png'/>
+                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src='assets/images/chat-msg-picture-4.png'/>
+                                                            <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
+                                                            <br/>
+                                                            <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
+                                                        </p>
+
+                                                        </div>
+                                                        <div className='col-md-4'><small>900.5320 LEP</small></div>
+                                                        <div className='col-md-3 text-center'><a className='onViewtext'>View</a></div>
+                                                    </div>
+                                                    <div className='row p-2'>
+                                                        <div className='col-md-5'>
+                                                        <p>
+                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src='assets/images/chat-msg-picture.png'/>
+                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src='assets/images/chat-msg-picture-3.png'/>
+                                                            <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
+                                                            <br/>
+                                                            <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
+                                                        </p>
+
+                                                        </div>
+                                                        <div className='col-md-4'><small>900.5320 LEP</small></div>
+                                                        <div className='col-md-3 text-center'><a className='onViewtext'>View</a></div>
+                                                    </div>
                                                 </div>
+                                                <div className='launchpad-my-lock'>
+                                                    <hr/>
+                                                    <div className='row'>
+                                                    <div className='col-md-11 mx-auto'>
+                                                        <input type='text' className='form-control input-create-create-lock-text' placeholder='Search by Token Address' aria-label='Search by Token Address'/>
+                                                    </div>
+                                                    </div>
+                                                    <hr/>
+
+                                                    <div className='row p-3'>
+                                                    <div className='col-md-5'><strong><small>Token</small></strong></div>
+                                                    <div className='col-md-4'><strong><small>Amount</small></strong></div>
+                                                    <div className='col-md-3'></div>
+                                                    </div>
+
+                                                    <div className='row p-2'>
+                                                        <div className='col-md-5'>
+                                                        <p>
+                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src='assets/images/chat-msg-picture.png'/>
+                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src='assets/images/chat-msg-picture-4.png'/>
+                                                            <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
+                                                            <br/>
+                                                            <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
+                                                        </p>
+
+                                                        </div>
+                                                        <div className='col-md-4'><small>900.5320 LEP</small></div>
+                                                        <div className='col-md-3 text-center'><a className='onViewtext'>View</a></div>
+                                                    </div>
+                                                    <div className='row p-2'>
+                                                        <div className='col-md-5'>
+                                                        <p>
+                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src='assets/images/chat-msg-picture.png'/>
+                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src='assets/images/chat-msg-picture-5.png'/>
+                                                            <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
+                                                            <br/>
+                                                            <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
+                                                        </p>
+
+                                                        </div>
+                                                        <div className='col-md-4'><small>900.5320 LEP</small></div>
+                                                        <div className='col-md-3 text-center'><a className='onViewtext'>View</a></div>
+                                                    </div>
+
+                                                    <div className='row p-2'>
+                                                        <div className='col-md-5'>
+                                                        <p>
+                                                            <img className='img-fluid float-start rounded-circle border-info' width='45' src='assets/images/chat-msg-picture.png'/>
+                                                            <img className='img-fluid float-start rounded-circle border-info style-img-liquidity' width='45' src='assets/images/chat-msg-picture-6.png'/>
+                                                            <a className='float-start ms-2'><strong>Lorem Ipsum</strong></a>
+                                                            <br/>
+                                                            <a href='#' className='ms-2'><small className='text-muted'>LEP / EHP</small></a>
+                                                        </p>
+
+                                                        </div>
+                                                        <div className='col-md-4'><small>900.5320 LEP</small></div>
+                                                        <div className='col-md-3 text-center'><a className='onViewtext'>View</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className='launchpad-token-footer'>
+                                                <div className='row'></div>
+                                            </div>
+                                            <div className='row'>
                                                 <div className='col-md-12'>
-                                                    <br></br>
-                                                    <div className='d-flex'>
-                                                        <div className='col-md-5'>
-                                                            <label className='text-primary'>Token</label>
-                                                        </div>
-                                                        <div className='col-md-5'>
-                                                            <label className='text-primary'>Amount</label>
-                                                        </div>
-                                                        <div className='col-md-2'>
-                                                        </div>
+                                                    <div className='token-pagination float-end'>
+                                                        <a className='float-start'>1 of 4</a>
+                                                        <a className='float-end onPaginationnext'><i className='bi-arrow-right text-success'></i></a>
+                                                        <a className='float-end onPaginationprev'><i className='bi-arrow-left me-2'></i></a>
                                                     </div>
-                                                    <br></br>
-                                                    <div className='d-flex'>
-                                                        <div className='col-md-5'>
-                                                            <div className='d-flex'>
-                                                                <div className='col-md-2 removePaddingRight'>
-                                                                    <CurrencyIcon code='BTC'/>
-                                                                </div>
-                                                                <div className='col-md-9 removePaddingLeft'>
-                                                                    <label className='text-primary'>Lorem ipsum</label>
-                                                                    <p className='text-secondary'>LEP</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className='col-md-5'>
-                                                            <label className='text-primary'>900.5320 LEP</label>
-                                                        </div>
-                                                        <div className='col-md-2'>
-                                                            <a href='#' className='text-percent'>View</a>
-                                                        </div>
-                                                    </div>
-                                                    <br></br>
-                                                    <div className='d-flex'>
-                                                        <div className='col-md-5'>
-                                                            <div className='d-flex'>
-                                                                <div className='col-md-2 removePaddingRight'>
-                                                                    <CurrencyIcon code='BTC'/>
-                                                                </div>
-                                                                <div className='col-md-9 removePaddingLeft'>
-                                                                    <label className='text-primary'>Lorem ipsum</label>
-                                                                    <p className='text-secondary'>LEP</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className='col-md-5'>
-                                                            <label className='text-primary'>900.5320 LEP</label>
-                                                        </div>
-                                                        <div className='col-md-2'>
-                                                            <a href='#' className='text-percent'>View</a>
-                                                        </div>
-                                                    </div>
-                                                    <br></br>
-                                                    <div className='d-flex'>
-                                                        <div className='col-md-5'>
-                                                            <div className='d-flex'>
-                                                                <div className='col-md-2 removePaddingRight'>
-                                                                    <CurrencyIcon code='BTC'/>
-                                                                </div>
-                                                                <div className='col-md-9 removePaddingLeft'>
-                                                                    <label className='text-primary'>Lorem ipsum</label>
-                                                                    <p className='text-secondary'>LEP</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className='col-md-5'>
-                                                            <label className='text-primary'>900.5320 LEP</label>
-                                                        </div>
-                                                        <div className='col-md-2'>
-                                                            <a href='#' className='text-percent'>View</a>
-                                                        </div>
-                                                    </div>
-                                                    <br></br>
-                                                    <div className='d-flex'>
-                                                        <div className='col-md-5'>
-                                                            <div className='d-flex'>
-                                                                <div className='col-md-2 removePaddingRight'>
-                                                                    <CurrencyIcon code='BTC'/>
-                                                                </div>
-                                                                <div className='col-md-9 removePaddingLeft'>
-                                                                    <label className='text-primary'>Lorem ipsum</label>
-                                                                    <p className='text-secondary'>LEP</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className='col-md-5'>
-                                                            <label className='text-primary'>900.5320 LEP</label>
-                                                        </div>
-                                                        <div className='col-md-2'>
-                                                            <a href='#' className='text-percent'>View</a>
-                                                        </div>
+                                                </div>
+                                            </div>
+                                                <div className='row'>
+                                                    <div className='col-md-11 mx-auto text-center mt-4 mb-4'>
+                                                        <small>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -516,6 +568,10 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div className='crypter-section-mobile'>
+                            
                         </div>
                     </div>
                 </div>
