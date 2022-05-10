@@ -774,7 +774,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                     </div>
                 </div>
                 <div className='crypter-section-mobile'>
-                    <div className='margin-top-20'>
+                    <div>
                         <div className='removePadding'>
                             <ButtonConnect account={this.handleAccount} balance={`${this.state.balance} ${this.state.symbol}`}/>
                             {networkButton}
@@ -805,7 +805,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                         </div>
                         <div className='row'>
                             <div className='col-md-11 mx-auto text-center mt-4 mb-4'>
-                                <small>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small>
+                                <small>Disclaimer: The information provided shall not in any way constitute a recommendation as to whether you should invest in any product discussed. We accept no liability for any loss occasioned to any person acting or refraining from action as a result of any material provided or published.</small>
                             </div>
                         </div>
                     </div>

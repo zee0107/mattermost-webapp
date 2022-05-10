@@ -33,8 +33,8 @@ function makeMapStateToProps() {
         const currentUser = getCurrentUser(state);
         const currentTeam = getCurrentTeam(state);
         const userId = currentUser?.id;
-        const teamId = 'u57ytznuttyzbgapem9sqj4oyc'
-        //const teamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
+        //const teamId = 'u57ytznuttyzbgapem9sqj4oyc'
+        const teamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
         return {
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
