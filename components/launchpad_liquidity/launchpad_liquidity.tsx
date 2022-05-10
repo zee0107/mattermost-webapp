@@ -262,12 +262,12 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                     </div>
                     <hr />
                     <div className='box-token-mobile'>
-                        <div className='row'>
+                        <div className='d-flex'>
                             <div className='col-md-1 text-center'>
                             <img width='50' className='float-start rounded-circle border-info mt-3' src={EthImg} />
                             <img width='50' className='float-start rounded-circle border-info style-img-liquidity-mobile' src={BscImg} />
                             </div>
-                            <div className='col-md-7'>
+                            <div className='col-md-7 width-100'>
                             <p className='mt-3'>
                                 <a className='text-start ml-5'><strong className='text-muted'>Token</strong></a>
                                 <br />
@@ -276,7 +276,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                                 <a href='#' className='ml-5'><label className='text-muted'>LEP / EHP</label></a>
                             </p>
                             </div>
-                            <div className='col-md-4'>
+                            <div className='col-md-4 width-50'>
                             <p className='mt-3'>
                                 <a className='text-start ml-0'><strong className='text-muted'>Amount</strong></a>
                                 <br />
@@ -285,16 +285,16 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                             </div>
                         </div>
                     <div className='row'>
-                        <p><a className='onViewtextmobile float-end'>View</a></p>
+                        <p><a className='onViewtextmobile mr-4 float-end'>View</a></p>
                     </div>
                     </div>
                     <div className='box-token-mobile'>
-                    <div className='row'>
+                    <div className='d-flex'>
                         <div className='col-md-1 text-center'>
                         <img width='50' className='float-start rounded-circle border-info mt-3' src={AvaxImg} />
                         <img width='50' className='float-start rounded-circle border-info style-img-liquidity-mobile' src={EthImg} />
                         </div>
-                        <div className='col-md-7'>
+                        <div className='col-md-7 width-100'>
                         <p className='mt-3'>
                             <a className='text-start ml-5'><strong className='text-muted'>Token</strong></a>
                             <br />
@@ -303,7 +303,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                             <a href='#' className='ml-5'><label className='text-muted'>LEP / EHP</label></a>
                         </p>
                         </div>
-                        <div className='col-md-4'>
+                        <div className='col-md-4 width-50'>
                         <p className='mt-3'>
                             <a className='text-start ml-0'><strong className='text-muted'>Amount</strong></a>
                             <br />
@@ -312,16 +312,16 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                         </div>
                     </div>
                     <div className='row'>
-                        <p><a className='onViewtextmobile float-end'>View</a></p>
+                        <p><a className='onViewtextmobile mr-4 float-end'>View</a></p>
                     </div>
                     </div>
                     <div className='box-token-mobile'>
-                    <div className='row'>
+                    <div className='d-flex'>
                         <div className='col-md-1 text-center'>
                         <img width='50' className='float-start rounded-circle border-info mt-3' src={EthImg} />
                         <img width='50' className='float-start rounded-circle border-info style-img-liquidity-mobile' src={BscImg} />
                         </div>
-                        <div className='col-md-7'>
+                        <div className='col-md-7 width-100'>
                         <p className='mt-3'>
                             <a className='text-start ml-5'><strong className='text-muted'>Token</strong></a>
                             <br />
@@ -330,7 +330,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                             <a href='#' className='ml-5'><label className='text-muted'>LEP / EHP</label></a>
                         </p>
                         </div>
-                        <div className='col-md-4'>
+                        <div className='col-md-4 width-50'>
                         <p className='mt-3'>
                             <a className='text-start ml-0'><strong className='text-muted'>Amount</strong></a>
                             <br />
@@ -339,16 +339,16 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                         </div>
                     </div>
                     <div className='row'>
-                        <p><a className='onViewtextmobile float-end'>View</a></p>
+                        <p><a className='onViewtextmobile mr-4 float-end'>View</a></p>
                     </div>
                     </div>
                     <div className='box-token-mobile'>
-                    <div className='row'>
+                    <div className='d-flex'>
                         <div className='col-md-1 text-center'>
                         <img width='50' className='float-start rounded-circle border-info mt-3' src={BscImg} />
                         <img width='50' className='float-start rounded-circle border-info style-img-liquidity-mobile' src={EthImg} />
                         </div>
-                        <div className='col-md-7'>
+                        <div className='col-md-7 width-100'>
                         <p className='mt-3'>
                             <a className='text-start ml-5'><strong className='text-muted'>Token</strong></a>
                             <br />
@@ -357,7 +357,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                             <a href='#' className='ml-5'><label className='text-muted'>LEP / EHP</label></a>
                         </p>
                         </div>
-                        <div className='col-md-4'>
+                        <div className='col-md-4 width-50'>
                         <p className='mt-3'>
                             <a className='text-start ml-0'><strong className='text-muted'>Amount</strong></a>
                             <br />
@@ -366,7 +366,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                         </div>
                     </div>
                     <div className='row'>
-                        <p><a className='onViewtextmobile float-end'>View</a></p>
+                        <p><a className='onViewtextmobile mr-4 float-end'>View</a></p>
                     </div>
                     </div>
                 </div>
@@ -437,12 +437,12 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                     </div>
                     <hr />
                     <div className='box-token-mobile'>
-                        <div className='row'>
+                        <div className='d-flex'>
                             <div className='col-md-1 text-center'>
                                 <img width='50' className='float-start rounded-circle border-info mt-3' src={AvaxImg} />
                                 <img width='50' className='float-start rounded-circle border-info style-img-liquidity-mobile' src={BscImg} />
                             </div>
-                            <div className='col-md-7'>
+                            <div className='col-md-7 width-100'>
                                 <p className='mt-2'>
                                     <a className='text-start ml-5'><strong className='text-muted'>Token</strong></a>
                                     <br />
@@ -451,7 +451,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                                     <a href='#' className='ml-5'><label className='text-muted'>LEP / EHP</label></a>
                                 </p>
                             </div>
-                            <div className='col-md-4'>
+                            <div className='col-md-4 width-50'>
                                 <p className='mt-2'>
                                     <a className='text-start ml-2'><strong className='text-muted'>Amount</strong></a>
                                     <br />
@@ -460,16 +460,16 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                             </div>
                         </div>
                         <div className='row'>
-                            <p><a className='onViewtextmobile float-end'>View</a></p>
+                            <p><a className='onViewtextmobile mr-4 float-end'>View</a></p>
                         </div>
                     </div>
                     <div className='box-token-mobile'>
-                        <div className='row'>
+                        <div className='d-flex'>
                             <div className='col-md-1 text-center'>
                                 <img width='50' className='float-start rounded-circle border-info mt-3' src={BscImg} />
                                 <img width='50' className='float-start rounded-circle border-info style-img-liquidity-mobile' src={EthImg} />
                             </div>
-                            <div className='col-md-7'>
+                            <div className='col-md-7 width-100'>
                                 <p className='mt-2'>
                                     <a className='text-start ml-5'><strong className='text-muted'>Token</strong></a>
                                     <br />
@@ -478,7 +478,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                                     <a href='#' className='ml-5'><label className='text-muted'>LEP / EHP</label></a>
                                 </p>
                             </div>
-                            <div className='col-md-4'>
+                            <div className='col-md-4 width-50'>
                                 <p className='mt-2'>
                                     <a className='text-start ml-2'><strong className='text-muted'>Amount</strong></a>
                                     <br />
@@ -487,16 +487,16 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                             </div>
                         </div>
                         <div className='row'>
-                            <p><a className='onViewtextmobile float-end'>View</a></p>
+                            <p><a className='onViewtextmobile mr-4 float-end'>View</a></p>
                         </div>
                     </div>
                     <div className='box-token-mobile'>
-                        <div className='row'>
+                        <div className='d-flex'>
                             <div className='col-md-1 text-center'>
                                 <img width='50' className='float-start rounded-circle border-info mt-3' src={EthImg} />
                                 <img width='50' className='float-start rounded-circle border-info style-img-liquidity-mobile' src={BscImg} />
                             </div>
-                            <div className='col-md-7'>
+                            <div className='col-md-7 width-100'>
                                 <p className='mt-2'>
                                     <a className='text-start ml-5'><strong className='text-muted'>Token</strong></a>
                                     <br />
@@ -505,7 +505,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                                     <a href='#' className='ml-5'><label className='text-muted'>LEP / EHP</label></a>
                                 </p>
                             </div>
-                            <div className='col-md-4'>
+                            <div className='col-md-4 width-50'>
                                 <p className='mt-2'>
                                     <a className='text-start ml-2'><strong className='text-muted'>Amount</strong></a>
                                     <br />
@@ -514,7 +514,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                             </div>
                         </div>
                         <div className='row'>
-                            <p><a className='onViewtextmobile float-end'>View</a></p>
+                            <p><a className='onViewtextmobile mr-4 float-end'>View</a></p>
                         </div>
                     </div>
                 </div>
@@ -784,7 +784,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                         <br/>
                         <div className='launchpad-token-mobile'>
                             <div className='row'>
-                                <div className='col-md-5'><h6 className='float-start mt-4'>Token</h6></div>
+                                <div className='col-md-5'><h4 className='float-start mt-4'>Liquidity Token</h4></div>
                                 <div className='col-md-7'>
                                 <a className='float-end onMylocktoken mt-4 onViewTe4 onViewtextmobile' onClick={() => { this.setState({filter:'mylock'}); }}><strong>My Lock</strong></a>
                                 <a className='float-end onAlltoken mr-2 mt-4 onViewtextmobile' onClick={() => { this.setState({filter:'all'}); }}><strong>All</strong></a>
