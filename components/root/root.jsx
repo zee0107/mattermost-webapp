@@ -59,6 +59,7 @@ const LazyNewsFeed = React.lazy(() => import('components/newsfeed'));
 const LazyGroup = React.lazy(() => import('components/groups'));
 const LazyLaunchPad = React.lazy(() => import('components/launch_pad'));
 const LazyLaunchPadToken = React.lazy(() => import('components/launchpad_token'));
+const LazyLaunchPadLiquidity = React.lazy(() => import('components/launchpad_liquidity'));
 const LazyLaunchPadLive = React.lazy(() => import('components/launchpad_live'));
 const LazyLaunchPadUpcoming = React.lazy(() => import('components/launchpad_upcoming'));
 const LazyLaunchPadCreateToken = React.lazy(() => import('components/launchpad_createtoken'));
@@ -105,6 +106,7 @@ const NewsFeed = makeAsyncComponent('Newsfeed', LazyNewsFeed);
 const Groups = makeAsyncComponent('Group', LazyGroup);
 const LaunchPad = makeAsyncComponent('LaunchPad', LazyLaunchPad);
 const LaunchPadToken = makeAsyncComponent('LaunchPadToken', LazyLaunchPadToken);
+const LaunchPadLiquidity = makeAsyncComponent('LaunchPadLiquidity', LazyLaunchPadLiquidity);
 const LaunchPadLive = makeAsyncComponent('LaunchPadLive', LazyLaunchPadLive);
 const LaunchPadUpcoming = makeAsyncComponent('LaunchPadUpcoming', LazyLaunchPadUpcoming);
 const LaunchPadCreateToken = makeAsyncComponent('LaunchPadCreateToken', LazyLaunchPadCreateToken);
@@ -554,6 +556,10 @@ export default class Root extends React.PureComponent {
                                 <LoginHFTRouteF
                                     path={'/launchpadtoken'}
                                     component={LaunchPadToken}
+                                />
+                                <LoginHFTRouteF
+                                    path={'/launchpad-liquidity'}
+                                    component={LaunchPadLiquidity}
                                 />
                                 <LoggedInRoute
                                     path={'/:team'}
