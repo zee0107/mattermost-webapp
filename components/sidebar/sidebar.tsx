@@ -222,7 +222,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                                 <ul className='ul-collapse'>
                                     <li key='create-lock'><div className={'list-sidemenu-b ' + `${this.state.middleView === 'create-lock' ? 'active-item' : ''}`}><a href="/laucnhpad-create-lock" onClick={() => this.setState({middleView: 'create-lock'})} className='side-menu-item'>Create Lock</a></div></li>
                                     <li key='token'><div className='list-sidemenu-b'><a href="/launchpadtoken" className='side-menu-item'>Token</a></div></li>
-                                    <li key='liquidity'><div className='list-sidemenu-b'><a href="#" className='side-menu-item'>Liquidity</a></div></li>
+                                    <li key='liquidity'><div className='list-sidemenu-b'><a href="/launchpad-liquidity" className='side-menu-item'>Liquidity</a></div></li>
                                 </ul>
                             </li>
                             <li key='kyc-audit' className='sidemenu-padding'><div className='list-sidemenu-a'><a href="#" className='side-menu-item'>KYC &amp; Audit</a></div></li>
