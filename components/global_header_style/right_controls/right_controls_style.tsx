@@ -104,22 +104,22 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                             <strong>Friend request</strong>
                             <div className='list-group-item list-group-item-action border-0 friends-contents'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-6.png' alt='User name' title='Username'/> Firstname</small>
-                                    <small className='mt-2 approve-reject-text'><a className='approveActions'>Confirm</a> | <a className='rejeectActions'>Delete</a></small>
-                                    <small className='mt-2 approve-text'><i className='bi-check-lg'></i> Approve</small>
-                                    <small className='mt-2 reject-text'><a className='reject-actions'><i className='bi-x-lg'></i> Delete</a></small>
+                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-6.png' alt='User name' title='Username'/> Firstname</label>
+                                    <label className='mt-2 approve-reject-text'><a className='approveActions'>Confirm</a> | <a className='rejeectActions'>Delete</a></label>
+                                    <label className='mt-2 approve-text'><i className='bi-check-lg'></i> Approve</label>
+                                    <label className='mt-2 reject-text'><a className='reject-actions'><i className='bi-x-lg'></i> Delete</a></label>
                                 </div>
                             </div>
                             <div className='list-group-item list-group-item-action border-0'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-5.png' alt='User name' title='Username'/> Firstname</small>
-                                    <small className='mt-2'>Confirm | Delete</small>
+                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-5.png' alt='User name' title='Username'/> Firstname</label>
+                                    <label className='mt-2'>Confirm | Delete</label>
                                 </div>
                             </div>
                             <div className='list-group-item list-group-item-action border-0'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-4.png' alt='User name' title='Username'/> Firstname</small>
-                                    <small className='mt-2'>Confirm | Delete</small>
+                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-4.png' alt='User name' title='Username'/> Firstname</label>
+                                    <label className='mt-2'>Confirm | Delete</label>
                                 </div>
                             </div>
                         </div>
@@ -128,22 +128,22 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                             <strong>People You May Know</strong>
                             <div className='list-group-item list-group-item-action border-0 add-friends-contents'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture.png' alt='User name' title='Username'/> Firstname</small>
-                                    <small className='mt-2 addfriend-remove-text'><a className='addfriendActions'>Add Friend</a> | <a className='removeActions'>Remove</a></small>
-                                    <small className='mt-2 addfriend-text'><i className='bi-check-lg'></i> Add Friend Request Sent</small>
-                                    <small className='mt-2 remove-text'><a className='removehideActions'><i className='bi-x-lg'></i> Remove</a></small>
+                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture.png' alt='User name' title='Username'/> Firstname</label>
+                                    <label className='mt-2 addfriend-remove-text'><a className='addfriendActions'>Add Friend</a> | <a className='removeActions'>Remove</a></label>
+                                    <label className='mt-2 addfriend-text'><i className='bi-check-lg'></i> Add Friend Request Sent</label>
+                                    <label className='mt-2 remove-text'><a className='removehideActions'><i className='bi-x-lg'></i> Remove</a></label>
                                 </div>
                             </div>
                             <div className='list-group-item list-group-item-action border-0'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'/> Firstname</small>
-                                    <small className='mt-2'>Add Friend | Remove</small>
+                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'/> Firstname</label>
+                                    <label className='mt-2'>Add Friend | Remove</label>
                                 </div>
                             </div>
                             <div className='list-group-item list-group-item-action border-0'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> Firstname</small>
-                                    <small className='mt-2'>Add Friend | Remove</small>
+                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> Firstname</label>
+                                    <label className='mt-2'>Add Friend | Remove</label>
                                 </div>
                             </div>
                         </div>
@@ -174,17 +174,17 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                             <div className='list-group'>
                                 <a className='list-group-item list-group-item-action border-0 message-content' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
                                     <div className='d-flex w-100 justify-content-between'>
-                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-6.png' alt='User name' title='Username'/> <strong>Allysa Kate</strong></large>
-                                        <small className='mt-3'>3 days ago</small>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-6.png' alt='User name' title='Username'/> <strong>Allysa Kate</strong></label>
+                                        <label className='mt-3'>3 days ago</label>
                                     </div>
-                                    <small className='mt-0'>Hello how are you, message.</small>
+                                    <label className='mt-0'>Hello how are you, message.</label>
                                 </a>
                     
-                                <small style='margin:-21px 0px 0px 0px; z-index: 12;'>
+                                <label className='label-chat-list-1'>
                                     <a href='#' data-bs-toggle='collapse' data-bs-target='#collapseActions' aria-expanded='false' aria-controls='collapseActions'>
                                     <i className='bi-three-dots float-end me-3'></i>
                                     </a>
-                                </small>
+                                </label>
                     
                                 <div className='collapse' id='collapseActions'>
                                     <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-archive'></i> Archive</a></strong></p>
@@ -194,16 +194,16 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                     
                                 <a className='list-group-item list-group-item-action border-0'>
                                     <div className='d-flex w-100 justify-content-between'>
-                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-5.png' alt='User name' title='Username'/> <strong>Group name</strong></large>
-                                        <small className='mt-3'>3 days ago</small>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-5.png' alt='User name' title='Username'/> <strong>Group name</strong></label>
+                                        <label className='mt-3'>3 days ago</label>
                                     </div>
-                                    <small>Hello how are you, message.</small>
+                                    <label>Hello how are you, message.</label>
                                 </a>
-                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'>
+                                <label className='label-chat-list-2'>
                                     <a href='#' data-bs-toggle='collapse' data-bs-target='#collapseActions02' aria-expanded='false' aria-controls='collapseActions02'>
                                     <i className='bi-three-dots float-end me-3'></i>
                                     </a>
-                                </small>
+                                </label>
                                 <div className='collapse' id='collapseActions02'>
                                     <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-archive'></i> Archive</a></strong></p>
                                     <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-x-circle'></i> Delete message</a></strong></p>
@@ -211,68 +211,68 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                 </div>
                                 <a className='list-group-item list-group-item-action border-0'>
                                     <div className='d-flex w-100 justify-content-between'>
-                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-4.png' alt='User name' title='Username'/> <strong>Group name</strong></large>
-                                        <small className='mt-3'>3 days ago</small>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-4.png' alt='User name' title='Username'/> <strong>Group name</strong></label>
+                                        <label className='mt-3'>3 days ago</label>
                                     </div>
-                                    <small>Hello how are you, message.</small>
+                                    <label>Hello how are you, message.</label>
                                 </a>
-                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'><i className='bi-three-dots float-end me-3'></i></small>
+                                <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
                                 <a className='list-group-item list-group-item-action border-0'>
                                     <div className='d-flex w-100 justify-content-between'>
-                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'/> <strong>Firstname</strong></large>
-                                        <small className='mt-3'>3 days ago</small>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'/> <strong>Firstname</strong></label>
+                                        <label className='mt-3'>3 days ago</label>
                                     </div>
-                                    <small>Hello how are you, message.</small>
+                                    <label>Hello how are you, message.</label>
                                 </a>
-                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'><i className='bi-three-dots float-end me-3'></i></small>
+                                <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
                                 <a className='list-group-item list-group-item-action border-0'>
                                         <div className='d-flex w-100 justify-content-between'>
-                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> <strong>Firstname</strong></large>
-                                        <small className='mt-3'>3 days ago</small>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> <strong>Firstname</strong></label>
+                                        <label className='mt-3'>3 days ago</label>
                                         </div>
-                                        <small>Hello how are you, message.</small>
+                                        <label>Hello how are you, message.</label>
                                 </a>
-                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'><i className='bi-three-dots float-end me-3'></i></small>
+                                <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
                                 <a className='list-group-item list-group-item-action border-0'>
                                         <div className='d-flex w-100 justify-content-between'>
-                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-6.png' alt='User name' title='Username'/> <strong>Firstname</strong></large>
-                                        <small className='mt-3'>3 days ago</small>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-6.png' alt='User name' title='Username'/> <strong>Firstname</strong></label>
+                                        <label className='mt-3'>3 days ago</label>
                                         </div>
-                                        <small>Hello how are you, message.</small>
+                                        <label>Hello how are you, message.</label>
                                 </a>
-                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'><i className='bi-three-dots float-end me-3'></i></small>
+                                <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
                                 <a className='list-group-item list-group-item-action border-0'>
                                         <div className='d-flex w-100 justify-content-between'>
-                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-5.png' alt='User name' title='Username'/> <strong>Group name</strong></large>
-                                        <small className='mt-3'>3 days ago</small>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-5.png' alt='User name' title='Username'/> <strong>Group name</strong></label>
+                                        <label className='mt-3'>3 days ago</label>
                                         </div>
-                                        <small>Hello how are you, message.</small>
+                                        <label>Hello how are you, message.</label>
                                 </a>
-                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'><i className='bi-three-dots float-end me-3'></i></small>
+                                <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
                                 <a className='list-group-item list-group-item-action border-0'>
                                         <div className='d-flex w-100 justify-content-between'>
-                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-4.png' alt='User name' title='Username'/> <strong>Group name</strong></large>
-                                        <small className='mt-3'>3 days ago</small>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-4.png' alt='User name' title='Username'/> <strong>Group name</strong></label>
+                                        <label className='mt-3'>3 days ago</label>
                                         </div>
-                                        <small>Hello how are you, message.</small>
+                                        <label>Hello how are you, message.</label>
                                 </a>
-                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'><i className='bi-three-dots float-end me-3'></i></small>
+                                <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
                                 <a className='list-group-item list-group-item-action border-0'>
                                         <div className='d-flex w-100 justify-content-between'>
-                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'/> <strong>Firstname</strong></large>
-                                        <small className='mt-3'>3 days ago</small>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'/> <strong>Firstname</strong></label>
+                                        <label className='mt-3'>3 days ago</label>
                                         </div>
-                                        <small>Hello how are you, message.</small>
+                                        <label>Hello how are you, message.</label>
                                 </a>
-                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'><i className='bi-three-dots float-end me-3'></i></small>
+                                <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
                                 <a className='list-group-item list-group-item-action border-0'>
                                         <div className='d-flex w-100 justify-content-between'>
-                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> <strong>Firstname</strong></large>
-                                        <small className='mt-3'>3 days ago</small>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> <strong>Firstname</strong></label>
+                                        <label className='mt-3'>3 days ago</label>
                                         </div>
-                                        <small>Hello how are you, message.</small>
+                                        <label>Hello how are you, message.</label>
                                 </a>
-                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'><i className='bi-three-dots float-end me-3'></i></small>
+                                <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
                             </div>
                         </div>
                     </div>
@@ -328,8 +328,8 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                     <div className='col-lg-12'>
                                         <a>
                                         <p className='float-end receiver-msg-user shadow-sm'>Well done.<img width='25' className='img-fluid user-photo ms-1' src='assets/images/sample-user-primary-picture.png' alt='Username' title='Username'/>
-                                        <small className='reactions-show float-start'><i className='bi-hand-thumbs-up text-white'></i></small>
-                                        <small className='reactions-show-down float-start'><i className='bi-heart text-white'></i></small>
+                                        <label className='reactions-show float-start'><i className='bi-hand-thumbs-up text-white'></i></label>
+                                        <label className='reactions-show-down float-start'><i className='bi-heart text-white'></i></label>
                                         </p>
                                         </a>
                                     </div>
@@ -362,10 +362,10 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                     <div className='list-group'>
                         <div className='list-group-item list-group-item-action border-0 remove-content-notification'>
                             <div className='d-flex w-100 justify-content-between'>
-                            <small className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-post.png' alt='User name' title='Username'/> Company name</small>
-                            <small className='mt-3'>3 days ago <a data-bs-toggle='collapse' href='#collapseNotificationdesktop' role='button' aria-expanded='false' aria-controls='collapseNotificationdesktop'><i className='bi-three-dots ms-3'></i></a></small>
+                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-post.png' alt='User name' title='Username'/> Company name</label>
+                            <label className='mt-3'>3 days ago <a data-bs-toggle='collapse' href='#collapseNotificationdesktop' role='button' aria-expanded='false' aria-controls='collapseNotificationdesktop'><i className='bi-three-dots ms-3'></i></a></label>
                             </div>
-                            <small>Podcast live is now live.</small>
+                            <label>Podcast live is now live.</label>
                         </div>
                         <div className='collapse' id='collapseNotificationdesktop'>
                             <p className='mt-3 mb-3 ms-3'><a><strong><i className='bi-x-circle'></i> Remove this notification</strong></a></p>
@@ -373,31 +373,31 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                         </div>
                         <div className='list-group-item list-group-item-action border-0 remove-content-notification'>
                             <div className='d-flex w-100 justify-content-between'>
-                            <small className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> Friend name &#38; You</small>
-                            <small className='mt-3'>3 days ago <i className='bi-three-dots ms-3'></i></small>
+                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> Friend name &#38; You</label>
+                            <label className='mt-3'>3 days ago <i className='bi-three-dots ms-3'></i></label>
                             </div>
-                            <small>Your Friend Request Now Confirm</small>
+                            <label>Your Friend Request Now Confirm</label>
                         </div>
                         <div className='list-group-item list-group-item-action border-0 remove-content-notification'>
                             <div className='d-flex w-100 justify-content-between'>
-                            <small className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'/> Friend name</small>
-                            <small className='mt-3'>3 days ago <i className='bi-three-dots ms-3'></i></small>
+                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'/> Friend name</label>
+                            <label className='mt-3'>3 days ago <i className='bi-three-dots ms-3'></i></label>
                             </div>
-                            <small>Friend name love your story, See it and view more...</small>
+                            <label>Friend name love your story, See it and view more...</label>
                         </div>
                         <div className='list-group-item list-group-item-action border-0 remove-content-notification'>
                             <div className='d-flex w-100 justify-content-between'>
-                            <small className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> Friend name</small>
-                            <small className='mt-3'>3 days ago <i className='bi-three-dots ms-3'></i></small> 
+                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> Friend name</label>
+                            <label className='mt-3'>3 days ago <i className='bi-three-dots ms-3'></i></label> 
                             </div>
-                            <small>Friend name love your story, See it and view more...</small>
+                            <label>Friend name love your story, See it and view more...</label>
                         </div>
                         <div className='list-group-item list-group-item-action border-0 remove-content-notification'>
                             <div className='d-flex w-100 justify-content-between'>
-                            <small className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-post.png' alt='User name' title='Username'/> Company name</small>
-                            <small className='mt-3'>3 days ago <i className='bi-three-dots ms-3'></i></small>
+                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-post.png' alt='User name' title='Username'/> Company name</label>
+                            <label className='mt-3'>3 days ago <i className='bi-three-dots ms-3'></i></label>
                             </div>
-                            <small>Post from friends, new coins</small>
+                            <label>Post from friends, new coins</label>
                         </div>
                     </div>
                 </div>
