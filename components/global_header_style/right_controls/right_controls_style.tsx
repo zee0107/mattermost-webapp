@@ -21,7 +21,8 @@ import profPic3 from 'images/profiles/user-profile-3.png';
 import profPic4 from 'images/profiles/user-profile-4.png';
 import profPic5 from 'images/profiles/user-profile-5.png';
 import profPic6 from 'images/profiles/user-profile-6.png';
-
+import postImage from 'images/post-1.png';
+import postImage2 from 'images/post-image.png';
 
 import SettingsTip from './settings_tip';
 import AtMentionsButton from './at_mentions_button/at_mentions_button';
@@ -289,7 +290,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
             {/*Chat Field*/}
             <div style={{zIndex: 999}} className='offcanvas offcanvas-end shadow-lg' data-bs-scroll='true' data-bs-backdrop='false' tabIndex='-1' id='offcanvasBottomreadychatdesktop' aria-labelledby='offcanvasBottomreadychatdesktop'>
                 <div className='offcanvas-header'>
-                    <h6 className='offcanvas-title' id='offcanvasBottomreadychatdesktop'><img width='25' className='img-fluid user-photo' src={profPic1} alt='Username' title='Username'/> Firstname</h6>
+                    <h6 className='offcanvas-title' id='offcanvasBottomreadychatdesktop'><img width='25' className='img-fluid user-photo' src={profPic1} alt='Username' title='Username'/> John Lloyd</h6>
                     <a href='#' className='text-reset' aria-label='Close' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelchatdesktop' aria-controls='offcanvasRightLabelchatdesktop'><i className='bi-list-nested'></i></a>
                 </div>
                 <div className='offcanvas-body offcanvas-body-bg'>
@@ -314,7 +315,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                     </div>
                                     <div className='col-lg-12'>
                                         <a>
-                                        <p className='float-end receiver-msg-user shadow-sm'><i className='bi-hand-thumbs-up-fill'></i> Do not mess up my updates everytime.<img width='25' className={profPic2} alt='Username' title='Username'/></p>
+                                        <p className='float-end receiver-msg-user shadow-sm'><i className='bi-hand-thumbs-up-fill'></i> Do not mess up my updates everytime.<img width='25' className='img-fluid user-photo ms-1' src={profPic2} alt='Username' title='Username'/></p>
                                         </a>
                                     </div>
                                     <div className='col-lg-12'>
@@ -369,7 +370,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                     <div className='list-group'>
                         <div className='list-group-item list-group-item-action border-0 remove-content-notification'>
                             <div className='d-flex w-100 justify-content-between'>
-                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-post.png' alt='User name' title='Username'/> Company name</label>
+                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src={postImage} alt='User name' title='Username'/> Reyes Softawre Solutions</label>
                             <label className='mt-3'>3 days ago <a data-bs-toggle='collapse' href='#collapseNotificationdesktop' role='button' aria-expanded='false' aria-controls='collapseNotificationdesktop'><i className='bi-three-dots ms-3'></i></a></label>
                             </div>
                             <label>Podcast live is now live.</label>
@@ -380,28 +381,28 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                         </div>
                         <div className='list-group-item list-group-item-action border-0 remove-content-notification'>
                             <div className='d-flex w-100 justify-content-between'>
-                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> Friend name &#38; You</label>
+                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic2} alt='User name' title='Username'/> Cody &#38; You</label>
                             <label className='mt-3'>3 days ago <i className='bi-three-dots ms-3'></i></label>
                             </div>
                             <label>Your Friend Request Now Confirm</label>
                         </div>
                         <div className='list-group-item list-group-item-action border-0 remove-content-notification'>
                             <div className='d-flex w-100 justify-content-between'>
-                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'/> Friend name</label>
+                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic3} alt='User name' title='Username'/> Jannela</label>
                             <label className='mt-3'>3 days ago <i className='bi-three-dots ms-3'></i></label>
                             </div>
                             <label>Friend name love your story, See it and view more...</label>
                         </div>
                         <div className='list-group-item list-group-item-action border-0 remove-content-notification'>
                             <div className='d-flex w-100 justify-content-between'>
-                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> Friend name</label>
+                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic4} alt='User name' title='Username'/> Lanaya</label>
                             <label className='mt-3'>3 days ago <i className='bi-three-dots ms-3'></i></label> 
                             </div>
                             <label>Friend name love your story, See it and view more...</label>
                         </div>
                         <div className='list-group-item list-group-item-action border-0 remove-content-notification'>
                             <div className='d-flex w-100 justify-content-between'>
-                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-post.png' alt='User name' title='Username'/> Company name</label>
+                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src={postImage2} alt='User name' title='Username'/> Crypto Miners</label>
                             <label className='mt-3'>3 days ago <i className='bi-three-dots ms-3'></i></label>
                             </div>
                             <label>Post from friends, new coins</label>
