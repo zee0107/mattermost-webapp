@@ -548,8 +548,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                 completionView = (
                     <div className='box-left-panel-egzo'>
                         <div className='d-flex completion-box-bg'>
-                            <div className='d-flex completion-text width-100'>
-                                <div className='col-lg-9 width-100'>
+                            <div className='d-flex completion-text '>
+                                <div className='col-lg-9 '>
                                      <h5>Profile Completion</h5>
                                 </div> 
                                 <div className='col-lg-3'>
@@ -780,7 +780,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 {completionView}
                                 <div className='col-lg-12 chat-box removePadding mtop-10'>
                                     <div className='d-flex'>
-                                        <div className='col-lg-4 width-100'>
+                                        <div className='col-lg-4 '>
                                             <div className='d-flex'>
                                                 <div className='col-sm-3'>
                                                     <h4>
@@ -798,10 +798,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='col-lg-4 width-100 text-center'>
+                                        <div className='col-lg-4  text-center'>
                                             <h4 className='getStartPrimaryText'>Chat</h4>
                                         </div>
-                                        <div className='col-lg-4 width-100 chat-setting'>
+                                        <div className='col-lg-4  chat-setting'>
                                             <h4><a href='#' title='Settings'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='var(--text-primary)' className='bi bi-gear' viewBox='0 0 16 16'>
                                                 <path d='M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z'/>
                                                 <path d='M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z'/>
@@ -815,9 +815,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='col-lg-3 marginTopImg'>
                                                 <img src={profPic} className='chat-img'></img>
                                             </div>
-                                            <div className='col-lg-9 width-100 removePaddingLeft'>
+                                            <div className='col-lg-9  removePaddingLeft'>
                                                 <div className='d-flex'>
-                                                    <div className='col-sm-6 width-100 removePaddingLeft'>
+                                                    <div className='col-sm-6  removePaddingLeft'>
                                                         <h6 className='getStartPrimaryText'>Allysa Kate</h6>
                                                     </div>
                                                     <div className='col-sm-6 removePaddingLeft chat-text'>
@@ -833,9 +833,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='col-lg-3 marginTopImg'>
                                                 <img src={profPic} className='chat-img'></img>
                                             </div>
-                                            <div className='col-lg-9 width-100 removePaddingLeft'>
+                                            <div className='col-lg-9  removePaddingLeft'>
                                                 <div className='d-flex'>
-                                                    <div className='col-sm-6 width-100 removePaddingLeft'>
+                                                    <div className='col-sm-6  removePaddingLeft'>
                                                         <h6 className='getStartPrimaryText'>Mark Olympus</h6>
                                                     </div>
                                                     <div className='col-sm-6 removePaddingLeft chat-text'>
@@ -851,9 +851,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='col-lg-3 marginTopImg'>
                                                 <img src={profPic} className='chat-img'></img>
                                             </div>
-                                            <div className='col-lg-9 width-100 removePaddingLeft'>
+                                            <div className='col-lg-9  removePaddingLeft'>
                                                 <div className='d-flex'>
-                                                    <div className='col-sm-6 width-100 removePaddingLeft'>
+                                                    <div className='col-sm-6  removePaddingLeft'>
                                                         <h6 className='getStartPrimaryText'>Janine Tenoso</h6>
                                                     </div>
                                                     <div className='col-sm-6 removePaddingLeft chat-text'>
@@ -1019,7 +1019,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 <div id='searchforlocations'>
                                     <div className='d-flex'>
                                         <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
+                                        <div className='col-md-8 '>
                                         <label className='onAddlocation'>Muntinlupa City</label>
                                         <p><small>Muntinlupa City Philippines</small></p>
                                         </div>
@@ -1033,7 +1033,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                 
                                     <div className='d-flex'>
                                         <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
+                                        <div className='col-md-8 '>
                                         <label>Makati City</label>
                                         <p><small>Makati City Philippines</small></p>
                                         </div>
@@ -1047,7 +1047,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 
                                     <div className='d-flex'>
                                         <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
+                                        <div className='col-md-8 '>
                                         <label>Taguig City</label>
                                         <p><small>Taguig City Philippines</small></p>
                                         </div>
@@ -1061,7 +1061,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
                                     <div className='d-flex'>
                                         <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
+                                        <div className='col-md-8 '>
                                         <label>Santa Rosa City</label>
                                         <p><small>Santa Rosa City Philippines</small></p>
                                         </div>
@@ -1075,7 +1075,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
                                     <div className='d-flex'>
                                         <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
+                                        <div className='col-md-8 '>
                                         <label>San Pedro City</label>
                                         <p><small>San Pedro City Philippines</small></p>
                                         </div>
