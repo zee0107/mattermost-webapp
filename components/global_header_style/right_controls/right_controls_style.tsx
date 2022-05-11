@@ -170,19 +170,19 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                         <div className='position-absolute bottom-0 start-0 p-2'>
                             <a className='chat-mobile-settings' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelaccounts' aria-controls='offcanvasRightLabelaccounts'><i className='bi-gear-fill float-end'></i></a>
                         </div>
-                        <div className='container'>
+                        {/*<div className='container'>
                             <div className='row'>
                                     <div className='input-group mb-1'>
                                         <span className='input-group-text input-search-crypter-span' id='basic-addon1'><i className='bi-search'></i></span>
                                         <input id='' type='text' className='form-control form-control-dark input-search-crypter' placeholder='Search' aria-label='Search'/>
                                     </div>
                             </div>
-                        </div>
+            </div>*/}
                         <div id=''>
                             <div className='list-group'>
                                 <a className='list-group-item list-group-item-action border-0 message-content' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
                                     <div className='d-flex w-100 justify-content-between'>
-                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic1} alt='User name' title='Username'/> <strong>Allysa Kate</strong></label>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic1} alt='User name' title='Username'/> <strong>John Lloyd</strong></label>
                                         <label className='mt-3'>3 days ago</label>
                                     </div>
                                     <label className='mt-0'>Hello how are you, message.</label>
