@@ -86,7 +86,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                             <strong>Friend request</strong>
                             <div className='list-group-item list-group-item-action border-0 friends-contents'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-6.png' alt='User name' title='Username'> Firstname</small>
+                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-6.png' alt='User name' title='Username'/> Firstname</small>
                                     <small className='mt-2 approve-reject-text'><a className='approveActions'>Confirm</a> | <a className='rejeectActions'>Delete</a></small>
                                     <small className='mt-2 approve-text'><i className='bi-check-lg'></i> Approve</small>
                                     <small className='mt-2 reject-text'><a className='reject-actions'><i className='bi-x-lg'></i> Delete</a></small>
@@ -94,13 +94,13 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                             </div>
                             <div className='list-group-item list-group-item-action border-0'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-5.png' alt='User name' title='Username'> Firstname</small>
+                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-5.png' alt='User name' title='Username'/> Firstname</small>
                                     <small className='mt-2'>Confirm | Delete</small>
                                 </div>
                             </div>
                             <div className='list-group-item list-group-item-action border-0'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-4.png' alt='User name' title='Username'> Firstname</small>
+                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-4.png' alt='User name' title='Username'/> Firstname</small>
                                     <small className='mt-2'>Confirm | Delete</small>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                             <strong>People You May Know</strong>
                             <div className='list-group-item list-group-item-action border-0 add-friends-contents'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture.png' alt='User name' title='Username'> Firstname</small>
+                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture.png' alt='User name' title='Username'/> Firstname</small>
                                     <small className='mt-2 addfriend-remove-text'><a className='addfriendActions'>Add Friend</a> | <a className='removeActions'>Remove</a></small>
                                     <small className='mt-2 addfriend-text'><i className='bi-check-lg'></i> Add Friend Request Sent</small>
                                     <small className='mt-2 remove-text'><a className='removehideActions'><i className='bi-x-lg'></i> Remove</a></small>
@@ -118,13 +118,13 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                             </div>
                             <div className='list-group-item list-group-item-action border-0'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'> Firstname</small>
+                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'/> Firstname</small>
                                     <small className='mt-2'>Add Friend | Remove</small>
                                 </div>
                             </div>
                             <div className='list-group-item list-group-item-action border-0'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'> Firstname</small>
+                                    <small className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> Firstname</small>
                                     <small className='mt-2'>Add Friend | Remove</small>
                                 </div>
                             </div>
