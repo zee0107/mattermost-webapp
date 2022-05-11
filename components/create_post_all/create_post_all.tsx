@@ -9,6 +9,7 @@ import {injectIntl, IntlShape} from 'react-intl';
 
 import {Posts} from 'mattermost-redux/constants';
 import {sortFileInfos} from 'mattermost-redux/utils/file_utils';
+import FileUploadOverlay from 'components/file_upload_overlay';
 
 import * as GlobalActions from 'actions/global_actions';
 import {trackEvent} from 'actions/telemetry_actions.jsx';
@@ -1425,6 +1426,7 @@ class CreatePostAll extends React.PureComponent<Props, State> {
                 fileUpload = (<div className='post-photo-content'>
                     <div className='row'>
                         <div className='col-md-9'><strong>Add Photos / Music / Video</strong></div>
+                        <FileUploadOverlay overlayType='center'/>
                         <div className='col-md-3'><a className='closePhotocontent' onClick={() => {this.setState({uploading: false})}}><i className='bi-x float-end'></i></a></div>
                         <div className='text-center'>
                             <FileUpload

@@ -9,6 +9,7 @@ import deferComponentRender from 'components/deferComponentRender';
 import PostView from 'components/post_view_new';
 import EditPostModal from 'components/edit_post_modal';
 import Post from 'components/post_view_new/post';
+import FileUploadOverlay from 'components/file_upload_overlay';
 
 import homeImage from 'images/homeFeed.png';
 import coverImage from 'images/cover-photo.png';
