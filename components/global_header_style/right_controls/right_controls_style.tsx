@@ -9,6 +9,12 @@ import {TutorialSteps} from '../../../utils/constants';
 import StatusDropdown from '../../status_dropdown';
 import {useShowTutorialStep} from '../hooks';
 
+import AdImg from 'images/menu-icons/arrow-create-ad.png';
+import BlogImg from 'images/menu-icons/icon-create-blog.png';
+import EventImg from 'images/menu-icons/icon-create-event.png';
+import GroupImg from 'images/menu-icons/icon-create-group.png';
+import PageImg from 'images/menu-icons/icon-create-page.png';
+
 import SettingsTip from './settings_tip';
 import AtMentionsButton from './at_mentions_button/at_mentions_button';
 import SavedPostsButton from './saved_posts_button/saved_posts_button';
@@ -58,11 +64,11 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                     <label className='plus-text-sizes'>+</label></a>
 
                     <ul className='dropdown-menu' aria-labelledby='dropdownCreateposts'>
-                        <li><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src='assets/images/arrow-create-ad.png'/> Create AD</a></li>
-                        <li><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src='assets/images/icon-create-blog.png'/> Create Blog</a></li>
-                        <li><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src='assets/images/icon-create-event.png'/> Create Event</a></li>
-                        <li><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src='assets/images/icon-create-group.png'/> Create Group</a></li>
-                        <li><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src='assets/images/icon-create-page.png'/> Create Page</a></li>
+                        <li><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src={AdImg}/> Create Ad</a></li>
+                        <li><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src={BlogImg}/> Create Blog</a></li>
+                        <li><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src={EventImg}/> Create Event</a></li>
+                        <li><a className='dropdown-item' href='/groups'><img width='19' className='img-fluid mr-2' src={GroupImg}/> Create Group</a></li>
+                        <li><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src={PageImg}/> Create Page</a></li>
                     </ul>
                 </div>
                 <a className="bg-icons" data-toggle='offcanvas' data-target='#offcanvasRightLabelfriendsdesktop' aria-controls='offcanvasRightLabelfriendsdesktop'><svg data-toggle='offcanvas' data-target='#offcanvasRightLabelfriendsdesktop'  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-person-plus menu-align" viewBox="0 0 16 16">
