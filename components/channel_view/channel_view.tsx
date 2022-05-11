@@ -538,7 +538,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                             <div className='box-middle-panel crypter-section-profile-desktop'>
                                 <div className='row'>
                                     <div className='col-md-5 text-center removePaddingRight'>
-                                        <div className='d-flex input-group float-start width-100'>
+                                        <div className='d-flex float-start width-100'>
                                             <span className='input-group-text input-search-crypter-whats-going-on' id='basic-addon22'>
                                                 {this.renderProfilePicture('md')}</span>
                                             <input type='text' className='form-control input-search-crypter-whats-going-on onCreatepost mt-1' placeholder={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-label={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-describedby='basic-addon55' data-toggle='modal' data-target='#staticBackdrop'/>
@@ -567,7 +567,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                             <div id='post-mobile'>
                                 <div className='d-flex'>
                                     <div className='whats-going-on-here-style float-start'>
-                                        <div className='input-group d-flex bg-inputs-whats'>
+                                        <div className='d-flex bg-inputs-whats'>
                                             <span className='input-group-text input-search-crypter-whats-going-on' id='basic-addon22'>
                                             {this.renderProfilePicture('md')}</span>
                                             <input type='text' className='form-control input-search-crypter-whats-going-on onCreatepost mt-1' placeholder={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-label={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-describedby='basic-addon55' data-toggle='modal' data-target='#staticBackdrop' />
