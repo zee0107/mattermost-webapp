@@ -361,7 +361,7 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
                 })}
             >
                 <div
-                    className={classNames('status-wrapper bg-icons', {
+                    className={classNames('status-wrapper bg-drowndown-user', {
                         'status-selector': !globalHeader,
                     })}
                 >
