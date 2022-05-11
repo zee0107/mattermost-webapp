@@ -82,82 +82,82 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         <strong className='ml-3'><label className='text-success'>Introduction</label></strong>
                                         <hr/>
                                         <ul className='list-group'>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-introducing.html' className='active-docs fw-bold'><label>Introducing</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-token-metrics.html'><label>Token Metrics</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-token-utility.html'><label>Token Utility</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-anti-rug-system.html'><label>Anti-Rug System</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-partnership.html'><label>Partnership</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-roadmap.html'><label>Roadmap</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-service-fees.html'><label>Service Fees</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-introducing.html' className='active-docs fw-bold'><label>Introducing</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-token-metrics.html'><label>Token Metrics</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-token-utility.html'><label>Token Utility</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-anti-rug-system.html'><label>Anti-Rug System</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-partnership.html'><label>Partnership</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-roadmap.html'><label>Roadmap</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-service-fees.html'><label>Service Fees</label></a></li>
                                         </ul>
                                         <br/>
                                         <strong className='ml-3'><label className='text-success'>Important</label></strong>
                                         <ul className='list-group mt-2'>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-contact-us.html'><label>Contact Us</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-social-links.html'><label>Social Links</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-kyc-and-audit-at-crypter-sale.html'><label>KYC &#38; Audit at CrypterSale</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-crypter-sale-calculator.html'><label>CrypterSale Calculator</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-youtube-tutorial.html'><label>YouTube Tutorials</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-contact-developers.html'><label>Contact Developers</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-presale-support.html'><label>Presale Support</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-brand-assets.html'><label>Brand Assets</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-contact-us.html'><label>Contact Us</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-social-links.html'><label>Social Links</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-kyc-and-audit-at-crypter-sale.html'><label>KYC &#38; Audit at CrypterSale</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-crypter-sale-calculator.html'><label>CrypterSale Calculator</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-youtube-tutorial.html'><label>YouTube Tutorials</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-contact-developers.html'><label>Contact Developers</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-presale-support.html'><label>Presale Support</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-brand-assets.html'><label>Brand Assets</label></a></li>
                                         </ul>
                                         <br/>
                                         <strong className='ml-3'><label className='text-success'>Tokens</label></strong>
                                         <ul className='list-group mt-2'>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-create-a-standard-token.html'><label>Create a Standard Token</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-create-a-liquidity-generator-token.html'><label>Create a Liquidity Generator Token</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-create-a-baby-token.html'><label>Create a Baby Token</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-create-a-buyback-baby-token.html'><label>Create a Buyback baby Token</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-a-standard-token.html'><label>Create a Standard Token</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-a-liquidity-generator-token.html'><label>Create a Liquidity Generator Token</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-a-baby-token.html'><label>Create a Baby Token</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-a-buyback-baby-token.html'><label>Create a Buyback baby Token</label></a></li>
                                         </ul>
                                         <br/>
                                         <strong className='ml-3'><label className='text-success'>Launchpads</label></strong>
                                         <ul className='list-group mt-2'>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-create-a-launchpad.html'><label>Create a Launchpad</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-update-a-launchpad.html'><label>Update a Launchpad</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-finalize-a-launchpad.html'><label>Finalize a Launchpad</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-add-remove-whitelist.html'><label>Add/Remove Whitelists</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-create-a-presale-using-stablecoin.html'><label>Create a Presale Using Stablecoin</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-a-launchpad.html'><label>Create a Launchpad</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-update-a-launchpad.html'><label>Update a Launchpad</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-finalize-a-launchpad.html'><label>Finalize a Launchpad</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-add-remove-whitelist.html'><label>Add/Remove Whitelists</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-a-presale-using-stablecoin.html'><label>Create a Presale Using Stablecoin</label></a></li>
                                         </ul>
                                         <br/>
                                         <strong className='ml-3'><label className='text-success'>Presale Vesting</label></strong>
                                         <ul className='list-group mt-2'>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-team-vesting-guide.html'><label>Team Vesting Guide</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-presale-vesting-guide.html'><label>Presale Vesting Guide</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-team-vesting-guide.html'><label>Team Vesting Guide</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-presale-vesting-guide.html'><label>Presale Vesting Guide</label></a></li>
                                         </ul>
                                         <br/>
                                         <strong className='ml-3'><label className='text-success'>Investing</label></strong>
                                         <ul className='list-group mt-2'>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-how-to-buy-a-presale.html'><label>How to Buy a Presale</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-how-to-claim-tokens.html'><label>How to Claim Tokens</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-how-to-widthdraw-your-contribution.html'><label>How to Widthdraw Your Contribution</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-emergency-withdraw.html'><label>Emergency Withdraw</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-how-to-buy-a-presale.html'><label>How to Buy a Presale</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-how-to-claim-tokens.html'><label>How to Claim Tokens</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-how-to-widthdraw-your-contribution.html'><label>How to Widthdraw Your Contribution</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-emergency-withdraw.html'><label>Emergency Withdraw</label></a></li>
                                         </ul>
                                         <br/>
                                         <strong className='ml-3'><label className='text-success'>Fair Lunch</label></strong>
                                         <ul className='list-group mt-2'>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-create-a-fair-launch.html'><label>Create a Fair Launch</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-update-a-fair-launch.html'><label>Update a Fair Launch</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-finalize-a-fair-launch.html'><label>Finalize a Fair Launch</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-create-a-fair-launch-using-stablecoin.html'><label>Create a Fair Launch Using Stablecoin</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-a-fair-launch.html'><label>Create a Fair Launch</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-update-a-fair-launch.html'><label>Update a Fair Launch</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-finalize-a-fair-launch.html'><label>Finalize a Fair Launch</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-a-fair-launch-using-stablecoin.html'><label>Create a Fair Launch Using Stablecoin</label></a></li>
                                         </ul>
                                         <br/>
                                         <strong className='ml-3'><label className='text-success'>Crypterpad</label></strong>
                                         <ul className='list-group mt-2'>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-create-crypterpad.html'><label>Create CrypterPad</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-update-crypterpad.html'><label>Update CrypterPad</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-finalize-crypterpad.html'><label>Finalize CrypterPad</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-crypterpad.html'><label>Create CrypterPad</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-update-crypterpad.html'><label>Update CrypterPad</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-finalize-crypterpad.html'><label>Finalize CrypterPad</label></a></li>
                                         </ul>
                                         <br/>
                                         <strong className='ml-3'><label className='text-success'>Crypter Airdrop</label></strong>
                                         <ul className='list-group mt-2'>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-create-an-airdrop.html'><label>Create an Airdrop</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-an-airdrop.html'><label>Create an Airdrop</label></a></li>
                                         </ul>
                                         <br/>
                                         <strong className='ml-3'><label className='text-success'>Common Errors</label></strong>
                                         <ul className='list-group mt-2'>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-exclude-fees-dividends-max-tx-on-bscs-scan.html'><label>Exlude Fees, Dividends, Max TX on BSCScan</label></a></li>
-                                            <li className='list-group-item border-0'><a href='launchpad-docs-presale-cancellation.html'><label>Presale Cancellation</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-exclude-fees-dividends-max-tx-on-bscs-scan.html'><label>Exlude Fees, Dividends, Max TX on BSCScan</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-presale-cancellation.html'><label>Presale Cancellation</label></a></li>
                                         </ul>
                                         <br/>
                                         <strong className='ml-3'><label className='text-success'>Crypter Anti-bot</label></strong>
@@ -301,89 +301,89 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                             <strong className='ml-3'><label className='text-success'>Introduction</label></strong>
                                             <hr/>
                                             <ul className='list-group'>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-introducing.html' className='active-docs fw-bold'><label>Introducing</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-token-metrics.html'><label>Token Metrics</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-token-utility.html'><label>Token Utility</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-anti-rug-system.html'><label>Anti-Rug System</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-partnership.html'><label>Partnership</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-roadmap.html'><label>Roadmap</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-service-fees.html'><label>Service Fees</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-introducing.html' className='active-docs fw-bold'><label>Introducing</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-token-metrics.html'><label>Token Metrics</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-token-utility.html'><label>Token Utility</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-anti-rug-system.html'><label>Anti-Rug System</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-partnership.html'><label>Partnership</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-roadmap.html'><label>Roadmap</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-service-fees.html'><label>Service Fees</label></a></li>
                                             </ul>
                                             <br/>
                                             <strong className='ml-3'><label className='text-success'>Important</label></strong>
                                             <ul className='list-group mt-2'>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-contact-us.html'><label>Contact Us</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-social-links.html'><label>Social Links</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-kyc-and-audit-at-crypter-sale.html'><label>KYC & Audit at CrypterSale</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-crypter-sale-calculator.html'><label>CrypterSale Calculator</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-youtube-tutorial.html'><label>YouTube Tutorials</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-contact-developers.html'><label>Contact Developers</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-presale-support.html'><label>Presale Support</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-brand-assets.html'><label>Brand Assets</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-contact-us.html'><label>Contact Us</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-social-links.html'><label>Social Links</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-kyc-and-audit-at-crypter-sale.html'><label>KYC & Audit at CrypterSale</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-crypter-sale-calculator.html'><label>CrypterSale Calculator</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-youtube-tutorial.html'><label>YouTube Tutorials</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-contact-developers.html'><label>Contact Developers</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-presale-support.html'><label>Presale Support</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-brand-assets.html'><label>Brand Assets</label></a></li>
                                             </ul>
                                             <br/>
                                             <strong className='ml-3'><label className='text-success'>Tokens</label></strong>
                                             <ul className='list-group mt-2'>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-create-a-standard-token.html'><label>Create a Standard Token</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-create-a-liquidity-generator-token.html'><label>Create a Liquidity Generator Token</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-create-a-baby-token.html'><label>Create a Baby Token</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-create-a-buyback-baby-token.html'><label>Create a Buyback baby Token</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-a-standard-token.html'><label>Create a Standard Token</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-a-liquidity-generator-token.html'><label>Create a Liquidity Generator Token</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-a-baby-token.html'><label>Create a Baby Token</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-a-buyback-baby-token.html'><label>Create a Buyback baby Token</label></a></li>
                                             </ul>
                                             <br/>
                                             <strong className='ml-3'><label className='text-success'>Launchpads</label></strong>
                                             <ul className='list-group mt-2'>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-create-a-launchpad.html'><label>Create a Launchpad</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-update-a-launchpad.html'><label>Update a Launchpad</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-finalize-a-launchpad.html'><label>Finalize a Launchpad</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-add-remove-whitelist.html'><label>Add/Remove Whitelists</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-create-a-presale-using-stablecoin.html'><label>Create a Presale Using Stablecoin</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-a-launchpad.html'><label>Create a Launchpad</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-update-a-launchpad.html'><label>Update a Launchpad</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-finalize-a-launchpad.html'><label>Finalize a Launchpad</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-add-remove-whitelist.html'><label>Add/Remove Whitelists</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-a-presale-using-stablecoin.html'><label>Create a Presale Using Stablecoin</label></a></li>
                                             </ul>
                                             <br/>
                                             <strong className='ml-3'><label className='text-success'>Presale Vesting</label></strong>
                                             <ul className='list-group mt-2'>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-team-vesting-guide.html'><label>Team Vesting Guide</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-presale-vesting-guide.html'><label>Presale Vesting Guide</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-team-vesting-guide.html'><label>Team Vesting Guide</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-presale-vesting-guide.html'><label>Presale Vesting Guide</label></a></li>
                                             </ul>
                                             <br/>
                                             <strong className='ml-3'><label className='text-success'>Investing</label></strong>
                                             <ul className='list-group mt-2'>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-how-to-buy-a-presale.html'><label>How to Buy a Presale</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-how-to-claim-tokens.html'><label>How to Claim Tokens</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-how-to-widthdraw-your-contribution.html'><label>How to Widthdraw Your Contribution</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-emergency-withdraw.html'><label>Emergency Withdraw</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-how-to-buy-a-presale.html'><label>How to Buy a Presale</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-how-to-claim-tokens.html'><label>How to Claim Tokens</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-how-to-widthdraw-your-contribution.html'><label>How to Widthdraw Your Contribution</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-emergency-withdraw.html'><label>Emergency Withdraw</label></a></li>
                                             </ul>
                                             <br/>
                                             <strong className='ml-3'><label className='text-success'>Fair Lunch</label></strong>
                                             <ul className='list-group mt-2'>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-create-a-fair-launch.html'><label>Create a Fair Launch</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-update-a-fair-launch.html'><label>Update a Fair Launch</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-finalize-a-fair-launch.html'><label>Finalize a Fair Launch</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-create-a-fair-launch-using-stablecoin.html'><label>Create a Fair Launch Using Stablecoin</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-a-fair-launch.html'><label>Create a Fair Launch</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-update-a-fair-launch.html'><label>Update a Fair Launch</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-finalize-a-fair-launch.html'><label>Finalize a Fair Launch</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-a-fair-launch-using-stablecoin.html'><label>Create a Fair Launch Using Stablecoin</label></a></li>
                                             </ul>
                                             <br/>
                                             <strong className='ml-3'><label className='text-success'>Crypterpad</label></strong>
                                             <ul className='list-group mt-2'>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-create-crypterpad.html'><label>Create CrypterPad</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-update-crypterpad.html'><label>Update CrypterPad</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-finalize-crypterpad.html'><label>Finalize CrypterPad</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-crypterpad.html'><label>Create CrypterPad</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-update-crypterpad.html'><label>Update CrypterPad</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-finalize-crypterpad.html'><label>Finalize CrypterPad</label></a></li>
                                             </ul>
                                             <br/>
                                             <strong className='ml-3'><label className='text-success'>Crypter Airdrop</label></strong>
                                             <ul className='list-group mt-2'>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-create-an-airdrop.html'><label>Create an Airdrop</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-create-an-airdrop.html'><label>Create an Airdrop</label></a></li>
                                             </ul>
                                             <br/>
                                             <strong className='ml-3'><label className='text-success'>Common Errors</label></strong>
                                             <ul className='list-group mt-2'>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-exclude-fees-dividends-max-tx-on-bscs-scan.html'><label>Exlude Fees, Dividends, Max TX on BSCScan</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-presale-cancellation.html'><label>Presale Cancellation</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-exclude-fees-dividends-max-tx-on-bscs-scan.html'><label>Exlude Fees, Dividends, Max TX on BSCScan</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-presale-cancellation.html'><label>Presale Cancellation</label></a></li>
                                             </ul>
                                             <br/>
                                             <strong className='ml-3'><label className='text-success'>Crypter Anti-bot</label></strong>
                                             <ul className='list-group mt-2'>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-crypter-anti-bot-introducing.html'><label>Introducing</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-crypter-anti-bot-guide.html'><label>Crypter anti-bot guide</label></a></li>
-                                                <li className='list-group-item border-0'><a href='launchpad-docs-exclusive-to-integrate-crypter-anti-bot-for-custom-contract.html'><label>How to integrate Crypter anti-bot for custom contract</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-crypter-anti-bot-introducing.html'><label>Introducing</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-crypter-anti-bot-guide.html'><label>Crypter anti-bot guide</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-exclusive-to-integrate-crypter-anti-bot-for-custom-contract.html'><label>How to integrate Crypter anti-bot for custom contract</label></a></li>
                                             </ul>
                                         </div>
                         
