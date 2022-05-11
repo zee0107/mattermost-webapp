@@ -191,7 +191,7 @@ fieldset[disabled] .form-control {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-    outline: none;
+    outline: none !important;
 }
 
 .notification-sound-dropdown {
