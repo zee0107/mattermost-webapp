@@ -355,8 +355,8 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
             <MenuWrapper
                 onToggle={this.onToggle}
                 open={this.props.isStatusDropdownOpen}
-                className={classNames('status-dropdown-menu', {
-                    'status-dropdown-menu-global-header': globalHeader,
+                className={classNames({
+                    'btn-crypter-user': globalHeader,
                     active: this.props.isStatusDropdownOpen || isStatusSet,
                 })}
             >
