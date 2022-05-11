@@ -15,6 +15,14 @@ import EventImg from 'images/menu-icons/icon-create-event.png';
 import GroupImg from 'images/menu-icons/icon-create-group.png';
 import PageImg from 'images/menu-icons/icon-create-page.png';
 
+import profPic1 from 'images/profiles/user-profile-1.png';
+import profPic2 from 'images/profiles/user-profile-2.png';
+import profPic3 from 'images/profiles/user-profile-3.png';
+import profPic4 from 'images/profiles/user-profile-4.png';
+import profPic5 from 'images/profiles/user-profile-5.png';
+import profPic6 from 'images/profiles/user-profile-6.png';
+
+
 import SettingsTip from './settings_tip';
 import AtMentionsButton from './at_mentions_button/at_mentions_button';
 import SavedPostsButton from './saved_posts_button/saved_posts_button';
@@ -73,15 +81,15 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                 </div>
                 <a className='position-relative onDekstopaddfriends' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelfriendsdesktop' aria-controls='offcanvasRightLabelfriendsdesktop'>
                     <svg data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelfriendsdesktop' xmlns='http://www.w3.org/2000/svg' fill='var(--text-primary)' className='bi bi-person-plus menu-align bi-person-plus-style' viewBox='0 0 16 16'><path d='M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z'></path><path fillRule='evenodd' d='M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z'></path></svg>
-                <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger badge-style'>3</span>
+                    {/*<span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger badge-style'>3</span>*/}
                 </a>
                 <a className='position-relative onDekstopaddmessages' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelchatdesktop' aria-controls='offcanvasRightLabelchatdesktop'>
                     <svg xmlns='http://www.w3.org/2000/svg' fill='var(--text-primary)' className='bi bi-chat-right-text menu-align bi-chat-right-text-style' viewBox='0 0 16 16'><path d='M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z'></path><path d='M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z'></path></svg>
-                <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger badge-style'>10</span>
+                    {/*<span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger badge-style'>10</span>*/}
                 </a>
                 <a className='position-relative onDekstopaddnotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'>
                     <svg xmlns='http://www.w3.org/2000/svg' fill='var(--text-primary)' className='bi bi-bell menu-align bi-bell-styles' viewBox='0 0 16 16'><path d='M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z'></path></svg>
-                <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger badge-style'>5</span>
+                    {/*<span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger badge-style'>5</span>*/}
                 </a>
                 {/*<>
                     <SettingsButton/>
@@ -104,7 +112,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                             <strong>Friend request</strong>
                             <div className='list-group-item list-group-item-action border-0 friends-contents'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-6.png' alt='User name' title='Username'/> Firstname</label>
+                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src={profPic1} alt='User name' title='Username'/> John Lloyd</label>
                                     <label className='mt-2 approve-reject-text'><a className='approveActions'>Confirm</a> | <a className='rejeectActions'>Delete</a></label>
                                     <label className='mt-2 approve-text'><i className='bi-check-lg'></i> Approve</label>
                                     <label className='mt-2 reject-text'><a className='reject-actions'><i className='bi-x-lg'></i> Delete</a></label>
@@ -112,13 +120,13 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                             </div>
                             <div className='list-group-item list-group-item-action border-0'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-5.png' alt='User name' title='Username'/> Firstname</label>
+                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src={profPic2} alt='User name' title='Username'/> Cody</label>
                                     <label className='mt-2'>Confirm | Delete</label>
                                 </div>
                             </div>
                             <div className='list-group-item list-group-item-action border-0'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-4.png' alt='User name' title='Username'/> Firstname</label>
+                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src={profPic3} alt='User name' title='Username'/> Jannela</label>
                                     <label className='mt-2'>Confirm | Delete</label>
                                 </div>
                             </div>
@@ -127,7 +135,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                             <strong>People You May Know</strong>
                             <div className='list-group-item list-group-item-action border-0 add-friends-contents'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture.png' alt='User name' title='Username'/> Firstname</label>
+                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src={profPic4} alt='User name' title='Username'/> Lanaya</label>
                                     <label className='mt-2 addfriend-remove-text'><a className='addfriendActions'>Add Friend</a> | <a className='removeActions'>Remove</a></label>
                                     <label className='mt-2 addfriend-text'><i className='bi-check-lg'></i> Add Friend Request Sent</label>
                                     <label className='mt-2 remove-text'><a className='removehideActions'><i className='bi-x-lg'></i> Remove</a></label>
@@ -135,13 +143,13 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                             </div>
                             <div className='list-group-item list-group-item-action border-0'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'/> Firstname</label>
+                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src={profPic5} alt='User name' title='Username'/> Daisy</label>
                                     <label className='mt-2'>Add Friend | Remove</label>
                                 </div>
                             </div>
                             <div className='list-group-item list-group-item-action border-0'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src='../assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> Firstname</label>
+                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src={profPic6} alt='User name' title='Username'/> Keanu</label>
                                     <label className='mt-2'>Add Friend | Remove</label>
                                 </div>
                             </div>
@@ -173,7 +181,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                             <div className='list-group'>
                                 <a className='list-group-item list-group-item-action border-0 message-content' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
                                     <div className='d-flex w-100 justify-content-between'>
-                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-6.png' alt='User name' title='Username'/> <strong>Allysa Kate</strong></label>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic1} alt='User name' title='Username'/> <strong>Allysa Kate</strong></label>
                                         <label className='mt-3'>3 days ago</label>
                                     </div>
                                     <label className='mt-0'>Hello how are you, message.</label>
@@ -193,7 +201,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                     
                                 <a className='list-group-item list-group-item-action border-0'>
                                     <div className='d-flex w-100 justify-content-between'>
-                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-5.png' alt='User name' title='Username'/> <strong>Group name</strong></label>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic2} alt='User name' title='Username'/> <strong>Group name</strong></label>
                                         <label className='mt-3'>3 days ago</label>
                                     </div>
                                     <label>Hello how are you, message.</label>
@@ -210,7 +218,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                 </div>
                                 <a className='list-group-item list-group-item-action border-0'>
                                     <div className='d-flex w-100 justify-content-between'>
-                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-4.png' alt='User name' title='Username'/> <strong>Group name</strong></label>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic3} alt='User name' title='Username'/> <strong>Group name</strong></label>
                                         <label className='mt-3'>3 days ago</label>
                                     </div>
                                     <label>Hello how are you, message.</label>
@@ -218,7 +226,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                 <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
                                 <a className='list-group-item list-group-item-action border-0'>
                                     <div className='d-flex w-100 justify-content-between'>
-                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'/> <strong>Firstname</strong></label>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic4} alt='User name' title='Username'/> <strong>Firstname</strong></label>
                                         <label className='mt-3'>3 days ago</label>
                                     </div>
                                     <label>Hello how are you, message.</label>
@@ -226,7 +234,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                 <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
                                 <a className='list-group-item list-group-item-action border-0'>
                                         <div className='d-flex w-100 justify-content-between'>
-                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> <strong>Firstname</strong></label>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic5} alt='User name' title='Username'/> <strong>Firstname</strong></label>
                                         <label className='mt-3'>3 days ago</label>
                                         </div>
                                         <label>Hello how are you, message.</label>
@@ -234,7 +242,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                 <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
                                 <a className='list-group-item list-group-item-action border-0'>
                                         <div className='d-flex w-100 justify-content-between'>
-                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-6.png' alt='User name' title='Username'/> <strong>Firstname</strong></label>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic6} alt='User name' title='Username'/> <strong>Firstname</strong></label>
                                         <label className='mt-3'>3 days ago</label>
                                         </div>
                                         <label>Hello how are you, message.</label>
@@ -242,7 +250,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                 <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
                                 <a className='list-group-item list-group-item-action border-0'>
                                         <div className='d-flex w-100 justify-content-between'>
-                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-5.png' alt='User name' title='Username'/> <strong>Group name</strong></label>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic1} alt='User name' title='Username'/> <strong>Group name</strong></label>
                                         <label className='mt-3'>3 days ago</label>
                                         </div>
                                         <label>Hello how are you, message.</label>
@@ -250,7 +258,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                 <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
                                 <a className='list-group-item list-group-item-action border-0'>
                                         <div className='d-flex w-100 justify-content-between'>
-                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-4.png' alt='User name' title='Username'/> <strong>Group name</strong></label>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic2} alt='User name' title='Username'/> <strong>Group name</strong></label>
                                         <label className='mt-3'>3 days ago</label>
                                         </div>
                                         <label>Hello how are you, message.</label>
@@ -258,7 +266,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                 <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
                                 <a className='list-group-item list-group-item-action border-0'>
                                         <div className='d-flex w-100 justify-content-between'>
-                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'/> <strong>Firstname</strong></label>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic3} alt='User name' title='Username'/> <strong>Firstname</strong></label>
                                         <label className='mt-3'>3 days ago</label>
                                         </div>
                                         <label>Hello how are you, message.</label>
@@ -266,7 +274,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                 <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
                                 <a className='list-group-item list-group-item-action border-0'>
                                         <div className='d-flex w-100 justify-content-between'>
-                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> <strong>Firstname</strong></label>
+                                        <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic4} alt='User name' title='Username'/> <strong>Firstname</strong></label>
                                         <label className='mt-3'>3 days ago</label>
                                         </div>
                                         <label>Hello how are you, message.</label>
@@ -281,7 +289,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
             {/*Chat Field*/}
             <div style={{zIndex: 999}} className='offcanvas offcanvas-end shadow-lg' data-bs-scroll='true' data-bs-backdrop='false' tabIndex='-1' id='offcanvasBottomreadychatdesktop' aria-labelledby='offcanvasBottomreadychatdesktop'>
                 <div className='offcanvas-header'>
-                    <h6 className='offcanvas-title' id='offcanvasBottomreadychatdesktop'><img width='25' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-6.png' alt='Username' title='Username'/> Firstname</h6>
+                    <h6 className='offcanvas-title' id='offcanvasBottomreadychatdesktop'><img width='25' className='img-fluid user-photo' src={profPic1} alt='Username' title='Username'/> Firstname</h6>
                     <a href='#' className='text-reset' aria-label='Close' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelchatdesktop' aria-controls='offcanvasRightLabelchatdesktop'><i className='bi-list-nested'></i></a>
                 </div>
                 <div className='offcanvas-body offcanvas-body-bg'>
@@ -291,22 +299,22 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                 <div className='row'>
                                     <div className='col-lg-12'>
                                         <a>
-                                        <p className='float-start receiver-msg shadow-sm'><img width='25' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-6.png' alt='Username' title='Username'/>Hello how are you, message. I know your brain is well and cute.</p>
+                                        <p className='float-start receiver-msg shadow-sm'><img width='25' className='img-fluid user-photo' src={profPic1} alt='Username' title='Username'/>Hello how are you, message. I know your brain is well and cute.</p>
                                         </a>
                                     </div>
                                     <div className='col-lg-12'>
                                         <a>
-                                        <p className='float-end receiver-msg-user shadow-sm'><i className='bi-hand-thumbs-up-fill'></i> I'm fine<img width='25' className='img-fluid user-photo ms-1' src='assets/images/sample-user-primary-picture.png' alt='Username' title='Username'/></p>
+                                        <p className='float-end receiver-msg-user shadow-sm'><i className='bi-hand-thumbs-up-fill'></i> I'm fine<img width='25' className='img-fluid user-photo ms-1' src={profPic2} alt='Username' title='Username'/></p>
                                         </a>
                                     </div>
                                     <div className='col-lg-12'>
                                         <a>
-                                        <p className='float-start receiver-msg shadow-sm'><img width='25' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-6.png' alt='Username' title='Username'/>Well done... <i className='bi-hand-thumbs-up-fill'></i></p>
+                                        <p className='float-start receiver-msg shadow-sm'><img width='25' className='img-fluid user-photo' src={profPic1} alt='Username' title='Username'/>Well done... <i className='bi-hand-thumbs-up-fill'></i></p>
                                         </a>
                                     </div>
                                     <div className='col-lg-12'>
                                         <a>
-                                        <p className='float-end receiver-msg-user shadow-sm'><i className='bi-hand-thumbs-up-fill'></i> Do not mess up my updates everytime.<img width='25' className='img-fluid user-photo ms-1' src='assets/images/sample-user-primary-picture.png' alt='Username' title='Username'/></p>
+                                        <p className='float-end receiver-msg-user shadow-sm'><i className='bi-hand-thumbs-up-fill'></i> Do not mess up my updates everytime.<img width='25' className={profPic2} alt='Username' title='Username'/></p>
                                         </a>
                                     </div>
                                     <div className='col-lg-12'>
@@ -326,7 +334,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                     </div>
                                     <div className='col-lg-12'>
                                         <a>
-                                        <p className='float-end receiver-msg-user shadow-sm'>Well done.<img width='25' className='img-fluid user-photo ms-1' src='assets/images/sample-user-primary-picture.png' alt='Username' title='Username'/>
+                                        <p className='float-end receiver-msg-user shadow-sm'>Well done.<img width='25' className='img-fluid user-photo ms-1' src={profPic2} alt='Username' title='Username'/>
                                         <label className='reactions-show float-start'><i className='bi-hand-thumbs-up text-white'></i></label>
                                         <label className='reactions-show-down float-start'><i className='bi-heart text-white'></i></label>
                                         </p>
