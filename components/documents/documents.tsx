@@ -74,9 +74,9 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         return (
             <>
                 <section id='crypter-section' className='crypter-section-desktop'>
-                    <div className='container'>
+                    <div className='container-fluid'>
                         <div className='row'>
-                            <div className='col-md-3'>
+                            <div className='col-md-2'>
                                 <div className='position-sticky float-right-panel'>
                                     <div className='box-left-panel-introduction'>
                                         <strong className='ml-3'><label className='text-success'>Introduction</label></strong>
@@ -170,109 +170,109 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                     
-                            <div className='col-md-6'>
-                            <div className='position-sticky float-right-panel'>
-                                <div className='launchpad-token-lock-info'>
-                                    <div className='row'>
-                                        <div className='col-md-9'><h6 className='float-start mt-3'>Introducing</h6></div>
-                                        <div className='col-md-3'></div>
+                            <div className='col-md-8'>
+                                <div className='position-sticky float-right-panel'>
+                                    <div className='launchpad-token-lock-info'>
+                                        <div className='row'>
+                                            <div className='col-md-9'><h6 className='float-start mt-3'>Introducing</h6></div>
+                                            <div className='col-md-3'></div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div className='launchpad-token-body'>
-                                <hr/>
-                                <div className='launchpad-kyc-audit'>  
-                                    <div className='row p-2'>
-                    
-                                        <div className='col-md-12 mt-0 mb-1'>
-                                            <p><strong>Key features</strong></p>
-                                            <p><i className='bi-dot'></i> Prevent bots from inflating the price when the token has just been listed on the exchange.</p>
-                                            <p><i className='bi-dot'></i> Prevent multiple swaps in the same transaction by adding a delay between transactions.</p>
-                                            <p><i className='bi-dot'></i> Control the amount of tradable tokens per trade.</p>
-                                            <p><i className='bi-dot'></i> Change the amount of tradable tokens over time.</p>
-                                            <p><i className='bi-dot'></i> Add any bot addresses to a blacklist.</p>
-                                        </div>
-                    
-                                        <div className='col-md-12 mt-0 mb-1'>
-                                            <p><strong>Mechanism</strong></p>
-                                            <p><i className='bi-dot'></i> When creating tokens on CrypterSale, you have the option to implement or disable the Crypter Anti-Bot.</p>
-                                            <p><i className='bi-dot'></i> Prevents traders from transacting during the first block at listing time. Traders will only be able to trade from the second block onwards.</p>
-                                            <p><i className='bi-dot'></i> The limited amount of tradable tokens per trade will increase gradually, proportional to the number of blocks that have passed since the genesis block. After a number of blocks, depending on the setting, the Anti-Bot will automatically stop working.</p>
-                                            <p><i className='bi-dot'></i> The limited amount of tradable tokens per trade can be customized differently for each token. Only the creator has the right to edit this parameter.</p>
-                                            <p><i className='bi-dot'></i> Time limit per trade can be customized differently for each token. After a number of blocks, depending on the setting, time limit per trade will become zero. Only the creator has the right to edit this parameter.</p>
-                                            <p><i className='bi-dot'></i> You can manually add to or remove any addresses from the blacklist. The wallets in the blacklist will not be able to trade.</p>
-                                        </div>
-                    
-                                        <div className='col-md-12 mt-0 mb-1'>
-                                            <p><strong>Implementation Procedure</strong></p>
-                                            <p><i className='bi-dot'></i> Add Anti-Bot code to the contract.</p>
-                                            <p><i className='bi-dot'></i> Deploy token contract.</p>
-                                            <p><i className='bi-dot'></i> Set owner rights for Anti-Bot.</p>
-                                            <p><i className='bi-dot'></i> Configure Anti-Bot.</p>
-                                            <p><i className='bi-dot'></i> Enable Anti-Bot.</p>
-                                        </div>
-                    
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='launchpad-token-footer'>
-                                <div className='row'></div>
-                            </div>
-                            <div className='row mt-2 mb-2'>
-
-                                <div className='col-md-6'>
-                                <a href='launchpad-docs-introducing.html' className='onPreviewskycaudit'>
-                                    <div className='launchpad-token-body-kyc-audit'>
-                                    <p><small className='ml-4'>Previous</small></p>
-                                    <p className='kyc-previews'>
-                                        <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><label className='ml-2'>Introducing</label></strong></p>
-                                    </div>
-                                </a>
-                                </div>
-                    
-                                <div className='col-md-6'>
-                                <a href='launchpad-docs-token-metrics.html' className='onNextkycaudit'>
-                                    <div className='launchpad-token-body-kyc-audit'>
-                                    <p className='text-end'><small className='mr-4'>Next</small></p>
-                                    <p className='kyc-previews text-end'>
-                                        <strong><label className='ml-2'>Token Metrics</label></strong>
-                                        <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
-                                    </p>
-                                    </div>
-                                </a>
-                                </div>
-                    
-                            </div>
-                            </div>
-                            </div>
-                    
-                            <div className='col-md-3'>
-                            <div className='position-sticky float-right-panel'>
-                    
-                                <strong>
-                                <a href='javascript:;' className='onCopyurl' onclick='Copy();'><i className='bi-link bi-link-style'></i> Copy LINK</a>
-                                </strong>
-                                <div className='box-left-panel-introduction'>
-                                    <strong className='ml-3'><label className='text-success'>Contents</label></strong>
+                                    <div className='launchpad-token-body'>
                                     <hr/>
-                                    {/*<ul className='list-group-contents'>
-                                        <li className='list-group-item border-0'><label>Dolor sit amet</label></li>
-                                        <li className='list-group-item border-0'><label>Odio vulpulate</label></li>
-                                        <li className='list-group-item border-0'><label>Leo purus diam</label></li>
-                                        <li className='list-group-item border-0'><label>Carcus neque</label></li>
-                                        <li className='list-group-item border-0'><label>Ac iacudis</label></li>
-                                        <li className='list-group-item border-0'><label>Lacus neque</label></li>
-                                        <li className='list-group-item border-0'><label>Odio vulpulate</label></li>
-                                        <li className='list-group-item border-0'><label>Dolor sit amet</label></li>
-                                        <li className='list-group-item border-0'><label>Odio vulpulate</label></li>
-                                        <li className='list-group-item border-0'><label>Leo purus diam</label></li>
-                                        <li className='list-group-item border-0'><label>Carcus neque</label></li>
-                                        <li className='list-group-item border-0'><label>Ac iacudis</label></li>
-                                        <li className='list-group-item border-0'><label>Lacus neque</label></li>
-                                        <li className='list-group-item border-0'><label>Odio vulpulate</label></li>
-                                    </ul>*/}
-                                </div>            
+                                    <div className='launchpad-kyc-audit'>  
+                                        <div className='row p-2'>
+                        
+                                            <div className='col-md-12 mt-0 mb-1'>
+                                                <p><strong>Key features</strong></p>
+                                                <p><i className='bi-dot'></i> Prevent bots from inflating the price when the token has just been listed on the exchange.</p>
+                                                <p><i className='bi-dot'></i> Prevent multiple swaps in the same transaction by adding a delay between transactions.</p>
+                                                <p><i className='bi-dot'></i> Control the amount of tradable tokens per trade.</p>
+                                                <p><i className='bi-dot'></i> Change the amount of tradable tokens over time.</p>
+                                                <p><i className='bi-dot'></i> Add any bot addresses to a blacklist.</p>
+                                            </div>
+                        
+                                            <div className='col-md-12 mt-0 mb-1'>
+                                                <p><strong>Mechanism</strong></p>
+                                                <p><i className='bi-dot'></i> When creating tokens on CrypterSale, you have the option to implement or disable the Crypter Anti-Bot.</p>
+                                                <p><i className='bi-dot'></i> Prevents traders from transacting during the first block at listing time. Traders will only be able to trade from the second block onwards.</p>
+                                                <p><i className='bi-dot'></i> The limited amount of tradable tokens per trade will increase gradually, proportional to the number of blocks that have passed since the genesis block. After a number of blocks, depending on the setting, the Anti-Bot will automatically stop working.</p>
+                                                <p><i className='bi-dot'></i> The limited amount of tradable tokens per trade can be customized differently for each token. Only the creator has the right to edit this parameter.</p>
+                                                <p><i className='bi-dot'></i> Time limit per trade can be customized differently for each token. After a number of blocks, depending on the setting, time limit per trade will become zero. Only the creator has the right to edit this parameter.</p>
+                                                <p><i className='bi-dot'></i> You can manually add to or remove any addresses from the blacklist. The wallets in the blacklist will not be able to trade.</p>
+                                            </div>
+                        
+                                            <div className='col-md-12 mt-0 mb-1'>
+                                                <p><strong>Implementation Procedure</strong></p>
+                                                <p><i className='bi-dot'></i> Add Anti-Bot code to the contract.</p>
+                                                <p><i className='bi-dot'></i> Deploy token contract.</p>
+                                                <p><i className='bi-dot'></i> Set owner rights for Anti-Bot.</p>
+                                                <p><i className='bi-dot'></i> Configure Anti-Bot.</p>
+                                                <p><i className='bi-dot'></i> Enable Anti-Bot.</p>
+                                            </div>
+                        
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='launchpad-token-footer'>
+                                    <div className='row'></div>
+                                </div>
+                                <div className='row mt-2 mb-2'>
+
+                                    <div className='col-md-6'>
+                                    <a href='launchpad-docs-introducing.html' className='onPreviewskycaudit'>
+                                        <div className='launchpad-token-body-kyc-audit'>
+                                        <p><small className='ml-4'>Previous</small></p>
+                                        <p className='kyc-previews'>
+                                            <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><label className='ml-2'>Introducing</label></strong></p>
+                                        </div>
+                                    </a>
+                                    </div>
+                        
+                                    <div className='col-md-6'>
+                                    <a href='launchpad-docs-token-metrics.html' className='onNextkycaudit'>
+                                        <div className='launchpad-token-body-kyc-audit'>
+                                        <p className='text-end'><small className='mr-4'>Next</small></p>
+                                        <p className='kyc-previews text-end'>
+                                            <strong><label className='ml-2'>Token Metrics</label></strong>
+                                            <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
+                                        </p>
+                                        </div>
+                                    </a>
+                                    </div>
+                        
+                                </div>
                             </div>
+                            </div>
+                    
+                            <div className='col-md-2'>
+                                <div className='position-sticky float-right-panel'>
+                        
+                                    <strong>
+                                    <a href='javascript:;' className='onCopyurl' onclick='Copy();'><i className='bi-link bi-link-style'></i> Copy LINK</a>
+                                    </strong>
+                                    <div className='box-left-panel-introduction'>
+                                        <strong className='ml-3'><label className='text-success'>Contents</label></strong>
+                                        <hr/>
+                                        {/*<ul className='list-group-contents'>
+                                            <li className='list-group-item border-0'><label>Dolor sit amet</label></li>
+                                            <li className='list-group-item border-0'><label>Odio vulpulate</label></li>
+                                            <li className='list-group-item border-0'><label>Leo purus diam</label></li>
+                                            <li className='list-group-item border-0'><label>Carcus neque</label></li>
+                                            <li className='list-group-item border-0'><label>Ac iacudis</label></li>
+                                            <li className='list-group-item border-0'><label>Lacus neque</label></li>
+                                            <li className='list-group-item border-0'><label>Odio vulpulate</label></li>
+                                            <li className='list-group-item border-0'><label>Dolor sit amet</label></li>
+                                            <li className='list-group-item border-0'><label>Odio vulpulate</label></li>
+                                            <li className='list-group-item border-0'><label>Leo purus diam</label></li>
+                                            <li className='list-group-item border-0'><label>Carcus neque</label></li>
+                                            <li className='list-group-item border-0'><label>Ac iacudis</label></li>
+                                            <li className='list-group-item border-0'><label>Lacus neque</label></li>
+                                            <li className='list-group-item border-0'><label>Odio vulpulate</label></li>
+                                        </ul>*/}
+                                    </div>            
+                                </div>
                             </div>
                         </div>
                     </div>
