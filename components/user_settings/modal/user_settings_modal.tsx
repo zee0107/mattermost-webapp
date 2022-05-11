@@ -286,7 +286,7 @@ class UserSettingsModal extends React.PureComponent<Props, State> {
         return (
             <Modal
                 id='accountSettingsModal'
-                dialogClassName='a11y__modal settings-modal'
+                dialogClassName='a11y__modal settings-modal mtop-percent'
                 show={this.state.show}
                 onHide={this.handleHide}
                 onExited={this.handleHidden}

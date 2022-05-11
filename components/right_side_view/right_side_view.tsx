@@ -132,7 +132,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                                     modalId={ModalIdentifiers.USER_SETTINGS}
                                                     dialogType={UserSettingsModal}
                                                     dialogProps={{isContentProductSettings: false}}
-                                                    className={'btneditProfile btn-sm'}
+                                                    className={'onEditclicks'}
                                                     showUnread={false}
                                                 >Edit</ToggleModalButtonRedux>
                                             </div>
