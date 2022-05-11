@@ -525,55 +525,55 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
         let createFee;
         if(network === '137'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MATIC MAINNET</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MATIC MAINNET</small></a>
             );
             poolFee = 100;
             createFee = 30;
         }else if(network === '80001'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MUMBAI</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MUMBAI</small></a>
             );
             poolFee = 100;
             createFee = 0.01;
         }else if(network === '56'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={BscImg}/>&nbsp;BSC MAINNET</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={BscImg}/>&nbsp;BSC MAINNET</small></a>
             );
             poolFee = 1;
             createFee = 0.2;
         }else if(network === '97'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' className='img-fluid' src={BscImg}/>&nbsp;BSC TESTNET</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' className='img-fluid' src={BscImg}/>&nbsp;BSC TESTNET</small></a>
             );
             poolFee = 0.01;
             createFee = 0.01;
         }else if(network === '321'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={KucoinImg}/>&nbsp;KCC MAINNET</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={KucoinImg}/>&nbsp;KCC MAINNET</small></a>
             );
             poolFee = 35;
             createFee = 10;
         }else if(network === '43114'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={AvaxImg}/>&nbsp;AVAX</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={AvaxImg}/>&nbsp;AVAX</small></a>
             );
             poolFee = 10;
             createFee = 1;
         }else if(network === '250'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' height='16' src={FantomImg}/>&nbsp;Fantom</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' height='16' src={FantomImg}/>&nbsp;Fantom</small></a>
             );
             poolFee = 150;
             createFee = 30;
         }else if(network === '25'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' height='16' src={CronosImg}/>&nbsp;Cronos</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' height='16' src={CronosImg}/>&nbsp;Cronos</small></a>
             );
             poolFee = 1000;
             createFee = 100;
         }else{
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={EthImg}/>&nbsp;ETH MAINNET</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={EthImg}/>&nbsp;ETH MAINNET</small></a>
             );
             poolFee = 0.2;
             createFee = 0.1;
@@ -727,7 +727,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                                             <div className='col-md-12 removePadding'>
                                                 <ButtonConnect account={this.handleAccount} balance={`${this.state.balance} ${this.state.symbol}`}/>
                                                 {networkButton}
-                                                <a className="onLockbuttoncreate float-end ml-1" data-toggle='modal' data-target='#staticBackdropCreateToken'><small>Create</small></a>
+                                                <a className="onLockbuttoncreate float-end ml-1" data-bs-toggle='modal' data-bs-target='#staticBackdropCreateToken'><small>Create</small></a>
                                             </div>
                                             <br/>
                                             <br/>
@@ -778,7 +778,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                         <div className='removePadding'>
                             <ButtonConnect account={this.handleAccount} balance={`${this.state.balance} ${this.state.symbol}`}/>
                             {networkButton}
-                            <a className="onLockbuttoncreate float-end ml-1" data-toggle='modal' data-target='#staticBackdropCreateToken'><small>Create</small></a>
+                            <a className="onLockbuttoncreate float-end ml-1" data-bs-toggle='modal' data-bs-target='#staticBackdropCreateToken'><small>Create</small></a>
                         </div>
                         <br/>
                         <br/>
@@ -816,7 +816,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
 
                             <div className='modal-header'>
                             <h4 className='modal-title' id='staticBackdropLabel'>Create token</h4>
-                            <a className='onClosecreatetokens shadow float-end'  data-dismiss='modal'><i className='bi-x'></i></a>
+                            <a className='onClosecreatetokens shadow float-end'  data-bs-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
 
                             <div className='modal-body'>
@@ -877,7 +877,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                         <div className='modal-content shadow-lg'>
                             <div className='modal-header'>
                                 <h6 className='modal-title' id='staticBackdropLabel'>Choose network</h6>
-                                <a className='onClosechoosenetwork shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
+                                <a className='onClosechoosenetwork shadow float-end' data-bs-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
                                 <NetworkModal changeNetwork={this.handleNetworkChange} symbolChange={this.handleSymbolChange} rpcUrls={this.handleRpcUrls}/>
@@ -891,7 +891,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
                         <div className='modal-content shadow-lg'>
                             <div className='modal-header'>
                                 <h6 className='modal-title' id='staticBackdropLabel'>Connect to a wallet</h6>
-                                <a className='onCloseconnectoawallet shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
+                                <a className='onCloseconnectoawallet shadow float-end' data-bs-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
                                 <SelectWalletModal />

@@ -60,7 +60,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                     />
                 )*/}
                 <div className='dropdown float-start'>
-                    <a className='btn-add-post text-white' id='dropdownCreateposts' data-toggle='dropdown' aria-expanded='true'>
+                    <a className='btn-add-post text-white' id='dropdownCreateposts' data-bs-toggle='dropdown' aria-expanded='true'>
                     <label className='plus-text-sizes'>+</label></a>
 
                     <ul className='dropdown-menu' aria-labelledby='dropdownCreateposts'>
@@ -83,17 +83,6 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                     <svg xmlns='http://www.w3.org/2000/svg' fill='var(--text-primary)' className='bi bi-bell menu-align bi-bell-styles' viewBox='0 0 16 16'><path d='M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z'></path></svg>
                 <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger badge-style'>5</span>
                 </a>
-                {/*<a className="bg-icons" data-toggle='offcanvas' data-target='#offcanvasRightLabelfriendsdesktop' aria-controls='offcanvasRightLabelfriendsdesktop'><svg data-toggle='offcanvas' data-target='#offcanvasRightLabelfriendsdesktop'  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-person-plus menu-align" viewBox="0 0 16 16">
-                    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                    <path fillRule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-                </svg></a>
-                <a href="/messages" className="bg-icons"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-chat-right-text menu-align" viewBox="0 0 16 16">
-                    <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
-                    <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-                </svg></a>
-                <a href="/notification" className="bg-icons"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-bell menu-align" viewBox="0 0 16 16">
-                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
-            </svg></a>*/}
                 {/*<>
                     <SettingsButton/>
                 </>*/}
@@ -157,6 +146,258 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                     <small className='mt-2'>Add Friend | Remove</small>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/*Chat List*/}
+            <div style={{zIndex: 999}} className='offcanvas offcanvas-end shadow-lg' data-bs-scroll='true' data-bs-backdrop='false' tabIndex='-1' id='offcanvasRightLabelchatdesktop' aria-labelledby='offcanvasRightLabelchatdesktop'>
+                <div className='chat-list-indexes'>
+                    <div className='offcanvas-header'>
+                        <h6 id='offcanvasRightLabelchatdesktop'>
+                            <i className='bi-chat-left-text-fill'></i> Messages</h6>
+                            <a className='btn-close-canvas shadow' data-bs-dismiss='offcanvas' aria-label='Close'><i className='bi-x'></i></a>
+                    </div>
+                    <div className='offcanvas-body'>
+                        <div className='position-absolute bottom-0 start-0 p-2'>
+                            <a className='chat-mobile-settings' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelaccounts' aria-controls='offcanvasRightLabelaccounts'><i className='bi-gear-fill float-end'></i></a>
+                        </div>
+                        <div className='container'>
+                            <div className='row'>
+                                    <div className='input-group mb-1'>
+                                        <span className='input-group-text input-search-crypter-span' id='basic-addon1'><i className='bi-search'></i></span>
+                                        <input id='' type='text' className='form-control form-control-dark input-search-crypter' placeholder='Search' aria-label='Search'/>
+                                    </div>
+                            </div>
+                        </div>
+                        <div id=''>
+                            <div className='list-group'>
+                                <a className='list-group-item list-group-item-action border-0 message-content' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
+                                    <div className='d-flex w-100 justify-content-between'>
+                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-6.png' alt='User name' title='Username'/> <strong>Allysa Kate</strong></large>
+                                        <small className='mt-3'>3 days ago</small>
+                                    </div>
+                                    <small className='mt-0'>Hello how are you, message.</small>
+                                </a>
+                    
+                                <small style='margin:-21px 0px 0px 0px; z-index: 12;'>
+                                    <a href='#' data-bs-toggle='collapse' data-bs-target='#collapseActions' aria-expanded='false' aria-controls='collapseActions'>
+                                    <i className='bi-three-dots float-end me-3'></i>
+                                    </a>
+                                </small>
+                    
+                                <div className='collapse' id='collapseActions'>
+                                    <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-archive'></i> Archive</a></strong></p>
+                                    <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-x-circle'></i> Delete message</a></strong></p>
+                                    <p className='ms-3 mt-2 mb-2'><strong><a className='action-remove-msg-text'><i className='bi-dash-square'></i> Block</a></strong></p>
+                                </div>
+                    
+                                <a className='list-group-item list-group-item-action border-0'>
+                                    <div className='d-flex w-100 justify-content-between'>
+                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-5.png' alt='User name' title='Username'/> <strong>Group name</strong></large>
+                                        <small className='mt-3'>3 days ago</small>
+                                    </div>
+                                    <small>Hello how are you, message.</small>
+                                </a>
+                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'>
+                                    <a href='#' data-bs-toggle='collapse' data-bs-target='#collapseActions02' aria-expanded='false' aria-controls='collapseActions02'>
+                                    <i className='bi-three-dots float-end me-3'></i>
+                                    </a>
+                                </small>
+                                <div className='collapse' id='collapseActions02'>
+                                    <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-archive'></i> Archive</a></strong></p>
+                                    <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-x-circle'></i> Delete message</a></strong></p>
+                                    <p className='ms-3 mt-2 mb-2'><strong><a className='action-remove-msg-text'><i className='bi-dash-square'></i> Block</a></strong></p>
+                                </div>
+                                <a className='list-group-item list-group-item-action border-0'>
+                                    <div className='d-flex w-100 justify-content-between'>
+                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-4.png' alt='User name' title='Username'/> <strong>Group name</strong></large>
+                                        <small className='mt-3'>3 days ago</small>
+                                    </div>
+                                    <small>Hello how are you, message.</small>
+                                </a>
+                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'><i className='bi-three-dots float-end me-3'></i></small>
+                                <a className='list-group-item list-group-item-action border-0'>
+                                    <div className='d-flex w-100 justify-content-between'>
+                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'/> <strong>Firstname</strong></large>
+                                        <small className='mt-3'>3 days ago</small>
+                                    </div>
+                                    <small>Hello how are you, message.</small>
+                                </a>
+                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'><i className='bi-three-dots float-end me-3'></i></small>
+                                <a className='list-group-item list-group-item-action border-0'>
+                                        <div className='d-flex w-100 justify-content-between'>
+                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> <strong>Firstname</strong></large>
+                                        <small className='mt-3'>3 days ago</small>
+                                        </div>
+                                        <small>Hello how are you, message.</small>
+                                </a>
+                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'><i className='bi-three-dots float-end me-3'></i></small>
+                                <a className='list-group-item list-group-item-action border-0'>
+                                        <div className='d-flex w-100 justify-content-between'>
+                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-6.png' alt='User name' title='Username'/> <strong>Firstname</strong></large>
+                                        <small className='mt-3'>3 days ago</small>
+                                        </div>
+                                        <small>Hello how are you, message.</small>
+                                </a>
+                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'><i className='bi-three-dots float-end me-3'></i></small>
+                                <a className='list-group-item list-group-item-action border-0'>
+                                        <div className='d-flex w-100 justify-content-between'>
+                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-5.png' alt='User name' title='Username'/> <strong>Group name</strong></large>
+                                        <small className='mt-3'>3 days ago</small>
+                                        </div>
+                                        <small>Hello how are you, message.</small>
+                                </a>
+                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'><i className='bi-three-dots float-end me-3'></i></small>
+                                <a className='list-group-item list-group-item-action border-0'>
+                                        <div className='d-flex w-100 justify-content-between'>
+                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-4.png' alt='User name' title='Username'/> <strong>Group name</strong></large>
+                                        <small className='mt-3'>3 days ago</small>
+                                        </div>
+                                        <small>Hello how are you, message.</small>
+                                </a>
+                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'><i className='bi-three-dots float-end me-3'></i></small>
+                                <a className='list-group-item list-group-item-action border-0'>
+                                        <div className='d-flex w-100 justify-content-between'>
+                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'/> <strong>Firstname</strong></large>
+                                        <small className='mt-3'>3 days ago</small>
+                                        </div>
+                                        <small>Hello how are you, message.</small>
+                                </a>
+                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'><i className='bi-three-dots float-end me-3'></i></small>
+                                <a className='list-group-item list-group-item-action border-0'>
+                                        <div className='d-flex w-100 justify-content-between'>
+                                        <large className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> <strong>Firstname</strong></large>
+                                        <small className='mt-3'>3 days ago</small>
+                                        </div>
+                                        <small>Hello how are you, message.</small>
+                                </a>
+                                <small style='margin:-21px 0px 0px 0px; z-index: 9;'><i className='bi-three-dots float-end me-3'></i></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            {/*Chat Field*/}
+            <div style={{zIndex: 999}} className='offcanvas offcanvas-end shadow-lg' data-bs-scroll='true' data-bs-backdrop='false' tabIndex='-1' id='offcanvasBottomreadychatdesktop' aria-labelledby='offcanvasBottomreadychatdesktop'>
+                <div className='offcanvas-header'>
+                    <h6 className='offcanvas-title' id='offcanvasBottomreadychatdesktop'><img width='25' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-6.png' alt='Username' title='Username'/> Firstname</h6>
+                    <a href='#' className='text-reset' aria-label='Close' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelchatdesktop' aria-controls='offcanvasRightLabelchatdesktop'><i className='bi-list-nested'></i></a>
+                </div>
+                <div className='offcanvas-body offcanvas-body-bg'>
+                    <form className='mt-0'>
+                        <div className='mb-0'>
+                            <div className='chat-fields'>
+                                <div className='row'>
+                                    <div className='col-lg-12'>
+                                        <a>
+                                        <p className='float-start receiver-msg shadow-sm'><img width='25' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-6.png' alt='Username' title='Username'/>Hello how are you, message. I know your brain is well and cute.</p>
+                                        </a>
+                                    </div>
+                                    <div className='col-lg-12'>
+                                        <a>
+                                        <p className='float-end receiver-msg-user shadow-sm'><i className='bi-hand-thumbs-up-fill'></i> I'm fine<img width='25' className='img-fluid user-photo ms-1' src='assets/images/sample-user-primary-picture.png' alt='Username' title='Username'/></p>
+                                        </a>
+                                    </div>
+                                    <div className='col-lg-12'>
+                                        <a>
+                                        <p className='float-start receiver-msg shadow-sm'><img width='25' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-6.png' alt='Username' title='Username'/>Well done... <i className='bi-hand-thumbs-up-fill'></i></p>
+                                        </a>
+                                    </div>
+                                    <div className='col-lg-12'>
+                                        <a>
+                                        <p className='float-end receiver-msg-user shadow-sm'><i className='bi-hand-thumbs-up-fill'></i> Do not mess up my updates everytime.<img width='25' className='img-fluid user-photo ms-1' src='assets/images/sample-user-primary-picture.png' alt='Username' title='Username'/></p>
+                                        </a>
+                                    </div>
+                                    <div className='col-lg-12'>
+                                        <div className='action-icons float-end mt-0 mb-0'>
+                                            <div className='row'>
+                                                <div className='btn-group gap-2' role='group' aria-label='Reactions icon'>
+                                                <a className='onClickthumbsup'><i className='bi-hand-thumbs-up text-white'></i></a>
+                                                <a className='onClickthumbsdown'><i className='bi-heart text-white'></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col-lg-12'>
+                                        <div className='row float-end'>
+                                            <a className='hidden-hide text-white'>Reactions</a>
+                                        </div>
+                                    </div>
+                                    <div className='col-lg-12'>
+                                        <a>
+                                        <p className='float-end receiver-msg-user shadow-sm'>Well done.<img width='25' className='img-fluid user-photo ms-1' src='assets/images/sample-user-primary-picture.png' alt='Username' title='Username'/>
+                                        <small className='reactions-show float-start'><i className='bi-hand-thumbs-up text-white'></i></small>
+                                        <small className='reactions-show-down float-start'><i className='bi-heart text-white'></i></small>
+                                        </p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='input-group mb-3 mt-2'>
+                            <input type='text' className='form-control write-msg-style' placeholder='Type a message' aria-label='Type a message' aria-describedby='basic-addon1'/>
+                            <span className='input-group-text write-msg-style' id='basic-addon1-bg'>
+                            <a href='#'><i className='bi-emoji-smile'></i></a>
+                            </span>
+                            <span className='input-group-text write-msg-style' id='basic-addon2-bg'>
+                            <a href='#'>
+                                <svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='currentColor' className='bi bi-send' viewBox='0 0 16 16'><path d='M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z'/></svg>
+                            </a>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            {/*Notification List*/}
+            <div style={{zIndex: 180}} className='offcanvas offcanvas-end' data-bs-scroll='true' data-bs-backdrop='false' tabIndex='-1' id='offcanvasRightnotificationdesktop' aria-labelledby='offcanvasRightnotificationdesktop'>
+                <div className='offcanvas-header'>
+                    <h6 id='offcanvasRightnotificationdesktop'>
+                        <i className='bi-bell-fill'></i> Notification</h6>
+                    <a className='btn-close-canvas shadow' data-bs-dismiss='offcanvas' aria-label='Close'><i className='bi-x'></i></a>
+                </div>
+                <div className='offcanvas-body shadow-lg'>
+                    <div className='list-group'>
+                        <div className='list-group-item list-group-item-action border-0 remove-content-notification'>
+                            <div className='d-flex w-100 justify-content-between'>
+                            <small className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-post.png' alt='User name' title='Username'/> Company name</small>
+                            <small className='mt-3'>3 days ago <a data-bs-toggle='collapse' href='#collapseNotificationdesktop' role='button' aria-expanded='false' aria-controls='collapseNotificationdesktop'><i className='bi-three-dots ms-3'></i></a></small>
+                            </div>
+                            <small>Podcast live is now live.</small>
+                        </div>
+                        <div className='collapse' id='collapseNotificationdesktop'>
+                            <p className='mt-3 mb-3 ms-3'><a><strong><i className='bi-x-circle'></i> Remove this notification</strong></a></p>
+                            <p className='mt-3 mb-3 ms-3'><a><strong><i className='bi-exclamation-diamond'></i> Report issue to Notification Team</strong></a></p>
+                        </div>
+                        <div className='list-group-item list-group-item-action border-0 remove-content-notification'>
+                            <div className='d-flex w-100 justify-content-between'>
+                            <small className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> Friend name &#38; You</small>
+                            <small className='mt-3'>3 days ago <i className='bi-three-dots ms-3'></i></small>
+                            </div>
+                            <small>Your Friend Request Now Confirm</small>
+                        </div>
+                        <div className='list-group-item list-group-item-action border-0 remove-content-notification'>
+                            <div className='d-flex w-100 justify-content-between'>
+                            <small className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-3.png' alt='User name' title='Username'/> Friend name</small>
+                            <small className='mt-3'>3 days ago <i className='bi-three-dots ms-3'></i></small>
+                            </div>
+                            <small>Friend name love your story, See it and view more...</small>
+                        </div>
+                        <div className='list-group-item list-group-item-action border-0 remove-content-notification'>
+                            <div className='d-flex w-100 justify-content-between'>
+                            <small className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-user-primary-picture-2.png' alt='User name' title='Username'/> Friend name</small>
+                            <small className='mt-3'>3 days ago <i className='bi-three-dots ms-3'></i></small> 
+                            </div>
+                            <small>Friend name love your story, See it and view more...</small>
+                        </div>
+                        <div className='list-group-item list-group-item-action border-0 remove-content-notification'>
+                            <div className='d-flex w-100 justify-content-between'>
+                            <small className='mb-1'><img width='40' className='img-fluid user-photo' src='assets/images/sample-post.png' alt='User name' title='Username'/> Company name</small>
+                            <small className='mt-3'>3 days ago <i className='bi-three-dots ms-3'></i></small>
+                            </div>
+                            <small>Post from friends, new coins</small>
                         </div>
                     </div>
                 </div>

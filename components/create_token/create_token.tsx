@@ -173,55 +173,55 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         let createFee;
         if(network === '137'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MATIC MAINNET</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MATIC MAINNET</small></a>
             );
             poolFee = 100;
             createFee = 30;
         }else if(network === '80001'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MUMBAI</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MUMBAI</small></a>
             );
             poolFee = 100;
             createFee = 0.01;
         }else if(network === '56'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={BscImg}/>&nbsp;BSC MAINNET</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={BscImg}/>&nbsp;BSC MAINNET</small></a>
             );
             poolFee = 1;
             createFee = 0.2;
         }else if(network === '97'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' className='img-fluid' src={BscImg}/>&nbsp;BSC TESTNET</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' className='img-fluid' src={BscImg}/>&nbsp;BSC TESTNET</small></a>
             );
             poolFee = 0.01;
             createFee = 0.01;
         }else if(network === '321'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={KucoinImg}/>&nbsp;KCC MAINNET</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={KucoinImg}/>&nbsp;KCC MAINNET</small></a>
             );
             poolFee = 35;
             createFee = 10;
         }else if(network === '43114'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={AvaxImg}/>&nbsp;AVAX</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={AvaxImg}/>&nbsp;AVAX</small></a>
             );
             poolFee = 10;
             createFee = 1;
         }else if(network === '250'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' height='16' src={FantomImg}/>&nbsp;Fantom</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' height='16' src={FantomImg}/>&nbsp;Fantom</small></a>
             );
             poolFee = 150;
             createFee = 30;
         }else if(network === '25'){
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' height='16' src={CronosImg}/>&nbsp;Cronos</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' height='16' src={CronosImg}/>&nbsp;Cronos</small></a>
             );
             poolFee = 1000;
             createFee = 100;
         }else{
             networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-toggle='modal' data-target='#staticBackdropNetwork'><small><img width='16' src={EthImg}/>&nbsp;ETH MAINNET</small></a>
+                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={EthImg}/>&nbsp;ETH MAINNET</small></a>
             );
             poolFee = 0.2;
             createFee = 0.1;
@@ -584,7 +584,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'>
                                             <small>Logo URL*</small> 
-                                            <i className='bi-info-circle-fill bi-info-circle-fill-style ml-1' data-toggle='tooltip' data-placement='top' title='URL must end with a supported image extension png, jpg, jpeg, or gif'></i>
+                                            <i className='bi-info-circle-fill bi-info-circle-fill-style ml-1' data-bs-toggle='tooltip' data-placement='top' title='URL must end with a supported image extension png, jpg, jpeg, or gif'></i>
                                         </label>
                                         <div className='d-flex'>
                                             <div className='col-md-1 pr-0 pt-2 icon-border'>
@@ -736,7 +736,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'>
                                             <small>Logo URL*</small> 
-                                            <i className='bi-info-circle-fill bi-info-circle-fill-style ml-1' data-toggle='tooltip' data-placement='top' title='URL must end with a supported image extension png, jpg, jpeg, or gif'></i>
+                                            <i className='bi-info-circle-fill bi-info-circle-fill-style ml-1' data-bs-toggle='tooltip' data-placement='top' title='URL must end with a supported image extension png, jpg, jpeg, or gif'></i>
                                         </label>
                                         <div className='d-flex'>
                                             <div className='col-md-1 pl-1 pr-1 pt-2 icon-border'>
@@ -1186,7 +1186,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                             </div>
                             <div className='col-12 mt-2'>
                                 <small className='float-start mt-1'>Create pool fee: {poolFee} {this.state.symbol}</small>
-                                <button type='button' className='btn-sm btn-create-token float-end onCreatetokens' data-toggle='modal' data-target='#staticBackdropCreateToken'>Create token</button>
+                                <button type='button' className='btn-sm btn-create-token float-end onCreatetokens' data-bs-toggle='modal' data-bs-target='#staticBackdropCreateToken'>Create token</button>
                             </div>
                             <div className='col-12 mt-3'>
                                 <br></br>
@@ -1265,7 +1265,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                             <div className='row mt-2'>
                                 <div className='col-12'>
                                     <small className='float-start mt-1'>Create pool fee: {poolFee} {this.state.symbol}</small>
-                                    <button type='button' data-toggle='modal' data-target='#staticBackdropCreateToken' className='btn-sm btn-create-token float-end onCreatetokens'>Create token</button>
+                                    <button type='button' data-bs-toggle='modal' data-bs-target='#staticBackdropCreateToken' className='btn-sm btn-create-token float-end onCreatetokens'>Create token</button>
                                 </div>
                             </div>
                             <div className='row mt-3'>
@@ -1341,10 +1341,10 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                     <div className='container'>
                         <div className='row'>
                             <div className='col-12'>
-                                {/*<a className='onLockbuttoncreate float-end mr-1' data-toggle='modal' data-target='#staticBackdropConnect'><small>Connect</small></a>*/}
+                                {/*<a className='onLockbuttoncreate float-end mr-1' data-bs-toggle='modal' data-bs-target='#staticBackdropConnect'><small>Connect</small></a>*/}
                                 <ButtonConnect account={this.handleAccount} balance={`${this.state.balance} ${this.state.symbol}`}/>
                                 {networkButton }
-                                <a className="onLockbuttoncreate float-end ml-1" data-toggle='modal' data-target='#staticBackdropCreateToken'><small>Create</small></a>
+                                <a className="onLockbuttoncreate float-end ml-1" data-bs-toggle='modal' data-bs-target='#staticBackdropCreateToken'><small>Create</small></a>
                             </div>
                         </div>
                         <div className='d-flex mb-2'>
@@ -1443,7 +1443,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
                             <div className='modal-header'>
                             <h4 className='modal-title' id='staticBackdropLabel'>Create token</h4>
-                            <a className='onClosecreatetokens shadow float-end'  data-dismiss='modal'><i className='bi-x'></i></a>
+                            <a className='onClosecreatetokens shadow float-end'  data-bs-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
 
                             <div className='modal-body'>
@@ -1504,7 +1504,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                         <div className='modal-content shadow-lg'>
                             <div className='modal-header'>
                                 <h6 className='modal-title' id='staticBackdropLabel'>Choose network</h6>
-                                <a className='onClosechoosenetwork shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
+                                <a className='onClosechoosenetwork shadow float-end' data-bs-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
                                 <NetworkModal changeNetwork={this.handleNetworkChange} symbolChange={this.handleSymbolChange} rpcUrls={this.handleRpcUrls}/>
@@ -1518,7 +1518,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                         <div className='modal-content shadow-lg'>
                             <div className='modal-header'>
                                 <h6 className='modal-title' id='staticBackdropLabel'>Connect to a wallet</h6>
-                                <a className='onCloseconnectoawallet shadow float-end' data-dismiss='modal'><i className='bi-x'></i></a>
+                                <a className='onCloseconnectoawallet shadow float-end' data-bs-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
                                 <SelectWalletModal />
