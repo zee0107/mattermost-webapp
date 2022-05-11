@@ -685,7 +685,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                 <div id='searchforlocations'>
                                     <div className='d-flex'>
                                         <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
+                                        <div className='col-md-8 '>
                                         <label className='onAddlocation'>Muntinlupa City</label>
                                         <p><small>Muntinlupa City Philippines</small></p>
                                         </div>
@@ -699,7 +699,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 
                                     <div className='d-flex'>
                                         <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
+                                        <div className='col-md-8 '>
                                         <label>Makati City</label>
                                         <p><small>Makati City Philippines</small></p>
                                         </div>
@@ -713,7 +713,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                 
                                     <div className='d-flex'>
                                         <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
+                                        <div className='col-md-8 '>
                                         <label>Taguig City</label>
                                         <p><small>Taguig City Philippines</small></p>
                                         </div>
@@ -727,7 +727,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
                                     <div className='d-flex'>
                                         <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
+                                        <div className='col-md-8 '>
                                         <label>Santa Rosa City</label>
                                         <p><small>Santa Rosa City Philippines</small></p>
                                         </div>
@@ -741,7 +741,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
                                     <div className='d-flex'>
                                         <div className='col-md-2 text-center'><i className='bi-geo-alt'></i></div>
-                                        <div className='col-md-8 width-100'>
+                                        <div className='col-md-8 '>
                                             <label>San Pedro City</label>
                                             <p><small>San Pedro City Philippines</small></p>
                                         </div>
