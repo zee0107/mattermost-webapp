@@ -535,7 +535,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                             id='app-content'
                             className='app__content pt-0'
                             >
-                            <FileUploadOverlay overlayType='center'/>
                             <div className='box-middle-panel crypter-section-profile-desktop'>
                                 <div className='row'>
                                     <div className='col-md-5 text-center removePaddingRight'>
@@ -621,6 +620,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                 </div>
 
                                 <div className='modal-body'>
+                                    <FileUploadOverlay overlayType='center'/>
                                     <div className='row'>
                                         <div className='col-md-2 text-center'>
                                             {this.renderProfilePicture('xl')}
