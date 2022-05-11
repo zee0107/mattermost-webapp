@@ -68,18 +68,18 @@ export default class GroupImage extends React.PureComponent<Props, State> {
         let cover;
         if(img_url === 'unavailable'){
             if(suggested){
-                cover = (<img width='100%' height='190' className='img-fluid' src={GroupLogo} alt=''/>);
+                cover = (<img width='100%' height='190' src={GroupLogo} alt=''/>);
             }
             else{
-                cover = (<img onClick={this.handleRedirect.bind(this,channelName,channelId)} width='100%' height='190' className='img-fluid' src={GroupLogo} alt=''/>);
+                cover = (<img onClick={this.handleRedirect.bind(this,channelName,channelId)} width='100%' height='190' src={GroupLogo} alt=''/>);
             }
         }
         else{
             if(suggested){
-                cover = (<img width='100%' height='190' className='img-fluid' src={img_url} alt=''/>);
+                cover = (<img width='100%' height='190' src={img_url} alt=''/>);
             }
             else{
-                cover = (<img onClick={this.handleRedirect.bind(this,channelName,channelId)} width='100%' height='190' className='img-fluid' src={img_url} alt=''/>);
+                cover = (<img onClick={this.handleRedirect.bind(this,channelName,channelId)} width='100%' height='190' src={img_url} alt=''/>);
             }
         }
 

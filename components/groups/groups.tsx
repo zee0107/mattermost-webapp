@@ -422,10 +422,10 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                                             </p>
         
                                             <div className='d-flex'>
-                                                <div className='col-md-6 mt-2 mb-3 width-100'><button type='button' className='float-end onEditgroups' onClick={() => {
+                                                <div className='col-md-6 mt-2 mb-3 '><button type='button' className='float-end onEditgroups' onClick={() => {
                                                     this.setState({group_view: 'update_group',channelId: item.id, channelName: item.name,channelDisplayName: item.display_name,channelPurpose: item.purpose,channelHeader: item.header,channelType: item.type })
                                                 }}><label>Edit</label></button></div>
-                                                <div className='col-md-6 mt-2 mb-3  width-100'><button type='button' className='float-start onDeletegroups' onClick={this.removeGroup.bind(this,item)}><label>Delete</label></button></div>
+                                                <div className='col-md-6 mt-2 mb-3  '><button type='button' className='float-start onDeletegroups' onClick={this.removeGroup.bind(this,item)}><label>Delete</label></button></div>
                                             </div>
                                         </div>
                                     </div>
@@ -708,29 +708,29 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                     <div className='crypter-section-mobile'>
                         <div className='position-sticky float-middle-panel'>
                             <div className='d-flex mt-2'>
-                                <div className='col-md-7 width-100'><a className='onCartmarketplaceicon onMarketplace float-start'><i className='bi-people-fill'></i></a>
+                                <div className='col-md-7 '><a className='onCartmarketplaceicon onMarketplace float-start'><i className='bi-people-fill'></i></a>
                                     <strong className='float-start mt-3 ml-2 text-mygroups'>Groups</strong>
                                 </div>
-                                <div className='col-md-5 width-100'><a className='float-end rounded onCreategroupsdesktop btn-sm text-center mt-3' onClick={() => { this.setState({group_view: 'creategroup'})}}>
+                                <div className='col-md-5 '><a className='float-end rounded onCreategroupsdesktop btn-sm text-center mt-3' onClick={() => { this.setState({group_view: 'creategroup'})}}>
                                     <i className='bi-plus'></i> Create</a>
                                 </div>
                             </div>
                         </div>
                         <div className='box-middle-panel-marketplace-mobile mt-3 col-md-12'>
                             <div className='d-flex'>
-                                <div className='col-md-4 width-100 text-center p-0'>
+                                <div className='col-md-4  text-center p-0'>
                                     <a 
                                         className={group_view === 'mygroups' ? 'onMygroupspages btn-md p-2 active-group-menu text-success' : 'onMygroupspages btn-md p-2'}
                                         onClick={() => { this.setState({group_view: 'mygroups', result_create: false, result_joined: false, result_leave: false, result_remove: false, result_update: false , serverError: ''})}}
                                     ><small>MyGroups</small></a>
                                 </div>
-                                <div className='col-md-4 width-100 text-center p-0'>
+                                <div className='col-md-4  text-center p-0'>
                                     <a 
                                         className={group_view === 'suggested' ? 'onMycarts btn-md p-2 active-group-menu text-success' : 'onMycarts btn-md p-2'}
                                         onClick={() => { this.setState({group_view: 'suggested', result_create: false, result_joined: false, result_leave: false, result_remove: false, result_update: false, serverError: ''})}}
                                     ><small>Suggested</small></a>
                                 </div>
-                                <div className='col-md-4 width-100 text-center p-0'>
+                                <div className='col-md-4  text-center p-0'>
                                     <a 
                                         className={group_view === 'joined' ? 'onMyjoined btn-md p-2 active-group-menu text-success' : 'onMyjoined btn-md p-2'}><small className='ms-2'
                                         onClick={() => { this.setState({group_view: 'joined', result_create: false, result_joined: false, result_leave: false, result_remove: false, result_update: false, serverError: ''})}}

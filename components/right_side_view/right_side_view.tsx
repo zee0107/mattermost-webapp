@@ -193,7 +193,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='col-md-12 chat-box removePadding mtop-10'>
                                         <div className='d-flex'>
-                                            <div className='col-lg-4 width-100'>
+                                            <div className='col-lg-4 '>
                                                 <div className='d-flex'>
                                                     <div className='col-sm-3'>
                                                         <h4>
