@@ -84,7 +84,7 @@ export default class ChannelController extends React.PureComponent<Props> {
                     <SidebarRightMenu/>
                     <div className='col-md-12 bgGrey removePadding'>
                         <div className='row'>
-                            <div className='col-md-2'>
+                            <div className='col-md-2 removePadding'>
                                 <Sidebar/>
                             </div>
                             <div className='col-md-10 removePadding'>
