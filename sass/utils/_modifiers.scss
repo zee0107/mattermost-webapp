@@ -40,6 +40,10 @@ $positions: 't'top,
     .h-#{$i} {
         height: #{$i*4}px !important;
     }
+
+    .border-#{$i}{
+        border: #{$i*4}px !important;
+    }
 }
 
 .d-block {
