@@ -412,10 +412,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         if(feeling){
             feelactView = (
                 <div className='feelingscontent'>
-                    <div className='input-group d-flex mb-0'>
+                    {/*<div className='input-group d-flex mb-0'>
                         <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
                         <input id='searchFeelings' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Search' aria-label='Search'/>
-                    </div>
+                    </div>*/}
     
                     <div className='row mt-3'>
                         {this.state.userActivity && <a className='feelingspost onClosefeelingsviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-primary'>{textValue} {icon}<i className='bi-x-lg'></i></label></a>}
@@ -465,10 +465,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         else{
             feelactView = (
                 <div className='activitiescontent'>
-                    <div className='input-group d-flex mb-0'>
+                    {/*<div className='input-group d-flex mb-0'>
                         <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
                         <input id='searchActivities' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Search' aria-label='Search'/>
-                    </div>
+            </div>*/}
     
                     <div className='row mt-3 mb-3'>
                         {this.state.userActivity && <a className='activitiespost onCloseactivitiessviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-primary'>{textValue} {icon}<i className='bi-x-lg'></i></label></a>}
@@ -1010,7 +1010,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                     <div className='input-group d-flex mb-0'>
                                     <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
                                     <input id='searchLocations' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Where are you?' aria-label='Where are you?'/>
-                                </div>*/}
+                                            </div>*/}
+                                </div>
                 
                                 <div className='row mt-3 mb-4'>
                                     {this.state.userLocation && <a className='locationviewpost onUnselectlocation ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userLocation: ''});}}><label className='text-primary'>{this.state.userLocation} <i className='bi-x-lg'></i></label></a>}
@@ -1117,10 +1118,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             <div className='modal selectaudience' id='staticBackdropShare' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
                 <div className='modal-dialog modal-dialog-centered'>
                     <div className='modal-content'>
-                        {/*<div className='modal-header'>
+                        <div className='modal-header'>
                             <h6 className='modal-title' id='staticBackdropLabel'>Select audience</h6>
                             <a className='onBacktopost float-end' data-bs-toggle='modal' data-bs-target='#staticBackdrop' data-bs-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
-                            </div>*/}
+                        </div>
 
                         <div className='modal-body'>
                             <div className='row'>
