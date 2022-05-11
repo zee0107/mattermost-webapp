@@ -79,15 +79,15 @@ export default class ChannelController extends React.PureComponent<Props> {
                 <SystemNotice/>
                 <FaviconTitleHandler/>
                 <ProductNoticesModal/>
-                <div className={classNames('container channel-view-inner', {'app-bar-enabled': shouldShowAppBar})}>
+                <div className={classNames('container-fluid channel-view-inner', {'app-bar-enabled': shouldShowAppBar})}>
                     <SidebarRight/>
                     <SidebarRightMenu/>
                     <div className='col-md-12 bgGrey removePadding'>
                         <div className='row'>
-                            <div className='col-md-3'>
+                            <div className='col-md-2'>
                                 <Sidebar/>
                             </div>
-                            <div className='col-md-9 removePadding'>
+                            <div className='col-md-10 removePadding'>
                                 <div className='col-md-12'>
                                     {!this.props.fetchingChannels && <Route component={CenterChannel}/>}
                                     {this.props.fetchingChannels && <LoadingScreen/>}
