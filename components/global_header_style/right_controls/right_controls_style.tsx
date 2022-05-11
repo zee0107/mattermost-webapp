@@ -345,7 +345,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                             </div>
                         </div>
                         <div className='input-group mb-3 mt-2'>
-                            <input type='text' className='form-control write-msg-style' placeholder='Type a message' aria-label='Type a message' aria-describedby='basic-addon1'/>
+                            <input style={{padding: 18}} type='text' className='form-control write-msg-style' placeholder='Type a message' aria-label='Type a message' aria-describedby='basic-addon1'/>
                             <span className='input-group-text write-msg-style' id='basic-addon1-bg'>
                             <a href='#'><i className='bi-emoji-smile'></i></a>
                             </span>
