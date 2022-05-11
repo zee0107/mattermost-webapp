@@ -934,15 +934,22 @@
 }
 
 .btn-logout{
-  background-color: transparent;
-  border: transparent;
+  background-color: transparent !important;
+  border: transparent !important;
   color: var(--text-primary);
   font-size: 14px;
 }
 
 .btn-logout:hover{
-  background-color: transparent;
-  border: transparent;
+  background-color: transparent !important;
+  border: transparent !important;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.btn-logout:focus{
+  background-color: transparent !important;
+  border: transparent !important;
   color: var(--text-primary);
   font-size: 14px;
 }
