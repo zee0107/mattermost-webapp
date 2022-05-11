@@ -1006,12 +1006,11 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 <a className='onBacktolocation float-end' data-bs-toggle='modal' data-bs-target='#staticBackdrop' data-bs-dismiss='modal' aria-label='Close'><i className='bi-arrow-left-circle'></i></a>
                             </div>
                             <div className='modal-body'>
-                                {/*<div className=''>
-                                    <div className='input-group d-flex mb-0'>
-                                    <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
-                                    <input id='searchLocations' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Where are you?' aria-label='Where are you?'/>
+                                <div className=''>
+                                    {/*<div className='input-group d-flex mb-0'>
+                                        <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
+                                        <input id='searchLocations' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Where are you?' aria-label='Where are you?'/>
                                             </div>*/}
-                                </div>
                 
                                 <div className='row mt-3 mb-4'>
                                     {this.state.userLocation && <a className='locationviewpost onUnselectlocation ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userLocation: ''});}}><label className='text-primary'>{this.state.userLocation} <i className='bi-x-lg'></i></label></a>}
