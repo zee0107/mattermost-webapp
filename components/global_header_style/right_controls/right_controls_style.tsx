@@ -60,14 +60,14 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                     />
                 )*/}
                 <div className='dropdown float-start'>
-                    <a className='btn-add-post text-white' id='dropdownCreateposts' data-bs-toggle='dropdown' aria-expanded='true'>
+                    <a className='btn-add-post text-white' id='dropdownCreateposts' data-toggle='dropdown' aria-expanded='true'>
                     <label className='plus-text-sizes'>+</label></a>
 
                     <ul className='dropdown-menu' aria-labelledby='dropdownCreateposts'>
                         <li><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src={AdImg}/> Create Ad</a></li>
                         <li><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src={BlogImg}/> Create Blog</a></li>
                         <li><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src={EventImg}/> Create Event</a></li>
-                        <li><a className='dropdown-item' href='/groups'><img width='19' className='img-fluid mr-2' src={GroupImg}/> Create Group</a></li>
+                        <li><a className='dropdown-item' href='/mygroups'><img width='19' className='img-fluid mr-2' src={GroupImg}/> Create Group</a></li>
                         <li><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src={PageImg}/> Create Page</a></li>
                     </ul>
                 </div>
