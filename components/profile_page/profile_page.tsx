@@ -417,7 +417,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         <input id='searchFeelings' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Search' aria-label='Search'/>
                     </div>*/}
     
-                    <div className='row mt-3'>
+                    <div className='mt-3'>
                         {this.state.userActivity && <a className='feelingspost onClosefeelingsviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-primary'>{textValue} {icon}<i className='bi-x-lg'></i></label></a>}
                     </div>
     
@@ -470,7 +470,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                         <input id='searchActivities' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Search' aria-label='Search'/>
             </div>*/}
     
-                    <div className='row mt-3 mb-3'>
+                    <div className='mt-3 mb-3'>
                         {this.state.userActivity && <a className='activitiespost onCloseactivitiessviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-primary'>{textValue} {icon}<i className='bi-x-lg'></i></label></a>}
                     </div>
     
@@ -1012,7 +1012,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <input id='searchLocations' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Where are you?' aria-label='Where are you?'/>
                                             </div>*/}
                 
-                                <div className='row mt-3 mb-4'>
+                                <div className='mt-3 mb-4'>
                                     {this.state.userLocation && <a className='locationviewpost onUnselectlocation ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userLocation: ''});}}><label className='text-primary'>{this.state.userLocation} <i className='bi-x-lg'></i></label></a>}
                                 </div>
                 

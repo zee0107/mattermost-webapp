@@ -587,7 +587,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                             <i className='bi-info-circle-fill bi-info-circle-fill-style ml-1' data-bs-toggle='tooltip' data-placement='top' title='URL must end with a supported image extension png, jpg, jpeg, or gif'></i>
                                         </label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pr-0 pt-2 icon-border'>
+                                            <div className='col-md-1 pr-0'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-image bi-image-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0'>
@@ -600,7 +600,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'><small>Website</small></label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pr-0 pt-2 icon-border'>
+                                            <div className='col-md-1 pr-0'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-globe2 bi-globe2-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0'>
@@ -615,7 +615,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'><small>Facebook</small></label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pr-0 pt-2 icon-border'>
+                                            <div className='col-md-1 pr-0'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-facebook bi-image-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0'>
@@ -628,7 +628,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'><small>Twitter</small></label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pr-0 pt-2 icon-border'>
+                                            <div className='col-md-1 pr-0'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-twitter bi-globe2-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0'>
@@ -643,7 +643,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'><small>Github</small></label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pr-0 pt-2 icon-border'>
+                                            <div className='col-md-1 pr-0'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-github bi-image-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0'>
@@ -656,7 +656,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'><small>Telegram</small></label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pr-0 pt-2 icon-border'>
+                                            <div className='col-md-1 pr-0'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-telegram bi-globe2-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0'>
@@ -671,7 +671,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'><small>Instagram</small></label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pr-0 pt-2 icon-border'>
+                                            <div className='col-md-1 pr-0'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-instagram bi-image-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0'>
@@ -684,7 +684,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'><small>Discord</small></label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pr-0 pt-2 icon-border'>
+                                            <div className='col-md-1 pr-0'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-discord bi-globe2-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0'>
@@ -699,7 +699,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'><small>Reddit</small></label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pt-2 icon-border text-center'>
+                                            <div className='col-md-1 text-center'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-discord bi-globe2-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0'>
@@ -739,7 +739,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                             <i className='bi-info-circle-fill bi-info-circle-fill-style ml-1' data-bs-toggle='tooltip' data-placement='top' title='URL must end with a supported image extension png, jpg, jpeg, or gif'></i>
                                         </label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pl-1 pr-1 pt-2 icon-border'>
+                                            <div className='col-md-1 pl-1 pr-1'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-image bi-image-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0'>
@@ -752,7 +752,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'><small>Website</small></label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pl-1 pr-1 pt-2 icon-border'>
+                                            <div className='col-md-1 pl-1 pr-1'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-globe2 bi-globe2-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0'>
@@ -767,7 +767,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'><small>Facebook</small></label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pl-1 pr-1 pt-2 icon-border'>
+                                            <div className='col-md-1 pl-1 pr-1'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-facebook bi-image-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0'>
@@ -780,7 +780,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'><small>Twitter</small></label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pl-1 pr-1 pt-2 icon-border'>
+                                            <div className='col-md-1 pl-1 pr-1'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-twitter bi-globe2-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0'>
@@ -795,7 +795,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'><small>Github</small></label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pl-1 pr-1 pt-2 icon-border'>
+                                            <div className='col-md-1 pl-1 pr-1'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-github bi-image-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0'>
@@ -808,7 +808,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'><small>Telegram</small></label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pl-1 pr-1 pt-2 icon-border'>
+                                            <div className='col-md-1 pl-1 pr-1'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-telegram bi-globe2-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0'>
@@ -823,7 +823,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'><small>Instagram</small></label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pl-1 pr-1 pt-2 icon-border'>
+                                            <div className='col-md-1 pl-1 pr-1'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-instagram bi-image-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0'>
@@ -836,7 +836,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'><small>Discord</small></label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pl-1 pr-1 pt-2 icon-border'>
+                                            <div className='col-md-1 pl-1 pr-1'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-discord bi-globe2-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0'>
@@ -851,7 +851,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     <div className='mb-3'>
                                         <label htmlFor='exampleFormControlInput1' className='form-label'><small>Reddit</small></label>
                                         <div className='d-flex'>
-                                            <div className='col-md-1 pt-2 icon-border text-center'>
+                                            <div className='col-md-1 text-center'>
                                                 <span className='input-group-text bg-white' id=''><i className='bi-discord bi-globe2-style'></i></span>
                                             </div>
                                             <div className='col-md-11 pl-0 pr-0 width-100'>
@@ -1233,7 +1233,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                     </label>
                                 </div>
                             </div>
-                            <div className='col-lg-12 text-center mt-3'>
+                            <div className='col-lg-12 text-center mt-3 mb-3'>
                                 <button type='button' className='btn-sm btn-create-token' onClick={() => {this.setState({step:2});}}>Next</button>
                             </div>
                             <div className='row busd-info mt-4'>

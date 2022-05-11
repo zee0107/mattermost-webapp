@@ -31,9 +31,9 @@ export default function ButtonConnect(props){
     return (
         <>
             {!active ? (
-                <a className='onLockbuttoncreate float-end mr-1' data-toggle='modal' data-target='#staticBackdropConnect'><small>Connect</small></a>
+                <a className='onLockbuttoncreate float-end mr-1' data-bs-toggle='modal' data-bs-target='#staticBackdropConnect'><small>Connect</small></a>
             ) : (
-                <a onClick={disconnect} className='onLockbuttoncreate float-end mr-1' data-toggle='tooltip' data-placement='bottom' title={props.balance}><small><i className='bi bi-person-fill'></i>{truncateAddress(account)}</small></a>
+                <a onClick={disconnect} className='onLockbuttoncreate float-end mr-1' data-bs-toggle='tooltip' data-bs-placement='bottom' title={props.balance}><small><i className='bi bi-person-fill'></i>{truncateAddress(account)}</small></a>
             )}
         </>
     );
