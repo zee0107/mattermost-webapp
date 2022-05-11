@@ -986,6 +986,32 @@
   border-radius: 19px;
 }
 
+.offcanvas{
+  position: fixed;
+  bottom: 0;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  visibility: hidden;
+  background-color: #fff;
+  background-clip: padding-box;
+  outline: 0;
+  transition: transform .3s ease-in-out;
+
+  .show{
+    transform: none;
+  }
+}
+
+.offcanvas-end {
+  top: 0;
+  right: 0;
+  width: 400px;
+  border-left: 1px solid rgba(0,0,0,.2);
+  transform: translateX(100%);
+}
+
 .bg-drowndown-user{
   color: var(--text-primary);
   background-color: #F6F9FD;
