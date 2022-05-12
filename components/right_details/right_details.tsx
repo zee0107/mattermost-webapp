@@ -38,7 +38,8 @@ export default class RightDetails extends React.PureComponent<Props>{
             return (<iframe title="Santiment Chart: Price (BTC)" width="100%" height="100%" src="https://embed.santiment.net/chart?ps=bitcoin&pt=BTC&df=2021-11-12T15%3A59%3A59.999Z&emcg=1&wm=price_usd&wc=%2326C953" scrolling="no"></iframe>);
         }
         else if(this.props.symbol === 'BNB'){
-            return (<iframe title="Santiment Chart: Price (BNB)" width="100%" height="100%" src="https://embed.santiment.net/chart?ps=binance-coin&pt=BNB&df=2021-11-12T15%3A59%3A59.999Z&emcg=1&wm=price_usd&wc=%2326C953" scrolling="no"></iframe>);
+            //return (<iframe title="Santiment Chart: Price (BNB)" width="100%" height="100%" src="https://embed.santiment.net/chart?ps=binance-coin&pt=BNB&df=2021-11-12T15%3A59%3A59.999Z&emcg=1&wm=price_usd&wc=%2326C953" scrolling="no"></iframe>);
+            return (<div className='parent-div-1'><div className='parent-div-2'><iframe src="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=1209&pref_coin_id=1505" width="100%" height="100%" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" className='iframe-style'></iframe></div></div>);
         }
         else if(this.props.symbol === 'LTC'){
             return (<iframe title="Santiment Chart: Price (LTC)" width="100%" height="100%" src="https://embed.santiment.net/chart?ps=litecoin&pt=LTC&df=2021-11-12T15%3A59%3A59.999Z&emcg=1&wm=price_usd&wc=%2326C953" scrolling="no"></iframe>);
