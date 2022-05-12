@@ -10,7 +10,6 @@ import bnbImage from 'images/currency-icons/bnb.svg';
 import ethImage from 'images/currency-icons/eth.svg';
 import graphImage from 'images/graph-up.svg';
 import graphdownImage from 'images/graph-down.svg';
-import 'https://cryptowidgets.blocksera.com/js/script';
 
 type Props = {
     symbol?: string;
@@ -23,6 +22,11 @@ export default class RightDetails extends React.PureComponent<Props>{
     }
 
     componentDidMount (){
+        const script = document.createElement("script");
+        script.src = "https://cryptowidgets.blocksera.com/js/script";
+        script.async = true;
+        document.body.appendChild(script);
+
         const uri = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencydata");
         const config = { method: "GET" }
         
