@@ -82,7 +82,7 @@ export default class DocumentsKyc extends React.PureComponent<Props, State> {
                                         <strong className='ml-3'><label className='text-success'>Introduction</label></strong>
                                         <hr/>
                                         <ul className='list-group'>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents'><label>Introducing</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/documents/intro'><label>Introducing</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-token-metrics.html'><label>Token Metrics</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-token-utility.html'><label>Token Utility</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-anti-rug-system.html'><label>Anti-Rug System</label></a></li>
@@ -365,7 +365,7 @@ export default class DocumentsKyc extends React.PureComponent<Props, State> {
                                             <strong className='ml-3'><label className='text-success'>Introduction</label></strong>
                                             <hr/>
                                             <ul className='list-group'>
-                                                <li className='list-group-item border-0 mb-0'><a href='/documents'><label>Introducing</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/documents/intro'><label>Introducing</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-token-metrics.html'><label>Token Metrics</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-token-utility.html'><label>Token Utility</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-anti-rug-system.html'><label>Anti-Rug System</label></a></li>
