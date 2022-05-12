@@ -35,7 +35,7 @@ export default class RightDetails extends React.PureComponent<Props>{
 
     renderGraph = () =>{
         if(this.props.symbol === 'BTC'){
-            return (<div className="massive-shortcode" data-id="339"></div>);
+            return (<div class="livecoinwatch-widget-1" lcw-coin="BTC" lcw-base="USD" lcw-secondary="BTC" lcw-period="d" lcw-color-tx="#ffffff" lcw-color-pr="#58c7c5" lcw-color-bg="#1f2434" lcw-border-w="1" ></div>);
         }
         else{
             if(parseFloat(this.state.data.percent_change_24h) > 0){ 

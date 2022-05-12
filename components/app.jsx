@@ -27,11 +27,11 @@ const Root = makeAsyncComponent('Root', LazyRoot);
 
 class App extends React.PureComponent {
     importScript = () =>{
-        const externalJS = "https://cryptowidgets.blocksera.com/js/script";
+        const externalJS = "https://www.livecoinwatch.com/static/lcw-widget.js";
         const script = document.createElement("script");
         script.src = externalJS;
         script.async = true;
-        
+
         document.body.appendChild(script);
     }
 
