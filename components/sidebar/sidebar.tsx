@@ -225,7 +225,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                                     <li key='liquidity'><div className='list-sidemenu-b'><a href="/launchpad-liquidity" className='side-menu-item'>Liquidity</a></div></li>
                                 </ul>
                             </li>
-                            <li key='kyc-audit' className='sidemenu-padding'><div className='list-sidemenu-a'><a href="#" className='side-menu-item'>KYC &amp; Audit</a></div></li>
+                            <li key='kyc-audit' className='sidemenu-padding'><div className='list-sidemenu-a'><a href="/documents/kyc" className='side-menu-item'>KYC &amp; Audit</a></div></li>
                             <li key='docs' className='sidemenu-padding'><div className='list-sidemenu-a'><a href="/documents" className='side-menu-item'>Docs</a></div></li>
                         </ul>
                     </div>

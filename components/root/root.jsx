@@ -58,6 +58,7 @@ const LazyProfilePage = React.lazy(() => import('components/profile_page'));
 const LazyNewsFeed = React.lazy(() => import('components/newsfeed'));
 const LazyGroup = React.lazy(() => import('components/groups'));
 const LazyDocuments = React.lazy(() => import('components/documents'));
+const LazyDocumentsKyc = React.lazy(() => import('components/documents-kyc'));
 const LazyLaunchPad = React.lazy(() => import('components/launch_pad'));
 const LazyLaunchPadToken = React.lazy(() => import('components/launchpad_token'));
 const LazyLaunchPadLiquidity = React.lazy(() => import('components/launchpad_liquidity'));
@@ -106,6 +107,7 @@ const ProfilePage = makeAsyncComponent('ProfilePage', LazyProfilePage);
 const NewsFeed = makeAsyncComponent('Newsfeed', LazyNewsFeed);
 const Groups = makeAsyncComponent('Group', LazyGroup);
 const Documents = makeAsyncComponent('Documents', LazyDocuments);
+const DocumentsKyc = makeAsyncComponent('DocumentsKyc', LazyDocumentsKyc);
 const LaunchPad = makeAsyncComponent('LaunchPad', LazyLaunchPad);
 const LaunchPadToken = makeAsyncComponent('LaunchPadToken', LazyLaunchPadToken);
 const LaunchPadLiquidity = makeAsyncComponent('LaunchPadLiquidity', LazyLaunchPadLiquidity);
@@ -538,6 +540,10 @@ export default class Root extends React.PureComponent {
                                 <LoginHFTRouteNS
                                     path={'/documents'}
                                     component={Documents}
+                                />
+                                <LoginHFTRouteNS
+                                    path={'/documents/kyc'}
+                                    component={DocumentsKyc}
                                 />
                                 <LoginHFTRouteF
                                     path={'/launchpad'}

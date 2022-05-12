@@ -57,7 +57,7 @@ type State = {
     img_path: string;
 };
 
-export default class ProjectsLive extends React.PureComponent<Props, State> {
+export default class DocumentsKyc extends React.PureComponent<Props, State> {
     static defaultProps = {userId: ''}
 
     constructor(props: Props) {
@@ -82,7 +82,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         <strong className='ml-3'><label className='text-success'>Introduction</label></strong>
                                         <hr/>
                                         <ul className='list-group'>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents' className='active-docs fw-bold'><label>Introducing</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/documents'><label>Introducing</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-token-metrics.html'><label>Token Metrics</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-token-utility.html'><label>Token Utility</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-anti-rug-system.html'><label>Anti-Rug System</label></a></li>
@@ -95,7 +95,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         <ul className='list-group mt-2'>
                                             <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-contact-us.html'><label>Contact Us</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-social-links.html'><label>Social Links</label></a></li>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents/kyc'><label>KYC &#38; Audit at CrypterSale</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/docments/kyc' className='active-docs fw-bold'><label>KYC &#38; Audit at CrypterSale</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-crypter-sale-calculator.html'><label>CrypterSale Calculator</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-youtube-tutorial.html'><label>YouTube Tutorials</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-contact-developers.html'><label>Contact Developers</label></a></li>
@@ -174,104 +174,168 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                 <div className='position-sticky float-right-panel'>
                                     <div className='launchpad-token-lock-info'>
                                         <div className='row'>
-                                            <div className='col-md-9'><h6 className='float-start mt-3'>Introducing</h6></div>
-                                            <div className='col-md-3'></div>
+                                            <div className='col-8'><h6 className='float-start mt-3'>KYC & Audit at CrypterSale</h6></div>
+                                            <div className='col-4'></div>
                                         </div>
                                     </div>
-
                                     <div className='launchpad-token-body'>
-                                    <hr/>
-                                    <div className='launchpad-kyc-audit'>  
-                                        <div className='row p-2'>
-                        
-                                            <div className='col-md-12 mt-0 mb-1'>
-                                                <p><strong>Key features</strong></p>
-                                                <p><i className='bi-dot'></i> Prevent bots from inflating the price when the token has just been listed on the exchange.</p>
-                                                <p><i className='bi-dot'></i> Prevent multiple swaps in the same transaction by adding a delay between transactions.</p>
-                                                <p><i className='bi-dot'></i> Control the amount of tradable tokens per trade.</p>
-                                                <p><i className='bi-dot'></i> Change the amount of tradable tokens over time.</p>
-                                                <p><i className='bi-dot'></i> Add any bot addresses to a blacklist.</p>
+                                        <hr/>
+                                        <div className='launchpad-kyc-audit'>  
+                                            <div className='row p-2'>
+                                            <div className='col-12 mt-0 mb-1'>
+                                                <p className='mt-2 mb-2' id='kycisonlyforprojectowners'>
+                                                <strong>KYC is only for Project Owners</strong>
+                                                </p>
+                                                <p className='mt-2 mb-2'>
+                                                As you know, at CrypterSale we take the safety of our investors very seriously. We hate scams and rugpulls and, because of that, we have built many features and tools for you to be able to make informed decisions as to whether a presale is worth investing in or not. Scrolling through the list of current and past presales, you might have noticed that several projects have a KYC badge next to their names. This brief article is designed to explain what that means and what it entails for all stakeholders.
+                                                </p>
+                                                <p className='mt-2 mb-2' id='kycexplained'>
+                                                <strong>KYC Explained</strong>
+                                                </p>
+                                                <p className='mt-2 mb-2'>
+                                                At CrypterSale, Know Your Customer, or KYC is the process of identity verification to ascertain that the person speaking to us is really who she/he says they are. How does it work? The identities of the project owner are determined by submitting ID documentation (Passport, National ID) to an automated platform. This is similar to the KYC process needed when opening up a trading account on a major exchange like Binance, for example.
+                                                </p>
+                                                <p className='mt-2 mb-2' id='whatdoesitmeanforyou'>
+                                                <strong>What Does it Mean For You?</strong>
+                                                </p>
+                                                <p className='mt-2 mb-2'>
+                                                The KYC process aims to rid our platform of scams and rugpulls by acting as a deterrent for dubious devs. If any of the KYCed project’s team members scams investors: 
+                                                <br/>
+                                                <br/>
+                                                <i className='bi-dot'></i> We will reveal their identities. 
+                                                <br/>
+                                                <i className='bi-dot'></i> We will make this information public for those wanting to file criminal charges.
+                                                <br/>
+                                                <br/>
+                                                <strong>To investors:</strong> If you have serious reservations about a project, and you have proofs that the project is a scam, please contact us ASAP, supplying as much evidence as possible. We will go through the claim and let you know the result of our investigation. 
+                                                <br/>
+                                                <br/>
+                                                <strong>To project owners:</strong> If you want investors to trust you, we highly recommend that you approach our KYC Manager on Crypter and apply for KYC verification. This will bring legitimacy to your project. KYC may take 24 - 48 hours so please contact us asap. 
+                                                <br/>
+                                                <br/>
+                                                The KYC service on CrypterSale is another of the great features making our platform the best launchpad available. It will also help further in cleaning up the crypto industry, making people realize that they are accountable for their actions, even in a decentralized world. 
+                                                </p>
+                                                <p className='mt-2 mb-2' id='contactforkyc'>
+                                                <strong>Contact for KYC</strong>
+                                                </p>
+                                                <p className='mt-2 mb-2'>
+                                                Please contact @babycrypter on Telegram for the KYC badge on CtypterSale.
+                                                <br/>
+                                                <br/>
+                                                <strong>Important Disclaimer</strong>
+                                                <br/>
+                                                <br/>
+                                                A project receiving the KYC badge does not mean in any way that we approve or recommend that project, even if we host an AMA with them. Please always DYOR before investing, remembering that CrypterSale is a decentralized platform.
+                                                </p>
+                                                <p className='mt-2 mb-2' id='auditpartners'>
+                                                <strong>Audit Partners</strong>
+                                                </p>
+                                                <p className='mt-2 mb-2'>
+                                                If you're looking for an audit service, please contact one of the following services:
+                                                <br/>
+                                                <br/>
+                                                <strong>Normal Price</strong>
+                                                <br/>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @harrykedelman - ContractChecker</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @interfiaudits, @interfisupport, @thecryptoblonde - InterFi</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @Joe_SpyWolf - SpyWolf</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @FreddyCryptos - AnalytixAudit</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @FreshCoinsTG - FreshCoins</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @William_SafuAudit, @Dan_SafuAudit - SafuAudit</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @ContractwolfInquiries - ContractWolf</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @TechAudit1 - Tech Audit</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @auditratealex - Audit Rate Tech</a>
+                                                <br/>
+                                                <br/>
+                                                <strong>High Price</strong>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @conordb - Certik</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @solid_1 - SolidGroup</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @marco0x00 - HashEx</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @chainsulting - Chainsulting</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @preetam_quillhash - QuillAudits</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @TonyLi2021 - FairyProof</a>
+                                                </p>
+                                                <p className='mt-2 mb-2' id='auditbadge'>
+                                                <strong>Audit badge</strong>
+                                                </p>
+                                                <p className='mt-2 mb-2'>
+                                                    Please contact @babycrypter on Telegram for adding audit badge. It may take up to 24 - 48 hours so please contact us ASAP.
+                                                </p>
                                             </div>
-                        
-                                            <div className='col-md-12 mt-0 mb-1'>
-                                                <p><strong>Mechanism</strong></p>
-                                                <p><i className='bi-dot'></i> When creating tokens on CrypterSale, you have the option to implement or disable the Crypter Anti-Bot.</p>
-                                                <p><i className='bi-dot'></i> Prevents traders from transacting during the first block at listing time. Traders will only be able to trade from the second block onwards.</p>
-                                                <p><i className='bi-dot'></i> The limited amount of tradable tokens per trade will increase gradually, proportional to the number of blocks that have passed since the genesis block. After a number of blocks, depending on the setting, the Anti-Bot will automatically stop working.</p>
-                                                <p><i className='bi-dot'></i> The limited amount of tradable tokens per trade can be customized differently for each token. Only the creator has the right to edit this parameter.</p>
-                                                <p><i className='bi-dot'></i> Time limit per trade can be customized differently for each token. After a number of blocks, depending on the setting, time limit per trade will become zero. Only the creator has the right to edit this parameter.</p>
-                                                <p><i className='bi-dot'></i> You can manually add to or remove any addresses from the blacklist. The wallets in the blacklist will not be able to trade.</p>
                                             </div>
-                        
-                                            <div className='col-md-12 mt-0 mb-1'>
-                                                <p><strong>Implementation Procedure</strong></p>
-                                                <p><i className='bi-dot'></i> Add Anti-Bot code to the contract.</p>
-                                                <p><i className='bi-dot'></i> Deploy token contract.</p>
-                                                <p><i className='bi-dot'></i> Set owner rights for Anti-Bot.</p>
-                                                <p><i className='bi-dot'></i> Configure Anti-Bot.</p>
-                                                <p><i className='bi-dot'></i> Enable Anti-Bot.</p>
-                                            </div>
-                        
                                         </div>
                                     </div>
-                                </div>
-                                <div className='launchpad-token-footer'>
-                                    <div className='row'></div>
-                                </div>
-                                <div className='row mt-2 mb-2'>
-
-                                    <div className='col-md-6'>
-                                    <a href='launchpad-docs-introducing.html' className='onPreviewskycaudit'>
-                                        <div className='launchpad-token-body-kyc-audit'>
-                                        <p><small className='ml-4'>Previous</small></p>
-                                        <p className='kyc-previews'>
-                                            <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><label className='ml-2'>Introducing</label></strong></p>
-                                        </div>
-                                    </a>
+                                    <div className='launchpad-token-footer'>
+                                        <div className='row'></div>
                                     </div>
-                        
-                                    <div className='col-md-6'>
-                                    <a href='launchpad-docs-token-metrics.html' className='onNextkycaudit'>
-                                        <div className='launchpad-token-body-kyc-audit'>
-                                        <p className='text-end'><small className='mr-4'>Next</small></p>
-                                        <p className='kyc-previews text-end'>
-                                            <strong><label className='ml-2'>Token Metrics</label></strong>
-                                            <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
-                                        </p>
+                                    <div className='row mt-2 mb-2'>
+                                        <div className='col-6'>
+                                            <a href='launchpad-docs-social-links.html' className='onPreviewskycaudit'>
+                                                <div className='launchpad-token-body-kyc-audit'>
+                                                <p><small className='ms-4'>Previous</small></p>
+                                                <p className='kyc-previews'>
+                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Social Links</large></strong></p>
+                                            </div>
+                                            </a>
                                         </div>
-                                    </a>
+                                        <div className='col-6'>
+                                            <a href='launchpad-docs-crypter-sale-calculator.html' className='onNextkycaudit'>
+                                                <div className='launchpad-token-body-kyc-audit'>
+                                                <p className='text-end'><small className='me-4'>Next</small></p>
+                                                <p className='kyc-previews text-end'>
+                                                <strong><large className='ms-2'>CrypterSale Calculator</large></strong>
+                                                <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
+                                                </p>
+                                            </div>
+                                            </a>
+                                        </div>
                                     </div>
-                        
                                 </div>
                             </div>
-                            </div>
-                    
                             <div className='col-md-2'>
                                 <div className='position-sticky float-right-panel'>
-                        
                                     <strong>
-                                    <a href='javascript:;' className='onCopyurl' onclick='Copy();'><i className='bi-link bi-link-style'></i> Copy LINK</a>
+                                        <a href='javascript:;' className='onCopyurl' onclick='Copy();'><i className='bi-link bi-link-style'></i> Copy LINK</a>
                                     </strong>
                                     <div className='box-left-panel-introduction'>
-                                        <strong className='ml-3'><label className='text-success'>Contents</label></strong>
+                                        <strong className='ms-3'><large className='text-success'>Contents</large></strong>
                                         <hr/>
-                                        {/*<ul className='list-group-contents'>
-                                            <li className='list-group-item border-0'><label>Dolor sit amet</label></li>
-                                            <li className='list-group-item border-0'><label>Odio vulpulate</label></li>
-                                            <li className='list-group-item border-0'><label>Leo purus diam</label></li>
-                                            <li className='list-group-item border-0'><label>Carcus neque</label></li>
-                                            <li className='list-group-item border-0'><label>Ac iacudis</label></li>
-                                            <li className='list-group-item border-0'><label>Lacus neque</label></li>
-                                            <li className='list-group-item border-0'><label>Odio vulpulate</label></li>
-                                            <li className='list-group-item border-0'><label>Dolor sit amet</label></li>
-                                            <li className='list-group-item border-0'><label>Odio vulpulate</label></li>
-                                            <li className='list-group-item border-0'><label>Leo purus diam</label></li>
-                                            <li className='list-group-item border-0'><label>Carcus neque</label></li>
-                                            <li className='list-group-item border-0'><label>Ac iacudis</label></li>
-                                            <li className='list-group-item border-0'><label>Lacus neque</label></li>
-                                            <li className='list-group-item border-0'><label>Odio vulpulate</label></li>
-                                        </ul>*/}
-                                    </div>            
+                                        <ul className='list-group-contents'>
+                                            <li className='list-group-item border-0'>
+                                            <a href='#kycisonlyforprojectowners'><medium>KYC is only for project owners</medium></a>
+                                            </li>
+                                            <li className='list-group-item border-0'>
+                                            <a href='#kycexplained'><medium>KYC explained</medium></a>
+                                            </li>
+                                            <li className='list-group-item border-0'>
+                                            <a href='#whatdoesitmeanforyou'><medium>What does it mean for you?</medium></a>
+                                            </li>
+                                            <li className='list-group-item border-0'>
+                                            <a href='#contactforkyc'><medium>Contact for KYC</medium></a>
+                                            </li>
+                                            <li className='list-group-item border-0'>
+                                            <a href='#auditpartners'><medium>Audit partners</medium></a>
+                                            </li>
+                                            <li className='list-group-item border-0'>
+                                            <a href='#auditbadge'><medium>Audit badge</medium></a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -301,7 +365,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                             <strong className='ml-3'><label className='text-success'>Introduction</label></strong>
                                             <hr/>
                                             <ul className='list-group'>
-                                                <li className='list-group-item border-0 mb-0'><a href='/documents' className='active-docs fw-bold'><label>Introducing</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/documents'><label>Introducing</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-token-metrics.html'><label>Token Metrics</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-token-utility.html'><label>Token Utility</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-anti-rug-system.html'><label>Anti-Rug System</label></a></li>
@@ -314,7 +378,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                             <ul className='list-group mt-2'>
                                                 <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-contact-us.html'><label>Contact Us</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-social-links.html'><label>Social Links</label></a></li>
-                                                <li className='list-group-item border-0 mb-0'><a href='/documents/kyc'><label>KYC & Audit at CrypterSale</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/docments/kyc' className='active-docs fw-bold'><label>KYC & Audit at CrypterSale</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-crypter-sale-calculator.html'><label>CrypterSale Calculator</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-youtube-tutorial.html'><label>YouTube Tutorials</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='launchpad-docs-contact-developers.html'><label>Contact Developers</label></a></li>
@@ -405,42 +469,106 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
 
                                     <div className='launchpad-token-lock-info'>
                                         <div className='row'>
-                                            <div className='col-md-12'><h6 className='float-start mt-3'>Introducing</h6></div>
+                                            <div className='col-12'><h6 className='float-start mt-3'>KYC & Audit at CrypterSale</h6></div>
                                         </div>
                                     </div>
                                     <div className='launchpad-token-body'>
                                         <hr/>
                                         <div className='launchpad-kyc-audit'>  
                                             <div className='row p-2'>
-                            
-                                                <div className='col-md-12 mt-0 mb-1'>
-                                                    <p><strong>Key features</strong></p>
-                                                    <p><i className='bi-dot'></i> Prevent bots from inflating the price when the token has just been listed on the exchange.</p>
-                                                    <p><i className='bi-dot'></i> Prevent multiple swaps in the same transaction by adding a delay between transactions.</p>
-                                                    <p><i className='bi-dot'></i> Control the amount of tradable tokens per trade.</p>
-                                                    <p><i className='bi-dot'></i> Change the amount of tradable tokens over time.</p>
-                                                    <p><i className='bi-dot'></i> Add any bot addresses to a blacklist.</p>
-                                                </div>
-                            
-                                                <div className='col-md-12 mt-0 mb-1'>
-                                                    <p><strong>Mechanism</strong></p>
-                                                    <p><i className='bi-dot'></i> When creating tokens on CrypterSale, you have the option to implement or disable the Crypter Anti-Bot.</p>
-                                                    <p><i className='bi-dot'></i> Prevents traders from transacting during the first block at listing time. Traders will only be able to trade from the second block onwards.</p>
-                                                    <p><i className='bi-dot'></i> The limited amount of tradable tokens per trade will increase gradually, proportional to the number of blocks that have passed since the genesis block. After a number of blocks, depending on the setting, the Anti-Bot will automatically stop working.</p>
-                                                    <p><i className='bi-dot'></i> The limited amount of tradable tokens per trade can be customized differently for each token. Only the creator has the right to edit this parameter.</p>
-                                                    <p><i className='bi-dot'></i> Time limit per trade can be customized differently for each token. After a number of blocks, depending on the setting, time limit per trade will become zero. Only the creator has the right to edit this parameter.</p>
-                                                    <p><i className='bi-dot'></i> You can manually add to or remove any addresses from the blacklist. The wallets in the blacklist will not be able to trade.</p>
-                                                </div>
-                            
-                                                <div className='col-md-12 mt-0 mb-1'>
-                                                    <p><strong>Implementation Procedure</strong></p>
-                                                    <p><i className='bi-dot'></i> Add Anti-Bot code to the contract.</p>
-                                                    <p><i className='bi-dot'></i> Deploy token contract.</p>
-                                                    <p><i className='bi-dot'></i> Set owner rights for Anti-Bot.</p>
-                                                    <p><i className='bi-dot'></i> Configure Anti-Bot.</p>
-                                                    <p><i className='bi-dot'></i> Enable Anti-Bot.</p>
-                                                </div>
-                            
+                                                <p className='mt-2 mb-2' id='kycisonlyforprojectowners'>
+                                                <strong>KYC is only for Project Owners</strong>
+                                                </p>
+                                                <p className='mt-2 mb-2'>
+                                                As you know, at CrypterSale we take the safety of our investors very seriously. We hate scams and rugpulls and, because of that, we have built many features and tools for you to be able to make informed decisions as to whether a presale is worth investing in or not. Scrolling through the list of current and past presales, you might have noticed that several projects have a KYC badge next to their names. This brief article is designed to explain what that means and what it entails for all stakeholders.
+                                                </p>
+                                                <p className='mt-2 mb-2' id='kycexplained'>
+                                                <strong>KYC Explained</strong>
+                                                </p>
+                                                <p className='mt-2 mb-2'>
+                                                At CrypterSale, Know Your Customer, or KYC is the process of identity verification to ascertain that the person speaking to us is really who she/he says they are. How does it work? The identities of the project owner are determined by submitting ID documentation (Passport, National ID) to an automated platform. This is similar to the KYC process needed when opening up a trading account on a major exchange like Binance, for example.
+                                                </p>
+                                                <p className='mt-2 mb-2' id='whatdoesitmeanforyou'>
+                                                <strong>What Does it Mean For You?</strong>
+                                                </p>
+                                                <p className='mt-2 mb-2'>
+                                                The KYC process aims to rid our platform of scams and rugpulls by acting as a deterrent for dubious devs. If any of the KYCed project’s team members scams investors: 
+                                                <br/>
+                                                <br/>
+                                                <i className='bi-dot'></i> We will reveal their identities. 
+                                                <br/>
+                                                <i className='bi-dot'></i> We will make this information public for those wanting to file criminal charges.
+                                                <br/>
+                                                <br/>
+                                                <strong>To investors:</strong> If you have serious reservations about a project, and you have proofs that the project is a scam, please contact us ASAP, supplying as much evidence as possible. We will go through the claim and let you know the result of our investigation. 
+                                                <br/>
+                                                <br/>
+                                                <strong>To project owners:</strong> If you want investors to trust you, we highly recommend that you approach our KYC Manager on Crypter and apply for KYC verification. This will bring legitimacy to your project. KYC may take 24 - 48 hours so please contact us asap. 
+                                                <br/>
+                                                <br/>
+                                                The KYC service on CrypterSale is another of the great features making our platform the best launchpad available. It will also help further in cleaning up the crypto industry, making people realize that they are accountable for their actions, even in a decentralized world. 
+                                                </p>
+                                                <p className='mt-2 mb-2' id='contactforkyc'>
+                                                <strong>Contact for KYC</strong>
+                                                </p>
+                                                <p className='mt-2 mb-2'>
+                                                Please contact @babyCrypter on Telegram for the KYC badge on CrypterSale.
+                                                <br/>
+                                                <br/>
+                                                <strong>Important Disclaimer</strong>
+                                                <br/>
+                                                <br/>
+                                                A project receiving the KYC badge does not mean in any way that we approve or recommend that project, even if we host an AMA with them. Please always DYOR before investing, remembering that CrypterSale is a decentralized platform.
+                                                </p>
+                                                <p className='mt-2 mb-2' id='auditpartners'>
+                                                <strong>Audit Partners</strong>
+                                                </p>
+                                                <p className='mt-2 mb-2'>
+                                                If you're looking for an audit service, please contact one of the following services:
+                                                <br/>
+                                                <br/>
+                                                <strong>Normal Price</strong>
+                                                <br/>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @harrykedelman - ContractChecker</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @interfiaudits, @interfisupport, @thecryptoblonde - InterFi</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @Joe_SpyWolf - SpyWolf</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @FreddyCryptos - AnalytixAudit</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @FreshCoinsTG - FreshCoins</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @William_SafuAudit, @Dan_SafuAudit - SafuAudit</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @ContractwolfInquiries - ContractWolf</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @TechAudit1 - Tech Audit</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @auditratealex - Audit Rate Tech</a>
+                                                <br/>
+                                                <br/>
+                                                <strong>High Price</strong>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @conordb - Certik</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @solid_1 - SolidGroup</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @marco0x00 - HashEx</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @chainsulting - Chainsulting</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @preetam_quillhash - QuillAudits</a>
+                                                <br/>
+                                                <a><i className='bi-dot'></i> @TonyLi2021 - FairyProof</a>
+                                                </p>
+                                                <p className='mt-2 mb-2' id='auditbadge'>
+                                                <strong>Audit badge</strong>
+                                                </p>
+                                                <p className='mt-2 mb-2'>
+                                                    Please contact @babyCrypter on Telegram for adding audit badge. It may take up to 24 - 48 hours so please contact us ASAP.
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -448,25 +576,24 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         <div className='row'></div>
                                     </div>
                                     <div className='row mt-2 mb-2'>
-                            
                                         <div className='col-lg-6'>
-                                            <a href='launchpad-docs-introducing.html' className='onPreviewskycaudit'>
+                                            <a href='launchpad-docs-social-links.html' className='onPreviewskycaudit'>
                                                 <div className='launchpad-token-body-kyc-audit'>
-                                                <p><small className='ml-4'>Previous</small></p>
+                                                <p><small className='ms-4'>Previous</small></p>
                                                 <p className='kyc-previews'>
-                                                    <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><label className='ml-2'>Introducing</label></strong></p>
-                                                </div>
+                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Social Links</large></strong></p>
+                                            </div>
                                             </a>
                                         </div>
                                         <div className='col-lg-6 mt-2'>
-                                            <a href='launchpad-docs-crypter-anti-bot-guide.html' className='onNextkycaudit'>
+                                            <a href='launchpad-docs-crypter-sale-calculator.html' className='onNextkycaudit'>
                                                 <div className='launchpad-token-body-kyc-audit'>
-                                                <p className='text-end'><small className='mr-4'>Next</small></p>
+                                                <p className='text-end'><small className='me-4'>Next</small></p>
                                                 <p className='kyc-previews text-end'>
-                                                    <strong><label className='ml-2'>Crypter Anti-Bot Guide</label></strong>
-                                                    <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
+                                                <strong><large className='ms-2'>CrypterSale Calculator</large></strong>
+                                                <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
                                                 </p>
-                                                </div>
+                                            </div>
                                             </a>
                                         </div>
                                     </div>
