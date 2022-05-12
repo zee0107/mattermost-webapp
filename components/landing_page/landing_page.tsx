@@ -162,7 +162,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                         <div className="col-sm-8 text-center">
                             <h2 className="headerText">WELCOME</h2>
                             <h2 className='getSecondaryText'>Connect with your crypto friends all over the world. The largest social network for crypto enthusiasts.</h2>
-                            <a href="/signup_index" className="buttonBgGreen btnPaddingText mt-4">Getting Started</a>
+                            <a href="/signup_index" className="buttonBgGreen btnPaddingText">Getting Started</a>
                         </div>
                         <div className="col-lg-12 text-center homeImage">
                             {this.props.mode !== "dark" && <img src={homeImage}></img>}
@@ -237,9 +237,9 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                 <div className='row p-4'>
                                     <div className="col-lg-9">
                                         <h3>New In Cryptocurrency?</h3>
-                                        <h4 className='getSecondaryText'>We'll tell you what cryptocurrencies are, how they work and why you should own one right now. So let's do it.</h4>
+                                        <h4 className='getSecondaryText mb-5'>We'll tell you what cryptocurrencies are, how they work and why you should own one right now. So let's do it.</h4>
                                     </div>
-                                    <div className="col-lg-3 displayCenter mt-4">
+                                    <div className="col-lg-3 displayCenter mt-5">
                                         <a href="/signup_index" className="buttonBgGreen btnLearnText">Learn &amp; Explore Now</a>
                                     </div>
                                 </div>
@@ -257,7 +257,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="col-lg-12 removePadding">
-                                        <div className="d-flex gettingstartedBox">
+                                        <div className="d-flex gettingstartedBox p-2">
                                             <div className="col-lg-2 text-center displayCenter">
                                                 <img src={createImage} className="gettingstartedImg"></img>
                                             </div>
@@ -266,7 +266,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                                 <h5 className='getSecondaryText'>Your account and personal identity are guaranteed safe.</h5>
                                             </div>
                                         </div>
-                                        <div className="d-flex gettingstartedBox">
+                                        <div className="d-flex gettingstartedBox p-2">
                                             <div className="col-lg-2 text-center displayCenter">
                                                 <img src={bankImage} className="gettingstartedImg"></img>
                                             </div>
@@ -275,7 +275,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                                 <h5 className='getSecondaryText'>Connect the bank account to start transactions.</h5>
                                             </div>
                                         </div>
-                                        <div className="d-flex gettingstartedBox">
+                                        <div className="d-flex gettingstartedBox p-2">
                                             <div className="col-lg-2 text-center displayCenter">
                                                 <img src={buildImage} className="gettingstartedImg"></img>
                                             </div>
