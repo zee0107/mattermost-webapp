@@ -8,7 +8,6 @@ import $ from 'jquery';
 import Popper from 'popper.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap.bundle.min.js';
-import 'blocksera.js';
 import '../scripts';
 import React from 'react';
 import {Provider} from 'react-redux';
@@ -27,6 +26,13 @@ const LazyRoot = React.lazy(() => import('components/root'));
 const Root = makeAsyncComponent('Root', LazyRoot);
 
 class App extends React.PureComponent {
+    importScript = () =>{
+        const externalJS = "https://cryptowidgets.blocksera.com/js/script";
+        const script = document.createElement("script");
+        script.src = externalJS;
+        document.body.appendChild(script);
+    }
+
     getLibrary(provider) {
         return new Web3Provider(provider);
     }
@@ -35,6 +41,7 @@ class App extends React.PureComponent {
         return (
             <Provider store={store}>
                 <Web3ReactProvider getLibrary={this.getLibrary}>
+                    {this.importScript()}
                     <CRTPostsChannelResetWatcher/>
                     <Router history={browserHistory}>
                         <Route
