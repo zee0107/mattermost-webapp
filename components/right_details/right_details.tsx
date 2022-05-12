@@ -37,6 +37,9 @@ export default class RightDetails extends React.PureComponent<Props>{
         if(this.props.symbol === 'BTC'){
             return (<iframe width="100%" height="100%" src="https://embed.santiment.net/chart?ps=bitcoin&pt=BTC&df=2021-11-12T15%3A59%3A59.999Z&emcg=1&wm=price_usd&wc=%2326C953&ws=%7B%22interval%22%3A%2212h%22%7D" scrolling="no"></iframe>);
         }
+        else if(this.props.symbol === 'ETH'){
+            return (<div class="massive-shortcode" data-id="339"></div>);
+        }
         else{
             if(parseFloat(this.state.data.percent_change_24h) > 0){ 
                 return (<img src={graphImage} className="graph-img"></img>) 
