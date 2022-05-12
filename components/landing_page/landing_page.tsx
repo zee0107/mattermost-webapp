@@ -162,7 +162,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                         <div className="col-sm-8 text-center">
                             <h2 className="headerText">WELCOME</h2>
                             <h2 className='getSecondaryText'>Connect with your crypto friends all over the world. The largest social network for crypto enthusiasts.</h2>
-                            <a href="/signup_index" className="buttonBgGreen btnPaddingText">Getting Started</a>
+                            <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Getting Started</a>
                         </div>
                         <div className="col-lg-12 text-center homeImage">
                             {this.props.mode !== "dark" && <img src={homeImage}></img>}
@@ -249,16 +249,16 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                     <div className="inner-wrap-knowmore">
                         <div className="col-lg-12 marginTopBottom">
                             <div className="row">
-                                <div className="col-lg-6">
+                                <div className="col-lg-6 mb-2">
                                     <h1 className="headerTextGettingStarted">How To Get Started</h1>
-                                    <h4 className='getSecondaryText'>Simple and easy way to start your investment in cryptocurrency</h4>
+                                    <h4 className='getSecondaryText mb-4'>Simple and easy way to start your investment in cryptocurrency</h4>
                                     <br />
                                     <a href="/signup_index" className="buttonBgGreen btnGettingStartedText mt-4 mb-4">Getting Started</a>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="col-lg-12 removePadding">
                                         <div className="d-flex gettingstartedBox p-2">
-                                            <div className="col-lg-2 text-center displayCenter">
+                                            <div className="col-lg-2 text-center">
                                                 <img src={createImage} className="gettingstartedImg"></img>
                                             </div>
                                             <div className="col-lg-10">
@@ -267,7 +267,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                             </div>
                                         </div>
                                         <div className="d-flex gettingstartedBox p-2">
-                                            <div className="col-lg-2 text-center displayCenter">
+                                            <div className="col-lg-2 text-center">
                                                 <img src={bankImage} className="gettingstartedImg"></img>
                                             </div>
                                             <div className="col-lg-10">
@@ -276,7 +276,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                             </div>
                                         </div>
                                         <div className="d-flex gettingstartedBox p-2">
-                                            <div className="col-lg-2 text-center displayCenter">
+                                            <div className="col-lg-2 text-center">
                                                 <img src={buildImage} className="gettingstartedImg"></img>
                                             </div>
                                             <div className="col-lg-10">
