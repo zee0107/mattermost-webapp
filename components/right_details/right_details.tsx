@@ -22,11 +22,6 @@ export default class RightDetails extends React.PureComponent<Props>{
     }
 
     componentDidMount (){
-        const script = document.createElement("script");
-        script.src = "https://cryptowidgets.blocksera.com/js/script";
-        script.async = true;
-        document.body.appendChild(script);
-
         const uri = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencydata");
         const config = { method: "GET" }
         
@@ -39,11 +34,16 @@ export default class RightDetails extends React.PureComponent<Props>{
     }
 
     renderGraph = () =>{
-        if(parseFloat(this.state.data.percent_change_24h) > 0){ 
-            return (<img src={graphImage} className="graph-img"></img>) 
+        if(this.props.symbol === 'BTC'){
+            return (<div class="massive-shortcode" data-id="339"></div>);
         }
-        else{ 
-            return (<img src={graphdownImage} className="graph-img"></img>) 
+        else{
+            if(parseFloat(this.state.data.percent_change_24h) > 0){ 
+                return (<img src={graphImage} className="graph-img"></img>) 
+            }
+            else{ 
+                return (<img src={graphdownImage} className="graph-img"></img>) 
+            }
         }
     }
 
@@ -63,11 +63,10 @@ export default class RightDetails extends React.PureComponent<Props>{
     
     sideBoxRender = (code: string) => {
         let img;
-        if(code === "BTC"){ img = (<div class="massive-shortcode" data-id="339"></div>);}
+        if(code === "BTC"){ img = (<img src={btcImage} className="current-conversion-img"></img>);}
         if(code === "LTC"){ img = (<img src={ltcImage} className="current-conversion-img"></img>);}
         if(code === "ETH"){ img = (<img src={ethImage} className="current-conversion-img"></img>);}
         if(code === "BNB"){ img = (<img src={bnbImage} className="current-conversion-img"></img>);}
-
         return(
             <div className='col-sm-12'>
                 <div className='sidemenuBox'>
@@ -82,6 +81,7 @@ export default class RightDetails extends React.PureComponent<Props>{
                             {this.renderPercent()}
                         </div>
                         <div className='col-lg-6 removePaddingRight'>
+
                             {this.renderGraph()}
                         </div>
                     </div>

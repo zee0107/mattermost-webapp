@@ -8,6 +8,7 @@ import $ from 'jquery';
 import Popper from 'popper.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap.bundle.min.js';
+import './blocksera';
 import '../scripts';
 import React from 'react';
 import {Provider} from 'react-redux';
