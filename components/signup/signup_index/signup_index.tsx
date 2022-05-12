@@ -623,11 +623,11 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                 <br />
                                 <div onClick={event => window.location.href = '/signup_email'} className="col-sm-12 ButtonSignup">
                                     <div className="d-flex">
-                                        <div className="col-sm-3 parent-icons">
+                                        <div className="col-sm-3 parent-icons mt-3">
                                             <img src={polygonImage} className='imagePadding'></img>
                                             <img src={peopleImage} className='imagePeoplePadding'></img>
                                         </div>
-                                        <div className="col-sm-7">
+                                        <div className="col-sm-7 mt-5">
                                             <h5>Individual</h5>
                                             <h6>Personal account to manage all your activities.</h6>
                                         </div>
@@ -638,11 +638,11 @@ export default class SignupIndex extends React.PureComponent<Props, State> {
                                 </div>
                                 <div onClick={event => window.location.href = '/signup_business'} className="col-sm-12 ButtonSignup">
                                     <div className="d-flex">
-                                        <div className="col-sm-3 parent-icons">
+                                        <div className="col-sm-3 parent-icons mt-3">
                                             <img src={polygonImage} className='imagePadding'></img>
                                             <img src={briefcaseImage} className='imageCasePadding'></img>
                                         </div>
-                                        <div className="col-sm-7">
+                                        <div className="col-sm-7 mt-5">
                                             <h5>Business</h5>
                                             <h6>Own or belong to a company, this is for you.</h6>
                                         </div>
