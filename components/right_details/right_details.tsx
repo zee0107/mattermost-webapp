@@ -35,10 +35,16 @@ export default class RightDetails extends React.PureComponent<Props>{
 
     renderGraph = () =>{
         if(this.props.symbol === 'BTC'){
-            return (<iframe width="100%" height="100%" src="https://embed.santiment.net/chart?ps=bitcoin&pt=BTC&df=2021-11-12T15%3A59%3A59.999Z&emcg=1&wm=price_usd&wc=%2326C953&ws=%7B%22interval%22%3A%2212h%22%7D" scrolling="no"></iframe>);
+            return (<iframe title="Santiment Chart: Price (BTC)" width="100%" height="100%" src="https://embed.santiment.net/chart?ps=bitcoin&pt=BTC&df=2021-11-12T15%3A59%3A59.999Z&emcg=1&wm=price_usd&wc=%2326C953" scrolling="no"></iframe>);
+        }
+        else if(this.props.symbol === 'BNB'){
+            return (<iframe title="Santiment Chart: Price (BNB)" width="100%" height="100%" src="https://embed.santiment.net/chart?ps=binance-coin&pt=BNB&df=2021-11-12T15%3A59%3A59.999Z&emcg=1&wm=price_usd&wc=%2326C953" scrolling="no"></iframe>);
+        }
+        else if(this.props.symbol === 'LTC'){
+            return (<iframe title="Santiment Chart: Price (LTC)" width="100%" height="100%" src="https://embed.santiment.net/chart?ps=litecoin&pt=LTC&df=2021-11-12T15%3A59%3A59.999Z&emcg=1&wm=price_usd&wc=%2326C953" scrolling="no"></iframe>);
         }
         else if(this.props.symbol === 'ETH'){
-            return (<div class="massive-shortcode" data-id="339"></div>);
+            return (<iframe title="Santiment Chart: Price (ETH)" width="100%" height="100%" src="https://embed.santiment.net/chart?ps=ethereum&pt=ETH&df=2021-11-12T15%3A59%3A59.999Z&emcg=1&wm=price_usd&wc=%2326C953" scrolling="no"></iframe>);
         }
         else{
             if(parseFloat(this.state.data.percent_change_24h) > 0){ 
@@ -74,7 +80,7 @@ export default class RightDetails extends React.PureComponent<Props>{
             <div className='col-sm-12'>
                 <div className='sidemenuBox'>
                     <div className='row'>
-                        <div className='col-lg-6'>
+                        <div className='col-lg-3'>
                             <div className={code.toLocaleLowerCase() +"-icon"}>
                                 {img}
                             </div>
@@ -83,7 +89,7 @@ export default class RightDetails extends React.PureComponent<Props>{
                             </svg> USD</h5>
                             {this.renderPercent()}
                         </div>
-                        <div className='col-lg-6 removePaddingRight'>
+                        <div className='col-lg-9 removePaddingRight'>
 
                             {this.renderGraph()}
                         </div>

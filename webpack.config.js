@@ -29,7 +29,7 @@ const STANDARD_EXCLUDE = [
 ];
 
 // react-hot-loader and development source maps require eval
-const CSP_UNSAFE_EVAL_IF_DEV = DEV ? ' \'unsafe-inline\' \'unsafe-eval\'' : '';
+const CSP_UNSAFE_EVAL_IF_DEV = DEV ? ' \'unsafe-eval\'' : '';
 
 var MYSTATS = {
 
@@ -275,7 +275,7 @@ var config = {
             meta: {
                 csp: {
                     'http-equiv': 'Content-Security-Policy',
-                    content: 'script-src \'self\' cdn.rudderlabs.com/ js.stripe.com/v3 https://cryptowidgets.blocksera.com/js/script ' + CSP_UNSAFE_EVAL_IF_DEV,
+                    content: 'script-src \'self\' cdn.rudderlabs.com/ js.stripe.com/v3 ' + CSP_UNSAFE_EVAL_IF_DEV,
                 },
             },
         }),
