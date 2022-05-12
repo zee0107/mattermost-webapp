@@ -162,7 +162,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                         <div className="col-sm-8 text-center">
                             <h2 className="headerText">WELCOME</h2>
                             <h2 className='getSecondaryText'>Connect with your crypto friends all over the world. The largest social network for crypto enthusiasts.</h2>
-                            <a href="/signup_index" className="btn buttonBgGreen btnPaddingText">Getting Started</a>
+                            <a href="/signup_index" className="buttonBgGreen btnPaddingText mt-4">Getting Started</a>
                         </div>
                         <div className="col-lg-12 text-center homeImage">
                             {this.props.mode !== "dark" && <img src={homeImage}></img>}
@@ -234,13 +234,13 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                     <div className="inner-wrap-knowmore">
                         <div className="col-lg-12">
                             <div className='col-lg-12 learnmoreBox'>
-                                <div className='row'>
+                                <div className='row p-4'>
                                     <div className="col-lg-9">
                                         <h3>New In Cryptocurrency?</h3>
                                         <h4 className='getSecondaryText'>We'll tell you what cryptocurrencies are, how they work and why you should own one right now. So let's do it.</h4>
                                     </div>
-                                    <div className="col-lg-3 displayCenter">
-                                        <a href="/signup_index" className="btn buttonBgGreen btnLearnText">Learn &amp; Explore Now</a>
+                                    <div className="col-lg-3 displayCenter mt-4">
+                                        <a href="/signup_index" className="buttonBgGreen btnLearnText">Learn &amp; Explore Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -253,7 +253,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                     <h1 className="headerTextGettingStarted">How To Get Started</h1>
                                     <h4 className='getSecondaryText'>Simple and easy way to start your investment in cryptocurrency</h4>
                                     <br />
-                                    <a href="/signup_index" className="btn buttonBgGreen btnGettingStartedText">Getting Started</a>
+                                    <a href="/signup_index" className="buttonBgGreen btnGettingStartedText mt-4 mb-4">Getting Started</a>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="col-lg-12 removePadding">
