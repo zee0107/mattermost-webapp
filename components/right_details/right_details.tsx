@@ -10,6 +10,7 @@ import bnbImage from 'images/currency-icons/bnb.svg';
 import ethImage from 'images/currency-icons/eth.svg';
 import graphImage from 'images/graph-up.svg';
 import graphdownImage from 'images/graph-down.svg';
+import 'https://cryptowidgets.blocksera.com/js/script';
 
 type Props = {
     symbol?: string;
@@ -58,7 +59,7 @@ export default class RightDetails extends React.PureComponent<Props>{
     
     sideBoxRender = (code: string) => {
         let img;
-        if(code === "BTC"){ img = (<img src={btcImage} className="current-conversion-img"></img>);}
+        if(code === "BTC"){ img = (<div class="massive-shortcode" data-id="339"></div>);}
         if(code === "LTC"){ img = (<img src={ltcImage} className="current-conversion-img"></img>);}
         if(code === "ETH"){ img = (<img src={ethImage} className="current-conversion-img"></img>);}
         if(code === "BNB"){ img = (<img src={bnbImage} className="current-conversion-img"></img>);}
