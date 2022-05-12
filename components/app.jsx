@@ -31,6 +31,7 @@ class App extends React.PureComponent {
         const script = document.createElement("script");
         script.src = externalJS;
         script.async = true;
+        
         document.body.appendChild(script);
     }
 
