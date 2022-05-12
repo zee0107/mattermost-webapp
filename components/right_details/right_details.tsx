@@ -35,7 +35,7 @@ export default class RightDetails extends React.PureComponent<Props>{
 
     renderGraph = () =>{
         if(this.props.symbol === 'BTC'){
-            return (<div className="livecoinwatch-widget-1" lcw-coin="BTC" lcw-base="USD" lcw-secondary="BTC" lcw-period="d" lcw-color-tx="#ffffff" lcw-color-pr="#58c7c5" lcw-color-bg="#1f2434" lcw-border-w="1" ></div>);
+            return (<iframe title="Santiment Chart: Price (BTC)" width="100%" height="300" src='https://embed.santiment.net/chart?ps=bitcoin&pt=BTC&df=2021-11-12T15%3A59%3A59.999Z&emcg=1&wm=price_usd&wc=%2326C953&ws=%7B%22node%22%3A%22candle%22%2C%22interval%22%3A%2212h%22%7D' scrolling="no"></iframe>);
         }
         else{
             if(parseFloat(this.state.data.percent_change_24h) > 0){ 

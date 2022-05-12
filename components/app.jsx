@@ -32,7 +32,7 @@ class App extends React.PureComponent {
         script.src = externalJS;
         script.async = true;
 
-        document.body.appendChild(script);
+        //document.body.appendChild(script);
     }
 
     getLibrary(provider) {
