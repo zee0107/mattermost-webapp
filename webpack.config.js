@@ -268,17 +268,17 @@ var config = {
             filename: '[name].[contenthash].css',
             chunkFilename: '[name].[contenthash].css',
         }),
-        /*new HtmlWebpackPlugin({
+        new HtmlWebpackPlugin({
             filename: 'root.html',
             inject: 'head',
             template: 'root.html',
             meta: {
                 csp: {
                     'http-equiv': 'Content-Security-Policy',
-                    content: 'script-src-elem \'none\' https://cryptowidgets.blocksera.com/js/script \'unsafe-eval\' ; script-src \'self\' cdn.rudderlabs.com/ cryptowidgets.blocksera.com/js js.stripe.com/v3 ' + CSP_UNSAFE_EVAL_IF_DEV,
+                    content: 'script-src \'self\' cdn.rudderlabs.com/ cryptowidgets.blocksera.com/js js.stripe.com/v3 ' + CSP_UNSAFE_EVAL_IF_DEV,
                 },
             },
-        }),*/
+        }),
         new CopyWebpackPlugin({
             patterns: [
                 {from: 'images/emoji', to: 'emoji'},
