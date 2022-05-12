@@ -354,7 +354,7 @@ export default class DocumentsKyc extends React.PureComponent<Props, State> {
                                     <div className='position-sticky float-kys-menu-panel'>
                                         <div className='position-relative'>
                                             <div className='position-absolute top-0 end-0'>
-                                                <a className='onKycmenu shadow-lg' data-toggle='collapse' href='#collapseKycmenu' role='button' aria-expanded='true' aria-controls='collapseKycmenu'><i className='bi-menu-app'></i></a>
+                                                <a className='onKycmenu shadow-lg' data-bs-toggle='collapse' href='#collapseKycmenu' role='button' aria-expanded='true' aria-controls='collapseKycmenu'><i className='bi-menu-app'></i></a>
                                                 <a className='onKycmenuclose shadow-sm' data-bs-toggle='collapse' href='#collapseKycmenu' role='button' aria-expanded='true' aria-controls='collapseKycmenu'><i className='bi-arrow-up-circle-fill'></i></a>
                                             </div>
                                         </div>
