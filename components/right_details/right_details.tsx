@@ -22,11 +22,6 @@ export default class RightDetails extends React.PureComponent<Props>{
     }
 
     componentDidMount (){
-        const script = document.createElement("script");
-        script.async = true;
-        script.src = "https://cryptowidgets.blocksera.com/js/script";
-        script.onload = () => this.scriptLoaded();
-        document.body.appendChild(script);
 
         const uri = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencydata");
         const config = { method: "GET" }
