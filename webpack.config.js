@@ -391,6 +391,7 @@ if (DEV) {
 
 const env = {};
 if (DEV) {
+    env.INLINE_RUNTIME_CHUNK=false
     env.PUBLIC_PATH = JSON.stringify(publicPath);
     env.RUDDER_KEY = JSON.stringify(process.env.RUDDER_KEY || ''); //eslint-disable-line no-process-env
     env.RUDDER_DATAPLANE_URL = JSON.stringify(process.env.RUDDER_DATAPLANE_URL || ''); //eslint-disable-line no-process-env
