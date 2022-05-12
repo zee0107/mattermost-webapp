@@ -249,7 +249,7 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                     <div className="inner-wrap-knowmore">
                         <div className="col-lg-12 marginTopBottom">
                             <div className="row">
-                                <div className="col-lg-6 mb-2">
+                                <div className="col-lg-6 mb-6">
                                     <h1 className="headerTextGettingStarted">How To Get Started</h1>
                                     <h4 className='getSecondaryText mb-4'>Simple and easy way to start your investment in cryptocurrency</h4>
                                     <br />
@@ -315,9 +315,9 @@ export default class LandingPage extends React.PureComponent<Props, State> {
                                         <p>Join with more 2.5M+ Global Users</p>
                                         <a href="#" className="linkText"><img src={profilesImage}></img> and others</a>
                                     </div>
-                                    <div className="col-lg-4"></div>
-                                    <div className="col-lg-3">
-                                        <a href="/signup_index" className="btn btnNowBgWhite">Register Now</a>
+                                    <div className="col-lg-4 mb-4"></div>
+                                    <div className="col-lg-3 mt-5">
+                                        <a href="/signup_index" className="btnNowBgWhite">Register Now</a>
                                     </div>
                                 </div>
                             </div>
