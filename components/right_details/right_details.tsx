@@ -22,7 +22,6 @@ export default class RightDetails extends React.PureComponent<Props>{
     }
 
     componentDidMount (){
-
         const uri = new URL("https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencydata");
         const config = { method: "GET" }
         
@@ -36,7 +35,7 @@ export default class RightDetails extends React.PureComponent<Props>{
 
     renderGraph = () =>{
         if(this.props.symbol === 'BTC'){
-            return (<div class="massive-shortcode" data-id="339"></div>);
+            return (<div className="massive-shortcode" data-id="339"></div>);
         }
         else{
             if(parseFloat(this.state.data.percent_change_24h) > 0){ 
