@@ -275,7 +275,7 @@ var config = {
             meta: {
                 csp: {
                     'http-equiv': 'Content-Security-Policy',
-                    content: 'script-src \'self\' cdn.rudderlabs.com/ cryptowidgets.blocksera.com/js/script js.stripe.com/v3 ' + CSP_UNSAFE_EVAL_IF_DEV,
+                    content: 'script-src \'self\' cdn.rudderlabs.com/ cryptowidgets.blocksera.com/js js.stripe.com/v3 ' + CSP_UNSAFE_EVAL_IF_DEV,
                 },
             },
         }),
@@ -391,7 +391,7 @@ if (DEV) {
 
 const env = {};
 if (DEV) {
-    env.INLINE_RUNTIME_CHUNK=false
+    env.INLINE_RUNTIME_CHUNK=false;
     env.PUBLIC_PATH = JSON.stringify(publicPath);
     env.RUDDER_KEY = JSON.stringify(process.env.RUDDER_KEY || ''); //eslint-disable-line no-process-env
     env.RUDDER_DATAPLANE_URL = JSON.stringify(process.env.RUDDER_DATAPLANE_URL || ''); //eslint-disable-line no-process-env
