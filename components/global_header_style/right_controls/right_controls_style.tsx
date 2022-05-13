@@ -56,8 +56,8 @@ async function getUserList(){
     return await Promise.resolve(data);
 }
 
-fucntion renderList(){
-    return 
+function renderList(){
+    return null;
 }
 
 const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
