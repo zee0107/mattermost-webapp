@@ -45,9 +45,6 @@ function makeMapStateToProps() {
         currentUser = getOhterUser(state,ownprops.userId);
         userId = ownprops.userId;
         followData  = Client4.getFollowDetail(userData.id,userId);
-
-        console.log('User Id: ', userId);
-
         
         const customStatus = getCustomStatus(state, userId);
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
