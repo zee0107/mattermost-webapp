@@ -31,6 +31,7 @@ import AtMentionsButton from './at_mentions_button/at_mentions_button';
 import SavedPostsButton from './saved_posts_button/saved_posts_button';
 import SettingsButton from './settings_button';
 import RequestList from 'components/request_list';
+import RequestListNf from 'components/request_list_nf';
 import * as GlobalActions from 'actions/global_actions';
 
 const RightControlsContainer = styled.div`
@@ -151,7 +152,10 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
-                            <div className='list-group-item list-group-item-action border-0 add-friends-contents'>
+                            {profiles.map((item,index) => {
+                                    return (<RequestListNf userId={item.user_id} />);
+                            })}
+                            {/*<div className='list-group-item list-group-item-action border-0 add-friends-contents'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
                                     <label className='mb-0'><img width='40' className='img-fluid user-photo' src={profPic4} alt='User name' title='Username'/> Lanaya</label>
                                     <label className='mt-2 addfriend-remove-text'><a className='addfriendActions'>Add Friend</a> | <a className='removeActions'>Remove</a></label>
@@ -170,7 +174,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                     <label className='mb-0'><img width='40' className='img-fluid user-photo' src={profPic6} alt='User name' title='Username'/> Keanu</label>
                                     <label className='mt-2'>Add Friend | Remove</label>
                                 </div>
-                            </div>
+                            </div>*/}
                         </div>
                     </div>
                 </div>
