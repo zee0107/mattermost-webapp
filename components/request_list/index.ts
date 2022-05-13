@@ -48,7 +48,7 @@ function makeMapStateToProps() {
             currentUser = userData
             followData = null;
         }else{
-            currentUser = getOhterUser(state,searchParam);
+            currentUser = getOhterUser(state,userId);
             followData  = Client4.getFollowDetail(userData.id,userId);
         }
 
