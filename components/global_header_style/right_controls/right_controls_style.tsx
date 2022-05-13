@@ -65,6 +65,10 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
             profiles.push(value[i].user_id);
         }
     });
+    let view;
+    for(let v = 0; v < profile.length; v++){
+        view = (<p>{profiles[v]}</p>);
+    }
     return (
         <>
             <RightControlsContainer>
