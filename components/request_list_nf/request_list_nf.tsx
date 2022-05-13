@@ -257,7 +257,7 @@ export default class RequestListsNf extends React.PureComponent<Props, State> {
 
             if(userData.id !== currentUser.id){
                 if(followData !== undefined){
-                    if(followData.user_id !== currentUser.id || followData.friend_id !== currentUser.id){
+                    if(followData.user_id !== currentUser.id && followData.friend_id !== currentUser.id){
                         renderView = (
                             <div className='list-group-item list-group-item-action border-0 friends-contents'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
