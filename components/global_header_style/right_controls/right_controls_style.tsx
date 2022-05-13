@@ -60,7 +60,11 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
     let profiles = [];
     let data = getUserList();
-    data.then(value => { profiles = value});
+    data.then((value)=> {
+        for(let i = 0; i < value.length; i++ ){
+            profiles.push(value[i]);
+        }
+    });
     console.log('Profiles: ', profiles);
     return (
         <>
