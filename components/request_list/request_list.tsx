@@ -249,12 +249,18 @@ export default class RequestLists extends React.PureComponent<Props, State> {
                 renderView = ();
             }
         }*/
-
+        let name;
+        if(currentUser.first_name !== '' && currentUser.first_name !== '' && currentUser.first_name !== null && currentUser.first_name !== null){
+            name = (<>{currentUser.first_name}</>);
+        }
+        else{
+            name = (<>{currentUser.user_name}</>);
+        }
         return (
             <>
                 <div className='list-group-item list-group-item-action border-0 friends-contents'>
                     <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                        <label className='mb-0'>{this.renderProfilePicture('lg')} {currentUser.first_name}</label>
+                        <label className='mb-0'>{this.renderProfilePicture('lg')} {name}</label>
                         <label className='mt-2 approve-reject-text'><a className='approveActions' onClick={this.handleAccept}>Confirm</a> | <a className='rejeectActions'>Delete</a></label>
                         <label className='mt-2 reject-text'><a className='reject-actions' onClick={this.handleCancelRequest}><i className='bi-x-lg'></i> Delete</a></label>
                     </div>
