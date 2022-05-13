@@ -58,8 +58,8 @@ async function getUserList(){
 
 const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
-    let profiles = [];
-    let data = getUserList();
+    const profiles = [];
+    const data = getUserList();
     data.then((value)=> {
         for(let i = 0; i < value.length; i++ ){
             profiles.push(value[i].user_id);
@@ -132,7 +132,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                     );
                                 });
                             })*/}
-                            {profile && profiles.map((item,index) => {
+                            {profiles && profiles.map((item,index) => {
                                 console.log(item);
                                 return (<RequestList userId={item} />);
                             })}
