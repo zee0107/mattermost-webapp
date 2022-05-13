@@ -25,6 +25,7 @@ import postImage from 'images/post-1.png';
 import postImage2 from 'images/post-image.png';
 
 import {UserProfile} from 'mattermost-redux/types/users';
+import {Client4} from 'mattermost-redux/client';
 import SettingsTip from './settings_tip';
 import AtMentionsButton from './at_mentions_button/at_mentions_button';
 import SavedPostsButton from './saved_posts_button/saved_posts_button';
@@ -51,9 +52,13 @@ function handleEmitUserLoggedOutEvent(){
     GlobalActions.emitUserLoggedOutEvent();
   }
 
+async function getUserList(){
+    var data = await Client4.getChannelMembers('kqe4sihhdid47gprhk6dwbuc4o');
+    return data;
+}
 const RightControlsStyle = ({productId = null, profiles}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
-    console.log('Profile Props : ', profiles);
+    console.log('Profile Props : ', getUserList());
     return (
         <>
             <RightControlsContainer>
@@ -114,7 +119,7 @@ const RightControlsStyle = ({productId = null, profiles}: Props): JSX.Element =>
                     <div className='offcanvas-body'>
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
-                            {profiles.map((item,index) => {
+                            {getUserList().map((item,index) => {
                                 console.log(item);
                                 return (
                                         <RequestList userId={item.id} />
