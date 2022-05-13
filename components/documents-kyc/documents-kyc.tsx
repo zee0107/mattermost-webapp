@@ -95,7 +95,7 @@ export default class DocumentsKyc extends React.PureComponent<Props, State> {
                                         <ul className='list-group mt-2'>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/contact-us'  className='text-dark'><label>Contact Us</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/social-links'  className='text-dark'><label>Social Links</label></a></li>
-                                            <li className='list-group-item border-0 mb-0'><a href='/docments/kyc' className='active-docs fw-bold'><label>KYC &#38; Audit at CrypterSale</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/docments/kyc' className='active-docs fw-bold text-dark'><label>KYC &#38; Audit at CrypterSale</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/crypter-sale-calculator'  className='text-dark'><label>CrypterSale Calculator</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/youtube-tutorial'  className='text-dark'><label>YouTube Tutorials</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/contact-developers'  className='text-dark'><label>Contact Developers</label></a></li>
@@ -317,22 +317,22 @@ export default class DocumentsKyc extends React.PureComponent<Props, State> {
                                         <hr/>
                                         <ul className='list-group-contents'>
                                             <li className='list-group-item border-0'>
-                                            <a href='#kycisonlyforprojectowners'><medium>KYC is only for project owners</medium></a>
+                                            <a href='#kycisonlyforprojectowners' className='text-dark'><medium>KYC is only for project owners</medium></a>
                                             </li>
                                             <li className='list-group-item border-0'>
-                                            <a href='#kycexplained'><medium>KYC explained</medium></a>
+                                            <a href='#kycexplained' className='text-dark'><medium>KYC explained</medium></a>
                                             </li>
                                             <li className='list-group-item border-0'>
-                                            <a href='#whatdoesitmeanforyou'><medium>What does it mean for you?</medium></a>
+                                            <a href='#whatdoesitmeanforyou' className='text-dark'><medium>What does it mean for you?</medium></a>
                                             </li>
                                             <li className='list-group-item border-0'>
-                                            <a href='#contactforkyc'><medium>Contact for KYC</medium></a>
+                                            <a href='#contactforkyc' className='text-dark'><medium>Contact for KYC</medium></a>
                                             </li>
                                             <li className='list-group-item border-0'>
-                                            <a href='#auditpartners'><medium>Audit partners</medium></a>
+                                            <a href='#auditpartners' className='text-dark'><medium>Audit partners</medium></a>
                                             </li>
                                             <li className='list-group-item border-0'>
-                                            <a href='#auditbadge'><medium>Audit badge</medium></a>
+                                            <a href='#auditbadge' className='text-dark'><medium>Audit badge</medium></a>
                                             </li>
                                         </ul>
                                     </div>
@@ -378,7 +378,7 @@ export default class DocumentsKyc extends React.PureComponent<Props, State> {
                                             <ul className='list-group mt-2'>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/contact-us'  className='text-dark'><label>Contact Us</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/social-links'  className='text-dark'><label>Social Links</label></a></li>
-                                                <li className='list-group-item border-0 mb-0'><a href='/docments/kyc' className='active-docs fw-bold'><label>KYC & Audit at CrypterSale</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/docments/kyc' className='active-docs fw-bold text-dark'><label>KYC & Audit at CrypterSale</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/crypter-sale-calculator'  className='text-dark'><label>CrypterSale Calculator</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/youtube-tutorial'  className='text-dark'><label>YouTube Tutorials</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/contact-developers'  className='text-dark'><label>Contact Developers</label></a></li>

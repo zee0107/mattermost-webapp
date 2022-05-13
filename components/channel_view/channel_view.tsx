@@ -241,7 +241,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             textValue = activityValue[0];
             icon = String.fromCodePoint(activityValue[1].substring(1, activityValue[1].length - 1));
             feelact = (
-                <a href='#' className='feelingspost text-primary'><small className='text-muted'>is feeling {textValue}</small> {icon}&nbsp;</a>
+                <a href='#' className='feelingspost text-dark'><small className='text-muted'>is feeling {textValue}</small> {icon}&nbsp;</a>
             );
         }
 
@@ -254,7 +254,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             </div>*/}
     
                     <div className='mt-3'>
-                        {this.state.userActivity && <a className='feelingspost onClosefeelingsviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-primary'>{textValue} {icon}<i className='bi-x-lg'></i></label></a>}
+                        {this.state.userActivity && <a className='feelingspost onClosefeelingsviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-dark'>{textValue} {icon}<i className='bi-x-lg'></i></label></a>}
                     </div>
     
                     <div id='searchfeelings'>
@@ -307,7 +307,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             </div>*/}
     
                     <div className='mt-3 mb-3'>
-                        {this.state.userActivity && <a className='activitiespost onCloseactivitiessviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-primary'>{textValue} {icon}<i className='bi-x-lg'></i></label></a>}
+                        {this.state.userActivity && <a className='activitiespost onCloseactivitiessviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-dark'>{textValue} {icon}<i className='bi-x-lg'></i></label></a>}
                     </div>
     
                     <div id='searchactivities'>
@@ -343,18 +343,18 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         }
 
         if(userLocation !== null && userLocation !== ''){
-            location = (<a href='#' className='locationviewpost text-primary'><small className='text-muted'> is in</small> {userLocation}</a> );
+            location = (<a href='#' className='locationviewpost text-dark'><small className='text-muted'> is in</small> {userLocation}</a> );
         }
 
         if(shareInfo === 'private'){
             shareInfoBtn = (<button className='box-live-post btn-sm width-100 p-3' data-bs-toggle='modal' data-bs-target='#staticBackdropShare'><i className='bi bi-person-fill'></i> Private <i className='bi bi-chevron-down'></i></button>);
-            shareInfoDd = (<a className='onSelectactiononlyme text-primary' data-bs-toggle='modal' data-bs-target='#staticBackdropShare' data-bs-dismiss='modal'><i className='bi-person-fill'></i> Private <i className='bi-chevron-down'></i></a>);
+            shareInfoDd = (<a className='onSelectactiononlyme text-dark' data-bs-toggle='modal' data-bs-target='#staticBackdropShare' data-bs-dismiss='modal'><i className='bi-person-fill'></i> Private <i className='bi-chevron-down'></i></a>);
         }else if(shareInfo === 'friends'){
             shareInfoBtn = (<button className='box-live-post btn-sm width-100 p-3' data-bs-toggle='modal' data-bs-target='#staticBackdropShare'><i className='bi bi-people-fill'></i> Friends <i className='bi bi-chevron-down'></i></button>);
-            shareInfoDd = (<a className='onSelectactionfriends text-primary' data-bs-toggle='modal' data-bs-target='#staticBackdropShare' data-bs-dismiss='modal'><i className='bi-people-fill'></i> Friends <i className='bi-chevron-down'></i></a>);
+            shareInfoDd = (<a className='onSelectactionfriends text-dark' data-bs-toggle='modal' data-bs-target='#staticBackdropShare' data-bs-dismiss='modal'><i className='bi-people-fill'></i> Friends <i className='bi-chevron-down'></i></a>);
         }else{
             shareInfoBtn = (<button className='box-live-post btn-sm width-100 p-3' data-bs-toggle='modal' data-bs-target='#staticBackdropShare'><i className='bi bi-globe'></i> Everyone <i className='bi bi-chevron-down'></i></button>);
-            shareInfoDd = (<a className='onSelectactionpublic text-primary' data-bs-toggle='modal' data-bs-target='#staticBackdropShare' data-bs-dismiss='modal'><i className='bi-globe'></i> Everyone <i className='bi-chevron-down'></i></a>);
+            shareInfoDd = (<a className='onSelectactionpublic text-dark' data-bs-toggle='modal' data-bs-target='#staticBackdropShare' data-bs-dismiss='modal'><i className='bi-globe'></i> Everyone <i className='bi-chevron-down'></i></a>);
         }
 
         let createPost;
@@ -627,11 +627,11 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-md-10 text-left'>
                                             <strong>
-                                                <a href='#' className='text-primary'>{currentUser.first_name} {currentUser.last_name}</a> 
+                                                <a href='#' className='text-dark'>{currentUser.first_name} {currentUser.last_name}</a> 
                                                 {feelact}
                                                 {location}
-                                                {/*<a href='#' className='tagviewpost text-primary'><small className='text-muted'>with</small> Friend name goes here</a> 
-                                                <a href='#' className='activities text-primary'><small className='text-muted'>Activities</small> &#128151;</a>*/}
+                                                {/*<a href='#' className='tagviewpost text-dark'><small className='text-muted'>with</small> Friend name goes here</a> 
+                                                <a href='#' className='activities text-dark'><small className='text-muted'>Activities</small> &#128151;</a>*/}
                                             </strong>
                                             <br />
                                             {shareInfoDd}
@@ -679,7 +679,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                             </div>*/}
                 
                                 <div className='mt-3 mb-4'>
-                                    {this.state.userLocation && <a className='locationviewpost onUnselectlocation ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userLocation: ''});}}><label className='text-primary'>{this.state.userLocation} <i className='bi-x-lg'></i></label></a>}
+                                    {this.state.userLocation && <a className='locationviewpost onUnselectlocation ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userLocation: ''});}}><label className='text-dark'>{this.state.userLocation} <i className='bi-x-lg'></i></label></a>}
                                 </div>
                 
                                 <div id='searchforlocations'>
@@ -769,9 +769,9 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                 <div>
                                     <div className='d-flex mt-1 mb-4 gap-1'>
                                         <div className='col-md-3 text-center rounded p-1 mr-2' style={{border: '1px solid grey', borderRadius: 8}}>
-                                        <a className='onFeelings text-primary' onClick={() => { this.setState({feeling: true});}}><small> Feelings</small></a></div>
+                                        <a className='onFeelings text-dark' onClick={() => { this.setState({feeling: true});}}><small> Feelings</small></a></div>
                                         <div className='col-md-3 text-center rounded p-1' style={{border: '1px solid grey', borderRadius: 8}}>
-                                        <a className='onActivities text-primary' onClick={() => { this.setState({feeling: false});}}><small> Activities</small></a></div>
+                                        <a className='onActivities text-dark' onClick={() => { this.setState({feeling: false});}}><small> Activities</small></a></div>
                                     </div>
                                 </div>
                                 {feelactView}
