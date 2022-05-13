@@ -62,7 +62,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
     let data = getUserList();
     data.then((value)=> {
         for(let i = 0; i < value.length; i++ ){
-            profiles.push(value[i]);
+            profiles.push(value[i].user_id);
         }
     });
     console.log('Profiles: ', profiles);
@@ -133,8 +133,8 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                     );
                                 });
                             })*/}
-                            {Object.keys(profiles).map((item,index) => {
-                                return (<RequestList userId={profiles[item].user_id} />);
+                            {profiles.map((item,index) => {
+                                return (<RequestList userId={item} />);
                             })}
                         </div>
                         <div className='list-group mt-3 mb-3'>
