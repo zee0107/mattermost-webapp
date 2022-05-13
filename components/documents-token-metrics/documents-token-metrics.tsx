@@ -248,8 +248,8 @@ export default class DocumentsTokenMetrics extends React.PureComponent<Props, St
                                             <li className='list-group-item border-0'>
                                             <a href='#auditbadge'><medium>Audit badge</medium></a>
                                             </li>
-                                        </ul>
-                                    </div>*/}
+                                        </ul>*/}
+                                    </div>
                                 </div>
                             </div>
                         </div>
