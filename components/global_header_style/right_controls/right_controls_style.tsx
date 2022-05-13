@@ -59,7 +59,11 @@ async function getUserList(){
 const RightControlsStyle = async ({productId = null}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
     const profiles = await getUserList();
-    console.log('Profile Props : ', profiles);
+    const profileArr = [];
+    for(let i=0; i < profiles.length; i++){
+        profileArr.push(profiles[i]);
+    }
+    console.log('Profile Props : ', profileArr);
     return (
         <>
             <RightControlsContainer>
@@ -120,6 +124,9 @@ const RightControlsStyle = async ({productId = null}: Props): JSX.Element => {
                     <div className='offcanvas-body'>
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
+                            {
+                                
+                            }
                             {/*profiles.map((item,index) => {
                                 console.log(item);
                                 return (
