@@ -58,8 +58,9 @@ async function getUserList(){
 
 const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
-    let profiles;
+    let profiles = [];
     let data = getUserList();
+    data.then(value => { profiles.push(value)});
     console.log('Profiels: ', data);
     return (
         <>
