@@ -1,7 +1,7 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import styled from 'styled-components';
 
 import Pluggable from 'plugins/pluggable';
@@ -51,8 +51,9 @@ function handleEmitUserLoggedOutEvent(){
     GlobalActions.emitUserLoggedOutEvent();
   }
 
-async function getUserList(){
-    var data = await Client4.getChannelMembers('kqe4sihhdid47gprhk6dwbuc4o');
+
+/*async function getUserList(){
+    
     return await Promise.resolve(data);
 }
 
@@ -63,15 +64,22 @@ function renderList(){
 const readData = async () => {
     let profiles = [];
     let data = getUserList();
-    await data.then((value)=> {
+    data.then((value)=> {
         for(let i = 0; i < value.length; i++ ){
             profiles.push(value[i].user_id.toString());
         }
     });
     return profiles;
-}
+}*/
 
 const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
+    const [profiles, setProfiles] = userState([]);
+
+    useEffect (() => {
+        const data = await Client4.getChannelMembers('kqe4sihhdid47gprhk6dwbuc4o');
+        data.then((value) => {setProfiles(value)});
+    }, []);
+
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
     const dataList = readData();
     console.log(dataList);
@@ -134,11 +142,9 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                     <div className='offcanvas-body'>
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
-                            {/*dataList.then((value) => {
-                                value.map((item,index) => {
+                            {profiles.map((item,index) => {
                                     return (<RequestList userId={item} />);
-                                });
-                            })*/}
+                            })}
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
