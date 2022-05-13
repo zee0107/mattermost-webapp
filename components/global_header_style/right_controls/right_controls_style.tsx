@@ -133,6 +133,9 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                     );
                                 });
                             })*/}
+                            {Object.keys(profiles).map((item,index) => {
+                                return (<RequestList userId={profiles[item].user_id} />);
+                            })}
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
