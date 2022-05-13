@@ -69,7 +69,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
             profiles.push(value[i].user_id.toString());
         }
     });
-    console.log('Profile: ', JSON.stringify(profiles));
+    console.log('Profile: ', profiles);
     console.log('length: ', profiles.length);
     for (let index = 0; index < profiles.length; index++) {
         const element = profiles[index];
