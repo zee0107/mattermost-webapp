@@ -37,6 +37,7 @@ function makeMapStateToProps() {
             const stateValue = window.localStorage.getItem('GlobalState');
             state = JSON.parse(stateValue);
         }
+
         const userData = getCurrentUser(state);
         let currentUser;
         let userId;
@@ -44,6 +45,8 @@ function makeMapStateToProps() {
         currentUser = getOhterUser(state,ownprops.userId);
         userId = ownprops.userId;
         followData  = Client4.getFollowDetail(userData.id,userId);
+
+        console.log('User Id: ', userId);
 
         
         const customStatus = getCustomStatus(state, userId);
