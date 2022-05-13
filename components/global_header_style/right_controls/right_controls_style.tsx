@@ -60,9 +60,9 @@ async function listProfile(){
     var data = await getUserList();
     return data;
 }
-const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
+const RightControlsStyle = async ({productId = null}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
-    console.log(listProfile());
+    console.log(await listProfile());
     return (
         <>
             <RightControlsContainer>
