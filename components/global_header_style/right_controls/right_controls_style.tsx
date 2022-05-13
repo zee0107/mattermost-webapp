@@ -56,6 +56,10 @@ async function getUserList(){
     return await Promise.resolve(data);
 }
 
+fucntion renderList(){
+    return 
+}
+
 const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
     const profiles = [];
@@ -136,9 +140,9 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                     );
                                 });
                             })*/}
-                            {/*profiles.map((item,index) => {
-                                return (<p>{item}</p>);
-                            })*/view}
+                            {profiles.map((item,index) => {
+                                return (<RequestList userId={item} />);
+                            })}
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
