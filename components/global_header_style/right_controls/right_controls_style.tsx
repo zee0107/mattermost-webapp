@@ -65,7 +65,6 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
             profiles.push(value[i].user_id);
         }
     });
-    console.log('Profiles: ', profiles);
     return (
         <>
             <RightControlsContainer>
@@ -134,6 +133,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                 });
                             })*/}
                             {profiles.map((item,index) => {
+                                console.log(item);
                                 return (<RequestList userId={item} />);
                             })}
                         </div>
