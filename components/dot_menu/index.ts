@@ -83,7 +83,6 @@ function mapStateToProps(state: GlobalState, ownProps: Props) {
         state = stateJsonValue;
     }
 
-    console.log('State: ',state);
     const license = getLicense(state);
     const config = getConfig(state);
     const userId = getCurrentUserId(state);
