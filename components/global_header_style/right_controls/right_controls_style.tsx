@@ -120,27 +120,7 @@ const RightControlsStyle = async ({productId = null}: Props): JSX.Element => {
                     <div className='offcanvas-body'>
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
-                            {/*Object.keys(profiles).map((item,ind) => {
-                                return (<RequestList userId={profiles[item].user_id} />);
-                            })*/}
-                            {/*profiles.map((item,index) => {
-                                console.log(item);
-                                return (
-                                        
-                                    );
-                            })*/}
-                            {/*<div className='list-group-item list-group-item-action border-0'>
-                                <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src={profPic2} alt='User name' title='Username'/> Cody</label>
-                                    <label className='mt-2'>Confirm | Delete</label>
-                                </div>
-                            </div>
-                            <div className='list-group-item list-group-item-action border-0'>
-                                <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src={profPic3} alt='User name' title='Username'/> Jannela</label>
-                                    <label className='mt-2'>Confirm | Delete</label>
-                                </div>
-                            </div>*/}
+                           
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
