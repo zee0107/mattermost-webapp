@@ -69,7 +69,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
             profiles.push(value[i].user_id.toString());
         }
     });
-    profile.then((value) => {console.log('Profile: ', value);});
+    profiles.then((value) => {console.log('Profile: ', value);});
     
     console.log('length: ', profiles.length);turn (
         <RightControlsContainer>
@@ -130,6 +130,11 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                     <div className='offcanvas-body'>
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
+                            {profiles.then((value) => {
+                                value.map((item,index) => {
+                                    return (<RequestList userId={item} />);
+                                });
+                            })}
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
