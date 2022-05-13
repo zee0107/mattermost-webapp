@@ -69,8 +69,8 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
             profiles.push(value[i].user_id);
         }
     });
-    console.log('Profile: ', profile);
-    conseol.log('length: ', profile.length);
+    console.log('Profile: ', profiles);
+    conseol.log('length: ', profiles.length);
     for (let index = 0; index < profiles.length; index++) {
         const element = profiles[index];
         console.log(element);
