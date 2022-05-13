@@ -30,7 +30,7 @@ import SettingsTip from './settings_tip';
 import AtMentionsButton from './at_mentions_button/at_mentions_button';
 import SavedPostsButton from './saved_posts_button/saved_posts_button';
 import SettingsButton from './settings_button';
-import {RequestList} from 'components/request_list';
+import RequestList from 'components/request_list';
 import * as GlobalActions from 'actions/global_actions';
 
 const RightControlsContainer = styled.div`
