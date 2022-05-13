@@ -42,8 +42,9 @@ function makeMapStateToProps() {
         let currentUser;
         let userId;
         let followData;
-        currentUser = getOhterUser(state,ownprops.userId);
+        
         userId = ownprops.userId;
+        currentUser = getOhterUser(state,userId);
         followData  = Client4.getFollowDetail(userData.id,userId);
         
         const customStatus = getCustomStatus(state, userId);
