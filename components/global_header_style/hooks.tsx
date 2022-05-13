@@ -62,12 +62,12 @@ export const useShowTutorialStep = (stepToShow: number): boolean => {
 export const useIsLoggedIn = (): boolean => {
     return Boolean(useSelector<GlobalState, UserProfile>(getCurrentUser));
 };
-
+/*
 export const getChannelUser = (): UserProfile[] => {
     //const channelId = 'kqe4sihhdid47gprhk6dwbuc4o';
     //const channelId = 'dodurztr1fbupnpenjgxqjso3a';
     return useSelector<GlobalState, UserProfile[]>(getProfilesInChannel);
-};
+};*/
 /**
  * Hook that returns the current open state of the specified modal
  * - returns both the direct boolean for regular use and a ref that contains the boolean for usage in a callback
