@@ -53,7 +53,7 @@ function handleEmitUserLoggedOutEvent(){
 
 async function getUserList(){
     var data = await Client4.getChannelMembers('kqe4sihhdid47gprhk6dwbuc4o');
-    return Promise.resolve(data).then(value => {return value});
+    return data.Json();
 }
 
 function valueGetter() {
@@ -64,7 +64,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
     let profiles;
     let data = getUserList();
-    console.log('Profiels: ', profiles);
+    console.log('Profiels: ', JSON.stringify(data));
     return (
         <>
             <RightControlsContainer>
@@ -125,13 +125,13 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                     <div className='offcanvas-body'>
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
-                            {data.then((value) => {
+                            {/*data.then((value) => {
                                 Object.keys(value).map((item,index) => {
                                     return (
                                         <RequestList userId={value[item].user_id} />
                                     );
                                 });
-                            })}
+                            })*/}
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
