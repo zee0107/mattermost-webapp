@@ -100,9 +100,9 @@ function makeMapStateToProps() {
         const isLDAPEnabled = license?.IsLicensed === 'true' && license?.LDAPGroups === 'true';
         const useGroupMentions = isLDAPEnabled && haveICurrentChannelPermission(state, Permissions.USE_GROUP_MENTIONS);
         const channelMemberCountsByGroup = selectChannelMemberCountsByGroup(state, channelId);
-        const currentTeamId = 'u57ytznuttyzbgapem9sqj4oyc';
+        //const currentTeamId = 'u57ytznuttyzbgapem9sqj4oyc';
         const currentTeamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
-        //const groupsWithAllowReference = useGroupMentions ? getAssociatedGroupsForReferenceByMention(state, currentTeamId, channelId) : null;
+        const groupsWithAllowReference = useGroupMentions ? getAssociatedGroupsForReferenceByMention(state, currentTeamId, channelId) : null;
         const enableTutorial = config.EnableTutorial === 'true';
         const showTutorialTip = enableTutorial && tutorialStep === TutorialSteps.POST_POPOVER;
         
