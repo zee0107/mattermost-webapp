@@ -81,8 +81,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
     }, []);
 
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
-    const dataList = readData();
-    console.log(dataList);
+    console.log(profiles);
     return (
         <RightControlsContainer>
                 {/*productId === null ? (
