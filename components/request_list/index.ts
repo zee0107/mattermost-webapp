@@ -37,8 +37,6 @@ function makeMapStateToProps() {
             const stateValue = window.localStorage.getItem('GlobalState');
             state = JSON.parse(stateValue);
         }
-
-        console.log(state);
         const userData = getCurrentUser(state);
         let currentUser;
         let userId;
