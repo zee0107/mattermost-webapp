@@ -24,10 +24,12 @@ import profPic6 from 'images/profiles/user-profile-6.png';
 import postImage from 'images/post-1.png';
 import postImage2 from 'images/post-image.png';
 
+import {UserProfile} from 'mattermost-redux/types/users';
 import SettingsTip from './settings_tip';
 import AtMentionsButton from './at_mentions_button/at_mentions_button';
 import SavedPostsButton from './saved_posts_button/saved_posts_button';
 import SettingsButton from './settings_button';
+import {RequestList} from 'components/request_list';
 import * as GlobalActions from 'actions/global_actions';
 
 const RightControlsContainer = styled.div`
@@ -42,13 +44,14 @@ const RightControlsContainer = styled.div`
 
 export type Props = {
     productId?: string | null;
+    profiles?: UserProfile[] | null;
 }
 
 function handleEmitUserLoggedOutEvent(){
     GlobalActions.emitUserLoggedOutEvent();
   }
 
-const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
+const RightControlsStyle = ({productId = null, profiles = null}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
 
     return (
@@ -111,15 +114,12 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                     <div className='offcanvas-body'>
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
-                            <div className='list-group-item list-group-item-action border-0 friends-contents'>
-                                <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src={profPic1} alt='User name' title='Username'/> John Lloyd</label>
-                                    <label className='mt-2 approve-reject-text'><a className='approveActions'>Confirm</a> | <a className='rejeectActions'>Delete</a></label>
-                                    <label className='mt-2 approve-text'><i className='bi-check-lg'></i> Approve</label>
-                                    <label className='mt-2 reject-text'><a className='reject-actions'><i className='bi-x-lg'></i> Delete</a></label>
-                                </div>
-                            </div>
-                            <div className='list-group-item list-group-item-action border-0'>
+                            {profiles.map((item,index) => {
+                                return (
+                                        <RequestList userId={item.id} />
+                                    );
+                            })}
+                            {/*<div className='list-group-item list-group-item-action border-0'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
                                     <label className='mb-0'><img width='40' className='img-fluid user-photo' src={profPic2} alt='User name' title='Username'/> Cody</label>
                                     <label className='mt-2'>Confirm | Delete</label>
@@ -130,7 +130,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                     <label className='mb-0'><img width='40' className='img-fluid user-photo' src={profPic3} alt='User name' title='Username'/> Jannela</label>
                                     <label className='mt-2'>Confirm | Delete</label>
                                 </div>
-                            </div>
+                            </div>*/}
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>

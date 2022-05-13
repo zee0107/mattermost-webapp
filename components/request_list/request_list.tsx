@@ -125,10 +125,7 @@ export default class RequestLists extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {followStatus: 0,postValues:[],listId:[],feeling: true,userActivity: '',userLocation: '',shareInfo: 'everyone',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
-        
-        this.onChangeShareInfo = this.onChangeShareInfo.bind(this);
-        this.onChangeLocation = this.onChangeLocation.bind(this);
-        this.onChangeActivity = this.onChangeActivity.bind(this);
+
         this.handleFollow = this.handleFollow.bind(this);
         this.handleAccept = this.handleAccept.bind(this);
         this.handleCancelRequest = this.handleCancelRequest.bind(this);
@@ -195,18 +192,6 @@ export default class RequestLists extends React.PureComponent<Props, State> {
         );
     }
 
-    onChangeShareInfo = (event) => {
-        this.setState({shareInfo: event.target.value});
-    }
-
-    onChangeLocation = (event) => {
-        this.setState({userLocation: event.target.value});
-    }
-
-    onChangeActivity = (event) => {
-        this.setState({userActivity: event.target.value});
-    }
-
     renderProfilePictureText = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
             return null;
@@ -257,13 +242,22 @@ export default class RequestLists extends React.PureComponent<Props, State> {
 
 
     render= (): JSX.Element => {
-        const {followData} = this.state;
-
+        const {followData, currentUser} = this.state;
+        let renderView;
         if(followData !== null && followData != null){
-            this.state.followData.map
+            renderView = (<div className='list-group-item list-group-item-action border-0 friends-contents'>
+                <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
+                    <label className='mb-0'>{this.renderProfilePictureText('mxl')} {currentUser.first_name}</label>
+                    <label className='mt-2 approve-reject-text'><a className='approveActions' onClick={handleAccept}>Confirm</a> | <a className='rejeectActions'>Delete</a></label>
+                    <label className='mt-2 reject-text'><a className='reject-actions' onClick={this.handleCancelRequest}><i className='bi-x-lg'></i> Delete</a></label>
+                </div>
+            </div>);
         }
-        else{
 
-        }
+        return (
+            <>
+                {renderView}
+            </>
+        );
     }
 }

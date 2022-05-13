@@ -346,6 +346,17 @@ export const getProfilesInTeam: (state: GlobalState, teamId: Team['id'], filters
     },
 );
 
+export const getProfilesInChannel: (state: GlobalState, channelId: 'kqe4sihhdid47gprhk6dwbuc4o') => UserProfile[] = createSelector(
+    'getProfilesInTeam',
+    getUsers,
+    getUserIdsInChannels,
+    getMembersInChannel,
+    (state: GlobalState, channelId: 'kqe4sihhdid47gprhk6dwbuc4o') => channelId,
+    (profiles, usersInChannel, channelId) => {
+        return sortAndInjectProfiles(profiles, usersInChannel[channelId] || new Set());
+    },
+);
+
 export const getProfilesNotInTeam: (state: GlobalState, teamId: Team['id'], filters?: Filters) => UserProfile[] = createSelector(
     'getProfilesNotInTeam',
     getUsers,
