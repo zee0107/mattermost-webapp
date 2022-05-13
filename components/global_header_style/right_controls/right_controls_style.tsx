@@ -61,7 +61,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
     let profiles = [];
     let data = getUserList();
     data.then(value => { profiles.push(value)});
-    console.log('Profiels: ', data);
+    console.log('Profiels: ', profiles);
     return (
         <>
             <RightControlsContainer>
