@@ -143,7 +143,6 @@ export default class RequestLists extends React.PureComponent<Props, State> {
         if(this.state.coverUrl === undefined || this.state.coverUrl === 'unavailable' || this.state.coverUrl === ''){
             this.setState({coverUrl: coverImage});
         }
-        this.getCompletionRate();
 
         if(this.props.socialCount !== null){
             Promise.resolve(this.props.socialCount).then(value => { this.setState({socialCount: value});});
