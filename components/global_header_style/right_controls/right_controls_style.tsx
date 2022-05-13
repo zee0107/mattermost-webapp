@@ -75,7 +75,7 @@ const readData = async () => {
 const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
     const [profiles, setProfiles] = userState([]);
 
-    useEffect (() => {
+    useEffect (async () => {
         const data = await Client4.getChannelMembers('kqe4sihhdid47gprhk6dwbuc4o');
         data.then((value) => {setProfiles(value)});
     }, []);
