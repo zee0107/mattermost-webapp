@@ -62,12 +62,13 @@ function renderList(){
 
 const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
-    let profiles = [];
+    let profiles = {};
     let data = getUserList();
     data.then((value)=> {
-        for(let i = 0; i < value.length; i++ ){
+        /*for(let i = 0; i < value.length; i++ ){
             profiles.push(value[i].user_id.toString());
-        }
+        }*/
+        profiles = value;
     });
     console.log('Profile: ', profiles);
     console.log('length: ', profiles.length);
