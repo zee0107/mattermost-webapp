@@ -132,6 +132,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                     );
                                 });
                             })*/}
+                            <strong>{profiles}</strong>
                             {profiles && profiles.map((item,index) => {
                                 console.log(item);
                                 return (<RequestList userId={item} />);
