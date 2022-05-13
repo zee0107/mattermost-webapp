@@ -51,7 +51,7 @@ function handleEmitUserLoggedOutEvent(){
     GlobalActions.emitUserLoggedOutEvent();
   }
 
-const RightControlsStyle = ({productId = null, profiles = null}: Props): JSX.Element => {
+const RightControlsStyle = ({productId = null, profiles}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
     console.log('Profile Props : ', profiles);
     return (
