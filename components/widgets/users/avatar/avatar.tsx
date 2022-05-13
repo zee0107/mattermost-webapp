@@ -46,7 +46,7 @@ const Avatar = ({
         return (
             <img
                 {...attrs}
-                className={classes + ' user-photo'}
+                className={classes + ' user-photo vertical-align-middle'}
                 tabIndex={0}
                 alt={`${username || 'user'} profile image`}
                 src={url}
