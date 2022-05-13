@@ -136,9 +136,9 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                     );
                                 });
                             })*/}
-                            {profiles.map((item,index) => {
+                            {/*profiles.map((item,index) => {
                                 return (<p>{item}</p>);
-                            })}
+                            })*/view}
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
