@@ -62,7 +62,7 @@ async function listProfile(){
 }
 const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
-    console.log(data);
+    console.log(listProfile());
     return (
         <>
             <RightControlsContainer>
