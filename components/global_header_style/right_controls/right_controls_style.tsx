@@ -60,10 +60,10 @@ function renderList(){
     return null;
 }
 
-const readData = () => {
+const readData = async () => {
     let profiles = [];
     let data = getUserList();
-    data.then((value)=> {
+    await data.then((value)=> {
         for(let i = 0; i < value.length; i++ ){
             profiles.push(value[i].user_id.toString());
         }
@@ -74,6 +74,7 @@ const readData = () => {
 const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
     const dataList = readData();
+    console.log(dataList);
     return (
         <RightControlsContainer>
                 {/*productId === null ? (
@@ -133,11 +134,11 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                     <div className='offcanvas-body'>
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
-                            {dataList.then((value) => {
+                            {/*dataList.then((value) => {
                                 value.map((item,index) => {
                                     return (<RequestList userId={item} />);
                                 });
-                            })}
+                            })*/}
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
