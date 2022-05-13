@@ -134,6 +134,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                             <strong>Friend request</strong>
                             <>
                                 {profiles.map((item,index) => {
+                                    console.log(item);
                                     return (<RequestList userId={item} />);
                                 })}
                             </>
