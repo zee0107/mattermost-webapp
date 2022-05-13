@@ -132,10 +132,8 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                                     );
                                 });
                             })*/}
-                            <strong>{profiles}</strong>
-                            {profiles && profiles.map((item,index) => {
-                                console.log(item);
-                                return (<RequestList userId={item} />);
+                            {profiles.map((item,index) => {
+                                return (<p>{item}</p>);
                             })}
                         </div>
                         <div className='list-group mt-3 mb-3'>
