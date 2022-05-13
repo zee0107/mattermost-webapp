@@ -57,7 +57,7 @@ async function getUserList(){
 }
 const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
-    getUserList().then((value) => conole.log(value));
+    getUserList().then((value) => {console.log(value);});
     return (
         <>
             <RightControlsContainer>
