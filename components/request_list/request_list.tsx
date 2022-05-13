@@ -199,7 +199,7 @@ export default class RequestLists extends React.PureComponent<Props, State> {
             <Avatar
                 size={size}
                 url={this.props.profilePicture}
-                text='plain'
+                text='request'
             />
         );
     }
@@ -261,7 +261,7 @@ export default class RequestLists extends React.PureComponent<Props, State> {
                         renderView = (
                             <div className='list-group-item list-group-item-action border-0 friends-contents'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <label className='mb-0'><label className='userPhoto'>{this.renderProfilePicture('lg')}</label><label>{name}</label></label>
+                                    <label className='mb-0'>{this.renderProfilePictureText('lg')} {name}</label>
                                     <label className='mt-2 approve-reject-text'><a className='approveActions' onClick={this.handleAccept}>Confirm</a> | <a className='rejeectActions'>Delete</a></label>
                                     <label className='mt-2 reject-text'><a className='reject-actions' onClick={this.handleCancelRequest}><i className='bi-x-lg'></i> Delete</a></label>
                                 </div>

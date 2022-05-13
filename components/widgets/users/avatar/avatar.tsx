@@ -26,7 +26,7 @@ const Avatar = ({
 }: Props & Attrs) => {
     const classes = classNames(`Avatar Avatar-${size}`, attrs.className);
 
-    if (text) {
+    if (text === 'plain') {
         return (
             /*<div
                 {...attrs}
@@ -36,6 +36,17 @@ const Avatar = ({
             <img
                 {...attrs}
                 className={classes + ' img-fluid float-start border border-2 mt-2 rounded-circle border-success'}
+                tabIndex={0}
+                alt={`${username || 'user'} profile image`}
+                src={url}
+            />
+        );
+    }
+    else{
+        return (
+            <img
+                {...attrs}
+                className={classes + ' user-photo'}
                 tabIndex={0}
                 alt={`${username || 'user'} profile image`}
                 src={url}
