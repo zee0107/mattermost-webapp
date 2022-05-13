@@ -56,9 +56,9 @@ async function getUserList(){
     var data = await Client4.getChannelMembers('kqe4sihhdid47gprhk6dwbuc4o');
     return data;
 }
-const RightControlsStyle = async ({productId = null}: Props): JSX.Element => {
+const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
-    const profiles = await getUserList();
+    const profiles = getUserList();
     console.log('Profile Props : ', profiles);
     return (
         <>
@@ -120,12 +120,12 @@ const RightControlsStyle = async ({productId = null}: Props): JSX.Element => {
                     <div className='offcanvas-body'>
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
-                            {profiles.map((item,index) => {
+                            {/*profiles.map((item,index) => {
                                 console.log(item);
                                 return (
                                         <RequestList userId={item.user_id} />
                                     );
-                            })}
+                            })*/}
                             {/*<div className='list-group-item list-group-item-action border-0'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
                                     <label className='mb-0'><img width='40' className='img-fluid user-photo' src={profPic2} alt='User name' title='Username'/> Cody</label>
