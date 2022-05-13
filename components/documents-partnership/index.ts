@@ -20,7 +20,7 @@ import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
 import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
 
-import DocumentsAntiRug from './documents-anti-rug'
+import DocumentsPartnership from './documents-partnership'
 
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
@@ -59,4 +59,4 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
 }
 
 
-export default connect(makeMapStateToProps, mapDispatchToProps)(DocumentsAntiRug);
+export default connect(makeMapStateToProps, mapDispatchToProps)(DocumentsPartnership);
