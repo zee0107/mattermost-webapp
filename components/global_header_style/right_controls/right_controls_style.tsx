@@ -69,9 +69,10 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
             profiles.push(value[i].user_id);
         }
     });
-    profiles.map((item,index) => {
-        console.log(item);
-    })
+    for (let index = 0; index < profiles.length; index++) {
+        const element = profiles[index];
+        console.log(element);
+    }
     return (
         <RightControlsContainer>
                 {/*productId === null ? (
