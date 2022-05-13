@@ -85,7 +85,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
     }, []);
 
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
-    console.log(profiles);
+
     return (
         <RightControlsContainer>
                 {/*productId === null ? (
@@ -146,7 +146,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
                             {profiles.map((item,index) => {
-                                    return (<RequestList userId={item} />);
+                                    return (<RequestList userId={item.user_id} />);
                             })}
                         </div>
                         <div className='list-group mt-3 mb-3'>
