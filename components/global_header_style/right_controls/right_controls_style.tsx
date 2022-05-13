@@ -56,7 +56,7 @@ async function getUserList(){
     var data = await Client4.getChannelMembers('kqe4sihhdid47gprhk6dwbuc4o');
     return data;
 }
-const RightControlsStyle = async ({productId = null, profiles}: Props): JSX.Element => {
+const RightControlsStyle = async ({productId = null}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
     const profiles = await getUserList();
     console.log('Profile Props : ', profiles);
