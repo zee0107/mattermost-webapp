@@ -37,20 +37,13 @@ function makeMapStateToProps() {
             const stateValue = window.localStorage.getItem('GlobalState');
             state = JSON.parse(stateValue);
         }
-        const searchParam = ownprops.location.search.replace('?u=','');
         const userData = getCurrentUser(state);
         let currentUser;
         let userId;
         let followData;
-        if(userData.id === searchParam || searchParam === '' || searchParam === null || searchParam === undefined){
-            currentUser = userData
-            userId = currentUser.id;
-            followData = null;
-        }else{
-            currentUser = getOhterUser(state,searchParam);
-            userId = searchParam;
-            followData  = Client4.getFollowDetail(userData.id,userId);
-        }
+        currentUser = getOhterUser(state,searchParam);
+        userId = searchParam;
+        followData  = Client4.getFollowDetail(userData.id,userId);
 
         
         const customStatus = getCustomStatus(state, userId);
