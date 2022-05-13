@@ -66,7 +66,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
     let data = getUserList();
     data.then((value)=> {
         for(let i = 0; i < value.length; i++ ){
-            profiles.push(value[i].user_id);
+            profiles.push(value[i].user_id.toString());
         }
     });
     console.log('Profile: ', JSON.stringify(profiles));
