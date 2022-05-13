@@ -69,10 +69,9 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
             profiles.push(value[i].user_id);
         }
     });
-    let view;
-    for(let v = 0; v < profiles.length; v++){
-        view = (<p>{profiles[v]}</p>);
-    }
+    profiles.map((item,index) => {
+        console.log(item);
+    })
     return (
         <RightControlsContainer>
                 {/*productId === null ? (
@@ -132,12 +131,6 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                     <div className='offcanvas-body'>
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
-                            <>
-                                {profiles.map((item,index) => {
-                                    console.log(item);
-                                    return (<RequestList userId={item} />);
-                                })}
-                            </>
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
