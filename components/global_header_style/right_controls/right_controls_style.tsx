@@ -56,9 +56,10 @@ async function getUserList(){
     var data = await Client4.getChannelMembers('kqe4sihhdid47gprhk6dwbuc4o');
     return data;
 }
-const RightControlsStyle = ({productId = null, profiles}: Props): JSX.Element => {
+const RightControlsStyle = async ({productId = null, profiles}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
-    console.log('Profile Props : ', getUserList());
+    const profiles = await getUserList();
+    console.log('Profile Props : ', profiles);
     return (
         <>
             <RightControlsContainer>
@@ -119,7 +120,7 @@ const RightControlsStyle = ({productId = null, profiles}: Props): JSX.Element =>
                     <div className='offcanvas-body'>
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
-                            {getUserList().map((item,index) => {
+                            {profiles.map((item,index) => {
                                 console.log(item);
                                 return (
                                         <RequestList userId={item.id} />
