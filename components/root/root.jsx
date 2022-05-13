@@ -548,7 +548,7 @@ export default class Root extends React.PureComponent {
                                     component={DocumentsKyc}
                                 />
                                 <LoginHFTRouteNS
-                                    path={'/documents/toekn-metrics'}
+                                    path={'/documents/token-metrics'}
                                     component={DocumentsTokenMetrics}
                                 />
                                 <LoginHFTRouteF
