@@ -123,7 +123,7 @@ const RightControlsStyle = async ({productId = null, profiles}: Props): JSX.Elem
                             {profiles.map((item,index) => {
                                 console.log(item);
                                 return (
-                                        <RequestList userId={item.id} />
+                                        <RequestList userId={item.user_id} />
                                     );
                             })}
                             {/*<div className='list-group-item list-group-item-action border-0'>
