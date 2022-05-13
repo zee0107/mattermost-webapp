@@ -70,7 +70,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
         }
     });
     console.log('Profile: ', profiles);
-    conseol.log('length: ', profiles.length);
+    console.log('length: ', profiles.length);
     for (let index = 0; index < profiles.length; index++) {
         const element = profiles[index];
         console.log(element);
