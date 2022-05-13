@@ -45,7 +45,6 @@ const RightControlsContainer = styled.div`
 
 export type Props = {
     productId?: string | null;
-    profiles?: UserProfile[] | null;
 }
 
 function handleEmitUserLoggedOutEvent(){
@@ -59,6 +58,8 @@ async function getUserList(){
 const RightControlsStyle = async ({productId = null}: Props): JSX.Element => {
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
     const profiles = await getUserList();
+    const List = profiles;
+    console.log(List);
     
     return (
         <>
@@ -120,9 +121,9 @@ const RightControlsStyle = async ({productId = null}: Props): JSX.Element => {
                     <div className='offcanvas-body'>
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
-                            {Object.keys(profiles).map((item,ind) => {
+                            {/*Object.keys(profiles).map((item,ind) => {
                                 return (<RequestList userId={profiles[item].user_id} />);
-                            })}
+                            })*/}
                             {/*profiles.map((item,index) => {
                                 console.log(item);
                                 return (
