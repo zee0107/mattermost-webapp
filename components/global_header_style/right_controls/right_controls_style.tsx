@@ -53,7 +53,7 @@ function handleEmitUserLoggedOutEvent(){
 
 async function getUserList(){
     var data = await Client4.getChannelMembers('kqe4sihhdid47gprhk6dwbuc4o');
-    return Promise.resolve(data);
+    return Promise.resolve(data).then(value => {return value});
 }
 
 const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
