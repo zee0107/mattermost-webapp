@@ -43,6 +43,15 @@ function makeMapStateToProps() {
         let followData;
         
         userId = ownprops.userId;
+
+        if(userData.id === userId || userId === '' || userId === null || userId === undefined){
+            currentUser = userData
+            followData = null;
+        }else{
+            currentUser = getOhterUser(state,searchParam);
+            followData  = Client4.getFollowDetail(userData.id,userId);
+        }
+
         currentUser = getOhterUser(state,userId);
         followData  = Client4.getFollowDetail(userData.id,userId);
         
