@@ -60,6 +60,9 @@ const LazyGroup = React.lazy(() => import('components/groups'));
 const LazyDocuments = React.lazy(() => import('components/documents'));
 const LazyDocumentsKyc = React.lazy(() => import('components/documents-kyc'));
 const LazyDocumentsTokenMetrics = React.lazy(() => import('components/documents-token-metrics'));
+const LazyDocumentsTokenUtility = React.lazy(() => import('components/documents-token-utility'));
+const LazyDocumentsAntiRug = React.lazy(() => import('components/documents-anti-rug'));
+const LazyDocumentsPartnership = React.lazy(() => import('components/documents-partnership'));
 const LazyLaunchPad = React.lazy(() => import('components/launch_pad'));
 const LazyLaunchPadToken = React.lazy(() => import('components/launchpad_token'));
 const LazyLaunchPadLiquidity = React.lazy(() => import('components/launchpad_liquidity'));
@@ -110,6 +113,9 @@ const Groups = makeAsyncComponent('Group', LazyGroup);
 const Documents = makeAsyncComponent('Documents', LazyDocuments);
 const DocumentsKyc = makeAsyncComponent('DocumentsKyc', LazyDocumentsKyc);
 const DocumentsTokenMetrics = makeAsyncComponent('DocumentsTokenMetrics', LazyDocumentsTokenMetrics);
+const DocumentsTokenUtility = makeAsyncComponent('DocumentsTokenUtility', LazyDocumentsTokenUtility);
+const DocumentsAntiRug = makeAsyncComponent('DocumentsAntiRug', LazyDocumentsAntiRug);
+const DocumentsPartnership = makeAsyncComponent('DocumentsPartnership', LazyDocumentsPartnership);
 const LaunchPad = makeAsyncComponent('LaunchPad', LazyLaunchPad);
 const LaunchPadToken = makeAsyncComponent('LaunchPadToken', LazyLaunchPadToken);
 const LaunchPadLiquidity = makeAsyncComponent('LaunchPadLiquidity', LazyLaunchPadLiquidity);
@@ -550,6 +556,18 @@ export default class Root extends React.PureComponent {
                                 <LoginHFTRouteNS
                                     path={'/documents/token-metrics'}
                                     component={DocumentsTokenMetrics}
+                                />
+                                <LoginHFTRouteNS
+                                    path={'/documents/token-utility'}
+                                    component={DocumentsTokenUtility}
+                                />
+                                <LoginHFTRouteNS
+                                    path={'/documents/anti-rug-system'}
+                                    component={DocumentsAntiRug}
+                                />
+                                <LoginHFTRouteNS
+                                    path={'/documents/partnership'}
+                                    component={DocumentsPartnership}
                                 />
                                 <LoginHFTRouteF
                                     path={'/launchpad'}

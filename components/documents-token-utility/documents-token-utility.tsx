@@ -57,7 +57,7 @@ type State = {
     img_path: string;
 };
 
-export default class DocumentsTokenMetrics extends React.PureComponent<Props, State> {
+export default class DocumentsTokenUtility extends React.PureComponent<Props, State> {
     static defaultProps = {userId: ''}
 
     constructor(props: Props) {
@@ -83,8 +83,8 @@ export default class DocumentsTokenMetrics extends React.PureComponent<Props, St
                                         <hr/>
                                         <ul className='list-group'>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/intro' className='text-dark'><label>Introducing</label></a></li>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents/token-metrics' className='active-docs fw-bold text-dark'><label>Token Metrics</label></a></li>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents/token-utility' className='text-dark'><label>Token Utility</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/documents/token-metrics' className='text-dark'><label>Token Metrics</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/documents/token-utility' className='active-docs fw-bold text-dark'><label>Token Utility</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/anti-rug-system' className='text-dark'><label>Anti-Rug System</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/partnership' className='text-dark'><label>Partnership</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/roadmap' className='text-dark'><label>Roadmap</label></a></li>
@@ -174,7 +174,7 @@ export default class DocumentsTokenMetrics extends React.PureComponent<Props, St
                                 <div className='position-sticky float-right-panel'>
                                     <div className='launchpad-token-lock-info'>
                                         <div className='row'>
-                                            <div className='col-8'><h6 className='float-start mt-3'>Token Metrics</h6></div>
+                                            <div className='col-8'><h6 className='float-start mt-3'>Token Utility</h6></div>
                                             <div className='col-4'></div>
                                         </div>
                                     </div>
@@ -183,17 +183,9 @@ export default class DocumentsTokenMetrics extends React.PureComponent<Props, St
                                         <div className='launchpad-kyc-audit'>  
                                             <div className='row p-2'>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                    <p className='mt-2 mb-2' id='kycisonlyforprojectowners'>
-                                                        <strong>CRYPTERSALE tokenomics are designed with long-term value creation in mind. We believe that great things take time to build properly and that success will require long-term commitment from the team. This is reflected in the tokenomics here below:</strong>
+                                                    <p className='mt-2 mb-2'>
+                                                        You can use #CRYPTERSALE to pay for any fees on our platform. And every quarter, we will use 20% of our profits to buy back #CRYPTERSALE and burn them 🔥🔥🔥
                                                     </p>
-                                                    <p className='mt-2 mb-2'><i className='bi-dot'></i> Team: 16% of total supply, vesting 33 months, starting from month 13.</p>
-                                                    <p className='mt-2 mb-2'><i className='bi-dot'></i> Marketing: 8% of total supply, vesting 23 months, starting from month 4.</p>
-                                                    <p className='mt-2 mb-2'><i className='bi-dot'></i> Advisory: 6% of total supply, vesting 12 months, starting from month 4.</p>
-                                                    <p className='mt-2 mb-2'><i className='bi-dot'></i> Private Round: 8% of total supply, 10% at TGE, 20% on month 2, month 3, month 4, 30% on month 5.</p>
-                                                    <p className='mt-2 mb-2'><i className='bi-dot'></i> Public Round: 4% of total supply, 30% at TGE, 35% every 2 weeks.</p>
-                                                    <p className='mt-2 mb-2'><i className='bi-dot'></i> Rewards: 40% of total supply, spread out over 8 years.</p>
-                                                    <p className='mt-2 mb-2'><i className='bi-dot'></i> Ecosystem: 12% of total supply, vesting 23 months, starting from month 4.</p>
-                                                    <p className='mt-2 mb-2'><i className='bi-dot'></i> Exchange Liquidity: 6% of total supply, 50% at TGE, 50% for future listings.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -203,20 +195,20 @@ export default class DocumentsTokenMetrics extends React.PureComponent<Props, St
                                     </div>
                                     <div className='row mt-2 mb-2'>
                                         <div className='col-6'>
-                                            <a href='/documents/social-links' className='onPreviewskycaudit text-dark'>
+                                            <a href='/documents/token-metrics' className='onPreviewskycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p><small className='ms-4'>Previous</small></p>
                                                 <p className='kyc-previews'>
-                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Social Links</large></strong></p>
+                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Token Metrics</large></strong></p>
                                             </div>
                                             </a>
                                         </div>
                                         <div className='col-6'>
-                                            <a href='/documents/token-utility' className='onNextkycaudit text-dark'>
+                                            <a href='/documents/anti-rug-system' className='onNextkycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p className='text-end'><small className='me-4'>Next</small></p>
                                                 <p className='kyc-previews text-end'>
-                                                <strong><large className='ms-2'>Token Utitlity</large></strong>
+                                                <strong><large className='ms-2'>Anti-Rug System</large></strong>
                                                 <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
                                                 </p>
                                             </div>
@@ -284,8 +276,8 @@ export default class DocumentsTokenMetrics extends React.PureComponent<Props, St
                                             <hr/>
                                             <ul className='list-group'>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/intro' className='text-dark'><label>Introducing</label></a></li>
-                                                <li className='list-group-item border-0 mb-0'><a href='/documents/token-metric' className='active-docs fw-bold text-dark'><label>Token Metrics</label></a></li>
-                                                <li className='list-group-item border-0 mb-0'><a href='/documents/token-utility' className='text-dark'><label>Token Utility</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/documents/token-metric' className='text-dark'><label>Token Metrics</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/documents/token-utility' className='active-docs fw-bold text-dark'><label>Token Utility</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/anti-rug-system' className='text-dark'><label>Anti-Rug System</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/partnership' className='text-dark'><label>Partnership</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/roadmap' className='text-dark'><label>Roadmap</label></a></li>
@@ -387,7 +379,7 @@ export default class DocumentsTokenMetrics extends React.PureComponent<Props, St
 
                                     <div className='launchpad-token-lock-info'>
                                         <div className='row'>
-                                            <div className='col-12'><h6 className='float-start mt-3'>Token Metrics</h6></div>
+                                            <div className='col-12'><h6 className='float-start mt-3'>Token Utility</h6></div>
                                         </div>
                                     </div>
                                     <div className='launchpad-token-body'>
@@ -395,16 +387,8 @@ export default class DocumentsTokenMetrics extends React.PureComponent<Props, St
                                         <div className='launchpad-kyc-audit'>  
                                             <div className='row p-2'>
                                                 <p className='mt-2 mb-2' id='kycisonlyforprojectowners'>
-                                                <strong>CRYPTERSALE tokenomics are designed with long-term value creation in mind. We believe that great things take time to build properly and that success will require long-term commitment from the team. This is reflected in the tokenomics here below:</strong>
+                                                    You can use #CRYPTERSALE to pay for any fees on our platform. And every quarter, we will use 20% of our profits to buy back #CRYPTERSALE and burn them 🔥🔥🔥
                                                 </p>
-                                                <p className='mt-2 mb-2'><i className='bi-dot'></i> Team: 16% of total supply, vesting 33 months, starting from month 13.</p>
-                                                <p className='mt-2 mb-2'><i className='bi-dot'></i> Marketing: 8% of total supply, vesting 23 months, starting from month 4.</p>
-                                                <p className='mt-2 mb-2'><i className='bi-dot'></i> Advisory: 6% of total supply, vesting 12 months, starting from month 4.</p>
-                                                <p className='mt-2 mb-2'><i className='bi-dot'></i> Private Round: 8% of total supply, 10% at TGE, 20% on month 2, month 3, month 4, 30% on month 5.</p>
-                                                <p className='mt-2 mb-2'><i className='bi-dot'></i> Public Round: 4% of total supply, 30% at TGE, 35% every 2 weeks.</p>
-                                                <p className='mt-2 mb-2'><i className='bi-dot'></i> Rewards: 40% of total supply, spread out over 8 years.</p>
-                                                <p className='mt-2 mb-2'><i className='bi-dot'></i> Ecosystem: 12% of total supply, vesting 23 months, starting from month 4.</p>
-                                                <p className='mt-2 mb-2'><i className='bi-dot'></i> Exchange Liquidity: 6% of total supply, 50% at TGE, 50% for future listings.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -413,7 +397,7 @@ export default class DocumentsTokenMetrics extends React.PureComponent<Props, St
                                     </div>
                                     <div className='row mt-2 mb-2'>
                                         <div className='col-lg-6'>
-                                            <a href='/documents/intro' className='onPreviewskycaudit text-dark'>
+                                            <a href='/documents/token-metrics' className='onPreviewskycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p><small className='ms-4'>Previous</small></p>
                                                 <p className='kyc-previews'>
@@ -422,11 +406,11 @@ export default class DocumentsTokenMetrics extends React.PureComponent<Props, St
                                             </a>
                                         </div>
                                         <div className='col-lg-6 mt-2'>
-                                            <a href='/documents/token-utility' className='onNextkycaudit text-dark'>
+                                            <a href='/documents/anti-rug-system' className='onNextkycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p className='text-end'><small className='me-4'>Next</small></p>
                                                 <p className='kyc-previews text-end'>
-                                                <strong><large className='ms-2'>Token Utility</large></strong>
+                                                <strong><large className='ms-2'>Anti-Rug System</large></strong>
                                                 <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
                                                 </p>
                                             </div>

@@ -57,7 +57,7 @@ type State = {
     img_path: string;
 };
 
-export default class DocumentsTokenMetrics extends React.PureComponent<Props, State> {
+export default class DocumentsPartnership extends React.PureComponent<Props, State> {
     static defaultProps = {userId: ''}
 
     constructor(props: Props) {
@@ -83,10 +83,10 @@ export default class DocumentsTokenMetrics extends React.PureComponent<Props, St
                                         <hr/>
                                         <ul className='list-group'>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/intro' className='text-dark'><label>Introducing</label></a></li>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents/token-metrics' className='active-docs fw-bold text-dark'><label>Token Metrics</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/documents/token-metrics' className='text-dark'><label>Token Metrics</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/token-utility' className='text-dark'><label>Token Utility</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/anti-rug-system' className='text-dark'><label>Anti-Rug System</label></a></li>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents/partnership' className='text-dark'><label>Partnership</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/documents/partnership' className='active-docs fw-bold text-dark'><label>Partnership</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/roadmap' className='text-dark'><label>Roadmap</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/service-fees' className='text-dark'><label>Service Fees</label></a></li>
                                         </ul>
@@ -174,7 +174,7 @@ export default class DocumentsTokenMetrics extends React.PureComponent<Props, St
                                 <div className='position-sticky float-right-panel'>
                                     <div className='launchpad-token-lock-info'>
                                         <div className='row'>
-                                            <div className='col-8'><h6 className='float-start mt-3'>Token Metrics</h6></div>
+                                            <div className='col-8'><h6 className='float-start mt-3'>Partnership</h6></div>
                                             <div className='col-4'></div>
                                         </div>
                                     </div>
@@ -183,17 +183,24 @@ export default class DocumentsTokenMetrics extends React.PureComponent<Props, St
                                         <div className='launchpad-kyc-audit'>  
                                             <div className='row p-2'>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                    <p className='mt-2 mb-2' id='kycisonlyforprojectowners'>
-                                                        <strong>CRYPTERSALE tokenomics are designed with long-term value creation in mind. We believe that great things take time to build properly and that success will require long-term commitment from the team. This is reflected in the tokenomics here below:</strong>
+                                                    <p className='mt-2 mb-2'>
+                                                        <a href='https://medium.com/assure-defi/assure-partners-with-cryptermoon-56935ba75ca1' target='_self'><i className='bi-dot'></i> https://medium.com/assure-defi/assure-partners-with-cryptermoon-56935ba75ca1</a>
                                                     </p>
-                                                    <p className='mt-2 mb-2'><i className='bi-dot'></i> Team: 16% of total supply, vesting 33 months, starting from month 13.</p>
-                                                    <p className='mt-2 mb-2'><i className='bi-dot'></i> Marketing: 8% of total supply, vesting 23 months, starting from month 4.</p>
-                                                    <p className='mt-2 mb-2'><i className='bi-dot'></i> Advisory: 6% of total supply, vesting 12 months, starting from month 4.</p>
-                                                    <p className='mt-2 mb-2'><i className='bi-dot'></i> Private Round: 8% of total supply, 10% at TGE, 20% on month 2, month 3, month 4, 30% on month 5.</p>
-                                                    <p className='mt-2 mb-2'><i className='bi-dot'></i> Public Round: 4% of total supply, 30% at TGE, 35% every 2 weeks.</p>
-                                                    <p className='mt-2 mb-2'><i className='bi-dot'></i> Rewards: 40% of total supply, spread out over 8 years.</p>
-                                                    <p className='mt-2 mb-2'><i className='bi-dot'></i> Ecosystem: 12% of total supply, vesting 23 months, starting from month 4.</p>
-                                                    <p className='mt-2 mb-2'><i className='bi-dot'></i> Exchange Liquidity: 6% of total supply, 50% at TGE, 50% for future listings.</p>
+                                                    <p className='mt-2 mb-2'>
+                                                        <a href='https://medium.com/@cryptermoonfinance/cryptersale-and-exnetwork-strategic-partnership-6604ed7e66a6' target='_self'><i className='bi-dot'></i> https://medium.com/@cryptermoonfinance/cryptersale-and-exnetwork-strategic-partnership-6604ed7e66a6</a>
+                                                    </p>
+                                                    <p className='mt-2 mb-2'>
+                                                        <a href='https://medium.com/@cryptermoonfinance/cryptersale-and-crypto-kudasai-partnership-hello-japan-f5d8ee5a6208' target='_self'><i className='bi-dot'></i> https://medium.com/@cryptermoonfinance/cryptersale-and-crypto-kudasai-partnership-hello-japan-f5d8ee5a6208</a>
+                                                    </p>
+                                                    <p className='mt-2 mb-2'>
+                                                        <a href='https://medium.com/@cryptermoonfinance/cryptermoon-and-mw-partners-partnership-99c8c3cc161d' target='_self'><i className='bi-dot'></i> https://medium.com/@cryptermoonfinance/cryptermoon-and-mw-partners-partnership-99c8c3cc161d</a>
+                                                    </p>
+                                                    <p className='mt-2 mb-2'>
+                                                        <a href='https://medium.com/@cryptermoonfinance/cryptersale-is-coming-on-polygon-2d5c474c81c' target='_self'><i className='bi-dot'></i> https://medium.com/@cryptermoonfinance/cryptersale-is-coming-on-polygon-2d5c474c81c</a>
+                                                    </p>
+                                                    <p className='mt-2 mb-2'>
+                                                        <a href='https://medium.com/@cryptermoonfinance/cryptermoon-partners-with-bidesk-to-offer-rapid-listing-for-cryptermoon-idos-d7d0ca2e5faf' target='_self'><i className='bi-dot'></i> https://medium.com/@cryptermoonfinance/cryptermoon-partners-with-bidesk-to-offer-rapid-listing-for-cryptermoon-idos-d7d0ca2e5faf</a>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -203,20 +210,20 @@ export default class DocumentsTokenMetrics extends React.PureComponent<Props, St
                                     </div>
                                     <div className='row mt-2 mb-2'>
                                         <div className='col-6'>
-                                            <a href='/documents/social-links' className='onPreviewskycaudit text-dark'>
+                                            <a href='/documents/anti-rug-system' className='onPreviewskycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p><small className='ms-4'>Previous</small></p>
                                                 <p className='kyc-previews'>
-                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Social Links</large></strong></p>
+                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Anti-Rug System</large></strong></p>
                                             </div>
                                             </a>
                                         </div>
                                         <div className='col-6'>
-                                            <a href='/documents/token-utility' className='onNextkycaudit text-dark'>
+                                            <a href='/documents/roadmap' className='onNextkycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p className='text-end'><small className='me-4'>Next</small></p>
                                                 <p className='kyc-previews text-end'>
-                                                <strong><large className='ms-2'>Token Utitlity</large></strong>
+                                                <strong><large className='ms-2'>Roadmap</large></strong>
                                                 <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
                                                 </p>
                                             </div>
@@ -284,10 +291,10 @@ export default class DocumentsTokenMetrics extends React.PureComponent<Props, St
                                             <hr/>
                                             <ul className='list-group'>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/intro' className='text-dark'><label>Introducing</label></a></li>
-                                                <li className='list-group-item border-0 mb-0'><a href='/documents/token-metric' className='active-docs fw-bold text-dark'><label>Token Metrics</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/documents/token-metric' className='text-dark'><label>Token Metrics</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/token-utility' className='text-dark'><label>Token Utility</label></a></li>
-                                                <li className='list-group-item border-0 mb-0'><a href='/documents/anti-rug-system' className='text-dark'><label>Anti-Rug System</label></a></li>
-                                                <li className='list-group-item border-0 mb-0'><a href='/documents/partnership' className='text-dark'><label>Partnership</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/documents/anti-rug-system' className='fw-bold text-dark'><label>Anti-Rug System</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/documents/partnership' className='active-docs text-dark'><label>Partnership</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/roadmap' className='text-dark'><label>Roadmap</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/service-fees' className='text-dark'><label>Service Fees</label></a></li>
                                             </ul>
@@ -387,24 +394,33 @@ export default class DocumentsTokenMetrics extends React.PureComponent<Props, St
 
                                     <div className='launchpad-token-lock-info'>
                                         <div className='row'>
-                                            <div className='col-12'><h6 className='float-start mt-3'>Token Metrics</h6></div>
+                                            <div className='col-12'><h6 className='float-start mt-3'>Partnership</h6></div>
                                         </div>
                                     </div>
                                     <div className='launchpad-token-body'>
                                         <hr/>
                                         <div className='launchpad-kyc-audit'>  
                                             <div className='row p-2'>
-                                                <p className='mt-2 mb-2' id='kycisonlyforprojectowners'>
-                                                <strong>CRYPTERSALE tokenomics are designed with long-term value creation in mind. We believe that great things take time to build properly and that success will require long-term commitment from the team. This is reflected in the tokenomics here below:</strong>
-                                                </p>
-                                                <p className='mt-2 mb-2'><i className='bi-dot'></i> Team: 16% of total supply, vesting 33 months, starting from month 13.</p>
-                                                <p className='mt-2 mb-2'><i className='bi-dot'></i> Marketing: 8% of total supply, vesting 23 months, starting from month 4.</p>
-                                                <p className='mt-2 mb-2'><i className='bi-dot'></i> Advisory: 6% of total supply, vesting 12 months, starting from month 4.</p>
-                                                <p className='mt-2 mb-2'><i className='bi-dot'></i> Private Round: 8% of total supply, 10% at TGE, 20% on month 2, month 3, month 4, 30% on month 5.</p>
-                                                <p className='mt-2 mb-2'><i className='bi-dot'></i> Public Round: 4% of total supply, 30% at TGE, 35% every 2 weeks.</p>
-                                                <p className='mt-2 mb-2'><i className='bi-dot'></i> Rewards: 40% of total supply, spread out over 8 years.</p>
-                                                <p className='mt-2 mb-2'><i className='bi-dot'></i> Ecosystem: 12% of total supply, vesting 23 months, starting from month 4.</p>
-                                                <p className='mt-2 mb-2'><i className='bi-dot'></i> Exchange Liquidity: 6% of total supply, 50% at TGE, 50% for future listings.</p>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p className='mt-2 mb-2'>
+                                                        <a href='https://medium.com/assure-defi/assure-partners-with-cryptermoon-56935ba75ca1' target='_self'><i className='bi-dot'></i> https://medium.com/assure-defi/assure-partners-with-cryptermoon-56935ba75ca1</a>
+                                                    </p>
+                                                    <p className='mt-2 mb-2'>
+                                                        <a href='https://medium.com/@cryptermoonfinance/cryptersale-and-exnetwork-strategic-partnership-6604ed7e66a6' target='_self'><i className='bi-dot'></i> https://medium.com/@cryptermoonfinance/cryptersale-and-exnetwork-strategic-partnership-6604ed7e66a6</a>
+                                                    </p>
+                                                    <p className='mt-2 mb-2'>
+                                                        <a href='https://medium.com/@cryptermoonfinance/cryptersale-and-crypto-kudasai-partnership-hello-japan-f5d8ee5a6208' target='_self'><i className='bi-dot'></i> https://medium.com/@cryptermoonfinance/cryptersale-and-crypto-kudasai-partnership-hello-japan-f5d8ee5a6208</a>
+                                                    </p>
+                                                    <p className='mt-2 mb-2'>
+                                                        <a href='https://medium.com/@cryptermoonfinance/cryptermoon-and-mw-partners-partnership-99c8c3cc161d' target='_self'><i className='bi-dot'></i> https://medium.com/@cryptermoonfinance/cryptermoon-and-mw-partners-partnership-99c8c3cc161d</a>
+                                                    </p>
+                                                    <p className='mt-2 mb-2'>
+                                                        <a href='https://medium.com/@cryptermoonfinance/cryptersale-is-coming-on-polygon-2d5c474c81c' target='_self'><i className='bi-dot'></i> https://medium.com/@cryptermoonfinance/cryptersale-is-coming-on-polygon-2d5c474c81c</a>
+                                                    </p>
+                                                    <p className='mt-2 mb-2'>
+                                                        <a href='https://medium.com/@cryptermoonfinance/cryptermoon-partners-with-bidesk-to-offer-rapid-listing-for-cryptermoon-idos-d7d0ca2e5faf' target='_self'><i className='bi-dot'></i> https://medium.com/@cryptermoonfinance/cryptermoon-partners-with-bidesk-to-offer-rapid-listing-for-cryptermoon-idos-d7d0ca2e5faf</a>
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -413,20 +429,20 @@ export default class DocumentsTokenMetrics extends React.PureComponent<Props, St
                                     </div>
                                     <div className='row mt-2 mb-2'>
                                         <div className='col-lg-6'>
-                                            <a href='/documents/intro' className='onPreviewskycaudit text-dark'>
+                                            <a href='/documents/anti-rug-system' className='onPreviewskycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p><small className='ms-4'>Previous</small></p>
                                                 <p className='kyc-previews'>
-                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Introduction</large></strong></p>
+                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Anti-Rug System</large></strong></p>
                                             </div>
                                             </a>
                                         </div>
                                         <div className='col-lg-6 mt-2'>
-                                            <a href='/documents/token-utility' className='onNextkycaudit text-dark'>
+                                            <a href='/documents/roadmap' className='onNextkycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p className='text-end'><small className='me-4'>Next</small></p>
                                                 <p className='kyc-previews text-end'>
-                                                <strong><large className='ms-2'>Token Utility</large></strong>
+                                                <strong><large className='ms-2'>Roadmap</large></strong>
                                                 <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
                                                 </p>
                                             </div>
