@@ -69,13 +69,6 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         }
     }
 
-    componentDidUpdate = (prevState) => {
-        if(this.state.isMounted !== prevState.isMounted){
-            this.setState({isMounted: this.props.isMounted});
-            this.getImage(this.props.channelId);
-        }
-    }
-
     handelChange = (e) => {
         this.setState({selectedFile: e.target.files[0],
             file_name: e.target.files[0].name});
