@@ -148,13 +148,13 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
                             {profiles.map((item,index) => {
-                                    return (<RequestList userId={item.user_id} key={`request-${item}`} />);
+                                    return (<RequestList userId={item.user_id} key={`request-${item.user_id}`} />);
                             })}
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
                             {profiles.map((item,index) => {
-                                    return (<RequestListNf userId={item.user_id} key={`requestnf-${item}`} />);
+                                    return (<RequestListNf userId={item.user_id} key={`requestnf-${item.user_id}`} />);
                             })}
                             {/*<div className='list-group-item list-group-item-action border-0 add-friends-contents'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
