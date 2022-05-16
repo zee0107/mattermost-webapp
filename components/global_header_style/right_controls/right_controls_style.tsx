@@ -76,7 +76,7 @@ const readData = async () => {
 
 const RightControlsStyle = (props: Props): JSX.Element => {
     const [profiles, setProfiles] = useState([]);
-    const [request, setRequest] = userState([]);
+    const [request, setRequest] = useState([]);
 
     useEffect (() => {
         async function getData(){
