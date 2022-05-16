@@ -258,26 +258,29 @@ export default class RequestListsNf extends React.PureComponent<Props, State> {
 
             if(userData.id !== currentUser.id){
                 if(followData !== undefined){
-                    if(followData.user_id !== currentUser.id && followData.friend_id !== currentUser.id){
-                        if(followStatus === 1){
-                            buttonsView = (
-                                <label className='mt-2 approve-reject-text'><a className='approveActions'>Requested</a> | <a onClick={this.handleCancelRequest} className='rejeectActions'>Cancel Request</a></label>
-                            );
-                        }
-                        else{
-                            buttonsView = (
-                                <label className='mt-2 approve-reject-text'><a className='approveActions' onClick={this.handleFollow}>Add Friend</a> | <a onClick={this.handleCancelRequest} className='rejeectActions'>Remove</a></label>
-                            );
-                        }
-                        renderView = (
-                            <div className='list-group-item list-group-item-action border-0 friends-contents'>
-                                <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <label className='mb-0'>{this.renderProfilePictureText('lg')}<label>{name}</label></label>
-                                    {buttonsView}
-                                    <label className='mt-2 reject-text'><a className='reject-actions' ><i className='bi-x-lg'></i> Delete</a></label>
+                    if(followData.user_id !== currentUser.id){
+                        if(followData.friend_id !== currentUser.id){
+                            if(followStatus === 1){
+                                buttonsView = (
+                                    <label className='mt-2 approve-reject-text'><a className='approveActions'>Requested</a> | <a onClick={this.handleCancelRequest} className='rejeectActions'>Cancel Request</a></label>
+                                );
+                            }
+                            else{
+                                buttonsView = (
+                                    <label className='mt-2 approve-reject-text'><a className='approveActions' onClick={this.handleFollow}>Add Friend</a> | <a onClick={this.handleCancelRequest} className='rejeectActions'>Remove</a></label>
+                                );
+                            }
+
+                            renderView = (
+                                <div className='list-group-item list-group-item-action border-0 friends-contents'>
+                                    <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
+                                        <label className='mb-0'>{this.renderProfilePictureText('lg')}<label>{name}</label></label>
+                                        {buttonsView}
+                                        <label className='mt-2 reject-text'><a className='reject-actions' ><i className='bi-x-lg'></i> Delete</a></label>
+                                    </div>
                                 </div>
-                            </div>
-                        );
+                            );
+                        }
                     }
                 } 
             }
