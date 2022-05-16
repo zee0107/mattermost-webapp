@@ -19,6 +19,7 @@ export type Props = {
     actions: {
         leaveChannelNew: (channelId: string) => Promise<ActionResult>;
     }
+    isMounted: boolean;
 }
 
 type State = {
@@ -30,6 +31,7 @@ type State = {
     img_url: string;
     id: string;
     uploadError: string;
+    isMounted: boolean;
 };
 
 export default class GroupsHeader extends React.PureComponent<Props, State> {
@@ -43,6 +45,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             uploadImage: false,
             img_url: 'unavailable',
             id: '',
+            isMounted: false,
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -57,8 +60,20 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         }
 
         
-        
-        this.getImage(this.props.channelId);
+        if(this.props.isMounted){
+            this.setState({isMounted: this.props.isMounted});
+            this.getImage(this.props.channelId);
+        }
+        else{
+            this.setState({isMounted: false});
+        }
+    }
+
+    componentDidUpdate = (prevState) => {
+        if(this.state.isMounted !=== prevState.isMounted){
+            this.setState({isMounted: this.props.isMounted});
+            this.getImage(this.props.channelId);
+        }
     }
 
     handelChange = (e) => {

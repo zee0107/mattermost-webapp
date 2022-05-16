@@ -501,7 +501,9 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             viewDetail = (
                 <GroupHeader
                     channelId={channelId}
-                    channelDisplayName={channelDisplayName} />
+                    channelDisplayName={channelDisplayName} 
+                    isMounted={true}
+                    />
             );
         }
 
