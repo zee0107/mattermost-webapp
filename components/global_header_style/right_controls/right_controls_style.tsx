@@ -109,11 +109,11 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                     <label className='plus-text-sizes'>+</label></a>
 
                     <ul className='dropdown-menu' aria-labelledby='dropdownCreateposts'>
-                        <li><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src={AdImg}/> Create Ad</a></li>
-                        <li><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src={BlogImg}/> Create Blog</a></li>
-                        <li><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src={EventImg}/> Create Event</a></li>
-                        <li><a className='dropdown-item' href='/mygroups'><img width='19' className='img-fluid mr-2' src={GroupImg}/> Create Group</a></li>
-                        <li><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src={PageImg}/> Create Page</a></li>
+                        <li key='create-ad'><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src={AdImg}/> Create Ad</a></li>
+                        <li key='create-blog'><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src={BlogImg}/> Create Blog</a></li>
+                        <li key='create-event'><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src={EventImg}/> Create Event</a></li>
+                        <li key='create-group'><a className='dropdown-item' href='/mygroups'><img width='19' className='img-fluid mr-2' src={GroupImg}/> Create Group</a></li>
+                        <li key='create-page'><a className='dropdown-item' href='#'><img width='19' className='img-fluid mr-2' src={PageImg}/> Create Page</a></li>
                     </ul>
                 </div>
                 <a className='position-relative onDekstopaddfriends' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelfriendsdesktop' aria-controls='offcanvasRightLabelfriendsdesktop'>
