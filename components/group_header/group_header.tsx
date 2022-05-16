@@ -70,7 +70,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     }
 
     componentDidUpdate = (prevState) => {
-        if(this.state.isMounted !=== prevState.isMounted){
+        if(this.state.isMounted !== prevState.isMounted){
             this.setState({isMounted: this.props.isMounted});
             this.getImage(this.props.channelId);
         }
