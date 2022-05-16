@@ -153,7 +153,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
-                            {profiles.sort(() => Math.random()).map((item,index) => {
+                            {profiles.sort(() => Math.random() - 0.5).map((item,index) => {
                                     return (<RequestListsNf userId={item.user_id} key={`requestnf-${item.user_id}`} />);
                             })}
                             {/*<div className='list-group-item list-group-item-action border-0 add-friends-contents'>
