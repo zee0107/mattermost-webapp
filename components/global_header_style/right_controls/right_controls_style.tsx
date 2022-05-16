@@ -46,6 +46,7 @@ const RightControlsContainer = styled.div`
 
 export type Props = {
     productId?: string | null;
+    currentUser: UserProfile;
 }
 
 function handleEmitUserLoggedOutEvent(){
@@ -73,8 +74,9 @@ const readData = async () => {
     return profiles;
 }*/
 
-const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
+const RightControlsStyle = (props: Props): JSX.Element => {
     const [profiles, setProfiles] = useState([]);
+    const [request, setRequest] = userState([]);
 
     useEffect (() => {
         async function getData(){
@@ -82,8 +84,14 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
             //const data = await Client4.getChannelMembers('dodurztr1fbupnpenjgxqjso3a');
             return data;
         }
+
+        async function getRequest(){
+            const data = await Client4.getRequestList(props.currentUser.id);
+            return data;
+        }
         
        getData().then((value) => { setProfiles(value) });
+       getRequest().then((value) => { setRequest(value) });
     }, []);
 
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
@@ -147,9 +155,9 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                     <div className='offcanvas-body'>
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
-                            {profiles.map((item,index) => {
+                            {request !== null ? request.map((item,index) => {
                                     return (<RequestList userId={item.user_id} key={`request-${item.user_id}`} />);
-                            })}
+                            }) : <><label className='mt-2 mb-2'>No friend request</label></>}
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>

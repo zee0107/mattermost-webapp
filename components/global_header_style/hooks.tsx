@@ -22,6 +22,10 @@ export const useProducts = (): ProductComponent[] | undefined => {
     return useSelector<GlobalState, ProductComponent[]>(selectProducts);
 };
 
+export const currentUser = (): UserProfile => {
+    return useSelector<GlobalState, UserProfile>(getCurrentUser)
+}
+
 /**
  * Hook that alerts clicks outside of the passed ref.
  */
