@@ -103,17 +103,22 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     }
 
     getImage = async (channel: string) => {
-        const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/coverimg?id=${channel}`);
-        const imageBlob = await response.blob();
-        const textBlob = await imageBlob.text();
-        if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
-        {
-            this.setState({img_url: 'unavailable'});
+        try{
+            const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/coverimg?id=${channel}`);
+            const imageBlob = await response.blob();
+            const textBlob = await imageBlob.text();
+            if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
+            {
+                this.setState({img_url: 'unavailable'});
+            }
+            else
+            {
+                const imageObjectURL = URL.createObjectURL(imageBlob);
+                this.setState({img_url: imageObjectURL});
+            }
         }
-        else
-        {
-            const imageObjectURL = URL.createObjectURL(imageBlob);
-            this.setState({img_url: imageObjectURL});
+        catch(error){
+            conosle.log(error);
         }
     }
     
