@@ -258,6 +258,7 @@ export default class RequestListsNf extends React.PureComponent<Props, State> {
 
             if(userData.id !== currentUser.id){
                 if(followData !== undefined){
+                console.log('follow: ',followData);
                     if( followData.user_id !== currentUser.id || followData.friend_id !== currentUser.id){
                         if(followStatus === 1){
                             buttonsView = (
