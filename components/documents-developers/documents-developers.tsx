@@ -225,7 +225,7 @@ export default class DocumentsDevelopers extends React.PureComponent<Props, Stat
                                     </div>
                                     <div className='row mt-2 mb-2'>
                                         <div className='col-6'>
-                                            <a href='/documents/youtube-tutorials' className='onPreviewskycaudit text-dark'>
+                                            <a href='/documents/youtube-tutorial' className='onPreviewskycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p><small className='ms-4'>Previous</small></p>
                                                 <p className='kyc-previews'>
@@ -459,7 +459,7 @@ export default class DocumentsDevelopers extends React.PureComponent<Props, Stat
                                     </div>
                                     <div className='row mt-2 mb-2'>
                                         <div className='col-lg-6'>
-                                            <a href='/documents/youtube-tutorials' className='onPreviewskycaudit text-dark'>
+                                            <a href='/documents/youtube-tutorial' className='onPreviewskycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p><small className='ms-4'>Previous</small></p>
                                                 <p className='kyc-previews'>

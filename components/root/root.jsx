@@ -564,7 +564,7 @@ export default class Root extends React.PureComponent {
                                     component={Documents}
                                 />
                                 <LoginHFTRouteNS
-                                    path={'/documents/youtube-tutorials'}
+                                    path={'/documents/youtube-tutorial'}
                                     component={DocumentsYT}
                                 />
                                 <LoginHFTRouteNS
