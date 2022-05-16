@@ -78,6 +78,11 @@ const RightControlsStyle = (props: Props): JSX.Element => {
     const [profiles, setProfiles] = useState([]);
     const [request, setRequest] = useState([]);
 
+    const noRequest = () => {
+        return (
+            <label className='mt-2 mb-2'>No friend request</label>
+        );
+    }
     useEffect (() => {
         async function getData(){
             const data = await Client4.getChannelMembers('kqe4sihhdid47gprhk6dwbuc4o');
@@ -159,7 +164,7 @@ const RightControlsStyle = (props: Props): JSX.Element => {
                             <strong>Friend request</strong>
                             {request !== [] ? request.map((item,index) => {
                                     return (<RequestList userId={item.user_id} key={`request-${item.user_id}`} />);
-                            }) : <label className='mt-2 mb-2'>No friend request</label>}
+                            }) : noRequest}
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
