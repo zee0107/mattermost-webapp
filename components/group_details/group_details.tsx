@@ -53,8 +53,8 @@ export default class GroupsDetails extends React.PureComponent<Props, State> {
         this.getStats();
     }
 
-    getStats = async () => {
-        const response = await Client4.getChannelStats(this.props.channelId);
+    getStats = () => {
+        const response = Client4.getChannelStats(this.props.channelId);
         Promise.resolve(response).then(value => {this.setState({data: value});})
     }
 
