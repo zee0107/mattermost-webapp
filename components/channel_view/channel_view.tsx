@@ -501,11 +501,11 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         }else{
             isMounted = true;
             viewDetail = (
-                <>{isMounted && <GroupHeader
+                <>{isMounted ? <GroupHeader
                     channelId={channelId}
                     channelDisplayName={channelDisplayName} 
                     isMounted={true}
-                    />}</>
+                    /> : null}</>
             );
         }
 
