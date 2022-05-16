@@ -112,13 +112,13 @@ export default class Sidebar extends React.PureComponent<Props, State> {
 
     gainer_render = () => {
         var gainer = this.state.gainerListing.map((filtered,i)=> (
-            <div className='d-flex'>
+            <div className='d-flex' key={`${filtered.symbol}-div`}>
                 <div className='col-sm-2 width-icon removePadding'>
-                    <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
+                    <CurrencyIcons code={filtered.symbol.toString()} key={`${filtered.symbol}-div-icon`}></CurrencyIcons>
                 </div>
                 <div className='col-sm-6 width-details removePadding currency-details'>
-                    <label className='text-primary' key={i+"-gainer-name"}>{filtered.name}</label>
-                    <p className='text-secondary small-font' key={i+"-gainer-symbol"}>{filtered.symbol}</p>
+                    <label className='text-primary' key={`${filtered.symbol}-gainer-name`}>{filtered.name}</label>
+                    <p className='text-secondary small-font' key={`${filtered.symbol}-gainer-symbol`}>{filtered.symbol}</p>
                 </div>
                 <div className='col-sm-4 width-percent removePadding text-end'>
                     {this.render_percent(filtered.percent_change_24h.toString())}
@@ -130,13 +130,13 @@ export default class Sidebar extends React.PureComponent<Props, State> {
 
     new_render = () => {
         var newlist = this.state.newListing.map((filtered,i)=> (
-            <div className='d-flex'>
+            <div className='d-flex' key={`${filtered.symbol}-div`}>
                 <div className='col-sm-2 width-icon removePadding'>
-                    <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
+                    <CurrencyIcons code={filtered.symbol.toString()} key={`${filtered.symbol}-icons`}></CurrencyIcons>
                 </div>
                 <div className='col-sm-6 width-details removePadding currency-details'>
-                    <label className='text-primary' key={i+"-new-name"}>{filtered.name}</label>
-                    <p className='text-secondary small-font' key={i+"-new-symbol"}>{filtered.symbol}</p>
+                    <label className='text-primary' key={`${filtered.symbol}-new-name`}>{filtered.name}</label>
+                    <p className='text-secondary small-font' key={`${filtered.symbol}-new-symbol`}>{filtered.symbol}</p>
                 </div>
                 <div className='col-sm-4 width-percent removePadding text-end'>
                     {this.render_percent(filtered.percent_change_24h.toString())}                
@@ -149,13 +149,13 @@ export default class Sidebar extends React.PureComponent<Props, State> {
     trend_render = () => {
         var trend = this.state.trendListing.map((filtered,i)=> {
             return (                
-                <div className='d-flex'>
+                <div className='d-flex' key={`${i}-div`}>
                     <div className='col-sm-2 width-icon removePadding'>
-                        <CurrencyIcons code={filtered.symbol.toString()}></CurrencyIcons>
+                        <CurrencyIcons code={filtered.symbol.toString()} key={`${filtered.symbol}-icon`}></CurrencyIcons>
                     </div>
                     <div className='col-sm-6 width-details removePadding currency-details'>
-                        <label className='text-primary' key={i+"trend-name"}>{filtered.name}</label>
-                        <p className='text-secondary small-font' key={i+"trend-symbol"}>{filtered.symbol}</p>
+                        <label className='text-primary' key={`${filtered.symbol}-trend-name`}>{filtered.name}</label>
+                        <p className='text-secondary small-font' key={`${filtered.symbol}-trend-symbol`}>{filtered.symbol}</p>
                     </div>
                     <div className='col-sm-4 width-percent removePadding text-end'>
                         {this.render_percent(filtered.percent_change_24h.toString())}
@@ -207,26 +207,26 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                         <input type="checkbox" id="list-item-1"></input>
                         <label htmlFor="list-item-1" className="first collapsible-label-title"><img src={rocketImage} className="sidemenu-title-img"></img>Launchpad</label>
                             <ul className='ul-collapse'>
-                            <li key='create-launchpad' className='sidemenu-padding'><div className={'list-sidemenu-a ' + `${this.state.middleView === 'create-launchpad' ? 'active-item' : ''}`}><a href="/launchpad"  onClick={() => this.setState({middleView: 'create-launchpad'})} className='side-menu-item'>Create Launchpad</a></div></li>
-                            <li key='projects' className='sidemenu-padding'>
-                                <input type="checkbox" id="list-item-2"></input>
-                                <label htmlFor="list-item-2" className="first collapsible-label">Projects</label>
-                                <ul className='ul-collapse'>
-                                    <li key='live'><div className={'list-sidemenu-b ' + `${this.state.middleView === 'projects-live' ? 'active-item' : ''}`}><a href="/launchpad-live" onClick={() => this.setState({middleView: 'projects-live'})} className='side-menu-item'>Live</a></div></li>
-                                    <li key='upcoming'><div className={'list-sidemenu-b ' + `${this.state.middleView === 'projects-upcoming' ? 'active-item' : ''}`}><a href="/launchpad-upcoming" onClick={() => this.setState({middleView: 'projects-upcoming'})} className='side-menu-item'>Upcoming</a></div></li>
-                                </ul>
-                            </li>
-                            <li key='crypter-lock' className='sidemenu-padding'>
-                                <input type="checkbox" id="list-item-3"></input>
-                                <label htmlFor="list-item-3" className="first collapsible-label">Crypter Lock</label>
-                                <ul className='ul-collapse'>
-                                    <li key='create-lock'><div className={'list-sidemenu-b ' + `${this.state.middleView === 'create-lock' ? 'active-item' : ''}`}><a href="/laucnhpad-create-lock" onClick={() => this.setState({middleView: 'create-lock'})} className='side-menu-item'>Create Lock</a></div></li>
-                                    <li key='token'><div className='list-sidemenu-b'><a href="/launchpadtoken" className='side-menu-item'>Token</a></div></li>
-                                    <li key='liquidity'><div className='list-sidemenu-b'><a href="/launchpad-liquidity" className='side-menu-item'>Liquidity</a></div></li>
-                                </ul>
-                            </li>
-                            <li key='kyc-audit' className='sidemenu-padding'><div className='list-sidemenu-a'><a href="/documents/kyc" className='side-menu-item'>KYC &amp; Audit</a></div></li>
-                            <li key='docs' className='sidemenu-padding'><div className='list-sidemenu-a'><a href="/documents/intro" className='side-menu-item'>Docs</a></div></li>
+                                <li key='create-launchpad' className='sidemenu-padding'><div className={'list-sidemenu-a ' + `${this.state.middleView === 'create-launchpad' ? 'active-item' : ''}`}><a href="/launchpad"  onClick={() => this.setState({middleView: 'create-launchpad'})} className='side-menu-item'>Create Launchpad</a></div></li>
+                                <li key='projects' className='sidemenu-padding'>
+                                    <input type="checkbox" id="list-item-2"></input>
+                                    <label htmlFor="list-item-2" className="first collapsible-label">Projects</label>
+                                    <ul className='ul-collapse'>
+                                        <li key='live'><div className={'list-sidemenu-b ' + `${this.state.middleView === 'projects-live' ? 'active-item' : ''}`}><a href="/launchpad-live" onClick={() => this.setState({middleView: 'projects-live'})} className='side-menu-item'>Live</a></div></li>
+                                        <li key='upcoming'><div className={'list-sidemenu-b ' + `${this.state.middleView === 'projects-upcoming' ? 'active-item' : ''}`}><a href="/launchpad-upcoming" onClick={() => this.setState({middleView: 'projects-upcoming'})} className='side-menu-item'>Upcoming</a></div></li>
+                                    </ul>
+                                </li>
+                                <li key='crypter-lock' className='sidemenu-padding'>
+                                    <input type="checkbox" id="list-item-3"></input>
+                                    <label htmlFor="list-item-3" className="first collapsible-label">Crypter Lock</label>
+                                    <ul className='ul-collapse'>
+                                        <li key='create-lock'><div className={'list-sidemenu-b ' + `${this.state.middleView === 'create-lock' ? 'active-item' : ''}`}><a href="/laucnhpad-create-lock" onClick={() => this.setState({middleView: 'create-lock'})} className='side-menu-item'>Create Lock</a></div></li>
+                                        <li key='token'><div className='list-sidemenu-b'><a href="/launchpadtoken" className='side-menu-item'>Token</a></div></li>
+                                        <li key='liquidity'><div className='list-sidemenu-b'><a href="/launchpad-liquidity" className='side-menu-item'>Liquidity</a></div></li>
+                                    </ul>
+                                </li>
+                                <li key='kyc-audit' className='sidemenu-padding'><div className='list-sidemenu-a'><a href="/documents/kyc" className='side-menu-item'>KYC &amp; Audit</a></div></li>
+                                <li key='docs' className='sidemenu-padding'><div className='list-sidemenu-a'><a href="/documents/intro" className='side-menu-item'>Docs</a></div></li>
                         </ul>
                     </div>
                 </div>
