@@ -159,11 +159,7 @@ const RightControlsStyle = (props: Props): JSX.Element => {
                             <strong>Friend request</strong>
                             {request.length ? request.map((item,index) => {
                                     return (<RequestList userId={item.user_id} key={`request-${item.user_id}`} />);
-                            }) : (<label className='mt-2 mb-2'>No friend request</label>)}
-                            {/*request.length && request.map((item,index) => {
-                                    return (<RequestList userId={item.user_id} key={`request-${item.user_id}`} />);
-                            })}
-                            {!request.length && <label className='mt-2 mb-2'>No friend request</label>*/}
+                            }) : (<label className='mt-2 mb-2 text-center text-muted'>No friend request</label>)}
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
