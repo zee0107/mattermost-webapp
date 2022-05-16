@@ -31,7 +31,7 @@ import AtMentionsButton from './at_mentions_button/at_mentions_button';
 import SavedPostsButton from './saved_posts_button/saved_posts_button';
 import SettingsButton from './settings_button';
 import RequestList from 'components/request_list';
-import RequestListNf from 'components/request_list_nf';
+import RequestListsNf from 'components/request_list_nf';
 import * as GlobalActions from 'actions/global_actions';
 
 const RightControlsContainer = styled.div`
@@ -154,7 +154,7 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
                             {profiles.map((item,index) => {
-                                    return (<RequestListNf userId={item.user_id} key={`requestnf-${item.user_id}`} />);
+                                    return (<RequestListsNf userId={item.user_id} key={`requestnf-${item.user_id}`} />);
                             })}
                             {/*<div className='list-group-item list-group-item-action border-0 add-friends-contents'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
