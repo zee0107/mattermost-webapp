@@ -156,26 +156,6 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
                             {profiles.sort(() => Math.random() - 0.5).slice(0, 5).map((item,index) => {
                                     return (<RequestListsNf userId={item.user_id} key={`requestnf-${item.user_id}`} />);
                             })}
-                            {/*<div className='list-group-item list-group-item-action border-0 add-friends-contents'>
-                                <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src={profPic4} alt='User name' title='Username'/> Lanaya</label>
-                                    <label className='mt-2 addfriend-remove-text'><a className='addfriendActions'>Add Friend</a> | <a className='removeActions'>Remove</a></label>
-                                    <label className='mt-2 addfriend-text'><i className='bi-check-lg'></i> Add Friend Request Sent</label>
-                                    <label className='mt-2 remove-text'><a className='removehideActions'><i className='bi-x-lg'></i> Remove</a></label>
-                                </div>
-                            </div>
-                            <div className='list-group-item list-group-item-action border-0'>
-                                <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src={profPic5} alt='User name' title='Username'/> Daisy</label>
-                                    <label className='mt-2'>Add Friend | Remove</label>
-                                </div>
-                            </div>
-                            <div className='list-group-item list-group-item-action border-0'>
-                                <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
-                                    <label className='mb-0'><img width='40' className='img-fluid user-photo' src={profPic6} alt='User name' title='Username'/> Keanu</label>
-                                    <label className='mt-2'>Add Friend | Remove</label>
-                                </div>
-                            </div>*/}
                         </div>
                     </div>
                 </div>

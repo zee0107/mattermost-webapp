@@ -242,11 +242,12 @@ export default class RequestLists extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const { currentUser, userData} = this.props;
-        const {followData, } = this.state;
+        const {followData, followStatus } = this.state;
         
        
         let name;
         let renderView;
+        let buttonsView;
         if(currentUser !== undefined && currentUser !== null){
             if(currentUser.first_name !== '' && currentUser.first_name !== '' && currentUser.first_name !== null && currentUser.first_name !== null){
                 name = (<>{currentUser.first_name}</>);
@@ -258,11 +259,25 @@ export default class RequestLists extends React.PureComponent<Props, State> {
             if(userData.id !== currentUser.id){
                 if(followData !== undefined){
                     if(followData.user_id === currentUser.id){
+                        if(followStatus === 2){
+                            buttonsView = (
+                                <label className='mt-2 approve-reject-text'><a className='approveActions'>Confirmed</a></label>
+                            );
+                        }
+                        else if (followStatus === 5){
+                            buttonsView = (
+                                <label className='mt-2 approve-reject-text'><a className='rejeectActions'>Deleted</a></label>
+                            );
+                        }else{
+                            buttonsView = (
+                                <label className='mt-2 approve-reject-text'><a className='approveActions' onClick={this.handleAccept}>Confirm</a> | <a className='rejeectActions' onClick={this.handleCancelRequest}>Delete</a></label>
+                            );
+                        }
                         renderView = (
                             <div className='list-group-item list-group-item-action border-0 friends-contents'>
                                 <div className='d-flex w-100 justify-content-between mt-1 mb-1'>
                                     <label className='mb-0'>{this.renderProfilePictureText('lg')} {name}</label>
-                                    <label className='mt-2 approve-reject-text'><a className='approveActions' onClick={this.handleAccept}>Confirm</a> | <a className='rejeectActions'>Delete</a></label>
+                                    {buttonsView}
                                     <label className='mt-2 reject-text'><a className='reject-actions' onClick={this.handleCancelRequest}><i className='bi-x-lg'></i> Delete</a></label>
                                 </div>
                             </div>
