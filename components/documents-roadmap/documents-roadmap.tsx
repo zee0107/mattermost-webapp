@@ -439,7 +439,7 @@ export default class DocumentsRoadmap extends React.PureComponent<Props, State> 
 
                                     <div className='launchpad-token-lock-info'>
                                         <div className='row'>
-                                            <div className='col-12'><h6 className='float-start mt-3'>Partnership</h6></div>
+                                            <div className='col-12'><h6 className='float-start mt-3'>Roadmap</h6></div>
                                         </div>
                                     </div>
                                     <div className='launchpad-token-body'>
