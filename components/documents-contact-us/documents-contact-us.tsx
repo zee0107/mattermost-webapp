@@ -106,7 +106,7 @@ export default class DocumentsContactus extends React.PureComponent<Props, State
                                         <strong className='ml-3'><h4 className='text-success ml-3'>Tokens</h4></strong>
                                         <ul className='list-group mt-2'>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-standard-token' className='text-dark'><label>Create a Standard Token</label></a></li>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-liquidity-generator-token'><label>Create a Liquidity Generator Token</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-liquidity-generator-token' className='text-dark'><label>Create a Liquidity Generator Token</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-baby-token' className='text-dark'><label>Create a Baby Token</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-buyback-baby-token' className='text-dark'><label>Create a Buyback baby Token</label></a></li>
                                         </ul>

@@ -95,14 +95,14 @@ export default class DocumentsStandardToken extends React.PureComponent<Props, S
                                             <li className='list-group-item border-0 mb-0'><a href='/docments/kyc' className='text-dark'><label>KYC &#38; Audit at CrypterSale</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/crypter-sale-calculator' className='text-dark'><label>CrypterSale Calculator</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/youtube-tutorial' className='text-dark'><label>YouTube Tutorials</label></a></li>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents/contact-developers' className='fw-bold text-dark'><label>Contact Developers</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/documents/contact-developers' className='text-dark'><label>Contact Developers</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/presale-support' className='text-dark'><label>Presale Support</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/brand-assets' className='text-dark'><label>Brand Assets</label></a></li>
                                         </ul>
                                         <br/>
                                         <strong className='ml-3'><h4 className='text-success ml-3'>Tokens</h4></strong>
                                         <ul className='list-group mt-2'>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-standard-token' className='active-docs text-dark'><label>Create a Standard Token</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-standard-token' className='active-docs fw-bold text-dark'><label>Create a Standard Token</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-liquidity-generator-token' className='text-dark'><label>Create a Liquidity Generator Token</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-baby-token' className='text-dark'><label>Create a Baby Token</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-buyback-baby-token' className='text-dark'><label>Create a Buyback baby Token</label></a></li>

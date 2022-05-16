@@ -16,13 +16,10 @@ import NetworkModal from "components/create_token/network_modal";
 import Web3 from 'web3';
 
 import homeImage from 'images/homeFeed.png';
-import CronosImg from 'images/launchpad/network/ic-cronos.5a2dbab3.svg';
-import FantomImg from 'images/launchpad/network/ic-fantom.306f76f9.svg';
-import AvaxImg from 'images/launchpad/network/ic-avax.234db155.svg';
-import KucoinImg from 'images/launchpad/network/KuCoin.png';
-import MaticImg from 'images/launchpad/network/ic-matic.910e1faf.png';
-import BscImg from 'images/launchpad/network/ic-bsc.419dfaf2.png';
-import EthImg from 'images/launchpad/network/ic-eth.9270fc02.svg';
+import createTokenForms from 'images/docs/liquidity/create-token-liquidity-generator-full-forms.png';
+import createTokenStandard from 'images/docs/liquidity/create-token-liquidity-generator-select.png';
+import launchpadcreateToken from 'images/docs/standardtoken/Launchpad-create-token-desktop.png';
+import metaMask from 'images/docs/standardtoken/metaMask.png';
 
 import {ModalData} from 'types/actions';
 import { AllListing, ProjectList, ProjectsEndedList } from 'mattermost-redux/types/crypto';
@@ -57,7 +54,7 @@ type State = {
     img_path: string;
 };
 
-export default class DocumentsDevelopers extends React.PureComponent<Props, State> {
+export default class DocumentsLiquidityToken extends React.PureComponent<Props, State> {
     static defaultProps = {userId: ''}
 
     constructor(props: Props) {
@@ -98,7 +95,7 @@ export default class DocumentsDevelopers extends React.PureComponent<Props, Stat
                                             <li className='list-group-item border-0 mb-0'><a href='/docments/kyc' className='text-dark'><label>KYC &#38; Audit at CrypterSale</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/crypter-sale-calculator' className='text-dark'><label>CrypterSale Calculator</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/youtube-tutorial' className='text-dark'><label>YouTube Tutorials</label></a></li>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents/contact-developers' className='active-docs fw-bold text-dark'><label>Contact Developers</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/documents/contact-developers' className='text-dark'><label>Contact Developers</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/presale-support' className='text-dark'><label>Presale Support</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/brand-assets' className='text-dark'><label>Brand Assets</label></a></li>
                                         </ul>
@@ -106,7 +103,7 @@ export default class DocumentsDevelopers extends React.PureComponent<Props, Stat
                                         <strong className='ml-3'><h4 className='text-success ml-3'>Tokens</h4></strong>
                                         <ul className='list-group mt-2'>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-standard-token' className='text-dark'><label>Create a Standard Token</label></a></li>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-liquidity-generator-token' className='text-dark'><label>Create a Liquidity Generator Token</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-liquidity-generator-token' className='active-docs fw-bold text-dark'><label>Create a Liquidity Generator Token</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-baby-token' className='text-dark'><label>Create a Baby Token</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-buyback-baby-token' className='text-dark'><label>Create a Buyback baby Token</label></a></li>
                                         </ul>
@@ -174,7 +171,7 @@ export default class DocumentsDevelopers extends React.PureComponent<Props, Stat
                                 <div className='position-sticky float-right-panel'>
                                     <div className='launchpad-token-lock-info'>
                                         <div className='row'>
-                                            <div className='col-8'><h4 className='float-start mt-3'>Contract Developers</h4></div>
+                                            <div className='col-8'><h4 className='float-start mt-3'>Create a Liquidity Generator Token</h4></div>
                                             <div className='col-4'></div>
                                         </div>
                                     </div>
@@ -182,40 +179,55 @@ export default class DocumentsDevelopers extends React.PureComponent<Props, Stat
                                         <hr/>
                                         <div className='launchpad-kyc-audit'>  
                                             <div className='row p-2'>
-                                                <div className='col-12 mt-0 mb-1' id='contractdevelopment'>
-                                                    <strong>Contract Development</strong>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>How to Mint a Liquidity Generator Token (SafeMoon Fork) with CrypterSale: <a href='https://www.youtube.com/watch?v=3T2RJkvqY1A'>https://www.youtube.com/watch?v=3T2RJkvqY1A</a></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                    <p>If you're looking for a contract developer, please contact one of the developers below (they're SAFU developers):</p>
+                                                    <p>Check out the steps below on how to create a standard token with CrypterSale using the desktop version of the Metamask Wallet.</p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                    <p><a><i className='bi-dot'></i> Harry - https://contractchecker.app/</a></p>
-                                                    <p><a><i className='bi-dot'></i> Bladepool - http://cfg.ninja</a></p>
-                                                    <p><a><i className='bi-dot'></i> InterFi, Cryptobulls14, Thecryptoblonde - https://www.interfi.network/</a></p>
-                                                    <p><a><i className='bi-dot'></i> Trynos - http://t.me/TrynosTokenTerminal</a></p>
-                                                    <p><a><i className='bi-dot'></i> Anoops - http://t.me/legitlaunchbsctokens</a></p>
-                                                    <p><a><i className='bi-dot'></i> Monkey Shanti - https://t.me/monkeybusinesscommunity</a></p>
-                                                    <p><a><i className='bi-dot'></i> Nikisha - https://t.me/gemsbynikisha</a></p>
-                                                    <p><a><i className='bi-dot'></i> Crypto_Watchtower - https://cryptowatchtower.io/</a></p>
-                                                    <p><a><i className='bi-dot'></i> RugFreeCoinss - https://www.rugfreecoins.com/</a></p>
-                                                    <p><a><i className='bi-dot'></i> Marco0x00 - https://hashex.org/</a></p>
-                                                    <p><a><i className='bi-dot'></i> Chainsulting - https://chainsulting.de/</a></p>
+                                                    <p>1. From the homepage: <a href='https://www.cypter.finance/#/' tgar
+                                                    _blank></a>, click on “Create” – “Token”</p>
                                                 </div>
-
-                                                <div className='col-12 mt-0 mb-1' id='finalizesupport'>
-                                                    <strong>Finalize Support</strong>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={launchpadcreateToken} /></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                    <p>If you have problems with finalizing the presale pool, please contact one of them for supporting:</p>
+                                                    <p>2. You will be redirected to this link: <a href='https://www.Cryptersale.finance/#/token/create' target='_blank'>https://www.Cryptersale.finance/#/token/create</a></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                    <p><a><i className='bi-dot'></i> Harry - https://contractchecker.app/</a></p>
-                                                    <p><a><i className='bi-dot'></i> @Bladepool - http://cfg.ninja</a></p>
-                                                    <p><a><i className='bi-dot'></i> InterFi - https://www.interfi.network/</a></p>
-                                                    <p><a><i className='bi-dot'></i> Crypto_Watchtower - https://cryptowatchtower.io/</a></p>
-                                                    <p><a><i className='bi-dot'></i> TechAudit1 - https://www.tech-audit.org/</a></p>
-                                                    <p><a><i className='bi-dot'></i> @coinscope_admin - https://www.cyberscope.io/</a></p>
-                                                    <p><a><i className='bi-dot'></i> Audit Rate Tech - https://auditrate.tech/</a></p>
+                                                    <p>3. To create a standard type token, in the [Token Type] section, choose “Liquidity Generator Token”</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={createTokenStandard} /></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>4. Input all necessary information. Before doing so, let's go over all the important fields that need to be filled:</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={createTokenForms} /></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p><i className='bi-dot'></i> Transaction fee to generate yield (%): The % amount of tokens from every transaction that are distributed to all token holders.</p>
+                                                    <p><i className='bi-dot'></i> Transaction fee to generate liquidity (%): The % amount of tokens from every transaction that are distributed to the liquidity pool. </p>
+                                                    <p><i className='bi-dot'></i> Max transaction percent (%): Any transactions that trades more than this percentage of the total supply will be rejected.</p>
+                                                    <p><i className='bi-dot'></i>Charity percent (%):  The % amount of tokens from every transaction are distributed to a charity address.</p>
+                                                    <p><i className='bi-dot'></i>Charity address: All charity tokens from “Charity percent (%)” will be distributed to this address.</p>
+                                                    <p><i className='bi-dot'></i>For example, you create a CrypterLambo token with these parameters:</p>
+                                                    <p><i className='bi-dot'></i>Token name: CrypterLambo. Symbol: PILB. Total supply: 100000 PILB. Every transaction incurs a fee of 10% to the benefit of all holders, of which: 5% are distributed among all diamond hands holders. 4% are locked away in the liquidity pool, to create a steadily rising price floor. 1% is distributed to the charity address 0xJustAnExampleAddress00000000000000000000. Anti-whale trade feature: transactions (sell/buy) that trade more than 0.05% of the total supply will be rejected.</p>
+                                                    <p><i className='bi-dot'></i>Check the image below to know what you need to input in the fields in this case:</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={createTokenForms} /></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>5. Click on “Create Token” after you have finished inputting all the necessary information. </p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>6. MetaMask will now ask you to confirm the transaction. It will also show you the fee that you are required to pay for that transaction. If you agree, then click on the “Confirm” button to finish the process.</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={metaMask} /></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -225,20 +237,20 @@ export default class DocumentsDevelopers extends React.PureComponent<Props, Stat
                                     </div>
                                     <div className='row mt-2 mb-2'>
                                         <div className='col-6'>
-                                            <a href='/documents/youtube-tutorial' className='onPreviewskycaudit text-dark'>
+                                            <a href='/documents/create-a-standard-token' className='onPreviewskycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p><small className='ms-4'>Previous</small></p>
                                                 <p className='kyc-previews'>
-                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Youtube Tutorials</large></strong></p>
+                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Create a Standard Token</large></strong></p>
                                             </div>
                                             </a>
                                         </div>
                                         <div className='col-6'>
-                                            <a href='/documents/presale-support' className='onNextkycaudit text-dark'>
+                                            <a href='/documents/create-a-baby-token' className='onNextkycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p className='text-end'><small className='me-4'>Next</small></p>
                                                 <p className='kyc-previews text-end'>
-                                                <strong><large className='ms-2'>Presale Support</large></strong>
+                                                <strong><large className='ms-2'>Create a Baby Token</large></strong>
                                                 <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
                                                 </p>
                                             </div>
@@ -308,7 +320,7 @@ export default class DocumentsDevelopers extends React.PureComponent<Props, Stat
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/intro' className='text-dark'><label>Introducing</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/token-metric' className='text-dark'><label>Token Metrics</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/token-utility' className='text-dark'><label>Token Utility</label></a></li>
-                                                <li className='list-group-item border-0 mb-0'><a href='/documents/anti-rug-system' className='text-dark'><label>Anti-Rug System</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/documents/anti-rug-system' className='fw-bold text-dark'><label>Anti-Rug System</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/partnership' className='text-dark'><label>Partnership</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/roadmap' className='text-dark'><label>Roadmap</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/service-fees' className='text-dark'><label>Service Fees</label></a></li>
@@ -321,7 +333,7 @@ export default class DocumentsDevelopers extends React.PureComponent<Props, Stat
                                                 <li className='list-group-item border-0 mb-0'><a href='/docments/kyc' className='text-dark'><label>KYC & Audit at CrypterSale</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/crypter-sale-calculator' className='text-dark'><label>CrypterSale Calculator</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/youtube-tutorial' className='text-dark'><label>YouTube Tutorials</label></a></li>
-                                                <li className='list-group-item border-0 mb-0'><a href='/documents/contact-developers' className='active-docs fw-bold text-dark'><label>Contact Developers</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/documents/contact-developers' className='text-dark'><label>Contact Developers</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/presale-support' className='text-dark'><label>Presale Support</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/brand-assets' className='text-dark'><label>Brand Assets</label></a></li>
                                             </ul>
@@ -329,7 +341,7 @@ export default class DocumentsDevelopers extends React.PureComponent<Props, Stat
                                             <strong className='ml-3'><h4 className='text-success ml-3'>Tokens</h4></strong>
                                             <ul className='list-group mt-2'>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-standard-token' className='text-dark'><label>Create a Standard Token</label></a></li>
-                                                <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-liquidity-generator-token' className='text-dark'><label>Create a Liquidity Generator Token</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-liquidity-generator-token' className='active-docs text-dark'><label>Create a Liquidity Generator Token</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-baby-token' className='text-dark'><label>Create a Baby Token</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-buyback-baby-token' className='text-dark'><label>Create a Buyback baby Token</label></a></li>
                                             </ul>
@@ -409,47 +421,62 @@ export default class DocumentsDevelopers extends React.PureComponent<Props, Stat
 
                                     <div className='launchpad-token-lock-info'>
                                         <div className='row'>
-                                            <div className='col-12'><h6 className='float-start mt-3'>Contact Developers</h6></div>
+                                            <div className='col-12'><h6 className='float-start mt-3'>Create a Liquidity Generator Token</h6></div>
                                         </div>
                                     </div>
                                     <div className='launchpad-token-body'>
                                         <hr/>
-                                        <div className='launchpad-kyc-audit'>  
+                                        <div className='launchpad-kyc-audit'>
                                             <div className='row p-2'>
-                                                <div className='col-12 mt-0 mb-1' id='contractdevelopment'>
-                                                    <strong>Contract Development</strong>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>How to Mint a Liquidity Generator Token (SafeMoon Fork) with CrypterSale: <a href='https://www.youtube.com/watch?v=3T2RJkvqY1A'>https://www.youtube.com/watch?v=3T2RJkvqY1A</a></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                    <p>If you're looking for a contract developer, please contact one of the developers below (they're SAFU developers):</p>
+                                                    <p>Check out the steps below on how to create a standard token with CrypterSale using the desktop version of the Metamask Wallet.</p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                    <p><a><i className='bi-dot'></i> Harry - https://contractchecker.app/</a></p>
-                                                    <p><a><i className='bi-dot'></i> Bladepool - http://cfg.ninja</a></p>
-                                                    <p><a><i className='bi-dot'></i> InterFi, Cryptobulls14, Thecryptoblonde - https://www.interfi.network/</a></p>
-                                                    <p><a><i className='bi-dot'></i> Trynos - http://t.me/TrynosTokenTerminal</a></p>
-                                                    <p><a><i className='bi-dot'></i> Anoops - http://t.me/legitlaunchbsctokens</a></p>
-                                                    <p><a><i className='bi-dot'></i> Monkey Shanti - https://t.me/monkeybusinesscommunity</a></p>
-                                                    <p><a><i className='bi-dot'></i> Nikisha - https://t.me/gemsbynikisha</a></p>
-                                                    <p><a><i className='bi-dot'></i> Crypto_Watchtower - https://cryptowatchtower.io/</a></p>
-                                                    <p><a><i className='bi-dot'></i> RugFreeCoinss - https://www.rugfreecoins.com/</a></p>
-                                                    <p><a><i className='bi-dot'></i> Marco0x00 - https://hashex.org/</a></p>
-                                                    <p><a><i className='bi-dot'></i> Chainsulting - https://chainsulting.de/</a></p>
+                                                    <p>1. From the homepage: <a href='https://www.cypter.finance/#/' tgar
+                                                    _blank></a>, click on “Create” – “Token”</p>
                                                 </div>
-
-                                                <div className='col-12 mt-0 mb-1' id='finalizesupport'>
-                                                    <strong>Finalize Support</strong>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={launchpadcreateToken} /></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                    <p>If you have problems with finalizing the presale pool, please contact one of them for supporting:</p>
+                                                    <p>2. You will be redirected to this link: <a href='https://www.Cryptersale.finance/#/token/create' target='_blank'>https://www.Cryptersale.finance/#/token/create</a></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                    <p><a><i className='bi-dot'></i> Harry - https://contractchecker.app/</a></p>
-                                                    <p><a><i className='bi-dot'></i> @Bladepool - http://cfg.ninja</a></p>
-                                                    <p><a><i className='bi-dot'></i> InterFi - https://www.interfi.network/</a></p>
-                                                    <p><a><i className='bi-dot'></i> Crypto_Watchtower - https://cryptowatchtower.io/</a></p>
-                                                    <p><a><i className='bi-dot'></i> TechAudit1 - https://www.tech-audit.org/</a></p>
-                                                    <p><a><i className='bi-dot'></i> @coinscope_admin - https://www.cyberscope.io/</a></p>
-                                                    <p><a><i className='bi-dot'></i> Audit Rate Tech - https://auditrate.tech/</a></p>
+                                                    <p>3. To create a standard type token, in the [Token Type] section, choose “Liquidity Generator Token”</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={createTokenStandard} /></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>4. Input all necessary information. Before doing so, let's go over all the important fields that need to be filled:</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={createTokenForms} /></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p><i className='bi-dot'></i> Transaction fee to generate yield (%): The % amount of tokens from every transaction that are distributed to all token holders.</p>
+                                                    <p><i className='bi-dot'></i> Transaction fee to generate liquidity (%): The % amount of tokens from every transaction that are distributed to the liquidity pool. </p>
+                                                    <p><i className='bi-dot'></i> Max transaction percent (%): Any transactions that trades more than this percentage of the total supply will be rejected.</p>
+                                                    <p><i className='bi-dot'></i>Charity percent (%):  The % amount of tokens from every transaction are distributed to a charity address.</p>
+                                                    <p><i className='bi-dot'></i>Charity address: All charity tokens from “Charity percent (%)” will be distributed to this address.</p>
+                                                    <p><i className='bi-dot'></i>For example, you create a CrypterLambo token with these parameters:</p>
+                                                    <p><i className='bi-dot'></i>Token name: CrypterLambo. Symbol: PILB. Total supply: 100000 PILB. Every transaction incurs a fee of 10% to the benefit of all holders, of which: 5% are distributed among all diamond hands holders. 4% are locked away in the liquidity pool, to create a steadily rising price floor. 1% is distributed to the charity address 0xJustAnExampleAddress00000000000000000000. Anti-whale trade feature: transactions (sell/buy) that trade more than 0.05% of the total supply will be rejected.</p>
+                                                    <p><i className='bi-dot'></i>Check the image below to know what you need to input in the fields in this case:</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={createTokenForms} /></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>5. Click on “Create Token” after you have finished inputting all the necessary information. </p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>6. MetaMask will now ask you to confirm the transaction. It will also show you the fee that you are required to pay for that transaction. If you agree, then click on the “Confirm” button to finish the process.</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={metaMask} /></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -459,20 +486,20 @@ export default class DocumentsDevelopers extends React.PureComponent<Props, Stat
                                     </div>
                                     <div className='row mt-2 mb-2'>
                                         <div className='col-lg-6'>
-                                            <a href='/documents/youtube-tutorial' className='onPreviewskycaudit text-dark'>
+                                            <a href='/documents/create-a-standard-token' className='onPreviewskycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p><small className='ms-4'>Previous</small></p>
                                                 <p className='kyc-previews'>
-                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Youtube Tutorials</large></strong></p>
+                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Create a Standard Token</large></strong></p>
                                             </div>
                                             </a>
                                         </div>
                                         <div className='col-lg-6 mt-2'>
-                                            <a href='/documents/presale-support' className='onNextkycaudit text-dark'>
+                                            <a href='/documents/create-a-baby-token' className='onNextkycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p className='text-end'><small className='me-4'>Next</small></p>
                                                 <p className='kyc-previews text-end'>
-                                                <strong><large className='ms-2'>Presale Support</large></strong>
+                                                <strong><large className='ms-2'>Create a Baby Token</large></strong>
                                                 <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
                                                 </p>
                                             </div>
