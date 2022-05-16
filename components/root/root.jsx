@@ -58,6 +58,7 @@ const LazyProfilePage = React.lazy(() => import('components/profile_page'));
 const LazyNewsFeed = React.lazy(() => import('components/newsfeed'));
 const LazyGroup = React.lazy(() => import('components/groups'));
 const LazyDocuments = React.lazy(() => import('components/documents'));
+const LazyDocumentsRoadmap = React.lazy(() => import('components/documents-roadmap'));
 const LazyDocumentsKyc = React.lazy(() => import('components/documents-kyc'));
 const LazyDocumentsTokenMetrics = React.lazy(() => import('components/documents-token-metrics'));
 const LazyDocumentsTokenUtility = React.lazy(() => import('components/documents-token-utility'));
@@ -111,6 +112,7 @@ const ProfilePage = makeAsyncComponent('ProfilePage', LazyProfilePage);
 const NewsFeed = makeAsyncComponent('Newsfeed', LazyNewsFeed);
 const Groups = makeAsyncComponent('Group', LazyGroup);
 const Documents = makeAsyncComponent('Documents', LazyDocuments);
+const DocumentsRoadmap = makeAsyncComponent('DocumentsRoadmap', LazyDocumentsRoadmap);
 const DocumentsKyc = makeAsyncComponent('DocumentsKyc', LazyDocumentsKyc);
 const DocumentsTokenMetrics = makeAsyncComponent('DocumentsTokenMetrics', LazyDocumentsTokenMetrics);
 const DocumentsTokenUtility = makeAsyncComponent('DocumentsTokenUtility', LazyDocumentsTokenUtility);
@@ -548,6 +550,10 @@ export default class Root extends React.PureComponent {
                                 <LoginHFTRouteNS
                                     path={'/documents/intro'}
                                     component={Documents}
+                                />
+                                <LoginHFTRouteNS
+                                    path={'/documents/roadmap'}
+                                    component={DocumentsRoadmap}
                                 />
                                 <LoginHFTRouteNS
                                     path={'/documents/kyc'}
