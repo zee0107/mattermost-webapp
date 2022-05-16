@@ -78,7 +78,8 @@ const RightControlsStyle = ({productId = null}: Props): JSX.Element => {
 
     useEffect (() => {
         async function getData(){
-            const data = await Client4.getChannelMembers('dodurztr1fbupnpenjgxqjso3a');
+            const data = await Client4.getChannelMembers('kqe4sihhdid47gprhk6dwbuc4o');
+            //const data = await Client4.getChannelMembers('dodurztr1fbupnpenjgxqjso3a');
             return data;
         }
         
