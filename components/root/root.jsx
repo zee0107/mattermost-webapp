@@ -58,6 +58,7 @@ const LazyProfilePage = React.lazy(() => import('components/profile_page'));
 const LazyNewsFeed = React.lazy(() => import('components/newsfeed'));
 const LazyGroup = React.lazy(() => import('components/groups'));
 const LazyDocuments = React.lazy(() => import('components/documents'));
+const LazyDocumentsCrypterSale = React.lazy(() => import('components/documents-cryptersale'));
 const LazyDocumentsSociallinks = React.lazy(() => import('components/documents-social-links'));
 const LazyDocumentsContactus = React.lazy(() => import('components/documents-contact-us'));
 const LazyDocumentsServiceFees = React.lazy(() => import('components/documents-service-fees'));
@@ -115,6 +116,7 @@ const ProfilePage = makeAsyncComponent('ProfilePage', LazyProfilePage);
 const NewsFeed = makeAsyncComponent('Newsfeed', LazyNewsFeed);
 const Groups = makeAsyncComponent('Group', LazyGroup);
 const Documents = makeAsyncComponent('Documents', LazyDocuments);
+const DocumentsCrypterSale = makeAsyncComponent('DocumentsCrypterSale', LazyDocumentsCrypterSale);
 const DocumentsSociallinks = makeAsyncComponent('DocumentsSociallinks', LazyDocumentsSociallinks);
 const DocumentsContactus = makeAsyncComponent('DocumentsContactus', LazyDocumentsContactus);
 const DocumentsServiceFees = makeAsyncComponent('DocumentsServiceFees', LazyDocumentsServiceFees);
@@ -556,6 +558,10 @@ export default class Root extends React.PureComponent {
                                 <LoginHFTRouteNS
                                     path={'/documents/intro'}
                                     component={Documents}
+                                />
+                                <LoginHFTRouteNS
+                                    path={'/documents/crypter-sale-calculator'}
+                                    component={DocumentsCrypterSale}
                                 />
                                 <LoginHFTRouteNS
                                     path={'/documents/social-links'}
