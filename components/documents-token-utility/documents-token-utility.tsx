@@ -79,7 +79,7 @@ export default class DocumentsTokenUtility extends React.PureComponent<Props, St
                             <div className='col-md-2'>
                                 <div className='position-sticky float-right-panel'>
                                     <div className='box-left-panel-introduction'>
-                                        <strong className='ml-3'><label className='text-success'>Introduction</label></strong>
+                                        <strong className='ml-3'><h4 className='text-success ml-3'>Introduction</h4></strong>
                                         <hr/>
                                         <ul className='list-group'>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/intro' className='text-dark'><label>Introducing</label></a></li>
@@ -91,7 +91,7 @@ export default class DocumentsTokenUtility extends React.PureComponent<Props, St
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/service-fees' className='text-dark'><label>Service Fees</label></a></li>
                                         </ul>
                                         <br/>
-                                        <strong className='ml-3'><label className='text-success'>Important</label></strong>
+                                        <strong className='ml-3'><h4 className='text-success ml-3'>Important</h4></strong>
                                         <ul className='list-group mt-2'>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/contact-us' className='text-dark'><label>Contact Us</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/social-links' className='text-dark'><label>Social Links</label></a></li>
@@ -103,7 +103,7 @@ export default class DocumentsTokenUtility extends React.PureComponent<Props, St
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/brand-assets' className='text-dark'><label>Brand Assets</label></a></li>
                                         </ul>
                                         <br/>
-                                        <strong className='ml-3'><label className='text-success'>Tokens</label></strong>
+                                        <strong className='ml-3'><h4 className='text-success ml-3'>Tokens</h4></strong>
                                         <ul className='list-group mt-2'>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-standard-token' className='text-dark'><label>Create a Standard Token</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-liquidity-generator-token'><label>Create a Liquidity Generator Token</label></a></li>
@@ -111,7 +111,7 @@ export default class DocumentsTokenUtility extends React.PureComponent<Props, St
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-buyback-baby-token' className='text-dark'><label>Create a Buyback baby Token</label></a></li>
                                         </ul>
                                         <br/>
-                                        <strong className='ml-3'><label className='text-success'>Launchpads</label></strong>
+                                        <strong className='ml-3'><h4 className='text-success ml-3'>Launchpads</h4></strong>
                                         <ul className='list-group mt-2'>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-launchpad' className='text-dark'><label>Create a Launchpad</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/update-a-launchpad' className='text-dark'><label>Update a Launchpad</label></a></li>
@@ -120,13 +120,13 @@ export default class DocumentsTokenUtility extends React.PureComponent<Props, St
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-presale-using-stablecoin' className='text-dark'><label>Create a Presale Using Stablecoin</label></a></li>
                                         </ul>
                                         <br/>
-                                        <strong className='ml-3'><label className='text-success'>Presale Vesting</label></strong>
+                                        <strong className='ml-3'><h4 className='text-success ml-3'>Presale Vesting</h4></strong>
                                         <ul className='list-group mt-2'>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/team-vesting-guide' className='text-dark'><label>Team Vesting Guide</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/presale-vesting-guide' className='text-dark'><label>Presale Vesting Guide</label></a></li>
                                         </ul>
                                         <br/>
-                                        <strong className='ml-3'><label className='text-success'>Investing</label></strong>
+                                        <strong className='ml-3'><h4 className='text-success ml-3'>Investing</h4></strong>
                                         <ul className='list-group mt-2'>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/how-to-buy-a-presale' className='text-dark'><label>How to Buy a Presale</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/how-to-claim-tokens' className='text-dark'><label>How to Claim Tokens</label></a></li>
@@ -134,7 +134,7 @@ export default class DocumentsTokenUtility extends React.PureComponent<Props, St
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/emergency-withdraw' className='text-dark'><label>Emergency Withdraw</label></a></li>
                                         </ul>
                                         <br/>
-                                        <strong className='ml-3'><label className='text-success'>Fair Lunch</label></strong>
+                                        <strong className='ml-3'><h4 className='text-success ml-3'>Fair Lunch</h4></strong>
                                         <ul className='list-group mt-2'>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-fair-launch' className='text-dark'><label>Create a Fair Launch</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/update-a-fair-launch' className='text-dark'><label>Update a Fair Launch</label></a></li>
@@ -142,25 +142,25 @@ export default class DocumentsTokenUtility extends React.PureComponent<Props, St
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-fair-launch-using-stablecoin' className='text-dark'><label>Create a Fair Launch Using Stablecoin</label></a></li>
                                         </ul>
                                         <br/>
-                                        <strong className='ml-3'><label className='text-success'>Crypterpad</label></strong>
+                                        <strong className='ml-3'><h4 className='text-success ml-3'>Crypterpad</h4></strong>
                                         <ul className='list-group mt-2'>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-crypterpad' className='text-dark'><label>Create CrypterPad</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/update-crypterpad' className='text-dark'><label>Update CrypterPad</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/finalize-crypterpad' className='text-dark'><label>Finalize CrypterPad</label></a></li>
                                         </ul>
                                         <br/>
-                                        <strong className='ml-3'><label className='text-success'>Crypter Airdrop</label></strong>
+                                        <strong className='ml-3'><h4 className='text-success ml-3'>Crypter Airdrop</h4></strong>
                                         <ul className='list-group mt-2'>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-an-airdrop' className='text-dark'><label>Create an Airdrop</label></a></li>
                                         </ul>
                                         <br/>
-                                        <strong className='ml-3'><label className='text-success'>Common Errors</label></strong>
+                                        <strong className='ml-3'><h4 className='text-success ml-3'>Common Errors</h4></strong>
                                         <ul className='list-group mt-2'>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/exclude-fees-dividends-max-tx-on-bscs-scan' className='text-dark'><label>Exlude Fees, Dividends, Max TX on BSCScan</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/presale-cancellation' className='text-dark'><label>Presale Cancellation</label></a></li>
                                         </ul>
                                         <br/>
-                                        <strong className='ml-3'><label className='text-success'>Crypter Anti-bot</label></strong>
+                                        <strong className='ml-3'><h4 className='text-success ml-3'>Crypter Anti-bot</h4></strong>
                                         <ul className='list-group mt-2'>
                                             <li className='list-group-item border-0'><a href='/documents/crypter-anti-bot-introducing' className='text-dark'><label>Introducing</label></a></li>
                                             <li className='list-group-item border-0'><a href='/documents/crypter-anti-bot-guide' className='text-dark'><label>Crypter anti-bot guide</label></a></li>
@@ -272,7 +272,7 @@ export default class DocumentsTokenUtility extends React.PureComponent<Props, St
                         
                                     <div className='collapse' id='collapseKycmenu'>
                                         <div className='box-left-panel-introduction'>
-                                            <strong className='ml-3'><label className='text-success'>Introduction</label></strong>
+                                            <strong className='ml-3'><h4 className='text-success ml-3'>Introduction</h4></strong>
                                             <hr/>
                                             <ul className='list-group'>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/intro' className='text-dark'><label>Introducing</label></a></li>
@@ -284,7 +284,7 @@ export default class DocumentsTokenUtility extends React.PureComponent<Props, St
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/service-fees' className='text-dark'><label>Service Fees</label></a></li>
                                             </ul>
                                             <br/>
-                                            <strong className='ml-3'><label className='text-success'>Important</label></strong>
+                                            <strong className='ml-3'><h4 className='text-success ml-3'>Important</h4></strong>
                                             <ul className='list-group mt-2'>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/contact-us' className='text-dark'><label>Contact Us</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/social-links' className='text-dark'><label>Social Links</label></a></li>
@@ -296,7 +296,7 @@ export default class DocumentsTokenUtility extends React.PureComponent<Props, St
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/brand-assets' className='text-dark'><label>Brand Assets</label></a></li>
                                             </ul>
                                             <br/>
-                                            <strong className='ml-3'><label className='text-success'>Tokens</label></strong>
+                                            <strong className='ml-3'><h4 className='text-success ml-3'>Tokens</h4></strong>
                                             <ul className='list-group mt-2'>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-standard-token' className='text-dark'><label>Create a Standard Token</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-liquidity-generator-token' className='text-dark'><label>Create a Liquidity Generator Token</label></a></li>
@@ -304,7 +304,7 @@ export default class DocumentsTokenUtility extends React.PureComponent<Props, St
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-buyback-baby-token' className='text-dark'><label>Create a Buyback baby Token</label></a></li>
                                             </ul>
                                             <br/>
-                                            <strong className='ml-3'><label className='text-success'>Launchpads</label></strong>
+                                            <strong className='ml-3'><h4 className='text-success ml-3'>Launchpads</h4></strong>
                                             <ul className='list-group mt-2'>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-launchpad' className='text-dark'><label>Create a Launchpad</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/update-a-launchpad' className='text-dark'><label>Update a Launchpad</label></a></li>
@@ -313,13 +313,13 @@ export default class DocumentsTokenUtility extends React.PureComponent<Props, St
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-presale-using-stablecoin'><label>Create a Presale Using Stablecoin</label></a></li>
                                             </ul>
                                             <br/>
-                                            <strong className='ml-3'><label className='text-success'>Presale Vesting</label></strong>
+                                            <strong className='ml-3'><h4 className='text-success ml-3'>Presale Vesting</h4></strong>
                                             <ul className='list-group mt-2'>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/team-vesting-guide' className='text-dark'><label>Team Vesting Guide</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/presale-vesting-guide' className='text-dark'><label>Presale Vesting Guide</label></a></li>
                                             </ul>
                                             <br/>
-                                            <strong className='ml-3'><label className='text-success'>Investing</label></strong>
+                                            <strong className='ml-3'><h4 className='text-success ml-3'>Investing</h4></strong>
                                             <ul className='list-group mt-2'>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/how-to-buy-a-presale' className='text-dark'><label>How to Buy a Presale</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/how-to-claim-tokens' className='text-dark'><label>How to Claim Tokens</label></a></li>
@@ -327,7 +327,7 @@ export default class DocumentsTokenUtility extends React.PureComponent<Props, St
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/emergency-withdraw' className='text-dark'><label>Emergency Withdraw</label></a></li>
                                             </ul>
                                             <br/>
-                                            <strong className='ml-3'><label className='text-success'>Fair Lunch</label></strong>
+                                            <strong className='ml-3'><h4 className='text-success ml-3'>Fair Lunch</h4></strong>
                                             <ul className='list-group mt-2'>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-fair-launch' className='text-dark'><label>Create a Fair Launch</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/update-a-fair-launch' className='text-dark'><label>Update a Fair Launch</label></a></li>
@@ -335,25 +335,25 @@ export default class DocumentsTokenUtility extends React.PureComponent<Props, St
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-fair-launch-using-stablecoin' className='text-dark'><label>Create a Fair Launch Using Stablecoin</label></a></li>
                                             </ul>
                                             <br/>
-                                            <strong className='ml-3'><label className='text-success'>Crypterpad</label></strong>
+                                            <strong className='ml-3'><h4 className='text-success ml-3'>Crypterpad</h4></strong>
                                             <ul className='list-group mt-2'>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/create-crypterpad' className='text-dark'><label>Create CrypterPad</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/update-crypterpad' className='text-dark'><label>Update CrypterPad</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/finalize-crypterpad' className='text-dark'><label>Finalize CrypterPad</label></a></li>
                                             </ul>
                                             <br/>
-                                            <strong className='ml-3'><label className='text-success'>Crypter Airdrop</label></strong>
+                                            <strong className='ml-3'><h4 className='text-success ml-3'>Crypter Airdrop</h4></strong>
                                             <ul className='list-group mt-2'>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/create-an-airdrop' className='text-dark'><label>Create an Airdrop</label></a></li>
                                             </ul>
                                             <br/>
-                                            <strong className='ml-3'><label className='text-success'>Common Errors</label></strong>
+                                            <strong className='ml-3'><h4 className='text-success ml-3'>Common Errors</h4></strong>
                                             <ul className='list-group mt-2'>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/exclude-fees-dividends-max-tx-on-bscs-scan' className='text-dark'><label>Exlude Fees, Dividends, Max TX on BSCScan</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/presale-cancellation' className='text-dark'><label>Presale Cancellation</label></a></li>
                                             </ul>
                                             <br/>
-                                            <strong className='ml-3'><label className='text-success'>Crypter Anti-bot</label></strong>
+                                            <strong className='ml-3'><h4 className='text-success ml-3'>Crypter Anti-bot</h4></strong>
                                             <ul className='list-group mt-2'>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/crypter-anti-bot-introducing' className='text-dark'><label>Introducing</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/crypter-anti-bot-guide' className='text-dark'><label>Crypter anti-bot guide</label></a></li>
