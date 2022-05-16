@@ -86,9 +86,7 @@ const RightControlsStyle = (props: Props): JSX.Element => {
         }
 
         async function getRequest(){
-            console.log('User: ', props.currentUser)
             const data = await Client4.getRequestList(props.currentUser.id);
-            console.log('GetRequest: ', data.length)
             return data;
         }
         

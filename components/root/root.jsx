@@ -58,6 +58,8 @@ const LazyProfilePage = React.lazy(() => import('components/profile_page'));
 const LazyNewsFeed = React.lazy(() => import('components/newsfeed'));
 const LazyGroup = React.lazy(() => import('components/groups'));
 const LazyDocuments = React.lazy(() => import('components/documents'));
+const LazyDocumentsPresale = React.lazy(() => import('components/documents-presale'));
+const LazyDocumentsBrand = React.lazy(() => import('components/documents-brand'));
 const LazyDocumentsYT = React.lazy(() => import('components/documents-youtube'));
 const LazyDocumentsDevelopers = React.lazy(() => import('components/documents-developers'));
 const LazyDocumentsCrypterSale = React.lazy(() => import('components/documents-cryptersale'));
@@ -118,6 +120,8 @@ const ProfilePage = makeAsyncComponent('ProfilePage', LazyProfilePage);
 const NewsFeed = makeAsyncComponent('Newsfeed', LazyNewsFeed);
 const Groups = makeAsyncComponent('Group', LazyGroup);
 const Documents = makeAsyncComponent('Documents', LazyDocuments);
+const DocumentsPresale = makeAsyncComponent('DocumentsPresale', LazyDocumentsPresale);
+const DocumentsBrand = makeAsyncComponent('DocumentsBrand', LazyDocumentsBrand);
 const DocumentsYT = makeAsyncComponent('DocumentsYT', LazyDocumentsYT);
 const DocumentsDevelopers = makeAsyncComponent('DocumentsDevelopers', LazyDocumentsDevelopers);
 const DocumentsCrypterSale = makeAsyncComponent('DocumentsCrypterSale', LazyDocumentsCrypterSale);
@@ -562,6 +566,14 @@ export default class Root extends React.PureComponent {
                                 <LoginHFTRouteNS
                                     path={'/documents/intro'}
                                     component={Documents}
+                                />
+                                <LoginHFTRouteNS
+                                    path={'/documents/presale-support'}
+                                    component={DocumentsPresale}
+                                />
+                                <LoginHFTRouteNS
+                                    path={'/documents/brand-assets'}
+                                    component={DocumentsBrand}
                                 />
                                 <LoginHFTRouteNS
                                     path={'/documents/youtube-tutorial'}

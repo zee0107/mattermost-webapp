@@ -144,10 +144,10 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
         let cover;
         if(img_url === 'unavailable'){
-            cover = (<img width='100%' className='img-fluid' height='300' src={GroupLogo} alt=''/>);
+            cover = (<img width='100%' height='300' src={GroupLogo} alt=''/>);
         }
         else{
-            cover = (<img width='100%' className='img-fluid' height='300' src={this.state.img_url} alt=''/>);
+            cover = (<img width='100%' height='300' src={this.state.img_url} alt=''/>);
         }
         let buttonJoin;
         if(result_leave){
