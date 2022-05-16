@@ -57,7 +57,7 @@ type State = {
     img_path: string;
 };
 
-export default class DocumentsSericeFees extends React.PureComponent<Props, State> {
+export default class DocumentsSociallinks extends React.PureComponent<Props, State> {
     static defaultProps = {userId: ''}
 
     constructor(props: Props) {
@@ -88,13 +88,13 @@ export default class DocumentsSericeFees extends React.PureComponent<Props, Stat
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/anti-rug-system' className='text-dark'><label>Anti-Rug System</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/partnership' className='text-dark'><label>Partnership</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/roadmap' className='text-dark'><label>Roadmap</label></a></li>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents/service-fees' className='active-docs fw-bold text-dark'><label>Service Fees</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/documents/service-fees' className='text-dark'><label>Service Fees</label></a></li>
                                         </ul>
                                         <br/>
                                         <strong className='ml-3'><h4 className='text-success ml-3'>Important</h4></strong>
                                         <ul className='list-group mt-2'>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/contact-us' className='text-dark'><label>Contact Us</label></a></li>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents/social-links' className='text-dark'><label>Social Links</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/documents/social-links' className='active-docs fw-bold text-dark'><label>Social Links</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/docments/kyc' className='text-dark'><label>KYC &#38; Audit at CrypterSale</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/crypter-sale-calculator' className='text-dark'><label>CrypterSale Calculator</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/youtube-tutorial' className='text-dark'><label>YouTube Tutorials</label></a></li>
@@ -174,7 +174,7 @@ export default class DocumentsSericeFees extends React.PureComponent<Props, Stat
                                 <div className='position-sticky float-right-panel'>
                                     <div className='launchpad-token-lock-info'>
                                         <div className='row'>
-                                            <div className='col-8'><h4 className='float-start mt-3'>Service Fees</h4></div>
+                                            <div className='col-8'><h4 className='float-start mt-3'>Social Links</h4></div>
                                             <div className='col-4'></div>
                                         </div>
                                     </div>
@@ -184,196 +184,16 @@ export default class DocumentsSericeFees extends React.PureComponent<Props, Stat
                                             <div className='row p-2'>
                                                 <div className='col-12 mt-0 mb-1'>
                                                     <p className='mt-2 mb-2'>
-                                                        <strong>1. Binance Smart Chain</strong> 
+                                                        Facebook link: <a>https://facebook.com/crypter</a>
                                                     </p>
                                                     <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Standard Token Minting Fees: 0.2 BNB
+                                                        Facebook link: <a>https://twitter.com/crypter</a>
                                                     </p>
                                                     <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Liquidity Generator Token Minting Fees: 0.2 BNB
+                                                        LinkedIn link: <a>https://twitter.com/crypter</a>
                                                     </p>
                                                     <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Baby Token Minting Fees: 0.2 BNB
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Buyback Baby Token Minting Fees: 0.2 BNB
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create BSC Launchpad Fees: 1 BNB + 2% of Tokens Sold + 2% of BNB Raised.
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create BSC Fair Launch Fees: 1 BNB + 2% of Tokens Sold + 2% of BNB Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create BSC CrypterPad Fees: 3% of Tokens Sold + 3% of BNB Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Crypter Anti-Bot: 1 BNB
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> CrypterLock: Free
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Crypter Airdrop: 0.5 BNB + 1% of Airdrop Tokens
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <strong>2. Ethereum Network</strong> 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Standard Token Minting Fees: 0.01 ETH 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Liquidity Generator Token Minting Fees: 0.01 ETH
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Baby Token Minting Fees: 0.01 ETH
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create ETH Launchpad Fees: Current Fees: 0.2 ETH + 2% of Tokens Sold + 2% of ETH Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create ETH Fair Launch Fees: Current Fees: 0.2 ETH + 2% of Tokens Sold + 2% of ETH Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create ETH CrypterPad Fees: Current Fees: 3% of Tokens Sold + 3% of ETH Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> CrypterLock: Free
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <strong>3. KuCoin Community Chain</strong> 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Standard Token Minting Fees: 10 KCS
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Liquidity Generator Token Minting Fees: 25 KCS
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Baby Token Minting Fees: 25 KCS
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create KCC Launchpad Fees: Current Fees: 25 KCS + 2% of Tokens Sold + 2% of KCS Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create KCC Fair Launch Fees: Current Fees: 25 KCS + 2% of Tokens Sold + 2% of KCS Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create KCC CrypterPad Fees: Current Fees: 3% of Tokens Sold + 3% of KCS Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> CrypterLock: Free
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <strong>4. Polygon (MATIC) Chain</strong> 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Standard Token Minting Fees: 10 MATIC
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Liquidity Generator Token Minting Fees: 50 MATIC
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Baby Token Minting Fees: 50 MATIC
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Polygon Launchpad Fees: Current Fees: 100 MATIC + 2% of Tokens Sold + 2% of MATIC Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Crypter Fair Launch Fees: Current Fees: 100 MATIC + 2% of Tokens Sold + 2% of MATIC Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Crypter CrypterPad Fees: Current Fees: 3% of Tokens Sold + 3% of MATIC Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> CrypterLock: Free
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <strong>5. Avalanche C-Chain</strong> 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Standard Token Minting Fees: 5 AVAX
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Liquidity Generator Token Minting Fees: 10 AVAX
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Baby Token Minting Fees: 10 AVAX
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Avalanche Launchpad Fees: Current Fees: 10 AVAX + 2% of Tokens Sold + 2% of AVAX Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Avalanche Fair Launch Fees: Current Fees: 10 AVAX + 2% of Tokens Sold + 2% of AVAX Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Avalanche CrypterPad Fees: Current Fees: 3% of Tokens Sold + 3% of AVAX Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> CrypterLock: Free
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <strong>6. Fantom Network</strong> 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Standard Token Minting Fees: 30 FTM
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Liquidity Generator Token Minting Fees: 30 FTM
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Baby Token Minting Fees: 30 FTM 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Buyback Baby Token Minting Fees: 50 FTM 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Crypter Launchpad Fees: Current Fees: 150 FTM + 2% of Tokens Sold + 2% of FTM Raised 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Crypter Fair Launch Fees: Current Fees: 150 FTM + 2% of Tokens Sold + 2% of FTM Rais 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Crypter CrypterPad Fees: Current Fees: 3% of Tokens Sold + 3% of FTM Raised 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> CrypterLock: Free d 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Crypter Airdrop: 75 FTM + 1% of Airdrop Tokens
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <strong>7. Cronos Chain</strong> 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Standard Token Minting Fees: 100 CRO 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Liquidity Generator Token Minting Fees: 100 CRO  
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Baby Token Minting Fees: 100 CRO   
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Buyback Baby Token Minting Fees: 100 CRO 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Crypter Launchpad Fees: 1000 CRO + 2% of Tokens Sold + 2% of CRO Raised.
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Crypter Fair Launch Fees: 1000 CRO + 2% of Tokens Sold + 2% of CRO Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Cronos CrypterPad Fees: 3% of Tokens Sold + 3% of CRO Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> CrypterLock: Free
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Crypter Airdrop: 500 CRO + 1% of Airdrop Tokens
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        Please be advised that we reserve the right to change our product's prices at any time without further notice.
+                                                        Instagram link: <a>https://instagram.com/crypter</a>
                                                     </p>
                                                 </div>
                                             </div>
@@ -384,20 +204,20 @@ export default class DocumentsSericeFees extends React.PureComponent<Props, Stat
                                     </div>
                                     <div className='row mt-2 mb-2'>
                                         <div className='col-6'>
-                                            <a href='/documents/service-fees' className='onPreviewskycaudit text-dark'>
+                                            <a href='/documents/social-links' className='onPreviewskycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p><small className='ms-4'>Previous</small></p>
                                                 <p className='kyc-previews'>
-                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Service Fees</large></strong></p>
+                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Social Links</large></strong></p>
                                             </div>
                                             </a>
                                         </div>
                                         <div className='col-6'>
-                                            <a href='/documents/social-links' className='onNextkycaudit text-dark'>
+                                            <a href='/documents/kyc' className='onNextkycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p className='text-end'><small className='me-4'>Next</small></p>
                                                 <p className='kyc-previews text-end'>
-                                                <strong><large className='ms-2'>Social Links</large></strong>
+                                                <strong><large className='ms-2'>KYC & Audit at CrypterSale</large></strong>
                                                 <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
                                                 </p>
                                             </div>
@@ -470,13 +290,13 @@ export default class DocumentsSericeFees extends React.PureComponent<Props, Stat
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/anti-rug-system' className='fw-bold text-dark'><label>Anti-Rug System</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/partnership' className='text-dark'><label>Partnership</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/roadmap' className='text-dark'><label>Roadmap</label></a></li>
-                                                <li className='list-group-item border-0 mb-0'><a href='/documents/service-fees' className='active-docs text-dark'><label>Service Fees</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/documents/service-fees' className='text-dark'><label>Service Fees</label></a></li>
                                             </ul>
                                             <br/>
                                             <strong className='ml-3'><h4 className='text-success ml-3'>Important</h4></strong>
                                             <ul className='list-group mt-2'>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/contact-us' className='text-dark'><label>Contact Us</label></a></li>
-                                                <li className='list-group-item border-0 mb-0'><a href='/documents/social-links' className='text-dark'><label>Social Links</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/documents/social-links' className='active-docs text-dark'><label>Social Links</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/docments/kyc' className='text-dark'><label>KYC & Audit at CrypterSale</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/crypter-sale-calculator' className='text-dark'><label>CrypterSale Calculator</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/youtube-tutorial' className='text-dark'><label>YouTube Tutorials</label></a></li>
@@ -568,7 +388,7 @@ export default class DocumentsSericeFees extends React.PureComponent<Props, Stat
 
                                     <div className='launchpad-token-lock-info'>
                                         <div className='row'>
-                                            <div className='col-12'><h6 className='float-start mt-3'>Service Fees</h6></div>
+                                            <div className='col-12'><h6 className='float-start mt-3'>Social Links</h6></div>
                                         </div>
                                     </div>
                                     <div className='launchpad-token-body'>
@@ -576,197 +396,17 @@ export default class DocumentsSericeFees extends React.PureComponent<Props, Stat
                                         <div className='launchpad-kyc-audit'>  
                                             <div className='row p-2'>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                <p className='mt-2 mb-2'>
-                                                        <strong>1. Binance Smart Chain</strong> 
+                                                    <p className='mt-2 mb-2'>
+                                                        Facebook link: <a>https://facebook.com/crypter</a>
                                                     </p>
                                                     <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Standard Token Minting Fees: 0.2 BNB
+                                                        Facebook link: <a>https://twitter.com/crypter</a>
                                                     </p>
                                                     <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Liquidity Generator Token Minting Fees: 0.2 BNB
+                                                        LinkedIn link: <a>https://twitter.com/crypter</a>
                                                     </p>
                                                     <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Baby Token Minting Fees: 0.2 BNB
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Buyback Baby Token Minting Fees: 0.2 BNB
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create BSC Launchpad Fees: 1 BNB + 2% of Tokens Sold + 2% of BNB Raised.
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create BSC Fair Launch Fees: 1 BNB + 2% of Tokens Sold + 2% of BNB Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create BSC CrypterPad Fees: 3% of Tokens Sold + 3% of BNB Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Crypter Anti-Bot: 1 BNB
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> CrypterLock: Free
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Crypter Airdrop: 0.5 BNB + 1% of Airdrop Tokens
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <strong>2. Ethereum Network</strong> 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Standard Token Minting Fees: 0.01 ETH 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Liquidity Generator Token Minting Fees: 0.01 ETH
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Baby Token Minting Fees: 0.01 ETH
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create ETH Launchpad Fees: Current Fees: 0.2 ETH + 2% of Tokens Sold + 2% of ETH Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create ETH Fair Launch Fees: Current Fees: 0.2 ETH + 2% of Tokens Sold + 2% of ETH Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create ETH CrypterPad Fees: Current Fees: 3% of Tokens Sold + 3% of ETH Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> CrypterLock: Free
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <strong>3. KuCoin Community Chain</strong> 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Standard Token Minting Fees: 10 KCS
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Liquidity Generator Token Minting Fees: 25 KCS
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Baby Token Minting Fees: 25 KCS
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create KCC Launchpad Fees: Current Fees: 25 KCS + 2% of Tokens Sold + 2% of KCS Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create KCC Fair Launch Fees: Current Fees: 25 KCS + 2% of Tokens Sold + 2% of KCS Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create KCC CrypterPad Fees: Current Fees: 3% of Tokens Sold + 3% of KCS Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> CrypterLock: Free
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <strong>4. Polygon (MATIC) Chain</strong> 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Standard Token Minting Fees: 10 MATIC
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Liquidity Generator Token Minting Fees: 50 MATIC
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Baby Token Minting Fees: 50 MATIC
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Polygon Launchpad Fees: Current Fees: 100 MATIC + 2% of Tokens Sold + 2% of MATIC Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Crypter Fair Launch Fees: Current Fees: 100 MATIC + 2% of Tokens Sold + 2% of MATIC Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Crypter CrypterPad Fees: Current Fees: 3% of Tokens Sold + 3% of MATIC Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> CrypterLock: Free
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <strong>5. Avalanche C-Chain</strong> 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Standard Token Minting Fees: 5 AVAX
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Liquidity Generator Token Minting Fees: 10 AVAX
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Baby Token Minting Fees: 10 AVAX
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Avalanche Launchpad Fees: Current Fees: 10 AVAX + 2% of Tokens Sold + 2% of AVAX Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Avalanche Fair Launch Fees: Current Fees: 10 AVAX + 2% of Tokens Sold + 2% of AVAX Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Avalanche CrypterPad Fees: Current Fees: 3% of Tokens Sold + 3% of AVAX Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> CrypterLock: Free
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <strong>6. Fantom Network</strong> 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Standard Token Minting Fees: 30 FTM
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Liquidity Generator Token Minting Fees: 30 FTM
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Baby Token Minting Fees: 30 FTM 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Buyback Baby Token Minting Fees: 50 FTM 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Crypter Launchpad Fees: Current Fees: 150 FTM + 2% of Tokens Sold + 2% of FTM Raised 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Crypter Fair Launch Fees: Current Fees: 150 FTM + 2% of Tokens Sold + 2% of FTM Rais 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Crypter CrypterPad Fees: Current Fees: 3% of Tokens Sold + 3% of FTM Raised 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> CrypterLock: Free d 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Crypter Airdrop: 75 FTM + 1% of Airdrop Tokens
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <strong>7. Cronos Chain</strong> 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Standard Token Minting Fees: 100 CRO 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Liquidity Generator Token Minting Fees: 100 CRO  
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Baby Token Minting Fees: 100 CRO   
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Buyback Baby Token Minting Fees: 100 CRO 
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Crypter Launchpad Fees: 1000 CRO + 2% of Tokens Sold + 2% of CRO Raised.
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Crypter Fair Launch Fees: 1000 CRO + 2% of Tokens Sold + 2% of CRO Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Create Cronos CrypterPad Fees: 3% of Tokens Sold + 3% of CRO Raised
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> CrypterLock: Free
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        <i className='bi-dot'></i> Crypter Airdrop: 500 CRO + 1% of Airdrop Tokens
-                                                    </p>
-                                                    <p className='mt-2 mb-2'>
-                                                        Please be advised that we reserve the right to change our product's prices at any time without further notice.
+                                                        Instagram link: <a>https://instagram.com/crypter</a>
                                                     </p>
                                                 </div>
                                             </div>
@@ -777,20 +417,20 @@ export default class DocumentsSericeFees extends React.PureComponent<Props, Stat
                                     </div>
                                     <div className='row mt-2 mb-2'>
                                         <div className='col-lg-6'>
-                                            <a href='/documents/service-fees' className='onPreviewskycaudit text-dark'>
+                                            <a href='/documents/contact-us' className='onPreviewskycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p><small className='ms-4'>Previous</small></p>
                                                 <p className='kyc-previews'>
-                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Service Fees</large></strong></p>
+                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Contact Us</large></strong></p>
                                             </div>
                                             </a>
                                         </div>
                                         <div className='col-lg-6 mt-2'>
-                                            <a href='/documents/social-links' className='onNextkycaudit text-dark'>
+                                            <a href='/documents/kyc' className='onNextkycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p className='text-end'><small className='me-4'>Next</small></p>
                                                 <p className='kyc-previews text-end'>
-                                                <strong><large className='ms-2'>Social Links</large></strong>
+                                                <strong><large className='ms-2'>KYC & Audit at CrypterSale</large></strong>
                                                 <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
                                                 </p>
                                             </div>
