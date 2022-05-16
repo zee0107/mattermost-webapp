@@ -197,37 +197,17 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             if (this.props.channelIsArchived && !this.props.viewArchivedChannels) {
                 this.props.actions.goToLastViewedChannel();
             }
-
-            this.getPosts(this.props.channelId);
-        }
-    }
-
-    getPosts = async(id: string) => {
-        var response = await Client4.getPosts(id);
-        if (response !== null){
-            Promise.resolve(response).then(value => { this.setState({postList: value});});
         }
     }
 
     render() {
         const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName,channelDisplayName,channelId, currentUser} = this.props;
-        const { uploading, shareInfo, userLocation, feeling, postList } = this.state;
+        const { uploading, shareInfo, userLocation, feeling } = this.state;
         if (enableOnboardingFlow && showNextSteps && !showNextStepsEphemeral) {
             this.props.actions.setShowNextStepsView(true);
             browserHistory.push(`${teamUrl}/tips`);
         }
-        /*let PostData;
-        if(postList !== null && postList !== undefined)
-        {
-            console.log(postList);
-            PostData = (
-                <div> 
-                    {postList.order.map((item,index) => {
-                        return (<Post postId={item}/>);
-                    })}
-                </div>
-            );
-        }*/
+
         let shareInfoBtn;
         let shareInfoDd;
         let location;
