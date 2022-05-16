@@ -402,6 +402,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
         const DeferredPostView = this.state.deferredPostView;
         let viewDetail;
+        let isMounted = false;
         if(channelName === 'town-square'){
             viewDetail = ( 
                 <div className='mobile-margin-top'>
@@ -498,12 +499,13 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 </div>
             );
         }else{
+            isMounted = true;
             viewDetail = (
-                <GroupHeader
+                <>{isMounted && <GroupHeader
                     channelId={channelId}
                     channelDisplayName={channelDisplayName} 
                     isMounted={true}
-                    />
+                    />}</>
             );
         }
 
