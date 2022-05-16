@@ -263,10 +263,6 @@ export default class RequestListsNf extends React.PureComponent<Props, State> {
                             buttonsView = (
                                 <label className='mt-2 approve-reject-text'><a className='approveActions'>Requested</a> | <a onClick={this.handleCancelRequest} className='rejeectActions'>Cancel Request</a></label>
                             );
-                        }else if(followStatus === 5){
-                            buttonsView = (
-                                <label className='mt-2 approve-reject-text'><a className='rejeectActions'>Canceled Request</a></label>
-                            );
                         }
                         else{
                             buttonsView = (
