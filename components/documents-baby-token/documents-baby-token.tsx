@@ -16,13 +16,10 @@ import NetworkModal from "components/create_token/network_modal";
 import Web3 from 'web3';
 
 import homeImage from 'images/homeFeed.png';
-import CronosImg from 'images/launchpad/network/ic-cronos.5a2dbab3.svg';
-import FantomImg from 'images/launchpad/network/ic-fantom.306f76f9.svg';
-import AvaxImg from 'images/launchpad/network/ic-avax.234db155.svg';
-import KucoinImg from 'images/launchpad/network/KuCoin.png';
-import MaticImg from 'images/launchpad/network/ic-matic.910e1faf.png';
-import BscImg from 'images/launchpad/network/ic-bsc.419dfaf2.png';
-import EthImg from 'images/launchpad/network/ic-eth.9270fc02.svg';
+import createTokenForms from 'images/docs/babytoken/create-token-baby-token-full-forms.png';
+import createTokenStandard from 'images/docs/babytoken/create-token-baby-token-select.png';
+import launchpadcreateToken from 'images/docs/standardtoken/Launchpad-create-token-desktop.png';
+import metaMask from 'images/docs/standardtoken/metaMask.png';
 
 import {ModalData} from 'types/actions';
 import { AllListing, ProjectList, ProjectsEndedList } from 'mattermost-redux/types/crypto';
@@ -57,7 +54,7 @@ type State = {
     img_path: string;
 };
 
-export default class DocumentsYT extends React.PureComponent<Props, State> {
+export default class DocumentsBabyToken extends React.PureComponent<Props, State> {
     static defaultProps = {userId: ''}
 
     constructor(props: Props) {
@@ -97,7 +94,7 @@ export default class DocumentsYT extends React.PureComponent<Props, State> {
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/social-links' className='text-dark'><label>Social Links</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/docments/kyc' className='text-dark'><label>KYC &#38; Audit at CrypterSale</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/crypter-sale-calculator' className='text-dark'><label>CrypterSale Calculator</label></a></li>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents/youtube-tutorial' className='active-docs fw-bold text-dark'><label>YouTube Tutorials</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/documents/youtube-tutorial' className='text-dark'><label>YouTube Tutorials</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/contact-developers' className='text-dark'><label>Contact Developers</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/presale-support' className='text-dark'><label>Presale Support</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/brand-assets' className='text-dark'><label>Brand Assets</label></a></li>
@@ -107,7 +104,7 @@ export default class DocumentsYT extends React.PureComponent<Props, State> {
                                         <ul className='list-group mt-2'>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-standard-token' className='text-dark'><label>Create a Standard Token</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-liquidity-generator-token' className='text-dark'><label>Create a Liquidity Generator Token</label></a></li>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-baby-token' className='text-dark'><label>Create a Baby Token</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-baby-token' className='active-docs fw-bold text-dark'><label>Create a Baby Token</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-buyback-baby-token' className='text-dark'><label>Create a Buyback baby Token</label></a></li>
                                         </ul>
                                         <br/>
@@ -174,7 +171,7 @@ export default class DocumentsYT extends React.PureComponent<Props, State> {
                                 <div className='position-sticky float-right-panel'>
                                     <div className='launchpad-token-lock-info'>
                                         <div className='row'>
-                                            <div className='col-8'><h4 className='float-start mt-3'>Youtube Tutorials</h4></div>
+                                            <div className='col-8'><h4 className='float-start mt-3'>Create a Baby Token</h4></div>
                                             <div className='col-4'></div>
                                         </div>
                                     </div>
@@ -183,12 +180,55 @@ export default class DocumentsYT extends React.PureComponent<Props, State> {
                                         <div className='launchpad-kyc-audit'>  
                                             <div className='row p-2'>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                    <p className='mt-2 mb-2'>
-                                                        CrypterSale Calculator (Make a copy to use):
-                                                        <br/>
-                                                        <br/>
-                                                        Check out CrypterSale tutorials here: <a href='https://www.youtube.com/'>https://www.youtube.com/</a>
-                                                    </p>
+                                                    <p>How to Mint a Baby Token with CrypterSale: <a href='https://www.youtube.com/watch?v=yMBa2lYnX54' target='_blank'>https://www.youtube.com/watch?v=yMBa2lYnX54</a></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>Check out the steps below on how to create a baby token with CrypterSale using the desktop version of the Metamask Wallet.</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>1. From the homepage: <a href='https://www.cryptersale.finance/#/' target='_blank'></a>, click on “Create” – “Token”</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={launchpadcreateToken} /></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>2. You will be redirected to this link: <a href='https://www.cryptersale.finance/#/token/create' target='_blank'>https://www.cryptersale.finance/#/token/create</a></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>3. To create a baby type token, in the [Token Type] section, choose “Baby Token”</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={createTokenStandard} /></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>4. Input all necessary information. Before doing so, let's go over all the important fields that need to be filled:</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={createTokenForms} /></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>Reward token: The contract address of the token that you want to use to reward your users. For example, you are creating a BabyDogeXXX token on the Binance Smart Chain and you want to reward your users with DOGE, enter <code>0xba2ae424d960c26247dd6c32edc70b295c744c43</code> (Binance-Peg Dogecoin contract address).</p>
+                                                    <p>Minimum token balance for dividends: In order to receive rewards, each wallet must hold at least this amount of tokens. Its value must be of more than $50.</p>
+                                                    <p>Token reward fee (%): The % amount of tokens from every transaction that is distributed to all token holders. If you choose DOGE as reward token, your users will be rewarded in DOGE instead of the base token. When the amount of tokens is greater than 0.002% of the total supply, reward fee will be automatically swapped to the reward token. </p>
+                                                    <p>Router: Select PancakeSwap for the Binance Smart Chain; select UniSwap, SushiSwap or ShibaSwap for the Etherum Network; select QuickSwap for the Matic Chain; select KuSwap for the Kucoin Chain.</p>
+                                                    <p>Auto add liquidity (%): The % amount of tokens from every transaction that is automatically sent to the liquidity pool.</p>
+                                                    <p>Marketing fee (%): The % amount of tokens from every transaction that is sent to the marketing address. If you choose DOGE as the reward token, the marketing wallet will receive DOGE instead of the base token.</p>
+                                                    <p>Marketing wallet: Tokens from the “Marketing fee (%)” section will be sent to this address.</p>
+                                                    <p>For example, you create a BabyDoge1000x token with these parameters:</p>
+                                                    <p>Token name: BabyDoge1000x Symbol: BABYD Total supply: 100000 BABYD Every transaction incurs a fee of 6%, of which: 2% is distributed among all holders in DOGE 2% is locked away in the liquidity pool, to create a steadily rising price floor 2% is distributed to the marketing address: 0xJustAnExampleAddress00000000000000000000.</p>
+                                                    <p>In the picture below you can see the information you would to enter in the various fields.</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={createTokenForms} /></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>5. Click on “Create Token” after you have finished inputting all the necessary information.</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>6. MetaMask will now ask you to confirm the transaction. It will also show you the fee that you are required to pay for that transaction. If you agree, then click on the “Confirm” button to finish the process.</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={metaMask} /></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -198,20 +238,20 @@ export default class DocumentsYT extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='row mt-2 mb-2'>
                                         <div className='col-6'>
-                                            <a href='/documents/crypter-sale-calculator' className='onPreviewskycaudit text-dark'>
+                                            <a href='/documents/create-a-liquidity-generator-token' className='onPreviewskycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p><small className='ms-4'>Previous</small></p>
                                                 <p className='kyc-previews'>
-                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>CrypterSale Calculator</large></strong></p>
+                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Create a Liquidity Generator Token</large></strong></p>
                                             </div>
                                             </a>
                                         </div>
                                         <div className='col-6'>
-                                            <a href='/documents/contact-developers' className='onNextkycaudit text-dark'>
+                                            <a href='/documents/create-a-buyback-baby-token' className='onNextkycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p className='text-end'><small className='me-4'>Next</small></p>
                                                 <p className='kyc-previews text-end'>
-                                                <strong><large className='ms-2'>Contact Developers</large></strong>
+                                                <strong><large className='ms-2'>Create a Buyback Baby Token</large></strong>
                                                 <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
                                                 </p>
                                             </div>
@@ -293,7 +333,7 @@ export default class DocumentsYT extends React.PureComponent<Props, State> {
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/social-links' className='text-dark'><label>Social Links</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/docments/kyc' className='text-dark'><label>KYC & Audit at CrypterSale</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/crypter-sale-calculator' className='text-dark'><label>CrypterSale Calculator</label></a></li>
-                                                <li className='list-group-item border-0 mb-0'><a href='/documents/youtube-tutorial' className='active-docs text-dark'><label>YouTube Tutorials</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/documents/youtube-tutorial' className='text-dark'><label>YouTube Tutorials</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/contact-developers' className='text-dark'><label>Contact Developers</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/presale-support' className='text-dark'><label>Presale Support</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/brand-assets' className='text-dark'><label>Brand Assets</label></a></li>
@@ -303,7 +343,7 @@ export default class DocumentsYT extends React.PureComponent<Props, State> {
                                             <ul className='list-group mt-2'>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-standard-token' className='text-dark'><label>Create a Standard Token</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-liquidity-generator-token' className='text-dark'><label>Create a Liquidity Generator Token</label></a></li>
-                                                <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-baby-token' className='text-dark'><label>Create a Baby Token</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-baby-token' className='active-docs text-dark'><label>Create a Baby Token</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-buyback-baby-token' className='text-dark'><label>Create a Buyback baby Token</label></a></li>
                                             </ul>
                                             <br/>
@@ -382,20 +422,63 @@ export default class DocumentsYT extends React.PureComponent<Props, State> {
 
                                     <div className='launchpad-token-lock-info'>
                                         <div className='row'>
-                                            <div className='col-12'><h6 className='float-start mt-3'>Youtube Tutorials</h6></div>
+                                            <div className='col-12'><h6 className='float-start mt-3'>Create a Baby Token</h6></div>
                                         </div>
                                     </div>
                                     <div className='launchpad-token-body'>
                                         <hr/>
-                                        <div className='launchpad-kyc-audit'>  
+                                        <div className='launchpad-kyc-audit'>
                                             <div className='row p-2'>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                    <p className='mt-2 mb-2'>
-                                                        CrypterSale Calculator (Make a copy to use):
-                                                        <br/>
-                                                        <br/>
-                                                        Check out CrypterSale tutorials here: <a href='https://www.youtube.com/'>https://www.youtube.com/</a>
-                                                    </p>
+                                                    <p>How to Mint a Baby Token with CrypterSale: <a href='https://www.youtube.com/watch?v=yMBa2lYnX54' target='_blank'>https://www.youtube.com/watch?v=yMBa2lYnX54</a></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>Check out the steps below on how to create a baby token with CrypterSale using the desktop version of the Metamask Wallet.</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>1. From the homepage: <a href='https://www.cryptersale.finance/#/' target='_blank'></a>, click on “Create” – “Token”</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={launchpadcreateToken} /></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>2. You will be redirected to this link: <a href='https://www.cryptersale.finance/#/token/create' target='_blank'>https://www.cryptersale.finance/#/token/create</a></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>3. To create a baby type token, in the [Token Type] section, choose “Baby Token”</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={createTokenStandard} /></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>4. Input all necessary information. Before doing so, let's go over all the important fields that need to be filled:</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={createTokenForms} /></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>Reward token: The contract address of the token that you want to use to reward your users. For example, you are creating a BabyDogeXXX token on the Binance Smart Chain and you want to reward your users with DOGE, enter <code>0xba2ae424d960c26247dd6c32edc70b295c744c43</code> (Binance-Peg Dogecoin contract address).</p>
+                                                    <p>Minimum token balance for dividends: In order to receive rewards, each wallet must hold at least this amount of tokens. Its value must be of more than $50.</p>
+                                                    <p>Token reward fee (%): The % amount of tokens from every transaction that is distributed to all token holders. If you choose DOGE as reward token, your users will be rewarded in DOGE instead of the base token. When the amount of tokens is greater than 0.002% of the total supply, reward fee will be automatically swapped to the reward token. </p>
+                                                    <p>Router: Select PancakeSwap for the Binance Smart Chain; select UniSwap, SushiSwap or ShibaSwap for the Etherum Network; select QuickSwap for the Matic Chain; select KuSwap for the Kucoin Chain.</p>
+                                                    <p>Auto add liquidity (%): The % amount of tokens from every transaction that is automatically sent to the liquidity pool.</p>
+                                                    <p>Marketing fee (%): The % amount of tokens from every transaction that is sent to the marketing address. If you choose DOGE as the reward token, the marketing wallet will receive DOGE instead of the base token.</p>
+                                                    <p>Marketing wallet: Tokens from the “Marketing fee (%)” section will be sent to this address.</p>
+                                                    <p>For example, you create a BabyDoge1000x token with these parameters:</p>
+                                                    <p>Token name: BabyDoge1000x Symbol: BABYD Total supply: 100000 BABYD Every transaction incurs a fee of 6%, of which: 2% is distributed among all holders in DOGE 2% is locked away in the liquidity pool, to create a steadily rising price floor 2% is distributed to the marketing address: 0xJustAnExampleAddress00000000000000000000.</p>
+                                                    <p>In the picture below you can see the information you would to enter in the various fields.</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={createTokenForms} /></p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>5. Click on “Create Token” after you have finished inputting all the necessary information.</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>6. MetaMask will now ask you to confirm the transaction. It will also show you the fee that you are required to pay for that transaction. If you agree, then click on the “Confirm” button to finish the process.</p>
+                                                </div>
+                                                <div className='col-12 mt-0 mb-1 text-center'>
+                                                    <p><img className='img-fluid' src={metaMask} /></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -405,20 +488,20 @@ export default class DocumentsYT extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='row mt-2 mb-2'>
                                         <div className='col-lg-6'>
-                                            <a href='/documents/crypter-sale-calculator' className='onPreviewskycaudit text-dark'>
+                                            <a href='/documents/create-a-liquidity-generator-token' className='onPreviewskycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p><small className='ms-4'>Previous</small></p>
                                                 <p className='kyc-previews'>
-                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>CrypterSale Calculator</large></strong></p>
+                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Create a Liquidity Generator Token</large></strong></p>
                                             </div>
                                             </a>
                                         </div>
                                         <div className='col-lg-6 mt-2'>
-                                            <a href='/documents/contact-developers' className='onNextkycaudit text-dark'>
+                                            <a href='/documents/create-a-buyback-baby-token' className='onNextkycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p className='text-end'><small className='me-4'>Next</small></p>
                                                 <p className='kyc-previews text-end'>
-                                                <strong><large className='ms-2'>Contact Developers</large></strong>
+                                                <strong><large className='ms-2'>Create a Buyback Baby Token</large></strong>
                                                 <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
                                                 </p>
                                             </div>

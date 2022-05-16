@@ -58,6 +58,8 @@ const LazyProfilePage = React.lazy(() => import('components/profile_page'));
 const LazyNewsFeed = React.lazy(() => import('components/newsfeed'));
 const LazyGroup = React.lazy(() => import('components/groups'));
 const LazyDocuments = React.lazy(() => import('components/documents'));
+const LazyDocumentsBabyToken = React.lazy(() => import('components/documents-baby-token'));
+const LazyDocumentsBuybackToken = React.lazy(() => import('components/documents-buyback-token'));
 const LazyDocumentsLiquidity = React.lazy(() => import('components/documents-liquidity-token'));
 const LazyDocumentsStandardToken = React.lazy(() => import('components/documents-standard-token'));
 const LazyDocumentsPresale = React.lazy(() => import('components/documents-presale'));
@@ -122,6 +124,8 @@ const ProfilePage = makeAsyncComponent('ProfilePage', LazyProfilePage);
 const NewsFeed = makeAsyncComponent('Newsfeed', LazyNewsFeed);
 const Groups = makeAsyncComponent('Group', LazyGroup);
 const Documents = makeAsyncComponent('Documents', LazyDocuments);
+const DocumentsBabyToken = makeAsyncComponent('DocumentsBabyToken', LazyDocumentsBabyToken);
+const DocumentsBuybackToken = makeAsyncComponent('DocumentsBuybackToken', LazyDocumentsBuybackToken);
 const DocumentsLiquidity = makeAsyncComponent('DocumentsLiquidity', LazyDocumentsLiquidity);
 const DocumentsStandardToken = makeAsyncComponent('DocumentsStandardToken', LazyDocumentsStandardToken);
 const DocumentsPresale = makeAsyncComponent('DocumentsPresale', LazyDocumentsPresale);
@@ -570,6 +574,14 @@ export default class Root extends React.PureComponent {
                                 <LoginHFTRouteNS
                                     path={'/documents/intro'}
                                     component={Documents}
+                                />
+                                <LoginHFTRouteNS
+                                    path={'/documents/create-a-baby-token'}
+                                    component={DocumentsBabyToken}
+                                />
+                                <LoginHFTRouteNS
+                                    path={'/documents/create-a-buyback-baby-token'}
+                                    component={DocumentsBuybackToken}
                                 />
                                 <LoginHFTRouteNS
                                     path={'/documents/create-a-liquidity-generator-token'}
