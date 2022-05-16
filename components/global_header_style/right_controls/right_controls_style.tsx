@@ -88,7 +88,7 @@ const RightControlsStyle = (props: Props): JSX.Element => {
         async function getRequest(){
             console.log('User: ', props.currentUser)
             const data = await Client4.getRequestList(props.currentUser.id);
-            console.log('GetRequest: ', data)
+            console.log('GetRequest: ', data.length)
             return data;
         }
         
@@ -157,9 +157,10 @@ const RightControlsStyle = (props: Props): JSX.Element => {
                     <div className='offcanvas-body'>
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
-                            {request !== [] ? request.map((item,index) => {
+                            {request.length && request.map((item,index) => {
                                     return (<RequestList userId={item.user_id} key={`request-${item.user_id}`} />);
-                            }) : `No Friend Request`}
+                            })}
+                            {!request.length && <label className='mt-2 mb-2'>No friend request</label>}
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
