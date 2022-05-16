@@ -157,10 +157,9 @@ const RightControlsStyle = (props: Props): JSX.Element => {
                     <div className='offcanvas-body'>
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
-                            {request && request.map((item,index) => {
+                            {request !== null ? request.map((item,index) => {
                                     return (<RequestList userId={item.user_id} key={`request-${item.user_id}`} />);
-                            })}
-                            {!request && <label className='mt-2 mb-2'>No friend request</label>}
+                            }) : `No Friend Request`}
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
