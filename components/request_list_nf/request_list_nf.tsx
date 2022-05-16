@@ -258,7 +258,7 @@ export default class RequestListsNf extends React.PureComponent<Props, State> {
 
             if(userData.id !== currentUser.id){
                 if(followData !== undefined){
-                    if(followData.user_id !== currentUser.id){
+                    if(followData.user_id !== currentUser.id && followData.friend_id !== currentUser.id){
                         if(followStatus === 1){
                             buttonsView = (
                                 <label className='mt-2 approve-reject-text'><a className='approveActions'>Requested</a> | <a onClick={this.handleCancelRequest} className='rejeectActions'>Cancel Request</a></label>
