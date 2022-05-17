@@ -293,10 +293,10 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                         <label className='text-center'>Presale Ends In</label>
                                     </div>
                                     <div className='row'>
-                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='btn onLockbuttonumbers'><label>327</label></a></div></div>
-                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='btn onLockbuttonumbers'><label>28</label></a></div></div>
-                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='btn onLockbuttonumbers'><label>268</label></a></div></div>
-                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='btn onLockbuttonumbers'><label>15</label></a></div></div>
+                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='onLockbuttonumbers text-center'><label>327</label></a></div></div>
+                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='onLockbuttonumbers text-center'><label>28</label></a></div></div>
+                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='onLockbuttonumbers text-center'><label>268</label></a></div></div>
+                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='onLockbuttonumbers text-center'><label>15</label></a></div></div>
                                     </div>
 
                                     <div className='row'>
@@ -322,7 +322,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                             </div>
 
                                             <div className='col-12 text-center'>
-                                                <a className='btn onBuyamounts mt-2'><label>BUY</label></a>
+                                                <a className='onBuyamounts mt-2'><label>BUY</label></a>
                                             </div>
                                             </div>
                                         </form>
@@ -384,10 +384,10 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                 </div>
 
                                 <div className='row'>
-                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='btn onLockbuttonumbers'><label>327</label></a></div></div>
-                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='btn onLockbuttonumbers'><label>28</label></a></div></div>
-                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='btn onLockbuttonumbers'><label>268</label></a></div></div>
-                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='btn onLockbuttonumbers'><label>15</label></a></div></div>
+                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='onLockbuttonumbers text-center'><label>327</label></a></div></div>
+                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='onLockbuttonumbers text-center'><label>28</label></a></div></div>
+                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='onLockbuttonumbers text-center'><label>268</label></a></div></div>
+                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='onLockbuttonumbers text-center'><label>15</label></a></div></div>
                                 </div>
 
                                 <div className='row'>
@@ -411,7 +411,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                                 </div>
                                             </div>
                                             <div className='col-12 text-center'>
-                                                <a className='btn onBuyamounts mt-2'><label>BUY</label></a>
+                                                <a className='onBuyamounts mt-2'><label>BUY</label></a>
                                             </div>
                                         </div>
                                     </form>
