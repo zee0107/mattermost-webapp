@@ -235,7 +235,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         if(tokenType === 'LiquidityGeneratorToken'){
             createTokenInfo = (<div className='liquidity-generator-token'>
             <div className='mb-3'>
-                <label htmlFor='formGroupExampleInput' className='form-label'><small>Router*</small></label>
+                <label htmlFor='formGroupExampleInput' className='form-label'><p>Router*</p></label>
                 <select id='tokentypes' className='form-control'>
                 <option selected>Select Router Exchange</option>
                 <option>Pancakeswap</option>
@@ -248,25 +248,25 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
             <div className='row'>
             <div className='col-md-6'>
-                <label htmlFor='inputEmail4' className='form-label'><small>Transaction fee to generate yield (%)</small></label>
+                <label htmlFor='inputEmail4' className='form-label'><p>Transaction fee to generate yield (%)</p></label>
                 <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 1'/>
             </div>
             <div className='col-md-6'>
-                <label htmlFor='inputPassword4' className='form-label'><small>Transaction fee to generate liquidity (%)</small></label>
+                <label htmlFor='inputPassword4' className='form-label'><p>Transaction fee to generate liquidity (%)</p></label>
                 <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 1'/>
             </div>
             </div>
 
             <div className='row'>
             <div className='col-md-12'>
-                <label htmlFor='inputEmail4' className='form-label'><small>Charity/Marketing address</small></label>
+                <label htmlFor='inputEmail4' className='form-label'><p>Charity/Marketing address</p></label>
                 <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 0x....'/>
             </div>
             </div>
 
             <div className='row'>
             <div className='col-md-12'>
-                <label htmlFor='inputEmail4' className='form-label'><small>Charity/Marketing percent (%)</small></label>
+                <label htmlFor='inputEmail4' className='form-label'><p>Charity/Marketing percent (%)</p></label>
                 <input type='text' className='form-control form-control-sm' id='' placeholder='Ex - 25'/>
             </div>
             </div>
@@ -275,7 +275,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
             createTokenInfo = (
                 <div className='baby-token'>
                     <div className='mb-3'>
-                        <label htmlFor='formGroupExampleInput' className='form-label'><small>Router*</small></label>
+                        <label htmlFor='formGroupExampleInput' className='form-label'><p>Router*</p></label>
                         <select id='tokentypes' className='form-control'>
                         <option selected>Select Router Exchange</option>
                         <option>Pancakeswap</option>
@@ -287,23 +287,23 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                     </div>
                     <div className='row'>
                     <div className='col-md-5'>
-                        <label htmlFor='inputEmail4' className='form-label'><small>Reward token*</small></label>
+                        <label htmlFor='inputEmail4' className='form-label'><p>Reward token*</p></label>
                         <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 0x...'/>
                         <small data-bs-toggle='tooltip' data-bs-placement='top' title='If you want to reward DOGE Please enter 0xba2ae424d960c26247dd6c32edc70b295c744c43.'><i className='bi-info-circle-fill'></i></small>
                     </div>
                     <div className='col-md-7'>
-                        <label htmlFor='inputPassword4' className='form-label'><small>Minimum token balance for dividends *</small></label>
+                        <label htmlFor='inputPassword4' className='form-label'><p>Minimum token balance for dividends *</p></label>
                         <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 100000000000'/>
                         <small data-bs-toggle='tooltip' data-bs-placement='top' title='Min hold each wallet must be over $50 to receive rewards.'><i className='bi-info-circle-fill'></i></small>
                     </div>
                     </div>
                     <div className='row mt-3'>
                     <div className='col-md-5'>
-                        <label htmlFor='inputEmail4' className='form-label'><small>Marketing fee (%)*</small></label>
+                        <label htmlFor='inputEmail4' className='form-label'><p>Marketing fee (%)*</p></label>
                         <input type='text' className='form-control form-control-sm' id='' placeholder='0 - 100'/>
                     </div>
                     <div className='col-md-7'>
-                        <label htmlFor='inputPassword4' className='form-label'><small>Marketing wallet*</small></label>
+                        <label htmlFor='inputPassword4' className='form-label'><p>Marketing wallet*</p></label>
                         <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 0x...'/>
                     </div>
                     </div>
@@ -312,7 +312,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         }else if(tokenType === 'BuybackBabyToken'){
             createTokenInfo = (<div className='buy-back-baby-token'>
             <div className='mb-3'>
-                <label htmlFor='formGroupExampleInput' className='form-label'><small>Router*</small></label>
+                <label htmlFor='formGroupExampleInput' className='form-label'><p>Router*</p></label>
                 <select className='form-control'>
                 <option selected>Select Router Exchange</option>
                 <option>Pancakeswap</option>
@@ -325,30 +325,30 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
             <div className='row mt-3'>
             <div className='col-md-5'>
-                <label htmlFor='inputDoge4' className='form-label'><small>Reward token*</small></label>
+                <label htmlFor='inputDoge4' className='form-label'><p>Reward token*</p></label>
                 <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 0x...'/>
                 <small data-bs-toggle='tooltip' data-bs-placement='top' title='If you want to reward DOGE Please enter 0xba2ae424d960c26247dd6c32edc70b295c744c43.'><i className='bi-info-circle-fill'></i></small>
             </div>
             <div className='col-md-7'>
-                <label htmlFor='inputPassword4' className='form-label'><small>Liquidity Fee (%)</small></label>
+                <label htmlFor='inputPassword4' className='form-label'><p>Liquidity Fee (%)</p></label>
                 <input type='text' className='form-control form-control-sm' id='' placeholder='0 - 100'/>
             </div>
             </div>
 
             <div className='row mt-3'>
             <div className='col-md-5'>
-                <label htmlFor='inputEmail4' className='form-label'><small>Buyback Fee (%)</small></label>
+                <label htmlFor='inputEmail4' className='form-label'><p>Buyback Fee (%)</p></label>
                 <input type='text' className='form-control form-control-sm' id='' placeholder='3'/>
             </div>
             <div className='col-md-7'>
-                <label htmlFor='inputPassword4' className='form-label'><small>Reflection Fee (%)</small></label>
+                <label htmlFor='inputPassword4' className='form-label'><p>Reflection Fee (%)</p></label>
                 <input type='text' className='form-control form-control-sm' id='' placeholder='8'/>
             </div>
             </div>
 
             <div className='row mt-3'>
             <div className='col-md-12'>
-                <label htmlFor='inputEmail4' className='form-label'><small>Marketing fee (%)*</small></label>
+                <label htmlFor='inputEmail4' className='form-label'><p>Marketing fee (%)*</p></label>
                 <input type='text' className='form-control form-control-sm' id='' placeholder='0 - 100'/>
             </div>
             </div>
@@ -1449,7 +1449,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                             <div className='modal-body'>
                                 <form>
                                 <div className='mb-3'>
-                                    <label htmlFor='inputState' className='form-label form-control-sm'><small>(*) is required field.</small><br/>Token Type*</label>
+                                    <label htmlFor='inputState' className='form-label form-control-sm'><small>(*) is required field.</small><br/><p>Token Type*</p></label>
                                     <select id='tokentypes' onChange={this.changeTokenType} value={this.state.tokenType} className='form-control'>
                                         <option value='standard_token'>Standard Token</option>
                                         <option value='LiquidityGeneratorToken'>Liquidity Generator Token</option>
@@ -1460,31 +1460,31 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 </div>
 
                                 <div className='mb-3'>
-                                    <label htmlFor='formGroupExampleInput' className='form-label'><small>Name*</small></label>
+                                    <label htmlFor='formGroupExampleInput' className='form-label'><p>Name*</p></label>
                                     <input type='text' className='form-control form-control-sm' id='formGroupExampleInput' placeholder='Ex: Ethereum'/>
                                 </div>
 
                                 <div className='mb-3'>
-                                    <label htmlFor='formGroupExampleInput' className='form-label'><small>Symbol*</small></label>
+                                    <label htmlFor='formGroupExampleInput' className='form-label'><p>Symbol*</p></label>
                                     <input type='text' className='form-control form-control-sm' id='formGroupExampleInput' placeholder='Ex: RTH'/>
                                 </div>
 
                                 <div className='mb-3'>
-                                    <label htmlFor='formGroupExampleInput' className='form-label'><small>Decimals*</small></label>
+                                    <label htmlFor='formGroupExampleInput' className='form-label'><p>Decimals*</p></label>
                                     <input type='text' className='form-control form-control-sm' id='formGroupExampleInput' placeholder='Ex: 18'/>
                                 </div>
 
                                 <div className='mb-3'>
-                                    <label htmlFor='formGroupExampleInput' className='form-label'><small>Total supply*</small></label>
+                                    <label htmlFor='formGroupExampleInput' className='form-label'><p>Total supply*</p></label>
                                     <input type='text' className='form-control form-control-sm' id='formGroupExampleInput' placeholder='Ex: 1000000000000'/>
                                 </div>
 
                                 {createTokenInfo}
 
-                                <div className='form-check mt-3'>
+                                <div className='mt-3'>
                                     <input className='form-check-input onImplementpinkantisystem' value={antiBot} onChange={this.handleChangeAntiBot} type='checkbox' id='antiBot'/>
                                     <label className='form-check-label ml-2' htmlFor='antiBot'>
-                                        <small>Implement Pink Anti-Bot System?</small>
+                                        <p>Implement Pink Anti-Bot System?</p>
                                     </label>
                                     {antiBotInfo}
                                 </div>
