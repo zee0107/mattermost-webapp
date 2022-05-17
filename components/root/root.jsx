@@ -59,6 +59,7 @@ const LazyNewsFeed = React.lazy(() => import('components/newsfeed'));
 const LazyGroup = React.lazy(() => import('components/groups'));
 const LazyDocuments = React.lazy(() => import('components/documents'));
 const LazyDocumentsCreateLaunchpad = React.lazy(() => import('components/documents-create-launchpad'));
+const LazyDocumentsUpdateLaunchpad = React.lazy(() => import('components/documents-update-launchpad'));
 const LazyDocumentsBabyToken = React.lazy(() => import('components/documents-baby-token'));
 const LazyDocumentsBuybackToken = React.lazy(() => import('components/documents-buyback-token'));
 const LazyDocumentsLiquidity = React.lazy(() => import('components/documents-liquidity-token'));
@@ -125,6 +126,7 @@ const ProfilePage = makeAsyncComponent('ProfilePage', LazyProfilePage);
 const NewsFeed = makeAsyncComponent('Newsfeed', LazyNewsFeed);
 const Groups = makeAsyncComponent('Group', LazyGroup);
 const Documents = makeAsyncComponent('Documents', LazyDocuments);
+const DocumentsUpdateLaunchpad = makeAsyncComponent('DocumentsUpdateLaunchpad', LazyDocumentsUpdateLaunchpad);
 const DocumentsCreateLaunchpad = makeAsyncComponent('DocumentsCreateLaunchpad', LazyDocumentsCreateLaunchpad);
 const DocumentsBabyToken = makeAsyncComponent('DocumentsBabyToken', LazyDocumentsBabyToken);
 const DocumentsBuybackToken = makeAsyncComponent('DocumentsBuybackToken', LazyDocumentsBuybackToken);
@@ -580,6 +582,10 @@ export default class Root extends React.PureComponent {
                                 <LoginHFTRouteNS
                                     path={'/documents/create-a-launchpad'}
                                     component={DocumentsCreateLaunchpad}
+                                />
+                                <LoginHFTRouteNS
+                                    path={'/documents/update-a-launchpad'}
+                                    component={DocumentsUpdateLaunchpad}
                                 />
                                 <LoginHFTRouteNS
                                     path={'/documents/create-a-baby-token'}
