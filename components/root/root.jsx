@@ -58,7 +58,7 @@ const LazyProfilePage = React.lazy(() => import('components/profile_page'));
 const LazyNewsFeed = React.lazy(() => import('components/newsfeed'));
 const LazyGroup = React.lazy(() => import('components/groups'));
 const LazyDocuments = React.lazy(() => import('components/documents'));
-const LazyDocumentsStablecoin = React.lazy(() => import('components/documents-stablecoin'));
+const LazyDocumentsStablecoin = React.lazy(() => import('components/documents-presale-stablecoin'));
 const LazyDocumentsWhitelist = React.lazy(() => import('components/documents-whitelist'));
 const LazyDocumentsFinalizeLaunchpad = React.lazy(() => import('components/documents-finalize-launchpad'));
 const LazyDocumentsCreateLaunchpad = React.lazy(() => import('components/documents-create-launchpad'));
