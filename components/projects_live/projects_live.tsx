@@ -248,7 +248,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         <hr></hr>
                                         <div className='d-flex'>
                                             <div className='col-md-6 width-50'>{this.renderTime(item.start_date)}</div>
-                                            <div className='col-md-6 text-end width-50'><button type='button' className='view-pool-btn p-2'>View Pool</button></div>
+                                            <div className='col-md-6 text-end width-50'><a type='button' href={`/launchpad-view-pool?i=${item.id.toString()}`} className='view-pool-btn p-2'>View Pool</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -316,7 +316,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         <hr></hr>
                                         <div className='d-flex'>
                                             <div className='col-md-6 width-50'><p className='text-secondary small text-margin-0'>Sale starts in:</p><label className='text-primary'>00:00:00:00</label></div>
-                                            <div className='col-md-6 text-end width-50'><button type='button' className='view-pool-btn p-2'>View Pool</button></div>
+                                            <div className='col-md-6 text-end width-50'><a type='button' href={`/launchpad-view-pool?i=${item.id.toString()}`} className='view-pool-btn p-2'>View Pool</a></div>
                                         </div>
                                     </div>
                                 </div>

@@ -22,17 +22,29 @@ import {GlobalState} from 'types/store';
 
 import LaunchpadViewPool from './launchpad_view_pool'
 
+type OwnProps = {
+    id: string;
+}
+
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
 
-    return function mapStateToProps(state: GlobalState) {
+    return function mapStateToProps(state: GlobalState,ownProps: OwnProps) {
         const currentUser = getCurrentUser(state);
-
+        const searchParam = ownProps.location.search.replace('?i=','');
+        let project;
+        if(searchParam !== undefined && searchParam !== null && searchParam !== ''){
+            project = Client4.getCryptoProject(searchParam);
+        }
+        else{
+            window.location.href = '/launchpad-live';
+        }
         const userId = currentUser?.id;
         const customStatus = getCustomStatus(state, userId);
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
         return {
             userId,
+            project,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             autoResetPref: get(state, Preferences.CATEGORY_AUTO_RESET_MANUAL_STATUS, userId, ''),
             status: getStatusForUserId(state, userId),

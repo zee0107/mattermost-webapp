@@ -3924,6 +3924,12 @@ export default class Client4 {
         );
     }
 
+    getCryptoProject = (id: string) => {
+        return this.doFetch<ProjectList[]>(
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getproject?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
     getCryptoProjectsUpcoming = () => {
         return this.doFetch<ProjectsUpcomingList[]>(
             `https://crypterfighter.polywickstudio.ph/api/crypter/getprojects?filter=UPCOMING`,{method: 'get', headers: {'Content-Type':'application/json,'}}

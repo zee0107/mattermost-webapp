@@ -1,33 +1,11 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import React, {ReactNode, ReactPropTypes} from 'react';
-import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
+import React from 'react';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
-import RightDetails from 'components/right_details';
-import CurrencyIcon from 'components/currency_icons';
-import SelectWalletModal from "components/create_token/Modal";
-import ButtonConnect from "components/create_token/button_connect";
-import NetworkModal from "components/create_token/network_modal";
-
-import Web3 from 'web3';
-
-import homeImage from 'images/homeFeed.png';
-import CronosImg from 'images/launchpad/network/ic-cronos.5a2dbab3.svg';
-import FantomImg from 'images/launchpad/network/ic-fantom.306f76f9.svg';
-import AvaxImg from 'images/launchpad/network/ic-avax.234db155.svg';
-import KucoinImg from 'images/launchpad/network/KuCoin.png';
-import MaticImg from 'images/launchpad/network/ic-matic.910e1faf.png';
-import BscImg from 'images/launchpad/network/ic-bsc.419dfaf2.png';
-import EthImg from 'images/launchpad/network/ic-eth.9270fc02.svg';
-
-import Sidebar from 'components/sidebar';
-import SidebarRight from 'components/sidebar_right';
-import SidebarRightMenu from 'components/sidebar_right_menu';
-import { AllListing, GainerListing, NewListing, TrendListing } from 'mattermost-redux/types/crypto';
-import RSDetails from 'components/right_side_details/right_side_details';
-import { StringLiteralLike } from 'typescript';
+import { ProjectList } from 'mattermost-redux/types/crypto';
+import CurrencyIcons from 'components/currency_icons';
 
 type Props = {
     status?: string;
@@ -52,6 +30,7 @@ type Props = {
     lhsOpen: boolean;
     rhsOpen: boolean;
     rhsMenuOpen: boolean;
+    project: Promise<ProjectList[]>;
 }
 
 type State = {
@@ -60,6 +39,7 @@ type State = {
     isStatusSet: boolean;
     isDark: string;
     img_path: string;
+    project: ProjectList[];
 };
 
 export default class LaunchpadViewPool extends React.PureComponent<Props, State> {
@@ -73,9 +53,41 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
     componentDidMount = async () =>{
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+
+        if(this.props.project !== undefined && this.props.project !== null){
+            Promise.resolve(this.props.project).then(value => { this.setState({project: value}); });
+        }
     }
 
     render= (): JSX.Element => {
+        const { project } = this.state;
+
+        let statusBoxDesktop;
+        let statusBoxMobile;
+        if(project[0].status === 'UPCOMING'){
+            statusBoxDesktop = (
+                <a className='float-end onSaleUpcoming'><i className='bi-dot bi-dot-sale-live'></i> Upcoming</a>
+            ); 
+            statusBoxMobile = (
+                <a className='float-end onSaleUpcomingmobile'><i className='bi-dot bi-dot-sale-live'></i> Upcoming</a>
+            );
+        }
+        else if(project[0].status === 'ENDED'){
+            statusBoxDesktop = (
+                <a className='float-end onSaleEnded'><i className='bi-dot bi-dot-sale-live'></i> Sale Ended</a>
+            ); 
+            statusBoxMobile = (
+                <a className='float-end onSaleEndedmobile'><i className='bi-dot bi-dot-sale-live'></i>Sale Ended</a>
+            );
+        }
+        else{
+            statusBoxDesktop = (
+                <a className='float-end onSalelive'><i className='bi-dot bi-dot-sale-live'></i> Sale live</a>
+            ); 
+            statusBoxMobile = (
+                <a className='float-end onSalelivemobile'><i className='bi-dot bi-dot-sale-live'></i>Sale live</a>
+            );
+        }
         return (
             <>
                 <section id='crypter-section' className='crypter-section-desktop'>
@@ -84,10 +96,11 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                             <div className='launchpad-view-pool-body mt-2'>
                                 <div className='row'>
                                     <div className='col-1 text-center'>
+                                        <CurrencyIcons symbol={project[0].coin.symbol} />
                                         <img className='rounded-circle border-info mt-2' width='40' src='assets/images/sample-user-primary-picture-7.png'/>
                                     </div>
                                     <div className='col-6 text-start'>
-                                        <label className='ml-2'>NFT Fashion Presale</label>
+                                        <label className='ml-2'>{project[0].project_name}</label>
                                         <br/>
                                         <img width='17' className='float-start ml-2 mt-2' src='assets/images/icon-global2.png' alt=''/>
                                         <img width='17' className='float-start ml-2 mt-2' src='assets/images/icon-smm-facebook.png' alt=''/>
@@ -96,7 +109,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                         <img width='17' className='float-start ml-2 mt-2' src='assets/images/icon-smm-instagram.png' alt=''/>
                                     </div>
                                     <div className='col-5'>
-                                        <a className='float-end onSalelive'><i className='bi-dot bi-dot-sale-live'></i> Sale live</a>
+                                        {statusBoxDesktop}
                                         <a className='float-end onAudit'>Audit</a>
                                     </div>
                                 </div>
@@ -104,7 +117,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                 <div className='row mt-3'>
                                     <div className='col-1'></div>
                                     <div className='col-11'>
-                                        <p className='ml-2'>Disclaimer: The information provided shall not in any way constitute a recommendation as to whether you should invest in any product discussed. We accept no liability for any loss occasioned to any person acting or refraining from action as a result of any material provided or published.</p>
+                                        <p className='ml-2'>{project[0].description}</p>
                                     </div>
                                 </div>
                             </div>
@@ -354,10 +367,10 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                 <div className='launchpad-view-pool-body'>
                                     <div className='row'>
                                         <div className='col-1 text-center'>
-                                            <img className='rounded-circle border-info mt-2' width='40' src='assets/images/sample-user-primary-picture-7.png'/>
+                                            <CurrencyIcons symbol={project[0].coin.symbol} />
                                         </div>
                                         <div className='col-6 text-start'>
-                                            <label className='ml-4'>NFT Fashion..</label>
+                                            <label className='ml-4'>{project[0].project_name}</label>
                                             <br/>
                                             <img width='17' className='float-start ml-4 mt-2' src='assets/images/icon-global2.png' alt='' />
                                             <img width='17' className='float-start ml-0 mt-2' src='assets/images/icon-smm-facebook.png' alt='' />
@@ -367,13 +380,13 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                         </div>
                                         <div className='col-5'>
                                             <a className='float-end onAuditmobile'>Audit</a>
-                                            <a className='float-end onSalelivemobile'><i className='bi-dot bi-dot-sale-live'></i>Sale live</a>
+                                            {statusBoxMobile}
                                         </div>
                                     </div>
                                     <hr/>
                                     <div className='row'>
                                         <div className='col-12'>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                            <p>{project[0].description}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -407,7 +420,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                                 <label htmlFor='formGroupExampleInput' className='form-label'><label>* Amount (max: 2.9 BNB)</label></label>
                                                 <div className='input-group mb-2'>
                                                     <input type='text' className='form-control input-create-new-group-amount-max' placeholder='' aria-label='' aria-describedby=''/>
-                                                    <span className='input-group-text input-create-new-group-amount-max text-success' id=''>MAX</span>
+                                                    <span className='input-group-text input-create-new-group-amount-max' id=''>MAX</span>
                                                 </div>
                                             </div>
                                             <div className='col-12 text-center'>
