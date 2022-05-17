@@ -17,7 +17,7 @@ import Web3 from 'web3';
 
 import homeImage from 'images/homeFeed.png';
 import excludeToken from 'images/docs/launchpad/Token-address-exclude.png';
-import preSaleToke from 'images/docs/launchpad/presale-token-address.png';
+import preSaleToken from 'images/docs/launchpad/presale-token-address.png';
 import excludeSet from 'images/docs/launchpad/exclude-set.png';
 import excludeForm from 'images/docs/launchpad/exclude-form-fee.png';
 import bscScan from 'images/docs/launchpad/bscscan.png';
@@ -189,23 +189,23 @@ export default class DocumentsFinalizeLaunchpad extends React.PureComponent<Prop
                                                     <p>1. Before you finalize your presale, you need to access your contract address from BSCScan or you can click on the token address on your launchpad page.</p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src='../assets/images/Token-address-exclude.png' /></p>
+                                                    <p><img className='img-fluid' src={excludeToken} /></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
                                                     <p>2. Go to Contract {`->`} Write contract {`->`} Connect to Web3 to connect your wallet, you need to use owner address.</p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src='../assets/images/bscscan.png' /></p>
+                                                    <p><img className='img-fluid' src={bscScan} /></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
                                                     <p>3. Ctrl + F, Search “exclude”, then input your presale address, then click on Write, to exclude fee, reward, max tx for the presale address.</p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src='../assets/images/presale-token-address.png' /></p>
+                                                    <p><img className='img-fluid' src={preSaleToken} /></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
                                                     <p>
-                                                    <img className='img-fluid' src='../assets/images/exclude-form-fee.png' />
+                                                    <img className='img-fluid' src={excludeForm} />
                                                     </p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
@@ -214,7 +214,7 @@ export default class DocumentsFinalizeLaunchpad extends React.PureComponent<Prop
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
                                                     <p>
-                                                    <img className='img-fluid' src='../assets/images/exclude-set.png' />
+                                                    <img className='img-fluid' src={excludeSet} />
                                                     </p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
@@ -223,7 +223,7 @@ export default class DocumentsFinalizeLaunchpad extends React.PureComponent<Prop
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
                                                     <p>
-                                                    <img className='img-fluid' src='../assets/images/finalize-and-withdraw-bnb-only.png' />
+                                                    <img className='img-fluid' src={finalizeWithdraw} />
                                                     </p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
@@ -231,7 +231,7 @@ export default class DocumentsFinalizeLaunchpad extends React.PureComponent<Prop
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
                                                     <p>
-                                                    <img className='img-fluid' src='../assets/images/confirm-meta-mask-11.png' />
+                                                    <img className='img-fluid' src={metaMask} />
                                                     </p>
                                                 </div>
                                             </div>
@@ -439,23 +439,23 @@ export default class DocumentsFinalizeLaunchpad extends React.PureComponent<Prop
                                                     <p>1. Before you finalize your presale, you need to access your contract address from BSCScan or you can click on the token address on your launchpad page.</p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src='../assets/images/Token-address-exclude.png' /></p>
+                                                    <p><img className='img-fluid' src={excludeToken} /></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
                                                     <p>2. Go to Contract {`->`} Write contract {`->`} Connect to Web3 to connect your wallet, you need to use owner address.</p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src='../assets/images/bscscan.png' /></p>
+                                                    <p><img className='img-fluid' src={bscScan} /></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
                                                     <p>3. Ctrl + F, Search “exclude”, then input your presale address, then click on Write, to exclude fee, reward, max tx for the presale address.</p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src='../assets/images/presale-token-address.png' /></p>
+                                                    <p><img className='img-fluid' src={preSaleToken} /></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
                                                     <p>
-                                                    <img className='img-fluid' src='../assets/images/exclude-form-fee.png' />
+                                                    <img className='img-fluid' src={excludeForm} />
                                                     </p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
@@ -464,7 +464,7 @@ export default class DocumentsFinalizeLaunchpad extends React.PureComponent<Prop
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
                                                     <p>
-                                                    <img className='img-fluid' src='../assets/images/exclude-set.png' />
+                                                    <img className='img-fluid' src={excludeSet} />
                                                     </p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
@@ -473,7 +473,7 @@ export default class DocumentsFinalizeLaunchpad extends React.PureComponent<Prop
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
                                                     <p>
-                                                    <img className='img-fluid' src='../assets/images/finalize-and-withdraw-bnb-only.png' />
+                                                    <img className='img-fluid' src={finalizeWithdraw} />
                                                     </p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
@@ -481,7 +481,7 @@ export default class DocumentsFinalizeLaunchpad extends React.PureComponent<Prop
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
                                                     <p>
-                                                    <img className='img-fluid' src='../assets/images/confirm-meta-mask-11.png' />
+                                                    <img className='img-fluid' src={metaMask} />
                                                     </p>
                                                 </div>
                                             </div>
