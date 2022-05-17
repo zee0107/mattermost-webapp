@@ -86,6 +86,7 @@ const LazyDocumentsTokenUtility = React.lazy(() => import('components/documents-
 const LazyDocumentsAntiRug = React.lazy(() => import('components/documents-anti-rug'));
 const LazyDocumentsPartnership = React.lazy(() => import('components/documents-partnership'));
 const LazyLaunchPad = React.lazy(() => import('components/launch_pad'));
+const LazyLaunchpadViewPool = React.lazy(() => import('components/launchpad_view_pool'));
 const LazyLaunchPadToken = React.lazy(() => import('components/launchpad_token'));
 const LazyLaunchPadLiquidity = React.lazy(() => import('components/launchpad_liquidity'));
 const LazyLaunchPadLive = React.lazy(() => import('components/launchpad_live'));
@@ -161,6 +162,7 @@ const DocumentsTokenUtility = makeAsyncComponent('DocumentsTokenUtility', LazyDo
 const DocumentsAntiRug = makeAsyncComponent('DocumentsAntiRug', LazyDocumentsAntiRug);
 const DocumentsPartnership = makeAsyncComponent('DocumentsPartnership', LazyDocumentsPartnership);
 const LaunchPad = makeAsyncComponent('LaunchPad', LazyLaunchPad);
+const LaunchpadViewPool = makeAsyncComponent('LaunchpadViewPool', LazyLaunchpadViewPool);
 const LaunchPadToken = makeAsyncComponent('LaunchPadToken', LazyLaunchPadToken);
 const LaunchPadLiquidity = makeAsyncComponent('LaunchPadLiquidity', LazyLaunchPadLiquidity);
 const LaunchPadLive = makeAsyncComponent('LaunchPadLive', LazyLaunchPadLive);
@@ -704,6 +706,10 @@ export default class Root extends React.PureComponent {
                                 <LoginHFTRouteF
                                     path={'/launchpad'}
                                     component={LaunchPad}
+                                />
+                                <LoginHFTRouteF
+                                    path={'/launchpad-view-pool'}
+                                    component={LaunchpadViewPool}
                                 />
                                 <LoginHFTRouteF
                                     path={'/launchpad-live'}

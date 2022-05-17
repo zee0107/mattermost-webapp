@@ -60,559 +60,554 @@ type State = {
     isStatusSet: boolean;
     isDark: string;
     img_path: string;
-    middleView: string;
-    network: string;
-    tokenType: string;
-    symbol: string;
-    account: string;
-    rpcUrls: string;
-    balance: float;
 };
 
 export default class LaunchpadViewPool extends React.PureComponent<Props, State> {
-    static defaultProps = {userId: '',profilePicture: '', allCrypto: [],trendCrypto: [],newCrypto: [],gainerCrypto: []}
+    static defaultProps = {userId: '',profilePicture: ''}
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light',img_path: homeImage,logo_url: [], data: [],tokenType:'standard_token',symbol: 'ETH'};
-
-        this.handleNetworkChange = this.handleNetworkChange.bind(this);
-        this.changeTokenType = this.changeTokenType.bind(this);
-        this.handleSymbolChange = this.handleSymbolChange.bind(this);
-        this.handleAccount = this.handleAccount.bind(this);
-        this.handleRpcUrls = this.handleRpcUrls.bind(this);
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light',};
     }
 
     componentDidMount = async () =>{
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
-
-        const savedNetwork = window.localStorage.getItem('chainNetwork');
-        if(savedNetwork !== undefined && savedNetwork !== null && savedNetwork !== '')
-        {
-            this.setState({network: savedNetwork});
-        }
-        else{
-            this.setState({network: '1'});
-        }
-
-        const savedSymbol = window.localStorage.getItem('chainSymbol');
-        if(savedSymbol !== undefined && savedSymbol !== null && savedSymbol !== '')
-        {
-            this.setState({symbol: savedSymbol});
-        }
-        else{
-            this.setState({symbol: 'ETH'});
-        }
-
-        if (typeof window.ethereum !== 'undefined') {
-            const web3Info = await new Web3(window.ethereum);
-            if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
-            {
-                const balance = await web3Info.eth.getBalance(this.state.account);
-                if(balance !== undefined && balance !== null){
-                    const covertedBal = web3Info.utils.fromWei(balance, 'ether');
-                    this.setState({balance: covertedBal});
-                }
-                else{
-                    this.setState({balance: 0});
-                }
-            }
-        }
-    }
-
-    componentDidUpdate = async () => {
-        if (typeof window.ethereum !== 'undefined') {
-            const web3Info = await new Web3(window.ethereum);
-            if (this.state.account !== undefined && this.state.account !== null && this.state.account !== '')
-            {
-                const balance = await web3Info.eth.getBalance(this.state.account);
-                if(balance !== undefined && balance !== null){
-                    const covertedBal = web3Info.utils.fromWei(balance, 'ether');
-                    this.setState({balance: covertedBal});
-                }
-            }
-        }
-    }
-
-    handleAccount = (data) => {
-        this.setState({account: data});
-    }
-
-    handleRpcUrls = (data) => {
-        this.setState({rpcUrls: data});
-    }
-
-    handleNetworkChange = (data) => {
-        this.setState({network: data});
-    }
-
-    handleSymbolChange = (data) => {
-        this.setState({symbol: data});
-    }
-
-    changeTokenType(event) {
-        this.setState({tokenType: event.target.value});
-    }
-
-    setDocumentTitle = (siteName: string) => {
-        if (siteName) {
-            document.title = 'Crypter';
-        }
-    }
-
-    renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
-        if (!this.props.profilePicture) {return null;}
-        return (<Avatar size={size} url={this.props.profilePicture} />);
-    }
-
-    renderHandler = (view: string) => {
-        this.setState({middleView: view});
-    }
-
-    sideBoxRender = (code: string) => {
-        return (
-            <div>
-                <RightDetails symbol={code} />
-            </div>
-        );
     }
 
     render= (): JSX.Element => {
-        const {tokenType,network} = this.state;
-        let networkButton;
-        let poolFee;
-        let createFee;
-        if(network === '137'){
-            networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MATIC MAINNET</small></a>
-            );
-            poolFee = 100;
-            createFee = 30;
-        }else if(network === '80001'){
-            networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={MaticImg}/>&nbsp;MUMBAI</small></a>
-            );
-            poolFee = 100;
-            createFee = 0.01;
-        }else if(network === '56'){
-            networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={BscImg}/>&nbsp;BSC MAINNET</small></a>
-            );
-            poolFee = 1;
-            createFee = 0.2;
-        }else if(network === '97'){
-            networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' className='img-fluid' src={BscImg}/>&nbsp;BSC TESTNET</small></a>
-            );
-            poolFee = 0.01;
-            createFee = 0.01;
-        }else if(network === '321'){
-            networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={KucoinImg}/>&nbsp;KCC MAINNET</small></a>
-            );
-            poolFee = 35;
-            createFee = 10;
-        }else if(network === '43114'){
-            networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={AvaxImg}/>&nbsp;AVAX</small></a>
-            );
-            poolFee = 10;
-            createFee = 1;
-        }else if(network === '250'){
-            networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' height='16' src={FantomImg}/>&nbsp;Fantom</small></a>
-            );
-            poolFee = 150;
-            createFee = 30;
-        }else if(network === '25'){
-            networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' height='16' src={CronosImg}/>&nbsp;Cronos</small></a>
-            );
-            poolFee = 1000;
-            createFee = 100;
-        }else{
-            networkButton = (
-                <a className='onLockbuttoncreatenormal float-end mr-1 ml-1' data-bs-toggle='modal' data-bs-target='#staticBackdropNetwork'><small><img width='16' src={EthImg}/>&nbsp;ETH MAINNET</small></a>
-            );
-            poolFee = 0.2;
-            createFee = 0.1;
-        }
-
-        let antiBotInfo;
-        if(antiBot){
-            antiBotInfo = (<p className='mt-2 implementpinkinformation'>Please visit <a className='text-success' target='_self'><strong>https://www.crypter.com/#antibot</strong></a> to active Pink Anti-Bot after creating the token. Check out the tutorial here: <a className='text-success' target='_self'><strong>https://www.crypter.com/pink-anti-bot/pink-anti-bot-guide</strong></a></p>);
-        }
-        
-        let createTokenInfo;
-        if(tokenType === 'LiquidityGeneratorToken'){
-            createTokenInfo = (<div className='liquidity-generator-token'>
-            <div className='mb-3'>
-                <label htmlFor='formGroupExampleInput' className='form-label'><p>Router*</p></label>
-                <select id='tokentypes' className='form-control'>
-                <option selected>Select Router Exchange</option>
-                <option>Pancakeswap</option>
-                <option>MDex</option>
-                <option>Biswap</option>
-                <option>ApeSwap</option>
-                <option>PinkSwap</option>
-                </select>
-            </div>
-
-            <div className='row'>
-            <div className='col-md-6'>
-                <label htmlFor='inputEmail4' className='form-label'><p>Transaction fee to generate yield (%)</p></label>
-                <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 1'/>
-            </div>
-            <div className='col-md-6'>
-                <label htmlFor='inputPassword4' className='form-label'><p>Transaction fee to generate liquidity (%)</p></label>
-                <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 1'/>
-            </div>
-            </div>
-
-            <div className='row'>
-            <div className='col-md-12'>
-                <label htmlFor='inputEmail4' className='form-label'><p>Charity/Marketing address</p></label>
-                <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 0x....'/>
-            </div>
-            </div>
-
-            <div className='row'>
-            <div className='col-md-12'>
-                <label htmlFor='inputEmail4' className='form-label'><p>Charity/Marketing percent (%)</p></label>
-                <input type='text' className='form-control form-control-sm' id='' placeholder='Ex - 25'/>
-            </div>
-            </div>
-        </div>);
-        }else if(tokenType === 'babytoken'){
-            createTokenInfo = (
-                <div className='baby-token'>
-                    <div className='mb-3'>
-                        <label htmlFor='formGroupExampleInput' className='form-label'><p>Router*</p></label>
-                        <select id='tokentypes' className='form-control'>
-                        <option selected>Select Router Exchange</option>
-                        <option>Pancakeswap</option>
-                        <option>MDex</option>
-                        <option>Biswap</option>
-                        <option>ApeSwap</option>
-                        <option>PinkSwap</option>
-                        </select>
-                    </div>
-                    <div className='row'>
-                    <div className='col-md-5'>
-                        <label htmlFor='inputEmail4' className='form-label'><p>Reward token*</p></label>
-                        <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 0x...'/>
-                        <small data-bs-toggle='tooltip' data-bs-placement='top' title='If you want to reward DOGE Please enter 0xba2ae424d960c26247dd6c32edc70b295c744c43.'><i className='bi-info-circle-fill'></i></small>
-                    </div>
-                    <div className='col-md-7'>
-                        <label htmlFor='inputPassword4' className='form-label'><p>Minimum token balance for dividends *</p></label>
-                        <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 100000000000'/>
-                        <small data-bs-toggle='tooltip' data-bs-placement='top' title='Min hold each wallet must be over $50 to receive rewards.'><i className='bi-info-circle-fill'></i></small>
-                    </div>
-                    </div>
-                    <div className='row mt-3'>
-                    <div className='col-md-5'>
-                        <label htmlFor='inputEmail4' className='form-label'><p>Marketing fee (%)*</p></label>
-                        <input type='text' className='form-control form-control-sm' id='' placeholder='0 - 100'/>
-                    </div>
-                    <div className='col-md-7'>
-                        <label htmlFor='inputPassword4' className='form-label'><p>Marketing wallet*</p></label>
-                        <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 0x...'/>
-                    </div>
-                    </div>
-                </div>
-            );
-        }else if(tokenType === 'BuybackBabyToken'){
-            createTokenInfo = (<div className='buy-back-baby-token'>
-            <div className='mb-3'>
-                <label htmlFor='formGroupExampleInput' className='form-label'><p>Router*</p></label>
-                <select className='form-control'>
-                <option selected>Select Router Exchange</option>
-                <option>Pancakeswap</option>
-                <option>MDex</option>
-                <option>Biswap</option>
-                <option>ApeSwap</option>
-                <option>PinkSwap</option>
-                </select>
-            </div>
-
-            <div className='row mt-3'>
-            <div className='col-md-5'>
-                <label htmlFor='inputDoge4' className='form-label'><p>Reward token*</p></label>
-                <input type='text' className='form-control form-control-sm' id='' placeholder='Ex: 0x...'/>
-                <small data-bs-toggle='tooltip' data-bs-placement='top' title='If you want to reward DOGE Please enter 0xba2ae424d960c26247dd6c32edc70b295c744c43.'><i className='bi-info-circle-fill'></i></small>
-            </div>
-            <div className='col-md-7'>
-                <label htmlFor='inputPassword4' className='form-label'><p>Liquidity Fee (%)</p></label>
-                <input type='text' className='form-control form-control-sm' id='' placeholder='0 - 100'/>
-            </div>
-            </div>
-
-            <div className='row mt-3'>
-            <div className='col-md-5'>
-                <label htmlFor='inputEmail4' className='form-label'><p>Buyback Fee (%)</p></label>
-                <input type='text' className='form-control form-control-sm' id='' placeholder='3'/>
-            </div>
-            <div className='col-md-7'>
-                <label htmlFor='inputPassword4' className='form-label'><p>Reflection Fee (%)</p></label>
-                <input type='text' className='form-control form-control-sm' id='' placeholder='8'/>
-            </div>
-            </div>
-
-            <div className='row mt-3'>
-            <div className='col-md-12'>
-                <label htmlFor='inputEmail4' className='form-label'><p>Marketing fee (%)*</p></label>
-                <input type='text' className='form-control form-control-sm' id='' placeholder='0 - 100'/>
-            </div>
-            </div>
-
-        </div>);
-        }else{
-
-        }
-
-        let btcContent;
-        let ltcContent;
-        let ethContent;
-        let bnbContent;
-
-        btcContent = this.sideBoxRender("BTC");
-        ltcContent = this.sideBoxRender("LTC");
-        ethContent = this.sideBoxRender("ETH");
-        bnbContent = this.sideBoxRender("BNB");
         return (
             <>
-                <div className='div-bg'>
-                    <div className='col-lg-12 bodyBgElipseLaunchpad bgGrey'>
-                        <div>
-                            <div className='col-lg-12 removePadding'>
+                <section id='crypter-section' className='crypter-section-desktop'>
+                    <div className='row'>
+                        <div className='col-md-6'>
+                            <div className='launchpad-view-pool-body mt-2'>
                                 <div className='row'>
-                                    <div className='col-sm-9'>
-                                        <div className='margin-top-20'>
-                                            <div className='col-md-12 removePadding'>
-                                                <ButtonConnect account={this.handleAccount} balance={`${this.state.balance} ${this.state.symbol}`}/>
-                                                {networkButton}
-                                                <a className="onLockbuttoncreate float-end ml-1" data-bs-toggle='modal' data-bs-target='#staticBackdropCreateToken'><small>Create</small></a>
-                                            </div>
-                                            <br></br>
-                                            <br></br>
-                                            <div id='create-lock' className='col-md-12 create-token-box'>
-                                                <div className='col-md-12'>
-                                                    <div className='d-flex'>
-                                                        <div className='width-50'>
-                                                            <h4 className='text-primary'>Token</h4>
-                                                        </div>
-                                                        <div className='width-50 text-end'>
-                                                            <a href='#' className='sidemenu-title-img'><label>All</label></a>
-                                                            <a href='#' className='sidemenu-title-img'><label>My Lock</label></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className='col-md-12'>
-                                                    <hr></hr>
-                                                    <input type='text' className='form-control custom-token-input' placeholder='Search by Token'></input>
-                                                    <hr></hr>
-                                                </div>
-                                                <div className='col-md-12'>
-                                                    <br></br>
-                                                    <div className='d-flex'>
-                                                        <div className='col-md-5'>
-                                                            <label className='text-primary'>Token</label>
-                                                        </div>
-                                                        <div className='col-md-5'>
-                                                            <label className='text-primary'>Amount</label>
-                                                        </div>
-                                                        <div className='col-md-2'>
-                                                        </div>
-                                                    </div>
-                                                    <br></br>
-                                                    <div className='d-flex'>
-                                                        <div className='col-md-5'>
-                                                            <div className='d-flex'>
-                                                                <div className='col-md-2 removePaddingRight'>
-                                                                    <CurrencyIcon code='BTC'/>
-                                                                </div>
-                                                                <div className='col-md-9 removePaddingLeft'>
-                                                                    <label className='text-primary'>Lorem ipsum</label>
-                                                                    <p className='text-secondary'>LEP</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className='col-md-5'>
-                                                            <label className='text-primary'>900.5320 LEP</label>
-                                                        </div>
-                                                        <div className='col-md-2'>
-                                                            <a href='#' className='text-percent'>View</a>
-                                                        </div>
-                                                    </div>
-                                                    <br></br>
-                                                    <div className='d-flex'>
-                                                        <div className='col-md-5'>
-                                                            <div className='d-flex'>
-                                                                <div className='col-md-2 removePaddingRight'>
-                                                                    <CurrencyIcon code='BTC'/>
-                                                                </div>
-                                                                <div className='col-md-9 removePaddingLeft'>
-                                                                    <label className='text-primary'>Lorem ipsum</label>
-                                                                    <p className='text-secondary'>LEP</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className='col-md-5'>
-                                                            <label className='text-primary'>900.5320 LEP</label>
-                                                        </div>
-                                                        <div className='col-md-2'>
-                                                            <a href='#' className='text-percent'>View</a>
-                                                        </div>
-                                                    </div>
-                                                    <br></br>
-                                                    <div className='d-flex'>
-                                                        <div className='col-md-5'>
-                                                            <div className='d-flex'>
-                                                                <div className='col-md-2 removePaddingRight'>
-                                                                    <CurrencyIcon code='BTC'/>
-                                                                </div>
-                                                                <div className='col-md-9 removePaddingLeft'>
-                                                                    <label className='text-primary'>Lorem ipsum</label>
-                                                                    <p className='text-secondary'>LEP</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className='col-md-5'>
-                                                            <label className='text-primary'>900.5320 LEP</label>
-                                                        </div>
-                                                        <div className='col-md-2'>
-                                                            <a href='#' className='text-percent'>View</a>
-                                                        </div>
-                                                    </div>
-                                                    <br></br>
-                                                    <div className='d-flex'>
-                                                        <div className='col-md-5'>
-                                                            <div className='d-flex'>
-                                                                <div className='col-md-2 removePaddingRight'>
-                                                                    <CurrencyIcon code='BTC'/>
-                                                                </div>
-                                                                <div className='col-md-9 removePaddingLeft'>
-                                                                    <label className='text-primary'>Lorem ipsum</label>
-                                                                    <p className='text-secondary'>LEP</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className='col-md-5'>
-                                                            <label className='text-primary'>900.5320 LEP</label>
-                                                        </div>
-                                                        <div className='col-md-2'>
-                                                            <a href='#' className='text-percent'>View</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <div className='col-1 text-center'>
+                                        <img className='rounded-circle border-info mt-2' width='40' src='assets/images/sample-user-primary-picture-7.png'/>
+                                    </div>
+                                    <div className='col-6 text-start'>
+                                        <small className='ml-2'>NFT Fashion Presale</small>
+                                        <br/>
+                                        <img width='17' className='float-start ml-2 mt-2' src='assets/images/icon-global2.png' alt=''/>
+                                        <img width='17' className='float-start ml-2 mt-2' src='assets/images/icon-smm-facebook.png' alt=''/>
+                                        <img width='17' className='float-start ml-2 mt-2' src='assets/images/icon-smm-twitter.png' alt=''/>
+                                        <img width='17' className='float-start ml-2 mt-2' src='assets/images/icon-arrow-submit.png' alt=''/>
+                                        <img width='17' className='float-start ml-2 mt-2' src='assets/images/icon-smm-instagram.png' alt=''/>
+                                    </div>
+                                    <div className='col-5'>
+                                        <a className='float-end onSalelive'><i className='bi-dot bi-dot-sale-live'></i> Sale live</a>
+                                        <a className='float-end onAudit'>Audit</a>
+                                    </div>
+                                </div>
 
-                                            <div className='col-lg-12 text-center margin-top-30-responsive'>
-                                                <label className='text-secondary small'>Nobody likes scams and Rug Pulls. Here at Crypter, we ensure that featured projects are all completely legitimate, as their ads must undergo a vetting process; this way, we can eliminate promotions of scam projects, so nobody has to suffer the consequences.</label>
+                                <div className='row mt-3'>
+                                    <div className='col-1'></div>
+                                    <div className='col-11'>
+                                        <p className='ml-2'>Disclaimer: The information provided shall not in any way constitute a recommendation as to whether you should invest in any product discussed. We accept no liability for any loss occasioned to any person acting or refraining from action as a result of any material provided or published.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='launchpad-view-pool-body mt-2 mb-2'>
+                                <div className='row'>
+                                    <div className='col-4 mt-1 mb-1'><strong><small>Presale Address</small></strong></div>
+                                    <div className='col-8 text-end mt-1 mb-1'><strong className='text-success'><small>0x04f7794FeF90E83d195CaEdF810e9632bf6</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Token Name</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong><small>lorem Ipsum</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Token Symbol</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong><small>LEP</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Token Decimal</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong><small>18</small></strong></div>
+
+                                    <div className='col-4 mt-1'><strong><small>Token Address</small></strong></div>
+                                    <div className='col-8 text-end mt-1'><strong className='text-success'><small>0x04f7794FeF90E83d195CaEdF810e9632bf6</small></strong></div>
+
+                                    <div className='col-6'><strong><small></small></strong></div>
+                                    <div className='col-6 text-end'><small>(Do not send BNB to the token address)</small></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Total Supply</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>100,000,000,000 NFTF</small></strong></div>
+
+                                    <div className='col-6'><strong><small>Tokens For Presale</small></strong></div>
+                                    <div className='col-6 text-end'><strong className=''><small>30,000,000,000 NFTF</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Tokens For Liquidity</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>19,500,000,000 NFTF</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Presale Rate</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>1 BNB = 60,000,000,000 NFTF</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Listing Rate</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>1 BNB = 60,000,000,000 NFTF</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Initial Market Cap (estimate)</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>$322,291</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Soft Cap</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>250 BNB</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Hard Cap</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>500 BNB</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Unsold Tokens</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>Burn</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Presale Start Time</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>2022.01.29 13:00 (UTC)</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Presale End Time</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>2022.01.29 13:00 (UTC)</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Listing On</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className='text-success'><small>Pancakeswap</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Liquidity Percent</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>65%</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Liquidity Lockup Time</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>730 days after pool ends</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Total Team Vesting Tokens</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>15,000,000,000 NFTF</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>First Release After Listing (days)</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>14 days</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>First Release AFor Team</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>20%</small></strong></div>
+
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Tokens Release each cycle</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>20% each 30 day</small></strong></div>
+                                    <br/>
+                                    <br/>
+                                    <hr/>
+
+                                    <div className='col-6'><strong><small>Team Vesting info (Estimate from end time)</small></strong></div>
+                                    <div className='col-6 text-end'>
+
+                                        <a className='onTokenreleasearrowdown' data-bs-toggle='collapse' href='#collapseTokensrelease' role='button' aria-expanded='true' aria-controls='collapseTokensrelease'><i className='bi-arrow-up-circle-fill'></i></a>
+                                        <a className='onTokenreleasearrowup' data-bs-toggle='collapse' href='#collapseTokensrelease' role='button' aria-expanded='true' aria-controls='collapseTokensrelease'><i className='bi-arrow-down-circle-fill'></i></a>
+
+                                    </div>
+
+                                    <div className='col-12'>
+                                        <div className='collapse show' id='collapseTokensrelease'>
+                                            <div className='row'>
+                                                <div className='col-4 text-center'><strong><small>Unlock #</small></strong></div>
+                                                <div className='col-4 text-center'><strong><small>Time (UTC)</small></strong></div>
+                                                <div className='col-4 text-center'><strong><small>Unlocked Tokens</small></strong></div>
+                                                </div>
+                                                <div className='row mt-2'>
+                                                <div className='col-4 text-center'><strong><small>1</small></strong></div>
+                                                <div className='col-4 text-center'><small>2022.02.16 13:00</small></div>
+                                                <div className='col-4 text-center'><small>3,000,000 (20%)</small></div>
+                                                </div>
+                                                <div className='row mt-2'>
+                                                <div className='col-4 text-center'><strong><small>2</small></strong></div>
+                                                <div className='col-4 text-center'><small>2022.02.16 13:00</small></div>
+                                                <div className='col-4 text-center'><small>3,000,000 (20%)</small></div>
+                                                </div>
+                                                <div className='row mt-2'>
+                                                <div className='col-4 text-center'><strong><small>3</small></strong></div>
+                                                <div className='col-4 text-center'><small>2022.02.16 13:00</small></div>
+                                                <div className='col-4 text-center'><small>3,000,000 (20%)</small></div>
+                                                </div>
+                                                <div className='row mt-2'>
+                                                <div className='col-4 text-center'><strong><small>4</small></strong></div>
+                                                <div className='col-4 text-center'><small>2022.02.16 13:00</small></div>
+                                                <div className='col-4 text-center'><small>3,000,000 (20%)</small></div>
+                                                </div>
+                                                <div className='row mt-2'>
+                                                <div className='col-4 text-center'><strong><small>5</small></strong></div>
+                                                <div className='col-4 text-center'><small>2022.02.16 13:00</small></div>
+                                                <div className='col-4 text-center'><small>3,000,000 (20%)</small></div>
+                                            </div>
+                                            <hr/>
+                                            <div className='row mt-3'>
+                                                <div className='col-12 text-center'>
+                                                    <p>
+                                                        <a className='pagination-left-arrow'><i className='bi-caret-left-fill'></i></a> 
+                                                        <label className='pagination-count'>1</label> 
+                                                        <a className='pagination-right-arrow'><i className='bi-caret-right-fill'></i></a>
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col-sm-3 removePaddingRight' id="side_menu_right">
-                                        {btcContent}
-                                        {ltcContent}
-                                        {ethContent}
-                                        {bnbContent}
+                                </div>
+                            </div>
+
+                            <div className='launchpad-view-pool-body mt-2 mb-2'>
+                                <strong><large>Tokens Matrics</large></strong>
+                                <hr/>
+                                <div className='row mt-4 mb-3'>
+                                    <div className='col-5'><img className='img-fluid' src='assets/images/pie-chart.png' alt=''/></div>
+                                    <div className='col-7'>
+                                        <div className='col-lg-12'>
+                                            <a className='float-start'><i className='bi-dot bi-dot-style-presale'></i> Presale</a>
+                                            <a className='float-end text-percent-presale'>30%</a>
+                                        </div>
+                                        <br/>
+                                        <div className='col-lg-12 mt-3'>
+                                            <a className='float-start'><i className='bi-dot bi-dot-style-liquidity'></i> Liquidity</a>
+                                            <a className='float-end text-percent-liquidity'>40%</a>
+                                        </div>
+                                        <br/>
+                                        <div className='col-lg-12 mt-3'>
+                                            <a className='float-start'><i className='bi-dot bi-dot-style-team-vesting'></i> Team Vesting</a>
+                                            <a className='float-end text-percent-team-vesting'>20%</a>
+                                        </div>
+                                        <br/>
+                                        <div className='col-lg-12 mt-3'>
+                                            <a className='float-start'><i className='bi-dot bi-dot-style-locked'></i> Locked</a>
+                                            <a className='float-end text-percent-locked'>10%</a>
+                                        </div>
+                                        <br/>
+
+                                        <div className='col-lg-12 mt-3'>
+                                            <a className='float-start'><i className='bi-dot bi-dot-style-unlocked'></i> UnLocked</a>
+                                            <a className='float-end text-percent-unlocked'>0%</a>
+                                        </div>
+                                        <br/>
+                                        <div className='col-lg-12 mt-3'>
+                                            <a className='float-start'><i className='bi-dot bi-dot-style-burnt'></i> Burnt</a>
+                                            <a className='float-end text-percent-burnt'>0%</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='row'>
+                                <div className='col-11 mx-auto text-center mt-4 mb-4'>
+                                    <small>Disclaimer: The information provided shall not in any way constitute a recommendation as to whether you should invest in any product discussed. We accept no liability for any loss occasioned to any person acting or refraining from action as a result of any material provided or published.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-md-3'>
+                            <div className='position-sticky float-right-panel'>
+                                <div className='box-right-panel'>
+                                    <div className='row'>
+                                        <small className='text-center'>Presale Ends In</small>
+                                    </div>
+                                    <div className='row'>
+                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='btn onLockbuttonumbers'><small>327</small></a></div></div>
+                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='btn onLockbuttonumbers'><small>28</small></a></div></div>
+                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='btn onLockbuttonumbers'><small>268</small></a></div></div>
+                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='btn onLockbuttonumbers'><small>15</small></a></div></div>
+                                    </div>
+
+                                    <div className='row'>
+                                        <div className='col-11 mx-auto'>
+                                            <div className='progress mt-2'>
+                                                <div className='progress-bar progress-bar-striped progress-bar-animated w-75' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div>
+                                            </div>
+                                        </div>
+                                        <div className='col-6 mt-2'><small className='ml-3 text-muted'>11.915311 BNB</small></div>
+                                        <div className='col-6 mt-2'><small className='float-end me-3 text-muted'>500 BNB</small></div>
+                                    </div>
+
+                                    <div className='row mt-2'>
+                                        <form>
+                                            <div className='row'>
+
+                                            <div className='col-12'>
+                                                <label htmlFor='formGroupExampleInput' className='form-label'><small>* Amount (max: 2.9 BNB)</small></label>
+                                                <div className='input-group mb-2'>
+                                                <input type='text' className='form-control input-create-new-group-amount-max' placeholder='' aria-label='' aria-describedby=''/>
+                                                <span className='input-group-text input-create-new-group-amount-max text-success' id=''>MAX</span>
+                                                </div>
+                                            </div>
+
+                                            <div className='col-12 text-center'>
+                                                <a className='btn onBuyamounts mt-2'><small>BUY</small></a>
+                                            </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div className='launchpad-view-pool-body mt-2 mb-2'>
+                                    <div className='row'>
+                                        <div className='col-3 mt-1 mb-1'><strong><small>Status</small></strong></div>
+                                        <div className='col-9 text-end mt-1 mb-1'><strong className='text-success'><small>Inprogress</small></strong></div>
+
+                                        <div className='col-6 mt-1 mb-1'><strong><small>Minimum Buy</small></strong></div>
+                                        <div className='col-6 text-end mt-1 mb-1'><strong><small>0.1 BNB</small></strong></div>
+
+                                        <div className='col-6 mt-1 mb-1'><strong><small>Maximum Buy</small></strong></div>
+                                        <div className='col-6 text-end mt-1 mb-1'><strong><small>3 BNB</small></strong></div>
+
+                                        <div className='col-9 mt-1 mb-1'><strong><small>Your purchased</small></strong></div>
+                                        <div className='col-3 text-end mt-1 mb-1'><strong><small>0 BNB</small></strong></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className='modal createtoken' id='staticBackdropCreateToken' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
-                    <div className='modal-dialog modal-dialog-centered'>
-                        <div className='modal-content shadow-lg'>
+                </section>
+                <section id='crypter-section' className='crypter-section-mobile'>
+                    <div className='row'>
+                        <div className='col-md-12'>
+                            <div className='box-middle-panel-products-mobile'>
+                                <div className='launchpad-view-pool-body'>
+                                    <div className='row'>
+                                        <div className='col-1 text-center'>
+                                            <img className='rounded-circle border-info mt-2' width='40' src='assets/images/sample-user-primary-picture-7.png'/>
+                                        </div>
+                                        <div className='col-6 text-start'>
+                                            <small className='ml-4'>NFT Fashion..</small>
+                                            <br/>
+                                            <img width='17' className='float-start ml-4 mt-2' src='assets/images/icon-global2.png' alt='' />
+                                            <img width='17' className='float-start ml-0 mt-2' src='assets/images/icon-smm-facebook.png' alt='' />
+                                            <img width='17' className='float-start ml-0 mt-2' src='assets/images/icon-smm-twitter.png' alt=''/>
+                                            <img width='17' className='float-start ml-0 mt-2' src='assets/images/icon-arrow-submit.png' alt=''/>
+                                            <img width='17' className='float-start ml-0 mt-2' src='assets/images/icon-smm-instagram.png' alt=''/>
+                                        </div>
+                                        <div className='col-5'>
+                                            <a className='float-end onAuditmobile'>Audit</a>
+                                            <a className='float-end onSalelivemobile'><i className='bi-dot bi-dot-sale-live'></i>Sale live</a>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div className='row'>
+                                        <div className='col-12'>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='box-right-panel'>
+                                <div className='row'>
+                                    <small className='text-center'>Presale Ends In</small>
+                                </div>
 
-                            <div className='modal-header'>
-                            <h4 className='modal-title' id='staticBackdropLabel'>Create token</h4>
-                            <a className='onClosecreatetokens shadow float-end'  data-bs-dismiss='modal'><i className='bi-x'></i></a>
+                                <div className='row'>
+                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='btn onLockbuttonumbers'><small>327</small></a></div></div>
+                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='btn onLockbuttonumbers'><small>28</small></a></div></div>
+                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='btn onLockbuttonumbers'><small>268</small></a></div></div>
+                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='btn onLockbuttonumbers'><small>15</small></a></div></div>
+                                </div>
+
+                                <div className='row'>
+                                    <div className='col-11 mx-auto'>
+                                        <div className='progress mt-1'>
+                                            <div className='progress-bar progress-bar-striped progress-bar-animated w-75' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div>
+                                        </div>
+                                    </div>
+                                    <div className='col-6 mt-2'><small className='ml-3 text-muted'>11.915311 BNB</small></div>
+                                    <div className='col-6 mt-2'><small className='float-end mr-3 text-muted'>500 BNB</small></div>
+                                </div>
+
+                                <div className='row mt-2'>
+                                    <form>
+                                        <div className='row'>
+                                            <div className='col-12'>
+                                                <label htmlFor='formGroupExampleInput' className='form-label'><small>* Amount (max: 2.9 BNB)</small></label>
+                                                <div className='input-group mb-2'>
+                                                    <input type='text' className='form-control input-create-new-group-amount-max' placeholder='' aria-label='' aria-describedby=''/>
+                                                    <span className='input-group-text input-create-new-group-amount-max text-success' id=''>MAX</span>
+                                                </div>
+                                            </div>
+                                            <div className='col-12 text-center'>
+                                                <a className='btn onBuyamounts mt-2'><small>BUY</small></a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div className='launchpad-view-pool-body mt-2 mb-2'>
+                                <div className='row'>
+                                    <div className='col-3 mt-1 mb-1'><strong><small>Status</small></strong></div>
+                                    <div className='col-9 text-end mt-1 mb-1'><strong className='text-success'><small>Inprogress</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Minimum Buy</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong><small>0.1 BNB</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><small>Maximum Buy</small></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong><small>3 BNB</small></strong></div>
+                                    <div className='col-9 mt-1 mb-1'><strong><small>Your purchased</small></strong></div>
+                                    <div className='col-3 text-end mt-1 mb-1'><strong><small>0 BNB</small></strong></div>
+                                </div>
+                            </div>
+                            <div className='launchpad-view-pool-body-mobile mt-2 mb-2'>
+                                <div className='row'>
+                                    <div className='col-lg-3 mt-1 mb-1'><strong className='text-muted'><small>Presale Address</small></strong></div>
+                                    <div className='col-lg-9 text-start mt-1 mb-1'><strong className='text-success'><small>0x04f7794FeF90E83d1...</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Token Name</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>lorem Ipsum</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Token Symbol</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>LEP</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Token Decimal</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>18</small></strong></div>
+
+                                    <div className='col-lg-3 mt-1 mb-1'><strong className='text-muted'><small>Token Address</small></strong></div>
+                                    <div className='col-lg-9 text-start mt-1 mb-1'><strong className='text-success'><small>0x04f7794FeF90E83d1...</small></strong></div>
+
+                                    <div className='col-lg-6'><strong><small></small></strong></div>
+                                    <div className='col-lg-6 text-start'><small>(Do not send BNB to the token address)</small></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Total Supply</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>100,000,000,000 NFTF</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Tokens For Presale</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>30,000,000,000 NFTF</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong><small>Tokens For Liquidity</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>19,500,000,000 NFTF</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Presale Rate</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>1 BNB = 60,000,000,000 NFTF</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Listing Rate</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>1 BNB = 60,000,000,000 NFTF</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Initial Market Cap (estimate)</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>$322,291</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Soft Cap</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>250 BNB</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Hard Cap</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>500 BNB</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Unsold Tokens</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>Burn</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Presale Start Time</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>2022.01.29 13:00 (UTC)</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Presale End Time</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>2022.01.29 13:00 (UTC)</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Listing On</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>Pancakeswap</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Liquidity Percent</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>65%</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Liquidity Lockup Time</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>730 days after pool ends</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Total Team Vesting Tokens</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>15,000,000,000 NFTF</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>First Release After Listing (days)</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>14 days</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>First Release AFor Team</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>20%</small></strong></div>
+
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Tokens Release each cycle</small></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>20% each 30 day</small></strong></div>
+                                </div>
+                            </div>
+                            <div className='row p-2'>
+                                <div className='col-10'><strong><small>Team Vesting info (Estimate from end time)</small></strong></div>
+                                <div className='col-2 text-end'>
+                                    <a className='onTokenreleasearrowdown' data-bs-toggle='collapse' href='#collapseTokensreleasemobile' role='button' aria-expanded='true' aria-controls='collapseTokensreleasemobile'><i className='bi-arrow-up-circle-fill'></i></a>
+                                    <a className='onTokenreleasearrowup' data-bs-toggle='collapse' href='#collapseTokensreleasemobile' role='button' aria-expanded='true' aria-controls='collapseTokensreleasemobile'><i className='bi-arrow-down-circle-fill'></i></a>
+                                </div>
+                            </div>
+                            <div className='collapse show' id='collapseTokensreleasemobile'>
+                                <div className='launchpad-team-vesting-body-mobile mt-2 mb-2'>
+                                    <div className='row'>
+                                        <div className='col-6'><small className='text-muted mt-0'>Unlock #</small></div>
+                                        <div className='col-6'><small className='mt-0'><strong>1</strong></small></div>
+
+                                        <div className='col-6'><small className='text-muted mt-0'>Unlocked tokens</small></div>
+                                        <div className='col-6'><small className='mt-0'><strong>3,000,000,000 (20%)</strong></small></div>
+
+                                        <div className='col-6'><small className='text-muted mt-0'>Time (UTC)</small></div>
+                                        <div className='col-6'><small className='mt-0'><strong>2022.02.16 13:00</strong></small></div>
+                                    </div>
+                                </div>
+
+                                <div className='launchpad-team-vesting-body-mobile mt-2 mb-2'>
+                                    <div className='row'>
+                                        <div className='col-6'><small className='text-muted mt-0'>Unlock #</small></div>
+                                        <div className='col-6'><small className='mt-0'><strong>1</strong></small></div>
+
+                                        <div className='col-6'><small className='text-muted mt-0'>Unlocked tokens</small></div>
+                                        <div className='col-6'><small className='mt-0'><strong>3,000,000,000 (20%)</strong></small></div>
+
+                                        <div className='col-6'><small className='text-muted mt-0'>Time (UTC)</small></div>
+                                        <div className='col-6'><small className='mt-0'><strong>2022.02.16 13:00</strong></small></div>
+                                    </div>
+                                </div>
+
+                                <div className='launchpad-team-vesting-body-mobile mt-2 mb-2'>
+                                    <div className='row'>
+                                        <div className='col-6'><small className='text-muted mt-0'>Unlock #</small></div>
+                                        <div className='col-6'><small className='mt-0'><strong>3</strong></small></div>
+
+                                        <div className='col-6'><small className='text-muted mt-0'>Unlocked tokens</small></div>
+                                        <div className='col-6'><small className='mt-0'><strong>3,000,000,000 (20%)</strong></small></div>
+
+                                        <div className='col-6'><small className='text-muted mt-0'>Time (UTC)</small></div>
+                                        <div className='col-6'><small className='mt-0'><strong>2022.02.16 13:00</strong></small></div>
+                                    </div>
+                                </div>
+                                
+                                <div className='row mt-3'>
+                                    <div className='col-12 text-center'>
+                                        <p>
+                                            <a className='pagination-left-arrow'><i className='bi-caret-left-fill'></i></a> 
+                                            <medium className='pagination-count'>1</medium> 
+                                            <a className='pagination-right-arrow'><i className='bi-caret-right-fill'></i></a>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div className='modal-body'>
-                                <form>
-                                <div className='mb-3'>
-                                    <label htmlFor='inputState' className='form-label form-control-sm'><small>(*) is required field.</small><br/><p>Token Type*</p></label>
-                                    <select id='tokentypes' onChange={this.changeTokenType} value={this.state.tokenType} className='form-control'>
-                                        <option value='standard_token'>Standard Token</option>
-                                        <option value='LiquidityGeneratorToken'>Liquidity Generator Token</option>
-                                        <option value='babytoken'>Baby Token</option>
-                                        <option value='BuybackBabyToken'>Buyback Baby Token</option>
-                                    </select>
-                                    <small>Fee: {createFee} {this.state.symbol}</small>
+                            <div className='launchpad-view-pool-body mt-2 mb-2'>
+                                <strong><large>Tokens Matrics</large></strong>
+                                <hr/>
+                                <div className='row mt-4 mb-3'>
+                                    <div className='col-lg-5 text-center'><img className='img-fluid' src='assets/images/pie-chart.png' alt='' /></div>
+                                    <div className='col-lg-7'>
+                                        <div className='col-lg-12'>
+                                            <a className='float-start'><i className='bi-dot bi-dot-style-presale'></i> Presale</a>
+                                            <a className='float-end text-percent-presale'>30%</a>
+                                        </div>
+                                        <br/>
+                                        <div className='col-lg-12 mt-3'>
+                                            <a className='float-start'><i className='bi-dot bi-dot-style-liquidity'></i> Liquidity</a>
+                                            <a className='float-end text-percent-liquidity'>40%</a>
+                                        </div>
+                                        <br/>
+                                        <div className='col-lg-12 mt-3'>
+                                            <a className='float-start'><i className='bi-dot bi-dot-style-team-vesting'></i> Team Vesting</a>
+                                            <a className='float-end text-percent-team-vesting'>20%</a>
+                                        </div>
+                                        <br/>
+                                        <div className='col-lg-12 mt-3'>
+                                            <a className='float-start'><i className='bi-dot bi-dot-style-locked'></i> Locked</a>
+                                            <a className='float-end text-percent-locked'>10%</a>
+                                        </div>
+                                        <br/>
+                                        <div className='col-lg-12 mt-3'>
+                                            <a className='float-start'><i className='bi-dot bi-dot-style-unlocked'></i> UnLocked</a>
+                                            <a className='float-end text-percent-unlocked'>0%</a>
+                                        </div>
+                                        <br/>
+                                        <div className='col-lg-12 mt-3'>
+                                            <a className='float-start'><i className='bi-dot bi-dot-style-burnt'></i> Burnt</a>
+                                            <a className='float-end text-percent-burnt'>0%</a>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <div className='mb-3'>
-                                    <label htmlFor='formGroupExampleInput' className='form-label'><p>Name*</p></label>
-                                    <input type='text' className='form-control form-control-sm' id='formGroupExampleInput' placeholder='Ex: Ethereum'/>
-                                </div>
-
-                                <div className='mb-3'>
-                                    <label htmlFor='formGroupExampleInput' className='form-label'><p>Symbol*</p></label>
-                                    <input type='text' className='form-control form-control-sm' id='formGroupExampleInput' placeholder='Ex: RTH'/>
-                                </div>
-
-                                <div className='mb-3'>
-                                    <label htmlFor='formGroupExampleInput' className='form-label'><p>Decimals*</p></label>
-                                    <input type='text' className='form-control form-control-sm' id='formGroupExampleInput' placeholder='Ex: 18'/>
-                                </div>
-
-                                <div className='mb-3'>
-                                    <label htmlFor='formGroupExampleInput' className='form-label'><p>Total supply*</p></label>
-                                    <input type='text' className='form-control form-control-sm' id='formGroupExampleInput' placeholder='Ex: 1000000000000'/>
-                                </div>
-
-                                {createTokenInfo}
-
-                                <div className='mt-3'>
-                                    <input className='form-check-input onImplementpinkantisystem' value={antiBot} onChange={this.handleChangeAntiBot} type='checkbox' id='antiBot'/>
-                                    <label className='form-check-label ml-2' htmlFor='antiBot'>
-                                        <p>Implement Pink Anti-Bot System?</p>
-                                    </label>
-                                    {antiBotInfo}
-                                </div>
-
-                                <div className='col-lg-12 text-center mt-3'>
-                                        <button type='button' className='btn-sm btn-create-token'>Create token</button>
-                                </div>
-                                </form>
                             </div>
-
+                            <div className='row'>
+                                <div className='col-11 mx-auto text-center mt-4 mb-4'>
+                                    <small>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div className='modal choosenetwork' id='staticBackdropNetwork' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
-                    <div className='modal-dialog modal-dialog-centered'>
-                        <div className='modal-content shadow-lg'>
-                            <div className='modal-header'>
-                                <h6 className='modal-title' id='staticBackdropLabel'>Choose network</h6>
-                                <a className='onClosechoosenetwork shadow float-end' data-bs-dismiss='modal'><i className='bi-x'></i></a>
-                            </div>
-                            <div className='modal-body'>
-                                <NetworkModal changeNetwork={this.handleNetworkChange} symbolChange={this.handleSymbolChange} rpcUrls={this.handleRpcUrls}/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className='modal connecttowallet' id='staticBackdropConnect' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
-                    <div className='modal-dialog modal-dialog-centered'>
-                        <div className='modal-content shadow-lg'>
-                            <div className='modal-header'>
-                                <h6 className='modal-title' id='staticBackdropLabel'>Connect to a wallet</h6>
-                                <a className='onCloseconnectoawallet shadow float-end' data-bs-dismiss='modal'><i className='bi-x'></i></a>
-                            </div>
-                            <div className='modal-body'>
-                                <SelectWalletModal />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </section>
             </>
         );
     }
