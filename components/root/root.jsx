@@ -539,7 +539,7 @@ export default class Root extends React.PureComponent {
                         from={'/_redirect/pl/:postid'}
                         to={`/${this.props.permalinkRedirectTeamName}/pl/:postid`}
                     />
-                    <>{/*<CompassThemeProvider theme={this.props.theme}>*/}
+                    <CompassThemeProvider theme={this.props.theme}>
                         <ModalController/>
                         <GlobalHeaderStyle/>
                         <div className='mainContentRow d-flex flex-row page-content'>
@@ -707,7 +707,7 @@ export default class Root extends React.PureComponent {
                             </Switch>
                         </div>
                         <Pluggable pluggableName='Global'/>
-                    </>{/*</CompassThemeProvider>*/}
+                    </CompassThemeProvider>
                 </Switch>
             </IntlProvider>
         );
