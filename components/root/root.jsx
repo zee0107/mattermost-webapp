@@ -58,6 +58,8 @@ const LazyProfilePage = React.lazy(() => import('components/profile_page'));
 const LazyNewsFeed = React.lazy(() => import('components/newsfeed'));
 const LazyGroup = React.lazy(() => import('components/groups'));
 const LazyDocuments = React.lazy(() => import('components/documents'));
+const LazyDocumentsBuyPresale = React.lazy(() => import('components/documents-buy-presale'));
+const LazyDocumentsClaimTokens = React.lazy(() => import('components/documents-claim-tokens'));
 const LazyDocumentsPresaleVesting = React.lazy(() => import('components/documents-presale-vesting'));
 const LazyDocumentsTeamVesting = React.lazy(() => import('components/documents-team-vesting'));
 const LazyDocumentsStablecoin = React.lazy(() => import('components/documents-presale-stablecoin'));
@@ -131,6 +133,8 @@ const ProfilePage = makeAsyncComponent('ProfilePage', LazyProfilePage);
 const NewsFeed = makeAsyncComponent('Newsfeed', LazyNewsFeed);
 const Groups = makeAsyncComponent('Group', LazyGroup);
 const Documents = makeAsyncComponent('Documents', LazyDocuments);
+const DocumentsBuyPresale = makeAsyncComponent('DocumentsBuyPresale', LazyDocumentsBuyPresale);
+const DocumentsClaimTokens = makeAsyncComponent('DocumentsClaimTokens', LazyDocumentsClaimTokens);
 const DocumentsPresaleVesting = makeAsyncComponent('DocumentsPresaleVesting', LazyDocumentsPresaleVesting);
 const DocumentsTeamVesting = makeAsyncComponent('DocumentsTeamVesting', LazyDocumentsTeamVesting);
 const DocumentsStablecoin = makeAsyncComponent('DocumentsStablecoin', LazyDocumentsStablecoin);
@@ -588,6 +592,14 @@ export default class Root extends React.PureComponent {
                                 <LoginHFTRouteNS
                                     path={'/documents/intro'}
                                     component={Documents}
+                                />
+                                <LoginHFTRouteNS
+                                    path={'/documents/how-to-buy-a-presale'}
+                                    component={DocumentsBuyPresale}
+                                />
+                                <LoginHFTRouteNS
+                                    path={'/documents/how-to-claim-tokens'}
+                                    component={DocumentsClaimTokens}
                                 />
                                  <LoginHFTRouteNS
                                     path={'/documents/team-vesting-guide'}
