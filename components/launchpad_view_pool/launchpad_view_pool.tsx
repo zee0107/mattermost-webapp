@@ -80,14 +80,14 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
             <>
                 <section id='crypter-section' className='crypter-section-desktop'>
                     <div className='row'>
-                        <div className='col-md-6'>
+                        <div className='col-md-9'>
                             <div className='launchpad-view-pool-body mt-2'>
                                 <div className='row'>
                                     <div className='col-1 text-center'>
                                         <img className='rounded-circle border-info mt-2' width='40' src='assets/images/sample-user-primary-picture-7.png'/>
                                     </div>
                                     <div className='col-6 text-start'>
-                                        <small className='ml-2'>NFT Fashion Presale</small>
+                                        <label className='ml-2'>NFT Fashion Presale</label>
                                         <br/>
                                         <img width='17' className='float-start ml-2 mt-2' src='assets/images/icon-global2.png' alt=''/>
                                         <img width='17' className='float-start ml-2 mt-2' src='assets/images/icon-smm-facebook.png' alt=''/>
@@ -111,82 +111,82 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
 
                             <div className='launchpad-view-pool-body mt-2 mb-2'>
                                 <div className='row'>
-                                    <div className='col-4 mt-1 mb-1'><strong><small>Presale Address</small></strong></div>
-                                    <div className='col-8 text-end mt-1 mb-1'><strong className='text-success'><small>0x04f7794FeF90E83d195CaEdF810e9632bf6</small></strong></div>
+                                    <div className='col-4 mt-1 mb-1'><strong><label>Presale Address</label></strong></div>
+                                    <div className='col-8 text-end mt-1 mb-1'><strong className='text-success'><label>0x04f7794FeF90E83d195CaEdF810e9632bf6</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Token Name</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong><small>lorem Ipsum</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Token Name</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong><label>lorem Ipsum</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Token Symbol</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong><small>LEP</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Token Symbol</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong><label>LEP</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Token Decimal</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong><small>18</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Token Decimal</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong><label>18</label></strong></div>
 
-                                    <div className='col-4 mt-1'><strong><small>Token Address</small></strong></div>
-                                    <div className='col-8 text-end mt-1'><strong className='text-success'><small>0x04f7794FeF90E83d195CaEdF810e9632bf6</small></strong></div>
+                                    <div className='col-4 mt-1'><strong><label>Token Address</label></strong></div>
+                                    <div className='col-8 text-end mt-1'><strong className='text-success'><label>0x04f7794FeF90E83d195CaEdF810e9632bf6</label></strong></div>
 
-                                    <div className='col-6'><strong><small></small></strong></div>
-                                    <div className='col-6 text-end'><small>(Do not send BNB to the token address)</small></div>
+                                    <div className='col-6'><strong><label></label></strong></div>
+                                    <div className='col-6 text-end'><label>(Do not send BNB to the token address)</label></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Total Supply</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>100,000,000,000 NFTF</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Total Supply</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>100,000,000,000 NFTF</label></strong></div>
 
-                                    <div className='col-6'><strong><small>Tokens For Presale</small></strong></div>
-                                    <div className='col-6 text-end'><strong className=''><small>30,000,000,000 NFTF</small></strong></div>
+                                    <div className='col-6'><strong><label>Tokens For Presale</label></strong></div>
+                                    <div className='col-6 text-end'><strong className=''><label>30,000,000,000 NFTF</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Tokens For Liquidity</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>19,500,000,000 NFTF</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Tokens For Liquidity</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>19,500,000,000 NFTF</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Presale Rate</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>1 BNB = 60,000,000,000 NFTF</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Presale Rate</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>1 BNB = 60,000,000,000 NFTF</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Listing Rate</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>1 BNB = 60,000,000,000 NFTF</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Listing Rate</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>1 BNB = 60,000,000,000 NFTF</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Initial Market Cap (estimate)</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>$322,291</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Initial Market Cap (estimate)</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>$322,291</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Soft Cap</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>250 BNB</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Soft Cap</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>250 BNB</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Hard Cap</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>500 BNB</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Hard Cap</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>500 BNB</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Unsold Tokens</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>Burn</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Unsold Tokens</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>Burn</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Presale Start Time</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>2022.01.29 13:00 (UTC)</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Presale Start Time</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>2022.01.29 13:00 (UTC)</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Presale End Time</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>2022.01.29 13:00 (UTC)</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Presale End Time</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>2022.01.29 13:00 (UTC)</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Listing On</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className='text-success'><small>Pancakeswap</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Listing On</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className='text-success'><label>Pancakeswap</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Liquidity Percent</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>65%</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Liquidity Percent</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>65%</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Liquidity Lockup Time</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>730 days after pool ends</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Liquidity Lockup Time</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>730 days after pool ends</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Total Team Vesting Tokens</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>15,000,000,000 NFTF</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Total Team Vesting Tokens</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>15,000,000,000 NFTF</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>First Release After Listing (days)</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>14 days</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>First Release After Listing (days)</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>14 days</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>First Release AFor Team</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>20%</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>First Release AFor Team</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>20%</label></strong></div>
 
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Tokens Release each cycle</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><small>20% each 30 day</small></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Tokens Release each cycle</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>20% each 30 day</label></strong></div>
                                     <br/>
                                     <br/>
                                     <hr/>
 
-                                    <div className='col-6'><strong><small>Team Vesting info (Estimate from end time)</small></strong></div>
+                                    <div className='col-6'><strong><label>Team Vesting info (Estimate from end time)</label></strong></div>
                                     <div className='col-6 text-end'>
 
                                         <a className='onTokenreleasearrowdown' data-bs-toggle='collapse' href='#collapseTokensrelease' role='button' aria-expanded='true' aria-controls='collapseTokensrelease'><i className='bi-arrow-up-circle-fill'></i></a>
@@ -197,34 +197,34 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <div className='col-12'>
                                         <div className='collapse show' id='collapseTokensrelease'>
                                             <div className='row'>
-                                                <div className='col-4 text-center'><strong><small>Unlock #</small></strong></div>
-                                                <div className='col-4 text-center'><strong><small>Time (UTC)</small></strong></div>
-                                                <div className='col-4 text-center'><strong><small>Unlocked Tokens</small></strong></div>
+                                                <div className='col-4 text-center'><strong><label>Unlock #</label></strong></div>
+                                                <div className='col-4 text-center'><strong><label>Time (UTC)</label></strong></div>
+                                                <div className='col-4 text-center'><strong><label>Unlocked Tokens</label></strong></div>
                                                 </div>
                                                 <div className='row mt-2'>
-                                                <div className='col-4 text-center'><strong><small>1</small></strong></div>
-                                                <div className='col-4 text-center'><small>2022.02.16 13:00</small></div>
-                                                <div className='col-4 text-center'><small>3,000,000 (20%)</small></div>
+                                                <div className='col-4 text-center'><strong><label>1</label></strong></div>
+                                                <div className='col-4 text-center'><label>2022.02.16 13:00</label></div>
+                                                <div className='col-4 text-center'><label>3,000,000 (20%)</label></div>
                                                 </div>
                                                 <div className='row mt-2'>
-                                                <div className='col-4 text-center'><strong><small>2</small></strong></div>
-                                                <div className='col-4 text-center'><small>2022.02.16 13:00</small></div>
-                                                <div className='col-4 text-center'><small>3,000,000 (20%)</small></div>
+                                                <div className='col-4 text-center'><strong><label>2</label></strong></div>
+                                                <div className='col-4 text-center'><label>2022.02.16 13:00</label></div>
+                                                <div className='col-4 text-center'><label>3,000,000 (20%)</label></div>
                                                 </div>
                                                 <div className='row mt-2'>
-                                                <div className='col-4 text-center'><strong><small>3</small></strong></div>
-                                                <div className='col-4 text-center'><small>2022.02.16 13:00</small></div>
-                                                <div className='col-4 text-center'><small>3,000,000 (20%)</small></div>
+                                                <div className='col-4 text-center'><strong><label>3</label></strong></div>
+                                                <div className='col-4 text-center'><label>2022.02.16 13:00</label></div>
+                                                <div className='col-4 text-center'><label>3,000,000 (20%)</label></div>
                                                 </div>
                                                 <div className='row mt-2'>
-                                                <div className='col-4 text-center'><strong><small>4</small></strong></div>
-                                                <div className='col-4 text-center'><small>2022.02.16 13:00</small></div>
-                                                <div className='col-4 text-center'><small>3,000,000 (20%)</small></div>
+                                                <div className='col-4 text-center'><strong><label>4</label></strong></div>
+                                                <div className='col-4 text-center'><label>2022.02.16 13:00</label></div>
+                                                <div className='col-4 text-center'><label>3,000,000 (20%)</label></div>
                                                 </div>
                                                 <div className='row mt-2'>
-                                                <div className='col-4 text-center'><strong><small>5</small></strong></div>
-                                                <div className='col-4 text-center'><small>2022.02.16 13:00</small></div>
-                                                <div className='col-4 text-center'><small>3,000,000 (20%)</small></div>
+                                                <div className='col-4 text-center'><strong><label>5</label></strong></div>
+                                                <div className='col-4 text-center'><label>2022.02.16 13:00</label></div>
+                                                <div className='col-4 text-center'><label>3,000,000 (20%)</label></div>
                                             </div>
                                             <hr/>
                                             <div className='row mt-3'>
@@ -242,7 +242,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                             </div>
 
                             <div className='launchpad-view-pool-body mt-2 mb-2'>
-                                <strong><large>Tokens Matrics</large></strong>
+                                <strong><label>Tokens Matrics</label></strong>
                                 <hr/>
                                 <div className='row mt-4 mb-3'>
                                     <div className='col-5'><img className='img-fluid' src='assets/images/pie-chart.png' alt=''/></div>
@@ -282,7 +282,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                             </div>
                             <div className='row'>
                                 <div className='col-11 mx-auto text-center mt-4 mb-4'>
-                                    <small>Disclaimer: The information provided shall not in any way constitute a recommendation as to whether you should invest in any product discussed. We accept no liability for any loss occasioned to any person acting or refraining from action as a result of any material provided or published.</small>
+                                    <label>Disclaimer: The information provided shall not in any way constitute a recommendation as to whether you should invest in any product discussed. We accept no liability for any loss occasioned to any person acting or refraining from action as a result of any material provided or published.</label>
                                 </div>
                             </div>
                         </div>
@@ -290,13 +290,13 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                             <div className='position-sticky float-right-panel'>
                                 <div className='box-right-panel'>
                                     <div className='row'>
-                                        <small className='text-center'>Presale Ends In</small>
+                                        <label className='text-center'>Presale Ends In</label>
                                     </div>
                                     <div className='row'>
-                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='btn onLockbuttonumbers'><small>327</small></a></div></div>
-                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='btn onLockbuttonumbers'><small>28</small></a></div></div>
-                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='btn onLockbuttonumbers'><small>268</small></a></div></div>
-                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='btn onLockbuttonumbers'><small>15</small></a></div></div>
+                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='btn onLockbuttonumbers'><label>327</label></a></div></div>
+                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='btn onLockbuttonumbers'><label>28</label></a></div></div>
+                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='btn onLockbuttonumbers'><label>268</label></a></div></div>
+                                        <div className='col-3 p-0'><div className='d-grid p-2'><a className='btn onLockbuttonumbers'><label>15</label></a></div></div>
                                     </div>
 
                                     <div className='row'>
@@ -305,8 +305,8 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                                 <div className='progress-bar progress-bar-striped progress-bar-animated w-75' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div>
                                             </div>
                                         </div>
-                                        <div className='col-6 mt-2'><small className='ml-3 text-muted'>11.915311 BNB</small></div>
-                                        <div className='col-6 mt-2'><small className='float-end me-3 text-muted'>500 BNB</small></div>
+                                        <div className='col-6 mt-2'><label className='ml-3 text-muted'>11.915311 BNB</label></div>
+                                        <div className='col-6 mt-2'><label className='float-end me-3 text-muted'>500 BNB</label></div>
                                     </div>
 
                                     <div className='row mt-2'>
@@ -314,7 +314,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                             <div className='row'>
 
                                             <div className='col-12'>
-                                                <label htmlFor='formGroupExampleInput' className='form-label'><small>* Amount (max: 2.9 BNB)</small></label>
+                                                <label htmlFor='formGroupExampleInput' className='form-label'><label>* Amount (max: 2.9 BNB)</label></label>
                                                 <div className='input-group mb-2'>
                                                 <input type='text' className='form-control input-create-new-group-amount-max' placeholder='' aria-label='' aria-describedby=''/>
                                                 <span className='input-group-text input-create-new-group-amount-max text-success' id=''>MAX</span>
@@ -322,7 +322,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                             </div>
 
                                             <div className='col-12 text-center'>
-                                                <a className='btn onBuyamounts mt-2'><small>BUY</small></a>
+                                                <a className='btn onBuyamounts mt-2'><label>BUY</label></a>
                                             </div>
                                             </div>
                                         </form>
@@ -330,17 +330,17 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                 </div>
                                 <div className='launchpad-view-pool-body mt-2 mb-2'>
                                     <div className='row'>
-                                        <div className='col-3 mt-1 mb-1'><strong><small>Status</small></strong></div>
-                                        <div className='col-9 text-end mt-1 mb-1'><strong className='text-success'><small>Inprogress</small></strong></div>
+                                        <div className='col-3 mt-1 mb-1'><strong><label>Status</label></strong></div>
+                                        <div className='col-9 text-end mt-1 mb-1'><strong className='text-success'><label>Inprogress</label></strong></div>
 
-                                        <div className='col-6 mt-1 mb-1'><strong><small>Minimum Buy</small></strong></div>
-                                        <div className='col-6 text-end mt-1 mb-1'><strong><small>0.1 BNB</small></strong></div>
+                                        <div className='col-6 mt-1 mb-1'><strong><label>Minimum Buy</label></strong></div>
+                                        <div className='col-6 text-end mt-1 mb-1'><strong><label>0.1 BNB</label></strong></div>
 
-                                        <div className='col-6 mt-1 mb-1'><strong><small>Maximum Buy</small></strong></div>
-                                        <div className='col-6 text-end mt-1 mb-1'><strong><small>3 BNB</small></strong></div>
+                                        <div className='col-6 mt-1 mb-1'><strong><label>Maximum Buy</label></strong></div>
+                                        <div className='col-6 text-end mt-1 mb-1'><strong><label>3 BNB</label></strong></div>
 
-                                        <div className='col-9 mt-1 mb-1'><strong><small>Your purchased</small></strong></div>
-                                        <div className='col-3 text-end mt-1 mb-1'><strong><small>0 BNB</small></strong></div>
+                                        <div className='col-9 mt-1 mb-1'><strong><label>Your purchased</label></strong></div>
+                                        <div className='col-3 text-end mt-1 mb-1'><strong><label>0 BNB</label></strong></div>
                                     </div>
                                 </div>
                             </div>
@@ -357,7 +357,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                             <img className='rounded-circle border-info mt-2' width='40' src='assets/images/sample-user-primary-picture-7.png'/>
                                         </div>
                                         <div className='col-6 text-start'>
-                                            <small className='ml-4'>NFT Fashion..</small>
+                                            <label className='ml-4'>NFT Fashion..</label>
                                             <br/>
                                             <img width='17' className='float-start ml-4 mt-2' src='assets/images/icon-global2.png' alt='' />
                                             <img width='17' className='float-start ml-0 mt-2' src='assets/images/icon-smm-facebook.png' alt='' />
@@ -380,14 +380,14 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                             </div>
                             <div className='box-right-panel'>
                                 <div className='row'>
-                                    <small className='text-center'>Presale Ends In</small>
+                                    <label className='text-center'>Presale Ends In</label>
                                 </div>
 
                                 <div className='row'>
-                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='btn onLockbuttonumbers'><small>327</small></a></div></div>
-                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='btn onLockbuttonumbers'><small>28</small></a></div></div>
-                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='btn onLockbuttonumbers'><small>268</small></a></div></div>
-                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='btn onLockbuttonumbers'><small>15</small></a></div></div>
+                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='btn onLockbuttonumbers'><label>327</label></a></div></div>
+                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='btn onLockbuttonumbers'><label>28</label></a></div></div>
+                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='btn onLockbuttonumbers'><label>268</label></a></div></div>
+                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='btn onLockbuttonumbers'><label>15</label></a></div></div>
                                 </div>
 
                                 <div className='row'>
@@ -396,22 +396,22 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                             <div className='progress-bar progress-bar-striped progress-bar-animated w-75' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div>
                                         </div>
                                     </div>
-                                    <div className='col-6 mt-2'><small className='ml-3 text-muted'>11.915311 BNB</small></div>
-                                    <div className='col-6 mt-2'><small className='float-end mr-3 text-muted'>500 BNB</small></div>
+                                    <div className='col-6 mt-2'><label className='ml-3 text-muted'>11.915311 BNB</label></div>
+                                    <div className='col-6 mt-2'><label className='float-end mr-3 text-muted'>500 BNB</label></div>
                                 </div>
 
                                 <div className='row mt-2'>
                                     <form>
                                         <div className='row'>
                                             <div className='col-12'>
-                                                <label htmlFor='formGroupExampleInput' className='form-label'><small>* Amount (max: 2.9 BNB)</small></label>
+                                                <label htmlFor='formGroupExampleInput' className='form-label'><label>* Amount (max: 2.9 BNB)</label></label>
                                                 <div className='input-group mb-2'>
                                                     <input type='text' className='form-control input-create-new-group-amount-max' placeholder='' aria-label='' aria-describedby=''/>
                                                     <span className='input-group-text input-create-new-group-amount-max text-success' id=''>MAX</span>
                                                 </div>
                                             </div>
                                             <div className='col-12 text-center'>
-                                                <a className='btn onBuyamounts mt-2'><small>BUY</small></a>
+                                                <a className='btn onBuyamounts mt-2'><label>BUY</label></a>
                                             </div>
                                         </div>
                                     </form>
@@ -419,93 +419,93 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                             </div>
                             <div className='launchpad-view-pool-body mt-2 mb-2'>
                                 <div className='row'>
-                                    <div className='col-3 mt-1 mb-1'><strong><small>Status</small></strong></div>
-                                    <div className='col-9 text-end mt-1 mb-1'><strong className='text-success'><small>Inprogress</small></strong></div>
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Minimum Buy</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong><small>0.1 BNB</small></strong></div>
-                                    <div className='col-6 mt-1 mb-1'><strong><small>Maximum Buy</small></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong><small>3 BNB</small></strong></div>
-                                    <div className='col-9 mt-1 mb-1'><strong><small>Your purchased</small></strong></div>
-                                    <div className='col-3 text-end mt-1 mb-1'><strong><small>0 BNB</small></strong></div>
+                                    <div className='col-3 mt-1 mb-1'><strong><label>Status</label></strong></div>
+                                    <div className='col-9 text-end mt-1 mb-1'><strong className='text-success'><label>Inprogress</label></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Minimum Buy</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong><label>0.1 BNB</label></strong></div>
+                                    <div className='col-6 mt-1 mb-1'><strong><label>Maximum Buy</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong><label>3 BNB</label></strong></div>
+                                    <div className='col-9 mt-1 mb-1'><strong><label>Your purchased</label></strong></div>
+                                    <div className='col-3 text-end mt-1 mb-1'><strong><label>0 BNB</label></strong></div>
                                 </div>
                             </div>
                             <div className='launchpad-view-pool-body-mobile mt-2 mb-2'>
                                 <div className='row'>
-                                    <div className='col-lg-3 mt-1 mb-1'><strong className='text-muted'><small>Presale Address</small></strong></div>
-                                    <div className='col-lg-9 text-start mt-1 mb-1'><strong className='text-success'><small>0x04f7794FeF90E83d1...</small></strong></div>
+                                    <div className='col-lg-3 mt-1 mb-1'><strong className='text-muted'><label>Presale Address</label></strong></div>
+                                    <div className='col-lg-9 text-start mt-1 mb-1'><strong className='text-success'><label>0x04f7794FeF90E83d1...</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Token Name</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>lorem Ipsum</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Token Name</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>lorem Ipsum</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Token Symbol</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>LEP</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Token Symbol</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>LEP</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Token Decimal</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>18</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Token Decimal</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>18</label></strong></div>
 
-                                    <div className='col-lg-3 mt-1 mb-1'><strong className='text-muted'><small>Token Address</small></strong></div>
-                                    <div className='col-lg-9 text-start mt-1 mb-1'><strong className='text-success'><small>0x04f7794FeF90E83d1...</small></strong></div>
+                                    <div className='col-lg-3 mt-1 mb-1'><strong className='text-muted'><label>Token Address</label></strong></div>
+                                    <div className='col-lg-9 text-start mt-1 mb-1'><strong className='text-success'><label>0x04f7794FeF90E83d1...</label></strong></div>
 
-                                    <div className='col-lg-6'><strong><small></small></strong></div>
-                                    <div className='col-lg-6 text-start'><small>(Do not send BNB to the token address)</small></div>
+                                    <div className='col-lg-6'><strong><label></label></strong></div>
+                                    <div className='col-lg-6 text-start'><label>(Do not send BNB to the token address)</label></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Total Supply</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>100,000,000,000 NFTF</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Total Supply</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>100,000,000,000 NFTF</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Tokens For Presale</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>30,000,000,000 NFTF</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Tokens For Presale</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>30,000,000,000 NFTF</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong><small>Tokens For Liquidity</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>19,500,000,000 NFTF</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong><label>Tokens For Liquidity</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>19,500,000,000 NFTF</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Presale Rate</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>1 BNB = 60,000,000,000 NFTF</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Presale Rate</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>1 BNB = 60,000,000,000 NFTF</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Listing Rate</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>1 BNB = 60,000,000,000 NFTF</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Listing Rate</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>1 BNB = 60,000,000,000 NFTF</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Initial Market Cap (estimate)</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>$322,291</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Initial Market Cap (estimate)</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>$322,291</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Soft Cap</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>250 BNB</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Soft Cap</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>250 BNB</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Hard Cap</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>500 BNB</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Hard Cap</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>500 BNB</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Unsold Tokens</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>Burn</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Unsold Tokens</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>Burn</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Presale Start Time</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>2022.01.29 13:00 (UTC)</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Presale Start Time</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>2022.01.29 13:00 (UTC)</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Presale End Time</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>2022.01.29 13:00 (UTC)</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Presale End Time</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>2022.01.29 13:00 (UTC)</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Listing On</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>Pancakeswap</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Listing On</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>Pancakeswap</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Liquidity Percent</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>65%</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Liquidity Percent</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>65%</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Liquidity Lockup Time</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>730 days after pool ends</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Liquidity Lockup Time</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>730 days after pool ends</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Total Team Vesting Tokens</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>15,000,000,000 NFTF</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Total Team Vesting Tokens</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>15,000,000,000 NFTF</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>First Release After Listing (days)</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>14 days</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>First Release After Listing (days)</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>14 days</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>First Release AFor Team</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>20%</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>First Release AFor Team</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>20%</label></strong></div>
 
-                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><small>Tokens Release each cycle</small></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><small>20% each 30 day</small></strong></div>
+                                    <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Tokens Release each cycle</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>20% each 30 day</label></strong></div>
                                 </div>
                             </div>
                             <div className='row p-2'>
-                                <div className='col-10'><strong><small>Team Vesting info (Estimate from end time)</small></strong></div>
+                                <div className='col-10'><strong><label>Team Vesting info (Estimate from end time)</label></strong></div>
                                 <div className='col-2 text-end'>
                                     <a className='onTokenreleasearrowdown' data-bs-toggle='collapse' href='#collapseTokensreleasemobile' role='button' aria-expanded='true' aria-controls='collapseTokensreleasemobile'><i className='bi-arrow-up-circle-fill'></i></a>
                                     <a className='onTokenreleasearrowup' data-bs-toggle='collapse' href='#collapseTokensreleasemobile' role='button' aria-expanded='true' aria-controls='collapseTokensreleasemobile'><i className='bi-arrow-down-circle-fill'></i></a>
@@ -514,40 +514,40 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                             <div className='collapse show' id='collapseTokensreleasemobile'>
                                 <div className='launchpad-team-vesting-body-mobile mt-2 mb-2'>
                                     <div className='row'>
-                                        <div className='col-6'><small className='text-muted mt-0'>Unlock #</small></div>
-                                        <div className='col-6'><small className='mt-0'><strong>1</strong></small></div>
+                                        <div className='col-6'><label className='text-muted mt-0'>Unlock #</label></div>
+                                        <div className='col-6'><label className='mt-0'><strong>1</strong></label></div>
 
-                                        <div className='col-6'><small className='text-muted mt-0'>Unlocked tokens</small></div>
-                                        <div className='col-6'><small className='mt-0'><strong>3,000,000,000 (20%)</strong></small></div>
+                                        <div className='col-6'><label className='text-muted mt-0'>Unlocked tokens</label></div>
+                                        <div className='col-6'><label className='mt-0'><strong>3,000,000,000 (20%)</strong></label></div>
 
-                                        <div className='col-6'><small className='text-muted mt-0'>Time (UTC)</small></div>
-                                        <div className='col-6'><small className='mt-0'><strong>2022.02.16 13:00</strong></small></div>
+                                        <div className='col-6'><label className='text-muted mt-0'>Time (UTC)</label></div>
+                                        <div className='col-6'><label className='mt-0'><strong>2022.02.16 13:00</strong></label></div>
                                     </div>
                                 </div>
 
                                 <div className='launchpad-team-vesting-body-mobile mt-2 mb-2'>
                                     <div className='row'>
-                                        <div className='col-6'><small className='text-muted mt-0'>Unlock #</small></div>
-                                        <div className='col-6'><small className='mt-0'><strong>1</strong></small></div>
+                                        <div className='col-6'><label className='text-muted mt-0'>Unlock #</label></div>
+                                        <div className='col-6'><label className='mt-0'><strong>1</strong></label></div>
 
-                                        <div className='col-6'><small className='text-muted mt-0'>Unlocked tokens</small></div>
-                                        <div className='col-6'><small className='mt-0'><strong>3,000,000,000 (20%)</strong></small></div>
+                                        <div className='col-6'><label className='text-muted mt-0'>Unlocked tokens</label></div>
+                                        <div className='col-6'><label className='mt-0'><strong>3,000,000,000 (20%)</strong></label></div>
 
-                                        <div className='col-6'><small className='text-muted mt-0'>Time (UTC)</small></div>
-                                        <div className='col-6'><small className='mt-0'><strong>2022.02.16 13:00</strong></small></div>
+                                        <div className='col-6'><label className='text-muted mt-0'>Time (UTC)</label></div>
+                                        <div className='col-6'><label className='mt-0'><strong>2022.02.16 13:00</strong></label></div>
                                     </div>
                                 </div>
 
                                 <div className='launchpad-team-vesting-body-mobile mt-2 mb-2'>
                                     <div className='row'>
-                                        <div className='col-6'><small className='text-muted mt-0'>Unlock #</small></div>
-                                        <div className='col-6'><small className='mt-0'><strong>3</strong></small></div>
+                                        <div className='col-6'><label className='text-muted mt-0'>Unlock #</label></div>
+                                        <div className='col-6'><label className='mt-0'><strong>3</strong></label></div>
 
-                                        <div className='col-6'><small className='text-muted mt-0'>Unlocked tokens</small></div>
-                                        <div className='col-6'><small className='mt-0'><strong>3,000,000,000 (20%)</strong></small></div>
+                                        <div className='col-6'><label className='text-muted mt-0'>Unlocked tokens</label></div>
+                                        <div className='col-6'><label className='mt-0'><strong>3,000,000,000 (20%)</strong></label></div>
 
-                                        <div className='col-6'><small className='text-muted mt-0'>Time (UTC)</small></div>
-                                        <div className='col-6'><small className='mt-0'><strong>2022.02.16 13:00</strong></small></div>
+                                        <div className='col-6'><label className='text-muted mt-0'>Time (UTC)</label></div>
+                                        <div className='col-6'><label className='mt-0'><strong>2022.02.16 13:00</strong></label></div>
                                     </div>
                                 </div>
                                 
@@ -555,7 +555,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <div className='col-12 text-center'>
                                         <p>
                                             <a className='pagination-left-arrow'><i className='bi-caret-left-fill'></i></a> 
-                                            <medium className='pagination-count'>1</medium> 
+                                            <label className='pagination-count'>1</label> 
                                             <a className='pagination-right-arrow'><i className='bi-caret-right-fill'></i></a>
                                         </p>
                                     </div>
@@ -563,7 +563,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                             </div>
 
                             <div className='launchpad-view-pool-body mt-2 mb-2'>
-                                <strong><large>Tokens Matrics</large></strong>
+                                <strong><label>Tokens Matrics</label></strong>
                                 <hr/>
                                 <div className='row mt-4 mb-3'>
                                     <div className='col-lg-5 text-center'><img className='img-fluid' src='assets/images/pie-chart.png' alt='' /></div>
@@ -602,7 +602,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                             </div>
                             <div className='row'>
                                 <div className='col-11 mx-auto text-center mt-4 mb-4'>
-                                    <small>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small>
+                                    <label>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</label>
                                 </div>
                             </div>
                         </div>
