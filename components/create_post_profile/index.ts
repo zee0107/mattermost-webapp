@@ -71,9 +71,9 @@ function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
 
     return (state: GlobalState, ownProps: OwnProps) => {
-        const channelId = 'kqe4sihhdid47gprhk6dwbuc4o';
+        //const channelId = 'kqe4sihhdid47gprhk6dwbuc4o';
         const channelId = 'dodurztr1fbupnpenjgxqjso3a';
-        //const config = getConfig(state);
+        const config = getConfig(state);
         let currentUser;
         if (ownProps.userData === null || ownProps.userData === undefined){
             currentUser = getCurrentUser(state);
