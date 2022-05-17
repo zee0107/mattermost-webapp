@@ -58,6 +58,7 @@ const LazyProfilePage = React.lazy(() => import('components/profile_page'));
 const LazyNewsFeed = React.lazy(() => import('components/newsfeed'));
 const LazyGroup = React.lazy(() => import('components/groups'));
 const LazyDocuments = React.lazy(() => import('components/documents'));
+const LazyDocumentsCreateLaunchpad = React.lazy(() => import('components/documents-create-launchpad'));
 const LazyDocumentsBabyToken = React.lazy(() => import('components/documents-baby-token'));
 const LazyDocumentsBuybackToken = React.lazy(() => import('components/documents-buyback-token'));
 const LazyDocumentsLiquidity = React.lazy(() => import('components/documents-liquidity-token'));
@@ -124,6 +125,7 @@ const ProfilePage = makeAsyncComponent('ProfilePage', LazyProfilePage);
 const NewsFeed = makeAsyncComponent('Newsfeed', LazyNewsFeed);
 const Groups = makeAsyncComponent('Group', LazyGroup);
 const Documents = makeAsyncComponent('Documents', LazyDocuments);
+const DocumentsCreateLaunchpad = makeAsyncComponent('DocumentsCreateLaunchpad', LazyDocumentsCreateLaunchpad);
 const DocumentsBabyToken = makeAsyncComponent('DocumentsBabyToken', LazyDocumentsBabyToken);
 const DocumentsBuybackToken = makeAsyncComponent('DocumentsBuybackToken', LazyDocumentsBuybackToken);
 const DocumentsLiquidity = makeAsyncComponent('DocumentsLiquidity', LazyDocumentsLiquidity);
@@ -574,6 +576,10 @@ export default class Root extends React.PureComponent {
                                 <LoginHFTRouteNS
                                     path={'/documents/intro'}
                                     component={Documents}
+                                />
+                                <LoginHFTRouteNS
+                                    path={'/documents/create-a-launchpad'}
+                                    component={DocumentsCreateLaunchpad}
                                 />
                                 <LoginHFTRouteNS
                                     path={'/documents/create-a-baby-token'}
