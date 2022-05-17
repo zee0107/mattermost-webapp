@@ -408,7 +408,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 <div className='mobile-margin-top'>
                     <div className='col-md-12 chat-box mtop-10'>
                         <div className='d-flex'>
-                            <div className='col-md-2 mtop-10'>
+                            <div className='col-md-1 mtop-10'>
                                 <div className='position-absolute'>
                                     <a href="#" className='onClickstory'>
                                         {this.renderProfilePicture('xl')}
@@ -419,7 +419,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                 </svg></div>
                                 <small className='firstname-title-story'>Your story</small>
                             </div>
-                            <div className='col-md-2 mtop-10'>
+                            <div className='col-md-1 mtop-10'>
                                 <div className='position-absolute'>
                                     <a href="#" className='onClickstory'>
                                         <img className="Avatar Avatar-xl" src={profPic} alt="Username" title="Username"/>
@@ -428,7 +428,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                 <div className="badges-offline-plus rounded-circle position-relative"></div>
                                 <small className="firstname-title-story mt-5">John Lloyd</small>
                             </div>
-                            <div className='col-md-2 mtop-10'>
+                            <div className='col-md-1 mtop-10'>
                                 <div className='position-absolute'>
                                     <a href="#" className='onClickstory'>
                                     <img className="Avatar Avatar-xl" src={postPic} alt="Username" title="Username"/>
@@ -437,7 +437,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                 <div className="badges-offline-plus rounded-circle position-relative"></div>
                                 <small className="firstname-title-story mt-5">Cody Fisher</small>
                             </div>
-                            <div className='col-md-2 mtop-10'>
+                            <div className='col-md-1 mtop-10'>
                                 <div className='position-absolute'>
                                     <a href="#" className='onClickstory'>
                                         <img className="Avatar Avatar-xl" src={postPic2} alt="Username" title="Username"/>
@@ -446,7 +446,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                 <div className="badges-offline-plus rounded-circle position-relative"></div>
                                 <small className="firstname-title-story mt-5">Ann Isable</small>
                             </div>
-                            <div className='col-md-2 mtop-10'>
+                            <div className='col-md-1 mtop-10'>
                                 <div className='position-absolute'>
                                     <a href="#" className='onClickstory'>
                                         <img className="Avatar Avatar-xl" src={postImage} alt="Username" title="Username"/>
@@ -455,7 +455,61 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                 <div className="badges-offline-plus rounded-circle position-relative"></div>
                                 <small className="firstname-title-story mt-5">Jade sue</small>
                             </div>
-                            <div className='col-md-2 mtop-10'>
+                            <div className='col-md-1 mtop-10'>
+                                <div className='position-absolute'>
+                                    <a href="#" className='onClickstory'>
+                                        <img className="Avatar Avatar-xl" src={postImage2} alt="Username" title="Username"/>
+                                    </a>
+                                </div>
+                                <div className="badges-offline-plus rounded-circle position-relative"></div>
+                                <small className="firstname-title-story mt-5">Mig Yu</small>
+                            </div>
+                            <div className='col-md-1 mtop-10'>
+                                <div className='position-absolute'>
+                                    <a href="#" className='onClickstory'>
+                                        <img className="Avatar Avatar-xl" src={profPic} alt="Username" title="Username"/>
+                                    </a>
+                                </div>
+                                <div className="badges-offline-plus rounded-circle position-relative"></div>
+                                <small className="firstname-title-story mt-5">John Lloyd</small>
+                            </div>
+                            <div className='col-md-1 mtop-10'>
+                                <div className='position-absolute'>
+                                    <a href="#" className='onClickstory'>
+                                    <img className="Avatar Avatar-xl" src={postPic} alt="Username" title="Username"/>
+                                    </a>
+                                </div>
+                                <div className="badges-offline-plus rounded-circle position-relative"></div>
+                                <small className="firstname-title-story mt-5">Cody Fisher</small>
+                            </div>
+                            <div className='col-md-1 mtop-10'>
+                                <div className='position-absolute'>
+                                    <a href="#" className='onClickstory'>
+                                        <img className="Avatar Avatar-xl" src={postPic2} alt="Username" title="Username"/>
+                                    </a>
+                                </div>
+                                <div className="badges-offline-plus rounded-circle position-relative"></div>
+                                <small className="firstname-title-story mt-5">Ann Isable</small>
+                            </div>
+                            <div className='col-md-1 mtop-10'>
+                                <div className='position-absolute'>
+                                    <a href="#" className='onClickstory'>
+                                        <img className="Avatar Avatar-xl" src={postImage} alt="Username" title="Username"/>
+                                    </a>
+                                </div>
+                                <div className="badges-offline-plus rounded-circle position-relative"></div>
+                                <small className="firstname-title-story mt-5">Jade sue</small>
+                            </div>
+                            <div className='col-md-1 mtop-10'>
+                                <div className='position-absolute'>
+                                    <a href="#" className='onClickstory'>
+                                        <img className="Avatar Avatar-xl" src={postImage2} alt="Username" title="Username"/>
+                                    </a>
+                                </div>
+                                <div className="badges-offline-plus rounded-circle position-relative"></div>
+                                <small className="firstname-title-story mt-5">Mig Yu</small>
+                            </div>
+                            <div className='col-md-1 mtop-10'>
                                 <div className='position-absolute'>
                                     <a href="#" className='onClickstory'>
                                         <img className="Avatar Avatar-xl" src={postImage2} alt="Username" title="Username"/>
