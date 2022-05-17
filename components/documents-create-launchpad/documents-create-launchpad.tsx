@@ -194,7 +194,7 @@ export default class DocumentsBuybackToken extends React.PureComponent<Props, St
                                                     <p>6. After selecting, the token address will be shown and you can click on “Approve”.</p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src={verifyToken}></p>
+                                                    <p><img className='img-fluid' src={verifyToken}/></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
                                                     <p>7. MetaMask will now ask you to confirm the transaction and show you the fee that you are required to pay. If you agree, then click on the “Confirm” button to finish the process.</p>
@@ -456,7 +456,7 @@ export default class DocumentsBuybackToken extends React.PureComponent<Props, St
                                                     <p>6. After selecting, the token address will be shown and you can click on “Approve”.</p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src={verifyToken}></p>
+                                                    <p><img className='img-fluid' src={verifyToken}/></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
                                                     <p>7. MetaMask will now ask you to confirm the transaction and show you the fee that you are required to pay. If you agree, then click on the “Confirm” button to finish the process.</p>
