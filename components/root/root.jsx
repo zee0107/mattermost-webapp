@@ -58,6 +58,7 @@ const LazyProfilePage = React.lazy(() => import('components/profile_page'));
 const LazyNewsFeed = React.lazy(() => import('components/newsfeed'));
 const LazyGroup = React.lazy(() => import('components/groups'));
 const LazyDocuments = React.lazy(() => import('components/documents'));
+const LazyDocumentsWhitelist = React.lazy(() => import('components/documents-whitelist'));
 const LazyDocumentsFinalizeLaunchpad = React.lazy(() => import('components/documents-finalize-launchpad'));
 const LazyDocumentsCreateLaunchpad = React.lazy(() => import('components/documents-create-launchpad'));
 const LazyDocumentsUpdateLaunchpad = React.lazy(() => import('components/documents-update-launchpad'));
@@ -127,6 +128,7 @@ const ProfilePage = makeAsyncComponent('ProfilePage', LazyProfilePage);
 const NewsFeed = makeAsyncComponent('Newsfeed', LazyNewsFeed);
 const Groups = makeAsyncComponent('Group', LazyGroup);
 const Documents = makeAsyncComponent('Documents', LazyDocuments);
+const DocumentsWhitelist = makeAsyncComponent('DocumentsWhitelist', LazyDocumentsWhitelist);
 const DocumentsFinalizeLaunchpad = makeAsyncComponent('DocumentsFinalizeLaunchpad', LazyDocumentsFinalizeLaunchpad);
 const DocumentsUpdateLaunchpad = makeAsyncComponent('DocumentsUpdateLaunchpad', LazyDocumentsUpdateLaunchpad);
 const DocumentsCreateLaunchpad = makeAsyncComponent('DocumentsCreateLaunchpad', LazyDocumentsCreateLaunchpad);
@@ -580,6 +582,10 @@ export default class Root extends React.PureComponent {
                                 <LoginHFTRouteNS
                                     path={'/documents/intro'}
                                     component={Documents}
+                                />
+                                <LoginHFTRouteNS
+                                    path={'/documents/add-remove-whitelist'}
+                                    component={DocumentsWhitelist}
                                 />
                                 <LoginHFTRouteNS
                                     path={'/documents/create-a-launchpad'}
