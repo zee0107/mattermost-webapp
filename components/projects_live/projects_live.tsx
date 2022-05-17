@@ -63,6 +63,7 @@ type State = {
     account: string;
     rpcUrls: string;
     balance: float;
+    antiBot: boolean;
 };
 
 export default class ProjectsLive extends React.PureComponent<Props, State> {
@@ -70,7 +71,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: [],filter: 'all',tokenType:'standard_token',symbol: 'ETH'};
+        this.state = {antiBot: false,openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,data: [],filter: 'all',tokenType:'standard_token',symbol: 'ETH'};
 
         this.changeFilter = this.changeFilter.bind(this);
         this.handleNetworkChange = this.handleNetworkChange.bind(this);
@@ -78,6 +79,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         this.handleSymbolChange = this.handleSymbolChange.bind(this);
         this.handleAccount = this.handleAccount.bind(this);
         this.handleRpcUrls = this.handleRpcUrls.bind(this);
+        this.handleChangeVestingSystem = this.handleChangeVestingSystem.bind(this);
     }
 
     componentDidMount = async () =>{
@@ -134,6 +136,10 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                 }
             }
         }
+    }
+
+    handleChangeAntiBot = (e: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({antiBot: e.target.checked});
     }
 
     handleAccount = (data) => {
@@ -411,7 +417,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {tokenType,network} = this.state;
+        const {tokenType,network, antiBot} = this.state;
         let networkButton;
         let poolFee;
         let createFee;

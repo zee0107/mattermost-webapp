@@ -68,6 +68,7 @@ type State = {
     rpcUrls: string;
     balance: float;
     filter: string;
+    antiBot: boolean;
 };
 
 export default class LaunchpadLiquidity extends React.PureComponent<Props, State> {
@@ -75,13 +76,14 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light',img_path: homeImage,logo_url: [], data: [],tokenType:'standard_token',symbol: 'ETH',filter: 'all'};
+        this.state = {antiBot: false,openUp: false, width: 0, isStatusSet: false, isDark:'light',img_path: homeImage,logo_url: [], data: [],tokenType:'standard_token',symbol: 'ETH',filter: 'all'};
 
         this.handleNetworkChange = this.handleNetworkChange.bind(this);
         this.changeTokenType = this.changeTokenType.bind(this);
         this.handleSymbolChange = this.handleSymbolChange.bind(this);
         this.handleAccount = this.handleAccount.bind(this);
         this.handleRpcUrls = this.handleRpcUrls.bind(this);
+        this.handleChangeVestingSystem = this.handleChangeVestingSystem.bind(this);
     }
 
     componentDidMount = async () =>{
@@ -136,6 +138,10 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
         }
     }
 
+    handleChangeAntiBot = (e: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({antiBot: e.target.checked});
+    }
+
     handleAccount = (data) => {
         this.setState({account: data});
     }
@@ -180,7 +186,7 @@ export default class LaunchpadLiquidity extends React.PureComponent<Props, State
     }
 
     render= (): JSX.Element => {
-        const {tokenType,network, filter} = this.state;
+        const {tokenType,network, filter,antiBot} = this.state;
         let liquidityViewDesktop;
         let liquidityViewMobile;
         if(filter === 'all'){

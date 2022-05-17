@@ -67,6 +67,7 @@ type State = {
     account: string;
     rpcUrls: string;
     balance: float;
+    antiBot: boolean;
 };
 
 export default class LaunchpadToken extends React.PureComponent<Props, State> {
@@ -74,13 +75,14 @@ export default class LaunchpadToken extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light',img_path: homeImage,logo_url: [], data: [],tokenType:'standard_token',symbol: 'ETH'};
+        this.state = {antiBot: false,openUp: false, width: 0, isStatusSet: false, isDark:'light',img_path: homeImage,logo_url: [], data: [],tokenType:'standard_token',symbol: 'ETH'};
 
         this.handleNetworkChange = this.handleNetworkChange.bind(this);
         this.changeTokenType = this.changeTokenType.bind(this);
         this.handleSymbolChange = this.handleSymbolChange.bind(this);
         this.handleAccount = this.handleAccount.bind(this);
         this.handleRpcUrls = this.handleRpcUrls.bind(this);
+        this.handleChangeAntiBot = this.handleChangeAntiBot.bind(this);
     }
 
     componentDidMount = async () =>{
@@ -135,6 +137,10 @@ export default class LaunchpadToken extends React.PureComponent<Props, State> {
         }
     }
 
+    handleChangeAntiBot = (e: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({antiBot: e.target.checked});
+    }
+    
     handleAccount = (data) => {
         this.setState({account: data});
     }
@@ -179,7 +185,7 @@ export default class LaunchpadToken extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {tokenType,network} = this.state;
+        const {tokenType,network, antiBot} = this.state;
         let networkButton;
         let poolFee;
         let createFee;
