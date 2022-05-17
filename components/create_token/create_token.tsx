@@ -1356,7 +1356,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                         </div>
                         {step1RenderDesktop}
                         <div className='d-flex mt-4'>
-                            {step === 2 || 3 || 4 ? <div className='col-1 mt-3 mr-3'><span className='count-steps rounded-circle text-white'>2</span></div> : <div className='col-1 mt-3 mr-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>2</span></div>}
+                            {step === 2 || step === 3 || step === 4 ? <div className='col-1 mt-3 mr-3'><span className='count-steps rounded-circle text-white'>2</span></div> : <div className='col-1 mt-3 mr-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>2</span></div>}
                             <div className='col-11'>
                                 <h4 className='mt-2 mb-3'>Defi Launchpad Info</h4>
                                 <p>Enter the launchpad information that you want to raise , that should be enter all details about your presale</p>
@@ -1364,7 +1364,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                         </div>
                         {step2RenderDesktop}
                         <div className='d-flex mt-4'>
-                            {step === 3 || 4 ? <div className='col-1 mt-3 mr-3'><span className='count-steps rounded-circle text-white'>3</span></div> : <div className='col-1 mt-3 mr-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>3</span></div>}
+                            {step === 3 || step === 4 ? <div className='col-1 mt-3 mr-3'><span className='count-steps rounded-circle text-white'>3</span></div> : <div className='col-1 mt-3 mr-3'><span className='count-steps-defaults border border-1 rounded-circle text-dark'>3</span></div>}
                             <div className='col-11'>
                                 <h4 className='mt-2 mb-3'>Additional Info</h4>
                                 <p>Let people know who you are</p>
