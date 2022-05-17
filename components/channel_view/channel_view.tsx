@@ -446,7 +446,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                 <div className="badges-offline-plus rounded-circle position-relative"></div>
                                 <small className="firstname-title-story mt-5">Ann Isable</small>
                             </div>
-                            <div id='rsvDesktop' className='col-md-1 mtop-10'>
+                            <div className='col-md-1 mtop-10'>
                                 <div className='position-absolute'>
                                     <a href="#" className='onClickstory'>
                                         <img className="Avatar Avatar-xl" src={postImage} alt="Username" title="Username"/>
