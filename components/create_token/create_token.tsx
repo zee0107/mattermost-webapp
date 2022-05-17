@@ -67,6 +67,8 @@ type State = {
     balance: float;
     antiBot: boolean;
     step: number;
+    vestingLockup: boolean;
+    vestingSystem: boolean;
 };
 
 export default class CreateToken extends React.PureComponent<Props, State> {
@@ -75,7 +77,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {setp: 1,antiBot: false,openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,tokenType:'standard_token',symbol: 'ETH'};
+        this.state = {vestingLockup: false, vestingSystem: false,setp: 1,antiBot: false,openUp: false, width: 0, isStatusSet: false, isDark:'light', img_path: homeImage,tokenType:'standard_token',symbol: 'ETH'};
 
         this.changeTokenType = this.changeTokenType.bind(this);
         this.handleNetworkChange = this.handleNetworkChange.bind(this);
@@ -83,6 +85,8 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         this.handleAccount = this.handleAccount.bind(this);
         this.handleRpcUrls = this.handleRpcUrls.bind(this);
         this.handleChangeAntiBot = this.handleChangeAntiBot.bind(this);
+        this.handleChangeVestingLockup = this.handleChangeVestingLockup.bind(this);
+        this.handleChangeVestingSystem = this.handleChangeVestingSystem.bind(this);
     }
 
     componentDidMount = async () =>{
@@ -141,6 +145,14 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         this.setState({antiBot: e.target.checked});
     }
 
+    handleChangeVestingLockup = (e: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({vestingLockup: e.target.checked});
+    }
+
+    handleChangeVestingSystem = (e: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({vestingSystem: e.target.checked});
+    }
+
     handleNetworkChange = (data) => {
         this.setState({network: data});
     }
@@ -167,7 +179,7 @@ export default class CreateToken extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const { tokenType,network, antiBot, step } = this.state;
+        const { tokenType,network, antiBot, step, vestingSystem, vestingLockup } = this.state;
         let networkButton;
         let poolFee;
         let createFee;
@@ -356,6 +368,122 @@ export default class CreateToken extends React.PureComponent<Props, State> {
         </div>);
         }else{
 
+        }
+
+        let vestingLockupDesktop;
+        let vestingLockupMobile;
+        let vestingSystemDesktop;
+        let vestingSystemMobile;
+        if(vestingLockup){
+            vestingLockupDesktop = (
+                <div className='usingvestinglockup'>
+                    <div className='row'>
+                        <div className='col-12 mt-2 mb-2'>
+                            <label for='formGroupExampleInput2' className='form-label'><small>First release for presale (percent)*</small></label>
+                            <input type='text' className='form-control' id='' placeholder='20' value=''/>
+                        </div>
+                        </div>
+
+                        <div className='row'>
+                        <div className='col-6 mt-2 mb-2'>
+                            <label for='formGroupExampleInput2' className='form-label'><small>Vesting peroid each cycle (days)*</small></label>
+                            <input type='text' className='form-control' id='' placeholder='30' value=''/>
+                        </div>
+                        <div className='col-6 mt-2 mb-2'>
+                            <label for='formGroupExampleInput2' className='form-label'><small>Presale token release each cycle (percent)*</small></label>
+                            <input type='text' className='form-control' id='' placeholder='10' value=''/>
+                        </div>
+                    </div>
+                </div>
+            );
+            vestingLockupMobile = (
+                <div className='usingvestinglockup'>
+                    <div className='row'>
+                        <div className='col-12 mt-2 mb-2'>
+                            <label for='formGroupExampleInput2' className='form-label'><small>First release for presale (percent)*</small></label>
+                            <input type='text' className='form-control' id='' placeholder='20' value=''/>
+                        </div>
+                        </div>
+
+                        <div className='row'>
+                        <div className='col-12 mt-2 mb-2'>
+                            <label for='formGroupExampleInput2' className='form-label'><small>Vesting peroid each cycle (days)*</small></label>
+                            <input type='text' className='form-control' id='' placeholder='30' value=''/>
+                        </div>
+                        <div className='col-12 mt-2 mb-2'>
+                            <label for='formGroupExampleInput2' className='form-label'><small>Presale token release each cycle (percent)*</small></label>
+                            <input type='text' className='form-control' id='' placeholder='10' value=''/>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        if(vestingSystem){
+            vestingSystemDesktop = (
+                <div className='temvestingforms'>
+                <div className='row'>
+                        <div className='col-6 mt-1 mb-2'>
+                            <label for='formGroupExampleInput2' className='form-label'><small>Total team vesting tokens*</small></label>
+                            <input type='text' className='form-control' id='' placeholder='1000' value=''/>
+                        </div>
+                        <div className='col-6 mt-2 mb-2'>
+                            <label for='formGroupExampleInput2' className='form-label'><small>First token release after listing(days)*</small></label>
+                            <input type='text' className='form-control' id='' placeholder='180' value=''/>
+                        </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-12 mt-2 mb-2'>
+                                <label for='formGroupExampleInput2' className='form-label'><small>First token release (percent)*</small></label>
+                                <input type='text' className='form-control' id='' placeholder='40' value=''/>
+                            </div>
+                        </div>
+                        <div className='row'>
+                        <div className='col-6 mt-2 mb-2'>
+                            <label for='formGroupExampleInput2' className='form-label'><small>Vesting peroid each cylce (days)*</small></label>
+                            <input type='text' className='form-control' id='' placeholder='1000' value=''/>
+                        </div>
+                        <div className='col-6 mt-2 mb-2'>
+                            <label for='formGroupExampleInput2' className='form-label'><small>Team token release each cycle (percent)*</small></label>
+                            <input type='text' className='form-control' id='' placeholder='180' value=''/>
+                        </div>
+                    </div>
+                </div>
+            );
+
+            vestingSystemMobile = (
+                <div className='temvestingforms'>
+                    <div className='row'>
+                        <div className='col-12 mt-1 mb-2'>
+                            <label for='formGroupExampleInput2' className='form-label'><small>Total team vesting tokens*</small></label>
+                            <input type='text' className='form-control' id='' placeholder='1000' value=''/>
+                        </div>
+                        <div className='col-12 mt-2 mb-2'>
+                            <label for='formGroupExampleInput2' className='form-label'><small>First token release after listing(days)*</small></label>
+                            <input type='text' className='form-control' id='' placeholder='180' value=''/>
+                        </div>
+                        </div>
+
+                        <div className='row'>
+                        <div className='col-12 mt-2 mb-2'>
+                            <label for='formGroupExampleInput2' className='form-label'><small>First token release (percent)*</small></label>
+                            <input type='text' className='form-control' id='' placeholder='40' value=''/>
+                        </div>
+                        </div>
+
+                        <div className='row'>
+                        <div className='col-6 mt-2 mb-2'>
+                            <label for='formGroupExampleInput2' className='form-label'><small>Vesting peroid each cylce (days)*</small></label>
+                            <input type='text' className='form-control' id='' placeholder='1000' value=''/>
+                        </div>
+                        <div className='col-6 mt-2 mb-2'>
+                            <label for='formGroupExampleInput2' className='form-label'><small>Team token release each cycle (percent)*</small></label>
+                            <input type='text' className='form-control' id='' placeholder='180' value=''/>
+                        </div>
+                    </div>
+                </div>
+            );
+            
         }
 
         let step1RenderDesktop;
@@ -1002,18 +1130,20 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                             <div className='col-md-12 p-3'>
-                                <div className='form-check'>
-                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault'/>
-                                <label className='form-check-label ml-1' htmlFor='flexCheckDefault'>
-                                    <small>Using Vesting lockup (days)*</small>
-                                </label>
+                                <div>
+                                    <input className='form-check-input' type='checkbox' value={vestingLockup} onChange={this.handleChangeVestingLockup} id='vestingLockup'/>
+                                    <label className='form-check-label ml-1' htmlFor='vestingLockup'>
+                                        <small>Using Vesting lockup (days)*</small>
+                                    </label>
                                 </div>
-                                <div className='form-check'>
-                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault'/>
-                                <label className='form-check-label ml-1' htmlFor='flexCheckDefault'>
-                                    <small>Using Anti-Rug Systm (Team Vesting System)?</small>
-                                </label>
+                                {vestingLockupDesktop}
+                                <div>
+                                    <input className='form-check-input' type='checkbox' value={vestingSystem} onChange={this.handleChangeVestingSystem} id='teamVestingSystem'/>
+                                    <label className='form-check-label ml-1' htmlFor='teamVestingSystem'>
+                                        <small>Using Anti-Rug System (Team Vesting System)?</small>
+                                    </label>
                                 </div>
+                                {vestingSystemDesktop}
                             </div>
                             <div className='row p-3'>
                                 <div className='col-12 text-center'>
@@ -1147,18 +1277,20 @@ export default class CreateToken extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                             <div className='col-md-12 p-3'>
-                                <div className='form-check'>
-                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault'/>
-                                <label className='form-check-label ml-1' htmlFor='flexCheckDefault'>
-                                    <small>Using Vesting lockup (days)*</small>
-                                </label>
+                                <div>
+                                    <input className='form-check-input' type='checkbox' value={vestingLockup} onChange={this.handleChangeVestingLockup} id='vestingLockup'/>
+                                    <label className='form-check-label ml-1' htmlFor='vestingLockup'>
+                                        <small>Using Vesting lockup (days)*</small>
+                                    </label>
                                 </div>
-                                <div className='form-check'>
-                                <input className='form-check-input' type='checkbox' value='' id='flexCheckDefault'/>
-                                <label className='form-check-label ml-1' htmlFor='flexCheckDefault'>
-                                    <small>Using Anti-Rug Systm (Team Vesting System)?</small>
-                                </label>
+                                {vestingLockupMobile}
+                                <div>
+                                    <input className='form-check-input' type='checkbox' value={vestingSystem} onChange={this.handleChangeVestingSystem} id='teamVestingSystem'/>
+                                    <label className='form-check-label ml-1' htmlFor='teamVestingSystem'>
+                                        <small>Using Anti-Rug System (Team Vesting System)?</small>
+                                    </label>
                                 </div>
+                                {vestingSystemMobile}
                             </div>
                             <div className='row p-3'>
                                 <div className='col-12 text-center'>
