@@ -16,12 +16,8 @@ import NetworkModal from "components/create_token/network_modal";
 import Web3 from 'web3';
 
 import homeImage from 'images/homeFeed.png';
-import addInfo from 'images/docs/stablecoin/additional-information-4.png';
-import percentRaise from 'images/docs/stablecoin/busd-2-percent-raised.png';
-import viewPool from 'images/docs/stablecoin/view-pool-complete-landing-page.png';
-import disablePresale from 'images/docs/stablecoin/disabled-presale.png';
-import finistEdit from 'images/docs/stablecoin/4-finish.png';
-
+import teamVesting from 'images/docs/teamvesting/team-vesting.png';
+import howTo from 'images/docs/teamvesting/how-to-claim.png';
 
 import {ModalData} from 'types/actions';
 import { AllListing, ProjectList, ProjectsEndedList } from 'mattermost-redux/types/crypto';
@@ -56,7 +52,7 @@ type State = {
     img_path: string;
 };
 
-export default class DocumentsStablecoin extends React.PureComponent<Props, State> {
+export default class DocumentsTeamVesting extends React.PureComponent<Props, State> {
     static defaultProps = {userId: ''}
 
     constructor(props: Props) {
@@ -116,12 +112,12 @@ export default class DocumentsStablecoin extends React.PureComponent<Props, Stat
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/update-a-launchpad' className='text-dark'><label>Update a Launchpad</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/finalize-a-launchpad' className='text-dark'><label>Finalize a Launchpad</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/add-remove-whitelist' className='text-dark'><label>Add/Remove Whitelists</label></a></li>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-presale-using-stablecoin' className='active-docs fw-bold text-dark'><label>Create a Presale Using Stablecoin</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-presale-using-stablecoin' className='text-dark'><label>Create a Presale Using Stablecoin</label></a></li>
                                         </ul>
                                         <br/>
                                         <strong className='ml-3'><h4 className='text-success ml-3'>Presale Vesting</h4></strong>
                                         <ul className='list-group mt-2'>
-                                            <li className='list-group-item border-0 mb-0'><a href='/documents/team-vesting-guide' className='text-dark'><label>Team Vesting Guide</label></a></li>
+                                            <li className='list-group-item border-0 mb-0'><a href='/documents/team-vesting-guide' className='active-docs fw-bold text-dark'><label>Team Vesting Guide</label></a></li>
                                             <li className='list-group-item border-0 mb-0'><a href='/documents/presale-vesting-guide' className='text-dark'><label>Presale Vesting Guide</label></a></li>
                                         </ul>
                                         <br/>
@@ -173,7 +169,7 @@ export default class DocumentsStablecoin extends React.PureComponent<Props, Stat
                                 <div className='position-sticky float-right-panel'>
                                     <div className='launchpad-token-lock-info'>
                                         <div className='row'>
-                                            <div className='col-8'><h4 className='float-start mt-3'>Create a Presale Using Stablecoin</h4></div>
+                                            <div className='col-8'><h4 className='float-start mt-3'>Team Vesting</h4></div>
                                             <div className='col-4'></div>
                                         </div>
                                     </div>
@@ -182,69 +178,44 @@ export default class DocumentsStablecoin extends React.PureComponent<Props, Stat
                                         <div className='launchpad-kyc-audit'>
                                             <div className='row p-2'>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                    <p>You can launch a presale or fairlaunch using stablecoins BUSD, USDT, USDC on all supported blockchains on CrypterSale: BSC, ETH, matic, avax, cronos chain, fantom, kucoin. In this post we will use BUSD on BSC as an example.</p>
-                                                </div>
-                                                <div className='col-12 mt-0 mb-1' id='step1verifytoken'>
-                                                    <h6>Step 1: Verify Token</h6>
+                                                    <p>Team Vesting System (also known as Anti-Rug System) is a vesting protocol that asks project owners to lock their team tokens for a period of time, so that there are no unlocked tokens which could make a rug pull possible.</p>
+                                                    <p>This feature helps projects to establish an increased level of trust with their investors, thereby potentially resulting in growth and long-term price appreciation. It also prevents scam projects from trying to withdraw and sell all their unlocked tokens at or soon after listing time (the so called rug pull).</p>
+                                                    <p>Follow the steps below to use the Team Vesting feature.</p>
                                                     <p>1. Connect your wallet.</p>
-                                                    <p>2. Go to https://www.Cryptersale.finance/#/launchpad/create</p>
-                                                    <p>3. Input your token address, if you already have one, or create a new token for the Launchpad.</p>
-                                                    <p>4. Select a stable coin, for example, “BUSD”</p>
-                                                    <p>5. After inputting it will show the token name, symbol and decimals and you can click on 'Approve'</p>
-                                                    <p>6. After inputting it will show the token name, symbol and decimals and you can click on 'Approve'</p>
+                                                    <p>‌2. Select your token if you already have one or create a new token for the Launchpad by following this guide: <a className='text-primary'>https://docs.cryptersale.finance/launchpads/create-a-launchpad</a></p>
+                                                    <p>3. At “step 2: DeFi Launchpad Info”, please check the box “Using Anti-Ru</p>
+                                                    <p>System (Team Vesting System)”. Here below are some important parameters:</p>
+                                                    <p><i className='bi-dot'></i> Total team vesting tokens: The total amount of tokens you will allocate to your team. Please note, you can only input numbers here, not percentages.</p>
+                                                    <p><i className='bi-dot'></i> First token release after listing (days): The first batch of team tokens will be released after this amount of time since TGE. Please note, this is measured in days, not months or years.</p>
+                                                    <p><i className='bi-dot'></i> First token release (percent): The percentage of the first batch of team tokens to be released. Please note that this is expressed in percentage, not number of tokens.</p>
+                                                    <p><i className='bi-dot'></i> Vesting period each cycle (days): How long, in days, between each batch of vested tokens is released.</p>
+                                                    <p><i className='bi-dot'></i> Team token release each cycle (percent): How many tokens will be released each cycle following the First Token Release batch. Please note this is expressed in percentage, not in number of tokens.</p>
+                                                    <p>Project owners need to claim their team tokens manually from their Launchpad dashboard on CrypterSale, when each vesting cycle ends.</p>
+                                                    <p>Example: your project has a vesting schedule for your team as below:</p>
+                                                    <p>Your team has 1000 tokens to be vested in total, 40% to be locked for 6 months from TGE, and 20% unlocks every month afterwards for a total of 3 cycles.</p>
+                                                    <p>Let’s imagine that your presale on Cryptersale ended on the 5th of January. Six months after that, on the 5th of July, your team can claim 1000 x 40% = 400 tokens for the first token release batch. Then every month afterwards, on the 5th of August, September and October (final release 9 months after your presale ended), your team can claim the next batches, 1000 x 20% = 200 tokens each batch.</p>
+                                                    <p>In this case you would enter the following information:</p>
+                                                    <p><i className='bi-dot'></i> Total team vesting tokens: 1000</p>
+                                                    <p><i className='bi-dot'></i> First token release after listing (days): 180</p>
+                                                    <p><i className='bi-dot'></i> First token release (percent): 40</p>
+                                                    <p><i className='bi-dot'></i> Vesting period each cycle (days): 30</p>
+                                                    <p><i className='bi-dot'></i> Team token release each cycle (percent): 20</p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src={percentRaise} /></p>
+                                                    <p><img className='img-fluid' src={teamVesting} /></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                    <p>Note:</p>
-                                                    <p><i className='bi-dot'></i> Stablecoin pair can work with standard tokens only. It doesn't support taxed tokens.</p>
-                                                    <p>7. MetaMask will now ask you to confirm the transaction and show you the fee that you are required to pay. If you agree, then click on the “Confirm” button to finish the process.</p>
+                                                    <p>Note: Team Vesting doesn't support rebase tokens.</p>
                                                 </div>
-                                                <div className='col-12 mt-0 mb-1' id='step2DeFilaunchpadinfo'>
-                                                    <h6>Step 2: DeFi Launchpad Info</h6>
-                                                    <p>After verifying your token, you need to input the numbers that you want to raise. Here are some following important parameters:</p>
-                                                    <p>1. You must use positive numbers.</p>
-                                                    <p>2. Presale rate shows how many tokens presale participants will receive during the presale stage.</p>
-                                                    <p>3. Whitelist: Choose 'Enable' if you have a whitelist of presale contributors. You can enable/disable the whitelist anytime.</p>
-                                                    <p>4. Soft cap must be greater than or equal to 50% of the hard cap.</p>
-                                                    <p>5. For “Unsold tokens” you can choose refund or burn from the dropdown list.</p>
-                                                    <p>6. PancakeSwap liquidity (%): Enter the percentage of raised funds that should be allocated to liquidity on PancakeSwap. Minimum value is 51%, maximum value is 100%.</p>
-                                                    <p>7. PancakeSwap listing rate is the initial rate of the liquidity pool (1 BUSD = x tokens). This rate is usually lower than the presale rate to allow a higher listing price on PancakeSwap.</p>
-                                                    <p>8. Start time must be before the end time.</p>
-                                                    <p>9. Liquidity lockup (days): Lock-up time for liquidity pool, for example 365 days.</p>
-                                                    <p>10. You can choose Vesting Contributor or Team Vesting feature.</p>
-                                                    <p>This is an example:</p>
+                                                <div className='col-12 mt-0 mb-1' id='howtoclaim'>
+                                                    <h6>How to claim</h6>
+                                                    <p>When each vesting cycle ends, project owners can go to their Launchpad dashboard and withdraw the vested tokens by clicking on the “withdraw vesting tokens” button.</p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src={disablePresale}/></p>
-                                                </div>
-                                                <div className='col-12 mt-0 mb-1' id='step3addadditionalinfo'>
-                                                    <h6>Step 3: Add Additional Info</h6>
-                                                    <p>There are some notes for this step:</p>
-                                                    <p>1. Logo URL and website are required fields, cannot be blank. You can’t complete this step without those.</p>
-                                                    <p>2. Logo URL must end with a supported image extension: png, jpg, jpeg or gif.</p>
-                                                    <p>For example: https://www.Cryptersale.finance/Cryptersale.png</p>
-                                                    <p>3. Click Next once you have finished adding this information.</p>
-                                                    <p>An example:</p>
-                                                </div>
-                                                <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src={addInfo} /></p>
-                                                </div>
-                                                <div className='col-12 mt-0 mb-1' id='step4Finish'>
-                                                    <h6>Step 4: Finish</h6>
-                                                    <p>This is the final step. You can review all the information one last time before submitting. Click “Submit” after you have made sure that everything is perfect, or you can go back to previous step to make any changes.</p>
-                                                    <p>Note: For tokens with burns, rebase or other special transfers please ensure that you have a way to whitelist multiple addresses or turn off the special transfer events (By setting fees to 0 for example for the duration of the presale)</p>
-                                                    <p>This is an example:</p>
-                                                </div>
-                                                <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src={finistEdit} /></p>
+                                                    <p><img className='img-fluid' src={howTo} /></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                    <p>After clicking on “Submit”, MetaMask will now ask you to confirm the transaction. It will also show you the fee that you are required to pay for that transaction. If you agree, then click on the “Confirm” button to finish the process, and this is the result:</p>
-                                                </div>
-                                                <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src={viewPool} /></p>
+                                                    <p>If, for any reason, project owners are not able to withdraw their vested tokens when a cycle expires, they can do this at any given time afterwards. If they were to wait till the next cycle expires, the total amount that can be withdrawn at that time would be the balance of the previous cycle amount plus the amount of tokens of the recently expired cycle.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -254,20 +225,20 @@ export default class DocumentsStablecoin extends React.PureComponent<Props, Stat
                                     </div>
                                     <div className='row mt-2 mb-2'>
                                         <div className='col-6'>
-                                            <a href='/documents/add-remove-whitelist' className='onPreviewskycaudit text-dark'>
+                                            <a href='/documents/create-a-presale-using-stablecoin' className='onPreviewskycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p><small className='ms-4'>Previous</small></p>
                                                 <p className='kyc-previews'>
-                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Add/Remove Whitelisted</large></strong></p>
+                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Create a Presale Using Stablecoin</large></strong></p>
                                             </div>
                                             </a>
                                         </div>
                                         <div className='col-6'>
-                                            <a href='/documents/team-vesting-guide' className='onNextkycaudit text-dark'>
+                                            <a href='/documents/presale-vesting-guide' className='onNextkycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p className='text-end'><small className='me-4'>Next</small></p>
                                                 <p className='kyc-previews text-end'>
-                                                <strong><large className='ms-2'>Team Vesting Guide</large></strong>
+                                                <strong><large className='ms-2'>Presale Vesting Guide</large></strong>
                                                 <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
                                                 </p>
                                             </div>
@@ -285,17 +256,8 @@ export default class DocumentsStablecoin extends React.PureComponent<Props, Stat
                                         <strong className='ms-3'><large className='text-success'>Contents</large></strong>
                                         <hr/>
                                         <ul className='list-group-contents'>
-                                        <li className='list-group-item border-0'>
-                                                <a href='#'><medium>Step 1: Verify Token</medium></a>
-                                            </li>
                                             <li className='list-group-item border-0'>
-                                                <a href='#' id='step2DeFilaunchpadinfo'><medium>Step 2: DeFi Launchpad Info</medium></a>
-                                            </li>
-                                            <li className='list-group-item border-0'>
-                                                <a href='#step3addadditionalinfo'><medium>Step 3: Add Additional Info</medium></a>
-                                            </li>
-                                            <li className='list-group-item border-0'>
-                                                <a href='#step3addadditionalinfo'><medium>Step 4: Finish</medium></a>
+                                                <a href='#howtoclaim'><medium>How to claim</medium></a>
                                             </li>
                                         </ul>
                                     </div>
@@ -363,12 +325,12 @@ export default class DocumentsStablecoin extends React.PureComponent<Props, Stat
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/update-a-launchpad' className='text-dark'><label>Update a Launchpad</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/finalize-a-launchpad' className='text-dark'><label>Finalize a Launchpad</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/add-remove-whitelist' className='text-dark'><label>Add/Remove Whitelists</label></a></li>
-                                                <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-presale-using-stablecoin' className='active-docs text-dark'><label>Create a Presale Using Stablecoin</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/documents/create-a-presale-using-stablecoin'><label>Create a Presale Using Stablecoin</label></a></li>
                                             </ul>
                                             <br/>
                                             <strong className='ml-3'><h4 className='text-success ml-3'>Presale Vesting</h4></strong>
                                             <ul className='list-group mt-2'>
-                                                <li className='list-group-item border-0 mb-0'><a href='/documents/team-vesting-guide' className='text-dark'><label>Team Vesting Guide</label></a></li>
+                                                <li className='list-group-item border-0 mb-0'><a href='/documents/team-vesting-guide' className='active-docs text-dark'><label>Team Vesting Guide</label></a></li>
                                                 <li className='list-group-item border-0 mb-0'><a href='/documents/presale-vesting-guide' className='text-dark'><label>Presale Vesting Guide</label></a></li>
                                             </ul>
                                             <br/>
@@ -432,77 +394,52 @@ export default class DocumentsStablecoin extends React.PureComponent<Props, Stat
 
                                     <div className='launchpad-token-lock-info'>
                                         <div className='row'>
-                                            <div className='col-12'><h6 className='float-start mt-3'>Create a Presale Using Stablecoin</h6></div>
+                                            <div className='col-12'><h6 className='float-start mt-3'>Team Vesting Guide</h6></div>
                                         </div>
                                     </div>
                                     <div className='launchpad-token-body'>
                                         <hr/>
                                         <div className='launchpad-kyc-audit'>
                                             <div className='row p-2'>
-                                            <div className='col-12 mt-0 mb-1'>
-                                                    <p>You can launch a presale or fairlaunch using stablecoins BUSD, USDT, USDC on all supported blockchains on CrypterSale: BSC, ETH, matic, avax, cronos chain, fantom, kucoin. In this post we will use BUSD on BSC as an example.</p>
-                                                </div>
-                                                <div className='col-12 mt-0 mb-1' id='step1verifytoken'>
-                                                    <h6>Step 1: Verify Token</h6>
+                                                <div className='col-12 mt-0 mb-1'>
+                                                    <p>Team Vesting System (also known as Anti-Rug System) is a vesting protocol that asks project owners to lock their team tokens for a period of time, so that there are no unlocked tokens which could make a rug pull possible.</p>
+                                                    <p>This feature helps projects to establish an increased level of trust with their investors, thereby potentially resulting in growth and long-term price appreciation. It also prevents scam projects from trying to withdraw and sell all their unlocked tokens at or soon after listing time (the so called rug pull).</p>
+                                                    <p>Follow the steps below to use the Team Vesting feature.</p>
                                                     <p>1. Connect your wallet.</p>
-                                                    <p>2. Go to https://www.Cryptersale.finance/#/launchpad/create</p>
-                                                    <p>3. Input your token address, if you already have one, or create a new token for the Launchpad.</p>
-                                                    <p>4. Select a stable coin, for example, “BUSD”</p>
-                                                    <p>5. After inputting it will show the token name, symbol and decimals and you can click on 'Approve'</p>
-                                                    <p>6. After inputting it will show the token name, symbol and decimals and you can click on 'Approve'</p>
+                                                    <p>‌2. Select your token if you already have one or create a new token for the Launchpad by following this guide: <a className='text-primary'>https://docs.cryptersale.finance/launchpads/create-a-launchpad</a></p>
+                                                    <p>3. At “step 2: DeFi Launchpad Info”, please check the box “Using Anti-Ru</p>
+                                                    <p>System (Team Vesting System)”. Here below are some important parameters:</p>
+                                                    <p><i className='bi-dot'></i> Total team vesting tokens: The total amount of tokens you will allocate to your team. Please note, you can only input numbers here, not percentages.</p>
+                                                    <p><i className='bi-dot'></i> First token release after listing (days): The first batch of team tokens will be released after this amount of time since TGE. Please note, this is measured in days, not months or years.</p>
+                                                    <p><i className='bi-dot'></i> First token release (percent): The percentage of the first batch of team tokens to be released. Please note that this is expressed in percentage, not number of tokens.</p>
+                                                    <p><i className='bi-dot'></i> Vesting period each cycle (days): How long, in days, between each batch of vested tokens is released.</p>
+                                                    <p><i className='bi-dot'></i> Team token release each cycle (percent): How many tokens will be released each cycle following the First Token Release batch. Please note this is expressed in percentage, not in number of tokens.</p>
+                                                    <p>Project owners need to claim their team tokens manually from their Launchpad dashboard on CrypterSale, when each vesting cycle ends.</p>
+                                                    <p>Example: your project has a vesting schedule for your team as below:</p>
+                                                    <p>Your team has 1000 tokens to be vested in total, 40% to be locked for 6 months from TGE, and 20% unlocks every month afterwards for a total of 3 cycles.</p>
+                                                    <p>Let’s imagine that your presale on Cryptersale ended on the 5th of January. Six months after that, on the 5th of July, your team can claim 1000 x 40% = 400 tokens for the first token release batch. Then every month afterwards, on the 5th of August, September and October (final release 9 months after your presale ended), your team can claim the next batches, 1000 x 20% = 200 tokens each batch.</p>
+                                                    <p>In this case you would enter the following information:</p>
+                                                    <p><i className='bi-dot'></i> Total team vesting tokens: 1000</p>
+                                                    <p><i className='bi-dot'></i> First token release after listing (days): 180</p>
+                                                    <p><i className='bi-dot'></i> First token release (percent): 40</p>
+                                                    <p><i className='bi-dot'></i> Vesting period each cycle (days): 30</p>
+                                                    <p><i className='bi-dot'></i> Team token release each cycle (percent): 20</p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src={percentRaise} /></p>
+                                                    <p><img className='img-fluid' src={teamVesting} /></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                    <p>Note:</p>
-                                                    <p><i className='bi-dot'></i> Stablecoin pair can work with standard tokens only. It doesn't support taxed tokens.</p>
-                                                    <p>7. MetaMask will now ask you to confirm the transaction and show you the fee that you are required to pay. If you agree, then click on the “Confirm” button to finish the process.</p>
+                                                    <p>Note: Team Vesting doesn't support rebase tokens.</p>
                                                 </div>
-                                                <div className='col-12 mt-0 mb-1' id='step2DeFilaunchpadinfo'>
-                                                    <h6>Step 2: DeFi Launchpad Info</h6>
-                                                    <p>After verifying your token, you need to input the numbers that you want to raise. Here are some following important parameters:</p>
-                                                    <p>1. You must use positive numbers.</p>
-                                                    <p>2. Presale rate shows how many tokens presale participants will receive during the presale stage.</p>
-                                                    <p>3. Whitelist: Choose 'Enable' if you have a whitelist of presale contributors. You can enable/disable the whitelist anytime.</p>
-                                                    <p>4. Soft cap must be greater than or equal to 50% of the hard cap.</p>
-                                                    <p>5. For “Unsold tokens” you can choose refund or burn from the dropdown list.</p>
-                                                    <p>6. PancakeSwap liquidity (%): Enter the percentage of raised funds that should be allocated to liquidity on PancakeSwap. Minimum value is 51%, maximum value is 100%.</p>
-                                                    <p>7. PancakeSwap listing rate is the initial rate of the liquidity pool (1 BUSD = x tokens). This rate is usually lower than the presale rate to allow a higher listing price on PancakeSwap.</p>
-                                                    <p>8. Start time must be before the end time.</p>
-                                                    <p>9. Liquidity lockup (days): Lock-up time for liquidity pool, for example 365 days.</p>
-                                                    <p>10. You can choose Vesting Contributor or Team Vesting feature.</p>
-                                                    <p>This is an example:</p>
+                                                <div className='col-12 mt-0 mb-1' id='howtoclaim'>
+                                                    <h6>How to claim</h6>
+                                                    <p>When each vesting cycle ends, project owners can go to their Launchpad dashboard and withdraw the vested tokens by clicking on the “withdraw vesting tokens” button.</p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src={disablePresale}/></p>
-                                                </div>
-                                                <div className='col-12 mt-0 mb-1' id='step3addadditionalinfo'>
-                                                    <h6>Step 3: Add Additional Info</h6>
-                                                    <p>There are some notes for this step:</p>
-                                                    <p>1. Logo URL and website are required fields, cannot be blank. You can’t complete this step without those.</p>
-                                                    <p>2. Logo URL must end with a supported image extension: png, jpg, jpeg or gif.</p>
-                                                    <p>For example: https://www.Cryptersale.finance/Cryptersale.png</p>
-                                                    <p>3. Click Next once you have finished adding this information.</p>
-                                                    <p>An example:</p>
-                                                </div>
-                                                <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src={addInfo} /></p>
-                                                </div>
-                                                <div className='col-12 mt-0 mb-1' id='step4Finish'>
-                                                    <h6>Step 4: Finish</h6>
-                                                    <p>This is the final step. You can review all the information one last time before submitting. Click “Submit” after you have made sure that everything is perfect, or you can go back to previous step to make any changes.</p>
-                                                    <p>Note: For tokens with burns, rebase or other special transfers please ensure that you have a way to whitelist multiple addresses or turn off the special transfer events (By setting fees to 0 for example for the duration of the presale)</p>
-                                                    <p>This is an example:</p>
-                                                </div>
-                                                <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src={finistEdit} /></p>
+                                                    <p><img className='img-fluid' src={howTo} /></p>
                                                 </div>
                                                 <div className='col-12 mt-0 mb-1'>
-                                                    <p>After clicking on “Submit”, MetaMask will now ask you to confirm the transaction. It will also show you the fee that you are required to pay for that transaction. If you agree, then click on the “Confirm” button to finish the process, and this is the result:</p>
-                                                </div>
-                                                <div className='col-12 mt-0 mb-1 text-center'>
-                                                    <p><img className='img-fluid' src={viewPool} /></p>
+                                                    <p>If, for any reason, project owners are not able to withdraw their vested tokens when a cycle expires, they can do this at any given time afterwards. If they were to wait till the next cycle expires, the total amount that can be withdrawn at that time would be the balance of the previous cycle amount plus the amount of tokens of the recently expired cycle.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -512,20 +449,20 @@ export default class DocumentsStablecoin extends React.PureComponent<Props, Stat
                                     </div>
                                     <div className='row mt-2 mb-2'>
                                         <div className='col-lg-6'>
-                                            <a href='/documents/add-remove-whitelist' className='onPreviewskycaudit text-dark'>
+                                            <a href='/documents/create-a-presale-using-stablecoin' className='onPreviewskycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p><small className='ms-4'>Previous</small></p>
                                                 <p className='kyc-previews'>
-                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Add/Remove Whitelisted</large></strong></p>
+                                                <i className='bi-arrow-left bi-arrow-left-previews-style'></i><strong><large className='ms-2'>Create a Presale Using Stablecoin</large></strong></p>
                                             </div>
                                             </a>
                                         </div>
                                         <div className='col-lg-6 mt-2'>
-                                            <a href='/documents/team-vesting-guide' className='onNextkycaudit text-dark'>
+                                            <a href='/documents/presale-vesting-guide' className='onNextkycaudit text-dark'>
                                                 <div className='launchpad-token-body-kyc-audit'>
                                                 <p className='text-end'><small className='me-4'>Next</small></p>
                                                 <p className='kyc-previews text-end'>
-                                                <strong><large className='ms-2'>Team Vesting Guide</large></strong>
+                                                <strong><large className='ms-2'>Presale Vesting Guide</large></strong>
                                                 <i className='bi-arrow-right bi-arrow-right-previews-style text-success'></i>
                                                 </p>
                                             </div>

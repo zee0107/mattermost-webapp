@@ -58,6 +58,8 @@ const LazyProfilePage = React.lazy(() => import('components/profile_page'));
 const LazyNewsFeed = React.lazy(() => import('components/newsfeed'));
 const LazyGroup = React.lazy(() => import('components/groups'));
 const LazyDocuments = React.lazy(() => import('components/documents'));
+const LazyDocumentsPresaleVesting = React.lazy(() => import('components/documents-presale-vesting'));
+const LazyDocumentsTeamVesting = React.lazy(() => import('components/documents-team-vesting'));
 const LazyDocumentsStablecoin = React.lazy(() => import('components/documents-presale-stablecoin'));
 const LazyDocumentsWhitelist = React.lazy(() => import('components/documents-whitelist'));
 const LazyDocumentsFinalizeLaunchpad = React.lazy(() => import('components/documents-finalize-launchpad'));
@@ -129,6 +131,8 @@ const ProfilePage = makeAsyncComponent('ProfilePage', LazyProfilePage);
 const NewsFeed = makeAsyncComponent('Newsfeed', LazyNewsFeed);
 const Groups = makeAsyncComponent('Group', LazyGroup);
 const Documents = makeAsyncComponent('Documents', LazyDocuments);
+const DocumentsPresaleVesting = makeAsyncComponent('DocumentsPresaleVesting', LazyDocumentsPresaleVesting);
+const DocumentsTeamVesting = makeAsyncComponent('DocumentsTeamVesting', LazyDocumentsTeamVesting);
 const DocumentsStablecoin = makeAsyncComponent('DocumentsStablecoin', LazyDocumentsStablecoin);
 const DocumentsWhitelist = makeAsyncComponent('DocumentsWhitelist', LazyDocumentsWhitelist);
 const DocumentsFinalizeLaunchpad = makeAsyncComponent('DocumentsFinalizeLaunchpad', LazyDocumentsFinalizeLaunchpad);
@@ -584,6 +588,14 @@ export default class Root extends React.PureComponent {
                                 <LoginHFTRouteNS
                                     path={'/documents/intro'}
                                     component={Documents}
+                                />
+                                 <LoginHFTRouteNS
+                                    path={'/documents/team-vesting-guide'}
+                                    component={DocumentsTeamVesting}
+                                />
+                                <LoginHFTRouteNS
+                                    path={'/documents/presale-vesting-guide'}
+                                    component={DocumentsPresaleVesting}
                                 />
                                 <LoginHFTRouteNS
                                     path={'/documents/create-a-presale-using-stablecoin'}
