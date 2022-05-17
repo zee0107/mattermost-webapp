@@ -477,9 +477,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                 <a href='#'><img src={LayoutIcon}></img></a>
                             </div>
                             <div className='col-lg-2 profile-menu-icon'>
-                                <a href='#'><img src={SplitIcon}></img></a>
-                            </div>
-                            <div className='col-lg-2 profile-menu-icon'>
                                 <a href='#'><img src={ImgIcon}></img></a>
                             </div>
                             <div className='col-lg-2 profile-menu-icon'>
