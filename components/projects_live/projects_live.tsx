@@ -79,7 +79,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
         this.handleSymbolChange = this.handleSymbolChange.bind(this);
         this.handleAccount = this.handleAccount.bind(this);
         this.handleRpcUrls = this.handleRpcUrls.bind(this);
-        this.handleChangeVestingSystem = this.handleChangeVestingSystem.bind(this);
+        this.handleChangeAntiBot = this.handleChangeAntiBot.bind(this);
     }
 
     componentDidMount = async () =>{
