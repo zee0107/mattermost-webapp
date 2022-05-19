@@ -37,6 +37,7 @@ type State = {
     isDark: string;
     photoStory: boolean;
     textStory: boolean;
+    addText: boolean;
     privacyValue: string;
     textValue: string;
     colorValue: string;
@@ -47,7 +48,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone'};
+        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false,};
 
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
     }
@@ -76,8 +77,28 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const { currentUser } = this.props;
-        const { photoStory, textStory,privacyValue } = this.state;
+        const { photoStory, textStory,privacyValue, addText } = this.state;
 
+        let addTextView;
+        let addTextClose;
+        if(addText){
+            addTextView = (
+                <div className='add-text-on-photo animated fadeIn'>
+                    <div id='draggable' className='ui-widget-content'>
+                        <div>
+                                <div className='form-floating'>
+                                <textarea style={{height: 150,}} className='form-control text-start-styping' placeholder='Start typing' id='floatingTextarea'></textarea>
+                                <label htmlFor='floatingTextarea'>Start typing</label>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            );
+
+            addTextClose = (
+                <a className='onClosetexttypings shadow float-end' onClick={() => { this.setState({addText: false}); }}><i className='bi-x'></i></a>
+            );
+        }
         let sidePhotoMenu;
         let sideTextMenu;
         let photoPreview;
@@ -85,7 +106,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         if(photoStory){
             sidePhotoMenu = (
                 <div className='create-photo-story-box'>
-                    <p><a className='onAddtextonphoto'><i className='bi-textarea-t'></i> <strong>Add Text</strong></a></p>
+                    <p><a className='onAddtextonphoto' onClick={() => { this.setState({addText: false}); }}><i className='bi-textarea-t'></i> <strong>Add Text</strong></a></p>
                     <div className='col-12 mx-auto mt-2 mb-1 border p-3 rounded'>
                         <div className='row'>
                                 <p className='mb-2'><strong><label>Text color</label></strong></p>
@@ -158,20 +179,11 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                     {/*Previews Create photo story*/}
                     <div className='create-photo-story-previews'>
                         <strong><label>Previews</label></strong>
-                        <a className='onClosetexttypings shadow float-end'><i className='bi-x'></i></a>
+                        {addTextClose}
                         <div className='previews-photo-content mt-4 mb-1'>
                             <div className='col-lg-12'>
                                 <div style={{ background: `url(${postImage}) no-repeat top center`,}} className='photo-story-uploaded rounded' id='resizable'>
-                                    <div className='add-text-on-photo'>
-                                        <div id='draggable' className='ui-widget-content'>
-                                            <div>
-                                                    <div className='form-floating'>
-                                                    <textarea style={{height: 150,}} className='form-control text-start-styping' placeholder='Start typing' id='floatingTextarea'></textarea>
-                                                    <label htmlFor='floatingTextarea'>Start typing</label>
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {addTextView}
                                 </div>
                             </div>
                         </div>
@@ -286,7 +298,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                 <div>
                                     <h2 className='mt-4'>Your Story <a className='onStoryprivacy float-end' data-bs-toggle='tooltip' data-bs-placement='top' title='Story privacy'><i className='bi-gear' data-bs-toggle='modal' data-bs-target='#staticBackdropPrivacy'></i></a></h2>
                                 </div>
-                                <div className='mt-2'>
+                                <div className='mt-5'>
                                     {this.renderProfilePicture('xl')}
                                     {/*<img className='img-fluid circle-rounded mr-2 mt-3' src='assets/images/sample-user-primary-picture-6.png'/>*/}
                                     <label className='mt-2' style={{verticalAlign: 'middle',}}>
