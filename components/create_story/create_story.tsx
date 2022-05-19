@@ -289,11 +289,12 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                 <div>
                                     {this.renderProfilePicture('xl')}
                                     {/*<img className='img-fluid circle-rounded mr-2 mt-3' src='assets/images/sample-user-primary-picture-6.png'/>*/}
-                                    <label className='mt-1'>
+                                    <label className='mt-3'>
+                                        
+                                    <strong>{currentUser.first_name}</strong>
                                         <div className='yourstoryprivacytext'>
                                             {privacyDetails}
                                         </div>
-                                        <strong>{currentUser.first_name}</strong>
                                     </label>
                                 </div>
                                 <hr/>
