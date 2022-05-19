@@ -372,7 +372,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <div className='row'>
                                         <div className='col-11 mx-auto'>
                                             <div className='progress mt-2'>
-                                                <div className='progress-bar progress-bar-striped progress-bar-animated w-75' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div>
+                                                <div className='progress-bar progress-bar-striped progress-bar-animated w-0' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100'></div>
                                             </div>
                                         </div>
                                         {rangeRender}
@@ -459,7 +459,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                 <div className='row'>
                                     <div className='col-11 mx-auto'>
                                         <div className='progress mt-1'>
-                                            <div className='progress-bar progress-bar-striped progress-bar-animated w-75' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div>
+                                            <div className='progress-bar progress-bar-striped progress-bar-animated w-0' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100'></div>
                                         </div>
                                     </div>
                                     {rangeRender}
