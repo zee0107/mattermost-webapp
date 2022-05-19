@@ -262,15 +262,15 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         let privacyDetails;
         if(privacyValue === 'private'){
             privacyDetails = (
-                <a className='ml-5 storyprivacyonlymeviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Private is selected go to your story privacy to change your privacy'><i className='bi-person'></i> Private</a>
+                <a className='storyprivacyonlymeviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Private is selected go to your story privacy to change your privacy'><i className='bi-person'></i> Private</a>
             );
         }else if(privacyValue === 'friends'){
             privacyDetails = (
-                <a className='ml-5 storyprivacyfriendsviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Friends is selected go to your story privacy to change your privacy'><i className='bi-people-fill'></i> Friends</a>
+                <a className='storyprivacyfriendsviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Friends is selected go to your story privacy to change your privacy'><i className='bi-people-fill'></i> Friends</a>
             );
         }else{
             privacyDetails = (
-                <a className='ml-5 storyprivacyeveryoneviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Everyone is selected go to your story privacy to change your privacy'><i className='bi-globe'></i> Everyone</a>
+                <a className='storyprivacyeveryoneviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Everyone is selected go to your story privacy to change your privacy'><i className='bi-globe'></i> Everyone</a>
             );
         }
 
@@ -287,11 +287,10 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                     <h2 className='mt-4'>Your Story <a className='onStoryprivacy float-end' data-bs-toggle='tooltip' data-bs-placement='top' title='Story privacy'><i className='bi-gear' data-bs-toggle='modal' data-bs-target='#staticBackdropPrivacy'></i></a></h2>
                                 </div>
                                 <div>
-                                    {this.renderProfilePicture('xl')}
+                                    {this.renderProfilePicture('lg')}
                                     {/*<img className='img-fluid circle-rounded mr-2 mt-3' src='assets/images/sample-user-primary-picture-6.png'/>*/}
                                     <label className='mt-3'>
-                                        
-                                    <strong>{currentUser.first_name}</strong>
+                                        <p className='mb-0'><strong>{currentUser.first_name}</strong></p>
                                         <div className='yourstoryprivacytext'>
                                             {privacyDetails}
                                         </div>
