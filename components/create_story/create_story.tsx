@@ -7,6 +7,7 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import logoDark from 'images/logoBlack.png';
 import postImage from 'images/post-1.png';
+import $ from 'jquery';
 
 type Props = {
     status?: string;
@@ -83,16 +84,24 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         let addTextClose;
         if(addText){
             addTextView = (
-                <div className='add-text-on-photo animated fadeIn'>
-                    <div id='draggable' className='ui-widget-content'>
-                        <div>
+                <>
+                    <div className='add-text-on-photo animated fadeIn'>
+                        <div id='draggable' className='ui-widget-content'>
+                            <div>
                                 <div className='form-floating'>
-                                <textarea style={{height: 150,}} className='form-control text-start-styping' placeholder='Start typing' id='floatingTextarea'></textarea>
-                                <label htmlFor='floatingTextarea'>Start typing</label>
+                                    <textarea style={{height: 150,}} className='form-control text-start-styping' placeholder='Start typing' id='floatingTextarea'></textarea>
+                                    <label htmlFor='floatingTextarea'>Start typing</label>
                                 </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <script>
+                        {$(function() {$( "#draggable").draggable();})};
+                    </script>
+                    <script>
+                        {$( function() {$( "#resizable" ).resizable();})};
+                    </script>
+                </>
             );
 
             addTextClose = (

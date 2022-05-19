@@ -1583,7 +1583,7 @@ margin: 10px 0px 0px 0px;
 }
 .text-start-styping {
   text-align: justify-all;
-  background: none;
+  background: none !important;
   font-family: "KronaOne-Regular";
   color: #ffffff;
   font-weight: bold;
@@ -1593,7 +1593,7 @@ margin: 10px 0px 0px 0px;
 }
 .text-start-styping:focus {
   text-align: justify-all;
-  background: none;
+  background: none !important;
   font-family: "KronaOne-Regular";
   color: #ffffff;
   font-weight: bold;
