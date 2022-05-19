@@ -76,6 +76,12 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         this.setState({privacyValue: event.target.value});
     }
 
+    jQueryCode = () => {
+        $(function() {
+            $("#draggable").draggable();
+        });
+    }
+
     render= (): JSX.Element => {
         const { currentUser } = this.props;
         const { photoStory, textStory,privacyValue, addText } = this.state;
