@@ -148,7 +148,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
             hardCap = project.total_prize;
             startTime = project.start_time;
             endTime = project.end_time;
-            estimatedValue = <CurrencyCap symbol={tokenSymbol} />
+            estimatedValue = (<CurrencyCap symbol={tokenSymbol} />);
         }
 
         
