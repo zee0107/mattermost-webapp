@@ -74,7 +74,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                     <a className='ml-5 storyprivacyfriendsviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Friends is selected go to your story privacy to change your privacy'><i className='bi-people-fill'></i> Friends</a>
                                     <a className='ml-5 storyprivacyonlymeviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Private is selected go to your story privacy to change your privacy'><i className='bi-person'></i> Private</a>
                                     </div>
-                                    </medium>
+                                    </label>
                                 </div>
                                 <hr/>
                     
@@ -83,7 +83,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                     
                                         <div className='col-12 mx-auto mt-2 mb-1 border p-3 rounded'>
                                         <div className='row'>
-                                                <p className='mb-2'><strong><large>Text color</large></strong></p>
+                                                <p className='mb-2'><strong><label>Text color</label></strong></p>
                                                 <div className='col-1 border border-3 text-center bg-dark text-white p-3 rounded-circle mt-1 ml-1'></div>
                                                 <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
                                                 <div className='col-1 border border-3 text-center bg-info text-white p-3 rounded-circle mt-1 ml-1'></div>
@@ -113,7 +113,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                     
                                         <div className='col-12 mx-auto mt-2 mb-1 border p-3 rounded'>
                                         <div className='row'>
-                                                <p className='mb-2'><strong><large>Text background</large></strong></p>
+                                                <p className='mb-2'><strong><label>Text background</label></strong></p>
                                                 <div className='col-1 border border-3 text-center bg-dark text-white p-3 rounded-circle mt-1 ml-1'></div>
                                                 <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
                                                 <div className='col-1 border border-3 text-center bg-info text-white p-3 rounded-circle mt-1 ml-1'></div>
@@ -151,13 +151,13 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                 {/*reate-text-story-box*/}
                                 <div className='create-text-story-box'>
                                         <div className='form-floating'>
-                                        <textarea style=' height: 180px;' className='form-control' placeholder='Start typing'></textarea>
-                                        <label for='floatingTextarea'>Start typing</label>
+                                        <textarea style={{height: 180,}} className='form-control' placeholder='Start typing'></textarea>
+                                        <label htmlFor='floatingTextarea'>Start typing</label>
                                         </div>
                     
                                         <div className='col-12 mx-auto mt-5 mb-1 border p-3 rounded'>
                                         <div className='row'>
-                                                <p className='mb-2'><strong><large>Backgrounds</large></strong></p>
+                                                <p className='mb-2'><strong><label>Backgrounds</label></strong></p>
                                                 <div className='col-1 border border-3 text-center bg-dark text-white p-3 rounded-circle mt-1 ml-1'></div>
                                                 <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
                                                 <div className='col-1 border border-3 text-center bg-info text-white p-3 rounded-circle mt-1 ml-1'></div>
@@ -229,10 +229,10 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                     <div className='row'>
                                         {/*Previews Create text story*/}
                                         <div className='create-text-story-previews'>
-                                            <strong><medium>Previews</medium></strong>
+                                            <strong><label>Previews</label></strong>
                     
                                             <div className='previews-content mt-3 mb-3 text-center'>
-                                                <strong className='text-center text-white'><large>START TYPING</large></strong>
+                                                <strong className='text-center text-white'><label>START TYPING</label></strong>
                                             </div>
                     
                                         </div>
@@ -240,7 +240,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                     
                                         {/*Previews Create photo story*/}
                                         <div className='create-photo-story-previews'>
-                                            <strong><medium>Previews</medium></strong>
+                                            <strong><label>Previews</label></strong>
                                             <a className='onClosetexttypings shadow float-end'><i className='bi-x'></i></a>
                     
                                             <div className='previews-photo-content mt-4 mb-1'>
@@ -251,8 +251,8 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                                     <div id='draggable' className='ui-widget-content'>
                                                         <form>
                                                                 <div className='form-floating'>
-                                                                <textarea style=' height: 150px;' className='form-control text-start-styping' placeholder='Start typing' id='floatingTextarea'></textarea>
-                                                                <label for='floatingTextarea'>Start typing</label>
+                                                                <textarea style={{height: 150,}} className='form-control text-start-styping' placeholder='Start typing' id='floatingTextarea'></textarea>
+                                                                <label htmlFor='floatingTextarea'>Start typing</label>
                                                                 </div>
                                                         </form>
                                                     </div>
