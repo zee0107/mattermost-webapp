@@ -6,7 +6,7 @@ import {hot} from 'react-hot-loader/root';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap.bundle.min.js';
 import 'jquery-ui-dist/jquery-ui';
-import 'jquery';
+import 'jquery/src/jquery';
 import './script';
 import React from 'react';
 import {Provider} from 'react-redux';
