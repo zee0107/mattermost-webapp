@@ -66,6 +66,28 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
         }
     }
 
+    renderTime = (date: string) =>{
+        var dateNow = new Date();
+        var dateConverted = Date.parse(date.toString());
+        var delta = Math.abs(dateConverted - dateNow) / 1000;
+        var days = Math.floor(delta / 86400);
+        delta -= days * 86400;
+        var hours = Math.floor(delta / 3600) % 24;
+        delta -= hours * 3600;
+        var minutes = Math.floor(delta / 60) % 60;
+        delta -= minutes * 60;
+        var seconds = delta % 60;
+
+        return (
+            <div className='row'>
+                <div className='col-3 p-0'><div className='d-grid p-2'><a className='onLockbuttonumbers text-center'><label>{days.toString().padStart(2,"0")}</label></a></div></div>
+                <div className='col-3 p-0'><div className='d-grid p-2'><a className='onLockbuttonumbers text-center'><label>{hours.toString().padStart(2,"0")}</label></a></div></div>
+                <div className='col-3 p-0'><div className='d-grid p-2'><a className='onLockbuttonumbers text-center'><label>{minutes.toString().padStart(2,"0")}</label></a></div></div>
+                <div className='col-3 p-0'><div className='d-grid p-2'><a className='onLockbuttonumbers text-center'><label>{parseFloat(seconds.toString().padStart(2,"0")).toFixed(0)}</label></a></div></div>
+            </div>
+        );
+    } 
+
     render= (): JSX.Element => {
         const { project } = this.state;
         
@@ -76,6 +98,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
         let projectImg;
         let tokenName;
         let tokenSymbol;
+        let timeRender;
         if(project !== undefined && project !== null && project !== ''){
             console.log(project.coin.symbol);
             if(project.status === 'UPCOMING'){
@@ -85,6 +108,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                 statusBoxMobile = (
                     <a className='float-end onSaleUpcomingmobile'><i className='bi-dot bi-dot-sale-live'></i> Upcoming</a>
                 );
+                timeRender = this.renderTime(project.start_date)
             }
             else if(project.status === 'ENDED'){
                 statusBoxDesktop = (
@@ -101,6 +125,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                 statusBoxMobile = (
                     <a className='float-end onSalelivemobile'><i className='bi-dot bi-dot-sale-live'></i>Sale live</a>
                 );
+                timeRender = this.renderTime(project.end_date)
             }
 
             projectName = project.project_name;
@@ -108,7 +133,10 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
             projectImg = (<CurrencyIcons code={project.coin.symbol} size="sm" />);
             tokenName = project.coin.name;
             tokenSymbol = project.coin.symbol;
+            
         }
+
+        
         
         return (
             <>
@@ -327,12 +355,13 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <div className='row'>
                                         <label className='text-center'>Presale Ends In</label>
                                     </div>
-                                    <div className='row'>
+                                    {timeRender}
+                                    {/*<div className='row'>
                                         <div className='col-3 p-0'><div className='d-grid p-2'><a className='onLockbuttonumbers text-center'><label>327</label></a></div></div>
                                         <div className='col-3 p-0'><div className='d-grid p-2'><a className='onLockbuttonumbers text-center'><label>28</label></a></div></div>
                                         <div className='col-3 p-0'><div className='d-grid p-2'><a className='onLockbuttonumbers text-center'><label>268</label></a></div></div>
                                         <div className='col-3 p-0'><div className='d-grid p-2'><a className='onLockbuttonumbers text-center'><label>15</label></a></div></div>
-                                    </div>
+                                    </div>*/}
 
                                     <div className='row'>
                                         <div className='col-11 mx-auto'>
@@ -418,12 +447,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <label className='text-center'>Presale Ends In</label>
                                 </div>
 
-                                <div className='row'>
-                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='onLockbuttonumbers text-center'><label>327</label></a></div></div>
-                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='onLockbuttonumbers text-center'><label>28</label></a></div></div>
-                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='onLockbuttonumbers text-center'><label>268</label></a></div></div>
-                                    <div className='col-3 p-0'><div className='d-grid p-3'><a className='onLockbuttonumbers text-center'><label>15</label></a></div></div>
-                                </div>
+                                {timeRender}
 
                                 <div className='row'>
                                     <div className='col-11 mx-auto'>
