@@ -3,12 +3,12 @@
 
 import {hot} from 'react-hot-loader/root';
 //import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'bootstrap.bundle.min.js';
+import 'jquery-ui-dist/jquery-ui';
 import 'jquery/src/jquery';
 import 'jquery';
 import './script';
-import Popper from 'popper.js';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import 'bootstrap.bundle.min.js';
 import React from 'react';
 import {Provider} from 'react-redux';
 import {Router, Route} from 'react-router-dom';
