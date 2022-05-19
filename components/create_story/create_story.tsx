@@ -316,7 +316,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                         <div className='modal-content shadow-lg'>
                             <div className='modal-header'>
                                 <h6 className='modal-title' id='staticBackdropLabel'>Story privacy</h6>
-                                <a className='onClosestoryprivacy shadow float-end'><i className='bi-x'></i></a>
+                                <a className='onClosestoryprivacy shadow float-end' data-bs-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
                                 <div className='row'>
