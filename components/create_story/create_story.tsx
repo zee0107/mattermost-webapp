@@ -61,12 +61,12 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                             <div className='row'>
                     
                                 <div className='col-lg-3 border-end p-4'>
-                                <p><img className='img-fluid mt-2' src='assets/images/logo-story.png' alt='logo' title='logo'><a href='#' className='float-end mt-1 onClickclosestory'><i className='bi-x-circle-fill'></i></a></p>
+                                <p><img className='img-fluid mt-2' src='assets/images/logo-story.png' alt='logo' title='logo'/><a href='#' className='float-end mt-1 onClickclosestory'><i className='bi-x-circle-fill'></i></a></p>
                                 <p>
                                     <h5 className='mt-4'>Your Story <a className='onStoryprivacy float-end' data-bs-toggle='tooltip' data-bs-placement='top' title='Story privacy'><i className='bi-gear'></i></a></h5>
                                 </p>
                                 <p>
-                                    <img className='img-fluid circle-rounded mr-2 mt-3' src='assets/images/sample-user-primary-picture-6.png'>
+                                    <img className='img-fluid circle-rounded mr-2 mt-3' src='assets/images/sample-user-primary-picture-6.png'/>
                                     <medium className='mt-1'><strong>First name goes here</strong>
                                     <br/>
                                     <div className='yourstoryprivacytext'>
