@@ -138,8 +138,8 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
         const {actions} = this.props;
         const channel: Channel = {
-            //team_id: 'u57ytznuttyzbgapem9sqj4oyc',
-            team_id: 'd7cxjgejnbdm78h4n91kqeq6ow',
+            team_id: 'u57ytznuttyzbgapem9sqj4oyc',
+            //team_id: 'd7cxjgejnbdm78h4n91kqeq6ow',
             name: this.state.channelName,
             display_name: this.state.channelDisplayName,
             purpose: this.state.channelPurpose,
@@ -240,8 +240,8 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
     handleJoin = (channel: ServerChannel) => {
         const {actions} = this.props;
-        //const result = actions.joinChannel(this.props.userId, 'u57ytznuttyzbgapem9sqj4oyc', channel.id);
-        const result = actions.joinChannel(this.props.userId, 'd7cxjgejnbdm78h4n91kqeq6ow', channel.id);
+        const result = actions.joinChannel(this.props.userId, 'u57ytznuttyzbgapem9sqj4oyc', channel.id);
+        //const result = actions.joinChannel(this.props.userId, 'd7cxjgejnbdm78h4n91kqeq6ow', channel.id);
 
         if (result.error) {
             this.setState({serverError: result.error.message});
@@ -293,8 +293,8 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         const {actions} = this.props;
         const channel: Channel = {
             id: this.state.channelId,
-            //team_id: 'u57ytznuttyzbgapem9sqj4oyc',
-            team_id: 'd7cxjgejnbdm78h4n91kqeq6ow',
+            team_id: 'u57ytznuttyzbgapem9sqj4oyc',
+            //team_id: 'd7cxjgejnbdm78h4n91kqeq6ow',
             name: this.state.channelName,
             display_name: this.state.channelDisplayName,
             purpose: this.state.channelPurpose,
