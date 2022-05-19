@@ -30,6 +30,7 @@ import {HFTRoute,LoggedInHFTRoute} from 'components/header_footer_template_route
 import {HFTRouteLog,LoginHFTRoute} from 'components/header_footer_login_route';
 import {HFTRouteLogNS,LoginHFTRouteNS} from 'components/header_footer_login_route_ns';
 import {HFTRouteLogF,LoginHFTRouteF} from 'components/header_footer_login_route_fluid';
+import {HFTRouteLogFNS,LoginHFTRouteFNS} from 'components/header_footer_login_route_fluid_ns';
 import IntlProvider from 'components/intl_provider';
 import NeedsTeam from 'components/needs_team';
 
@@ -593,7 +594,7 @@ export default class Root extends React.PureComponent {
                                     path={'/profile'}
                                     component={ProfilePage}
                                 />
-                                 <LoginHFTRouteNS
+                                 <LoginHFTRouteFNS
                                     path={'/stories/create'}
                                     component={CreateStory}
                                 />
