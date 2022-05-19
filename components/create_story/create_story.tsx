@@ -152,7 +152,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                         <a className='onClosetexttypings shadow float-end'><i className='bi-x'></i></a>
                         <div className='previews-photo-content mt-4 mb-1'>
                             <div className='col-lg-9 mx-auto'>
-                                <div style={{ backgroundImage: `url(${postImage})`}} className='photo-story-uploaded rounded' id='resizable'>
+                                <div style={{ background: `url(${postImage}) no-repeat top center`, backgroundSize: 'cover'}} className='photo-story-uploaded rounded' id='resizable'>
                                     <div className='add-text-on-photo'>
                                         <div id='draggable' className='ui-widget-content'>
                                             <div>
