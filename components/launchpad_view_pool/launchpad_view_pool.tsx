@@ -64,30 +64,33 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
 
         let statusBoxDesktop;
         let statusBoxMobile;
-        if(project.status === 'UPCOMING'){
-            statusBoxDesktop = (
-                <a className='float-end onSaleUpcoming'><i className='bi-dot bi-dot-sale-live'></i> Upcoming</a>
-            ); 
-            statusBoxMobile = (
-                <a className='float-end onSaleUpcomingmobile'><i className='bi-dot bi-dot-sale-live'></i> Upcoming</a>
-            );
+        if(project !== undefined && project !== null && project !== ''){
+            if(project.status === 'UPCOMING'){
+                statusBoxDesktop = (
+                    <a className='float-end onSaleUpcoming'><i className='bi-dot bi-dot-sale-live'></i> Upcoming</a>
+                ); 
+                statusBoxMobile = (
+                    <a className='float-end onSaleUpcomingmobile'><i className='bi-dot bi-dot-sale-live'></i> Upcoming</a>
+                );
+            }
+            else if(project.status === 'ENDED'){
+                statusBoxDesktop = (
+                    <a className='float-end onSaleEnded'><i className='bi-dot bi-dot-sale-live'></i> Sale Ended</a>
+                ); 
+                statusBoxMobile = (
+                    <a className='float-end onSaleEndedmobile'><i className='bi-dot bi-dot-sale-live'></i>Sale Ended</a>
+                );
+            }
+            else{
+                statusBoxDesktop = (
+                    <a className='float-end onSalelive'><i className='bi-dot bi-dot-sale-live'></i> Sale live</a>
+                ); 
+                statusBoxMobile = (
+                    <a className='float-end onSalelivemobile'><i className='bi-dot bi-dot-sale-live'></i>Sale live</a>
+                );
+            }
         }
-        else if(project.status === 'ENDED'){
-            statusBoxDesktop = (
-                <a className='float-end onSaleEnded'><i className='bi-dot bi-dot-sale-live'></i> Sale Ended</a>
-            ); 
-            statusBoxMobile = (
-                <a className='float-end onSaleEndedmobile'><i className='bi-dot bi-dot-sale-live'></i>Sale Ended</a>
-            );
-        }
-        else{
-            statusBoxDesktop = (
-                <a className='float-end onSalelive'><i className='bi-dot bi-dot-sale-live'></i> Sale live</a>
-            ); 
-            statusBoxMobile = (
-                <a className='float-end onSalelivemobile'><i className='bi-dot bi-dot-sale-live'></i>Sale live</a>
-            );
-        }
+        
         return (
             <>
                 <section id='crypter-section' className='crypter-section-desktop'>
