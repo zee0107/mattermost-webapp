@@ -77,8 +77,12 @@ export default class CreateStory extends React.PureComponent<Props, State> {
     }
 
     jQueryCode = () => {
-        $(function() {
-            $("#draggable").draggable();
+        $(document).ready(function () {
+            $('#draggable').draggable();
+          });
+
+        $(document).ready(function () {
+          $('#resizable').resizable();
         });
     }
 
