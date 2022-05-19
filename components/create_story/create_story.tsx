@@ -310,6 +310,47 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                         </form>
                     </div>
                 </div>
+
+                <div className='modal selectstoryprivacy' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                    <div className='modal-dialog modal-dialog-centered'>
+                        <div className='modal-content shadow-lg'>
+                            <div className='modal-header'>
+                                <h6 className='modal-title' id='staticBackdropLabel'>Story privacy</h6>
+                                <a className='onClosestoryprivacy shadow float-end'><i className='bi-x'></i></a>
+                            </div>
+                            <div className='modal-body'>
+                                <div className='row'>
+                                    <p><label><strong>Who can see your story?</strong></label><br/><small>Your story will be visible 24 hours on Crypter and Crypter Msg</small></p>
+                                    <div className='col-10'><p><i className='bi-globe'></i> <strong>Everyone</strong> <br/> <small>Everyone on Crypter</small></p></div>
+                                    <div className='col-2'>
+                                        <div className='form-check float-end'>
+                                            <input className='form-check-input onEveryonestoryprivacy' type='radio' name='flexRadioDefault' id='flexRadioEveryonestoryprivacy'/>
+                                            <label className='form-check-label' htmlFor='flexRadioEveryonestoryprivacy'></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='row mt-2'>
+                                    <div className='col-10'><p><i className='bi-people-fill'></i> <strong>Friends</strong> <br/><small>Only your Crypter friends</small></p></div>
+                                    <div className='col-2'>
+                                        <div className='form-check float-end'>
+                                                <input className='form-check-input onFriendstoryprivacy' type='radio' name='flexRadioDefault' id='flexRadioFriendstoryprivacy'/>
+                                                <label className='form-check-label' htmlFor='flexRadioFriendstoryprivacy'></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='row mt-2'>
+                                    <div className='col-10'><p><i className='bi-person'></i> <strong>Private</strong> <br/><small>Only you see your Story</small></p></div>
+                                    <div className='col-2'>
+                                        <div className='form-check float-end'>
+                                                <input className='form-check-input onOnlymestoryprivacy' type='radio' name='flexRadioDefault' id='flexRadioOnlymestoryprivacy'/>
+                                                <label className='form-check-label' htmlFor='flexRadioOnlymestoryprivacy'></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </>
         );
     }
