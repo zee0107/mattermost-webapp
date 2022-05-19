@@ -95,12 +95,6 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                             </div>
                         </div>
                     </div>
-                    <script>
-                        {$(function() {$( "#draggable").draggable();})};
-                    </script>
-                    <script>
-                        {$( function() {$( "#resizable" ).resizable();})};
-                    </script>
                 </>
             );
 
