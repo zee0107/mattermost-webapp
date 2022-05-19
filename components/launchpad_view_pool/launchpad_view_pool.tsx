@@ -6,6 +6,7 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import { ProjectList } from 'mattermost-redux/types/crypto';
 import CurrencyIcons from 'components/currency_icons';
+import CurrencyCap from 'components/currency_cap/currency_cap';
 
 import chart from 'images/launchpad/viewpool/pie-chart.png';
 import fb from 'images/launchpad/viewpool/icon-smm-facebook.png';
@@ -100,6 +101,10 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
         let tokenSymbol;
         let timeRender;
         let rangeRender;
+        let hardCap;
+        let startTime;
+        let endTime;
+        let estimatedValue;
         if(project !== undefined && project !== null && project !== ''){
             console.log(project.coin.symbol);
             if(project.status === 'UPCOMING'){
@@ -140,6 +145,10 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                     <div className='col-6 mt-2'><label className='float-end me-3 text-muted'>{project.total_prize} {project.coin.symbol}</label></div>
                 </>
             )
+            hardCap = project.total_prize;
+            startTime = project.start_time;
+            endTime = project.end_time;
+            estimatedValue = <CurrencyCap symbol={tokenSymbol} />
         }
 
         
@@ -199,37 +208,37 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <div className='col-6 text-end'><label>(Do not send BNB to the token address)</label></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Total Supply</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>100,000,000,000 NFTF</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>100,000,000,000 {tokenSymbol}</label></strong></div>
 
                                     <div className='col-6'><strong><label>Tokens For Presale</label></strong></div>
-                                    <div className='col-6 text-end'><strong className=''><label>30,000,000,000 NFTF</label></strong></div>
+                                    <div className='col-6 text-end'><strong className=''><label>30,000,000,000 {tokenSymbol}</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Tokens For Liquidity</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>19,500,000,000 NFTF</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>19,500,000,000 {tokenSymbol}</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Presale Rate</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>1 BNB = 60,000,000,000 NFTF</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>1 BNB = 60,000,000,000 {tokenSymbol}</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Listing Rate</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>1 BNB = 60,000,000,000 NFTF</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>1 BNB = 60,000,000,000 {tokenSymbol}</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Initial Market Cap (estimate)</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>$322,291</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>${estimatedValue</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Soft Cap</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>250 BNB</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>1 {tokenSymbol}</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Hard Cap</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>500 BNB</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>{hardCap} {tokenSymbol}</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Unsold Tokens</label></strong></div>
                                     <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>Burn</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Presale Start Time</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>2022.01.29 13:00 (UTC)</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>{starTime} (UTC)</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Presale End Time</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>2022.01.29 13:00 (UTC)</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>{endTime} (UTC)</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Listing On</label></strong></div>
                                     <div className='col-6 text-end mt-1 mb-1'><strong className='text-success'><label>Pancakeswap</label></strong></div>
@@ -241,7 +250,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>730 days after pool ends</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Total Team Vesting Tokens</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>15,000,000,000 NFTF</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>15,000,000,000 {tokenSymbol}</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>First Release After Listing (days)</label></strong></div>
                                     <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>14 days</label></strong></div>
@@ -385,7 +394,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                             <div className='row'>
 
                                             <div className='col-12'>
-                                                <label htmlFor='formGroupExampleInput' className='form-label'><label>* Amount (max: 2.9 BNB)</label></label>
+                                                <label htmlFor='formGroupExampleInput' className='form-label'><label>* Amount (max: 2.9 {tokenSymbol})</label></label>
                                                 <div className='input-group mb-2'>
                                                 <input type='text' className='form-control input-create-new-group-amount-max' placeholder='' aria-label='' aria-describedby=''/>
                                                 <span className='input-group-text input-create-new-group-amount-max text-success' id=''>MAX</span>
@@ -405,13 +414,13 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                         <div className='col-9 text-end mt-1 mb-1'><strong className='text-success'><label>Inprogress</label></strong></div>
 
                                         <div className='col-6 mt-1 mb-1'><strong><label>Minimum Buy</label></strong></div>
-                                        <div className='col-6 text-end mt-1 mb-1'><strong><label>0.1 BNB</label></strong></div>
+                                        <div className='col-6 text-end mt-1 mb-1'><strong><label>0.1 {tokenSymbol}</label></strong></div>
 
                                         <div className='col-6 mt-1 mb-1'><strong><label>Maximum Buy</label></strong></div>
-                                        <div className='col-6 text-end mt-1 mb-1'><strong><label>3 BNB</label></strong></div>
+                                        <div className='col-6 text-end mt-1 mb-1'><strong><label>3 {tokenSymbol}</label></strong></div>
 
                                         <div className='col-9 mt-1 mb-1'><strong><label>Your purchased</label></strong></div>
-                                        <div className='col-3 text-end mt-1 mb-1'><strong><label>0 BNB</label></strong></div>
+                                        <div className='col-3 text-end mt-1 mb-1'><strong><label>0 {tokenSymbol}</label></strong></div>
                                     </div>
                                 </div>
                             </div>
@@ -469,7 +478,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <form>
                                         <div className='row'>
                                             <div className='col-12'>
-                                                <label htmlFor='formGroupExampleInput' className='form-label'><label>* Amount (max: 2.9 BNB)</label></label>
+                                                <label htmlFor='formGroupExampleInput' className='form-label'><label>* Amount (max: 2.9 {tokenSymbol})</label></label>
                                                 <div className='input-group mb-2'>
                                                     <input type='text' className='form-control input-create-new-group-amount-max' placeholder='' aria-label='' aria-describedby=''/>
                                                     <span className='input-group-text input-create-new-group-amount-max' id=''>MAX</span>
@@ -487,11 +496,11 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <div className='col-3 mt-1 mb-1'><strong><label>Status</label></strong></div>
                                     <div className='col-9 text-end mt-1 mb-1'><strong className='text-success'><label>Inprogress</label></strong></div>
                                     <div className='col-6 mt-1 mb-1'><strong><label>Minimum Buy</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong><label>0.1 BNB</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong><label>0.1 {tokenSymbol}</label></strong></div>
                                     <div className='col-6 mt-1 mb-1'><strong><label>Maximum Buy</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong><label>3 BNB</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong><label>3 {tokenSymbol}</label></strong></div>
                                     <div className='col-9 mt-1 mb-1'><strong><label>Your purchased</label></strong></div>
-                                    <div className='col-3 text-end mt-1 mb-1'><strong><label>0 BNB</label></strong></div>
+                                    <div className='col-3 text-end mt-1 mb-1'><strong><label>0 {tokenSymbol}</label></strong></div>
                                 </div>
                             </div>
                             <div className='launchpad-view-pool-body-mobile mt-2 mb-2'>
@@ -515,37 +524,37 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <div className='col-lg-6 text-start'><label>(Do not send BNB to the token address)</label></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Total Supply</label></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>100,000,000,000 NFTF</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>100,000,000,000 {tokenSymbol}</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Tokens For Presale</label></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>30,000,000,000 NFTF</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>30,000,000,000 {tokenSymbol}</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong><label>Tokens For Liquidity</label></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>19,500,000,000 NFTF</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>19,500,000,000 {tokenSymbol}</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Presale Rate</label></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>1 BNB = 60,000,000,000 NFTF</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>1 BNB = 60,000,000,000 {tokenSymbol}</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Listing Rate</label></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>1 BNB = 60,000,000,000 NFTF</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>1 BNB = 60,000,000,000 {tokenSymbol}</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Initial Market Cap (estimate)</label></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>$322,291</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>${estimatedValue}</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Soft Cap</label></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>250 BNB</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>1 {tokenSymbol}</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Hard Cap</label></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>500 BNB</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>{hardCap} {tokenSymbol}</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Unsold Tokens</label></strong></div>
                                     <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>Burn</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Presale Start Time</label></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>2022.01.29 13:00 (UTC)</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>{startTime} (UTC)</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Presale End Time</label></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>2022.01.29 13:00 (UTC)</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>{endTime} (UTC)</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Listing On</label></strong></div>
                                     <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>Pancakeswap</label></strong></div>
@@ -557,7 +566,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>730 days after pool ends</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Total Team Vesting Tokens</label></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>15,000,000,000 NFTF</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>15,000,000,000 {tokenSymbol}</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>First Release After Listing (days)</label></strong></div>
                                     <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>14 days</label></strong></div>
