@@ -6,6 +6,7 @@ import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import logoDark from 'images/logoBlack.png';
+import postImage from 'images/post-1.png';
 
 type Props = {
     status?: string;
@@ -136,8 +137,8 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                     </div>
                     <div className='row mt-4'>
                         <div className='btn-group gap-1' role='group' aria-label='Button discard and share to story'>
-                        <a className='btn btn-primary btn-sm btn-discard onClickdiscardphotostory' onClick={() => { this.setState({photoStory: false,textStory: false});}}>Discard</a>
-                        <a className='btn btn-primary btn-sm btn-share-to-story'>Share to story</a>
+                        <a className='btn btn-primary btn-discard onClickdiscardphotostory' onClick={() => { this.setState({photoStory: false,textStory: false});}}>Discard</a>
+                        <a className='btn btn-primary btn-share-to-story'>Share to story</a>
                     </div>
                 </div>
             </div>
@@ -151,7 +152,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                         <a className='onClosetexttypings shadow float-end'><i className='bi-x'></i></a>
                         <div className='previews-photo-content mt-4 mb-1'>
                             <div className='col-lg-9 mx-auto'>
-                                <div className='photo-story-uploaded rounded' id='resizable'>
+                                <div style={{ backgroundImage: `url(${postImage})`}} className='photo-story-uploaded rounded' id='resizable'>
                                     <div className='add-text-on-photo'>
                                         <div id='draggable' className='ui-widget-content'>
                                             <div>
@@ -212,8 +213,8 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
                         <div className='row mt-3'>
                             <div className='btn-group gap-1' role='group' aria-label='Button discard and share to story'>
-                            <a className='btn btn-primary btn-sm btn-discard onClickdiscard' onClick={() => { this.setState({photoStory: false,textStory: false});}}>Discard</a>
-                            <a className='btn btn-primary btn-sm btn-share-to-story'>Share to story</a>
+                            <a className='btn btn-primary btn-discard onClickdiscard' onClick={() => { this.setState({photoStory: false,textStory: false});}}>Discard</a>
+                            <a className='btn btn-primary btn-share-to-story'>Share to story</a>
                             </div>
                         </div>
                 </div>
@@ -255,7 +256,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                         <form>
                             <div className='row'>
                     
-                                <div className='col-lg-3 border-end p-4'>
+                                <div className='col-lg-2 border-end p-4'>
                                 <p><img className='img-fluid mt-2' src={logoDark} alt='logo' title='logo'/><a href='/crypter/towm-square' className='float-end mt-1 onClickclosestory'><i className='bi-x-circle-fill'></i></a></p>
                                 <div>
                                     <h2 className='mt-4'>Your Story <a className='onStoryprivacy float-end' data-bs-toggle='tooltip' data-bs-placement='top' title='Story privacy'><i className='bi-gear'></i></a></h2>
@@ -276,7 +277,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                 {sidePhotoMenu}
                                 {sideTextMenu}
                                 </div>
-                                <div className='col-lg-9 right-nav-story'>
+                                <div className='col-lg-10 right-nav-story'>
                                     <div className='position-absolute top-0 end-0 mt-4 mr-4'>
                                         {/*<a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
                                         <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>39+</span>
