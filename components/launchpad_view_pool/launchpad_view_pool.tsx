@@ -67,6 +67,8 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
         let projectName;
         let projectDesc;
         let projectImg;
+        let tokenName;
+        let tokenSymbol;
         if(project !== undefined && project !== null && project !== ''){
             console.log(project.coin.symbol);
             if(project.status === 'UPCOMING'){
@@ -97,6 +99,8 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
             projectName = project.project_name;
             projectDesc = project.description;
             projectImg = (<CurrencyIcons code={project.coin.symbol} />);
+            tokenName = project.coin.name;
+            tokenSymbol = project.coin.symbol;
         }
         
         return (
@@ -139,10 +143,10 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <div className='col-8 text-end mt-1 mb-1'><strong className='text-success'><label>0x04f7794FeF90E83d195CaEdF810e9632bf6</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Token Name</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong><label>lorem Ipsum</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong><label>{tokenName}</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Token Symbol</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong><label>LEP</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong><label>{tokenSymbol}</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Token Decimal</label></strong></div>
                                     <div className='col-6 text-end mt-1 mb-1'><strong><label>18</label></strong></div>
@@ -459,10 +463,10 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <div className='col-lg-9 text-start mt-1 mb-1'><strong className='text-success'><label>0x04f7794FeF90E83d1...</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Token Name</label></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>lorem Ipsum</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>{tokenName}</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Token Symbol</label></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>LEP</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>{tokenSymbol}</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Token Decimal</label></strong></div>
                                     <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>18</label></strong></div>
