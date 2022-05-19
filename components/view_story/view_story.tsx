@@ -317,7 +317,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                         {/*Previews all story*/}
                                         <div className='all-stories-float-icon-desktop'>
                                             <div className='position-absolute top-0 end-0 mt-4 me-4'>
-                                                <a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
+                                               {/* <a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
                                                 <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>39+</span>
                                                 <br/>
                                                 <br/>
@@ -325,7 +325,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                                     <a className='onStorymessages' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelchatdesktop' aria-controls='offcanvasRightLabelchatdesktop'><i className='bi-chat-left-text-fill'></i></a>
                                                     <span className='position-absolute right-0 start-100 translate-middle badge rounded-pill bg-danger'>14+</span>
                                                 <div className='mb-4'></div>
-                                                
+                                                */}
                                                 <div className='d-flex'>
                                                     <a className='onStoryprofilesettings' id='defaultDropdown' id='dropdownMenuOffset' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
 

@@ -3588,13 +3588,15 @@ overflow-y: scroll;
   margin: 0px 7px 0px 7px;
 }
 .bi-chevron-right {
-  background: #7DCE58;;
+  background: #7DCE58;
   padding: 1px 4px 1px 4px;
+  border-radius: 50%;
 }
 .next-arrow-story {
   //margin: -65px 0px 0px 22px;
   color: #fff !important;
   font-size: 14px;
+  background: transparent !important;
 }
 .next-arrow-story-mobile {
   margin: -131px 0px 0px 11px;
