@@ -249,12 +249,12 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                                 <div className='add-text-on-photo'>
                     
                                                     <div id='draggable' className='ui-widget-content'>
-                                                        <form>
+                                                        <div>
                                                                 <div className='form-floating'>
                                                                 <textarea style={{height: 150,}} className='form-control text-start-styping' placeholder='Start typing' id='floatingTextarea'></textarea>
                                                                 <label htmlFor='floatingTextarea'>Start typing</label>
                                                                 </div>
-                                                        </form>
+                                                        </div>
                                                     </div>
                     
                                                 </div>
