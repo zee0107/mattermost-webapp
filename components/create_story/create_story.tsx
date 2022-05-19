@@ -67,7 +67,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                 </div>
                                 <div>
                                     <img className='img-fluid circle-rounded mr-2 mt-3' src='assets/images/sample-user-primary-picture-6.png'/>
-                                    <medium className='mt-1'><strong>First name goes here</strong>
+                                    <label className='mt-1'><strong>First name goes here</strong>
                                     <br/>
                                     <div className='yourstoryprivacytext'>
                                     <a className='ml-5 storyprivacyeveryoneviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Everyone is selected go to your story privacy to change your privacy'><i className='bi-globe'></i> Everyone</a>
