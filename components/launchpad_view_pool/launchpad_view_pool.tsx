@@ -64,6 +64,9 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
 
         let statusBoxDesktop;
         let statusBoxMobile;
+        let projectName;
+        let projectDesc;
+        let projectImg;
         if(project !== undefined && project !== null && project !== ''){
             if(project.status === 'UPCOMING'){
                 statusBoxDesktop = (
@@ -89,6 +92,10 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                     <a className='float-end onSalelivemobile'><i className='bi-dot bi-dot-sale-live'></i>Sale live</a>
                 );
             }
+
+            projectName = project.project_name;
+            projectDesc = project.description;
+            projectImg = (<CurrencyIcons symbol={project.coin.symbol} />);
         }
         
         return (
@@ -99,11 +106,11 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                             <div className='launchpad-view-pool-body mt-2'>
                                 <div className='row'>
                                     <div className='col-1 text-center'>
-                                        <CurrencyIcons symbol={project.coin.symbol} />
-                                        <img className='rounded-circle border-info mt-2' width='40' src='assets/images/sample-user-primary-picture-7.png'/>
+                                        {projectImg}
+                                        {/*<img className='rounded-circle border-info mt-2' width='40' src='assets/images/sample-user-primary-picture-7.png'/>*/}
                                     </div>
                                     <div className='col-6 text-start'>
-                                        <label className='ml-2'>{project.project_name}</label>
+                                        <label className='ml-2'>{projectName}</label>
                                         <br/>
                                         <img width='17' className='float-start ml-2 mt-2' src='assets/images/icon-global2.png' alt=''/>
                                         <img width='17' className='float-start ml-2 mt-2' src='assets/images/icon-smm-facebook.png' alt=''/>
@@ -120,7 +127,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                 <div className='row mt-3'>
                                     <div className='col-1'></div>
                                     <div className='col-11'>
-                                        <p className='ml-2'>{project.description}</p>
+                                        <p className='ml-2'>{projectDesc}</p>
                                     </div>
                                 </div>
                             </div>
@@ -370,10 +377,10 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                 <div className='launchpad-view-pool-body'>
                                     <div className='row'>
                                         <div className='col-1 text-center'>
-                                            <CurrencyIcons symbol={project.coin.symbol} />
+                                            {projectImg}
                                         </div>
                                         <div className='col-6 text-start'>
-                                            <label className='ml-4'>{project.project_name}</label>
+                                            <label className='ml-4'>{projectName}</label>
                                             <br/>
                                             <img width='17' className='float-start ml-4 mt-2' src='assets/images/icon-global2.png' alt='' />
                                             <img width='17' className='float-start ml-0 mt-2' src='assets/images/icon-smm-facebook.png' alt='' />
@@ -389,7 +396,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <hr/>
                                     <div className='row'>
                                         <div className='col-12'>
-                                            <p>{project.description}</p>
+                                            <p>{projectDesc}</p>
                                         </div>
                                     </div>
                                 </div>
