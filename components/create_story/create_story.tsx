@@ -68,7 +68,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                 <p>
                                     <img className='img-fluid circle-rounded mr-2 mt-3' src='assets/images/sample-user-primary-picture-6.png'>
                                     <medium className='mt-1'><strong>First name goes here</strong>
-                                    <br>
+                                    <br/>
                                     <div className='yourstoryprivacytext'>
                                     <a className='ml-5 storyprivacyeveryoneviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Everyone is selected go to your story privacy to change your privacy'><i className='bi-globe'></i> Everyone</a>
                                     <a className='ml-5 storyprivacyfriendsviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Friends is selected go to your story privacy to change your privacy'><i className='bi-people-fill'></i> Friends</a>
@@ -76,7 +76,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                     </div>
                                     </medium>
                                 </p>
-                                <hr>
+                                <hr/>
                     
                                 <div className='create-photo-story-box'>
                                     <p><a className='onAddtextonphoto'><i className='bi-textarea-t'></i> <strong>Add Text</strong></a></p>
@@ -198,8 +198,8 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                     <div className='position-absolute top-0 end-0 mt-4 mr-4'>
                                         <a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
                                         <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>39+</span>
-                                        <br>
-                                        <br>
+                                        <br/>
+                                        <br/>
                                         <div className='mb-1'></div>
                     
                                         <div className='d-flex'>
@@ -219,10 +219,10 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                     <div className='container px-4'>
                                     <div className='row gx-5'>
                                         <div className='col'>
-                                        <div className='p-3 border bg-light text-center create-photo-story onCreatephotostory'><p className='text-white'><i className='bi-image text-white'></i><br>Create a photo story</p></div>
+                                        <div className='p-3 border bg-light text-center create-photo-story onCreatephotostory'><p className='text-white'><i className='bi-image text-white'></i><br/>Create a photo story</p></div>
                                         </div>
                                         <div className='col'>
-                                        <div className='p-3 border bg-light text-center create-text-story onCreatetextstory'><p className='text-white'><i className='bi-textarea-t text-white'></i><br>Create a text story</p></div>
+                                        <div className='p-3 border bg-light text-center create-text-story onCreatetextstory'><p className='text-white'><i className='bi-textarea-t text-white'></i><br/>Create a text story</p></div>
                                         </div>
                                     </div>
                     

@@ -57,6 +57,7 @@ const LazySignupProfile = React.lazy(() => import('components/signup/signup_prof
 const LazyProfilePage = React.lazy(() => import('components/profile_page'));
 const LazyNewsFeed = React.lazy(() => import('components/newsfeed'));
 const LazyGroup = React.lazy(() => import('components/groups'));
+const LazyCreateStory = React.lazy(() => import('components/create_story'));
 const LazyDocuments = React.lazy(() => import('components/documents'));
 const LazyDocumentsBuyPresale = React.lazy(() => import('components/documents-buy-presale'));
 const LazyDocumentsClaimTokens = React.lazy(() => import('components/documents-claim-tokens'));
@@ -133,6 +134,7 @@ const SignupProfile = makeAsyncComponent('SignupProfile', LazySignupProfile);
 const ProfilePage = makeAsyncComponent('ProfilePage', LazyProfilePage);
 const NewsFeed = makeAsyncComponent('Newsfeed', LazyNewsFeed);
 const Groups = makeAsyncComponent('Group', LazyGroup);
+const CreateStory = makeAsyncComponent('CreateStory', LazyCreateStory);
 const Documents = makeAsyncComponent('Documents', LazyDocuments);
 const DocumentsBuyPresale = makeAsyncComponent('DocumentsBuyPresale', LazyDocumentsBuyPresale);
 const DocumentsClaimTokens = makeAsyncComponent('DocumentsClaimTokens', LazyDocumentsClaimTokens);
@@ -590,6 +592,10 @@ export default class Root extends React.PureComponent {
                                 <LoginHFTRouteNS
                                     path={'/profile'}
                                     component={ProfilePage}
+                                />
+                                 <LoginHFTRouteNS
+                                    path={'/stories/create'}
+                                    component={CreateStory}
                                 />
                                 <LoginHFTRouteNS
                                     path={'/documents/intro'}

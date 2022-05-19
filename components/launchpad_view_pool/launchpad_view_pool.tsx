@@ -106,7 +106,6 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
         let endTime;
         let estimatedValue;
         if(project !== undefined && project !== null && project !== ''){
-            console.log(project.coin.symbol);
             if(project.status === 'UPCOMING'){
                 statusBoxDesktop = (
                     <a className='float-end onSaleUpcoming'><i className='bi-dot bi-dot-sale-live'></i> Upcoming</a>

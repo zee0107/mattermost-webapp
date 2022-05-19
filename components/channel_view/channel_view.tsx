@@ -410,7 +410,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                         <div className='d-flex'>
                             <div className='col-md-1 mtop-10'>
                                 <div className='position-absolute'>
-                                    <a href="#" className='onClickstory'>
+                                    <a href="/stories/create" className='onClickstory'>
                                         {this.renderProfilePicture('xl')}
                                     </a>
                                 </div>

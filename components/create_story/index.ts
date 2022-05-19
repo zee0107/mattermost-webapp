@@ -20,7 +20,7 @@ import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
 import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
 
-import CreateStory from './create-story'
+import CreateStory from './create_story'
 
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
