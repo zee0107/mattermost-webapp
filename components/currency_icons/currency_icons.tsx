@@ -8,6 +8,7 @@ import { typeOf } from 'react-is';
 
 type Props = {
     code?: string;
+    size?: string;
 };
 
 export default class Icon extends React.PureComponent<Props>{
@@ -32,11 +33,24 @@ export default class Icon extends React.PureComponent<Props>{
 
     render(): React.ReactNode {
         const {
-            code
+            code,size
         } = this.props;
 
+        let img;
+        if(size !== undefined && size !== null && size !== ''){
+            img = (
+                <img src={this.state.logo_url} alt={code + '-icon'} className='currency-icon-sm'></img>
+            );
+        }else{
+            img = (
+                <img src={this.state.logo_url} alt={code + '-icon'} className='currency-icon'></img>
+            );
+        }
+
         return(
-            <img src={this.state.logo_url} alt={code + '-icon'} className='currency-icon'></img>
+            <>
+                {img}
+            </>
         )
     }
 }
