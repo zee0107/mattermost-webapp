@@ -1430,12 +1430,12 @@ margin: 10px 0px 0px 0px;
 .create-text-story-box {
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
-  display: none;
+  display: block;
 }
 .create-photo-story-box {
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
-  display: none;
+  display: block;
 }
 .btn-discard, .btn-share-to-story {
   background: rgb(127,207,87);
@@ -1472,7 +1472,7 @@ margin: 10px 0px 0px 0px;
   cursor: pointer;
 }
 .create-text-story-previews {
-  display: none;
+  display: block;
   padding: 16px 16px 16px 16px;
   background: #f1f1f1;
   border-radius: 8px;
@@ -1491,7 +1491,7 @@ margin: 10px 0px 0px 0px;
   margin: 0px 0px 0px 0px; 
 }
 .create-photo-story-previews {
-  display: none;
+  display: block;
   padding: 16px 16px 16px 16px;
   background: #f1f1f1;
   border-radius: 8px;
