@@ -4,7 +4,7 @@
 import {hot} from 'react-hot-loader/root';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import 'jquery-ui-dist/jquesry-ui.css'
+import 'jquery-ui-dist/jquery-ui.css'
 import 'bootstrap.bundle.min.js';
 import 'jquery-ui-dist/jquery-ui.js';
 import 'jquery/src/jquery';
