@@ -61,13 +61,14 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
 
     render= (): JSX.Element => {
         const { project } = this.state;
-
+        
         let statusBoxDesktop;
         let statusBoxMobile;
         let projectName;
         let projectDesc;
         let projectImg;
         if(project !== undefined && project !== null && project !== ''){
+            console.log(project);
             if(project.status === 'UPCOMING'){
                 statusBoxDesktop = (
                     <a className='float-end onSaleUpcoming'><i className='bi-dot bi-dot-sale-live'></i> Upcoming</a>
