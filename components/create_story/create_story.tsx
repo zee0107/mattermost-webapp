@@ -5,10 +5,6 @@ import React, {ReactNode, ReactPropTypes} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
-import fillImage from 'images/fill.svg';
-import CurrencyIcons from 'components/currency_icons';
-import ProgressBar from 'components/progress_bar_new';
-import CurrencyCap from 'components/currency_cap/currency_cap';
 import logoDark from 'images/logoDark.png';
 
 type Props = {
@@ -22,6 +18,7 @@ type Props = {
         setStatusDropdown: (open: boolean) => void;
     };
     customStatus?: UserCustomStatus;
+    profilePicture: string;
     currentUser: UserProfile;
     isCustomStatusEnabled: boolean;
     isCustomStatusExpired: boolean;
@@ -52,7 +49,21 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         this.setState({isDark: ThemeValue});
     }
 
+    renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
+        if (!this.props.profilePicture) {
+            return null;
+        }
+        
+        return (
+            <Avatar
+                size={size}
+                url={this.props.profilePicture}
+            />
+        );
+    }
+
     render= (): JSX.Element => {
+        const { currentUser } = this.props;
         return (
             <>
                 <div className='slidebarStory'>
@@ -61,13 +72,14 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                             <div className='row'>
                     
                                 <div className='col-lg-3 border-end p-4'>
-                                <p><img className='img-fluid mt-2' src='assets/images/logo-story.png' alt='logo' title='logo'/><a href='#' className='float-end mt-1 onClickclosestory'><i className='bi-x-circle-fill'></i></a></p>
+                                <p><img className='img-fluid mt-2' src={logoDark} alt='logo' title='logo'/><a href='#' className='float-end mt-1 onClickclosestory'><i className='bi-x-circle-fill'></i></a></p>
                                 <div>
                                     <h5 className='mt-4'>Your Story <a className='onStoryprivacy float-end' data-bs-toggle='tooltip' data-bs-placement='top' title='Story privacy'><i className='bi-gear'></i></a></h5>
                                 </div>
                                 <div>
-                                    <img className='img-fluid circle-rounded mr-2 mt-3' src='assets/images/sample-user-primary-picture-6.png'/>
-                                    <label className='mt-1'><strong>First name goes here</strong>
+                                    {this.renderProfilePicture('sm')}
+                                    {/*<img className='img-fluid circle-rounded mr-2 mt-3' src='assets/images/sample-user-primary-picture-6.png'/>*/}
+                                    <label className='mt-1'><strong>{currentUser.first_name}</strong>
                                     <br/>
                                     <div className='yourstoryprivacytext'>
                                     <a className='ml-5 storyprivacyeveryoneviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Everyone is selected go to your story privacy to change your privacy'><i className='bi-globe'></i> Everyone</a>

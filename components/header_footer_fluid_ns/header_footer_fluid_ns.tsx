@@ -176,22 +176,9 @@ export default class LoggedInHFTFNS extends React.PureComponent<Props> {
         }
 
         return (
-            <div data-theme={this.state.isDark}>
+            <>
                 {React.cloneElement(this.props.children, {mode: this.state.isDark})}
-                <div className='footer border-top'>
-                    <div id='footer_section' className='footer-pane col-xs-12'>
-                        <br />
-                        <div className="col-lg-12 text-center">
-                            <div className="parent">
-                                <img src={fillCircle} className="image1"></img>
-                                <img src={Heart} className="image3"></img>
-                            </div>
-                            <h5>Copyright {'\u00A9'} Crypter.io </h5>
-                            <button className='btn buttonBgGreen buttonTogglePostion' onClick={this.darkModeToggle}>Switch Theme</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </>
         );
     }
 }

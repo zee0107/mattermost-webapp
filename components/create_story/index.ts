@@ -34,6 +34,7 @@ function makeMapStateToProps() {
         return {
             userId,
             autoResetPref: get(state, Preferences.CATEGORY_AUTO_RESET_MANUAL_STATUS, userId, ''),
+            profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             status: getStatusForUserId(state, userId),
             customStatus,
             currentUser,
