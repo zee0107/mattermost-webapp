@@ -287,10 +287,10 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                     <h2 className='mt-4'>Your Story <a className='onStoryprivacy float-end' data-bs-toggle='tooltip' data-bs-placement='top' title='Story privacy'><i className='bi-gear' data-bs-toggle='modal' data-bs-target='#staticBackdropPrivacy'></i></a></h2>
                                 </div>
                                 <div>
-                                    {this.renderProfilePicture('lg')}
+                                    {this.renderProfilePicture('xl')}
                                     {/*<img className='img-fluid circle-rounded mr-2 mt-3' src='assets/images/sample-user-primary-picture-6.png'/>*/}
-                                    <label className='mt-2' style={{verticalAlign: 'bottom',}}>
-                                        <p className='mb-0'><strong>{currentUser.first_name}</strong></p>
+                                    <label className='mt-3' style={{verticalAlign: 'middle',}}>
+                                        <strong style={{fontSize: 12}}>{currentUser.first_name}</strong>
                                         <div className='yourstoryprivacytext'>
                                             {privacyDetails}
                                         </div>
