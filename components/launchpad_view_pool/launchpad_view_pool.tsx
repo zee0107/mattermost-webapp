@@ -96,7 +96,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
 
             projectName = project.project_name;
             projectDesc = project.description;
-            projectImg = (<CurrencyIcons symbol={project.coin.symbol} />);
+            projectImg = (<CurrencyIcons code={project.coin.symbol} />);
         }
         
         return (
