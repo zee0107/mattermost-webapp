@@ -122,7 +122,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                             <div className='mt-0'>
                                                 <a className='onViewsfriendstories text-dark'>
                                                     <div className='padding-view-firends-style'>
-                                                        <img className='img-fluid circle-rounded me-2 mt-3' src={profPic1}/>
+                                                        <img className='circle-rounded me-2 mt-3' width={'15%'} src={profPic1}/>
                                                         <small className='mt-1 text-muted'><strong>Evan</strong></small>
                                                         <br/>
                                                         <div className='yourstoryminutes'><small className='ms-1'>8m</small></div>
@@ -131,7 +131,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
                                                 <a className='text-dark'>
                                                     <div className='padding-view-firends-style'>
-                                                    <img className='img-fluid circle-rounded me-2 mt-3' src={profPic2}/>
+                                                    <img className=' circle-rounded me-2 mt-3' width={'15%'}  src={profPic2}/>
                                                     <small className='mt-1 text-muted'><strong>Code</strong></small>
                                                     <br/>
                                                     <div className='yourstoryminutes'><small className='ms-1'>12h</small></div>
@@ -140,7 +140,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
                                                 <a className='text-dark'>
                                                     <div className='padding-view-firends-style'>
-                                                    <img className='img-fluid circle-rounded me-2 mt-3' src={profPic3}/>
+                                                    <img className=' circle-rounded me-2 mt-3' width={'15%'}  src={profPic3}/>
                                                     <small className='mt-1 text-muted'><strong>Annabel</strong></small>
                                                     <div className='yourstoryminutes'><small className='ms-1'>3h</small></div>
                                                     </div>
@@ -148,7 +148,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
                                                 <a className='text-dark'>
                                                     <div className='padding-view-firends-style'>
-                                                    <img className='img-fluid circle-rounded me-2 mt-3' src={profPic4}/>
+                                                    <img className=' circle-rounded me-2 mt-3' width={'15%'}  src={profPic4}/>
                                                     <small className='mt-1 text-muted'><strong>Shernan</strong></small>
                                                     <br/>
                                                     <div className='yourstoryminutes'><small className='ms-1'>1h</small></div>
@@ -157,7 +157,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
                                                 <a className='text-dark'>
                                                     <div className='padding-view-firends-style'>
-                                                    <img className='img-fluid circle-rounded me-2 mt-3' src={profPic5}/>
+                                                    <img className=' circle-rounded me-2 mt-3' width={'15%'}  src={profPic5}/>
                                                     <small className='mt-1 text-muted'><strong>Kimberly</strong></small>
                                                     <br/>
                                                     <div className='yourstoryminutes'><small className='ms-1'>40s</small></div>
@@ -166,7 +166,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
                                                 <a className='text-dark'>
                                                     <div className='padding-view-firends-style'>
-                                                    <img className='img-fluid circle-rounded me-2 mt-3' src={profPic6}/>
+                                                    <img className=' circle-rounded me-2 mt-3' width={'15%'}  src={profPic6}/>
                                                     <small className='mt-1 text-muted'><strong>Jaden</strong></small>
                                                     <br/>
                                                     <div className='yourstoryminutes'><small className='ms-1'>99h</small></div>
@@ -175,7 +175,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
                                                 <a className='text-dark'>
                                                     <div className='padding-view-firends-style'>
-                                                    <img className='img-fluid circle-rounded me-2 mt-3' src={profPic7}/>
+                                                    <img className=' circle-rounded me-2 mt-3' width={'15%'}  src={profPic7}/>
                                                     <small className='mt-1 text-muted'><strong>Michael</strong></small>
                                                     <br/>
                                                     <div className='yourstoryminutes'><small className='ms-1'>1h</small></div>
@@ -188,28 +188,28 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                             <div className='row'>
                                                 <div className='col-2 text-center'>
                                                     <a className='onViewsfriendstories'>
-                                                        <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src={profPic1}/>
+                                                        <img className='img-fluid rounded-circle mt-0 border border-2 border-success' width={'15%'}  src={profPic1}/>
                                                         <p><small>Evan <br/> <strong>8m</strong></small></p>
                                                     </a>
                                                 </div>
                                                 <div className='col-2 text-center'>
-                                                    <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src={profPic2}/>
+                                                    <img className=' rounded-circle mt-0 border border-2 border-success' width={'15%'}  src={profPic2}/>
                                                     <p><small>Cody <br/> <strong>12h</strong></small></p>
                                                 </div>
                                                     <div className='col-2 text-center'>
-                                                    <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src={profPic3}/>
+                                                    <img className=' rounded-circle mt-0 border border-2 border-success' width={'15%'}  src={profPic3}/>
                                                     <p><small>Annabel <br/> <strong>3h</strong></small></p>
                                                 </div>
                                                 <div className='col-2 text-center'>
-                                                    <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src={profPic4}/>
+                                                    <img className=' rounded-circle mt-0 border border-2 border-success' width={'15%'}  src={profPic4}/>
                                                     <p><small>Shernan <br/> <strong>40s</strong></small></p>
                                                 </div>
                                                     <div className='col-2 text-center'>
-                                                    <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src={profPic5}/>
+                                                    <img className=' rounded-circle mt-0 border border-2 border-success' width={'15%'}  src={profPic5}/>
                                                     <p><small>Kimberly <br/> <strong>99h</strong></small></p>
                                                 </div>
                                                 <div className='col-2 text-center'>
-                                                    <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src={profPic6} />
+                                                    <img className=' rounded-circle mt-0 border border-2 border-success' width={'15%'}  src={profPic6} />
                                                     <p><small>Jaden <br/> <strong>1h</strong></small></p>
                                                 </div>
                                             </div>
