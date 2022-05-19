@@ -136,7 +136,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                     </div>
                     <div className='row mt-4'>
                         <div className='btn-group gap-1' role='group' aria-label='Button discard and share to story'>
-                        <a className='btn btn-primary btn-sm btn-discard onClickdiscardphotostory'>Discard</a>
+                        <a className='btn btn-primary btn-sm btn-discard onClickdiscardphotostory' onClick={() => { this.setState({photoStory: false,textStory: false});}}>Discard</a>
                         <a className='btn btn-primary btn-sm btn-share-to-story'>Share to story</a>
                     </div>
                 </div>
@@ -212,7 +212,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
                         <div className='row mt-3'>
                             <div className='btn-group gap-1' role='group' aria-label='Button discard and share to story'>
-                            <a className='btn btn-primary btn-sm btn-discard onClickdiscard'>Discard</a>
+                            <a className='btn btn-primary btn-sm btn-discard onClickdiscard' onClick={() => { this.setState({photoStory: false,textStory: false});}}>Discard</a>
                             <a className='btn btn-primary btn-sm btn-share-to-story'>Share to story</a>
                             </div>
                         </div>
@@ -299,7 +299,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                     
                                     
                                     <div className='container px-4'>
-                                        {righNav}
+                                        {rightNav}
                                         <div className='row'>
                                             {textPreview}
                                             {photoPreview}
