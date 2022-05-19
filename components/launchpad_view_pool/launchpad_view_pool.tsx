@@ -7,6 +7,8 @@ import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/
 import { ProjectList } from 'mattermost-redux/types/crypto';
 import CurrencyIcons from 'components/currency_icons';
 
+import chart from 'images/launchpad/viewpool/pie-chart.png';
+
 type Props = {
     status?: string;
     userId: string;
@@ -273,7 +275,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                 <strong><label>Tokens Matrics</label></strong>
                                 <hr/>
                                 <div className='row mt-4 mb-3'>
-                                    <div className='col-5'><img className='img-fluid' src='assets/images/pie-chart.png' alt=''/></div>
+                                    <div className='col-5'><img className='img-fluid' src={chart} alt=''/></div>
                                     <div className='col-7'>
                                         <div className='col-lg-12'>
                                             <a className='float-start'><i className='bi-dot bi-dot-style-presale'></i> Presale</a>
@@ -594,7 +596,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                 <strong><label>Tokens Matrics</label></strong>
                                 <hr/>
                                 <div className='row mt-4 mb-3'>
-                                    <div className='col-lg-5 text-center'><img className='img-fluid' src='assets/images/pie-chart.png' alt='' /></div>
+                                    <div className='col-lg-5 text-center'><img className='img-fluid' src={chart} alt='' /></div>
                                     <div className='col-lg-7'>
                                         <div className='col-lg-12'>
                                             <a className='float-start'><i className='bi-dot bi-dot-style-presale'></i> Presale</a>
