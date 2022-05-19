@@ -5,7 +5,7 @@ import React, {ReactNode, ReactPropTypes} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
-import logoDark from 'images/logoDark.png';
+import logoDark from 'images/logoBlack.png';
 
 type Props = {
     status?: string;
