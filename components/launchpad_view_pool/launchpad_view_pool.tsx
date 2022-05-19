@@ -66,10 +66,6 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
         }
     }
 
-    componentDidUpdate(){
-
-    }
-
     renderTime = (date: string) =>{
         var dateNow = new Date();
         var dateConverted = Date.parse(date.toString());
