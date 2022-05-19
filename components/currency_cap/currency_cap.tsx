@@ -30,7 +30,7 @@ export default class CurrencyCap extends React.PureComponent<Props>{
         const { symbol, viewpool } = this.props;
         let valueRender;
         if(viewpool === 'viewpool'){
-            if(parseFloat(this.state.data.price).toFixed(15)){
+            if(parseFloat(this.state.data.price).toFixed(15).toString() !== 'NaN'){
                 valueRender = (
                     <>
                         {parseFloat(this.state.data.price).toFixed(15)}
