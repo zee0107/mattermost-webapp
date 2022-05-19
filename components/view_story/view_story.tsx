@@ -7,7 +7,13 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import logoDark from 'images/logoBlack.png';
 import postImage from 'images/post-1.png';
-
+import profPic1 from 'images/profiles/user-profile-1.png';
+import profPic2 from 'images/profiles/user-profile-2.png';
+import profPic3 from 'images/profiles/user-profile-3.png';
+import profPic4 from 'images/profiles/user-profile-4.png';
+import profPic5 from 'images/profiles/user-profile-5.png';
+import profPic6 from 'images/profiles/user-profile-6.png';
+import profPic7 from 'images/profiles/user-profile-7.png';
 type Props = {
     status?: string;
     userId: string;
@@ -103,8 +109,8 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                             <h5 className='mt-4'>Your Story <a className='onStoryprivacy float-end' data-bs-toggle='tooltip' data-bs-placement='top' title='Story privacy'></a></h5>
                                         </div>
                                         <p>
-                                        <a className='onCreatenewstory'><i className='bi-plus-lg me-2 mt-0'></i>
-                                            <label><strong>Create a Story</strong><br/><small className='ms-4'>Share a photo or write something</small></label></a>
+                                        <a className='onCreatenewstory text-dark' href='/stories/create'><i className='bi-plus-lg me-2 mt-0'></i>
+                                            <label style={{verticalAlign: 'middle',}}><strong>Create a Story</strong><br/><small>Share a photo or write something</small></label></a>
                                         </p>
                                     </div>
                                     <div className='your-story-mobile'>
@@ -114,66 +120,65 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                     <div className='all-story-desktop'>
                                         <div className='all-stories-scroll'>
                                             <div className='mt-0'>
-                                                <a className='onViewsfriendstories'>
+                                                <a className='onViewsfriendstories text-dark'>
                                                     <div className='padding-view-firends-style'>
-                                                        <img className='img-fluid circle-rounded me-2 mt-3' src='assets/images/sample-user-primary-picture-6.png'/>
-                                                        <small className='mt-1 text-muted'><strong>First name goes here</strong></small>
+                                                        <img className='img-fluid circle-rounded me-2 mt-3' src={profPic1}/>
+                                                        <small className='mt-1 text-muted'><strong>Evan</strong></small>
                                                         <br/>
-                                                        <div className='yourstoryminutes'><small className='ms-5'>8m</small></div>
+                                                        <div className='yourstoryminutes'><small className='ms-1'>8m</small></div>
                                                     </div>
                                                 </a>
 
-                                                <a>
+                                                <a className='text-dark'>
                                                     <div className='padding-view-firends-style'>
-                                                    <img className='img-fluid circle-rounded me-2 mt-3' src='assets/images/sample-user-primary-picture-5.png'/>
-                                                    <small className='mt-1 text-muted'><strong>First name goes here</strong></small>
+                                                    <img className='img-fluid circle-rounded me-2 mt-3' src={profPic2}/>
+                                                    <small className='mt-1 text-muted'><strong>Code</strong></small>
                                                     <br/>
-                                                    <div className='yourstoryminutes'><small className='ms-5'>12h</small></div>
+                                                    <div className='yourstoryminutes'><small className='ms-1'>12h</small></div>
                                                     </div>
                                                 </a>
 
-                                                <a>
+                                                <a className='text-dark'>
                                                     <div className='padding-view-firends-style'>
-                                                    <img className='img-fluid circle-rounded me-2 mt-3' src='assets/images/sample-user-primary-picture-4.png'/>
-                                                    <small className='mt-1 text-muted'><strong>First name goes here</strong></small>
-                                                    <br/>
-                                                    <div className='yourstoryminutes'><small className='ms-5'>3h</small></div>
+                                                    <img className='img-fluid circle-rounded me-2 mt-3' src={profPic3}/>
+                                                    <small className='mt-1 text-muted'><strong>Annabel</strong></small>
+                                                    <div className='yourstoryminutes'><small className='ms-1'>3h</small></div>
                                                     </div>
                                                 </a>
 
-                                                <a>
+                                                <a className='text-dark'>
                                                     <div className='padding-view-firends-style'>
-                                                    <img className='img-fluid circle-rounded me-2 mt-3' src='assets/images/sample-user-primary-picture-3.png'/>
-                                                    <small className='mt-1 text-muted'><strong>First name goes here</strong></small>
+                                                    <img className='img-fluid circle-rounded me-2 mt-3' src={profPic4}/>
+                                                    <small className='mt-1 text-muted'><strong>Shernan</strong></small>
                                                     <br/>
-                                                    <div className='yourstoryminutes'><small className='ms-5'>1h</small></div>
+                                                    <div className='yourstoryminutes'><small className='ms-1'>1h</small></div>
                                                     </div>
                                                 </a>
 
-                                                <a>
+                                                <a className='text-dark'>
                                                     <div className='padding-view-firends-style'>
-                                                    <img className='img-fluid circle-rounded me-2 mt-3' src='assets/images/sample-user-primary-picture-2.png'/>
-                                                    <small className='mt-1 text-muted'><strong>First name goes here</strong></small>
+                                                    <img className='img-fluid circle-rounded me-2 mt-3' src={profPic5}/>
+                                                    <small className='mt-1 text-muted'><strong>Kimberly</strong></small>
                                                     <br/>
-                                                    <div className='yourstoryminutes'><small className='ms-5'>40s</small></div>
+                                                    <div className='yourstoryminutes'><small className='ms-1'>40s</small></div>
                                                     </div>
                                                 </a>
 
-                                                <a>
+                                                <a className='text-dark'>
                                                     <div className='padding-view-firends-style'>
-                                                    <img className='img-fluid circle-rounded me-2 mt-3' src='assets/images/sample-user-primary-picture.png'/>
-                                                    <small className='mt-1 text-muted'><strong>First name goes here</strong></small>
+                                                    <img className='img-fluid circle-rounded me-2 mt-3' src={profPic6}/>
+                                                    <small className='mt-1 text-muted'><strong>Jaden</strong></small>
                                                     <br/>
-                                                    <div className='yourstoryminutes'><small className='ms-5'>99h</small></div>
+                                                    <div className='yourstoryminutes'><small className='ms-1'>99h</small></div>
                                                     </div>
                                                 </a>
 
-                                                <a>
+                                                <a className='text-dark'>
                                                     <div className='padding-view-firends-style'>
-                                                    <img className='img-fluid circle-rounded me-2 mt-3' src='assets/images/sample-user-primary-picture-3.png'/>
-                                                    <small className='mt-1 text-muted'><strong>First name goes here</strong></small>
+                                                    <img className='img-fluid circle-rounded me-2 mt-3' src={profPic7}/>
+                                                    <small className='mt-1 text-muted'><strong>Michael</strong></small>
                                                     <br/>
-                                                    <div className='yourstoryminutes'><small className='ms-5'>1h</small></div>
+                                                    <div className='yourstoryminutes'><small className='ms-1'>1h</small></div>
                                                     </div>
                                                 </a>
                                             </div>
@@ -183,29 +188,29 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                             <div className='row'>
                                                 <div className='col-2 text-center'>
                                                     <a className='onViewsfriendstories'>
-                                                        <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src='assets/images/sample-user-primary-picture-6.png'/>
-                                                        <p><small>Firstname <br/> <strong>8m</strong></small></p>
+                                                        <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src={profPic1}/>
+                                                        <p><small>Evan <br/> <strong>8m</strong></small></p>
                                                     </a>
                                                 </div>
                                                 <div className='col-2 text-center'>
-                                                    <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src='assets/images/sample-user-primary-picture-5.png'/>
-                                                    <p><small>Firstname <br/> <strong>12h</strong></small></p>
+                                                    <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src={profPic2}/>
+                                                    <p><small>Cody <br/> <strong>12h</strong></small></p>
                                                 </div>
                                                     <div className='col-2 text-center'>
-                                                    <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src='assets/images/sample-user-primary-picture-4.png'/>
-                                                    <p><small>Firstname <br/> <strong>3h</strong></small></p>
+                                                    <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src={profPic3}/>
+                                                    <p><small>Annabel <br/> <strong>3h</strong></small></p>
                                                 </div>
                                                 <div className='col-2 text-center'>
-                                                    <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src='assets/images/sample-user-primary-picture-3.png'/>
-                                                    <p><small>Firstname <br/> <strong>40s</strong></small></p>
+                                                    <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src={profPic4}/>
+                                                    <p><small>Shernan <br/> <strong>40s</strong></small></p>
                                                 </div>
                                                     <div className='col-2 text-center'>
-                                                    <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src='assets/images/sample-user-primary-picture-2.png'/>
-                                                    <p><small>Firstname <br/> <strong>99h</strong></small></p>
+                                                    <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src={profPic5}/>
+                                                    <p><small>Kimberly <br/> <strong>99h</strong></small></p>
                                                 </div>
                                                 <div className='col-2 text-center'>
-                                                    <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src='assets/images/sample-user-primary-picture.png'/>
-                                                    <p><small>Firstname <br/> <strong>1h</strong></small></p>
+                                                    <img className='img-fluid rounded-circle mt-0 border border-2 border-success' src={profPic6} />
+                                                    <p><small>Jaden <br/> <strong>1h</strong></small></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -285,7 +290,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                         {/*Previews all story*/}
 
                                         {/*Previews all story*/}
-                                        <div className='create-photo-story-previews'>
+                                        {/*<div className='create-photo-story-previews'>
                                             <strong>
                                             <label>Previews</label></strong>
                                             <a className='onClosetexttypings shadow float-end'><i className='bi-x'></i></a>
@@ -308,7 +313,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                             </div>
 
                                             <p className='text-center'><strong>Browse photo</strong></p>
-                                        </div>
+                                        </div>*/}
                                         {/*Previews all story*/}
                                         <div className='all-stories-float-icon-desktop'>
                                             <div className='position-absolute top-0 end-0 mt-4 me-4'>
