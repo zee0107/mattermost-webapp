@@ -234,6 +234,19 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                 </>
             );
         }
+        let righNav;
+        if(!photoStory && !textStory){
+            rightNav = (
+                <div className='row gx-5'>
+                    <div className='col' onClick={() => { this.setState({photoStory: true,textStory: false});}}>
+                        <div className='p-3 border bg-light text-center create-photo-story onCreatephotostory'><p className='text-white'><i className='bi-image text-white'></i><br/>Create a photo story</p></div>
+                    </div>
+                    <div className='col' onClick={() => { this.setState({photoStory: false,textStory: true});}}>
+                        <div className='p-3 border bg-light text-center create-text-story onCreatetextstory'><p className='text-white'><i className='bi-textarea-t text-white'></i><br/>Create a text story</p></div>
+                    </div>
+                </div>
+            );
+        }
 
         return (
             <>
@@ -286,15 +299,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                     
                                     
                                     <div className='container px-4'>
-                                        <div className='row gx-5'>
-                                            <div className='col' onClick={() => { this.setState({photoStory: true,textStory: false});}}>
-                                                <div className='p-3 border bg-light text-center create-photo-story onCreatephotostory'><p className='text-white'><i className='bi-image text-white'></i><br/>Create a photo story</p></div>
-                                            </div>
-                                            <div className='col' onClick={() => { this.setState({photoStory: false,textStory: true});}}>
-                                                <div className='p-3 border bg-light text-center create-text-story onCreatetextstory'><p className='text-white'><i className='bi-textarea-t text-white'></i><br/>Create a text story</p></div>
-                                            </div>
-                                        </div>
-                    
+                                        {righNav}
                                         <div className='row'>
                                             {textPreview}
                                             {photoPreview}
