@@ -104,7 +104,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                         </div>
                                         <p>
                                         <a className='onCreatenewstory'><i className='bi-plus-lg me-2 mt-0'></i>
-                                            <medium><strong>Create a Story</strong><br/><small className='ms-4'>Share a photo or write something</small></medium></a>
+                                            <label><strong>Create a Story</strong><br/><small className='ms-4'>Share a photo or write something</small></label></a>
                                         </p>
                                     </div>
                                     <div className='your-story-mobile'>
