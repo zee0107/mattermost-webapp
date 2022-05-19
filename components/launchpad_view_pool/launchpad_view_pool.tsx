@@ -125,7 +125,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                         <label className='ml-2'>{projectName}</label>
                                         <br/>
                                         <img width='17' className='float-start ml-2 mt-2' src={global} alt=''/>
-                                        <img width='17' className='float-start ml-2 mt-2' src={facebook} alt=''/>
+                                        <img width='17' className='float-start ml-2 mt-2' src={fb} alt=''/>
                                         <img width='17' className='float-start ml-2 mt-2' src={twitter} alt=''/>
                                         <img width='17' className='float-start ml-2 mt-2' src={share} alt=''/>
                                         <img width='17' className='float-start ml-2 mt-2' src={instagram} alt=''/>
@@ -395,7 +395,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                             <label className='ml-4'>{projectName}</label>
                                             <br/>
                                             <img width='17' className='float-start ml-4 mt-2' src={global} alt=''/>
-                                            <img width='17' className='float-start ml-2 mt-2' src={facebook} alt=''/>
+                                            <img width='17' className='float-start ml-2 mt-2' src={fb} alt=''/>
                                             <img width='17' className='float-start ml-2 mt-2' src={twitter} alt=''/>
                                             <img width='17' className='float-start ml-2 mt-2' src={share} alt=''/>
                                             <img width='17' className='float-start ml-2 mt-2' src={instagram} alt=''/>
