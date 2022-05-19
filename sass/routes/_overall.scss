@@ -1543,12 +1543,20 @@ margin: 10px 0px 0px 0px;
   background: #ffffff;
   padding: 34px 0px 34px 0px;
   z-index: 99;
+  
+  @media (max-width: 768px) {
+    padding: 0px 0px 34px 0px;
+  }
 }
 .slidebarStorymobile {
   display: block;
   background: #ffffff;
   padding: 34px 0px 34px 0px;
   z-index: 99;
+
+  @media (max-width: 768px) {
+    padding: 0px 0px 34px 0px;
+  }
 }
 .slidebarStoryprofiledesktop {
   display: none;

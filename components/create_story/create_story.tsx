@@ -74,7 +74,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                 <div className='col-lg-3 border-end p-4'>
                                 <p><img className='img-fluid mt-2' src={logoDark} alt='logo' title='logo'/><a href='#' className='float-end mt-1 onClickclosestory'><i className='bi-x-circle-fill'></i></a></p>
                                 <div>
-                                    <h5 className='mt-4'>Your Story <a className='onStoryprivacy float-end' data-bs-toggle='tooltip' data-bs-placement='top' title='Story privacy'><i className='bi-gear'></i></a></h5>
+                                    <h2 className='mt-4'>Your Story <a className='onStoryprivacy float-end' data-bs-toggle='tooltip' data-bs-placement='top' title='Story privacy'><i className='bi-gear'></i></a></h2>
                                 </div>
                                 <div>
                                     {this.renderProfilePicture('xl')}
