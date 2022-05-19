@@ -62,10 +62,10 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                     
                                 <div className='col-lg-3 border-end p-4'>
                                 <p><img className='img-fluid mt-2' src='assets/images/logo-story.png' alt='logo' title='logo'/><a href='#' className='float-end mt-1 onClickclosestory'><i className='bi-x-circle-fill'></i></a></p>
-                                <p>
+                                <div>
                                     <h5 className='mt-4'>Your Story <a className='onStoryprivacy float-end' data-bs-toggle='tooltip' data-bs-placement='top' title='Story privacy'><i className='bi-gear'></i></a></h5>
-                                </p>
-                                <p>
+                                </div>
+                                <div>
                                     <img className='img-fluid circle-rounded mr-2 mt-3' src='assets/images/sample-user-primary-picture-6.png'/>
                                     <medium className='mt-1'><strong>First name goes here</strong>
                                     <br/>
@@ -75,7 +75,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                     <a className='ml-5 storyprivacyonlymeviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Private is selected go to your story privacy to change your privacy'><i className='bi-person'></i> Private</a>
                                     </div>
                                     </medium>
-                                </p>
+                                </div>
                                 <hr/>
                     
                                 <div className='create-photo-story-box'>
