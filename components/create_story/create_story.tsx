@@ -67,7 +67,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         return (
             <>
                 <div className='slidebarStory'>
-                    <div className='container'>
+                    <div className='col-md-12'>
                         <form>
                             <div className='row'>
                     
@@ -77,7 +77,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                     <h5 className='mt-4'>Your Story <a className='onStoryprivacy float-end' data-bs-toggle='tooltip' data-bs-placement='top' title='Story privacy'><i className='bi-gear'></i></a></h5>
                                 </div>
                                 <div>
-                                    {this.renderProfilePicture('sm')}
+                                    {this.renderProfilePicture('xl')}
                                     {/*<img className='img-fluid circle-rounded mr-2 mt-3' src='assets/images/sample-user-primary-picture-6.png'/>*/}
                                     <label className='mt-1'><strong>{currentUser.first_name}</strong>
                                     <br/>
