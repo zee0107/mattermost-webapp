@@ -247,7 +247,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         </div>
                                         <hr></hr>
                                         <div className='d-flex'>
-                                            <div className='col-md-6 width-50'>{this.renderTime(item.start_date)}</div>
+                                            <div className='col-md-6 width-50'>{this.renderTime(item.end_date)}</div>
                                             <div className='col-md-6 text-end width-50'><a type='button' href={`/launchpad-view-pool?i=${item.id.toString()}`} className='view-pool-btn p-2'>View Pool</a></div>
                                         </div>
                                     </div>
@@ -363,6 +363,17 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                             projectName = item.project_name;
                         }
 
+                        let timeRender;
+                        if(item.status === 'UPCOMING'){
+                            timeRender = (<div className='col-md-6 width-50'>{this.renderDate(item.status,item.start_date)}</div>);
+                        }
+                        else if(item.status === 'ENDED'){
+                            timeRender = (<div className='col-md-6 width-50'>{this.renderDate(item.status,item.start_date)}</div>);
+                        }
+                        else{
+                            timeRender = (<div className='col-md-6 width-50'>{this.renderDate(item.status,item.end_date)}</div>);
+                        }
+
                         return(
                             <div className='col-md-4'>
                                 <div className='col-md-12 project-item-box'>
@@ -403,7 +414,7 @@ export default class ProjectsLive extends React.PureComponent<Props, State> {
                                         </div>
                                         <hr></hr>
                                         <div className='d-flex'>
-                                            <div className='col-md-6 width-50'>{this.renderDate(item.status,item.start_date)}</div>
+                                            {timeRender}
                                             <div className='col-md-6 text-end width-50'><a type='button' href={`/launchpad-view-pool?i=${item.id.toString()}`} className='view-pool-btn p-2'>View Pool</a></div>
                                         </div>
                                     </div>
