@@ -1438,11 +1438,11 @@ margin: 10px 0px 0px 0px;
   display: block;
 }
 .btn-discard, .btn-share-to-story {
-  background: rgb(127,207,87);
-  background: -moz-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
-  background: -webkit-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
-  background: linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
-  border: 0px;
+  background: rgb(127,207,87) !important;
+  background: -moz-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%) !important;
+  background: -webkit-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%) !important;
+  background: linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%) !important;
+  border: 0px !important;
 }
 .onContinueprivacycheckup, .onContinueprivacycheckupaccountsecure, .onContinueprivacycheckuppeoplecanfind {
   background: rgb(127,207,87);
