@@ -125,7 +125,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                                         <img className='circle-rounded me-2 mt-3' width={'15%'} src={profPic1}/>
                                                         <small className='mt-1 text-muted'><strong>Evan</strong></small>
                                                         <br/>
-                                                        <div className='yourstoryminutes'><small className='ms-1'>8m</small></div>
+                                                        <div className='yourstoryminutes'><small className='ml-12'>8m</small></div>
                                                     </div>
                                                 </a>
 
@@ -134,7 +134,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                                     <img className=' circle-rounded me-2 mt-3' width={'15%'}  src={profPic2}/>
                                                     <small className='mt-1 text-muted'><strong>Code</strong></small>
                                                     <br/>
-                                                    <div className='yourstoryminutes'><small className='ms-1'>12h</small></div>
+                                                    <div className='yourstoryminutes'><small className='ml-12'>12h</small></div>
                                                     </div>
                                                 </a>
 
@@ -142,7 +142,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                                     <div className='padding-view-firends-style'>
                                                     <img className=' circle-rounded me-2 mt-3' width={'15%'}  src={profPic3}/>
                                                     <small className='mt-1 text-muted'><strong>Annabel</strong></small>
-                                                    <div className='yourstoryminutes'><small className='ms-1'>3h</small></div>
+                                                    <div className='yourstoryminutes'><small className='ml-12'>3h</small></div>
                                                     </div>
                                                 </a>
 
@@ -151,7 +151,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                                     <img className=' circle-rounded me-2 mt-3' width={'15%'}  src={profPic4}/>
                                                     <small className='mt-1 text-muted'><strong>Shernan</strong></small>
                                                     <br/>
-                                                    <div className='yourstoryminutes'><small className='ms-1'>1h</small></div>
+                                                    <div className='yourstoryminutes'><small className='ml-12'>1h</small></div>
                                                     </div>
                                                 </a>
 
@@ -160,7 +160,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                                     <img className=' circle-rounded me-2 mt-3' width={'15%'}  src={profPic5}/>
                                                     <small className='mt-1 text-muted'><strong>Kimberly</strong></small>
                                                     <br/>
-                                                    <div className='yourstoryminutes'><small className='ms-1'>40s</small></div>
+                                                    <div className='yourstoryminutes'><small className='ml-12'>40s</small></div>
                                                     </div>
                                                 </a>
 
@@ -169,7 +169,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                                     <img className=' circle-rounded me-2 mt-3' width={'15%'}  src={profPic6}/>
                                                     <small className='mt-1 text-muted'><strong>Jaden</strong></small>
                                                     <br/>
-                                                    <div className='yourstoryminutes'><small className='ms-1'>99h</small></div>
+                                                    <div className='yourstoryminutes'><small className='ml-12'>99h</small></div>
                                                     </div>
                                                 </a>
 
@@ -178,7 +178,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                                     <img className=' circle-rounded me-2 mt-3' width={'15%'}  src={profPic7}/>
                                                     <small className='mt-1 text-muted'><strong>Michael</strong></small>
                                                     <br/>
-                                                    <div className='yourstoryminutes'><small className='ms-1'>1h</small></div>
+                                                    <div className='yourstoryminutes'><small className='ml-12'>1h</small></div>
                                                     </div>
                                                 </a>
                                             </div>
