@@ -2,6 +2,7 @@
 // See LICENSE.txt for license information.
 
 import {hot} from 'react-hot-loader/root';
+import './jquery-ui.css';
 import './jquery.min.js';
 import './jquery-ui.js';
 import './script';
