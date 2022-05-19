@@ -99,6 +99,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
         let tokenName;
         let tokenSymbol;
         let timeRender;
+        let rangeRender;
         if(project !== undefined && project !== null && project !== ''){
             console.log(project.coin.symbol);
             if(project.status === 'UPCOMING'){
@@ -133,7 +134,12 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
             projectImg = (<CurrencyIcons code={project.coin.symbol} size="sm" />);
             tokenName = project.coin.name;
             tokenSymbol = project.coin.symbol;
-            
+            rangeRender = (
+                <>
+                    <div className='col-6 mt-2'><label className='ml-3 text-muted'>1 {project.coin.symbol}</label></div>
+                    <div className='col-6 mt-2'><label className='float-end me-3 text-muted'>{project.total_prize} {project.coin.symbol}</label></div>
+                </>
+            )
         }
 
         
@@ -369,8 +375,9 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                                 <div className='progress-bar progress-bar-striped progress-bar-animated w-75' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div>
                                             </div>
                                         </div>
-                                        <div className='col-6 mt-2'><label className='ml-3 text-muted'>11.915311 BNB</label></div>
-                                        <div className='col-6 mt-2'><label className='float-end me-3 text-muted'>500 BNB</label></div>
+                                        {rangeRender}
+                                        {/*<div className='col-6 mt-2'><label className='ml-3 text-muted'>11.915311 BNB</label></div>
+                                        <div className='col-6 mt-2'><label className='float-end me-3 text-muted'>500 BNB</label></div>*/}
                                     </div>
 
                                     <div className='row mt-2'>
@@ -455,8 +462,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                             <div className='progress-bar progress-bar-striped progress-bar-animated w-75' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div>
                                         </div>
                                     </div>
-                                    <div className='col-6 mt-2'><label className='ml-3 text-muted'>11.915311 BNB</label></div>
-                                    <div className='col-6 mt-2'><label className='float-end mr-3 text-muted'>500 BNB</label></div>
+                                    {rangeRender}
                                 </div>
 
                                 <div className='row mt-2'>
