@@ -5,6 +5,7 @@ import React from 'react';
 
 type Props = {
     symbol?: string;
+    viewpool?: string;
 };
 
 export default class CurrencyCap extends React.PureComponent<Props>{
@@ -26,12 +27,35 @@ export default class CurrencyCap extends React.PureComponent<Props>{
     }
 
     render(): React.ReactNode {
-        const { symbol } = this.props;
-
+        const { symbol, viewpool } = this.props;
+        let valueRender;
+        if(viewpool === 'viewpool'){
+            if(parseFloat(this.state.data.price).toFixed(15)){
+                valueRender = (
+                    <>
+                        {parseFloat(this.state.data.price).toFixed(15)}
+                    </>
+                );
+            }
+            else{
+                valueRender = (
+                    <>
+                        {`0`}
+                    </>
+                );
+            }
+        }
+        else{
+            valueRender = (
+                <div>
+                    <label className='text-secondary small'key={symbol + '-range'}>1 {symbol} - {parseFloat(this.state.data.price).toFixed(15)} USD</label>
+                </div>
+            );
+        }
         return(
-            <div>
-                <label className='text-secondary small'key={symbol + '-range'}>1 {symbol} - {parseFloat(this.state.data.price).toFixed(15)} USD</label>
-            </div>
+            <>
+                {valueRender}
+            </>
         )
     }
 }

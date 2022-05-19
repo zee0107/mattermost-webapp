@@ -150,7 +150,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
             var eTime = new Date(project.end_date);
             startTime = sTime.toLocaleString();
             endTime = eTime.toLocaleString();
-            estimatedValue = (<CurrencyCap symbol={tokenSymbol} />);
+            estimatedValue = (<CurrencyCap symbol={tokenSymbol} viewpool='viewpool' />);
         }
 
         
