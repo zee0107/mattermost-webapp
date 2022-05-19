@@ -37,6 +37,9 @@ type State = {
     isDark: string;
     photoStory: boolean;
     textStory: boolean;
+    privacyValue: string;
+    textValue: string;
+    colorValue: string;
 };
 
 export default class CreateStory extends React.PureComponent<Props, State> {
@@ -44,7 +47,9 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light'};
+        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone'};
+
+        this.onChangePrivacy = this.onChangePrivacy.bind(this);
     }
 
     componentDidMount = async () =>{
@@ -65,9 +70,13 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         );
     }
 
+    onChangePrivacy = (event) => {
+        this.setState({privacyValue: event.target.value});
+    }
+
     render= (): JSX.Element => {
         const { currentUser } = this.props;
-        const { photoStory, textStory } = this.state;
+        const { photoStory, textStory,privacyValue } = this.state;
 
         let sidePhotoMenu;
         let sideTextMenu;
@@ -235,6 +244,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                 </>
             );
         }
+
         let rightNav;
         if(!photoStory && !textStory){
             rightNav = (
@@ -246,6 +256,21 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                         <div className='p-3 border bg-light text-center create-text-story onCreatetextstory'><p className='text-white'><i className='bi-textarea-t text-white'></i><br/>Create a text story</p></div>
                     </div>
                 </div>
+            );
+        }
+
+        let privacyDetails;
+        if(privacyValue === 'private'){
+            privacyDetails = (
+                <a className='ml-5 storyprivacyonlymeviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Private is selected go to your story privacy to change your privacy'><i className='bi-person'></i> Private</a>
+            );
+        }else if(privacyValue === 'friends'){
+            privacyDetails = (
+                <a className='ml-5 storyprivacyfriendsviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Friends is selected go to your story privacy to change your privacy'><i className='bi-people-fill'></i> Friends</a>
+            );
+        }else{
+            privacyDetails = (
+                <a className='ml-5 storyprivacyeveryoneviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Everyone is selected go to your story privacy to change your privacy'><i className='bi-globe'></i> Everyone</a>
             );
         }
 
@@ -264,13 +289,11 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                 <div>
                                     {this.renderProfilePicture('xl')}
                                     {/*<img className='img-fluid circle-rounded mr-2 mt-3' src='assets/images/sample-user-primary-picture-6.png'/>*/}
-                                    <label className='mt-1'><strong>{currentUser.first_name}</strong>
-                                    <br/>
-                                    <div className='yourstoryprivacytext'>
-                                    <a className='ml-5 storyprivacyeveryoneviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Everyone is selected go to your story privacy to change your privacy'><i className='bi-globe'></i> Everyone</a>
-                                    <a className='ml-5 storyprivacyfriendsviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Friends is selected go to your story privacy to change your privacy'><i className='bi-people-fill'></i> Friends</a>
-                                    <a className='ml-5 storyprivacyonlymeviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Private is selected go to your story privacy to change your privacy'><i className='bi-person'></i> Private</a>
-                                    </div>
+                                    <label className='mt-1'>
+                                        <div className='yourstoryprivacytext'>
+                                            {privacyDetails}
+                                        </div>
+                                        <strong>{currentUser.first_name}</strong>
                                     </label>
                                 </div>
                                 <hr/>
@@ -324,7 +347,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                     <div className='col-10'><p><i className='bi-globe'></i> <strong>Everyone</strong> <br/> <small>Everyone on Crypter</small></p></div>
                                     <div className='col-2'>
                                         <div className='form-check float-end'>
-                                            <input className='form-check-input onEveryonestoryprivacy' type='radio' name='flexRadioDefault' id='flexRadioEveryonestoryprivacy'/>
+                                            <input className='form-check-input onEveryonestoryprivacy' type='radio' data-bs-dismiss='modal' name='flexRadioDefault' value='everyone' onChange={this.onChangePrivacy} checked={this.state.privacyValue === 'everyone'} id='flexRadioEveryonestoryprivacy'/>
                                             <label className='form-check-label' htmlFor='flexRadioEveryonestoryprivacy'></label>
                                         </div>
                                     </div>
@@ -333,7 +356,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                     <div className='col-10'><p><i className='bi-people-fill'></i> <strong>Friends</strong> <br/><small>Only your Crypter friends</small></p></div>
                                     <div className='col-2'>
                                         <div className='form-check float-end'>
-                                                <input className='form-check-input onFriendstoryprivacy' type='radio' name='flexRadioDefault' id='flexRadioFriendstoryprivacy'/>
+                                                <input className='form-check-input onFriendstoryprivacy' type='radio' data-bs-dismiss='modal' name='flexRadioDefault' value='friends' onChange={this.onChangePrivacy} checked={this.state.privacyValue === 'friends'}  id='flexRadioFriendstoryprivacy'/>
                                                 <label className='form-check-label' htmlFor='flexRadioFriendstoryprivacy'></label>
                                         </div>
                                     </div>
@@ -342,7 +365,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                     <div className='col-10'><p><i className='bi-person'></i> <strong>Private</strong> <br/><small>Only you see your Story</small></p></div>
                                     <div className='col-2'>
                                         <div className='form-check float-end'>
-                                                <input className='form-check-input onOnlymestoryprivacy' type='radio' name='flexRadioDefault' id='flexRadioOnlymestoryprivacy'/>
+                                                <input className='form-check-input onOnlymestoryprivacy' type='radio' data-bs-dismiss='modal' name='flexRadioDefault' value='private' onChange={this.onChangePrivacy} checked={this.state.privacyValue === 'private'} id='flexRadioOnlymestoryprivacy'/>
                                                 <label className='form-check-label' htmlFor='flexRadioOnlymestoryprivacy'></label>
                                         </div>
                                     </div>
