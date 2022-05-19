@@ -8,7 +8,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap.bundle.min.js';
 import 'jquery-ui-dist/jquery-ui.js';
 import 'jquery/src/jquery';
-import './script';
+//import './script';
 import React from 'react';
 import {Provider} from 'react-redux';
 import {Router, Route} from 'react-router-dom';
