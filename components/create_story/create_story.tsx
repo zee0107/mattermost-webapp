@@ -106,7 +106,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         if(photoStory){
             sidePhotoMenu = (
                 <div className='create-photo-story-box'>
-                    <p><a className='onAddtextonphoto' onClick={() => { this.setState({addText: false}); }}><i className='bi-textarea-t'></i> <strong>Add Text</strong></a></p>
+                    <p><a className='onAddtextonphoto' onClick={() => { this.setState({addText: true}); }}><i className='bi-textarea-t'></i> <strong>Add Text</strong></a></p>
                     <div className='col-12 mx-auto mt-2 mb-1 border p-3 rounded'>
                         <div className='row'>
                                 <p className='mb-2'><strong><label>Text color</label></strong></p>
