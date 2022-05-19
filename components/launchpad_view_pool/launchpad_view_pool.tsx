@@ -223,7 +223,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>1 BNB = 60,000,000,000 {tokenSymbol}</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Initial Market Cap (estimate)</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>${estimatedValue</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>${estimatedValue}</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Soft Cap</label></strong></div>
                                     <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>1 {tokenSymbol}</label></strong></div>
