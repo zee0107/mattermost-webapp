@@ -349,7 +349,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                     </div>
                 </div>
 
-                <div className='modal selectstoryprivacy' id='staticBackdropPrivacy' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                <div className='modal selectstoryprivacy' id='staticBackdropPrivacy' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
                     <div className='modal-dialog modal-dialog-centered'>
                         <div className='modal-content shadow-lg'>
                             <div className='modal-header'>
