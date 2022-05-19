@@ -237,10 +237,10 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>Burn</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Presale Start Time</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>{startTime} (UTC)</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>{startTime}</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Presale End Time</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>{endTime} (UTC)</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>{endTime}</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Listing On</label></strong></div>
                                     <div className='col-6 text-end mt-1 mb-1'><strong className='text-success'><label>Pancakeswap</label></strong></div>
@@ -553,10 +553,10 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>Burn</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Presale Start Time</label></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>{startTime} (UTC)</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>{startTime}</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Presale End Time</label></strong></div>
-                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>{endTime} (UTC)</label></strong></div>
+                                    <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>{endTime}</label></strong></div>
 
                                     <div className='col-lg-6 mt-1 mb-1'><strong className='text-muted'><label>Listing On</label></strong></div>
                                     <div className='col-lg-6 text-start mt-1 mb-1'><strong><label>Pancakeswap</label></strong></div>
