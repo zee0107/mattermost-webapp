@@ -1,6 +1,6 @@
 $(function() {
-    $( "#draggable").draggable();
+    $("#draggable").draggable();
 });
 $( function() {
-    $( "#resizable" ).resizable();
+    $("#resizable" ).resizable();
 });
