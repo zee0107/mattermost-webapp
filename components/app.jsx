@@ -2,9 +2,9 @@
 // See LICENSE.txt for license information.
 
 import {hot} from 'react-hot-loader/root';
-import './jquery-ui.css';
-import './jquery.min.js';
-import './jquery-ui.js';
+//import 'bootstrap/dist/css/bootstrap.min.css';
+import 'jquery/src/jquery';
+import 'jquery';
 import './script';
 import Popper from 'popper.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
