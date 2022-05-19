@@ -234,7 +234,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                 </>
             );
         }
-        let righNav;
+        let rightNav;
         if(!photoStory && !textStory){
             rightNav = (
                 <div className='row gx-5'>
