@@ -8,6 +8,11 @@ import { ProjectList } from 'mattermost-redux/types/crypto';
 import CurrencyIcons from 'components/currency_icons';
 
 import chart from 'images/launchpad/viewpool/pie-chart.png';
+import fb from 'images/launchpad/viewpool/icon-smm-facebook.png';
+import twitter from 'images/launchpad/viewpool/icon-smm-twitter.png';
+import instagram from 'images/launchpad/viewpool/icon-smm-instagram.png';
+import global from 'images/launchpad/viewpool/icon-global2.png';
+import share from 'images/launchpad/viewpool/icon-arrow-submit.png';
 
 type Props = {
     status?: string;
@@ -119,11 +124,11 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <div className='col-6 text-start'>
                                         <label className='ml-2'>{projectName}</label>
                                         <br/>
-                                        <img width='17' className='float-start ml-2 mt-2' src='assets/images/icon-global2.png' alt=''/>
-                                        <img width='17' className='float-start ml-2 mt-2' src='assets/images/icon-smm-facebook.png' alt=''/>
-                                        <img width='17' className='float-start ml-2 mt-2' src='assets/images/icon-smm-twitter.png' alt=''/>
-                                        <img width='17' className='float-start ml-2 mt-2' src='assets/images/icon-arrow-submit.png' alt=''/>
-                                        <img width='17' className='float-start ml-2 mt-2' src='assets/images/icon-smm-instagram.png' alt=''/>
+                                        <img width='17' className='float-start ml-2 mt-2' src={global} alt=''/>
+                                        <img width='17' className='float-start ml-2 mt-2' src={facebook} alt=''/>
+                                        <img width='17' className='float-start ml-2 mt-2' src={twitter} alt=''/>
+                                        <img width='17' className='float-start ml-2 mt-2' src={share} alt=''/>
+                                        <img width='17' className='float-start ml-2 mt-2' src={instagram} alt=''/>
                                     </div>
                                     <div className='col-5'>
                                         {statusBoxDesktop}
@@ -278,33 +283,33 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <div className='col-6 text-center'><img width='60%' src={chart} alt=''/></div>
                                     <div className='col-6'>
                                         <div className='col-lg-12'>
-                                            <a className='float-start'><i className='bi-dot bi-dot-style-presale'></i> Presale</a>
+                                            <a className='float-start text-dark'><i className='bi-dot bi-dot-style-presale'></i> Presale</a>
                                             <a className='float-end text-percent-presale'>30%</a>
                                         </div>
                                         <br/>
-                                        <div className='col-lg-12 mt-3'>
-                                            <a className='float-start'><i className='bi-dot bi-dot-style-liquidity'></i> Liquidity</a>
+                                        <div className='col-lg-12 mt-5'>
+                                            <a className='float-start text-dark'><i className='bi-dot bi-dot-style-liquidity'></i> Liquidity</a>
                                             <a className='float-end text-percent-liquidity'>40%</a>
                                         </div>
                                         <br/>
-                                        <div className='col-lg-12 mt-3'>
-                                            <a className='float-start'><i className='bi-dot bi-dot-style-team-vesting'></i> Team Vesting</a>
+                                        <div className='col-lg-12 mt-5'>
+                                            <a className='float-start text-dark'><i className='bi-dot bi-dot-style-team-vesting'></i> Team Vesting</a>
                                             <a className='float-end text-percent-team-vesting'>20%</a>
                                         </div>
                                         <br/>
-                                        <div className='col-lg-12 mt-3'>
-                                            <a className='float-start'><i className='bi-dot bi-dot-style-locked'></i> Locked</a>
+                                        <div className='col-lg-12 mt-5'>
+                                            <a className='float-start text-dark'><i className='bi-dot bi-dot-style-locked'></i> Locked</a>
                                             <a className='float-end text-percent-locked'>10%</a>
                                         </div>
                                         <br/>
 
-                                        <div className='col-lg-12 mt-3'>
-                                            <a className='float-start'><i className='bi-dot bi-dot-style-unlocked'></i> UnLocked</a>
+                                        <div className='col-lg-12 mt-5'>
+                                            <a className='float-start text-dark'><i className='bi-dot bi-dot-style-unlocked'></i> UnLocked</a>
                                             <a className='float-end text-percent-unlocked'>0%</a>
                                         </div>
                                         <br/>
-                                        <div className='col-lg-12 mt-3'>
-                                            <a className='float-start'><i className='bi-dot bi-dot-style-burnt'></i> Burnt</a>
+                                        <div className='col-lg-12 mt-5'>
+                                            <a className='float-start text-dark'><i className='bi-dot bi-dot-style-burnt'></i> Burnt</a>
                                             <a className='float-end text-percent-burnt'>0%</a>
                                         </div>
                                     </div>
@@ -389,11 +394,11 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                         <div className='col-6 text-start'>
                                             <label className='ml-4'>{projectName}</label>
                                             <br/>
-                                            <img width='17' className='float-start ml-4 mt-2' src='assets/images/icon-global2.png' alt='' />
-                                            <img width='17' className='float-start ml-0 mt-2' src='assets/images/icon-smm-facebook.png' alt='' />
-                                            <img width='17' className='float-start ml-0 mt-2' src='assets/images/icon-smm-twitter.png' alt=''/>
-                                            <img width='17' className='float-start ml-0 mt-2' src='assets/images/icon-arrow-submit.png' alt=''/>
-                                            <img width='17' className='float-start ml-0 mt-2' src='assets/images/icon-smm-instagram.png' alt=''/>
+                                            <img width='17' className='float-start ml-4 mt-2' src={global} alt=''/>
+                                            <img width='17' className='float-start ml-2 mt-2' src={facebook} alt=''/>
+                                            <img width='17' className='float-start ml-2 mt-2' src={twitter} alt=''/>
+                                            <img width='17' className='float-start ml-2 mt-2' src={share} alt=''/>
+                                            <img width='17' className='float-start ml-2 mt-2' src={instagram} alt=''/>
                                         </div>
                                         <div className='col-5'>
                                             <a className='float-end onAuditmobile'>Audit</a>
@@ -596,35 +601,35 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                 <strong><label>Tokens Matrics</label></strong>
                                 <hr/>
                                 <div className='row mt-4 mb-3'>
-                                    <div className='col-lg-5 text-center'><img className='img-fluid' src={chart} alt='' /></div>
+                                    <div className='col-lg-5 text-center'><img width='60%' src={chart} alt='' /></div>
                                     <div className='col-lg-7'>
-                                        <div className='col-lg-12'>
-                                            <a className='float-start'><i className='bi-dot bi-dot-style-presale'></i> Presale</a>
+                                        <div className='col-lg-12 text-dark'>
+                                            <a className='float-start text-dark'><i className='bi-dot bi-dot-style-presale'></i> Presale</a>
                                             <a className='float-end text-percent-presale'>30%</a>
                                         </div>
                                         <br/>
-                                        <div className='col-lg-12 mt-3'>
-                                            <a className='float-start'><i className='bi-dot bi-dot-style-liquidity'></i> Liquidity</a>
+                                        <div className='col-lg-12 mt-5'>
+                                            <a className='float-start text-dark'><i className='bi-dot bi-dot-style-liquidity'></i> Liquidity</a>
                                             <a className='float-end text-percent-liquidity'>40%</a>
                                         </div>
                                         <br/>
-                                        <div className='col-lg-12 mt-3'>
-                                            <a className='float-start'><i className='bi-dot bi-dot-style-team-vesting'></i> Team Vesting</a>
+                                        <div className='col-lg-12 mt-5'>
+                                            <a className='float-start text-dark'><i className='bi-dot bi-dot-style-team-vesting'></i> Team Vesting</a>
                                             <a className='float-end text-percent-team-vesting'>20%</a>
                                         </div>
                                         <br/>
-                                        <div className='col-lg-12 mt-3'>
-                                            <a className='float-start'><i className='bi-dot bi-dot-style-locked'></i> Locked</a>
+                                        <div className='col-lg-12 mt-5'>
+                                            <a className='float-start text-dark'><i className='bi-dot bi-dot-style-locked'></i> Locked</a>
                                             <a className='float-end text-percent-locked'>10%</a>
                                         </div>
                                         <br/>
-                                        <div className='col-lg-12 mt-3'>
-                                            <a className='float-start'><i className='bi-dot bi-dot-style-unlocked'></i> UnLocked</a>
+                                        <div className='col-lg-12 mt-5'>
+                                            <a className='float-start text-dark'><i className='bi-dot bi-dot-style-unlocked'></i> UnLocked</a>
                                             <a className='float-end text-percent-unlocked'>0%</a>
                                         </div>
                                         <br/>
-                                        <div className='col-lg-12 mt-3'>
-                                            <a className='float-start'><i className='bi-dot bi-dot-style-burnt'></i> Burnt</a>
+                                        <div className='col-lg-12 mt-5'>
+                                            <a className='float-start text-dark'><i className='bi-dot bi-dot-style-burnt'></i> Burnt</a>
                                             <a className='float-end text-percent-burnt'>0%</a>
                                         </div>
                                     </div>
