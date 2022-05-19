@@ -275,8 +275,8 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                 <strong><label>Tokens Matrics</label></strong>
                                 <hr/>
                                 <div className='row mt-4 mb-3'>
-                                    <div className='col-5'><img className='img-fluid' src={chart} alt=''/></div>
-                                    <div className='col-7'>
+                                    <div className='col-6 text-center'><img width='60%' src={chart} alt=''/></div>
+                                    <div className='col-6'>
                                         <div className='col-lg-12'>
                                             <a className='float-start'><i className='bi-dot bi-dot-style-presale'></i> Presale</a>
                                             <a className='float-end text-percent-presale'>30%</a>
