@@ -546,6 +546,10 @@ export default class Root extends React.PureComponent {
                         path={'/mfa'}
                         component={Mfa}
                     />
+                    <LoginHFTRouteFNS
+                        path={'/stories/create'}
+                        component={CreateStory}
+                    />
                     <Redirect
                         from={'/_redirect/integrations/:subpath*'}
                         to={`/${this.props.permalinkRedirectTeamName}/integrations/:subpath*`}
@@ -554,6 +558,7 @@ export default class Root extends React.PureComponent {
                         from={'/_redirect/pl/:postid'}
                         to={`/${this.props.permalinkRedirectTeamName}/pl/:postid`}
                     />
+                    
                     <CompassThemeProvider theme={this.props.theme}>
                         <ModalController/>
                         <GlobalHeaderStyle/>
@@ -594,10 +599,7 @@ export default class Root extends React.PureComponent {
                                     path={'/profile'}
                                     component={ProfilePage}
                                 />
-                                 <LoginHFTRouteFNS
-                                    path={'/stories/create'}
-                                    component={CreateStory}
-                                />
+                                
                                 <LoginHFTRouteNS
                                     path={'/documents/intro'}
                                     component={Documents}
