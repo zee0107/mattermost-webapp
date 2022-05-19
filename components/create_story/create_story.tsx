@@ -195,7 +195,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                 {/*create-text-story-box*/}
                                 </div>
                                 <div className='col-lg-9 right-nav-story'>
-                                    <div className='position-absolute top-0 end-0 mt-4 mr-4'>
+                                    {/*<div className='position-absolute top-0 end-0 mt-4 mr-4'>
                                         <a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
                                         <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>39+</span>
                                         <br/>
@@ -213,7 +213,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                         </ul>
                     
                                         </div>
-                                    </div>
+                                    </div>*/}
                     
                                     
                                     <div className='container px-4'>
