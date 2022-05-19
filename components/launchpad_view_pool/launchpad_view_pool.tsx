@@ -235,7 +235,7 @@ export default class LaunchpadViewPool extends React.PureComponent<Props, State>
                                     <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>Burn</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Presale Start Time</label></strong></div>
-                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>{starTime} (UTC)</label></strong></div>
+                                    <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>{startTime} (UTC)</label></strong></div>
 
                                     <div className='col-6 mt-1 mb-1'><strong><label>Presale End Time</label></strong></div>
                                     <div className='col-6 text-end mt-1 mb-1'><strong className=''><label>{endTime} (UTC)</label></strong></div>
