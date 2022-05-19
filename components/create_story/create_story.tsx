@@ -259,7 +259,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                 <div className='col-lg-2 border-end p-4'>
                                 <p><img className='img-fluid mt-2' src={logoDark} alt='logo' title='logo'/><a href='/crypter/towm-square' className='float-end mt-1 onClickclosestory'><i className='bi-x-circle-fill'></i></a></p>
                                 <div>
-                                    <h2 className='mt-4'>Your Story <a className='onStoryprivacy float-end' data-bs-toggle='tooltip' data-bs-placement='top' title='Story privacy'><i className='bi-gear'></i></a></h2>
+                                    <h2 className='mt-4'>Your Story <a className='onStoryprivacy float-end' data-bs-toggle='tooltip' data-bs-placement='top' title='Story privacy'><i className='bi-gear' data-bs-toggle='modal' data-bs-target='#staticBackdropPrivacy'></i></a></h2>
                                 </div>
                                 <div>
                                     {this.renderProfilePicture('xl')}
@@ -311,7 +311,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                     </div>
                 </div>
 
-                <div className='modal selectstoryprivacy' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                <div className='modal selectstoryprivacy' id='staticBackdropPrivacy' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
                     <div className='modal-dialog modal-dialog-centered'>
                         <div className='modal-content shadow-lg'>
                             <div className='modal-header'>
