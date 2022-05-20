@@ -186,7 +186,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className='col-lg-10 right-nav-story'>
                                     <div className='col-11 text-center p-5 select-a-story-to-open'>
-                                        {selectedStory}
+                                        {selectedView}
                                     </div>
                                 </div>
 
