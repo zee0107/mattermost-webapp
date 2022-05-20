@@ -6,7 +6,7 @@ import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import StoryListView from 'components/story_list_view';
-import ViewStory from 'components/story_view';
+import StoryView from 'components/story_view';
 import logoDark from 'images/logoBlack.png';
 import postImage from 'images/post-1.png';
 import profPic1 from 'images/profiles/user-profile-1.png';
@@ -135,7 +135,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         }
         else{
             selectedView = (
-                <ViewStory userId={'mx46oaryq7fymg1e3a9pepypxr'} />
+                <StoryView userId={'mx46oaryq7fymg1e3a9pepypxr'} />
             );
         }
         return (
