@@ -30,7 +30,9 @@ import SplitIcon from 'images/profiles/menu-icon.svg';
 import ShareMobile from 'images/icon-share2.png';
 import GlobeMobile from 'images/icon-globe2.png';
 import VideoMobile from 'images/icon-cideo-camera.png';
+import HolderImg from 'images/place-holder.png';
 import xIcon from 'images/x.svg';
+
 
 import profPic from 'images/profiles/user-profile-1.png';
 import postImage from 'images/post-1.png';
@@ -426,6 +428,26 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     </>
                 );
             }
+            let emptyStories;
+            if(storyList.length < 11){
+                let indents = [];
+                const lengthValue = 11 - storyList.length;
+
+                for(var i = storyList.length + 1; i < lengthValue; i ++){
+                    indents.push(
+                        <div className='col-md-1 mtop-10'>
+                            <div className='position-absolute'>
+                                <a href="#" className='onClickstory'>
+                                    <img className="Avatar Avatar-xl" src={HolderImg} alt="Username" title="Username"/>
+                                </a>
+                            </div>
+                            <div className="badges-offline-plus rounded-circle position-relative"></div>
+                            <small className="firstname-title-story mt-5">....</small>
+                        </div>
+                    );
+                }
+                emptyStories = indents;
+            }
             viewDetail = ( 
                 <div className='mobile-margin-top'>
                     <div className='col-md-12 chat-box mtop-10'>
@@ -442,6 +464,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                 <small className='firstname-title-story'>Your story</small>
                             </div>
                             {storyListDetails}
+                            {emptyStories}
                             {/*<div className='col-md-1 mtop-10'>
                                 <div className='position-absolute'>
                                     <a href="#" className='onClickstory'>
