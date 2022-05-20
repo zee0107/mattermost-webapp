@@ -53,7 +53,7 @@ export default class StoryListView extends React.PureComponent<Props, State> {
         let renderView;
         if(currentUser !== undefined && currentUser !== null){
             if(currentUser.first_name !== ''){
-                name = (<>{currentUser.first_name}</>);
+                name = (<>{`${currentUser.first_name} ${currentUser.last_name}` }</>);
             }
             else{
                 name = (<>{currentUser.user_name}</>);
