@@ -427,17 +427,17 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 if(storyList.length < 11){
                     let indents = [];
                     const lengthValue = 11 - storyList.length;
-
+                    console.log('Length: ',lengthValue);
                     for(var i = storyList.length + 1; i < lengthValue; i ++){
                         indents.push(
-                            <div className='col-md-1 mtop-10'>
+                            <div className='col-md-1 mt-3 text-center'>
                                 <div className='position-absolute'>
                                     <a href="#" className='onClickstory'>
                                         <img className="Avatar Avatar-xl" src={HolderImg} alt="Username" title="Username"/>
                                     </a>
                                 </div>
                                 <div className="badges-offline-plus rounded-circle position-relative"></div>
-                                <small className="firstname-title-story mt-5">....</small>
+                                <small className="firstname-title-story mt-5 text-muted">....</small>
                             </div>
                         );
                     }
