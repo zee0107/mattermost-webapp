@@ -233,7 +233,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                             <div className='row'>
                                     <p className='mb-2'><strong><label>Text color</label></strong></p>
                                     <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#ffffff')}} style={{backgroundColor: '#ffffff',}}></div>
-                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#fcba03')}} style={{backgroundColor: '#fcba03',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#222222')}} style={{backgroundColor: '#222222',}}></div>
                                     <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#fc0303')}} style={{backgroundColor: '#fc0303',}}></div>
                                     <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#ffff00')}} style={{backgroundColor: '#ffff00',}}></div>
                                     <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#bfff00')}} style={{backgroundColor: '#bfff00',}}></div>
@@ -262,7 +262,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                             <div className='row'>
                                     <p className='mb-2'><strong><label>Backgrounds</label></strong></p>
                                     <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#222222')}} style={{backgroundColor: '#222222',}}></div>
-                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#fcba03')}} style={{backgroundColor: '#fcba03',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#ffffff')}} style={{backgroundColor: '#ffffff',}}></div>
                                     <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#fc0303')}} style={{backgroundColor: '#fc0303',}}></div>
                                     <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#ffff00')}} style={{backgroundColor: '#ffff00',}}></div>
                                     <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#bfff00')}} style={{backgroundColor: '#bfff00',}}></div>
