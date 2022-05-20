@@ -118,11 +118,9 @@ export default class CreateStory extends React.PureComponent<Props, State> {
             if (data === 'Posted'){
                 window.location.href = '/crypter/town-square';
             }
-
             if (data === 'Empty'){
                 this.setState({textError: 'Please add message to your story.'});
             }
-
             if (data === 'Failed'){
                 this.setState({textError: 'Please try again later.'});
             }
@@ -142,7 +140,6 @@ export default class CreateStory extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const { currentUser } = this.props;
         const { photoStory, textStory,privacyValue, addText } = this.state;
-
         let addTextView;
         let addTextClose;
         if(addText){
