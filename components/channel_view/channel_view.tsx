@@ -428,6 +428,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     let indents = [];
                     const lengthValue = 11 - storyList.length;
                     console.log('Length: ',lengthValue);
+                    console.log('Stories: ',storyList.length);
                     for(var i = storyList.length + 1; i < lengthValue; i ++){
                         indents.push(
                             <div className='col-md-1 mt-3 text-center'>
