@@ -25,8 +25,7 @@ function makeMapStateToProps() {
         userId = ownprops.userId;
 
         if(userData.id === userId || userId === '' || userId === null || userId === undefined){
-            currentUser = userData
-            followData = null;
+            currentUser = userData;
         }else{
             currentUser = getOhterUser(state,userId);
         }
