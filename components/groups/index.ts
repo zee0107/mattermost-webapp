@@ -33,7 +33,11 @@ function makeMapStateToProps() {
         const currentUser = getCurrentUser(state);
         const currentTeam = getCurrentTeam(state);
         const userId = currentUser?.id;
+
+        //Local Server
         const teamId = 'u57ytznuttyzbgapem9sqj4oyc'
+
+        //Live Server
         //const teamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
         return {
             userId,
