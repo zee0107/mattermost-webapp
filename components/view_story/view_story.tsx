@@ -60,7 +60,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false, selectedStory:'mx46oaryq7fymg1e3a9pepypxr'};
+        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false, selectedStory:''};
 
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
     }
