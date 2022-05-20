@@ -429,18 +429,33 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     const lengthValue = 11 - storyList.length;
                     console.log('Length: ',lengthValue);
                     console.log('Stories: ',storyList.length);
-                    for(var i = storyList.length + 1; i < lengthValue; i ++){
-                        indents.push(
-                            <div className='col-md-1 mt-3 text-center'>
-                                <div className='position-absolute'>
-                                    <a href="#" className='onClickstory'>
-                                        <img className="Avatar Avatar-xl" src={HolderImg} alt="Username" title="Username"/>
-                                    </a>
+                    for(var i = 1; i <= lengthValue; i ++){
+                        if(i <= 2 ){
+                            indents.push(
+                                <div className='col-md-1 mt-3 text-center'>
+                                    <div className='position-absolute'>
+                                        <a href="#" className='onClickstory'>
+                                            <img className="Avatar Avatar-xl" src={HolderImg} alt="Username" title="Username"/>
+                                        </a>
+                                    </div>
+                                    <div className="badges-offline-plus rounded-circle position-relative"></div>
+                                    <small className="firstname-title-story mt-5 text-muted">....</small>
                                 </div>
-                                <div className="badges-offline-plus rounded-circle position-relative"></div>
-                                <small className="firstname-title-story mt-5 text-muted">....</small>
-                            </div>
-                        );
+                            );
+                        }
+                        else{
+                            indents.push(
+                                <div id='rsvDesktop' className='col-md-1 mt-3 text-center'>
+                                    <div className='position-absolute'>
+                                        <a href="#" className='onClickstory'>
+                                            <img className="Avatar Avatar-xl" src={HolderImg} alt="Username" title="Username"/>
+                                        </a>
+                                    </div>
+                                    <div className="badges-offline-plus rounded-circle position-relative"></div>
+                                    <small className="firstname-title-story mt-5 text-muted">....</small>
+                                </div>
+                            );
+                        }
                     }
                     emptyStories = indents;
                 }
