@@ -101,8 +101,15 @@ export default class CreateStory extends React.PureComponent<Props, State> {
     onShareTextStory = () =>{
         const { userId } = this.props;
         const {textValue, textColor, bgColor, privacyValue} = this.state;
+        let textData;
+        if(textValue === undefined){
+            textData = '';
+        }
+        else{
+            textData = textValue;
+        }
         const uri = new URL('https://localhost:44312/api/crypter/CreateStories');
-        const params = {user_id: userId, type: 'text', text: textValue, bg_color: bgColor, text_color: textColor, privacy: privacyValue};
+        const params = {user_id: userId, type: 'text', text: textData, bg_color: bgColor, text_color: textColor, privacy: privacyValue};
         uri.search = new URLSearchParams(params);
 
         fetch(uri, {
