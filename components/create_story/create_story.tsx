@@ -39,6 +39,7 @@ type State = {
     photoStory: boolean;
     textStory: boolean;
     addText: boolean;
+    bgColor: string;
     privacyValue: string;
     textValue: string;
     colorValue: string;
@@ -49,7 +50,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false,};
+        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false,bgColor: '#222222'};
 
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
         this.onChangeText = this.onChangeText.bind(this);
@@ -75,6 +76,10 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
     onChangePrivacy = (event) => {
         this.setState({privacyValue: event.target.value});
+    }
+
+    onChangeBackground = (color: string) => {
+        this.setState({bgColor: color});
     }
 
     onChangeText = (event) => {
@@ -223,8 +228,8 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                         <div className='col-12 mx-auto mt-5 mb-1 border p-3 rounded'>
                         <div className='row'>
                                 <p className='mb-2'><strong><label>Backgrounds</label></strong></p>
-                                <div className='col-1 border border-3 text-center bg-dark text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#fcba03')}} style={{backgroundColor: '#fcba03',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' style={{backgroundColor: '#000',}}></div>
                                 <div className='col-1 border border-3 text-center bg-info text-white p-3 rounded-circle mt-1 ml-1'></div>
                                 <div className='col-1 border border-3 text-center bg-danger text-white p-3 rounded-circle mt-1 ml-1'></div>
                                 <div className='col-1 border border-3 text-center bg-danger text-white p-3 rounded-circle mt-1 ml-1'></div>
@@ -265,7 +270,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                     <div className='create-text-story-previews'>
                         <strong><label>Previews</label></strong>
 
-                        <div className='previews-content mt-3 mb-3 text-center'>
+                        <div className='previews-content mt-3 mb-3 text-center' style={{backgroundColor: `${this.state.bgColor}`}}>
                             <div className='container'>
                                 <h3><strong className='text-center text-white' style={{overflowWrap: 'break-word'}}>{this.state.textValue}</strong></h3>
                             </div>
