@@ -52,7 +52,7 @@ export default class RequestLists extends React.PureComponent<Props, State> {
         let renderView;
         if(currentUser !== undefined && currentUser !== null){
             if(currentUser.first_name !== ''){
-                if(currentUser.first_name.contains(' ')){
+                if(currentUser.first_name.includes(' ')){
                     name = (<>{currentUser.first_name.split(' ')[0]}</>);
                 }
                 else{
