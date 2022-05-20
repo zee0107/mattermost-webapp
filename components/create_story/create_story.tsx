@@ -39,7 +39,8 @@ type State = {
     photoStory: boolean;
     textStory: boolean;
     addText: boolean;
-    bgColor: string;
+    bgColor: string;.
+    bgColorText: string;
     textColor: string;
     privacyValue: string;
     textValue: string;
@@ -51,7 +52,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false,bgColor: '#222222',textColor:'#ffffff'};
+        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false,bgColor: '#222222',textColor:'#ffffff',bgColorText: 'transparent'};
 
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
         this.onChangeText = this.onChangeText.bind(this);
@@ -81,6 +82,10 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
     onChangeBackground = (color: string) => {
         this.setState({bgColor: color});
+    }
+
+    onChangeBackgroundText = (color: string) => {
+        this.setState({bgColorText: color});
     }
 
     onChangeColor = (color: string) => {
@@ -114,7 +119,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                         <div id='draggable' className='ui-widget-content'>
                             <div>
                                 <div className='form-floating'>
-                                    <textarea style={{height: 150,}} className='form-control text-start-styping' placeholder='Start typing' id='floatingTextarea'></textarea>
+                                    <textarea style={{height: 150,backgroundColor: `${this.state.bgColor}`,color: `${this.state.textColor}`}} className='form-control text-start-styping' placeholder='Start typing' id='floatingTextarea'></textarea>
                                     <label htmlFor='floatingTextarea'>Start typing</label>
                                 </div>
                             </div>
@@ -135,62 +140,62 @@ export default class CreateStory extends React.PureComponent<Props, State> {
             sidePhotoMenu = (
                 <div className='create-photo-story-box'>
                     <p><a className='onAddtextonphoto' onClick={() => { this.setState({addText: true}); }}><i className='bi-textarea-t'></i> <strong>Add Text</strong></a></p>
-                    <div className='col-12 mx-auto mt-2 mb-1 border p-3 rounded'>
+                    <div className='col-12 mx-auto mt-5 mb-1 border p-3 rounded'>
                         <div className='row'>
                                 <p className='mb-2'><strong><label>Text color</label></strong></p>
-                                <div className='col-1 border border-3 text-center bg-dark text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-info text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-danger text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-danger text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-success text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-info text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-danger text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-info text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-dsuccess text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-success text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-danger text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-success text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-info text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-danger text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-info text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-dsuccess text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-success text-white p-3 rounded-circle mt-1 ml-1'></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#ffffff')}} style={{backgroundColor: '#ffffff',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#222222')}} style={{backgroundColor: '#222222',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#fc0303')}} style={{backgroundColor: '#fc0303',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#ffff00')}} style={{backgroundColor: '#ffff00',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#bfff00')}} style={{backgroundColor: '#bfff00',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#7bff00')}} style={{backgroundColor: '#7bff00',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#2fff00')}} style={{backgroundColor: '#2fff00',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#15b02a')}} style={{backgroundColor: '#15b02a',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#0ccc56')}} style={{backgroundColor: '#0ccc56',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#00fcb5')}} style={{backgroundColor: '#00fcb5',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#00ffff')}} style={{backgroundColor: '#00ffff',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#00a2ff')}} style={{backgroundColor: '#00a2ff',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#006eff')}} style={{backgroundColor: '#006eff',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#0040ff')}} style={{backgroundColor: '#0040ff',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#9608fc')}} style={{backgroundColor: '#9608fc',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#dd07f5')}} style={{backgroundColor: '#dd07f5',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#cf08c1')}} style={{backgroundColor: '#cf08c1',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#eb0989')}} style={{backgroundColor: '#eb0989',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#eb0967')}} style={{backgroundColor: '#eb0967',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#0f1270')}} style={{backgroundColor: '#0f1270',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#a3ab0c')}} style={{backgroundColor: '#a3ab0c',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#cf8151')}} style={{backgroundColor: '#cf8151',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#87160e')}} style={{backgroundColor: '#87160e',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#0e8781')}} style={{backgroundColor: '#0e8781',}}></div>
                         </div>
                     </div>
-                    <div className='col-12 mx-auto mt-2 mb-1 border p-3 rounded'>
+                    <div className='col-12 mx-auto mt-5 mb-1 border p-3 rounded'>
                         <div className='row'>
-                                <p className='mb-2'><strong><label>Text background</label></strong></p>
-                                <div className='col-1 border border-3 text-center bg-dark text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-info text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-danger text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-danger text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-success text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-info text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-danger text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-info text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-dsuccess text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-success text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-danger text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-success text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-info text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-danger text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-info text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-dsuccess text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-warning text-white p-3 rounded-circle mt-1 ml-1'></div>
-                                <div className='col-1 border border-3 text-center bg-success text-white p-3 rounded-circle mt-1 ml-1'></div>
+                                <p className='mb-2'><strong><label>Backgrounds</label></strong></p>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#222222')}} style={{backgroundColor: '#222222',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#ffffff')}} style={{backgroundColor: '#ffffff',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#fc0303')}} style={{backgroundColor: '#fc0303',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#ffff00')}} style={{backgroundColor: '#ffff00',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#bfff00')}} style={{backgroundColor: '#bfff00',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#7bff00')}} style={{backgroundColor: '#7bff00',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#2fff00')}} style={{backgroundColor: '#2fff00',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#15b02a')}} style={{backgroundColor: '#15b02a',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#0ccc56')}} style={{backgroundColor: '#0ccc56',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#00fcb5')}} style={{backgroundColor: '#00fcb5',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#00ffff')}} style={{backgroundColor: '#00ffff',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#00a2ff')}} style={{backgroundColor: '#00a2ff',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#006eff')}} style={{backgroundColor: '#006eff',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#0040ff')}} style={{backgroundColor: '#0040ff',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#9608fc')}} style={{backgroundColor: '#9608fc',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#dd07f5')}} style={{backgroundColor: '#dd07f5',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#cf08c1')}} style={{backgroundColor: '#cf08c1',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#eb0989')}} style={{backgroundColor: '#eb0989',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#eb0967')}} style={{backgroundColor: '#eb0967',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#0f1270')}} style={{backgroundColor: '#0f1270',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#a3ab0c')}} style={{backgroundColor: '#a3ab0c',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#cf8151')}} style={{backgroundColor: '#cf8151',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#87160e')}} style={{backgroundColor: '#87160e',}}></div>
+                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#0e8781')}} style={{backgroundColor: '#0e8781',}}></div>
                         </div>
                     </div>
                     <div className='row mt-4'>
