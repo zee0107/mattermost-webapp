@@ -52,6 +52,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false,};
 
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
+        this.onChangeText = this.onChangeText.bind(this);
     }
 
     componentDidMount = async () =>{
@@ -74,6 +75,10 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
     onChangePrivacy = (event) => {
         this.setState({privacyValue: event.target.value});
+    }
+
+    onChangeText = (event) => {
+        this.setState({textValue: event.target.value});
     }
 
     jQueryCode = () => {
@@ -211,7 +216,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
             sideTextMenu = (
                 <div className='create-text-story-box'>
                     <div className='form-floating'>
-                        <textarea style={{height: 180,}} className='form-control' placeholder='Start typing'></textarea>
+                        <textarea style={{height: 180,}} className='form-control' onChange={this.onChangeText} value={this.state.textValue} placeholder='Start typing'></textarea>
                         <label htmlFor='floatingTextarea'>Start typing</label>
                         </div>
 
@@ -261,7 +266,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                         <strong><label>Previews</label></strong>
 
                         <div className='previews-content mt-3 mb-3 text-center'>
-                            <strong className='text-center text-white'><label>START TYPING</label></strong>
+                            <strong className='text-center text-white'><label>{this.state.textValue}</label></strong>
                         </div>
 
                     </div>
