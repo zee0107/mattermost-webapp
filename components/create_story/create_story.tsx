@@ -8,6 +8,7 @@ import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/
 import logoDark from 'images/logoBlack.png';
 import postImage from 'images/post-1.png';
 import $ from 'jquery';
+import { throws } from 'assert';
 
 type Props = {
     status?: string;
@@ -44,7 +45,8 @@ type State = {
     textColor: string;
     privacyValue: string;
     textValue: string;
-    colorValue: string;
+    colorValue: string
+    textError?: string;
 };
 
 export default class CreateStory extends React.PureComponent<Props, State> {
@@ -94,6 +96,30 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
     onChangeText = (event) => {
         this.setState({textValue: event.target.value});
+    }
+
+    onShareTextStory = () =>{
+        const { userId } = this.props;
+        const {textValue, textColor, bgColor, privacyValue} = this.state;
+        const uri = new URL('https://localhost:44312/api/crypter/CreateStories');
+        const params = {user_id: userId, type: 'text', text: textValue, bg_color: bgColor, text_color: textColor, privacy: privacyValue};
+        uri.search = new URLSearchParams(params);
+
+        fetch(uri, {
+            method: 'POST',
+        }).then((response) => response.json()).then((data)=>{
+            if (data === 'Posted'){
+                window.location.href('/crypter/town-square');
+            }
+
+            if (data === 'Empty'){
+                this.setState({textError: 'Please add message to your story.'});
+            }
+
+            if (data === 'Failed'){
+                this.setState({textError: 'Please try again later.'});
+            }
+        }).catch(error => this.setState({textError: error}));
     }
 
     jQueryCode = () => {
@@ -233,6 +259,8 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                     <div className='form-floating'>
                         <textarea style={{height: 180,}} className='form-control' onChange={this.onChangeText} value={this.state.textValue} placeholder='Start typing'></textarea>
                         <label htmlFor='floatingTextarea'>Start typing</label>
+                        {this.state.textError && <span className='small text-danger'>{this.state.textError}</span>}
+                        
                         </div>
                         <div className='col-12 mx-auto mt-5 mb-1 border p-3 rounded'>
                             <div className='row'>
@@ -296,7 +324,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                         <div className='row mt-3'>
                             <div className='btn-group gap-1' role='group' aria-label='Button discard and share to story'>
                             <a className='btn btn-primary btn-discard onClickdiscard' onClick={() => { this.setState({photoStory: false,textStory: false});}}>Discard</a>
-                            <a className='btn btn-primary btn-share-to-story'>Share to story</a>
+                            <a className='btn btn-primary btn-share-to-story' onClick={() => this.onShareTextStory()}>Share to story</a>
                             </div>
                         </div>
                 </div>
@@ -387,10 +415,10 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                         <a className='onStoryprofilesettings' id='defaultDropdown' id='dropdownMenuOffset' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
                     
                                         <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuOffset'>
-                                            <li><a className='dropdown-item' href='profile.html'><i className='bi-person'></i> Profile</a></li>
+                                            <li><a className='dropdown-item text-dark' href='profile.html'><i className='bi-person'></i> Profile</a></li>
                                             {/*<li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
                                             <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>*/}
-                                            <li><a className='dropdown-item onSettingsandprivacy'><i className='bi-gear-wide'></i> Sign out</a></li>
+                                            <li><a className='dropdown-item onSettingsandprivacy text-dark'><i className='bi-gear-wide'></i> Sign out</a></li>
                                         </ul>
                     
                                         </div>
