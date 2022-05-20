@@ -35,10 +35,10 @@ function makeMapStateToProps() {
         const userId = currentUser?.id;
 
         //Local Server
-        const teamId = 'u57ytznuttyzbgapem9sqj4oyc'
+        //const teamId = 'u57ytznuttyzbgapem9sqj4oyc'
 
         //Live Server
-        //const teamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
+        const teamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
         return {
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),

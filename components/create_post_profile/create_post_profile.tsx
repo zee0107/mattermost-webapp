@@ -384,10 +384,10 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             serverError: null,
             currentChannel: {},
             //Local Server
-            channelId: 'kqe4sihhdid47gprhk6dwbuc4o',
+            //channelId: 'kqe4sihhdid47gprhk6dwbuc4o',
 
             //Live Server
-            //channelId: 'dodurztr1fbupnpenjgxqjso3a',
+            channelId: 'dodurztr1fbupnpenjgxqjso3a',
             uploading: false,
         };
 
@@ -420,10 +420,10 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             actions.getChannelMemberCountsByGroup(this.state.currentChannel.id, isTimezoneEnabled);
         }
         //Local Server
-        this.setState({channelId: 'kqe4sihhdid47gprhk6dwbuc4o'});
+        //this.setState({channelId: 'kqe4sihhdid47gprhk6dwbuc4o'});
 
         //Live Server
-        //this.setState({channelId: 'dodurztr1fbupnpenjgxqjso3a'});
+        this.setState({channelId: 'dodurztr1fbupnpenjgxqjso3a'});
     }
 
     componentDidUpdate(prevProps: Props, prevState: State) {
@@ -459,10 +459,10 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
 
         if (prevState.channelId !== this.state.channelId){
             //Local Server
-            this.setState({channelId: 'kqe4sihhdid47gprhk6dwbuc4o'});
+            //this.setState({channelId: 'kqe4sihhdid47gprhk6dwbuc4o'});
 
             //Live Server
-            //this.setState({channelId: 'dodurztr1fbupnpenjgxqjso3a'});
+            this.setState({channelId: 'dodurztr1fbupnpenjgxqjso3a'});
         }
     }
 
