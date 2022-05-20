@@ -18,6 +18,7 @@ import PostView from 'components/post_view_all';
 import Post from 'components/post_view_all/post';
 import {clearMarks, mark, measure, trackEvent} from 'actions/telemetry_actions.jsx';
 import FormattedMarkdownMessage from 'components/formatted_markdown_message';
+import StoryList from 'components/story_list';
 
 import ImgIcon from 'images/profiles/image.svg';
 import LayoutIcon from 'images/profiles/columns-gap.svg';
@@ -43,6 +44,7 @@ import { ChannelStats } from 'mattermost-redux/types/channels';
 import GroupDetail from 'components/group_details';
 import { result } from 'lodash';
 import { PostList } from 'mattermost-redux/types/posts';
+import { Story } from 'mattermost-redux/types/crypto';
 
 type Props = {
     channelId: string;
@@ -56,6 +58,7 @@ type Props = {
     enableOnboardingFlow: boolean;
     showNextSteps: boolean;
     currentUser: UserProfile;
+    storyList: Promise<Story[]>;
     teamUrl: string;
     match: {
         url: string;
@@ -86,6 +89,7 @@ type State = {
     shareInfo: string;
     feeling: boolean;
     postList: PostList;
+    storyList: Story[];
 };
 
 export default class ChannelView extends React.PureComponent<Props, State> {
@@ -197,12 +201,18 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             if (this.props.channelIsArchived && !this.props.viewArchivedChannels) {
                 this.props.actions.goToLastViewedChannel();
             }
+
+            if(this.props.storyList !== prevProps.storyList){
+                if(this.props.storyList !== undefined && this.props.storyList !== null){
+                    Promise.resolve(this.props.storyList).then((value) => {this.setState({storyList: value});} );
+                }
+            }
         }
     }
 
     render() {
         const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName,channelDisplayName,channelId, currentUser} = this.props;
-        const { uploading, shareInfo, userLocation, feeling } = this.state;
+        const { uploading, shareInfo, userLocation, feeling, storyList } = this.state;
         if (enableOnboardingFlow && showNextSteps && !showNextStepsEphemeral) {
             this.props.actions.setShowNextStepsView(true);
             browserHistory.push(`${teamUrl}/tips`);
@@ -404,6 +414,18 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         let viewDetail;
         let isMounted = false;
         if(channelName === 'town-square'){
+            let storyListDetails;
+            if(storyList !== undefined && storyList !== null){
+                storyListDetails = (
+                    <>
+                        {storyList.map((item,key) => {
+                            return (
+                                <StoryList userId={item} key={`${item}-${key}`} />
+                            );
+                        })}
+                    </>
+                );
+            }
             viewDetail = ( 
                 <div className='mobile-margin-top'>
                     <div className='col-md-12 chat-box mtop-10'>
@@ -419,7 +441,8 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                 </svg></div>
                                 <small className='firstname-title-story'>Your story</small>
                             </div>
-                            <div className='col-md-1 mtop-10'>
+                            {storyListDetails}
+                            {/*<div className='col-md-1 mtop-10'>
                                 <div className='position-absolute'>
                                     <a href="#" className='onClickstory'>
                                         <img className="Avatar Avatar-xl" src={profPic} alt="Username" title="Username"/>
@@ -517,7 +540,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className="badges-offline-plus rounded-circle position-relative"></div>
                                 <small className="firstname-title-story mt-5">Mig Yu</small>
-                            </div>
+                            </div>*/}
                             <div className="next-arrow-story">
                                 <a className="onAllstory" href='/stories/view'><i className='bi bi-chevron-right'></i></a>
                             </div>

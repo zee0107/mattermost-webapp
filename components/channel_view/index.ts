@@ -43,7 +43,7 @@ function mapStateToProps(state: GlobalState) {
     const currentChannelId = channel?.id;
     const currentUser = getCurrentUser(state);
     const userId = currentUser?.id;
-
+    const storyList = Client4.listSotries(userId);
     const config = getConfig(state);
 
     const viewArchivedChannels = config.ExperimentalViewArchivedChannels === 'true';
@@ -70,6 +70,7 @@ function mapStateToProps(state: GlobalState) {
         channelDisplayName: channel ? channel.display_name : '',
         channelPurpose: channel ? channel.purpose : '',
         channelRolesLoading,
+        storyList,
         deactivatedChannel: channel ? isDeactivatedChannel(state, channel.id) : false,
         focusedPostId: state.views.channel.focusedPostId,
         showNextStepsEphemeral: state.views.nextSteps.show,

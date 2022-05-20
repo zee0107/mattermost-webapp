@@ -119,7 +119,7 @@ import {isSystemAdmin} from 'mattermost-redux/utils/user_utils';
 import {UserThreadList, UserThread, UserThreadWithPost} from 'mattermost-redux/types/threads';
 
 import {TelemetryHandler} from './telemetry';
-import { AllListing, Coins, GainerListing, NewListing, ProjectList, ProjectsEndedList, ProjectsUpcomingList, RequestList, SocialCount, TrendListing } from 'mattermost-redux/types/crypto';
+import { AllListing, Coins, GainerListing, NewListing, ProjectList, ProjectsEndedList, ProjectsUpcomingList, RequestList, SocialCount, Story, TrendListing } from 'mattermost-redux/types/crypto';
 import { type } from 'os';
 import list from 'components/more_direct_channels/list';
 import { ValidationError } from 'webpack';
@@ -4036,6 +4036,12 @@ export default class Client4 {
         return this.doFetch<boolean>(
             `https://crypterfighter.polywickstudio.ph/api/crypter/declinerequest`
             ,{method: 'post',body: JSON.stringify(body)}
+        );
+    }
+
+    listSotries = (id: string) => {
+        return this.doFetch<Story[]>(
+            `https://crypterfighter.polywickstudio.ph/api/crypter/liststories?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 

@@ -131,6 +131,19 @@ export type ProjectList = {
     link: string,
 }
 
+export type Story = {
+    id: string;
+    user_id: string;
+    uploaded_file: string;
+    text: string;
+    bg_color: string;
+    text_color:string;
+    type: string;
+    privacy: string;
+    data_posted: string;
+    date_expiry: string;
+}
+
 export type CoinsUpcoming = {
     id: string,
     name: string,
