@@ -6,6 +6,7 @@ import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import StoryListView from 'components/story_list_view';
+import ViewStory from 'components/story_view';
 import logoDark from 'images/logoBlack.png';
 import postImage from 'images/post-1.png';
 import profPic1 from 'images/profiles/user-profile-1.png';
@@ -51,6 +52,7 @@ type State = {
     textValue: string;
     colorValue: string;
     storyList: Story[];
+    selectedStory: string;
 };
 
 export default class ViewStory extends React.PureComponent<Props, State> {
@@ -58,7 +60,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false,};
+        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false, selectedStory = ''};
 
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
     }
@@ -89,9 +91,13 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         this.setState({privacyValue: event.target.value});
     }
 
+    onChangeSelected = (value: string) => {
+        this.setState({selectedStory: value});
+    }
+
     render= (): JSX.Element => {
         const { currentUser } = this.props;
-        const { photoStory, textStory,privacyValue, addText, storyList } = this.state;
+        const { photoStory, textStory,privacyValue, addText, storyList,selectedStory } = this.state;
         
         let userRenderDesktop;
         let userRenderMobile;
@@ -114,6 +120,22 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                         );
                     })}
                 </>
+            );
+        }
+
+        let selectedView;
+        if(selectedStory === ''){
+            selectedView = (
+                <p>
+                    <i className='bi-images'></i>
+                    <br/>
+                    <strong><label>Select a story to open</label></strong>
+                </p>
+            );
+        }
+        else{
+            selectedView = (
+                <ViewStory userId={'mx46oaryq7fymg1e3a9pepypxr'} />
             );
         }
         return (
@@ -164,19 +186,15 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className='col-lg-10 right-nav-story'>
                                     <div className='col-11 text-center p-5 select-a-story-to-open'>
-                                        <p>
-                                        <i className='bi-images'></i>
-                                        <br/>
-                                        <strong><label>Select a story to open</label></strong>
-                                        </p>
+                                        
 
                                         {/*Previews all story*/}
                                         <div className='row p-3'>
                                             <div className='create-all-stories-previews'>
                                                 <div className='row'>
                                                     <div className='col-8'>
-                                                        <img className='img-fluid float-none' src='assets/images/sample-user-primary-picture-5.png'/>
-                                                        <small className='float-none ms-2 text-muted'><strong>Firstname 8m</strong> <i className='bi-people-fill'></i></small>
+                                                        <img className='img-fluid float-start' src='assets/images/sample-user-primary-picture-5.png'/>
+                                                        <small className='float-start ms-2 text-muted'><strong>Firstname 8m</strong> <i className='bi-people-fill'></i></small>
                                                     </div>
                                                     <div className='col-4'>
                                                         <div className='dropdown'>
@@ -185,8 +203,8 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                                     </div>
 
                                                     <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuButton1'>
-                                                        <li><a className='dropdown-item'><i className='bi-x-octagon-fill'></i> Mute Firstname goes here</a></li>
-                                                        <li><a className='dropdown-item'><i className='bi-patch-exclamation-fill'></i> Find support or report story</a></li>
+                                                        <li><a className='dropdown-item text-dark'><i className='bi-x-octagon-fill'></i> Mute Firstname goes here</a></li>
+                                                        <li><a className='dropdown-item text-dark'><i className='bi-patch-exclamation-fill'></i> Find support or report story</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -236,18 +254,18 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                                         </div>
                                                     </div>
                                                     <div className='col-lg-3 text-center'>
-                                                    <p>
-                                                        <a className='onClicklikepreviewstories position-relative me-3'><i className='bi-hand-thumbs-up style-hand-thumbs-up-fill'></i>
-                                                        <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger count-likes-previews'>
-                                                            2m+
-                                                        </span>
-                                                        </a>
-                                                        <a className='onClickheartpreviewstories position-relative'><i className='bi-heart style-heart-fill'></i>
-                                                        <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger count-heart-previews'>
-                                                            3.5k+
-                                                        </span>
-                                                        </a>
-                                                    </p>
+                                                        <p>
+                                                            <a className='onClicklikepreviewstories position-relative me-3'><i className='bi-hand-thumbs-up style-hand-thumbs-up-fill'></i>
+                                                            <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger count-likes-previews'>
+                                                                2m+
+                                                            </span>
+                                                            </a>
+                                                            <a className='onClickheartpreviewstories position-relative'><i className='bi-heart style-heart-fill'></i>
+                                                            <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger count-heart-previews'>
+                                                                3.5k+
+                                                            </span>
+                                                            </a>
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>

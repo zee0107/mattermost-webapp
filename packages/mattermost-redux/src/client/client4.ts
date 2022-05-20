@@ -4045,6 +4045,12 @@ export default class Client4 {
         );
     }
 
+    viewSotries = (id: string) => {
+        return this.doFetch<Story[]>(
+            `https://localhost:44312/api/crypter/viewstrory?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
 
 
     // Client Helpers
