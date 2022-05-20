@@ -293,11 +293,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         else{
             feelactView = (
                 <div className='activitiescontent'>
-                    {/*<div className='input-group d-flex mb-0'>
-                        <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
-                        <input id='searchActivities' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Search' aria-label='Search'/>
-            </div>*/}
-    
                     <div className='mt-3 mb-3'>
                         {this.state.userActivity && <a className='activitiespost onCloseactivitiessviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-dark'>{textValue} {icon}<i className='bi-x-lg'></i></label></a>}
                     </div>
@@ -417,6 +412,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         let isMounted = false;
         if(channelName === 'town-square'){
             let storyListDetails;
+            let emptyStories;
             if(storyList !== undefined && storyList !== null){
                 storyListDetails = (
                     <>
@@ -427,27 +423,28 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                         })}
                     </>
                 );
-            }
-            let emptyStories;
-            if(storyList.length < 11){
-                let indents = [];
-                const lengthValue = 11 - storyList.length;
 
-                for(var i = storyList.length + 1; i < lengthValue; i ++){
-                    indents.push(
-                        <div className='col-md-1 mtop-10'>
-                            <div className='position-absolute'>
-                                <a href="#" className='onClickstory'>
-                                    <img className="Avatar Avatar-xl" src={HolderImg} alt="Username" title="Username"/>
-                                </a>
+                if(storyList.length < 11){
+                    let indents = [];
+                    const lengthValue = 11 - storyList.length;
+
+                    for(var i = storyList.length + 1; i < lengthValue; i ++){
+                        indents.push(
+                            <div className='col-md-1 mtop-10'>
+                                <div className='position-absolute'>
+                                    <a href="#" className='onClickstory'>
+                                        <img className="Avatar Avatar-xl" src={HolderImg} alt="Username" title="Username"/>
+                                    </a>
+                                </div>
+                                <div className="badges-offline-plus rounded-circle position-relative"></div>
+                                <small className="firstname-title-story mt-5">....</small>
                             </div>
-                            <div className="badges-offline-plus rounded-circle position-relative"></div>
-                            <small className="firstname-title-story mt-5">....</small>
-                        </div>
-                    );
+                        );
+                    }
+                    emptyStories = indents;
                 }
-                emptyStories = indents;
             }
+            
             viewDetail = ( 
                 <div className='mobile-margin-top'>
                     <div className='col-md-12 chat-box mtop-10'>
