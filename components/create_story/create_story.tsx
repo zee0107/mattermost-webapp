@@ -40,6 +40,7 @@ type State = {
     textStory: boolean;
     addText: boolean;
     bgColor: string;
+    textColor: string;
     privacyValue: string;
     textValue: string;
     colorValue: string;
@@ -50,7 +51,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false,bgColor: '#222222'};
+        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false,bgColor: '#222222',textColor:'#ffffff'};
 
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
         this.onChangeText = this.onChangeText.bind(this);
@@ -80,6 +81,10 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
     onChangeBackground = (color: string) => {
         this.setState({bgColor: color});
+    }
+
+    onChangeColor = (color: string) => {
+        this.setState({textColor: color});
     }
 
     onChangeText = (event) => {
@@ -224,35 +229,63 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                         <textarea style={{height: 180,}} className='form-control' onChange={this.onChangeText} value={this.state.textValue} placeholder='Start typing'></textarea>
                         <label htmlFor='floatingTextarea'>Start typing</label>
                         </div>
-
                         <div className='col-12 mx-auto mt-5 mb-1 border p-3 rounded'>
-                        <div className='row'>
-                                <p className='mb-2'><strong><label>Backgrounds</label></strong></p>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#222222')}} style={{backgroundColor: '#222222',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#fcba03')}} style={{backgroundColor: '#fcba03',}}></div>
-                                <div className='col-1 border border-3 text-centertext-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#fc0303')}} style={{backgroundColor: '#fc0303',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#ffff00')}} style={{backgroundColor: '#ffff00',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#bfff00')}} style={{backgroundColor: '#bfff00',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#7bff00')}} style={{backgroundColor: '#7bff00',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#2fff00')}} style={{backgroundColor: '#2fff00',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#15b02a')}} style={{backgroundColor: '#15b02a',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#0ccc56')}} style={{backgroundColor: '#0ccc56',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#00fcb5')}} style={{backgroundColor: '#00fcb5',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#00ffff')}} style={{backgroundColor: '#00ffff',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#00a2ff')}} style={{backgroundColor: '#00a2ff',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#006eff')}} style={{backgroundColor: '#006eff',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#0040ff')}} style={{backgroundColor: '#0040ff',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#9608fc')}} style={{backgroundColor: '#9608fc',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#dd07f5')}} style={{backgroundColor: '#dd07f5',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#cf08c1')}} style={{backgroundColor: '#cf08c1',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#eb0989')}} style={{backgroundColor: '#eb0989',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#eb0967')}} style={{backgroundColor: '#eb0967',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#0f1270')}} style={{backgroundColor: '#0f1270',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#a3ab0c')}} style={{backgroundColor: '#a3ab0c',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#cf8151')}} style={{backgroundColor: '#cf8151',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#87160e')}} style={{backgroundColor: '#87160e',}}></div>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#0e8781')}} style={{backgroundColor: '#0e8781',}}></div>
+                            <div className='row'>
+                                    <p className='mb-2'><strong><label>Text color</label></strong></p>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#ffffff')}} style={{backgroundColor: '#ffffff',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#fcba03')}} style={{backgroundColor: '#fcba03',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#fc0303')}} style={{backgroundColor: '#fc0303',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#ffff00')}} style={{backgroundColor: '#ffff00',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#bfff00')}} style={{backgroundColor: '#bfff00',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#7bff00')}} style={{backgroundColor: '#7bff00',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#2fff00')}} style={{backgroundColor: '#2fff00',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#15b02a')}} style={{backgroundColor: '#15b02a',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#0ccc56')}} style={{backgroundColor: '#0ccc56',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#00fcb5')}} style={{backgroundColor: '#00fcb5',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#00ffff')}} style={{backgroundColor: '#00ffff',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#00a2ff')}} style={{backgroundColor: '#00a2ff',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#006eff')}} style={{backgroundColor: '#006eff',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#0040ff')}} style={{backgroundColor: '#0040ff',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#9608fc')}} style={{backgroundColor: '#9608fc',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#dd07f5')}} style={{backgroundColor: '#dd07f5',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#cf08c1')}} style={{backgroundColor: '#cf08c1',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#eb0989')}} style={{backgroundColor: '#eb0989',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#eb0967')}} style={{backgroundColor: '#eb0967',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#0f1270')}} style={{backgroundColor: '#0f1270',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#a3ab0c')}} style={{backgroundColor: '#a3ab0c',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#cf8151')}} style={{backgroundColor: '#cf8151',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#87160e')}} style={{backgroundColor: '#87160e',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeColor('#0e8781')}} style={{backgroundColor: '#0e8781',}}></div>
+                            </div>
                         </div>
+                        <div className='col-12 mx-auto mt-5 mb-1 border p-3 rounded'>
+                            <div className='row'>
+                                    <p className='mb-2'><strong><label>Backgrounds</label></strong></p>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#222222')}} style={{backgroundColor: '#222222',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#fcba03')}} style={{backgroundColor: '#fcba03',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#fc0303')}} style={{backgroundColor: '#fc0303',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#ffff00')}} style={{backgroundColor: '#ffff00',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#bfff00')}} style={{backgroundColor: '#bfff00',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#7bff00')}} style={{backgroundColor: '#7bff00',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#2fff00')}} style={{backgroundColor: '#2fff00',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#15b02a')}} style={{backgroundColor: '#15b02a',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#0ccc56')}} style={{backgroundColor: '#0ccc56',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#00fcb5')}} style={{backgroundColor: '#00fcb5',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#00ffff')}} style={{backgroundColor: '#00ffff',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#00a2ff')}} style={{backgroundColor: '#00a2ff',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#006eff')}} style={{backgroundColor: '#006eff',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#0040ff')}} style={{backgroundColor: '#0040ff',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#9608fc')}} style={{backgroundColor: '#9608fc',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#dd07f5')}} style={{backgroundColor: '#dd07f5',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#cf08c1')}} style={{backgroundColor: '#cf08c1',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#eb0989')}} style={{backgroundColor: '#eb0989',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#eb0967')}} style={{backgroundColor: '#eb0967',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#0f1270')}} style={{backgroundColor: '#0f1270',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#a3ab0c')}} style={{backgroundColor: '#a3ab0c',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#cf8151')}} style={{backgroundColor: '#cf8151',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#87160e')}} style={{backgroundColor: '#87160e',}}></div>
+                                    <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackground('#0e8781')}} style={{backgroundColor: '#0e8781',}}></div>
+                            </div>
                         </div>
 
                         <div className='row mt-3'>
@@ -272,7 +305,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
                         <div className='previews-content mt-3 mb-3 text-center' style={{backgroundColor: `${this.state.bgColor}`}}>
                             <div className='container'>
-                                <h3><strong className='text-center text-white' style={{overflowWrap: 'break-word'}}>{this.state.textValue}</strong></h3>
+                                <h3><strong className='text-center' style={{overflowWrap: 'break-word',color: `${this.state.textColor}`}}>{this.state.textValue}</strong></h3>
                             </div>
                         </div>
 
