@@ -39,7 +39,7 @@ type State = {
     photoStory: boolean;
     textStory: boolean;
     addText: boolean;
-    bgColor: string;.
+    bgColor: string;
     bgColorText: string;
     textColor: string;
     privacyValue: string;
