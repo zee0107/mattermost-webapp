@@ -12,7 +12,7 @@ type Props = {
     profilePicture: string;
     userData: UserProfile;
     currentUser: UserProfile;
-    strories: Promise<Story[]>;
+    stories: Promise<Story[]>;
     view: string;
 }
 
@@ -36,8 +36,8 @@ export default class StoryView extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
 
-        if(this.props.strories !== undefined && this.props.strories !== null){
-            Promise.resolve(this.props.strories).then((value) => {this.setState({stories: value});});
+        if(this.props.stories !== undefined && this.props.stories !== null){
+            Promise.resolve(this.props.stories).then((value) => {this.setState({stories: value});});
         }
     }
 
