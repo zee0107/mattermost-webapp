@@ -71,7 +71,7 @@ export default class StoryListView extends React.PureComponent<Props, State> {
                     </a>
                 );
             }
-            else{s
+            else{
                 name = (<>{`${currentUser.first_name.split(' ')[0]}` }</>);
                 renderView = (
                     <div className='col-2 text-center'>
