@@ -346,7 +346,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='all-stories-float-icon-mobile'>
+                                        {/*<div className='all-stories-float-icon-mobile'>
                                             <div className='position-absolute top-0 start-50 translate-middle-x me-5 mt-3'>
                                                 <a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
                                                 <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>39+</span>
@@ -355,7 +355,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                                 <a className='onStorymessages' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelchatdesktop' aria-controls='offcanvasRightLabelchatdesktop'><i className='bi-chat-left-text-fill'></i></a>
                                                 <span className='position-absolute right-0 start-100 translate-middle badge rounded-pill bg-danger'>14+</span>
                                             </div>
-                                        </div>
+                                        </div>*/}
                                     </div>
                                 </div>
                             </div>
