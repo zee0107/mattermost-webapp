@@ -5,6 +5,7 @@ import React, {ReactNode, ReactPropTypes} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
+import StoryListView from 'components/story_list_view';
 import logoDark from 'images/logoBlack.png';
 import postImage from 'images/post-1.png';
 import profPic1 from 'images/profiles/user-profile-1.png';
@@ -14,6 +15,7 @@ import profPic4 from 'images/profiles/user-profile-4.png';
 import profPic5 from 'images/profiles/user-profile-5.png';
 import profPic6 from 'images/profiles/user-profile-6.png';
 import profPic7 from 'images/profiles/user-profile-7.png';
+import { Story } from 'mattermost-redux/types/crypto';
 type Props = {
     status?: string;
     userId: string;
@@ -25,6 +27,7 @@ type Props = {
         setStatusDropdown: (open: boolean) => void;
     };
     customStatus?: UserCustomStatus;
+    storyList: Promise<Story[]>;
     profilePicture: string;
     currentUser: UserProfile;
     isCustomStatusEnabled: boolean;
@@ -47,6 +50,7 @@ type State = {
     privacyValue: string;
     textValue: string;
     colorValue: string;
+    storyList: Story[];
 };
 
 export default class ViewStory extends React.PureComponent<Props, State> {
@@ -62,6 +66,10 @@ export default class ViewStory extends React.PureComponent<Props, State> {
     componentDidMount = async () =>{
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+
+        if(this.props.storyList !== undefined && this.props.storyList !== null){
+            Promise.resolve(this.props.storyList).then((value) => {this.setState({storyList: value});});
+        }
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -83,8 +91,31 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const { currentUser } = this.props;
-        const { photoStory, textStory,privacyValue, addText } = this.state;
+        const { photoStory, textStory,privacyValue, addText, storyList } = this.state;
+        
+        let userRenderDesktop;
+        let userRenderMobile;
+        if(storyList){
+            userRenderDesktop = (
+                <>
+                    {storyList.map((item,index) => {
+                        return (
+                            <StoryListView userId={item} view='desktop' key={`${item}-${index}`} />
+                        );
+                    })}
+                </>
+            );
 
+            userRenderMobile = (
+                <>
+                    {storyList.map((item,index) => {
+                        return (
+                            <StoryListView userId={item} view='mobile' key={`${item}-${index}`} />
+                        );
+                    })}
+                </>
+            );
+        }
         return (
             <>
                 <div className='slidebarallStory animated fadeIn' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='false'>
@@ -120,7 +151,8 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                     <div className='all-story-desktop'>
                                         <div className='all-stories-scroll'>
                                             <div className='mt-0'>
-                                                <a className='onViewsfriendstories text-dark'>
+                                                {userRenderDesktop}
+                                                {/*<a className='onViewsfriendstories text-dark'>
                                                     <div className='padding-view-firends-style'>
                                                         <img className='circle-rounded me-2 mt-3' width={'15%'} src={profPic1}/>
                                                         <small className='mt-1 text-muted'><strong>Evan</strong></small>
@@ -180,13 +212,14 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                                     <br/>
                                                     <div className='yourstoryminutes'><small className='ml-12'>1h</small></div>
                                                     </div>
-                                                </a>
+                                                </a>*/}
                                             </div>
                                         </div>
 
                                         <div className='all-story-mobile'>
                                             <div className='row'>
-                                                <div className='col-2 text-center'>
+                                                {userRenderMobile}
+                                                {/*<div className='col-2 text-center'>
                                                     <a className='onViewsfriendstories'>
                                                         <img className='img-fluid rounded-circle mt-0 border border-2 border-success' width={'15%'}  src={profPic1}/>
                                                         <p><small>Evan <br/> <strong>8m</strong></small></p>
@@ -211,7 +244,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                                 <div className='col-2 text-center'>
                                                     <img className=' rounded-circle mt-0 border border-2 border-success' width={'15%'}  src={profPic6} />
                                                     <p><small>Jaden <br/> <strong>1h</strong></small></p>
-                                                </div>
+                                                </div>*/}
                                             </div>
                                         </div>
 
