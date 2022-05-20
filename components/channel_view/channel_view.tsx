@@ -30,7 +30,7 @@ import SplitIcon from 'images/profiles/menu-icon.svg';
 import ShareMobile from 'images/icon-share2.png';
 import GlobeMobile from 'images/icon-globe2.png';
 import VideoMobile from 'images/icon-cideo-camera.png';
-import HolderImg from 'images/place-holder.png';
+import HolderImg from 'images/place-holder.jpg';
 import xIcon from 'images/x.svg';
 
 
