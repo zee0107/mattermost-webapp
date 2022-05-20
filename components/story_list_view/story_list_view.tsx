@@ -62,7 +62,7 @@ export default class StoryListView extends React.PureComponent<Props, State> {
             if(view === 'desktop'){
                 renderView = (
                     <a className='onViewsfriendstories text-dark'>
-                        <div className='padding-view-firends-style'>
+                        <div className='padding-view-firends-style mt-2'>
                             {this.renderProfilePicture('lg')}
                             <small className='mt-1 text-muted'><strong>{name}</strong></small>
                             <br/>
