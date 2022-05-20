@@ -172,7 +172,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                     <div className='col-12 mx-auto mt-5 mb-1 border p-3 rounded'>
                         <div className='row'>
                                 <p className='mb-2'><strong><label>Backgrounds</label></strong></p>
-                                <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('transparent')}} style={{backgroundColor: '#transparent',}}><i class="bi bi-slash-circle"></i></div>
+                                <div className='col-1 border border-3 text-center text-dark pe-4 pt-1 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('transparent')}} style={{backgroundColor: '#transparent',}}><i class="bi bi-slash-lg"></i></div>
                                 <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#ffffff')}} style={{backgroundColor: '#ffffff',}}></div>
                                 <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#fc0303')}} style={{backgroundColor: '#fc0303',}}></div>
                                 <div className='col-1 border border-3 text-center text-white p-3 rounded-circle mt-1 ml-1' onClick={() => { this.onChangeBackgroundText('#ffff00')}} style={{backgroundColor: '#ffff00',}}></div>
