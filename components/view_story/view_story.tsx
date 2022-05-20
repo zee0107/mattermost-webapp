@@ -60,7 +60,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false, selectedStory:''};
+        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false, selectedStory:'mx46oaryq7fymg1e3a9pepypxr'};
 
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
     }
@@ -135,7 +135,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         }
         else{
             selectedView = (
-                <StoryView userId={'mx46oaryq7fymg1e3a9pepypxr'} />
+                <StoryView userId={selectedStory} />
             );
         }
         return (
@@ -186,128 +186,43 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className='col-lg-10 right-nav-story'>
                                     <div className='col-11 text-center p-5 select-a-story-to-open'>
-                                        
-
-                                        {/*Previews all story*/}
-                                        <div className='row p-3'>
-                                            <div className='create-all-stories-previews'>
-                                                <div className='row'>
-                                                    <div className='col-8'>
-                                                        <img className='img-fluid float-start' src='assets/images/sample-user-primary-picture-5.png'/>
-                                                        <small className='float-start ms-2 text-muted'><strong>Firstname 8m</strong> <i className='bi-people-fill'></i></small>
-                                                    </div>
-                                                    <div className='col-4'>
-                                                        <div className='dropdown'>
-                                                        <a className='onClosestoryallpreviewsactions float-end shadow ms-1' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'><i className='bi-three-dots-vertical'></i></a>
-                                                        <a className='onClosestoryallpreviews float-end shadow ms-1'><i className='bi-x-lg'></i></a>
-                                                    </div>
-
-                                                    <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuButton1'>
-                                                        <li><a className='dropdown-item text-dark'><i className='bi-x-octagon-fill'></i> Mute Firstname goes here</a></li>
-                                                        <li><a className='dropdown-item text-dark'><i className='bi-patch-exclamation-fill'></i> Find support or report story</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div className='previews-content mt-3 mb-3 text-center'>
-                                                <div id='carouselStoryloopIndicators' className='carousel slide' data-bs-ride='carousel'>
-                                                    <div className='carousel-indicators'>
-                                                        <button type='button' data-bs-target='#carouselStoryloopIndicators' data-bs-slide-to='0' className='active' aria-current='true' aria-label='Slide 1'></button>
-                                                        <button type='button' data-bs-target='#carouselStoryloopIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
-                                                        <button type='button' data-bs-target='#carouselStoryloopIndicators' data-bs-slide-to='2' aria-label='Slide 3'></button>
-                                                    </div>
-                                                    {/*Loop for many story post*/}
-                                                    <div className='carousel-inner text-center'>
-                                                        <div className='carousel-item active'>
-                                                        <img width='' src='assets/images/Cover-album-2.jpg' className='d-block w-100' alt=''/>
-                                                        </div>
-                                                        <div className='carousel-item'>
-                                                        <img src='assets/images/Cover-album-3.jpg' className='d-block w-100' alt=''/>
-                                                        </div>
-                                                        <div className='carousel-item'>
-                                                        <img src='assets/images/Cover-album.jpg' className='d-block w-100' alt=''/>
-                                                        </div>
-                                                    </div>
-                                                    {/*Loop for many story post*/}
-                                                    <button className='carousel-control-prev' type='button' data-bs-target='#carouselStoryloopIndicators' data-bs-slide='prev'>
-                                                    <span className='carousel-control-prev-icon' aria-hidden='true'></span>
-                                                    <span className='visually-hidden'>Previous</span>
-                                                    </button>
-                                                    <button className='carousel-control-next' type='button' data-bs-target='#carouselStoryloopIndicators' data-bs-slide='next'>
-                                                    <span className='carousel-control-next-icon' aria-hidden='true'></span>
-                                                    <span className='visually-hidden'>Next</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div className='previews-content-actions'>
-                                                <div className='row'>
-                                                    <div className='col-lg-9'>
-                                                        <div className='form-floating'>
-                                                        <textarea className='form-control textares-stories-input' placeholder='Send messages...' id=''></textarea>
-                                                        <label htmlFor='floatingTextarea'>Send messages...</label>
-                                                        </div>
-                                                        <div className='position-relative float-end'>
-                                                        <a className='onSendmessage'>
-                                                            <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='currentColor' className='bi bi-send-fill send-icons-previews' viewBox='0 0 16 16'>
-                                                            <path d='M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z'/>
-                                                            </svg>
-                                                        </a>
-                                                        </div>
-                                                    </div>
-                                                    <div className='col-lg-3 text-center'>
-                                                        <p>
-                                                            <a className='onClicklikepreviewstories position-relative me-3'><i className='bi-hand-thumbs-up style-hand-thumbs-up-fill'></i>
-                                                            <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger count-likes-previews'>
-                                                                2m+
-                                                            </span>
-                                                            </a>
-                                                            <a className='onClickheartpreviewstories position-relative'><i className='bi-heart style-heart-fill'></i>
-                                                            <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger count-heart-previews'>
-                                                                3.5k+
-                                                            </span>
-                                                            </a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        {selectedStory}
                                     </div>
                                 </div>
 
-                                    <div className='row p-3'>
-                                        <div className='all-stories-float-icon-desktop'>
-                                            <div className='position-absolute top-0 end-0 mt-4 me-4'>
-                                               {/* <a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
-                                                <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>39+</span>
-                                                <br/>
-                                                <br/>
-                                                <div className='mb-2'></div>
-                                                    <a className='onStorymessages' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelchatdesktop' aria-controls='offcanvasRightLabelchatdesktop'><i className='bi-chat-left-text-fill'></i></a>
-                                                    <span className='position-absolute right-0 start-100 translate-middle badge rounded-pill bg-danger'>14+</span>
-                                                <div className='mb-4'></div>
-                                                */}
-                                                <div className='d-flex'>
-                                                    <a className='onStoryprofilesettings' id='defaultDropdown' id='dropdownMenuOffset' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
-
-                                                    <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuOffset'>
-                                                        <li><a className='dropdown-item'><i className='bi-person'></i> Profile</a></li>
-                                                        <li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
-                                                        <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>
-                                                        <li><a className='dropdown-item onSettingsandprivacy'><i className='bi-gear-wide'></i> Settings & Privacy</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/*<div className='all-stories-float-icon-mobile'>
-                                            <div className='position-absolute top-0 start-50 translate-middle-x me-5 mt-3'>
-                                                <a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
-                                                <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>39+</span>
-                                            </div>
-                                            <div className='position-absolute top-0 start-50 translate-middle-x ms-5 mt-3'>
+                                <div className='row p-3'>
+                                    <div className='all-stories-float-icon-desktop'>
+                                        <div className='position-absolute top-0 end-0 mt-4 me-4'>
+                                           {/* <a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
+                                            <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>39+</span>
+                                            <br/>
+                                            <br/>
+                                            <div className='mb-2'></div>
                                                 <a className='onStorymessages' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelchatdesktop' aria-controls='offcanvasRightLabelchatdesktop'><i className='bi-chat-left-text-fill'></i></a>
                                                 <span className='position-absolute right-0 start-100 translate-middle badge rounded-pill bg-danger'>14+</span>
+                                            <div className='mb-4'></div>
+                                            */}
+                                            <div className='d-flex'>
+                                                <a className='onStoryprofilesettings' id='defaultDropdown' id='dropdownMenuOffset' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
+                                                <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuOffset'>
+                                                    <li><a className='dropdown-item'><i className='bi-person'></i> Profile</a></li>
+                                                    <li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
+                                                    <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>
+                                                    <li><a className='dropdown-item onSettingsandprivacy'><i className='bi-gear-wide'></i> Settings & Privacy</a></li>
+                                                </ul>
                                             </div>
-                                        </div>*/}
+                                        </div>
                                     </div>
+                                    {/*<div className='all-stories-float-icon-mobile'>
+                                        <div className='position-absolute top-0 start-50 translate-middle-x me-5 mt-3'>
+                                            <a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
+                                            <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>39+</span>
+                                        </div>
+                                        <div className='position-absolute top-0 start-50 translate-middle-x ms-5 mt-3'>
+                                            <a className='onStorymessages' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelchatdesktop' aria-controls='offcanvasRightLabelchatdesktop'><i className='bi-chat-left-text-fill'></i></a>
+                                            <span className='position-absolute right-0 start-100 translate-middle badge rounded-pill bg-danger'>14+</span>
+                                        </div>
+                                    </div>*/}
                                 </div>
                             </div>
                         </form>
