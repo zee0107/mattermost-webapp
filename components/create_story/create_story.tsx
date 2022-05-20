@@ -109,7 +109,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
             method: 'POST',
         }).then((response) => response.json()).then((data)=>{
             if (data === 'Posted'){
-                window.location.href('/crypter/town-square');
+                window.location.href = '/crypter/town-square';
             }
 
             if (data === 'Empty'){
