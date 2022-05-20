@@ -430,7 +430,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 <div className='mobile-margin-top'>
                     <div className='col-md-12 chat-box mtop-10'>
                         <div className='d-flex'>
-                            <div className='col-md-1 mtop-10'>
+                            <div className='col-md-1 mt-3'>
                                 <div className='position-absolute'>
                                     <a href="/stories/create" className='onClickstory'>
                                         {this.renderProfilePicture('xl')}

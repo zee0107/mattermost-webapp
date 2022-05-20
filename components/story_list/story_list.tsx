@@ -66,9 +66,9 @@ export default class RequestLists extends React.PureComponent<Props, State> {
 
             
             renderView = (
-                <div className='col-md-1 mtop-10'>
+                <div className='col-md-1 mt-3 text-center'>
                     <div className='position-absolute'>
-                        <a href="#" className='onClickstory'>
+                        <a href="#" className='onClickstory ps-2'>
                             {this.renderProfilePicture('xl')}
                         </a>
                     </div>
