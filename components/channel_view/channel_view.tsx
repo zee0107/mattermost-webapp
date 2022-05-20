@@ -432,27 +432,27 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     for(var i = 1; i <= lengthValue; i ++){
                         if(i <= 2 ){
                             indents.push(
-                                <div className='col-md-1 mt-3 text-center'>
+                                <div className='col-md-1 mt-3'>
                                     <div className='position-absolute'>
                                         <a href="#" className='onClickstory'>
-                                            <img className="Avatar Avatar-xl" src={HolderImg} alt="Username" title="Username"/>
+                                            <img className="Avatar Avatar-xl border border-3 rounded-circle" src={HolderImg} alt="Username" title="Username"/>
                                         </a>
                                     </div>
                                     <div className="badges-offline-plus rounded-circle position-relative"></div>
-                                    <small className="firstname-title-story mt-5 text-muted">....</small>
+                                    <small className="firstname-title-story mt-5 text-muted">......</small>
                                 </div>
                             );
                         }
                         else{
                             indents.push(
-                                <div id='rsvDesktop' className='col-md-1 mt-3 text-center'>
+                                <div id='rsvDesktop' className='col-md-1 mt-3'>
                                     <div className='position-absolute'>
                                         <a href="#" className='onClickstory'>
-                                            <img className="Avatar Avatar-xl" src={HolderImg} alt="Username" title="Username"/>
+                                            <img className="Avatar Avatar-xl border border-3 rounded-circle" src={HolderImg} alt="Username" title="Username"/>
                                         </a>
                                     </div>
                                     <div className="badges-offline-plus rounded-circle position-relative"></div>
-                                    <small className="firstname-title-story mt-5 text-muted">....</small>
+                                    <small className="firstname-title-story mt-5 text-muted">......</small>
                                 </div>
                             );
                         }
