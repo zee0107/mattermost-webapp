@@ -258,9 +258,6 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                         <br/>
                                         <strong><label>Select a story to open</label></strong>
                                         </p>
-                                    </div>
-
-                                    <div className='row p-3'>
                                         {/*Previews all story*/}
                                         <div className='create-all-stories-previews'>
                                             <div className='row'>
@@ -321,33 +318,11 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                             {/*Previews content actions*/}
                                         </div>
                                         {/*Previews all story*/}
+                                    </div>
 
-                                        {/*Previews all story*/}
-                                        {/*<div className='create-photo-story-previews'>
-                                            <strong>
-                                            <label>Previews</label></strong>
-                                            <a className='onClosetexttypings shadow float-end'><i className='bi-x'></i></a>
+                                    <div className='row p-3'>
+                                        
 
-                                            <div className='previews-photo-content mt-4 mb-1'>
-                                                <div className='col-lg-12'>
-                                                    <div className='photo-story-uploaded rounded' id='resizable'>
-                                                        <div className='add-text-on-photo'>
-                                                            <div id='draggable' className='ui-widget-content'>
-                                                                <div>
-                                                                    <div className='form-floating'>
-                                                                        <textarea style={{height: 150,}} className='form-control text-start-styping' placeholder='Start typing' id='floatingTextarea'></textarea>
-                                                                        <label htmlFor='floatingTextarea'>Start typing</label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <p className='text-center'><strong>Browse photo</strong></p>
-                                        </div>*/}
-                                        {/*Previews all story*/}
                                         <div className='all-stories-float-icon-desktop'>
                                             <div className='position-absolute top-0 end-0 mt-4 me-4'>
                                                {/* <a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
