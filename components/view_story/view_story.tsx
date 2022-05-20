@@ -152,6 +152,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                         <div className='all-stories-scroll'>
                                             <div className='mt-0'>
                                                 {userRenderDesktop}
+                                                {userRenderMobile}
                                                 {/*<a className='onViewsfriendstories text-dark'>
                                                     <div className='padding-view-firends-style'>
                                                         <img className='circle-rounded me-2 mt-3' width={'15%'} src={profPic1}/>
@@ -252,7 +253,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className='col-lg-10 right-nav-story'>
-                                    <div className='col-12 text-center p-5 select-a-story-to-open'>
+                                    <div className='col-11 text-center p-5 select-a-story-to-open'>
                                         <p>
                                         <i className='bi-images'></i>
                                         <br/>
