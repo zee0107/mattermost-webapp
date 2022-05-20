@@ -71,12 +71,13 @@ export default class StoryListView extends React.PureComponent<Props, State> {
                     </a>
                 );
             }
-            else{
+            else{s
+                name = (<>{`${currentUser.first_name.split(' ')[0]}` }</>);
                 renderView = (
                     <div className='col-2 text-center'>
                         <a className='onViewsfriendstories'>
                             {this.renderProfilePicture('lg')}
-                            <p><small>{name} <br/> <strong>8m</strong></small></p>
+                            <p className='text-dark'><small>{name} <br/> <strong>8m</strong></small></p>
                         </a>
                     </div>
                 );
