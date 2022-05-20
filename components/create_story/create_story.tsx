@@ -267,7 +267,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
                         <div className='previews-content mt-3 mb-3 text-center'>
                             <div className='container'>
-                                <h3><strong className='text-center text-white'>{this.state.textValue}</strong></h3>
+                                <h3><strong className='text-center text-white' style={{overflowWrap: 'break-word'}}>{this.state.textValue}</strong></h3>
                             </div>
                         </div>
 
