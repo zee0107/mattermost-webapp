@@ -57,7 +57,7 @@ export default class StoryImage extends React.PureComponent<Props, State> {
 
         return (
             <>
-                <img className='d-block w-100' src={img_url}></img>
+                <img className='d-block w-100' src={img_url} style={{height: '100%', width: 'auto'}}></img>
             </>
         );
     }
