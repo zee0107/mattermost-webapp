@@ -152,8 +152,8 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                 <div className='col-lg-2 border p-4'>
                                     <p>
                                         <img className='img-fluid mt-2' src={logoDark} alt='logo' title='logo' />
-                                        <a className='float-end mt-1 onClickcloseallstory closeallstory-desktop' href='/crypter/town-square'><i className='bi-x-circle-fill'></i></a>
-                                        <a className='float-end mt-1 onClickcloseallstorymobile closeallstory-mobile' href='/crypter/town-square'><i className='bi-x-circle-fill'></i></a>
+                                        <a className='float-end mt-1 onClickcloseallstory closeallstory-desktop' href='/crypter/channels/town-square'><i className='bi-x-circle-fill'></i></a>
+                                        <a className='float-end mt-1 onClickcloseallstorymobile closeallstory-mobile' href='/crypter/channels/town-square'><i className='bi-x-circle-fill'></i></a>
                                     </p>
                                     <div>
                                         <h5 className='mt-4'>Stories 
