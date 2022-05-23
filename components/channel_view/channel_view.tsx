@@ -427,8 +427,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 if(storyList.length < 11){
                     let indents = [];
                     const lengthValue = 11 - storyList.length;
-                    console.log('Length: ',lengthValue);
-                    console.log('Stories: ',storyList.length);
                     for(var i = 1; i <= lengthValue; i ++){
                         if(i <= 2 ){
                             indents.push(
