@@ -73,7 +73,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
     }
 
     componentDidUpdate(prevState: state) {
-        if (prevState.photoValueName !== this.state.photoValueName) {
+        if (this.state.photoValueName  !== prevState.photoValueName) {
             this.setPicture(this.state.photoValue);
         }
     }
@@ -329,7 +329,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                             className='hidden'
                             accept='image/*'
                             type='file'
-                            onChange={this.updatePhoto}
+                            onChange={() => this.updatePhoto}
                             //disabled={this.props.loadingPicture}
                             aria-hidden={true}
                             tabIndex='-1'/>
