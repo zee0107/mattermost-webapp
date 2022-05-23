@@ -159,7 +159,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
     onSharePhotoStory = () =>{
         const { userId } = this.props;
-        const {textValue, textColor, bgColor, privacyValue} = this.state;
+        const {textValue, textColor, bgColor, privacyValue, photoValueName} = this.state;
         let textData;
         if(textValue === undefined){
             textData = '';
@@ -168,7 +168,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
             textData = textValue;
         }
         const uri = new URL('https://localhost:44312/api/crypter/CreateStories');
-        const params = {user_id: userId, type: 'photo', text: textData, bg_color: bgColor, text_color: textColor, privacy: privacyValue};
+        const params = {user_id: userId, type: 'photo', file_id: photoValueName, text: textData, bg_color: bgColor, text_color: textColor, privacy: privacyValue};
         uri.search = new URLSearchParams(params);
 
         fetch(uri, {
