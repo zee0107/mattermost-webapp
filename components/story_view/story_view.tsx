@@ -16,6 +16,7 @@ type Props = {
     userData: UserProfile;
     currentUser: UserProfile;
     stories: Promise<Story[]>;
+    onClose: any;
 }
 
 type State = {
@@ -53,6 +54,10 @@ export default class StoryView extends React.PureComponent<Props, State> {
         if(storiesData !== undefined && storiesData !== null){
             Promise.resolve(storiesData).then((value) => {this.setState({stories: value});});
         }
+    }
+
+    closeStory = () => {
+        this.props.onClose('');
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -95,7 +100,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                 <div className='col-4'>
                                     <div className='dropdown'>
                                         <a className='onClosestoryallpreviewsactions float-end shadow ms-1' id='storyDropdown' data-bs-toggle='dropdown' aria-expanded='false'><i className='bi-three-dots-vertical'></i></a>
-                                        <a className='onClosestoryallpreviews float-end shadow ms-1'><i className='bi-x-lg'></i></a>
+                                        <a className='onClosestoryallpreviews float-end shadow ms-1' onClick={() => {this.closeStory}}><i className='bi-x-lg'></i></a>
                                     </div>
                                 
                                     <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='storyDropdown' id='storyDropdown'>

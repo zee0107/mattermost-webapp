@@ -136,7 +136,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         }
         else{
             selectedView = (
-                <StoryView userId={selectedStory} />
+                <StoryView userId={selectedStory} onClose={this.onChangeSelected}/>
             );
         }
         return (
