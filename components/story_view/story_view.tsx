@@ -7,6 +7,7 @@ import { UserProfile } from 'mattermost-redux/types/users';
 import { Story } from 'mattermost-redux/types/crypto';
 import { Item } from 'react-bootstrap/lib/Breadcrumb';
 import { Client4 } from 'mattermost-redux/client';
+import { key } from 'localforage';
 
 type Props = {
     userId: string;
@@ -113,11 +114,25 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                             <div id='carouselStoryloopIndicators' className='carousel slide' data-bs-ride='carousel'>
+                            <div class="carousel-indicators">
+                                {stories.map((item,index) => {
+                                    let activeClass;
+                                    if(index === 0){
+                                        activeClass = 'active';
+                                    }
+                                    return (
+                                        <button type="button" data-bs-target="#carouselStoryloopIndicators" data-bs-slide-to={index} class={activeClass} aria-label={`Slide ${index}`} key={`${item.id}--${index}`}></button>
+                                    );
+                                })}
+                              </div>
                                 <div className='carousel-inner text-center'>
                                     {stories.map((item,index) => {
-                                        console.log(index);
+                                        let activeClass;
+                                        if(index === 0){
+                                            activeClass = 'active';
+                                        }
                                         return (
-                                            <div className='carousel-item'>
+                                            <div className={`carousel-item ${activeClass}`}>
                                                 <div className='previews-content mt-3 mb-3 text-center' style={{backgroundColor: `${item.bg_color}`}} key={`${item.id}-${index}`}>
                                                     {item.type === 'text' ? 
                                                     ( <div className='container'>
