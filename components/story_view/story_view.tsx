@@ -6,6 +6,7 @@ import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import { UserProfile } from 'mattermost-redux/types/users';
 import { Story } from 'mattermost-redux/types/crypto';
 import { Item } from 'react-bootstrap/lib/Breadcrumb';
+import { Client4 } from 'mattermost-redux/client';
 
 type Props = {
     userId: string;
@@ -13,7 +14,6 @@ type Props = {
     userData: UserProfile;
     currentUser: UserProfile;
     stories: Promise<Story[]>;
-    view: string;
 }
 
 type State = {
@@ -36,8 +36,20 @@ export default class StoryView extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
 
-        if(this.props.stories !== undefined && this.props.stories !== null){
-            Promise.resolve(this.props.stories).then((value) => {this.setState({stories: value});});
+        getStoryData();
+    }
+
+    componentDidUpdate(prevProps: Props){
+        if(this.props.userId !== prevProps.userId){
+            this.getStoryData();
+        }
+    }
+
+    getStoryData = () => {
+        const { currentUser } = this.props;
+        const storiesData = Client4.viewSotries(currentUser.id);
+        if(storiesData !== undefined && storiesData !== null){
+            Promise.resolve(storiesData).then((value) => {this.setState({stories: value});});
         }
     }
 
@@ -56,7 +68,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const { currentUser, view } = this.props;
+        const { currentUser } = this.props;
         const { stories } = this.state;
         
         let name;
@@ -102,7 +114,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
                             </div>
                             {stories.map((item,index) => {
                                 return (
-                                    <div className='previews-content mt-3 mb-3 text-center' style={{backgroundColor: `${item.bg_color}`}}>
+                                    <div className='previews-content mt-3 mb-3 text-center' style={{backgroundColor: `${item.bg_color}`}} key={`${item.id}-${index}`}>
                                         <div id='carouselStoryloopIndicators' className='carousel slide' data-bs-ride='carousel'>
                                             <div className='carousel-indicators'>
                                                 <button type='button' data-bs-target='#carouselStoryloopIndicators' data-bs-slide-to='0' className='active' aria-current='true' aria-label='Slide 1'></button>
