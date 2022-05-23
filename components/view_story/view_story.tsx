@@ -375,8 +375,8 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                             <div className='modal-body'>
                                 <div className='row mb-4'>
                                     <div className={this.state.modalSelected === 'archive' ? 'col-4 text-center onClickstoryarchived':'col-4 text-center onClickstoryarchived border-bottom border-3 pb-2'} onClick={() => {this.onChangeModal('archive')}}><small>Story archive</small></div>
-                                    <div className={this.state.modalSelected === 'archive' ? 'col-4 text-center onClickstoriesmuted':'col-4 text-center onClickstoriesmuted border-bottom border-3 pb-2'} onClick={() => {this.onChangeModal('muted')}}><small>Stories you've muted</small></div>
-                                    <div className={this.state.modalSelected === 'archive' ? 'col-4 text-center onClickstoryprivacy':'col-4 text-center onClickstoryprivacy border-bottom border-3 pb-2'} onClick={() => {this.onChangeModal('privacy')}}><small>Story privacy</small></div>
+                                    <div className={this.state.modalSelected === 'muted' ? 'col-4 text-center onClickstoriesmuted':'col-4 text-center onClickstoriesmuted border-bottom border-3 pb-2'} onClick={() => {this.onChangeModal('muted')}}><small>Stories you've muted</small></div>
+                                    <div className={this.state.modalSelected === 'privacy' ? 'col-4 text-center onClickstoryprivacy':'col-4 text-center onClickstoryprivacy border-bottom border-3 pb-2'} onClick={() => {this.onChangeModal('privacy')}}><small>Story privacy</small></div>
                                 </div>
                                 {modalBody}
                             </div>
