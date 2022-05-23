@@ -81,7 +81,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
             else{
                 name = (<>{currentUser.user_name}</>);
             }
-
+            let storyPrivacy;
             if(stories !== undefined && stories !== null){
                 renderView = (
                     <>
@@ -89,17 +89,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
                             <div className='row'>
                                 <div className='col-8'>
                                     {this.renderProfilePicture('lg')}
-                                    <small className='float-start ms-2 text-muted'><strong>{name}</strong> {stories.map((item,index) => {
-                                        if(item.privacy === 'friends'){
-                                            return ( <i className='bi-people-fill'></i>);
-                                        }
-                                        else if(item.privacy === 'Private'){
-                                            return (<i className="bi-person"></i>);
-                                        }
-                                        else{
-                                            return (<i className="bi-globe"></i>);
-                                        }
-                                    })}</small>
+                                    <small className='float-start ms-2 text-muted'><strong>{name}</strong> {storyPrivacy}</small>
                                 </div>
                                 <div className='col-4'>
                                     <div className='dropdown'>
@@ -114,17 +104,28 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                             <div id='carouselStoryloopIndicators' className='carousel slide' data-bs-ride='carousel'>
-                            <div class="carousel-indicators" style={{width:'70%'}}>
-                                {stories.map((item,index) => {
-                                    let activeClass;
-                                    if(index === 0){
-                                        activeClass = 'active';
-                                    }
-                                    return (
-                                        <button type="button" data-bs-target="#carouselStoryloopIndicators" data-bs-slide-to={index} class={activeClass} aria-label={`Slide ${index}`} key={`${item.id}--${index}`}></button>
-                                    );
-                                })}
-                              </div>
+                                <div class="carousel-indicators" style={{width:'70%'}}>
+                                    {stories.map((item,index) => {
+                                        let activeClass;
+                                        if(index === 0){
+                                            activeClass = 'active';
+                                        }
+
+                                        if(item.privacy === 'friends'){
+                                            storyPrivacy = ( <i className='bi-people-fill'></i>);
+                                        }
+                                        else if(item.privacy === 'Private'){
+                                            storyPrivacy =  (<i className="bi-person"></i>);
+                                        }
+                                        else{
+                                            storyPrivacy =  (<i className="bi-globe"></i>);
+                                        }
+
+                                        return (
+                                            <button type="button" data-bs-target="#carouselStoryloopIndicators" data-bs-slide-to={index} class={activeClass} aria-label={`Slide ${index}`} key={`${item.id}--${index}`}></button>
+                                        );
+                                    })}
+                                </div>
                                 <div className='carousel-inner text-center'>
                                     {stories.map((item,index) => {
                                         let activeClass;
@@ -162,11 +163,11 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                 <div className='row'>
                                     <div className='col-lg-9'>
                                         <div className='form-floating'>
-                                            <textarea className='form-control textares-stories-input' placeholder='Send messages...' id=''></textarea>
+                                            <textarea className='form-control textares-stories-input' placeholder='Send messages...' id='' style={{height: 55}}></textarea>
                                             <label htmlFor='floatingTextarea'>Send messages...</label>
                                         </div>
                                         <div className='position-relative float-end'>
-                                            <a className='onSendmessage'>
+                                            <a className='onSendmessage text-dark'>
                                                 <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='currentColor' className='bi bi-send-fill send-icons-previews' viewBox='0 0 16 16'>
                                                 <path d='M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z'/>
                                                 </svg>
