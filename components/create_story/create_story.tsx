@@ -56,6 +56,9 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         super(props);
         this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false,bgColor: '#222222',textColor:'#ffffff',bgColorText: 'transparent'};
 
+        
+        this.selectInput = React.createRef();
+
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
         this.onChangeText = this.onChangeText.bind(this);
     }
@@ -98,6 +101,11 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         this.setState({textValue: event.target.value});
     }
 
+    handleInputFile = () => {
+        this.selectInput.current.value = '';
+        this.selectInput.current.click();
+    }
+
     onShareTextStory = () =>{
         const { userId } = this.props;
         const {textValue, textColor, bgColor, privacyValue} = this.state;
@@ -123,6 +131,34 @@ export default class CreateStory extends React.PureComponent<Props, State> {
             }
             if (data === 'Failed'){
                 this.setState({textError: 'Please try again later.'});
+            }
+        }).catch(error => this.setState({textError: error}));
+    }
+
+    onSharePhotoStory = () =>{
+        const { userId } = this.props;
+        const {textValue, textColor, bgColor, privacyValue} = this.state;
+        let textData;
+        if(textValue === undefined){
+            textData = '';
+        }
+        else{
+            textData = textValue;
+        }
+        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/CreateStories');
+        const params = {user_id: userId, type: 'text', text: textData, bg_color: bgColor, text_color: textColor, privacy: privacyValue};;
+        uri.search = new URLSearchParams(params);
+
+        fetch(uri, {
+            method: 'POST',
+            body: this.state.profileCover,
+        }).then((response) => response.json()).then((data)=>{
+            if (data === 'Posted'){
+                window.location.href = '/crypter/channels/town-square';
+            }
+
+            if (data === 'Not exist'){
+                this.setState({textError: 'Please select photo to upload.'});
             }
         }).catch(error => this.setState({textError: error}));
     }
@@ -250,8 +286,22 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                         </div>
-                        <p className='text-center'><strong>Browse photo</strong></p>
+                        <span>
+                            <input
+                            data-testid='uploadPicture'
+                            ref={this.selectInput}
+                            className='hidden'
+                            accept='image/*'
+                            type='file'
+                            //onChange={this.handleFileChange}
+                            //disabled={this.props.loadingPicture}
+                            aria-hidden={true}
+                            tabIndex='-1'/>
+                        </span>
+                        
+                        <p className='text-center' onClick={this.handleInputFile}><strong>Browse photo</strong></p>
                     </div>
+                    {this.state.textError && <span className='small text-center text-danger'>{this.state.textError}</span>}
                     {/*Previews Create photo story*/}
                 </>
             )
