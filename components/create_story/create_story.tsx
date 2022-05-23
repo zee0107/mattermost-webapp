@@ -56,7 +56,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false,bgColor: '#222222',textColor:'#ffffff',bgColorText: 'transparent'};
+        this.state = {image: null,photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false,bgColor: '#222222',textColor:'#ffffff',bgColorText: 'transparent'};
 
         
         this.selectInput = React.createRef();
@@ -69,6 +69,12 @@ export default class CreateStory extends React.PureComponent<Props, State> {
     componentDidMount = async () =>{
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+    }
+
+    componentDidUpdate(prevState: state) {
+        if (prevState.photoValueName !== this.state.photoValueName) {
+            this.setPicture(this.state.photoValue);
+        }
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -158,7 +164,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
             textData = textValue;
         }
         const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/CreateStories');
-        const params = {user_id: userId, type: 'text', text: textData, bg_color: bgColor, text_color: textColor, privacy: privacyValue};;
+        const params = {user_id: userId, type: 'text', text: textData, bg_color: bgColor, text_color: textColor, privacy: privacyValue};
         uri.search = new URLSearchParams(params);
 
         fetch(uri, {
@@ -173,6 +179,23 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                 this.setState({textError: 'Please select photo to upload.'});
             }
         }).catch(error => this.setState({textError: error}));
+    }
+
+    setPicture = (file) => {
+        if (file) {
+            this.previewBlob = URL.createObjectURL(file);
+
+            var reader = new FileReader();
+            reader.onload = (e) => {
+                //const orientation = FileUtils.getExifOrientation(e.target.result);
+                //const orientationStyles = FileUtils.getOrientationStyles(orientation);
+
+                this.setState({
+                    image: this.previewBlob,
+                });
+            };
+            reader.readAsArrayBuffer(file);
+        }
     }
 
     jQueryCode = () => {
@@ -293,7 +316,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                         {addTextClose}
                         <div className='previews-photo-content mt-6 mb-1'>
                             <div className='col-lg-12'>
-                                <div style={{ background: `url(${postImage}) no-repeat top center`,}} className='photo-story-uploaded rounded' id='resizable'>
+                                <div style={{ background: `url(${this.state.image}) no-repeat top center`,}} className='photo-story-uploaded rounded' id='resizable'>
                                     {addTextView}
                                 </div>
                             </div>
