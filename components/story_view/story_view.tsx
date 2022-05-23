@@ -36,7 +36,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
 
-        getStoryData();
+        this.getStoryData();
     }
 
     componentDidUpdate(prevProps: Props){
