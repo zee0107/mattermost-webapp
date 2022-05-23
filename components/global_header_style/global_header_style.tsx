@@ -41,7 +41,6 @@ const GlobalHeaderStyle = (): JSX.Element | null => {
     if (!isLoggedIn) {
         return null;
     }
-    console.log(channel);
     return (
         <GlobalHeaderContainer id='global-header'>
             <LeftControls/>
@@ -49,8 +48,7 @@ const GlobalHeaderStyle = (): JSX.Element | null => {
             <RightControls 
                 productId={currentProductID} 
                 currentUser={user}
-                />
-                
+            />
         </GlobalHeaderContainer>
     );
 };
