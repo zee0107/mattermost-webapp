@@ -74,16 +74,16 @@ export default class StoryView extends React.PureComponent<Props, State> {
                         <div className='create-all-stories-previews'>
                             <div className='row'>
                                 <div className='col-8'>
-                                    <img className='img-fluid float-start' src='assets/images/sample-user-primary-picture-5.png'/>
+                                    {this.renderProfilePicture('xl')}
                                     <small className='float-start ms-2 text-muted'><strong>{name}</strong> {stories.map((item,index) => {
                                         if(item.privacy === 'friends'){
                                             return ( <i className='bi-people-fill'></i>);
                                         }
                                         else if(item.privacy === 'Private'){
-                                            return (<i class="bi-person"></i>);
+                                            return (<i className="bi-person"></i>);
                                         }
                                         else{
-                                            return (<i class="bi-globe"></i>);
+                                            return (<i className="bi-globe"></i>);
                                         }
                                     })}</small>
                                 </div>
