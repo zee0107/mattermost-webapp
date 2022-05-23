@@ -135,16 +135,20 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                         }
                                         return (
                                             <div className={`carousel-item ${activeClass}`} key={`${item.id}-${index}`}>
-                                                <div className='previews-content mt-3 mb-3 text-center' style={{backgroundColor: `${item.bg_color}`}}>
-                                                    {item.type === 'text' ? 
-                                                    ( <div className='container'>
-                                                        <h3><strong className='text-center' style={{overflowWrap: 'break-word',color: `${item.text_color}`}}>{item.text}</strong></h3>
-                                                    </div>):
-                                                    (<div className='carousel-item active'>
-                                                        <StoryImage storyId={item.id}/>
-                                                    </div>)
-                                                    }
-                                                </div>
+                                                {item.type === 'text' ? 
+                                                (
+                                                    <div className='previews-content mt-3 mb-3 text-center' style={{backgroundColor: `${item.bg_color}`}}>
+                                                        <div className='container'>
+                                                            <h3><strong className='text-center' style={{overflowWrap: 'break-word',color: `${item.text_color}`}}>{item.text}</strong></h3>
+                                                        </div>
+                                                    </div>
+                                                ):(
+                                                    <div className='col-lg-12 previews-photo-content mt-6 mb-1'>
+                                                        <div className='photo-story-uploaded rounded text-center' id='resizable'>
+                                                            <StoryImage storyId={item.id}/>
+                                                        </div>
+                                                    </div>
+                                                )}
                                             </div>
                                         );
                                     })}
