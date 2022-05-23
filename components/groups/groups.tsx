@@ -139,10 +139,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
         const {actions} = this.props;
         const channel: Channel = {
-            //Local Server
             team_id: this.props.teamId,
-
-            //Live Server
             //team_id: 'd7cxjgejnbdm78h4n91kqeq6ow',
             name: this.state.channelName,
             display_name: this.state.channelDisplayName,
@@ -243,10 +240,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
     handleJoin = (channel: ServerChannel) => {
         const {actions} = this.props;
-        //Local Server
         const result = actions.joinChannel(this.props.userId, this.props.teamId, channel.id);
-
-        //Live Server
         //const result = actions.joinChannel(this.props.userId, 'd7cxjgejnbdm78h4n91kqeq6ow', channel.id);
 
         if (result.error) {
@@ -299,10 +293,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         const {actions} = this.props;
         const channel: Channel = {
             id: this.state.channelId,
-            //Local Server
             team_id: this.props.teamId,
-
-            //Live Server
             //team_id: 'd7cxjgejnbdm78h4n91kqeq6ow',
             name: this.state.channelName,
             display_name: this.state.channelDisplayName,

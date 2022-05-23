@@ -72,10 +72,7 @@ function makeMapStateToProps() {
 
     return (state: GlobalState, ownProps: OwnProps) => {
         const channel = getChannelByName(state,'town-square');
-        //Local Server
         const channelId = channel?.id;
-
-        //Live Server
         //const channelId = 'dodurztr1fbupnpenjgxqjso3a';
         const config = getConfig(state);
         let currentUser;
@@ -105,10 +102,7 @@ function makeMapStateToProps() {
         const useGroupMentions = isLDAPEnabled && haveICurrentChannelPermission(state, Permissions.USE_GROUP_MENTIONS);
         const channelMemberCountsByGroup = selectChannelMemberCountsByGroup(state, channelId);
         const team = getTeamByName(state,'crypter');
-        //Local Server
         const currentTeamId = team?.id;
-
-        //Live Server
         //const currentTeamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
         const groupsWithAllowReference = useGroupMentions ? getAssociatedGroupsForReferenceByMention(state, currentTeamId, channelId) : null;
         const enableTutorial = config.EnableTutorial === 'true';

@@ -34,10 +34,7 @@ function makeMapStateToProps() {
         const currentTeam = getCurrentTeam(state);
         const userId = currentUser?.id;
         const team = getTeamByName(state,'crypter');
-        //Local Server
         const teamId = team?.id;
-
-        //Live Server
         //const teamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
         return {
             userId,

@@ -15,6 +15,8 @@ import {getInt} from 'mattermost-redux/selectors/entities/preferences';
 
 import {isModalOpen} from 'selectors/views/modals';
 import {getCurrentProductId} from '../../utils/products';
+import { Channel } from 'mattermost-redux/types/channels';
+import { getChannelByName } from 'mattermost-redux/utils/channel_utils';
 
 const selectProducts = (state: GlobalState) => state.plugins.components.Product;
 
@@ -66,12 +68,11 @@ export const useShowTutorialStep = (stepToShow: number): boolean => {
 export const useIsLoggedIn = (): boolean => {
     return Boolean(useSelector<GlobalState, UserProfile>(getCurrentUser));
 };
-/*
-export const getChannelUser = (): UserProfile[] => {
-    //const channelId = 'kqe4sihhdid47gprhk6dwbuc4o';
-    //const channelId = 'dodurztr1fbupnpenjgxqjso3a';
-    return useSelector<GlobalState, UserProfile[]>(getProfilesInChannel);
-};*/
+
+export const getChannelData = (): Channel => {
+    const getChannel = (state: GlobalState) => getChannelByName(state,'town-square');
+    return useSelector<GlobalState, Channel>(getChannel);
+}
 /**
  * Hook that returns the current open state of the specified modal
  * - returns both the direct boolean for regular use and a ref that contains the boolean for usage in a callback
