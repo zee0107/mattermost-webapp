@@ -28,6 +28,7 @@ export default class StoryListView extends React.PureComponent<Props, State> {
         this.state = {
             isDark: 'dark',
         };
+        this.onChangeSelected = this.onChangeSelected.bind(this);
     }
 
     componentDidMount(){
