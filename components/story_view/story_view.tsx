@@ -146,6 +146,11 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                                     <div className='col-lg-12 previews-photo-story mt-6 mb-1'>
                                                         <div className='photo-story-uploaded rounded text-center' id='resizable'>
                                                             <StoryImage storyId={item.id}/>
+                                                            <div className='text-center' style={{backgroundColor: `${item.bg_color}`}}>
+                                                                <div className='container'>
+                                                                    <h3><strong className='text-center' style={{overflowWrap: 'break-word',color: `${item.text_color}`}}>{item.text}</strong></h3>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 )}
