@@ -68,7 +68,7 @@ export default class StoryListView extends React.PureComponent<Props, State> {
 
             if(view === 'desktop'){
                 renderView = (
-                    <a className='onViewsfriendstories text-dark'  onClick={this.onChangeValue(currentUser.id)}>
+                    <a className='onViewsfriendstories text-dark'  onClick={() => this.onChangeValue(currentUser.id)}>
                         <div className='padding-view-firends-style mt-2'>
                             {this.renderProfilePicture('lg')}
                             <small className='mt-1 text-muted'><strong>{name}</strong></small>
@@ -81,7 +81,7 @@ export default class StoryListView extends React.PureComponent<Props, State> {
             else{
                 name = (<>{`${currentUser.first_name.split(' ')[0]}` }</>);
                 renderView = (
-                    <div className='col-2 text-center' onClick={this.onChangeValue(currentUser.id)}>
+                    <div className='col-2 text-center' onClick={() => this.onChangeValue(currentUser.id)}>
                         <a className='onViewsfriendstories'>
                             {this.renderProfilePicture('lg')}
                             <p className='text-dark'><small>{name} <br/> <strong>8m</strong></small></p>

@@ -50,6 +50,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
             <Avatar
                 size={size}
                 url={this.props.profilePicture}
+                text={'story'}
             />
         );
     }
@@ -74,7 +75,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
                         <div className='create-all-stories-previews'>
                             <div className='row'>
                                 <div className='col-8'>
-                                    {this.renderProfilePicture('xl')}
+                                    {this.renderProfilePicture('lg')}
                                     <small className='float-start ms-2 text-muted'><strong>{name}</strong> {stories.map((item,index) => {
                                         if(item.privacy === 'friends'){
                                             return ( <i className='bi-people-fill'></i>);

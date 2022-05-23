@@ -28,14 +28,20 @@ const Avatar = ({
 
     if (text === 'plain') {
         return (
-            /*<div
-                {...attrs}
-                className={classes + ' img-fluid float-start border border-2 rounded-circle border-success'}
-                data-content={text}
-            />*/
             <img
                 {...attrs}
                 className={classes + ' img-fluid float-start border border-2 mt-2 rounded-circle border-success'}
+                tabIndex={0}
+                alt={`${username || 'user'} profile image`}
+                src={url}
+            />
+        );
+    }
+    else if(text === 'story'){
+        return (
+            <img
+                {...attrs}
+                className={classes + ' user-photo vertical-align-middle float-start'}
                 tabIndex={0}
                 alt={`${username || 'user'} profile image`}
                 src={url}
