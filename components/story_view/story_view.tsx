@@ -8,6 +8,7 @@ import { Story } from 'mattermost-redux/types/crypto';
 import { Item } from 'react-bootstrap/lib/Breadcrumb';
 import { Client4 } from 'mattermost-redux/client';
 import { key } from 'localforage';
+import StoryImage from 'components/story_image';
 
 type Props = {
     userId: string;
@@ -140,7 +141,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                                         <h3><strong className='text-center' style={{overflowWrap: 'break-word',color: `${item.text_color}`}}>{item.text}</strong></h3>
                                                     </div>):
                                                     (<div className='carousel-item active'>
-                                                        <img width='' src='assets/images/Cover-album-2.jpg' className='d-block w-100' alt=''/>
+                                                        <StoryImage storyId={item.id}/>
                                                     </div>)
                                                     }
                                                 </div>
