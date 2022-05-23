@@ -116,7 +116,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                 <div className='carousel-inner text-center'>
                                     {stories.map((item,index) => {
                                         return (
-                                            <div className='carousel-item'>
+                                            <div className='carousel-item active'>
                                                 <div className='previews-content mt-3 mb-3 text-center' style={{backgroundColor: `${item.bg_color}`}} key={`${item.id}-${index}`}>
                                                     {item.type === 'text' ? 
                                                     ( <div className='container'>
