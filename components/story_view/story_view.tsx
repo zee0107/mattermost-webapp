@@ -104,7 +104,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                             <div id='carouselStoryloopIndicators' className='carousel slide' data-bs-ride='carousel'>
-                                <div class="carousel-indicators" style={{width:'70%'}}>
+                                <div className="carousel-indicators" style={{width:'70%'}}>
                                     {stories.map((item,index) => {
                                         let activeClass;
                                         if(index === 0){
@@ -122,7 +122,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                         }
 
                                         return (
-                                            <button type="button" data-bs-target="#carouselStoryloopIndicators" data-bs-slide-to={index} class={activeClass} aria-label={`Slide ${index}`} key={`${item.id}--${index}`}></button>
+                                            <button type="button" data-bs-target="#carouselStoryloopIndicators" data-bs-slide-to={index} className={activeClass} aria-label={`Slide ${index}`} key={`${item.id}--${index}`}></button>
                                         );
                                     })}
                                 </div>
@@ -133,8 +133,8 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                             activeClass = 'active';
                                         }
                                         return (
-                                            <div className={`carousel-item ${activeClass}`}>
-                                                <div className='previews-content mt-3 mb-3 text-center' style={{backgroundColor: `${item.bg_color}`}} key={`${item.id}-${index}`}>
+                                            <div className={`carousel-item ${activeClass}`} key={`${item.id}-${index}`}>
+                                                <div className='previews-content mt-3 mb-3 text-center' style={{backgroundColor: `${item.bg_color}`}}>
                                                     {item.type === 'text' ? 
                                                     ( <div className='container'>
                                                         <h3><strong className='text-center' style={{overflowWrap: 'break-word',color: `${item.text_color}`}}>{item.text}</strong></h3>
@@ -177,14 +177,14 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                     <div className='col-lg-3 text-center'>
                                         <p>
                                             <a className='onClicklikepreviewstories position-relative me-3'><i className='bi-hand-thumbs-up style-hand-thumbs-up-fill'></i>
-                                                <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger count-likes-previews'>
+                                                {/*<span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger count-likes-previews'>
                                                     2m+
-                                                </span>
+                                                </span>*/}
                                             </a>
                                             <a className='onClickheartpreviewstories position-relative'><i className='bi-heart style-heart-fill'></i>
-                                                <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger count-heart-previews'>
+                                                {/*<span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger count-heart-previews'>
                                                     3.5k+
-                                                </span>
+                                                </span>*/}
                                             </a>
                                         </p>
                                     </div>
