@@ -72,7 +72,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
     }
 
     componentDidUpdate() {
-        if (this.state.photoValueName === this.state.prevName) {
+        if (this.state.photoValueName !== this.state.prevName) {
             this.setPicture(this.state.photoValue);
         }
     }
