@@ -318,12 +318,10 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                     <div className='create-photo-story-previews'>
                         <strong><label>Previews</label></strong>
                         {addTextClose}
-                        <div className='previews-photo-content mt-6 mb-1'>
-                            <div className='col-lg-12'>
-                                <div className='photo-story-uploaded rounded text-center' id='resizable'>
-                                    <img src={this.state.image}></img>
-                                    {addTextView}
-                                </div>
+                        <div className='col-lg-12 previews-photo-content mt-6 mb-1'>
+                            <div className='photo-story-uploaded rounded text-center' id='resizable'>
+                                <img src={this.state.image}></img>
+                                {addTextView}
                             </div>
                         </div>
                         <span>
@@ -522,8 +520,8 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                         {rightNav}
                                         <div className='row'>
                                             {textPreview}
-                                            {photoPreview}
                                         </div>
+                                        {photoPreview}
                                     </div>
                                 </div>
                             </div>
