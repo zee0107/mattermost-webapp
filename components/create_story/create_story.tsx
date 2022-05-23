@@ -49,6 +49,7 @@ type State = {
     textError?: string;
     photoValue: string;
     photoValueName: string;
+    prevName: string;
 };
 
 export default class CreateStory extends React.PureComponent<Props, State> {
@@ -56,7 +57,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {photoValue: '',photoValueName: '',image: null,photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false,bgColor: '#222222',textColor:'#ffffff',bgColorText: 'transparent'};
+        this.state = {photoValue: '',photoValueName: '',prevName: '',image: null,photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false,bgColor: '#222222',textColor:'#ffffff',bgColorText: 'transparent'};
 
         
         this.selectInput = React.createRef();
@@ -70,10 +71,8 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         this.setState({isDark: ThemeValue});
     }
 
-    componentDidUpdate(prevState) {
-        console.log('State ',this.state.photoValueName);
-        console.log('PrevState ', prevState.photoValueName);
-        if (this.state.photoValueName !== prevState.photoValueName) {
+    componentDidUpdate() {
+        if (this.state.photoValueName === this.state.prevName) {
             this.setPicture(this.state.photoValue);
         }
     }
@@ -118,7 +117,10 @@ export default class CreateStory extends React.PureComponent<Props, State> {
     
     updatePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
-            this.setState(prevState => ({photoValue: e.target.files[0],photoValueName: e.target.files[0].name}));
+            this.setState({photoValue: e.target.files[0],photoValueName: e.target.files[0].name});
+            if(this.state.prevName !== this.state.photoValueName){
+                this.setState({prevName: this.state.photoValueName});
+            }
         } else {
             this.setState({photoValue: null});
         }
