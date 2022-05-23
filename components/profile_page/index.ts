@@ -24,6 +24,7 @@ import { acceptRequest, cancelRequest, followRequest, unfollow } from 'mattermos
 import ProfilPage from './profile_page'
 import { ModalData } from 'types/actions';
 import { UserStatus } from 'mattermost-redux/types/users';
+import { getChannelByName } from '../../packages/mattermost-redux/src/selectors/entities/channels';
 
 
 type OwnProps = {
@@ -37,6 +38,7 @@ function makeMapStateToProps() {
             const stateValue = window.localStorage.getItem('GlobalState');
             state = JSON.parse(stateValue);
         }
+        const channel = getChannelByName(state,'town-square');
         const searchParam = ownprops.location.search.replace('?u=','');
         const userData = getCurrentUser(state);
         let currentUser;
@@ -57,10 +59,10 @@ function makeMapStateToProps() {
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
         const socialCount = Client4.getSocialCount(userId);
         //Local Server
-        //const getPostList = Client4.getPosts('kqe4sihhdid47gprhk6dwbuc4o');
+        const getPostList = Client4.getPosts('kqe4sihhdid47gprhk6dwbuc4o');
 
         //Live Server
-        const getPostList = Client4.getPosts('dodurztr1fbupnpenjgxqjso3a');
+        //const getPostList = Client4.getPosts(channel?.id);
         
         return {
             userId,

@@ -1125,35 +1125,35 @@ input[type="checkbox"]:checked ~ ul{
 }*/
 
 .sidemenu-item1{
-  color: rgb(255, 141, 8);
+  color: rgb(255, 141, 8) !important;
   padding: 5px;
 }
 
 .sidemenu-item1:hover{
-  color: rgb(255, 141, 8);
+  color: rgb(255, 141, 8) !important;
   border-radius: 10px;
   text-decoration: none;
 }
 
 .sidemenu-item2{
-  color: #3F8CFF;
+  color: #3F8CFF !important;
   padding: 5px;
 }
 
 .sidemenu-item2:hover{
-  color: #3F8CFF;
+  color: #3F8CFF !important;
   border-radius: 10px;
   text-decoration: none;
 }
 
 
 .sidemenu-item3{
-  color: #2CD889;
+  color: #2CD889 !important;
   padding: 5px;
 }
 
 .sidemenu-item3:hover{
-  color: #2CD889;
+  color: #2CD889 !important;
   border-radius: 10px;
   text-decoration: none;
 }
@@ -1163,24 +1163,24 @@ input[type="checkbox"]:checked ~ ul{
 }
 
 .list-sidemenu-a{
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
   padding: 10px;
 }
 
 .list-sidemenu-a:hover{
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
   border-radius: 20px;
   width: 100%;
   background: linear-gradient(135deg,#5ef67e3b, rgb(0 255 53 / 70%), #5ef67e3b);
 }
 
 .list-sidemenu-b{
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
   padding: 10px;
 }
 
 .list-sidemenu-b:hover{
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
   border-radius: 20px;
   width: 100%;
   background: linear-gradient(135deg,#5ef67e3b, rgb(0 255 53 / 70%), #5ef67e3b);
@@ -1191,14 +1191,14 @@ input[type="checkbox"]:checked ~ ul{
 }
 
 .view-all{
-  color: gray;
+  color: gray !important;
   width: 50%;
   text-align: end;
   padding: 5px;
 }
 
 .view-all:hover{
-  color: gray;
+  color: gray !important;
 }
 
 .show-div{
@@ -1228,7 +1228,7 @@ input[type="checkbox"]:checked ~ ul{
 }
 
 .text-secondary{
-  color: var(--seconday-headers);
+  color: var(--seconday-headers) !important;
 }
 
 .small-font{
@@ -1399,13 +1399,13 @@ input[type="checkbox"]:checked ~ ul{
 }
 
 .side-menu-item{
-  color: var(--text-primary);
-  text-decoration: none;
+  color: var(--text-primary) !important;
+  text-decoration: none !important;
 }
 
 .side-menu-item:hover{
-  color: var(--text-primary);
-  text-decoration: none;
+  color: var(--text-primary) !important;
+  text-decoration: none !important;
 }
 
 .create-lock-btn{

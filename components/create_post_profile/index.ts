@@ -72,10 +72,10 @@ function makeMapStateToProps() {
 
     return (state: GlobalState, ownProps: OwnProps) => {
         //Local Server
-        //const channelId = 'kqe4sihhdid47gprhk6dwbuc4o';
+        const channelId = 'kqe4sihhdid47gprhk6dwbuc4o';
 
         //Live Server
-        const channelId = 'dodurztr1fbupnpenjgxqjso3a';
+        //const channelId = 'dodurztr1fbupnpenjgxqjso3a';
         const config = getConfig(state);
         let currentUser;
         if (ownProps.userData === null || ownProps.userData === undefined){
@@ -105,10 +105,10 @@ function makeMapStateToProps() {
         const channelMemberCountsByGroup = selectChannelMemberCountsByGroup(state, channelId);
 
         //Local Server
-        //const currentTeamId = 'u57ytznuttyzbgapem9sqj4oyc';
+        const currentTeamId = 'u57ytznuttyzbgapem9sqj4oyc';
 
         //Live Server
-        const currentTeamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
+        //const currentTeamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
         const groupsWithAllowReference = useGroupMentions ? getAssociatedGroupsForReferenceByMention(state, currentTeamId, channelId) : null;
         const enableTutorial = config.EnableTutorial === 'true';
         const showTutorialTip = enableTutorial && tutorialStep === TutorialSteps.POST_POPOVER;

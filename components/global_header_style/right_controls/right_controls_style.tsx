@@ -81,10 +81,10 @@ const RightControlsStyle = (props: Props): JSX.Element => {
     useEffect (() => {
         async function getData(){
             //Local Server
-            //const data = await Client4.getChannelMembers('kqe4sihhdid47gprhk6dwbuc4o');
+            const data = await Client4.getChannelMembers('kqe4sihhdid47gprhk6dwbuc4o');
 
             //Live Server
-            const data = await Client4.getChannelMembers('dodurztr1fbupnpenjgxqjso3a');
+            //const data = await Client4.getChannelMembers('dodurztr1fbupnpenjgxqjso3a');
             return data;
         }
 
