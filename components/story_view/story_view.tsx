@@ -117,7 +117,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                     <div className='previews-content mt-3 mb-3 text-center' style={{backgroundColor: `${item.bg_color}`}} key={`${item.id}-${index}`}>
                                         {item.type === 'text' ? 
                                             ( <div className='container'>
-                                                <h3><strong className='text-center' style={{overflowWrap: 'break-word',color: `${item.text_color}`}}>{this.state.textValue}</strong></h3>
+                                                <h3><strong className='text-center' style={{overflowWrap: 'break-word',color: `${item.text_color}`}}>{item.text}</strong></h3>
                                             </div>):
                                             (<div className='carousel-item active'>
                                                 <img width='' src='assets/images/Cover-album-2.jpg' className='d-block w-100' alt=''/>
