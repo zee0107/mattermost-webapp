@@ -320,7 +320,8 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                         {addTextClose}
                         <div className='col-lg-12 previews-photo-content mt-6 mb-1'>
                             <div className='photo-story-uploaded rounded text-center' id='resizable'>
-                                <img src={this.state.image}></img>
+                                {this.state.image && <img src={this.state.image}></img>}
+                                {!this.state.image && <h3 onClick={this.handleInputFile}>Upload Image</h3>}
                                 {addTextView}
                             </div>
                         </div>
