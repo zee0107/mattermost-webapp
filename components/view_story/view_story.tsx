@@ -198,7 +198,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                 <div className='story-muted-content'>
                     <div className='row border border-1 mt-1'>
                         <div className='col-8 text-left mb-3'>
-                        <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' src={profPic1}/> 
+                        <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' style={{width:'10%'}} src={profPic1}/> 
                             <small className='text-firstnames float-start'><strong>Cody Fisher</strong></small>
                         </p>
                         </div>
@@ -209,7 +209,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                     </div>
                     <div className='row border border-1 mt-1'>
                         <div className='col-8 text-left mb-3'>
-                        <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' src={profPic2}/> 
+                        <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' style={{width:'10%'}} src={profPic2}/> 
                             <small className='text-firstnames float-start'><strong>Annabelle Jan</strong></small>
                         </p>
                         </div>
