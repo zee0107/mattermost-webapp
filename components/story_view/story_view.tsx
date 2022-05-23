@@ -171,7 +171,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
                             
                             <div className='previews-content-actions'>
                                 <div className='row'>
-                                    <div className='col-lg-9'>
+                                    <div className='col-lg-10'>
                                         <div className='form-floating'>
                                             <textarea className='form-control textares-stories-input' placeholder='Send messages...' id='' style={{height: 55}}></textarea>
                                             <label htmlFor='floatingTextarea'>Send messages...</label>
@@ -184,7 +184,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                             </a>
                                         </div>
                                     </div>
-                                    <div className='col-lg-3 text-center'>
+                                    <div className='col-lg-2 text-center'>
                                         <p>
                                             <a className='onClicklikepreviewstories position-relative me-3'><i className='bi-hand-thumbs-up style-hand-thumbs-up-fill'></i>
                                                 {/*<span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger count-likes-previews'>
