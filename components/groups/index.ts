@@ -19,7 +19,7 @@ import {makeGetCustomStatus, isCustomStatusEnabled, showStatusDropdownPulsatingD
 import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
 import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
-import { getCurrentTeam } from 'mattermost-redux/selectors/entities/teams';
+import { getCurrentTeam, getTeamByName } from 'mattermost-redux/selectors/entities/teams';
 import {createChannel,joinChannel,leaveChannelNew,deleteChannel,updateChannel} from 'mattermost-redux/actions/channels';
 import {switchToChannel} from 'actions/views/channel';
 
@@ -33,9 +33,9 @@ function makeMapStateToProps() {
         const currentUser = getCurrentUser(state);
         const currentTeam = getCurrentTeam(state);
         const userId = currentUser?.id;
-
+        const team = getTeamByName(state,'crypter');
         //Local Server
-        const teamId = 'u57ytznuttyzbgapem9sqj4oyc'
+        const teamId = team?.id;
 
         //Live Server
         //const teamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
@@ -43,6 +43,7 @@ function makeMapStateToProps() {
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
+            teamId,
             currentTeamId: currentTeam?.id,
             mychannels: Client4.getMyChannels(teamId),
             suggestedChannels: Client4.getChannels(teamId),

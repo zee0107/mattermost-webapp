@@ -97,7 +97,7 @@ type Props = {
   *  Data used in notifying user for @all and @channel
   */
     currentChannelMembersCount: number;
-
+    channelId: string;
     /**
   *  Data used in multiple places of the component
   */
@@ -384,7 +384,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             serverError: null,
             currentChannel: {},
             //Local Server
-            channelId: 'kqe4sihhdid47gprhk6dwbuc4o',
+            channelId: this.props.channelId,
 
             //Live Server
             //channelId: 'dodurztr1fbupnpenjgxqjso3a',
@@ -420,7 +420,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
             actions.getChannelMemberCountsByGroup(this.state.currentChannel.id, isTimezoneEnabled);
         }
         //Local Server
-        this.setState({channelId: 'kqe4sihhdid47gprhk6dwbuc4o'});
+        this.setState({channelId: this.props.channelId});
 
         //Live Server
         //this.setState({channelId: 'dodurztr1fbupnpenjgxqjso3a'});
@@ -459,7 +459,7 @@ class CreatePostProfile extends React.PureComponent<Props, State> {
 
         if (prevState.channelId !== this.state.channelId){
             //Local Server
-            this.setState({channelId: 'kqe4sihhdid47gprhk6dwbuc4o'});
+            this.setState({channelId: this.props.channelId});
 
             //Live Server
             //this.setState({channelId: 'dodurztr1fbupnpenjgxqjso3a'});

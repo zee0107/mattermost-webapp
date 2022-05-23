@@ -20,10 +20,10 @@ import {PostDraft} from 'types/store/rhs.js';
 import {ModalData} from 'types/actions.js';
 
 import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
-import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
+import {getCurrentTeamId, getTeamByName} from 'mattermost-redux/selectors/entities/teams';
 import {UserProfile} from 'mattermost-redux/types/users';
 
-import {getCurrentChannel, getCurrentChannelStats, getChannelMemberCountsByGroup as selectChannelMemberCountsByGroup} from 'mattermost-redux/selectors/entities/channels';
+import {getCurrentChannel, getCurrentChannelStats, getChannelMemberCountsByGroup as selectChannelMemberCountsByGroup, getChannelByName} from 'mattermost-redux/selectors/entities/channels';
 import {getCurrentUserId, getStatusForUserId, getUser, getCurrentUser} from 'mattermost-redux/selectors/entities/users';
 import {haveICurrentChannelPermission} from 'mattermost-redux/selectors/entities/roles';
 import {getChannelTimezones, getChannelMemberCountsByGroup} from 'mattermost-redux/actions/channels';
@@ -71,8 +71,9 @@ function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
 
     return (state: GlobalState, ownProps: OwnProps) => {
+        const channel = getChannelByName(state,'town-square');
         //Local Server
-        const channelId = 'kqe4sihhdid47gprhk6dwbuc4o';
+        const channelId = channel?.id;
 
         //Live Server
         //const channelId = 'dodurztr1fbupnpenjgxqjso3a';
@@ -103,9 +104,9 @@ function makeMapStateToProps() {
         const isLDAPEnabled = license?.IsLicensed === 'true' && license?.LDAPGroups === 'true';
         const useGroupMentions = isLDAPEnabled && haveICurrentChannelPermission(state, Permissions.USE_GROUP_MENTIONS);
         const channelMemberCountsByGroup = selectChannelMemberCountsByGroup(state, channelId);
-
+        const team = getTeamByName(state,'crypter');
         //Local Server
-        const currentTeamId = 'u57ytznuttyzbgapem9sqj4oyc';
+        const currentTeamId = team?.id;
 
         //Live Server
         //const currentTeamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
@@ -114,6 +115,7 @@ function makeMapStateToProps() {
         const showTutorialTip = enableTutorial && tutorialStep === TutorialSteps.POST_POPOVER;
         
         return {
+            channelId,
             currentTeamId,
             currentChannel,
             currentChannelTeammateUsername,

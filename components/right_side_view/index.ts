@@ -14,6 +14,7 @@ import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
 import {GlobalState} from 'types/store';
 
 import RightSideView from './right_side_view'
+import { getChannelByName } from 'mattermost-redux/utils/channel_utils';
 
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
@@ -21,9 +22,9 @@ function makeMapStateToProps() {
     return function mapStateToProps(state: GlobalState) {
         const currentUser = getCurrentUser(state);
         const socialCount = Client4.getSocialCount(currentUser.id);
-
+        const channel = getChannelByName(state,'town-square');
         //Local Server
-        const getPostList = Client4.getPosts('kqe4sihhdid47gprhk6dwbuc4o');
+        const getPostList = Client4.getPosts(channel?.id);
 
         //Live Server
         //const getPostList = Client4.getPosts('dodurztr1fbupnpenjgxqjso3a');

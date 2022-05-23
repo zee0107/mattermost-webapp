@@ -38,6 +38,7 @@ export type Props = {
     userId: string;
     profilePicture: string;
     currentTeamId?: string;
+    teamId?: string;
     channelType: ChannelType;
     closeHandler?: (callback: () => void) => void;
     actions: {
@@ -139,7 +140,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         const {actions} = this.props;
         const channel: Channel = {
             //Local Server
-            team_id: 'u57ytznuttyzbgapem9sqj4oyc',
+            team_id: this.props.teamId,
 
             //Live Server
             //team_id: 'd7cxjgejnbdm78h4n91kqeq6ow',
@@ -243,7 +244,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
     handleJoin = (channel: ServerChannel) => {
         const {actions} = this.props;
         //Local Server
-        const result = actions.joinChannel(this.props.userId, 'u57ytznuttyzbgapem9sqj4oyc', channel.id);
+        const result = actions.joinChannel(this.props.userId, this.props.teamId, channel.id);
 
         //Live Server
         //const result = actions.joinChannel(this.props.userId, 'd7cxjgejnbdm78h4n91kqeq6ow', channel.id);
@@ -299,7 +300,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         const channel: Channel = {
             id: this.state.channelId,
             //Local Server
-            team_id: 'u57ytznuttyzbgapem9sqj4oyc',
+            team_id: this.props.teamId,
 
             //Live Server
             //team_id: 'd7cxjgejnbdm78h4n91kqeq6ow',
