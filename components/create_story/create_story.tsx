@@ -71,8 +71,9 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         this.setState({isDark: ThemeValue});
     }
 
-    componentDidUpdate() {
-        if (this.state.photoValueName !== this.state.prevName) {
+    componentDidUpdate(_,prevState) {
+        console.log('Prev: ', prevState)
+        if (this.state.photoValueName !== prevState.photoValueName) {
             this.setPicture(this.state.photoValue);
         }
     }
