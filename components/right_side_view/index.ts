@@ -23,6 +23,7 @@ function makeMapStateToProps() {
         const currentUser = getCurrentUser(state);
         const socialCount = Client4.getSocialCount(currentUser.id);
         const channel = getChannelByName(state,'town-square');
+        console.log(channel);
         //Local Server
         const getPostList = Client4.getPosts(channel?.id);
 
