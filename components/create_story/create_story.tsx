@@ -47,6 +47,8 @@ type State = {
     textValue: string;
     colorValue: string
     textError?: string;
+    photoValue: string;
+    photoValueName: string;
 };
 
 export default class CreateStory extends React.PureComponent<Props, State> {
@@ -61,6 +63,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
         this.onChangeText = this.onChangeText.bind(this);
+        this.updatePhoto = this.updatePhoto.bind(this)
     }
 
     componentDidMount = async () =>{
@@ -105,6 +108,15 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         this.selectInput.current.value = '';
         this.selectInput.current.click();
     }
+    
+    updatePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            this.setState({photoValue: e.target.files[0],photoValueName: e.target.files[0].name});
+        } else {
+            this.setState({photoValue: null});
+        }
+    }
+
 
     onShareTextStory = () =>{
         const { userId } = this.props;
@@ -151,7 +163,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
         fetch(uri, {
             method: 'POST',
-            body: this.state.profileCover,
+            body: this.state.photoValue,
         }).then((response) => response.json()).then((data)=>{
             if (data === 'Posted'){
                 window.location.href = '/crypter/channels/town-square';
@@ -293,7 +305,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                             className='hidden'
                             accept='image/*'
                             type='file'
-                            //onChange={this.handleFileChange}
+                            onChange={this.updatePhoto}
                             //disabled={this.props.loadingPicture}
                             aria-hidden={true}
                             tabIndex='-1'/>
