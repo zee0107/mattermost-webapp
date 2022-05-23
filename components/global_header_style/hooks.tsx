@@ -69,10 +69,6 @@ export const useIsLoggedIn = (): boolean => {
     return Boolean(useSelector<GlobalState, UserProfile>(getCurrentUser));
 };
 
-export const getChannelData = (): Channel => {
-    const getChannel = (state: GlobalState) => getChannelByName(state,'town-square');
-    return useSelector<GlobalState, Channel>(getChannel);
-}
 /**
  * Hook that returns the current open state of the specified modal
  * - returns both the direct boolean for regular use and a ref that contains the boolean for usage in a callback
