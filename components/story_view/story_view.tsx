@@ -115,8 +115,9 @@ export default class StoryView extends React.PureComponent<Props, State> {
                             <div id='carouselStoryloopIndicators' className='carousel slide' data-bs-ride='carousel'>
                                 <div className='carousel-inner text-center'>
                                     {stories.map((item,index) => {
+                                        console.log(index);
                                         return (
-                                            <div className='carousel-item active'>
+                                            <div className='carousel-item'>
                                                 <div className='previews-content mt-3 mb-3 text-center' style={{backgroundColor: `${item.bg_color}`}} key={`${item.id}-${index}`}>
                                                     {item.type === 'text' ? 
                                                     ( <div className='container'>
@@ -128,7 +129,6 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                                     }
                                                 </div>
                                             </div>
-                                           
                                         );
                                     })}
                                 </div>
