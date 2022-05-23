@@ -70,7 +70,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         this.setState({isDark: ThemeValue});
     }
 
-    componentDidUpdate(prevState: state) {
+    componentDidUpdate(prevState) {
         console.log('State ',this.state.photoValueName);
         console.log('PrevState ', prevState.photoValueName);
         if (this.state.photoValueName !== prevState.photoValueName) {
@@ -118,7 +118,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
     
     updatePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
-            this.setState({photoValue: e.target.files[0],photoValueName: e.target.files[0].name});
+            this.setState(prevState => ({photoValue: e.target.files[0],photoValueName: e.target.files[0].name}));
         } else {
             this.setState({photoValue: null});
         }
