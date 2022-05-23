@@ -114,41 +114,45 @@ export default class StoryView extends React.PureComponent<Props, State> {
                             </div>
                             {stories.map((item,index) => {
                                 return (
-                                    <div className='previews-content mt-3 mb-3 text-center' style={{backgroundColor: `${item.bg_color}`}} key={`${item.id}-${index}`}>
-                                        {item.type === 'text' ? 
-                                            ( <div className='container'>
-                                                <h3><strong className='text-center' style={{overflowWrap: 'break-word',color: `${item.text_color}`}}>{item.text}</strong></h3>
-                                            </div>):
-                                            (<div className='carousel-item active'>
-                                                <img width='' src='assets/images/Cover-album-2.jpg' className='d-block w-100' alt=''/>
-                                            </div>)
-                                        }
-                                        {/*<div id='carouselStoryloopIndicators' className='carousel slide' data-bs-ride='carousel'>
-                                            <div className='carousel-indicators'>
-                                                <button type='button' data-bs-target='#carouselStoryloopIndicators' data-bs-slide-to='0' className='active' aria-current='true' aria-label='Slide 1'></button>
-                                                <button type='button' data-bs-target='#carouselStoryloopIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
-                                                <button type='button' data-bs-target='#carouselStoryloopIndicators' data-bs-slide-to='2' aria-label='Slide 3'></button>
-                                            </div>
-                                            <div className='carousel-inner text-center'>
-                                                {item.type === 'text' ? 
-                                                    ( <div className='container'>
-                                                        <h3><strong className='text-center' style={{overflowWrap: 'break-word',color: `${item.text_color}`}}>{this.state.textValue}</strong></h3>
-                                                    </div>):
-                                                    (<div className='carousel-item active'>
-                                                        <img width='' src='assets/images/Cover-album-2.jpg' className='d-block w-100' alt=''/>
-                                                    </div>)
-                                                }
-                                            </div>
-                                            <button className='carousel-control-prev' type='button' data-bs-target='#carouselStoryloopIndicators' data-bs-slide='prev'>
-                                            <span className='carousel-control-prev-icon' aria-hidden='true'></span>
-                                            <span className='visually-hidden'>Previous</span>
-                                            </button>
-                                            <button className='carousel-control-next' type='button' data-bs-target='#carouselStoryloopIndicators' data-bs-slide='next'>
-                                            <span className='carousel-control-next-icon' aria-hidden='true'></span>
-                                            <span className='visually-hidden'>Next</span>
-                                            </button>
-                                        </div>*/}
+                                    <div id='carouselStoryloopIndicators' className='carousel slide' data-bs-ride='carousel'>
+                                        <div className='previews-content mt-3 mb-3 text-center' style={{backgroundColor: `${item.bg_color}`}} key={`${item.id}-${index}`}>
+                                            {item.type === 'text' ? 
+                                                ( <div className='container'>
+                                                    <h3><strong className='text-center' style={{overflowWrap: 'break-word',color: `${item.text_color}`}}>{item.text}</strong></h3>
+                                                </div>):
+                                                (<div className='carousel-item active'>
+                                                    <img width='' src='assets/images/Cover-album-2.jpg' className='d-block w-100' alt=''/>
+                                                </div>)
+                                            }
+                                            {/*<div id='carouselStoryloopIndicators' className='carousel slide' data-bs-ride='carousel'>
+                                                <div className='carousel-indicators'>
+                                                    <button type='button' data-bs-target='#carouselStoryloopIndicators' data-bs-slide-to='0' className='active' aria-current='true' aria-label='Slide 1'></button>
+                                                    <button type='button' data-bs-target='#carouselStoryloopIndicators' data-bs-slide-to='1' aria-label='Slide 2'></button>
+                                                    <button type='button' data-bs-target='#carouselStoryloopIndicators' data-bs-slide-to='2' aria-label='Slide 3'></button>
+                                                </div>
+                                                <div className='carousel-inner text-center'>
+                                                    {item.type === 'text' ? 
+                                                        ( <div className='container'>
+                                                            <h3><strong className='text-center' style={{overflowWrap: 'break-word',color: `${item.text_color}`}}>{this.state.textValue}</strong></h3>
+                                                        </div>):
+                                                        (<div className='carousel-item active'>
+                                                            <img width='' src='assets/images/Cover-album-2.jpg' className='d-block w-100' alt=''/>
+                                                        </div>)
+                                                    }
+                                                </div>
+                                            
+                                            </div>*/}
+                                        </div>
+                                        <button className='carousel-control-prev' type='button' data-bs-target='#carouselStoryloopIndicators' data-bs-slide='prev'>
+                                        <span className='carousel-control-prev-icon' aria-hidden='true'></span>
+                                        <span className='visually-hidden'>Previous</span>
+                                        </button>
+                                        <button className='carousel-control-next' type='button' data-bs-target='#carouselStoryloopIndicators' data-bs-slide='next'>
+                                        <span className='carousel-control-next-icon' aria-hidden='true'></span>
+                                        <span className='visually-hidden'>Next</span>
+                                        </button>
                                     </div>
+                                    
                                 );
                             })}
                             
