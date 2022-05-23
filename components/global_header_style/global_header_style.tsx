@@ -42,7 +42,7 @@ const GlobalHeaderStyle = (): JSX.Element | null => {
     if (!isLoggedIn) {
         return null;
     }
-
+    console.log(channel);
     return (
         <GlobalHeaderContainer id='global-header'>
             <LeftControls/>
