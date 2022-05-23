@@ -4,6 +4,7 @@ import React, {ReactNode} from 'react';
 
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import { UserProfile } from 'mattermost-redux/types/users';
+import { any } from 'prop-types';
 
 type Props = {
     userId: string;
@@ -11,6 +12,7 @@ type Props = {
     userData: UserProfile;
     currentUser: UserProfile;
     view: string;
+    onChangeSelected;
 }
 
 type State = {
@@ -31,6 +33,10 @@ export default class StoryListView extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
+    }
+
+    onChangeSelected = (id: string) => {
+        this.props.onChangeSelected(id);
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -61,7 +67,7 @@ export default class StoryListView extends React.PureComponent<Props, State> {
 
             if(view === 'desktop'){
                 renderView = (
-                    <a className='onViewsfriendstories text-dark'>
+                    <a className='onViewsfriendstories text-dark'  onClick={this.onChangeSelected(currentUser.id)}>
                         <div className='padding-view-firends-style mt-2'>
                             {this.renderProfilePicture('lg')}
                             <small className='mt-1 text-muted'><strong>{name}</strong></small>
@@ -74,7 +80,7 @@ export default class StoryListView extends React.PureComponent<Props, State> {
             else{
                 name = (<>{`${currentUser.first_name.split(' ')[0]}` }</>);
                 renderView = (
-                    <div className='col-2 text-center'>
+                    <div className='col-2 text-center' onClick={this.onChangeSelected(currentUser.id)}>
                         <a className='onViewsfriendstories'>
                             {this.renderProfilePicture('lg')}
                             <p className='text-dark'><small>{name} <br/> <strong>8m</strong></small></p>

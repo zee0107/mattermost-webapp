@@ -63,6 +63,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false, selectedStory:''};
 
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
+        this.onChangeSelected = this.onChangeSelected.bind(this);
     }
 
     componentDidMount = async () =>{
@@ -106,7 +107,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                 <>
                     {storyList.map((item,index) => {
                         return (
-                            <StoryListView userId={item} view='desktop' key={`${item}-${index}`} />
+                            <StoryListView userId={item} view='desktop' onChangeSelected={this.onChangeSelected} key={`${item}-${index}`} />
                         );
                     })}
                 </>
@@ -116,7 +117,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                 <>
                     {storyList.map((item,index) => {
                         return (
-                            <StoryListView userId={item} view='mobile' key={`${item}-${index}`} />
+                            <StoryListView userId={item} view='mobile' onChangeSelected={this.onChangeSelected} key={`${item}-${index}`} />
                         );
                     })}
                 </>
