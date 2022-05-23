@@ -56,7 +56,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {image: null,photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false,bgColor: '#222222',textColor:'#ffffff',bgColorText: 'transparent'};
+        this.state = {photoValue: '',photoValueName: '',image: null,photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false,bgColor: '#222222',textColor:'#ffffff',bgColorText: 'transparent'};
 
         
         this.selectInput = React.createRef();
@@ -68,7 +68,6 @@ export default class CreateStory extends React.PureComponent<Props, State> {
     componentDidMount = async () =>{
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
-        this.setState({photoValue: '',photoValue: ''});
     }
 
     componentDidUpdate(prevState: state) {
