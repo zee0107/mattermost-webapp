@@ -38,6 +38,7 @@ type Props = {
     showCustomStatusPulsatingDot: boolean;
     timezone?: string;
     globalHeader?: boolean;
+    selected: string;
 }
 
 type State = {
@@ -70,6 +71,9 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
 
+        if(this.props.selected !== undefined && this.props.selected !== null && this.props.selected !== ''){
+            this.setState({selectedStory: this.props.selected});
+        }
         if(this.props.storyList !== undefined && this.props.storyList !== null){
             Promise.resolve(this.props.storyList).then((value) => {this.setState({storyList: value});});
         }
