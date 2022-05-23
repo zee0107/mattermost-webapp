@@ -69,6 +69,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
     componentDidMount = async () =>{
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+        this.setState({photoValue: '',photoValue: ''});
     }
 
     componentDidUpdate(prevState: state) {
