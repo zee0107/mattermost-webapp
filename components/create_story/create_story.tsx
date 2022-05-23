@@ -167,8 +167,8 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         else{
             textData = textValue;
         }
-        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/CreateStories');
-        const params = {user_id: userId, type: 'text', text: textData, bg_color: bgColor, text_color: textColor, privacy: privacyValue};
+        const uri = new URL('https://localhost:44312/api/crypter/CreateStories');
+        const params = {user_id: userId, type: 'photo', text: textData, bg_color: bgColor, text_color: textColor, privacy: privacyValue};
         uri.search = new URLSearchParams(params);
 
         fetch(uri, {
@@ -306,7 +306,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                     <div className='row mt-4'>
                         <div className='btn-group gap-1' role='group' aria-label='Button discard and share to story'>
                         <a className='btn btn-primary btn-discard onClickdiscardphotostory' onClick={() => { this.setState({photoStory: false,textStory: false});}}>Discard</a>
-                        <a className='btn btn-primary btn-share-to-story'>Share to story</a>
+                        <a className='btn btn-primary btn-share-to-story'  onClick={() => this.onSharePhotoStory()}>Share to story</a>
                     </div>
                 </div>
             </div>
