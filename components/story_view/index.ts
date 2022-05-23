@@ -30,7 +30,7 @@ function makeMapStateToProps() {
             currentUser = getOhterUser(state,userId);
         }
         
-        const stories = Client4.viewSotries(currentUser.id);
+        const stories = Client4.viewSotries(userId);
         return {
             userId,
             userData,
