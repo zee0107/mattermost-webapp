@@ -63,7 +63,6 @@ export default class CreateStory extends React.PureComponent<Props, State> {
 
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
         this.onChangeText = this.onChangeText.bind(this);
-        this.updatePhoto = this.updatePhoto.bind(this)
     }
 
     componentDidMount = async () =>{
@@ -329,7 +328,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                             className='hidden'
                             accept='image/*'
                             type='file'
-                            onChange={() => this.updatePhoto}
+                            onChange={this.updatePhoto}
                             //disabled={this.props.loadingPicture}
                             aria-hidden={true}
                             tabIndex='-1'/>
