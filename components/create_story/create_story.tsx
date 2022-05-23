@@ -224,7 +224,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                         <div id='draggable' className='ui-widget-content'>
                             <div>
                                 <div className='form-floating'>
-                                    <textarea style={{height: 150,backgroundColor: `${this.state.bgColorText}`,color: `${this.state.textColor}`}} className='form-control text-start-styping' placeholder='Start typing' id='floatingTextarea'></textarea>
+                                    <textarea style={{height: 150,backgroundColor: `${this.state.bgColorText}`,color: `${this.state.textColor}`}} onChange={this.onChangeText} value={this.state.textValue} className='form-control text-start-styping' placeholder='Start typing' id='floatingTextarea'></textarea>
                                     <label htmlFor='floatingTextarea'>Start typing</label>
                                 </div>
                             </div>
