@@ -71,7 +71,7 @@ export const useIsLoggedIn = (): boolean => {
 
 export const getChannelData = (): Channel => {
     const getChannel = (state: GlobalState) => getChannelByName(state,'town-square');
-    return useSelector<GlobalState, Channel>(getChannel);
+    return getChannel;
 }
 /**
  * Hook that returns the current open state of the specified modal
