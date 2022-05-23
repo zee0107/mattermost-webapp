@@ -54,6 +54,7 @@ type State = {
     colorValue: string;
     storyList: Story[];
     selectedStory: string;
+    modalSelected: string;
 };
 
 export default class ViewStory extends React.PureComponent<Props, State> {
@@ -61,7 +62,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false, selectedStory:''};
+        this.state = {modalSelected: 'archive',photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false, selectedStory:''};
 
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
         this.onChangeSelected = this.onChangeSelected.bind(this);
@@ -96,13 +97,17 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         this.setState({privacyValue: event.target.value});
     }
 
+    onChangeModal = (param: string) => {
+        this.setState({modalSelected: param});
+    }
+
     onChangeSelected = (value: string) => {
         this.setState({selectedStory: value});
     }
 
     render= (): JSX.Element => {
         const { currentUser } = this.props;
-        const { photoStory, textStory,privacyValue, addText, storyList,selectedStory } = this.state;
+        const { photoStory, textStory,privacyValue, addText, storyList,selectedStory,modalSelected } = this.state;
         
         let userRenderDesktop;
         let userRenderMobile;
@@ -140,9 +145,135 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         }
         else{
             selectedView = (
-                <StoryView userId={selectedStory} onClose={this.onChangeSelected}/>
+                <StoryView userId={selectedStory} onChangeSelected={this.onChangeSelected}/>
             );
         }
+
+        let modalHeader;
+        let modalBody;
+        if(modalSelected === 'privacy'){
+            modalHeader = (
+                <h3 className='modal-title text-story-privacy-title' id='staticBackdropLabel'><i className='bi-lock'></i> Story Privacy</h3>
+            );
+
+            modalBody = (
+                <div className='story-privacy-content'>
+                    <div className='row'>
+                        <p><label><strong>Who can see your story?</strong></label><br/><small>Your story will be visible 24 hours on Crypter and Crypter Msg</small></p>
+                        <div className='col-10'><p><i className='bi-globe'></i> <strong>Everyone</strong> <br/> <small>Everyone on Crypter</small></p></div>
+                        <div className='col-2'>
+                            <div className='form-check float-end'>
+                                <input className='form-check-input onEveryonestoryprivacy' type='radio' name='flexRadioDefault' id='flexRadioEveryonestoryprivacy' />
+                                <label className='form-check-label' htmlFor='flexRadioEveryonestoryprivacy'></label>
+                            </div>
+                        </div>
+                        </div>
+                        <div className='row mt-2'>
+                        <div className='col-10'><p><i className='bi-people-fill'></i> <strong>Friends</strong> <br/><small>Only your Crypter friends</small></p></div>
+                        <div className='col-2'>
+                            <div className='form-check float-end'>
+                                    <input className='form-check-input onFriendstoryprivacy' type='radio' name='flexRadioDefault' id='flexRadioFriendstoryprivacy' />
+                                    <label className='form-check-label' htmlFor='flexRadioFriendstoryprivacy'></label>
+                            </div>
+                        </div>
+                        </div>
+                        <div className='row mt-2'>
+                            <div className='col-10'><p><i className='bi-person'></i> <strong>Private</strong> <br/><small>Only you see your Story</small></p></div>
+                            <div className='col-2'>
+                            <div className='form-check float-end'>
+                                    <input className='form-check-input onOnlymestoryprivacy' type='radio' name='flexRadioDefault' id='flexRadioOnlymestoryprivacy' />
+                                    <label className='form-check-label' htmlFor='flexRadioOnlymestoryprivacy'></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        else if(modalSelected === 'muted'){
+            modalHeader = (
+                <h3 className='modal-title text-stories-muted-title' id='staticBackdropLabel'><i className='bi-x-octagon'></i> Stories You've Muted</h3>
+            );
+
+            modalBody = (
+                <div className='story-muted-content'>
+                    <div className='row border border-1 mt-1'>
+                        <div className='col-8 text-left mb-3'>
+                        <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' src='assets/images/sample-user-primary-picture-2.png'/> 
+                            <small className='text-firstnames float-start'><strong>Firstname</strong></small>
+                        </p>
+                        </div>
+                        <div className='col-4 text-center mt-4'>
+                        <a className='onClickunmute'>Unmute</a>
+                        <a className='onClickmute'>Mute</a>
+                        </div>
+                    </div>
+                    <div className='row border border-1 mt-1'>
+                        <div className='col-8 text-left mb-3'>
+                        <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' src='assets/images/sample-user-primary-picture-3.png'/> 
+                            <small className='text-firstnames float-start'><strong>Firstname</strong></small>
+                        </p>
+                        </div>
+                        <div className='col-4 text-center mt-4'>
+                        <a>Unmute</a>
+                        </div>
+                    </div>
+                </div>
+            );
+        }else{
+            modalHeader = (
+                <h3 className='modal-title text-story-archived-title' id='staticBackdropLabel'><i className='bi-archive'></i> Story Archive Setting</h3>
+            );
+
+            modalBody = (
+                <div className='story-archived-content'>
+                    <div className='turn-on-off-archived mt-4 mb-4'>
+                        <div className='row border border-1 mt-1'>
+                            <div className='col-9 text-left mb-3'>
+                            <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' src='assets/images/sample-user-primary-picture-2.png'/> 
+                                <small className='text-firstnames-stories float-start'><strong>Firstname</strong><br/>Feb 28 <i className='bi-dot bi-dot-style'></i> Title Created Story goes here...</small>
+                            </p>
+                            </div>
+                            <div className='col-3 mt-4'>
+                                <div className='dropdown'>
+                                <a className='onClickstoriesdeleteorsavephoto float-end' id='dropdownMenuSavedelete' data-bs-toggle='dropdown' aria-expanded='false'><i className='bi-three-dots'></i></a>
+        
+                                <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuSavedelete'>
+                                    <li><a className='dropdown-item'><i className='bi-trash-fill'></i> Delete photo</a></li>
+                                    <li><a className='dropdown-item'><i className='bi-save2-fill'></i> Save photo</a></li>
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='row border border-1 mt-1'>
+                            <div className='col-9 text-left mb-3'>
+                            <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' src='assets/images/sample-user-primary-picture-3.png'/> 
+                                <small className='text-firstnames-stories float-start'><strong>Firstname</strong><br/>March 1 <i className='bi-dot bi-dot-style'></i>Title Created Story goes here...</small>
+                            </p>
+                            </div>
+                            <div className='col-3 mt-4'>
+                                <div className='dropdown'>
+                                <a className='onClickstoriesdeleteorsavephoto float-end' id='dropdownMenuSavedelete' data-bs-toggle='dropdown' aria-expanded='false'><i className='bi-three-dots'></i></a>
+                                <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuSavedelete'>
+                                    <li><a className='dropdown-item'><i className='bi-trash-fill'></i> Delete photo</a></li>
+                                    <li><a className='dropdown-item'><i className='bi-save2-fill'></i> Save photo</a></li>
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p className='text-center archived-on-off-text'><label><strong>Save to Archive</strong></label> <br/> Automatically archive photos and videos after they disappear from your story Only you can see your story archive.
+                    </p>
+                    <p className='text-center text-only-you-see-your-storyarchive'>
+                    <small><i className='bi-lock-fill'></i> Only you can see your story archive</small>
+                    </p>
+                    <p className='text-center mt-4'>
+                    <a className='mt-3 mb-3 onClickturnoffstoryarchived'><i className='bi-circle-fill'></i> Turn Off Story archive</a>
+                    <a className='mt-3 mb-3 onClickturnonstoryarchived'><i className='bi-circle'></i> Turn On Story archive</a>
+                    </p>
+                </div>
+            );
+        }
+        
         return (
             <>
                 <div className='slidebarallStory animated fadeIn' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='false'>
@@ -157,8 +288,8 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                     </p>
                                     <div>
                                         <h5 className='mt-4'>Stories 
-                                        <a className='onStorysettings float-end'><i className='bi-gear' data-bs-toggle='tooltip' data-bs-placement='top' title='Story Privacy'></i></a>
-                                        <a className='onClickarchived'><i className='bi-archive float-end me-2' data-bs-toggle='tooltip' data-bs-placement='top' title='Story Archive Setting'></i></a>  
+                                        <a className='onStorysettings text-dark float-end' data-bs-toggle='modal' data-bs-target='#staticBackdropStorySetting' onClick={() => {this.onChangeModal('privacy')}}><i className='bi-gear' data-bs-toggle='tooltip' data-bs-placement='top' title='Story Privacy'></i></a>
+                                        <a className='onClickarchived text-dark' data-bs-toggle='modal' data-bs-target='#staticBackdropStorySetting' onClick={() => {this.onChangeModal('archive')}}><i className='bi-archive float-end me-2' data-bs-toggle='tooltip' data-bs-placement='top' title='Story Archive Setting'></i></a>  
                                         </h5>
                                     </div>
 
@@ -231,6 +362,25 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                         </form>
+                    </div>
+                </div>
+
+                <div className='modal selectstoryprivacymutedandarchived' id='staticBackdropStorySetting' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                    <div className='modal-dialog modal-dialog-centered'>
+                        <div className='modal-content shadow-lg'>
+                            <div className='modal-header'>
+                                {modalHeader}
+                                <a className='onClosestorysettings shadow float-end'><i className='bi-x'></i></a>
+                            </div>
+                            <div className='modal-body'>
+                                <div className='row mb-4'>
+                                    <div className='col-4 text-center onClickstoryarchived' onClick={() => {this.onChangeModal('archive')}}><small>Story archive</small></div>
+                                    <div className='col-4 text-center onClickstoriesmuted' onClick={() => {this.onChangeModal('muted')}}><small>Stories you've muted</small></div>
+                                    <div className='col-4 text-center onClickstoryprivacy' onClick={() => {this.onChangeModal('privacy')}}><small>Story privacy</small></div>
+                                </div>
+                                {modalBody}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </>

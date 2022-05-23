@@ -1838,22 +1838,22 @@ font-size: 12px;
   z-index: 15;
 }
 .story-archived-content {
-  display: none;
+  display: block;
 }
 .onAllstoryarchiveprofile, .onAllstorymutedprofile, .onAllstoryprivacyprofile {
   cursor: pointer;
 }
 .story-muted-content {
-  display: none;
+  display: block;
 }
 .onClickstoryarchived, .onClickstoriesmuted, .onClickstoryprivacy {
   cursor: pointer;
 }
 .text-story-archived-title {
-  display: none;
+  display: block;
 }
 .text-stories-muted-title {
-  display: none;
+  display: block;
 }
 .onStoryprofilesettings {
   cursor: pointer;
