@@ -81,8 +81,6 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         if(this.props.mutedStories !== undefined && this.props.mutedStories !== null){
             Promise.resolve(this.props.mutedStories).then((value) => {this.setState({mutedStories: value});});
         }
-
-        this.setDefault(this.state.userSettings.story_privacy);
     }
 
     componentDidUpdate = (_,prevState) => {
@@ -132,7 +130,9 @@ export default class ViewStory extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const { currentUser } = this.props;
         const { photoStory, textStory,privacyValue, addText, storyList,selectedStory,modalSelected, mutedStories, userSettings} = this.state;
-        
+        if(userSettings !== undefined && userSettings !== null){
+            this.setDefault(userSettings.story_privacy);
+        }
         let userRenderDesktop;
         let userRenderMobile;
         if(storyList){
