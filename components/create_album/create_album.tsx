@@ -314,36 +314,41 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
 
                 <div className='modal selectaudience' id='staticBackdropAudience' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
                     <div className='modal-dialog modal-dialog-centered'>
-                        <div className='modal-content'>
+                        <div className='modal-content shadow-lg'>
                             <div className='modal-header'>
-                                <h6 className='modal-title' id='staticBackdropLabel'>Select audience</h6>
-                                <a className='onBacktopost' data-bs-dismiss='modal'><i className='bi-arrow-left-circle'></i></a>
+                                <h3 className='modal-title text-story-privacy-title' id='staticBackdropLabel'><i className='bi-lock'></i> Select audience</h3>
+                                <a className='onClosephotosandalbumsselectaudience shadow float-end' data-bs-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
-                                <div className='row'>
-                                    <div className='col-10'>Everyone</div>
-                                    <div className='col-2'>
-                                        <div className='form-check float-end'>
-                                            <input className='form-check-input onPublicselect' type='radio' data-bs-dismiss='modal' name='flexRadioDefault' value='everyone' onChange={this.onChangePrivacy} checked={this.state.privacyValue === 'everyone'} name='flexRadioDefault' id='flexRadioPublicselect'/>
-                                            <label className='form-check-label' htmlFor='flexRadioPublicselect'></label>
+                                <div className='story-privacy-content'>
+                                    <div className='row'>
+                                        <p><label><strong>Who can see your photos and albums?</strong></label><br/><small>Your photos and albums will be visible 24 hours on Crypter.</small></p>
+                                        <div className='col-10'><p><i className='bi-globe'></i> <strong>Everyone</strong> <br/> <small>Everyone on Crypter</small></p></div>
+                                            <div className='col-2'>
+                                                <div className='form-check float-end'>
+                                                    <input className='form-check-input onEveryonestoryprivacy' type='radio' data-bs-dismiss='modal' name='flexRadioDefault' value='everyone' onChange={this.onChangePrivacy} checked={this.state.privacyValue === 'everyone'} name='flexRadioDefault' id='flexRadioEveryonestoryprivacy'/>
+                                                    <label className='form-check-label' htmlFor='flexRadioEveryonestoryprivacy'></label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    <div className='row mt-2'>
+                                        <div className='col-10'><p><i className='bi-people-fill'></i> <strong>Friends</strong> <br/><small>Only your Crypter friends</small></p></div>
+                                        <div className='col-2'>
+                                            <div className='form-check float-end'>
+                                                    <input className='form-check-input onFriendstoryprivacy' type='radio' data-bs-dismiss='modal' name='flexRadioDefault' value='friends' onChange={this.onChangePrivacy} checked={this.state.privacyValue === 'friends'} name='flexRadioDefault' id='flexRadioFriendstoryprivacy'/>
+                                                    <label className='form-check-label' htmlFor='flexRadioFriendstoryprivacy'></label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className='row mt-2'>
-                                    <div className='col-10'>Friends</div>
-                                    <div className='col-2'>
-                                        <div className='form-check float-end'>
-                                                <input className='form-check-input onFriendselect' data-bs-dismiss='modal' name='flexRadioDefault' value='friends' onChange={this.onChangePrivacy} checked={this.state.privacyValue === 'friends'} type='radio' name='flexRadioDefault' id='flexRadioFriendselect'/>
-                                                <label className='form-check-label' htmlFor='flexRadioFriendselect'></label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='row mt-2'>
-                                    <div className='col-10'>Private</div>
-                                    <div className='col-2'>
-                                        <div className='form-check float-end'>
-                                                <input className='form-check-input onOnlyme' type='radio' data-bs-dismiss='modal' name='flexRadioDefault' value='private' onChange={this.onChangePrivacy} checked={this.state.privacyValue === 'private'} name='flexRadioDefault' id='flexRadioOnlyme'/>
-                                                <label className='form-check-label' htmlFor='flexRadioOnlyme'></label>
+
+                                    <div className='row mt-2'>
+                                        <div className='col-10'><p><i className='bi-person'></i> <strong>Private</strong> <br/><small>Only you see your Story</small></p></div>
+                                        <div className='col-2'>
+                                            <div className='form-check float-end'>
+                                                    <input className='form-check-input onOnlymestoryprivacy' type='radio' data-bs-dismiss='modal' name='flexRadioDefault' value='private' onChange={this.onChangePrivacy} checked={this.state.privacyValue === 'private'} name='flexRadioDefault' id='flexRadioOnlymestoryprivacy'/>
+                                                    <label className='form-check-label' htmlFor='flexRadioOnlymestoryprivacy'></label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
