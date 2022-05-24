@@ -82,14 +82,12 @@ export default class ViewStory extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.mutedStories).then((value) => {this.setState({mutedStories: value});});
         }
 
-        if(this.state.userSettings !== undefined && this.state.userSettings !== null){
-            console.log('not Empty')
-            this.setState({privacyValue: this.state.userSettings.story_privacy});
-        }
+        this.setDefault(this.state.userSettings.story_privacy);
     }
 
     componentDidUpdate = (_,prevState) => {
         if(this.state.userSettings !== prevState.userSettings){
+            console.log(prevState.userSettings);
             this.setDefault(this.state.userSettings.story_privacy);
         }
     }
