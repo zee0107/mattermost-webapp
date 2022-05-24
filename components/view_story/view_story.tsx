@@ -46,6 +46,8 @@ type State = {
     textValue: string;
     colorValue: string;
     storyList: Story[];
+    storyArchiveList: Story[];
+    storyArchive?: boolean;
     selectedStory: string;
     modalSelected: string;
     userSettings: UserSettings;
@@ -87,7 +89,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
     componentDidUpdate(_,prevState){
         if(this.state.userSettings !== prevState.userSettings){
-            this.setDefault(this.state.userSettings.story_privacy);
+            this.setDefault(this.state.userSettings.story_privacy,this.state.userSettings.story_archive);
         }
     }
 
@@ -111,8 +113,8 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         );
     }
 
-    setDefault = (data: string) => {
-        this.setState({privacyValue: data});
+    setDefault = (data: string,archive: boolean) => {
+        this.setState({privacyValue: data,storyArchive: archive});
     }
 
     onChangePrivacy = (data: string) => {
@@ -122,9 +124,19 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
     onSubmitPrivacy = (data: string) => {
         const { actions } = this.props;
+        const { storyArchive, userSettings } = this.state;
+        actions.updateSettings(userSettings.user_id, data, storyArchive, userSettings.dark_mode);
+    }
+
+    onChangeArchive = (data: boolean) => {
+        this.setState({storyArchive: data});
+        this.onSubmitArchive(data);
+    }
+
+    onSubmitArchive = (data: boolean) => {  
+        const { actions } = this.props;
         const { privacyValue, userSettings } = this.state;
-        console.log('Check: ',data);
-        actions.updateSettings(userSettings.user_id, data, userSettings.story_archive, userSettings.dark_mode);
+        actions.updateSettings(userSettings.user_id, privacyValue, data, userSettings.dark_mode);
     }
 
     onChangeModal = (param: string) => {
@@ -137,7 +149,39 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const { currentUser } = this.props;
-        const { photoStory, textStory,privacyValue, addText, storyList,selectedStory,modalSelected, mutedStories, userSettings} = this.state;
+        const { photoStory, textStory,privacyValue, addText, storyList,selectedStory,modalSelected, mutedStories, storyArchive} = this.state;
+        let archiveBtn;
+        let archiveBody;
+        if(storyArchive){
+            archiveBtn = (
+                <a className='mt-3 mb-3 onClickturnoffstoryarchived' onClick={() => this.onChangeArchive(false)}><i className='bi-circle-fill'></i> Turn Off Story archive</a>
+            );
+
+            archiveBody = (
+                <div className='row border border-1 mt-1'>
+                    <div className='col-9 text-left mb-3'>
+                    <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' src='assets/images/sample-user-primary-picture-2.png'/> 
+                        <small className='text-firstnames-stories float-start'><strong>Firstname</strong><br/>Feb 28 <i className='bi-dot bi-dot-style'></i> Title Created Story goes here...</small>
+                    </p>
+                    </div>
+                    <div className='col-3 mt-4'>
+                        <div className='dropdown'>
+                        <a className='onClickstoriesdeleteorsavephoto float-end' id='dropdownMenuSavedelete' data-bs-toggle='dropdown' aria-expanded='false'><i className='bi-three-dots'></i></a>
+
+                        <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuSavedelete'>
+                            <li><a className='dropdown-item'><i className='bi-trash-fill'></i> Delete photo</a></li>
+                            <li><a className='dropdown-item'><i className='bi-save2-fill'></i> Save photo</a></li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        else{
+            archiveBtn = (
+                <a className='mt-3 mb-3 onClickturnonstoryarchived' onClick={() => this.onChangeArchive(true)}><i className='bi-circle'></i> Turn On Story archive</a>
+            );
+        }
         let userRenderDesktop;
         let userRenderMobile;
         if(storyList){
@@ -258,24 +302,8 @@ export default class ViewStory extends React.PureComponent<Props, State> {
             modalBody = (
                 <div className='story-archived-content'>
                     <div className='turn-on-off-archived mt-4 mb-4'>
-                        <div className='row border border-1 mt-1'>
-                            <div className='col-9 text-left mb-3'>
-                            <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' src='assets/images/sample-user-primary-picture-2.png'/> 
-                                <small className='text-firstnames-stories float-start'><strong>Firstname</strong><br/>Feb 28 <i className='bi-dot bi-dot-style'></i> Title Created Story goes here...</small>
-                            </p>
-                            </div>
-                            <div className='col-3 mt-4'>
-                                <div className='dropdown'>
-                                <a className='onClickstoriesdeleteorsavephoto float-end' id='dropdownMenuSavedelete' data-bs-toggle='dropdown' aria-expanded='false'><i className='bi-three-dots'></i></a>
-        
-                                <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuSavedelete'>
-                                    <li><a className='dropdown-item'><i className='bi-trash-fill'></i> Delete photo</a></li>
-                                    <li><a className='dropdown-item'><i className='bi-save2-fill'></i> Save photo</a></li>
-                                </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='row border border-1 mt-1'>
+                        {archiveBody}
+                        {/*<div className='row border border-1 mt-1'>
                             <div className='col-9 text-left mb-3'>
                             <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' src='assets/images/sample-user-primary-picture-3.png'/> 
                                 <small className='text-firstnames-stories float-start'><strong>Firstname</strong><br/>March 1 <i className='bi-dot bi-dot-style'></i>Title Created Story goes here...</small>
@@ -290,7 +318,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                 </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div>*/}
                     </div>
                     <p className='text-center archived-on-off-text'><label><strong>Save to Archive</strong></label> <br/> Automatically archive photos and videos after they disappear from your story Only you can see your story archive.
                     </p>
@@ -298,8 +326,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                     <small><i className='bi-lock-fill'></i> Only you can see your story archive</small>
                     </p>
                     <p className='text-center mt-4'>
-                    <a className='mt-3 mb-3 onClickturnoffstoryarchived'><i className='bi-circle-fill'></i> Turn Off Story archive</a>
-                    <a className='mt-3 mb-3 onClickturnonstoryarchived'><i className='bi-circle'></i> Turn On Story archive</a>
+                    {archiveBtn}
                     </p>
                 </div>
             );

@@ -1894,10 +1894,10 @@ font-size: 12px;
   color: #fff;
 }
 .turn-on-off-archived {
-  display: none;
+  display: block;
 }
 .text-only-you-see-your-storyarchive {
-  display: none;
+  display: block;
 }
 .onClickturnonstoryarchived {
   cursor: pointer;
@@ -1907,7 +1907,7 @@ font-size: 12px;
   color: #fff;
 }
 .onClickturnoffstoryarchived {
-  display: none;
+  display: block;
   cursor: pointer;
   background: #80CF57;
   border-radius: 34px;
