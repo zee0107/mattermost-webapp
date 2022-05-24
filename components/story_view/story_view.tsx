@@ -17,6 +17,9 @@ type Props = {
     currentUser: UserProfile;
     stories: Promise<Story[]>;
     onChangeSelected: any;
+    actions: {
+        muteUser: (user_id: string, friend_id: string) => void;
+    };
 }
 
 type State = {
@@ -35,6 +38,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
         };
 
         this.closeStory = this.closeStory.bind(this);
+        this.handleMuteStory = this.handleMuteStory.bind(this);
     }
 
     componentDidMount(){
@@ -48,6 +52,13 @@ export default class StoryView extends React.PureComponent<Props, State> {
         if(this.props.userId !== prevProps.userId){
             this.getStoryData();
         }
+    }
+
+    handleMuteStory = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+
+        const {actions, currentUser, userData} = this.props;
+        actions.muteUser(userData.id,currentUser.id);
     }
 
     getStoryData = () => {
@@ -77,7 +88,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const { currentUser } = this.props;
+        const { currentUser, userData } = this.props;
         const { stories } = this.state;
         
         let name;
@@ -88,6 +99,17 @@ export default class StoryView extends React.PureComponent<Props, State> {
             }
             else{
                 name = (<>{currentUser.user_name}</>);
+            }
+            let muteBtn;
+            if(currentUser.id !== userData.id){
+                muteBtn = (
+                    <li><a className='dropdown-item text-dark' onClick={() => this.handleMuteStory}><i className='bi-x-octagon-fill'></i> Mute {name}</a></li>
+                );
+            }
+            else{
+                muteBtn = (
+                    <li><a className='dropdown-item text-dark' disabled><i className='bi-x-octagon-fill'></i> Mute {name}</a></li>
+                );
             }
             let storyPrivacy;
             if(stories !== undefined && stories !== null){
@@ -104,13 +126,11 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                         <a className='onClosestoryallpreviewsactions float-end shadow ms-1' data-bs-toggle='dropdown' aria-expanded='false'><i className='bi-three-dots-vertical'></i></a>
                                         <a className='onClosestoryallpreviews float-end shadow ms-1' onClick={() => this.closeStory}><i className='bi-x-lg'></i></a>
 
-                                        <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='storyDropdown'>
-                                            <li><a className='dropdown-item text-dark'><i className='bi-x-octagon-fill'></i> Mute {name}</a></li>
+                                        <ul className='dropdown-menu' aria-labelledby='storyDropdown'>
+                                            {muteBtn}
                                             <li><a className='dropdown-item text-dark'><i className='bi-patch-exclamation-fill'></i> Find support or report story</a></li>
                                         </ul>
                                     </div>
-                                
-                                    
                                 </div>
                             </div>
                             <div id='carouselStoryloopIndicators' className='carousel slide' data-bs-ride='carousel'>

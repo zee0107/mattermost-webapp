@@ -7,6 +7,7 @@ import {getCurrentUser, getOhterUser} from 'mattermost-redux/selectors/entities/
 import {GlobalState} from 'types/store';
 
 import StoryView from './story_view'
+import { mutestory } from 'mattermost-redux/actions/posts';
 
 
 type OwnProps = {
@@ -41,4 +42,23 @@ function makeMapStateToProps() {
     };
 }
 
-export default connect(makeMapStateToProps)(StoryView);
+
+function muteUser(userId: string, friendId: string) {
+    return (dispatch: Dispatch) => {
+        dispatch(mutestory(userId,friendId) as any);
+    };
+}
+
+type Actions = {
+    muteUser: (user_id: string, friend_id: string) => void;
+}
+
+function mapDispatchToProps(dispatch: Dispatch) {
+    return {
+        actions: bindActionCreators<ActionCreatorsMapObject<Actions>, Actions>({
+            muteUser,
+        }, dispatch),
+    };
+}
+
+export default connect(makeMapStateToProps,mapDispatchToProps)(StoryView);

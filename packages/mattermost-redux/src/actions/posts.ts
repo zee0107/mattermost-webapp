@@ -225,6 +225,32 @@ export function unfollow(userId: string, friend_id:string){
     };
 }
 
+export function mutestory(userId: string, friend_id:string){
+    return async () => {
+        const result = await Client4.muteUserStory(userId,friend_id);
+
+        if(result){
+            return {data: true};
+        }
+        else{
+            return {data: false};
+        }
+    };
+}
+
+export function unmutestory(userId: string, friend_id:string){
+    return async () => {
+        const result = await Client4.unmuteUserStory(userId,friend_id);
+
+        if(result){
+            return {data: true};
+        }
+        else{
+            return {data: false};
+        }
+    };
+}
+
 export function createPost(post: Post, files: any[] = []) {
     return async (dispatch: DispatchFunc, getState: GetStateFunc) => {
         const state = getState();
