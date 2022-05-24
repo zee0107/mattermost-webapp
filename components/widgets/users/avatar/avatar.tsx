@@ -48,6 +48,17 @@ const Avatar = ({
             />
         );
     }
+    else if(text === 'muted'){
+        return (
+            <img
+                {...attrs}
+                className={classes + ' mt-3 me-2 user-photo vertical-align-middle float-start'}
+                tabIndex={0}
+                alt={`${username || 'user'} profile image`}
+                src={url}
+            />
+        );
+    }
     else{
         return (
             <img

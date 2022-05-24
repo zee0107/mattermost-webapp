@@ -7,6 +7,8 @@ import {getCurrentUser, getOhterUser} from 'mattermost-redux/selectors/entities/
 import {GlobalState} from 'types/store';
 
 import MutedStoryList from './muted_story_list'
+import { unmutestory } from 'mattermost-redux/actions/posts';
+import { ActionCreatorsMapObject, bindActionCreators, Dispatch } from 'redux';
 
 
 type OwnProps = {
@@ -39,4 +41,22 @@ function makeMapStateToProps() {
     };
 }
 
-export default connect(makeMapStateToProps)(MutedStoryList);
+function unmuteUser(userId: string, friendId: string) {
+    return (dispatch: Dispatch) => {
+        dispatch(unmutestory(userId,friendId) as any);
+    };
+}
+
+type Actions = {
+    unmuteUser: (user_id: string, friend_id: string) => void;
+}
+
+function mapDispatchToProps(dispatch: Dispatch) {
+    return {
+        actions: bindActionCreators<ActionCreatorsMapObject<Actions>, Actions>({
+            unmuteUser,
+        }, dispatch),
+    };
+}
+
+export default connect(makeMapStateToProps,mapDispatchToProps)(MutedStoryList);

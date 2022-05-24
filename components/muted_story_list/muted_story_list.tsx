@@ -10,6 +10,9 @@ type Props = {
     profilePicture: string;
     userData: UserProfile;
     currentUser: UserProfile;
+    actions: {
+        unmuteUser: (user_id: string, friend_id: string) => void;
+    };
 }
 
 type State = {
@@ -25,12 +28,21 @@ export default class MutedStoryList extends React.PureComponent<Props, State> {
         this.state = {
             isDark: 'dark',
         };
+        this.handleUnmuteStory = this.handleUnmuteStory.bind(this);
     }
 
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
     }
+
+    handleUnmuteStory = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+
+        const {actions, currentUser, userData} = this.props;
+        actions.unmuteUser(userData.id,currentUser.id);
+    }
+
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
@@ -41,7 +53,7 @@ export default class MutedStoryList extends React.PureComponent<Props, State> {
             <Avatar
                 size={size}
                 url={this.props.profilePicture}
-                text={'story'}
+                text={'muted'}
             />
         );
     }
@@ -68,8 +80,7 @@ export default class MutedStoryList extends React.PureComponent<Props, State> {
                         </p>
                         </div>
                         <div className='col-4 text-center mt-4'>
-                        <a className='onClickunmute'>Unmute</a>
-                        <a className='onClickmute'>Mute</a>
+                        <a className='onClickunmute' onClick={this.handleUnmuteStory}>Unmute</a>
                     </div>
                 </div>
             );
