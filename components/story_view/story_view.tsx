@@ -59,6 +59,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
 
         const {actions, currentUser, userData} = this.props;
         actions.muteUser(userData.id,currentUser.id);
+        this.props.onChangeSelected('');
     }
 
     getStoryData = () => {
@@ -69,7 +70,8 @@ export default class StoryView extends React.PureComponent<Props, State> {
         }
     }
 
-    closeStory = () => {
+    closeStory = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
         this.props.onChangeSelected('');
     }
 
@@ -124,7 +126,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                 <div className='col-4'>
                                     <div className='dropdown'>
                                         <a className='onClosestoryallpreviewsactions float-end shadow ms-1' data-bs-toggle='dropdown' aria-expanded='false'><i className='bi-three-dots-vertical'></i></a>
-                                        <a className='onClosestoryallpreviews float-end shadow ms-1' onClick={() => this.closeStory}><i className='bi-x-lg'></i></a>
+                                        <a className='onClosestoryallpreviews float-end shadow ms-1' onClick={this.closeStory}><i className='bi-x-lg'></i></a>
 
                                         <ul className='dropdown-menu' aria-labelledby='storyDropdown'>
                                             {muteBtn}
