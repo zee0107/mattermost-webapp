@@ -83,6 +83,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         }
 
         if(this.state.userSettings !== undefined && this.state.userSettings !== null){
+            console.log('not Empty')
             this.setState({privacyValue: this.state.userSettings.story_privacy});
         }
     }
