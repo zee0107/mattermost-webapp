@@ -101,14 +101,16 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className='col-4'>
                                     <div className='dropdown'>
-                                        <a className='onClosestoryallpreviewsactions float-end shadow ms-1' id='storyDropdown' data-bs-toggle='dropdown' data-bs-target='#storyDropdownList' aria-expanded='false'><i className='bi-three-dots-vertical'></i></a>
+                                        <a className='onClosestoryallpreviewsactions float-end shadow ms-1' data-bs-toggle='dropdown' aria-expanded='false'><i className='bi-three-dots-vertical'></i></a>
                                         <a className='onClosestoryallpreviews float-end shadow ms-1' onClick={() => this.closeStory}><i className='bi-x-lg'></i></a>
+
+                                        <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='storyDropdown'>
+                                            <li><a className='dropdown-item text-dark'><i className='bi-x-octagon-fill'></i> Mute {name}</a></li>
+                                            <li><a className='dropdown-item text-dark'><i className='bi-patch-exclamation-fill'></i> Find support or report story</a></li>
+                                        </ul>
                                     </div>
                                 
-                                    <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='storyDropdown' id='storyDropdownList'>
-                                        <li><a className='dropdown-item text-dark'><i className='bi-x-octagon-fill'></i> Mute {name}</a></li>
-                                        <li><a className='dropdown-item text-dark'><i className='bi-patch-exclamation-fill'></i> Find support or report story</a></li>
-                                    </ul>
+                                    
                                 </div>
                             </div>
                             <div id='carouselStoryloopIndicators' className='carousel slide' data-bs-ride='carousel'>
