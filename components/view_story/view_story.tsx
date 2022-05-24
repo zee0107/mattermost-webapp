@@ -9,15 +9,8 @@ import StoryListView from 'components/story_list_view';
 import StoryView from 'components/story_view';
 import MutedStoryList from 'components/muted_story_list';
 import logoDark from 'images/logoBlack.png';
-import postImage from 'images/post-1.png';
-import profPic1 from 'images/profiles/user-profile-1.png';
-import profPic2 from 'images/profiles/user-profile-2.png';
-import profPic3 from 'images/profiles/user-profile-3.png';
-import profPic4 from 'images/profiles/user-profile-4.png';
-import profPic5 from 'images/profiles/user-profile-5.png';
-import profPic6 from 'images/profiles/user-profile-6.png';
-import profPic7 from 'images/profiles/user-profile-7.png';
 import { MutedList, Story, UserSettings } from 'mattermost-redux/types/crypto';
+import { userInfo } from 'os';
 type Props = {
     status?: string;
     userId: string;
@@ -67,7 +60,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {modalSelected: 'archive',photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone', addText: false, selectedStory:''};
+        this.state = {modalSelected: 'archive',photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', addText: false, selectedStory:''};
 
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
         this.onChangeSelected = this.onChangeSelected.bind(this);
@@ -84,8 +77,16 @@ export default class ViewStory extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.storyList).then((value) => {this.setState({storyList: value});});
         }
 
+        if(this.props.userSettings !== undefined && this.props.userSettings !== null){
+            Promise.resolve(this.props.userSettings).then((value) => {this.setState({userSettings: value});});
+        }
+
         if(this.props.mutedStories !== undefined && this.props.mutedStories !== null){
             Promise.resolve(this.props.mutedStories).then((value) => {this.setState({mutedStories: value});});
+        }
+
+        if(this.state.userSettings !== undefined && this.state.userSettings !== null){
+            this.setState({privacyValue: this.state.userSettings.story_privacy});
         }
     }
 
@@ -172,7 +173,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                         <div className='col-10'><p><i className='bi-globe'></i> <strong>Everyone</strong> <br/> <small>Everyone on Crypter</small></p></div>
                         <div className='col-2'>
                             <div className='form-check float-end'>
-                                <input className='form-check-input onEveryonestoryprivacy' type='radio' name='flexRadioDefault' id='flexRadioEveryonestoryprivacy' />
+                                <input className='form-check-input onEveryonestoryprivacy' type='radio'  onClick={this.onChangePrivacy} value={privacyValue} name='flexRadioDefault' id='flexRadioEveryonestoryprivacy' />
                                 <label className='form-check-label' htmlFor='flexRadioEveryonestoryprivacy'></label>
                             </div>
                         </div>
@@ -181,7 +182,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                         <div className='col-10'><p><i className='bi-people-fill'></i> <strong>Friends</strong> <br/><small>Only your Crypter friends</small></p></div>
                         <div className='col-2'>
                             <div className='form-check float-end'>
-                                    <input className='form-check-input onFriendstoryprivacy' type='radio' name='flexRadioDefault' id='flexRadioFriendstoryprivacy' />
+                                    <input className='form-check-input onFriendstoryprivacy' type='radio' onClick={this.onChangePrivacy} value={privacyValue} name='flexRadioDefault' id='flexRadioFriendstoryprivacy' />
                                     <label className='form-check-label' htmlFor='flexRadioFriendstoryprivacy'></label>
                             </div>
                         </div>
@@ -190,7 +191,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                             <div className='col-10'><p><i className='bi-person'></i> <strong>Private</strong> <br/><small>Only you see your Story</small></p></div>
                             <div className='col-2'>
                             <div className='form-check float-end'>
-                                    <input className='form-check-input onOnlymestoryprivacy' type='radio' name='flexRadioDefault' id='flexRadioOnlymestoryprivacy' />
+                                    <input className='form-check-input onOnlymestoryprivacy' type='radio' onClick={this.onChangePrivacy} value={privacyValue} name='flexRadioDefault' id='flexRadioOnlymestoryprivacy' />
                                     <label className='form-check-label' htmlFor='flexRadioOnlymestoryprivacy'></label>
                             </div>
                         </div>
