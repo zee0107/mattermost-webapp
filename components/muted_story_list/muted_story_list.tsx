@@ -10,6 +10,7 @@ type Props = {
     profilePicture: string;
     userData: UserProfile;
     currentUser: UserProfile;
+    onTriggerUnmute: any;
     actions: {
         unmuteUser: (user_id: string, friend_id: string) => void;
     };
@@ -41,6 +42,7 @@ export default class MutedStoryList extends React.PureComponent<Props, State> {
 
         const {actions, currentUser, userData} = this.props;
         actions.unmuteUser(userData.id,currentUser.id);
+        this.props.onTriggerUnmute(true);
     }
 
 

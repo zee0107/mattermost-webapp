@@ -17,6 +17,7 @@ type Props = {
     currentUser: UserProfile;
     stories: Promise<Story[]>;
     onChangeSelected: any;
+    onTriggerMute: any;
     actions: {
         muteUser: (user_id: string, friend_id: string) => void;
     };
@@ -60,6 +61,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
         const {actions, currentUser, userData} = this.props;
         actions.muteUser(userData.id,currentUser.id);
         this.props.onChangeSelected('');
+        this.props.onTriggerMute(true);
     }
 
     getStoryData = () => {

@@ -53,6 +53,8 @@ type State = {
     modalSelected: string;
     userSettings: UserSettings;
     mutedStories: MutedList[];
+    triggerUnmute: boolean;
+    triggerMute: boolean;
 };
 
 export default class ViewStory extends React.PureComponent<Props, State> {
@@ -60,10 +62,12 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {modalSelected: 'archive',photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', addText: false, selectedStory:''};
+        this.state = {triggerMute: false,triggerUnmute: false,modalSelected: 'archive',photoStory: false,textStory: false, openUp: false, width: 0, isStatusSet: false, isDark:'light', addText: false, selectedStory:''};
 
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
         this.onChangeSelected = this.onChangeSelected.bind(this);
+        this.onTriggerUnmute = this.onTriggerUnmute.bind(this);
+        this.onTriggerMute = this.onTriggerMute.bind(this);
     }
 
     componentDidMount(){
@@ -89,6 +93,11 @@ export default class ViewStory extends React.PureComponent<Props, State> {
     }
 
     componentDidUpdate(_,prevState){
+        if(this.state.triggerUnmute !== prevState.triggerUnmute || this.state.triggerMute !== prevState.triggerMute){
+            this.getMuted();
+            this.getList();
+        }
+
         if(this.state.userSettings !== prevState.userSettings){
             this.setDefault(this.state.userSettings.story_privacy,this.state.userSettings.story_archive);
         }
@@ -99,6 +108,22 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         data.then(
             (value) => { this.setState({userSettings: value});}
         );
+    }
+
+    getMuted = () => {
+        const data = Client4.mutedStories(this.props.currentUser.id);
+        data.then(
+            (value) => {this.setState({mutedStories: value});}
+        );
+        this.setState({triggerUnmute: false});
+    }
+
+    getList = () => {
+        const data = Client4.listSotries(this.props.currentUser.id);
+        data.then(
+            (value) => {this.setState({storyList: value});}
+        );
+        this.setState({triggerMute: false});
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -148,9 +173,17 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         this.setState({selectedStory: value});
     }
 
+    onTriggerUnmute = (value: boolean) => {
+        this.setState({triggerUnmute: value});
+    }
+
+    onTriggerMute = (value: boolean) => {
+        this.setState({triggerMute: value});
+    }
+
     render= (): JSX.Element => {
         const { currentUser } = this.props;
-        const { photoStory, textStory,privacyValue, addText, storyList,selectedStory,modalSelected, mutedStories, storyArchive} = this.state;
+        const {storyList,selectedStory,modalSelected, mutedStories, storyArchive} = this.state;
         let archiveBtn;
         let archiveBody;
         let archiveText;
@@ -232,7 +265,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         }
         else{
             selectedView = (
-                <StoryView userId={selectedStory} onChangeSelected={this.onChangeSelected}/>
+                <StoryView userId={selectedStory} onChangeSelected={this.onChangeSelected} onTriggerMute={this.onTriggerMute}/>
             );
         }
 
@@ -285,13 +318,13 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                 <div className='story-muted-content'>
                     {mutedStories && mutedStories.map((item,index) => {
                         return (
-                            <MutedStoryList userId={item.friend_id} key={`${item.friend_id}---${index}`} />
+                            <MutedStoryList userId={item.friend_id} onTriggerUnmute={this.onTriggerUnmute} key={`${item.friend_id}---${index}`} />
                         );
                     })}
                     {!mutedStories.length && <div className='row border border-1 mt-1'>
                         <div className='col-12 text-center mb-3'>
-                        <p>
-                            <small className='text-firstnames float-start'><strong>There are no muted story.</strong></small>
+                        <p className='mt-2'>
+                            <small className='text-firstnames'><strong>There are no muted story.</strong></small>
                         </p>
                         </div>
                     </div>}
