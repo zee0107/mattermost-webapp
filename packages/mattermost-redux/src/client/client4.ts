@@ -4041,31 +4041,31 @@ export default class Client4 {
 
     listSotries = (id: string) => {
         return this.doFetch<Story[]>(
-            `https://localhost:44312/api/crypter/liststories?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/liststories?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     viewSotries = (id: string) => {
         return this.doFetch<Story[]>(
-            `https://localhost:44312/api/crypter/viewstrory?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/viewstrory?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     mutedStories = (id: string) => {
         return this.doFetch<MutedList[]>(
-            `https://localhost:44312/api/crypter/listmuted?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/listmuted?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     archiveStories = (id: string) => {
         return this.doFetch<Story[]>(
-            `https://localhost:44312/api/crypter/listarchives?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/listarchives?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     userSettings = (id: string) => {
         return this.doFetch<UserSettings>(
-            `https://localhost:44312/api/crypter/getusersettings?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getusersettings?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
@@ -4076,7 +4076,7 @@ export default class Client4 {
         }
 
         return this.doFetch<string>(
-            `https://localhost:44312/api/crypter/muteuserstory`,
+            `https://crypterfighter.polywickstudio.ph/api/crypter/muteuserstory`,
             {method: 'post',body: JSON.stringify(body)}
         );
     }
@@ -4088,7 +4088,7 @@ export default class Client4 {
         }
 
         return this.doFetch<string>(
-            `https://localhost:44312/api/crypter/unmuteuserstory`,
+            `https://crypterfighter.polywickstudio.ph/api/crypter/unmuteuserstory`,
             {method: 'post',body: JSON.stringify(body)}
         );
     }
@@ -4102,7 +4102,7 @@ export default class Client4 {
         }
 
         return this.doFetch<string>(
-            `https://localhost:44312/api/crypter/updateusersettings`,
+            `https://crypterfighter.polywickstudio.ph/api/crypter/updateusersettings`,
             {method: 'post',body: JSON.stringify(body)}
         );
     }
