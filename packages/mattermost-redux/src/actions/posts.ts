@@ -250,20 +250,6 @@ export function updateSetting(userId: string, privacy:string,archive: boolean,mo
         }
     };
 }
-
-export function unmutestory(userId: string, friend_id:string){
-    return async () => {
-        const result = await Client4.unmuteUserStory(userId,friend_id);
-
-        if(result){
-            return {data: true};
-        }
-        else{
-            return {data: false};
-        }
-    };
-}
-
 export function unmutestory(userId: string, friend_id:string){
     return async () => {
         const result = await Client4.unmuteUserStory(userId,friend_id);
