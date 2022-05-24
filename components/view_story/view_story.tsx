@@ -16,7 +16,7 @@ import profPic4 from 'images/profiles/user-profile-4.png';
 import profPic5 from 'images/profiles/user-profile-5.png';
 import profPic6 from 'images/profiles/user-profile-6.png';
 import profPic7 from 'images/profiles/user-profile-7.png';
-import { Story } from 'mattermost-redux/types/crypto';
+import { Story, UserSettings } from 'mattermost-redux/types/crypto';
 type Props = {
     status?: string;
     userId: string;
@@ -39,6 +39,7 @@ type Props = {
     timezone?: string;
     globalHeader?: boolean;
     selected: string;
+    userSettings: Promise<UserSettings>;
 }
 
 type State = {
@@ -55,6 +56,7 @@ type State = {
     storyList: Story[];
     selectedStory: string;
     modalSelected: string;
+    userSettings: UserSettings;
 };
 
 export default class ViewStory extends React.PureComponent<Props, State> {

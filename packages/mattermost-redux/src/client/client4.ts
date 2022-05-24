@@ -119,7 +119,7 @@ import {isSystemAdmin} from 'mattermost-redux/utils/user_utils';
 import {UserThreadList, UserThread, UserThreadWithPost} from 'mattermost-redux/types/threads';
 
 import {TelemetryHandler} from './telemetry';
-import { AllListing, Coins, GainerListing, NewListing, ProjectList, ProjectsEndedList, ProjectsUpcomingList, RequestList, SocialCount, Story, TrendListing } from 'mattermost-redux/types/crypto';
+import { AllListing, Coins, GainerListing, NewListing, ProjectList, ProjectsEndedList, ProjectsUpcomingList, RequestList, SocialCount, Story, TrendListing,MutedList, UserSettings } from 'mattermost-redux/types/crypto';
 import { type } from 'os';
 import list from 'components/more_direct_channels/list';
 import { ValidationError } from 'webpack';
@@ -4051,7 +4051,61 @@ export default class Client4 {
         );
     }
 
+    mutedStories = (id: string) => {
+        return this.doFetch<MutedList[]>(
+            `https://crypterfighter.polywickstudio.ph/api/crypter/listmuted?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
 
+    archiveStories = (id: string) => {
+        return this.doFetch<Story[]>(
+            `https://crypterfighter.polywickstudio.ph/api/crypter/listarchives?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
+    userSettings = (id: string) => {
+        return this.doFetch<UserSettings>(
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getusersettings?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
+    muteUserStory = (userId: string, friendId:string) => {
+        const body = {
+            u: userId,
+            f: friendId,
+        }
+
+        return this.doFetch<string>(
+            `https://crypterfighter.polywickstudio.ph/api/crypter/muteuserstory`,
+            {method: 'post',body: JSON.stringify(body)}
+        );
+    }
+
+    unmuteUserStory = (userId: string, friendId:string) => {
+        const body = {
+            u: userId,
+            f: friendId,
+        }
+
+        return this.doFetch<string>(
+            `https://crypterfighter.polywickstudio.ph/api/crypter/unmuteuserstory`,
+            {method: 'post',body: JSON.stringify(body)}
+        );
+    }
+
+    updateUserSetting = (userId: string, privacy:string,archive: boolean,mode:boolean) => {
+        const body = {
+            user_id: userId,
+            story_privacy: privacy,
+            story_archive: archive,
+            dark_mode: mode
+        }
+
+        return this.doFetch<string>(
+            `https://crypterfighter.polywickstudio.ph/api/crypter/updateusersettings`,
+            {method: 'post',body: JSON.stringify(body)}
+        );
+    }
 
     // Client Helpers
 

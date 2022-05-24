@@ -36,6 +36,10 @@ function makeMapStateToProps() {
         const storyList = Client4.listSotries(userId);
         const customStatus = getCustomStatus(state, userId);
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
+        const userSettings = Client4.userSettings(userId);
+        let archive = userSettings.then(value => value.story_archive);
+        console.log(archive);
+        
         return {
             userId,
             selected,
@@ -44,6 +48,7 @@ function makeMapStateToProps() {
             status: getStatusForUserId(state, userId),
             storyList,
             customStatus,
+            userSettings,
             currentUser,
             isCustomStatusEnabled: isCustomStatusEnabled(state),
             isCustomStatusExpired: isCustomStatusExpired(state, customStatus),

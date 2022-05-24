@@ -217,3 +217,17 @@ export type SocialCount = {
     followingCount: number;
     followersCount: number;
 }
+
+export type MutedList = {
+    id: string;
+    user_id: string;
+    friend_id: string;
+    date: string;
+}
+
+export type UserSettings = {
+    user_id: string;
+    story_privacy: string;
+    story_archive: boolean;
+    dark_mode: boolean;
+}
