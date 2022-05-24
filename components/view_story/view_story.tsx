@@ -114,6 +114,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
     onChangePrivacy = (event) => {
         this.setState({privacyValue: event.target.value});
+        this.onSubmitPrivacy();
     }
 
     onSubmitPrivacy = () => {
