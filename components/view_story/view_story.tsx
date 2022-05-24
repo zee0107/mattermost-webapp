@@ -162,7 +162,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
             archiveBody = (
                 <div className='row border border-1 mt-1'>
                     <div className='col-9 text-left mb-3'>
-                    <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' src={postImage}/> 
+                    <p><img className='Avatar Avatar-lg mt-4 me-2 float-start' src={postImage}/> 
                         <small className='text-firstnames-stories float-start'><strong>Marcus Doe</strong><br/>Feb 28 <i className='bi-dot bi-dot-style'></i></small>
                     </p>
                     </div>
