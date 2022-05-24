@@ -118,7 +118,9 @@ export default class ViewStory extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const { currentUser } = this.props;
         const { photoStory, textStory,privacyValue, addText, storyList,selectedStory,modalSelected, mutedStories, userSettings} = this.state;
-        console.log(userSettings);
+        if(userSettings !== undefined && userSettings !== null){
+            console.log(userSettings)
+        }
         let userRenderDesktop;
         let userRenderMobile;
         if(storyList){
@@ -173,7 +175,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                         <div className='col-10'><p><i className='bi-globe'></i> <strong>Everyone</strong> <br/> <small>Everyone on Crypter</small></p></div>
                         <div className='col-2'>
                             <div className='form-check float-end'>
-                                <input className='form-check-input onEveryonestoryprivacy' type='radio'  onClick={this.onChangePrivacy} value={privacyValue} name='flexRadioDefault' id='flexRadioEveryonestoryprivacy' />
+                                <input className='form-check-input onEveryonestoryprivacy' type='radio' value='everyone' onChange={this.onChangePrivacy} checked={this.state.privacyValue === 'everyone'} name='flexRadioDefault' id='flexRadioEveryonestoryprivacy' />
                                 <label className='form-check-label' htmlFor='flexRadioEveryonestoryprivacy'></label>
                             </div>
                         </div>
@@ -182,7 +184,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                         <div className='col-10'><p><i className='bi-people-fill'></i> <strong>Friends</strong> <br/><small>Only your Crypter friends</small></p></div>
                         <div className='col-2'>
                             <div className='form-check float-end'>
-                                    <input className='form-check-input onFriendstoryprivacy' type='radio' onClick={this.onChangePrivacy} value={privacyValue} name='flexRadioDefault' id='flexRadioFriendstoryprivacy' />
+                                    <input className='form-check-input onFriendstoryprivacy' type='radio' value='friends' onChange={this.onChangePrivacy} checked={this.state.privacyValue === 'friends'} name='flexRadioDefault' id='flexRadioFriendstoryprivacy' />
                                     <label className='form-check-label' htmlFor='flexRadioFriendstoryprivacy'></label>
                             </div>
                         </div>
@@ -191,7 +193,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                             <div className='col-10'><p><i className='bi-person'></i> <strong>Private</strong> <br/><small>Only you see your Story</small></p></div>
                             <div className='col-2'>
                             <div className='form-check float-end'>
-                                    <input className='form-check-input onOnlymestoryprivacy' type='radio' onClick={this.onChangePrivacy} value={privacyValue} name='flexRadioDefault' id='flexRadioOnlymestoryprivacy' />
+                                    <input className='form-check-input onOnlymestoryprivacy' type='radio' value='private' onChange={this.onChangePrivacy} checked={this.state.privacyValue === 'friends'} name='flexRadioDefault' id='flexRadioOnlymestoryprivacy' />
                                     <label className='form-check-label' htmlFor='flexRadioOnlymestoryprivacy'></label>
                             </div>
                         </div>
