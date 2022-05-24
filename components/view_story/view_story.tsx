@@ -7,6 +7,7 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import StoryListView from 'components/story_list_view';
 import StoryView from 'components/story_view';
+import MutedStoryList from 'components/muted_story_list';
 import logoDark from 'images/logoBlack.png';
 import postImage from 'images/post-1.png';
 import profPic1 from 'images/profiles/user-profile-1.png';
@@ -16,7 +17,7 @@ import profPic4 from 'images/profiles/user-profile-4.png';
 import profPic5 from 'images/profiles/user-profile-5.png';
 import profPic6 from 'images/profiles/user-profile-6.png';
 import profPic7 from 'images/profiles/user-profile-7.png';
-import { Story, UserSettings } from 'mattermost-redux/types/crypto';
+import { MutedList, Story, UserSettings } from 'mattermost-redux/types/crypto';
 type Props = {
     status?: string;
     userId: string;
@@ -40,6 +41,7 @@ type Props = {
     globalHeader?: boolean;
     selected: string;
     userSettings: Promise<UserSettings>;
+    mutedStories: Promise<MutedList[]>;
 }
 
 type State = {
@@ -57,6 +59,7 @@ type State = {
     selectedStory: string;
     modalSelected: string;
     userSettings: UserSettings;
+    mutedStories: MutedList[];
 };
 
 export default class ViewStory extends React.PureComponent<Props, State> {
@@ -79,6 +82,10 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         }
         if(this.props.storyList !== undefined && this.props.storyList !== null){
             Promise.resolve(this.props.storyList).then((value) => {this.setState({storyList: value});});
+        }
+
+        if(this.props.mutedStories !== undefined && this.props.mutedStories !== null){
+            Promise.resolve(this.props.mutedStories).then((value) => {this.setState({mutedStories: value});});
         }
     }
 
@@ -109,7 +116,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const { currentUser } = this.props;
-        const { photoStory, textStory,privacyValue, addText, storyList,selectedStory,modalSelected } = this.state;
+        const { photoStory, textStory,privacyValue, addText, storyList,selectedStory,modalSelected, mutedStories } = this.state;
         
         let userRenderDesktop;
         let userRenderMobile;
@@ -198,18 +205,13 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
             modalBody = (
                 <div className='story-muted-content'>
-                    <div className='row border border-1 mt-1'>
-                        <div className='col-8 text-left mb-3'>
-                        <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' style={{width:'10%'}} src={profPic1}/> 
-                            <small className='text-firstnames float-start'><strong>Cody Fisher</strong></small>
-                        </p>
-                        </div>
-                        <div className='col-4 text-center mt-4'>
-                        <a className='onClickunmute'>Unmute</a>
-                        <a className='onClickmute'>Mute</a>
-                        </div>
-                    </div>
-                    <div className='row border border-1 mt-1'>
+                    {mutedStories.map((item,index) => {
+                        return (
+                            <MutedStoryList userId={item.friend_id} key={`${item.friend_id}---${index}`} />
+                        );
+                    })}
+                    
+                    {/*<div className='row border border-1 mt-1'>
                         <div className='col-8 text-left mb-3'>
                         <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' style={{width:'10%'}} src={profPic2}/> 
                             <small className='text-firstnames float-start'><strong>Annabelle Jan</strong></small>
@@ -218,7 +220,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                         <div className='col-4 text-center mt-4'>
                         <a>Unmute</a>
                         </div>
-                    </div>
+                    </div>*/}
                 </div>
             );
         }else{
