@@ -41,6 +41,7 @@ export default class MutedStoryList extends React.PureComponent<Props, State> {
             <Avatar
                 size={size}
                 url={this.props.profilePicture}
+                text={'story'}
             />
         );
     }
@@ -52,13 +53,7 @@ export default class MutedStoryList extends React.PureComponent<Props, State> {
         let renderView;
         if(currentUser !== undefined && currentUser !== null){
             if(currentUser.first_name !== ''){
-                if(currentUser.first_name.includes(' ')){
-                    name = (<>{currentUser.first_name.split(' ')[0]}</>);
-                }
-                else{
-                    name = (<>{`${currentUser.first_name} ${currentUser.last_name}`}</>);
-                }
-               
+                name = (<>{`${currentUser.first_name} ${currentUser.last_name}`}</>);
             }
             else{
                 name = (<>{currentUser.user_name}</>);
