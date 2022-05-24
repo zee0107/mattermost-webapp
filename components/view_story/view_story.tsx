@@ -93,7 +93,6 @@ export default class ViewStory extends React.PureComponent<Props, State> {
     }
 
     componentDidUpdate(_,prevState){
-        console.log('unmute: ',prevState.triggerUnmute,'_mute: ',prevState.triggerMute);
         if(this.state.triggerUnmute !== prevState.triggerUnmute || this.state.triggerMute !== prevState.triggerMute){
             this.getMuted();
             this.getList();

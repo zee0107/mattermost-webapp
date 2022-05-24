@@ -180,7 +180,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                                 <path d="M3.03033 12.4859H10.4389V14.3381H3.03033V12.4859ZM3.03033 16.1902H10.4389V18.0423H3.03033V16.1902ZM3.03033 8.78166H10.4389V10.6338H3.03033V8.78166ZM3.03033 5.07739H10.4389V6.92953H3.03033V5.07739ZM17.8474 6.92953V16.1902H14.1431V6.92953H17.8474ZM19.6995 5.07739H12.291V18.0423H19.6995V5.07739Z" fill="#FF8D08"/>
                                 </svg> News Feed</a>
                             </li>
-                            <li key='albums' className='sidemenu-padding'><a href='#' className='sidemenu-item2'>
+                            <li key='albums' className='sidemenu-padding'><a href='/albums/create' className='sidemenu-item2'>
                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" className='side-menu-align'>
                                 <path d="M15.5387 3.35472V12.6154H6.27804V3.35472H15.5387ZM15.5387 1.81128H6.27804C5.42914 1.81128 4.73459 2.50583 4.73459 3.35472V12.6154C4.73459 13.4643 5.42914 14.1588 6.27804 14.1588H15.5387C16.3876 14.1588 17.0821 13.4643 17.0821 12.6154V3.35472C17.0821 2.50583 16.3876 1.81128 15.5387 1.81128ZM8.97906 9.27383L10.2833 11.0179L12.1971 8.62559L14.767 11.8437H7.04976L8.97906 9.27383ZM1.64771 4.89817V15.7023C1.64771 16.5512 2.34225 17.2457 3.19115 17.2457H13.9953V15.7023H3.19115V4.89817H1.64771Z" fill="#3F8CFF"/>
                                 </svg> Albums</a>
