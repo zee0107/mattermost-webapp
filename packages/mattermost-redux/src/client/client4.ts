@@ -4071,8 +4071,8 @@ export default class Client4 {
 
     muteUserStory = (userId: string, friendId:string) => {
         const body = {
-            u: userId,
-            f: friendId,
+            user_id: userId,
+            friend_id: friendId,
         }
 
         return this.doFetch<string>(
@@ -4083,8 +4083,8 @@ export default class Client4 {
 
     unmuteUserStory = (userId: string, friendId:string) => {
         const body = {
-            u: userId,
-            f: friendId,
+            user_id: userId,
+            friend_id: friendId,
         }
 
         return this.doFetch<string>(
