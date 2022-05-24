@@ -45,7 +45,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {, openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone',};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone',};
 
         this.selectInput = React.createRef();
     }
