@@ -85,11 +85,11 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         }
     }
 
-    componentDidUpdate(_,prevState){
+    /*componentDidUpdate(_,prevState){
         if(this.state.userSettings !== prevState.userSettings){
             this.setDefault(this.state.userSettings.story_privacy);
         }
-    }
+    }*/
 
     getUserSettings = () => {
         const data = Client4.userSettings(this.props.currentUser.id);
@@ -139,9 +139,6 @@ export default class ViewStory extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const { currentUser } = this.props;
         const { photoStory, textStory,privacyValue, addText, storyList,selectedStory,modalSelected, mutedStories, userSettings} = this.state;
-        if(userSettings !== undefined && userSettings !== null){
-            console.log(userSettings);
-        }
         let userRenderDesktop;
         let userRenderMobile;
         if(storyList){
