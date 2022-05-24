@@ -95,8 +95,8 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         }
     }
 
-    getUserSettings = async () => {
-        const data = await Client4.userSettings(this.props.currentUser.id);
+    getUserSettings = () => {
+        const data = Client4.userSettings(this.props.currentUser.id);
         data.then(
             (value) => { this.setState({userSettings: value});}
         );
