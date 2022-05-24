@@ -239,8 +239,8 @@ export function mutestory(userId: string, friend_id:string){
 }
 
 export function updateSetting(userId: string, privacy:string,archive: boolean,mode:boolean){
-    return () => {
-        const result = Client4.updateUserSetting(userId,privacy,archive,mode);
+    return async () => {
+        const result = await Client4.updateUserSetting(userId,privacy,archive,mode);
 
         if(result){
             return {data: true};
