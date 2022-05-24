@@ -129,16 +129,15 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                             <div className='row'>
                                 <div className='col-lg-3 border-end p-4'>
                                     <p><img className='img-fluid mt-2' src={logoDark} alt='logo' title='logo' />
-                                        <a className='float-end mt-1 onClickcloseyourphotosandalbums yourphotosandalbums-desktop'><i className='bi-x-circle-fill'></i></a>
-                                        <a className='float-end mt-1 onClickcloseyourphotosandalbumsmobile yourphotosandalbums-mobile'><i className='bi-x-circle-fill'></i></a>
+                                        <a className='float-end mt-1 onClickcloseyourphotosandalbums yourphotosandalbums-desktop' href='/crypter/channels/town-square'><i className='bi-x-circle-fill'></i></a>
+                                        <a className='float-end mt-1 onClickcloseyourphotosandalbumsmobile yourphotosandalbums-mobile' href='/crypter/channels/town-square'><i className='bi-x-circle-fill'></i></a>
                                     </p>
                                     <div>
                                         <h3 className='mt-4'>Create album 
-                                            <br/>
-                                            <a className='onSelectphotosandalbums float-end' href='/crypter/channels/town-square'><i className='bi-gear' data-bs-toggle='tooltip' data-bs-placement='top' title='Photos or Albums Setting'></i></a>
+                                            <a className='onSelectphotosandalbums float-end'><i className='bi-gear' data-bs-toggle='tooltip' data-bs-placement='top' title='Photos or Albums Setting'></i></a>
                                         </h3>
                                     </div>
-                                    <div>
+                                    <div className='mt-4'>
                                         <div className='createalbumsandphotosprivacy'>
                                             {privacyView}
                                         </div>
@@ -161,7 +160,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                         <div className='row g-1 mt-1'>
                                             <div className='col-12'>
                                             <div className='d-grid gap-2'>
-                                                <button type='button' className='btn-primary btn-sm'><i className='bi-file-earmark-image'></i> Upload photos or videos</button>
+                                                <button type='button' className='btn-primary'><i className='bi-file-earmark-image'></i> Upload photos or videos</button>
                                             </div>
                                             </div>
                                         </div>
@@ -172,7 +171,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                     <div>
                                         <div className='col-12'>
                                             <div className='d-grid gap-2'>
-                                                <button type='button' className='btn-primary btn-sm'>Post</button>
+                                                <button type='button' className='btn-primary'>Post</button>
                                             </div>
                                         </div>
                                     </div>
