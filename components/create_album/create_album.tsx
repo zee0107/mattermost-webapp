@@ -103,7 +103,24 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const { currentUser } = this.props;
-        
+        const { privacyValue } = this.state;
+
+        let privacyView;
+        if(privacyValue === 'private'){
+            privacyView = (
+                <a className='ms-0 storyprivacyonlymeviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Only you is selected go to your photos and albums'><i className='bi-person'></i> Private</a>
+            );
+        }
+        else if(privacyValue === 'friends'){
+            privacyView = (
+                <a className='ms-0 storyprivacyfriendsviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Friends is selected go to your photos and albums'><i className='bi-people-fill'></i> Friends</a>
+            );
+        }
+        else{
+            privacyView = (
+                <a className='ms-0 storyprivacyeveryoneviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Everyone is selected go to your photos and albums'><i className='bi-globe'></i> Everyone</a>
+            );
+        }
         return (
             <>
                 <div className='createyourPhotosandyouralbums'>
@@ -111,20 +128,19 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                         <form>
                             <div className='row'>
                                 <div className='col-lg-3 border-end p-4'>
-                                    <p><img className='img-fluid mt-2' src='assets/images/logo-story.png' alt='logo' title='logo' />
+                                    <p><img className='img-fluid mt-2' src={logoDark} alt='logo' title='logo' />
                                         <a className='float-end mt-1 onClickcloseyourphotosandalbums yourphotosandalbums-desktop'><i className='bi-x-circle-fill'></i></a>
                                         <a className='float-end mt-1 onClickcloseyourphotosandalbumsmobile yourphotosandalbums-mobile'><i className='bi-x-circle-fill'></i></a>
                                     </p>
                                     <div>
-                                        <h4 className='mt-4'>Create album 
-                                        <a className='onSelectphotosandalbums float-end'><i className='bi-gear' data-bs-toggle='tooltip' data-bs-placement='top' title='Photos or Albums Setting'></i></a>
-                                        </h4>
+                                        <h3 className='mt-4'>Create album 
+                                            <br/>
+                                            <a className='onSelectphotosandalbums float-end' href='/crypter/channels/town-square'><i className='bi-gear' data-bs-toggle='tooltip' data-bs-placement='top' title='Photos or Albums Setting'></i></a>
+                                        </h3>
                                     </div>
                                     <div>
                                         <div className='createalbumsandphotosprivacy'>
-                                        <a className='ms-0 storyprivacyeveryoneviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Everyone is selected go to your photos and albums'><i className='bi-globe'></i> Everyone</a>
-                                        <a className='ms-0 storyprivacyfriendsviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Friends is selected go to your photos and albums'><i className='bi-people-fill'></i> Friends</a>
-                                        <a className='ms-0 storyprivacyonlymeviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Only you is selected go to your photos and albums'><i className='bi-person'></i> Private</a>
+                                            {privacyView}
                                         </div>
                                     </div>
                                 <div>
@@ -145,7 +161,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                         <div className='row g-1 mt-1'>
                                             <div className='col-12'>
                                             <div className='d-grid gap-2'>
-                                                <button type='button' className='btn btn-primary btn-sm'><i className='bi-file-earmark-image'></i> Upload photos or videos</button>
+                                                <button type='button' className='btn-primary btn-sm'><i className='bi-file-earmark-image'></i> Upload photos or videos</button>
                                             </div>
                                             </div>
                                         </div>
@@ -156,7 +172,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                     <div>
                                         <div className='col-12'>
                                             <div className='d-grid gap-2'>
-                                                <button type='button' className='btn btn-primary btn-sm'>Post</button>
+                                                <button type='button' className='btn-primary btn-sm'>Post</button>
                                             </div>
                                         </div>
                                     </div>
