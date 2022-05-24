@@ -38,7 +38,7 @@ export default class StoryImage extends React.PureComponent<Props, State> {
     }
 
     getImage = async (story: string) => {
-        const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/viewphotostory?id=${story}`);
+        const response = await fetch(`https://localhost:44312/crypter/viewphotostory?id=${story}`);
         const imageBlob = await response.blob();
         const textBlob = await imageBlob.text();
         if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
