@@ -3,7 +3,7 @@
 
 import React, {ReactNode, ReactPropTypes} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
-import {ActionFunc} from 'mattermost-redux/types/actions';
+import {Client4} from 'mattermost-redux/client';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import StoryListView from 'components/story_list_view';
 import StoryView from 'components/story_view';
@@ -74,9 +74,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.storyList).then((value) => {this.setState({storyList: value});});
         }
 
-        if(this.props.userSettings !== undefined && this.props.userSettings !== null){
-            Promise.resolve(this.props.userSettings).then((value) => {this.setState({userSettings: value});});
-        }
+        this.getUserSettings();
 
         if(this.props.mutedStories !== undefined && this.props.mutedStories !== null){
             Promise.resolve(this.props.mutedStories).then((value) => {this.setState({mutedStories: value});});
@@ -88,15 +86,20 @@ export default class ViewStory extends React.PureComponent<Props, State> {
     }
 
     componentDidUpdate(_,prevState){
-        Promise.resolve(this.props.userSettings).then((value)=>{
-            if(this.state.userSettings !== value){
-                this.setState({userSettings: value});
-            }
-        });
-        
+        if(this.state.privacyValue !== prevState.privacyValue){
+            this.getUserSettings();
+        }
+
         if(this.state.userSettings !== prevState.userSettings){
             this.setDefault(this.state.userSettings.story_privacy);
         }
+    }
+
+    getUserSettings = () => {
+        const data = Client4.userSettings(this.props.currentUser.id);
+        data.then(
+            (value) => { this.setState({userSettings: value});}
+        );
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
