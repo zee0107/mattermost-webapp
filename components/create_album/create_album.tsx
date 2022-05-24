@@ -115,11 +115,11 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                         <a className='float-end mt-1 onClickcloseyourphotosandalbums yourphotosandalbums-desktop'><i className='bi-x-circle-fill'></i></a>
                                         <a className='float-end mt-1 onClickcloseyourphotosandalbumsmobile yourphotosandalbums-mobile'><i className='bi-x-circle-fill'></i></a>
                                     </p>
-                                    <p>
-                                        <h5 className='mt-4'>Create album 
+                                    <div>
+                                        <h4 className='mt-4'>Create album 
                                         <a className='onSelectphotosandalbums float-end'><i className='bi-gear' data-bs-toggle='tooltip' data-bs-placement='top' title='Photos or Albums Setting'></i></a>
-                                        </h5>
-                                    </p>
+                                        </h4>
+                                    </div>
                                     <div>
                                         <div className='createalbumsandphotosprivacy'>
                                         <a className='ms-0 storyprivacyeveryoneviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Everyone is selected go to your photos and albums'><i className='bi-globe'></i> Everyone</a>
