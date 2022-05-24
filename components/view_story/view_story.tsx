@@ -10,6 +10,7 @@ import StoryView from 'components/story_view';
 import MutedStoryList from 'components/muted_story_list';
 import logoDark from 'images/logoBlack.png';
 import { MutedList, Story, UserSettings } from 'mattermost-redux/types/crypto';
+import postImage from 'images/post-1.png';
 import { userInfo } from 'os';
 type Props = {
     status?: string;
@@ -152,6 +153,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         const { photoStory, textStory,privacyValue, addText, storyList,selectedStory,modalSelected, mutedStories, storyArchive} = this.state;
         let archiveBtn;
         let archiveBody;
+        let archiveText;
         if(storyArchive){
             archiveBtn = (
                 <a className='mt-3 mb-3 onClickturnoffstoryarchived' onClick={() => this.onChangeArchive(false)}><i className='bi-circle-fill'></i> Turn Off Story archive</a>
@@ -160,15 +162,15 @@ export default class ViewStory extends React.PureComponent<Props, State> {
             archiveBody = (
                 <div className='row border border-1 mt-1'>
                     <div className='col-9 text-left mb-3'>
-                    <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' src='assets/images/sample-user-primary-picture-2.png'/> 
-                        <small className='text-firstnames-stories float-start'><strong>Firstname</strong><br/>Feb 28 <i className='bi-dot bi-dot-style'></i> Title Created Story goes here...</small>
+                    <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' src={postImage}/> 
+                        <small className='text-firstnames-stories float-start'><strong>Marcus Doe</strong><br/>Feb 28 <i className='bi-dot bi-dot-style'></i></small>
                     </p>
                     </div>
                     <div className='col-3 mt-4'>
                         <div className='dropdown'>
                         <a className='onClickstoriesdeleteorsavephoto float-end' id='dropdownMenuSavedelete' data-bs-toggle='dropdown' aria-expanded='false'><i className='bi-three-dots'></i></a>
 
-                        <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuSavedelete'>
+                        <ul className='dropdown-menu' aria-labelledby='dropdownMenuSavedelete'>
                             <li><a className='dropdown-item'><i className='bi-trash-fill'></i> Delete photo</a></li>
                             <li><a className='dropdown-item'><i className='bi-save2-fill'></i> Save photo</a></li>
                         </ul>
@@ -176,10 +178,22 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                     </div>
                 </div>
             );
+
+            archiveText = (
+                <p className='text-center text-only-you-see-your-storyarchive'>
+                    <small><i className='bi-lock-fill'></i> Only you can see your story archive</small>
+                </p>
+            );
         }
         else{
             archiveBtn = (
                 <a className='mt-3 mb-3 onClickturnonstoryarchived' onClick={() => this.onChangeArchive(true)}><i className='bi-circle'></i> Turn On Story archive</a>
+            );
+
+            archiveText = (
+                <p className='text-center archived-on-off-text'>
+                    <label><strong>Save to Archive</strong></label> <br/> Automatically archive photos and videos after they disappear from your story Only you can see your story archive.
+                </p>
             );
         }
         let userRenderDesktop;
@@ -281,17 +295,6 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                         </p>
                         </div>
                     </div>}
-                    
-                    {/*<div className='row border border-1 mt-1'>
-                        <div className='col-8 text-left mb-3'>
-                        <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' style={{width:'10%'}} src={profPic2}/> 
-                            <small className='text-firstnames float-start'><strong>Annabelle Jan</strong></small>
-                        </p>
-                        </div>
-                        <div className='col-4 text-center mt-4'>
-                        <a>Unmute</a>
-                        </div>
-                    </div>*/}
                 </div>
             );
         }else{
@@ -303,28 +306,8 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                 <div className='story-archived-content'>
                     <div className='turn-on-off-archived mt-4 mb-4'>
                         {archiveBody}
-                        {/*<div className='row border border-1 mt-1'>
-                            <div className='col-9 text-left mb-3'>
-                            <p><img className='img-fluid circle-rounded mt-3 me-2 float-start' src='assets/images/sample-user-primary-picture-3.png'/> 
-                                <small className='text-firstnames-stories float-start'><strong>Firstname</strong><br/>March 1 <i className='bi-dot bi-dot-style'></i>Title Created Story goes here...</small>
-                            </p>
-                            </div>
-                            <div className='col-3 mt-4'>
-                                <div className='dropdown'>
-                                <a className='onClickstoriesdeleteorsavephoto float-end' id='dropdownMenuSavedelete' data-bs-toggle='dropdown' aria-expanded='false'><i className='bi-three-dots'></i></a>
-                                <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuSavedelete'>
-                                    <li><a className='dropdown-item'><i className='bi-trash-fill'></i> Delete photo</a></li>
-                                    <li><a className='dropdown-item'><i className='bi-save2-fill'></i> Save photo</a></li>
-                                </ul>
-                                </div>
-                            </div>
-                        </div>*/}
                     </div>
-                    <p className='text-center archived-on-off-text'><label><strong>Save to Archive</strong></label> <br/> Automatically archive photos and videos after they disappear from your story Only you can see your story archive.
-                    </p>
-                    <p className='text-center text-only-you-see-your-storyarchive'>
-                    <small><i className='bi-lock-fill'></i> Only you can see your story archive</small>
-                    </p>
+                    {archiveText}
                     <p className='text-center mt-4'>
                     {archiveBtn}
                     </p>
