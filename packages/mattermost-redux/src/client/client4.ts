@@ -4041,13 +4041,13 @@ export default class Client4 {
 
     listSotries = (id: string) => {
         return this.doFetch<Story[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/liststories?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://localhost:44312/api/crypter/liststories?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     viewSotries = (id: string) => {
         return this.doFetch<Story[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/viewstrory?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://localhost:44312/api/crypter/viewstrory?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
