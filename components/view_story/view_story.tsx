@@ -127,6 +127,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const { currentUser } = this.props;
         const { photoStory, textStory,privacyValue, addText, storyList,selectedStory,modalSelected, mutedStories, userSettings} = this.state;
+        console.log(userSettings)
         if(userSettings !== undefined && userSettings !== null){
             console.log(userSettings);
         }
