@@ -153,13 +153,13 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                     <br/>
                                     <br/>
                                     <hr/>
-                                    <p>
-                                            <div className='col-12'>
+                                    <div>
+                                        <div className='col-12'>
                                             <div className='d-grid gap-2'>
                                                 <button type='button' className='btn btn-primary btn-sm'>Post</button>
                                             </div>
-                                            </div>
-                                    </p>
+                                        </div>
+                                    </div>
                                 </div>
                                 </div>
                                 <div className='col-lg-9 right-nav-story'>
