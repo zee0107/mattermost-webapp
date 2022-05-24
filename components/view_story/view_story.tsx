@@ -87,7 +87,9 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
     componentDidUpdate(_,prevState){
         if(this.state.privacyValue !== prevState.privacyValue){
+            this.onSubmitPrivacy(this.state.privacyValue);
             this.getUserSettings();
+            
         }
         if(this.state.userSettings !== prevState.userSettings){
             this.setDefault(this.state.userSettings.story_privacy);
@@ -120,12 +122,11 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
     onChangePrivacy = (data: string) => {
         this.setState({privacyValue: data});
-        this.onSubmitPrivacy(data);
     }
 
     onSubmitPrivacy = (data: string) => {
         const { actions } = this.props;
-        const { privacyValue, userSettings } = this.state;
+        const { userSettings } = this.state;
         console.log('Check: ',data);
         actions.updateSettings(userSettings.user_id, data, userSettings.story_archive, userSettings.dark_mode);
     }
