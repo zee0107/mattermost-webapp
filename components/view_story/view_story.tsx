@@ -121,7 +121,15 @@ export default class ViewStory extends React.PureComponent<Props, State> {
     onSubmitPrivacy = () => {
         const { actions } = this.props;
         const { privacyValue, userSettings } = this.state;
-        actions.updateSettings(userSettings.user_id, privacyValue, userSettings.story_archive, userSettings.dark_mode);
+        const body = {
+            user_id: userSettings.user_id,
+            story_privacy: privacyValue,
+            story_archive: userSettings.story_archive,
+            dark_mode: userSettings.dark_modemode
+        }
+
+        const uri = new URL('https://localhost:44312/api/crypter/updateusersettings');
+        fetch(uri,{method: 'post',body: JSON.stringify(body)});
     }
 
     onChangeModal = (param: string) => {
