@@ -90,7 +90,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
     componentDidUpdate = (_,prevState) => {
         if(this.state.userSettings !== prevState.userSettings){
-            this.setDefault();
+            this.setDefault(this.state.userSettings.story_privacy);
         }
     }
 
