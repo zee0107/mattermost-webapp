@@ -381,7 +381,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                         <div className='modal-content shadow-lg'>
                             <div className='modal-header'>
                                 {modalHeader}
-                                <a className='onClosestorysettings shadow float-end'><i className='bi-x'></i></a>
+                                <a className='onClosestorysettings shadow float-end' data-bs-dismiss='modal'><i className='bi-x'></i></a>
                             </div>
                             <div className='modal-body'>
                                 <div className='row mb-4'>
