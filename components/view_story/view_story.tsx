@@ -63,7 +63,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         this.onChangeSelected = this.onChangeSelected.bind(this);
     }
 
-    componentDidMount = async () =>{
+    componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
 
@@ -80,6 +80,10 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
         if(this.props.mutedStories !== undefined && this.props.mutedStories !== null){
             Promise.resolve(this.props.mutedStories).then((value) => {this.setState({mutedStories: value});});
+        }
+
+        if(this.state.userSettings !== undefined && this.state.userSettings !== null){
+            this.setState({privacyValue: this.state.userSettings.story_privacy});
         }
     }
 
@@ -130,9 +134,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const { currentUser } = this.props;
         const { photoStory, textStory,privacyValue, addText, storyList,selectedStory,modalSelected, mutedStories, userSettings} = this.state;
-        if(userSettings !== undefined && userSettings !== null){
-            this.setDefault(userSettings.story_privacy);
-        }
+
         let userRenderDesktop;
         let userRenderMobile;
         if(storyList){
