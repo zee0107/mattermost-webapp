@@ -288,13 +288,13 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                             <MutedStoryList userId={item.friend_id} key={`${item.friend_id}---${index}`} />
                         );
                     })}
-                    {!mutedStories && <div className='row border border-1 mt-1'>
+                    {mutedStories === [] ? <div className='row border border-1 mt-1'>
                         <div className='col-12 text-center mb-3'>
                         <p>
                             <small className='text-firstnames float-start'><strong>There are no muted story.</strong></small>
                         </p>
                         </div>
-                    </div>}
+                    </div>: ''}
                 </div>
             );
         }else{
