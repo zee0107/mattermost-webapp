@@ -103,7 +103,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
             let muteBtn;
             if(currentUser.id !== userData.id){
                 muteBtn = (
-                    <li><a className='dropdown-item text-dark' onClick={() => this.handleMuteStory}><i className='bi-x-octagon-fill'></i> Mute {name}</a></li>
+                    <li><a className='dropdown-item text-dark' onClick={this.handleMuteStory}><i className='bi-x-octagon-fill'></i> Mute {name}</a></li>
                 );
             }
             else{
