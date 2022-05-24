@@ -87,6 +87,12 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         }
     }
 
+    componentDidUpdate(_,prevState){
+        if(this.state.userSettings !== prevState.userSettings){
+            this.setDefault(this.state.userSettings.story_privacy);
+        }
+    }
+
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
             return null;
