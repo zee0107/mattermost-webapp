@@ -1,7 +1,7 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 import {connect} from 'react-redux';
-import {bindActionCreators, Dispatch} from 'redux';
+import {ActionCreatorsMapObject, bindActionCreators, Dispatch} from 'redux';
 
 import {setStatus, unsetCustomStatus} from 'mattermost-redux/actions/users';
 import {Client4} from 'mattermost-redux/client';
@@ -21,6 +21,7 @@ import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
 
 import ViewStory from './view_story'
+import { updateSetting } from 'mattermost-redux/actions/posts';
 
 type ownProps = {
     userId: string;
@@ -60,13 +61,20 @@ function makeMapStateToProps() {
     };
 }
 
-function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
+function updateSettings(userId: string, privacy:string,archive: boolean,mode:boolean) {
+    return (dispatch: Dispatch) => {
+        dispatch(updateSetting(userId,privacy,archive,mode) as any);
+    };
+}
+
+type Actions = {
+    updateSettings(userId: string, privacy:string,archive: boolean,mode:boolean) => void;
+}
+
+function mapDispatchToProps(dispatch: Dispatch) {
     return {
-        actions: bindActionCreators({
-            openModal,
-            setStatus,
-            unsetCustomStatus,
-            setStatusDropdown,
+        actions: bindActionCreators<ActionCreatorsMapObject<Actions>, Actions>({
+            updateSettings,
         }, dispatch),
     };
 }

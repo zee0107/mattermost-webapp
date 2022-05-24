@@ -16,11 +16,8 @@ type Props = {
     userId: string;
     autoResetPref?: string;
     actions: {
-        openModal: <P>(modalData: ModalData<P>) => void;
-        setStatus: (status: UserStatus) => ActionFunc;
-        unsetCustomStatus: () => ActionFunc;
-        setStatusDropdown: (open: boolean) => void;
-    };
+        updateSettings: (userId: string, privacy:string,archive: boolean,mode:boolean) => void;
+    }
     customStatus?: UserCustomStatus;
     storyList: Promise<Story[]>;
     profilePicture: string;
@@ -109,6 +106,13 @@ export default class ViewStory extends React.PureComponent<Props, State> {
 
     onChangePrivacy = (event) => {
         this.setState({privacyValue: event.target.value});
+        this.onSubmitPrivacy();
+    }
+
+    onSubmitPrivacy = () => {
+        const { actions } = this.props;
+        const { privacyValue, userSettings } = this.state;
+        actions.updateSettings(userSettings.user_id, privacyValue, userSettings.story_archive, userSettings.dark_mode);
     }
 
     onChangeModal = (param: string) => {

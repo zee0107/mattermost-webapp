@@ -238,6 +238,32 @@ export function mutestory(userId: string, friend_id:string){
     };
 }
 
+export function updateSetting(userId: string, privacy:string,archive: boolean,mode:boolean){
+    return async () => {
+        const result = await Client4.updateUserSetting(userId,privacy,archive,mode);
+
+        if(result){
+            return {data: true};
+        }
+        else{
+            return {data: false};
+        }
+    };
+}
+
+export function unmutestory(userId: string, friend_id:string){
+    return async () => {
+        const result = await Client4.unmuteUserStory(userId,friend_id);
+
+        if(result){
+            return {data: true};
+        }
+        else{
+            return {data: false};
+        }
+    };
+}
+
 export function unmutestory(userId: string, friend_id:string){
     return async () => {
         const result = await Client4.unmuteUserStory(userId,friend_id);
