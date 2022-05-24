@@ -89,11 +89,11 @@ export default class ViewStory extends React.PureComponent<Props, State> {
     }
 
     componentDidUpdate = (_,prevState) => {
-        if(prevState.userSettings !== this.state.userSettings){
-            if(this.state.userSettings !== undefined && this.state.userSettings !== null){
-                this.setState({privacyValue: this.state.userSettings.story_privacy});
+        Promise.resolve(this.props.mutedStories).then((value) => {
+            if(prevState.mutedStories !== value){
+                this.setState({mutedStories: value});}
             }
-        }
+            );
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
