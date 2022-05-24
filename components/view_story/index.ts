@@ -68,7 +68,7 @@ function updateSettings(userId: string, privacy:string,archive: boolean,mode:boo
 }
 
 type Actions = {
-    updateSettings(userId: string, privacy:string,archive: boolean,mode:boolean) => void;
+    updateSettings: (userId: string, privacy:string,archive: boolean,mode:boolean) => void;
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {
