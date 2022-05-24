@@ -129,7 +129,7 @@ export default class ViewStory extends React.PureComponent<Props, State> {
         }
 
         const uri = new URL('https://localhost:44312/api/crypter/updateusersettings');
-        fetch(uri,{method: 'post',body: JSON.stringify(body)});
+        fetch(uri,{method: 'POST',body: JSON.stringify(body)});
     }
 
     onChangeModal = (param: string) => {
