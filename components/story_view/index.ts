@@ -8,6 +8,7 @@ import {GlobalState} from 'types/store';
 
 import StoryView from './story_view'
 import { mutestory } from 'mattermost-redux/actions/posts';
+import {ActionCreatorsMapObject, bindActionCreators, Dispatch} from 'redux';
 
 
 type OwnProps = {
