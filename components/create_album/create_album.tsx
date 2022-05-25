@@ -81,7 +81,6 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
         if (e.target.files) {
             if(e.target.files.length > 0 ){
                 for(var i = 0; i <= e.target.files.length; i++){
-                    console.log(e.target.files[i]);
                     const file = e.target.files[i];
                     this.setState((prevState) => ({
                         photoValue: [...prevState.photoValue, file],
@@ -133,7 +132,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const { currentUser } = this.props;
         const { privacyValue, image } = this.state;
-
+        console.log(imgae)
         let privacyView;
         if(privacyValue === 'private'){
             privacyView = (
