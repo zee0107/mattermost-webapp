@@ -71,6 +71,7 @@ function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
 
     return (state: GlobalState, ownProps: OwnProps) => {
+        console.log(state);
         const channel = getChannelByName(state,'town-square');
         const channelId = channel?.id;
         //const channelId = 'dodurztr1fbupnpenjgxqjso3a';
