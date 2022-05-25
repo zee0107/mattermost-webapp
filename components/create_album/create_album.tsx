@@ -207,6 +207,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                                 onChange={this.updatePhoto}
                                                 //disabled={this.props.loadingPicture}
                                                 aria-hidden={true}
+                                                accept='images/*,videos/*'
                                                 tabIndex='-1'
                                                 multiple/>
                                             </span>
