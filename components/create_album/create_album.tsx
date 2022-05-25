@@ -96,12 +96,12 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
             this.setState({image: []}); 
             for (let i = 0; i < parameter.length; i++) {
                 if (parameter[i]) {
-                    this.previewBlob = URL.createObjectURL(parameter[i]);
+                    const previewBlob = URL.createObjectURL(parameter[i]);
                     var reader = new FileReader();
                     reader.onloadend = (e) => {
-                        console.log(this.previewBlob);
+                        console.log(previewBlob);
                         this.setState((prevState) => ({
-                            image: [...prevState.image, this.previewBlob],
+                            image: [...prevState.image, previewBlob],
                         }));
                     };
                     reader.readAsArrayBuffer(parameter[i]);
