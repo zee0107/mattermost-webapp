@@ -65,9 +65,9 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
         console.log('previous: ',prevState.photoValue);
         if (photoValue !== prevState.photoValue) {
             console.log(true);
-            photoValue.forEach((value) => {
-                this.setPicture(value);
-            });
+            for(var i = 0; i < photoValue.length; i++){
+                this.setPicture(photoValue[i]);
+            }
         }
     }
 
@@ -90,9 +90,6 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                         //photoValueName: [...prevState.photoValueName, file.name]
                     }));
                 }
-                /*for(var i = 0; i <= e.target.files.length; i++){
-                   
-                }*/
             }
         } else {
             this.setState({photoValue: null});
