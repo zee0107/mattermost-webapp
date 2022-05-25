@@ -132,7 +132,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const { currentUser } = this.props;
         const { privacyValue, image } = this.state;
-        console.log(imgae)
+        console.log(image);
         let privacyView;
         if(privacyValue === 'private'){
             privacyView = (
