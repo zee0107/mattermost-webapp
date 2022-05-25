@@ -104,7 +104,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                             image: [...prevState.image, this.previewBlob],
                         }));
                     };
-                    reader.readAsArrayBuffer(file);
+                    reader.readAsArrayBuffer(parameter[i]);
                 }
             }
         }
