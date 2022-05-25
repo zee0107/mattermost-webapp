@@ -64,6 +64,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
         console.log('currrent: ',photoValue);
         console.log('previous: ',prevState.photoValue);
         if (photoValue !== prevState.photoValue) {
+            console.log(true);
             photoValue.forEach((value) => {
                 this.setPicture(value);
             });
