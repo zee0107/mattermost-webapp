@@ -55,6 +55,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
 
         this.selectInput = React.createRef();
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
+        this.removeItem = this.removeItem.bind(this);
     }
 
     componentDidMount = async () =>{
