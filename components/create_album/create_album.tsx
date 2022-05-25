@@ -82,7 +82,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
     updatePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {
             if(e.target.files.length > 0 ){
-                for(var i = 0; i <= e.target.files.length; i++){
+                for(var i = 0; i < e.target.files.length; i++){
                     const file = e.target.files[i];
                     this.setState((prevState) => ({
                         photoValue: [...prevState.photoValue, file],
