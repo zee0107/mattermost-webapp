@@ -54,27 +54,6 @@ function handleEmitUserLoggedOutEvent(){
     GlobalActions.emitUserLoggedOutEvent();
   }
 
-
-/*async function getUserList(){
-    
-    return await Promise.resolve(data);
-}
-
-function renderList(){
-    return null;
-}
-
-const readData = async () => {
-    let profiles = [];
-    let data = getUserList();
-    data.then((value)=> {
-        for(let i = 0; i < value.length; i++ ){
-            profiles.push(value[i].user_id.toString());
-        }
-    });
-    return profiles;
-}*/
-
 const RightControlsStyle = (props: Props): JSX.Element => {
     const [profiles, setProfiles] = useState([]);
     const [request, setRequest] = useState([]);
@@ -191,7 +170,7 @@ const RightControlsStyle = (props: Props): JSX.Element => {
                                         <input id='' type='text' className='form-control form-control-dark input-search-crypter' placeholder='Search' aria-label='Search'/>
                                     </div>
                             </div>
-            </div>*/}
+                        </div>*/}
                         <div id=''>
                             <div className='list-group'>
                                 <a className='list-group-item list-group-item-action border-0 message-content' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
