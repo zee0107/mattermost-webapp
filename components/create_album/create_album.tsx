@@ -100,6 +100,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                         if(file.type.includes('image') || file.type.includes('video')){
                             this.setState((prevState) => ({
                                 photoValue: [...prevState.photoValue, file],
+                                photoValueName: [...prevState.photoValueName, file.name],
                             }));
                         }
                         else{
