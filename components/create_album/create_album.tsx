@@ -44,6 +44,7 @@ type State = {
     photoValue: string[];
     photoValueName: string[];
     prevName: string;
+    albumName: string;
     image: UploadBlob[];
 };
 
@@ -56,6 +57,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
 
         this.selectInput = React.createRef();
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
+        this.handleAlbumNameInput = this.handleAlbumNameInput.bind(this);
         this.removeItem = this.removeItem.bind(this);
     }
 
@@ -73,6 +75,10 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
 
     onChangePrivacy = (event) => {
         this.setState({privacyValue: event.target.value});
+    }
+
+    handleAlbumNameInput = (event) =>{
+        this.setState({albumName: event.target.value});
     }
 
     handleInputFile = () => {
@@ -189,7 +195,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                     <div>
                                         <div className='row g-1'>
                                             <div className='col-12'>
-                                            <input type='text' className='form-control' placeholder='Album name' aria-label='Album name'/>
+                                            <input type='text' className='form-control' placeholder='Album name' onChange={this.handleAlbumNameInput} value={this.state.albumName} aria-label='Album name'/>
                                             </div>
                                         </div>
                                         {/*<div className='row g-1 mt-1'>
