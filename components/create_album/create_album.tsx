@@ -93,7 +93,6 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                         if(file.type.includes('image') || file.type.includes('video')){
                             this.setState((prevState) => ({
                                 photoValue: [...prevState.photoValue, file],
-                                //photoValueName: [...prevState.photoValueName, file.name]
                             }));
                         }
                         else{
@@ -217,7 +216,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                                 tabIndex='-1'
                                                 multiple/>
                                             </span>
-                                                <button type='button' onClick={this.handleInputFile} className='btn-primary p-2' style={{borderRadius: 19,}}><i className='bi-file-earmark-image'></i> Upload photos or videos</button>
+                                                <button type='button' onClick={this.handleInputFile} className='btn-primary p-2' style={{borderRadius: 8,}}><i className='bi-file-earmark-image'></i> Upload photos or videos</button>
                                             </div>
                                             </div>
                                         </div>
@@ -228,7 +227,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                     <div>
                                         <div className='col-12'>
                                             <div className='d-grid gap-2'>
-                                                <button type='button' className='btn-primary p-2' style={{borderRadius: 19,}}>Post</button>
+                                                <button type='button' className='btn-primary p-2' style={{borderRadius: 8,}}>Post</button>
                                             </div>
                                         </div>
                                     </div>
@@ -263,7 +262,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                                 }
                                                 else{
                                                     render = (
-                                                        <video className='img-fluid rounded border border-2' width='320' height='240' controls>
+                                                        <video className='img-fluid rounded border border-2' width='400' height='290' controls>
                                                             <source src={item.blob} type='video/ogg' />
                                                         </video>
                                                     );
