@@ -122,6 +122,8 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                     reader.readAsArrayBuffer(parameter[i]);
                 }
             }
+        }else{
+            this.setState({image: []});
         }
     }
 
