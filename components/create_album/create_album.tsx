@@ -105,7 +105,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                 if (parameter[i]) {
                     const previewBlob = URL.createObjectURL(parameter[i]);
                     let typeValue;
-                    const value = parameterp[i];
+                    const value = parameter[i];
                     if(value.type.includes('image')){
                         typeValue = 'image';
                     }
