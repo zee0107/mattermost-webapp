@@ -87,7 +87,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                     const file = e.target.files[i];
                     console.log(file);
                     if(file.type.includes('svg') || filter.type.includes('xml')){
-                        alert('Only svg files are not allowed.');
+                        alert('*.svg files are not allowed.');
                     }
                     else{
                         if(file.type.includes('image') || file.type.includes('video')){
