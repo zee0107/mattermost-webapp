@@ -11,6 +11,7 @@ import $ from 'jquery';
 import { throws } from 'assert';
 import { UploadBlob } from 'mattermost-redux/types/crypto';
 import { Item } from 'react-bootstrap/lib/Breadcrumb';
+import { toInteger } from 'lodash';
 
 type Props = {
     status?: string;
@@ -127,11 +128,11 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
     removeItem = (name: string) => {
         const {photoValue} = this.state;
         Object.keys(photoValue).map((item) => {
-            if (photoValue[item].name === name) {
-                console.log(item);
-                /*this.setState((prevState) => ({
-                    photoValue: [...prevState.photoValue.slice(item,1), ...prevState.photoValue.slice(item+1)]
-                }));*/
+            const index = toInteger(item);
+            if (photoValue[index].name === name) {
+                this.setState((prevState) => ({
+                    photoValue: [...prevState.photoValue.slice(0, index), ...prevState.photoValue.slice(index + 1)]
+                }));
             }
         });
     }
@@ -244,7 +245,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
 
                                                     options = (
                                                         <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton2'>
-                                                            <li><a className='dropdown-item'><i className='bi-x-square-fill x-square-fill-style' onClick={() => this.removeItem(item.name)}></i> Delete photo</a></li>
+                                                            <li><a className='dropdown-item' onClick={() => this.removeItem(item.name)}><i className='bi-x-square-fill x-square-fill-style'></i> Delete photo</a></li>
                                                             <li><a className='dropdown-item'><i className='bi-download download-style'></i> Download</a></li>
                                                             <li><a className='dropdown-item'><i className='bi-card-image card-image-style'></i> Make profile picture</a></li>
                                                             <li><a className='dropdown-item'><i className='bi-image-alt image-alt-style'></i> Make cover photo</a></li>
@@ -260,7 +261,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
 
                                                     options = (
                                                         <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton2'>
-                                                            <li><a className='dropdown-item'><i className='bi-x-square-fill x-square-fill-style' onClick={() => this.removeItem(item.name)}></i> Delete Video</a></li>
+                                                            <li><a className='dropdown-item' onClick={() => this.removeItem(item.name)}><i className='bi-x-square-fill x-square-fill-style'></i> Delete Video</a></li>
                                                             <li><a className='dropdown-item'><i className='bi-download download-style'></i> Download</a></li>
                                                         </ul>
                                                     );
