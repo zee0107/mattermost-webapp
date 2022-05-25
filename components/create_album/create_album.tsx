@@ -63,9 +63,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
         const {photoValue} = this.state;
         console.log('currrent: ',photoValue);
         if (photoValue !== prevState.photoValue) {
-            for(var i = 0; i < photoValue.length; i++){
-                this.setPicture(photoValue[i]);
-            }
+            this.setPicture(photoValue);
         }
     }
 
@@ -94,8 +92,23 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
         }
     }
 
-    setPicture = (file) => {
-        if (file) {
+    setPicture = (parameter) => {
+        if (parameter.length > 0) {
+            for (let i = 0; i < parameter.length; i++) {
+                if (parameter[i]) {
+                    this.previewBlob = URL.createObjectURL(parameter[i]);
+
+                    var reader = new FileReader();
+                    reader.onload = (e) => {
+                        this.setState((prevState) => ({
+                            image: [...prevState.image, this.previewBlob],
+                        }));
+                    };
+                    reader.readAsArrayBuffer(file);
+                }
+            }
+        }
+        /*if (file) {
             this.previewBlob = URL.createObjectURL(file);
 
             var reader = new FileReader();
@@ -108,7 +121,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                 }));
             };
             reader.readAsArrayBuffer(file);
-        }
+        }*/
     }
 
    /*
