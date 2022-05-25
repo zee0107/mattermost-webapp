@@ -9,6 +9,7 @@ import logoDark from 'images/logoBlack.png';
 import postImage from 'images/post-1.png';
 import $ from 'jquery';
 import { throws } from 'assert';
+import CreatePostAlbum from 'components/create_post_album';
 
 type Props = {
     status?: string;
@@ -38,6 +39,9 @@ type State = {
     isStatusSet: boolean;
     isDark: string;
     privacyValue: string;
+    photoValue: string;
+    photoValueName: string;
+    prevName: string;
 };
 
 export default class CreateAlbum extends React.PureComponent<Props, State> {
@@ -60,6 +64,22 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
         this.setState({privacyValue: event.target.value});
     }
 
+    handleInputFile = () => {
+        this.selectInput.current.value = '';
+        this.selectInput.current.click();
+    }
+
+    updatePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            this.setState({photoValue: e.target.files[0],photoValueName: e.target.files[0].name});
+            if(this.state.prevName !== this.state.photoValueName){
+                this.setState({prevName: this.state.photoValueName});
+            }
+        } else {
+            this.setState({photoValue: null});
+        }
+    }
+
    /*componentDidUpdate(_,prevState) {
         console.log('Prev: ', prevState)
         if (this.state.photoValueName !== prevState.photoValueName) {
@@ -78,13 +98,6 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                 url={this.props.profilePicture}
             />
         );
-    }
-
-    
-
-    handleInputFile = () => {
-        this.selectInput.current.value = '';
-        this.selectInput.current.click();
     }
 
     setPicture = (file) => {
@@ -126,7 +139,8 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
         }
         return (
             <>
-                <div className='createyourPhotosandyouralbums'>
+                <CreatePostAlbum />
+                {/*<div className='createyourPhotosandyouralbums'>
                     <div className='container'>
                         <form>
                             <div className='row'>
@@ -163,6 +177,18 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                         <div className='row g-1 mt-1'>
                                             <div className='col-12'>
                                             <div className='d-grid gap-2'>
+                                            <span>
+                                                <input
+                                                data-testid='uploadPicture'
+                                                ref={this.selectInput}
+                                                className='hidden'
+                                                accept='image/*'
+                                                type='file'
+                                                onChange={this.updatePhoto}
+                                                //disabled={this.props.loadingPicture}
+                                                aria-hidden={true}
+                                                tabIndex='-1'/>
+                                            </span>
                                                 <button type='button' className='btn-primary p-2' style={{borderRadius: 19,}}><i className='bi-file-earmark-image'></i> Upload photos or videos</button>
                                             </div>
                                             </div>
@@ -188,7 +214,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                         <strong><label>Ready to add something?</label></strong>
                                         </p>
                                     </div>
-                                    {/*<div className='col-12'>
+                                    <div className='col-12'>
                                         <div className='row'>
                                             <div className='col-3 text-center mt-1 mb-1'>
                                             <div className='position-relative'>
@@ -263,17 +289,17 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                             </div>
                                             </div>
                                         </div>
-                                    </div>*/}
+                                    </div>
                                     <div className='photo-and-albums-menu-desktop'>
                                         <div className='position-absolute top-0 end-0 mt-4 me-4'>
-                                            {/*<a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
+                                            <a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
                                             <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>39+</span>
                                             <br/>
                                             <br/>
                                             <div className='mb-2'></div>
                                             <a className='onStorymessages' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelchatdesktop' aria-controls='offcanvasRightLabelchatdesktop'><i className='bi-chat-left-text-fill'></i></a>
                                             <span className='position-absolute right-0 start-100 translate-middle badge rounded-pill bg-danger'>14+</span>
-                                            <div className='mb-4'></div>*/}
+                                            <div className='mb-4'></div>
                                             <div className='d-flex'>
                                                 <a className='onStoryprofilesettings' id='defaultDropdown' id='dropdownMenuOffset' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
                                                 <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuOffset'>
@@ -286,14 +312,14 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='photo-and-albums-menu-mobile'>
-                                        {/*<div className='position-absolute top-0 start-50 translate-middle-x mt-3'>
+                                        <div className='position-absolute top-0 start-50 translate-middle-x mt-3'>
                                             <a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
                                             <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>39+</span>
                                         </div>
                                         <div className='position-absolute top-0 start-50 translate-middle-x mt-3' style={{margin:'0px 0px 0px 61px',}}>
                                             <a className='onStorymessages' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelchatdesktop' aria-controls='offcanvasRightLabelchatdesktop'><i className='bi-chat-left-text-fill'></i></a>
                                             <span className='position-absolute right-0 start-100 translate-middle badge rounded-pill bg-danger'>14+</span>
-                                        </div>*/}
+                                        </div>
                                         <div className='position-absolute top-0 start-50 translate-middle-x mt-1' style={{margin:'0px 0px 0px -61px',}}>
                                             <div className='d-flex'>
                                                 <a className='onStoryprofilesettings' id='defaultDropdown' id='dropdownMenuOffset' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
@@ -355,7 +381,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*/}
             </>
         );
     }
