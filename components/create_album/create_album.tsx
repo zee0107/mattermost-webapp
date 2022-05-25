@@ -46,6 +46,7 @@ type State = {
     prevName: string;
     albumName: string;
     image: UploadBlob[];
+    textError: string;
 };
 
 export default class CreateAlbum extends React.PureComponent<Props, State> {
@@ -151,6 +152,31 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
         });
     }
 
+    onCreateAlbum = () =>{
+        const { userId } = this.props;
+        const { photoValue, privacyValue, albumName } = this.state;
+        const uri = new URL('https://localhost:44312/api/crypter/CreateaLBUM');
+        const params = {user_id: userId, album_name: albumName, privacy: privacyValue};
+        uri.search = new URLSearchParams(params);
+
+        fetch(uri, {
+            method: 'POST',
+            body: photoValue,
+        }).then((response) => response.json()).then((data)=>{
+            if (data === 'Posted'){
+                window.location.href = '/crypter/channels/town-square';
+            }
+
+            if(data === 'NameError'){
+                this.setState({textError: 'Please add an album name.'});
+            }
+
+            if (data === 'No File'){
+                this.setState({textError: 'Please select photo to upload.'});
+            }
+        }).catch(error => this.setState({textError: error}));
+    }
+
     render= (): JSX.Element => {
         const { currentUser } = this.props;
         const { privacyValue, image, albumName } = this.state;
@@ -253,7 +279,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                     <div>
                                         <div className='col-12'>
                                             <div className='d-grid gap-2'>
-                                                <button type='button' className='btn-primary p-2' style={{borderRadius: 8,}}>Post</button>
+                                                <button type='button' className='btn-primary p-2' style={{borderRadius: 8,}} onClick={() => this.onCreateAlbum()}>Post</button>
                                             </div>
                                         </div>
                                     </div>
