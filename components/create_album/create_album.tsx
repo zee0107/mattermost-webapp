@@ -38,8 +38,8 @@ type State = {
     isStatusSet: boolean;
     isDark: string;
     privacyValue: string;
-    photoValue: string;
-    photoValueName: string;
+    photoValue: string[];
+    photoValueName: string[];
     prevName: string;
 };
 
@@ -48,7 +48,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone',};
+        this.state = {image: null,openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone',};
 
         //this.selectInput = React.createRef();
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
@@ -57,6 +57,15 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
     componentDidMount = async () =>{
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+    }
+
+    componentDidUpdate(_,prevState) {
+        const {photoValue} = this.state;
+        if (photoValue !== prevState.photoValue) {
+            photoValue.forEach((value) => {
+                this.setPicture(value);
+            });
+        }
     }
 
     onChangePrivacy = (event) => {
@@ -69,22 +78,38 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
     }
 
     updatePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
-            this.setState({photoValue: e.target.files[0],photoValueName: e.target.files[0].name});
-            if(this.state.prevName !== this.state.photoValueName){
-                this.setState({prevName: this.state.photoValueName});
+        if (e.target.files) {
+            if(e.target.files.length > 0 ){
+                for(var i = 0; i <= e.target.files.length; i++){
+                    this.setState(prevState => ({
+                        photoValue: [...prevState.photoValue, e.target.files[i]],
+                        photoValueName: [...prevState.photoValueName, e.target.files[i].name]
+                    }));
+                }
             }
         } else {
             this.setState({photoValue: null});
         }
     }
 
-   /*componentDidUpdate(_,prevState) {
-        console.log('Prev: ', prevState)
-        if (this.state.photoValueName !== prevState.photoValueName) {
-            this.setPicture(this.state.photoValue);
+    setPicture = (file) => {
+        if (file) {
+            this.previewBlob = URL.createObjectURL(file);
+
+            var reader = new FileReader();
+            reader.onload = (e) => {
+                //const orientation = FileUtils.getExifOrientation(e.target.result);
+                //const orientationStyles = FileUtils.getOrientationStyles(orientation);
+
+                this.setState(prevState => ({
+                    image: [...prevState.image, this.previewBlob],
+                }));
+            };
+            reader.readAsArrayBuffer(file);
         }
     }
+
+   /*
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
@@ -98,27 +123,11 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
             />
         );
     }
-
-    setPicture = (file) => {
-        if (file) {
-            this.previewBlob = URL.createObjectURL(file);
-
-            var reader = new FileReader();
-            reader.onload = (e) => {
-                //const orientation = FileUtils.getExifOrientation(e.target.result);
-                //const orientationStyles = FileUtils.getOrientationStyles(orientation);
-
-                this.setState({
-                    image: this.previewBlob,
-                });
-            };
-            reader.readAsArrayBuffer(file);
-        }
     }*/
 
     render= (): JSX.Element => {
         const { currentUser } = this.props;
-        const { privacyValue } = this.state;
+        const { privacyValue, image } = this.state;
 
         let privacyView;
         if(privacyValue === 'private'){
@@ -164,14 +173,14 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                             <input type='text' className='form-control' placeholder='Album name' aria-label='Album name'/>
                                             </div>
                                         </div>
-                                        <div className='row g-1 mt-1'>
+                                        {/*<div className='row g-1 mt-1'>
                                             <div className='col-6'>
                                             <input type='text' className='form-control' placeholder='Date' aria-label='Date'/>
                                             </div>
                                             <div className='col-6'>
                                             <input type='text' className='form-control' placeholder='Time' aria-label='Time'/>
                                             </div>
-                                        </div>
+                                        </div>*/}
                                         <div className='row g-1 mt-1'>
                                             <div className='col-12'>
                                             <div className='d-grid gap-2'>
@@ -187,7 +196,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                                 aria-hidden={true}
                                                 tabIndex='-1'/>
                                             </span>
-                                                <button type='button' className='btn-primary p-2' style={{borderRadius: 19,}}><i className='bi-file-earmark-image'></i> Upload photos or videos</button>
+                                                <button type='button' onClick={this.handleInputFile} className='btn-primary p-2' style={{borderRadius: 19,}}><i className='bi-file-earmark-image'></i> Upload photos or videos</button>
                                             </div>
                                             </div>
                                         </div>
@@ -212,26 +221,31 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                         <strong><label>Ready to add something?</label></strong>
                                         </p>
                                     </div>
-                                    {/*<div className='col-12'>
+                                   <div className='col-12'>
                                         <div className='row'>
-                                            <div className='col-3 text-center mt-1 mb-1'>
-                                            <div className='position-relative'>
-                                                <img className='img-fluid rounded border border-2' src='assets/images/sample-mobile-picture-5.png' alt=''/>
-                                                <div className='dropdown' style={{zIndex: 99,}}>
-                                                <span className='position-absolute top-0 start-100 translate-middle border-2 border-light rounded-circle padding-actions-photo'>
-                                                    <a className='onEachphotoactions' id='dropdownMenuButton2' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-pencil-fill text-white'></i></a>
-                                                    <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuButton2'>
-                                                        <li><a className='dropdown-item'><i className='bi-x-square-fill x-square-fill-style'></i> Delete photo</a></li>
-                                                        <li><a className='dropdown-item'><i className='bi-download download-style'></i> Download</a></li>
-                                                        <li><a className='dropdown-item onEditphotovideodate'><i className='bi-calendar2-date-fill calendar2-date-fill-style'></i> Edit date</a></li>
-                                                        <li><a className='dropdown-item'><i className='bi-card-image card-image-style'></i> Make profile picture</a></li>
-                                                        <li><a className='dropdown-item'><i className='bi-image-alt image-alt-style'></i> Make cover photo</a></li>
-                                                    </ul>
-                                                </span>
-                                                </div>
-                                            </div>
-                                            </div>
-                                            <div className='col-3 text-center mt-1 mb-1'>
+                                            {image && image.map((item,index) => {
+                                                return (
+                                                    <div className='col-3 text-center mt-1 mb-1' key={`${item}-${index}`}>
+                                                        <div className='position-relative'>
+                                                            <img className='img-fluid rounded border border-2' src={item} alt=''/>
+                                                            <div className='dropdown' style={{zIndex: 99,}}>
+                                                                <span className='position-absolute top-0 start-100 translate-middle border-2 border-light rounded-circle padding-actions-photo'>
+                                                                    <a className='onEachphotoactions' id='dropdownMenuButton2' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-pencil-fill text-white'></i></a>
+                                                                    <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuButton2'>
+                                                                        <li><a className='dropdown-item'><i className='bi-x-square-fill x-square-fill-style'></i> Delete photo</a></li>
+                                                                        <li><a className='dropdown-item'><i className='bi-download download-style'></i> Download</a></li>
+                                                                        <li><a className='dropdown-item onEditphotovideodate'><i className='bi-calendar2-date-fill calendar2-date-fill-style'></i> Edit date</a></li>
+                                                                        <li><a className='dropdown-item'><i className='bi-card-image card-image-style'></i> Make profile picture</a></li>
+                                                                        <li><a className='dropdown-item'><i className='bi-image-alt image-alt-style'></i> Make cover photo</a></li>
+                                                                    </ul>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                );
+                                            })}
+                                            
+                                             {/*<div className='col-3 text-center mt-1 mb-1'>
                                             <div className='position-relative'>
                                                 <img className='img-fluid rounded border border-2' src='assets/images/sample-mobile-picture-4.png' alt=''/>
                                                 <div className='dropdown' style={{zIndex: 99,}}>
@@ -285,9 +299,9 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                                 </span>
                                                 </div>
                                             </div>
-                                            </div>
+                                            </div>*/}
                                         </div>
-                                    </div>*/}
+                                    </div>
                                     <div className='photo-and-albums-menu-desktop'>
                                         <div className='position-absolute top-0 end-0 mt-4 me-4'>
                                             {/*<a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
