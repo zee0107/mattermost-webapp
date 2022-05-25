@@ -133,6 +133,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                 this.setState((prevState) => ({
                     photoValue: [...prevState.photoValue.slice(0, index), ...prevState.photoValue.slice(index + 1)]
                 }));
+                console.log(photoValue);
             }
         });
     }
