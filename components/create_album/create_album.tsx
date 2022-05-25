@@ -80,11 +80,15 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
             if(e.target.files.length > 0 ){
                 for(var i = 0; i < e.target.files.length; i++){
                     const file = e.target.files[i];
-                    console.log(file);
-                    this.setState((prevState) => ({
-                        photoValue: [...prevState.photoValue, file],
-                        //photoValueName: [...prevState.photoValueName, file.name]
-                    }));
+                    if(file.type.includes('image') || file.type.includes('video')){
+                        this.setState((prevState) => ({
+                            photoValue: [...prevState.photoValue, file],
+                            //photoValueName: [...prevState.photoValueName, file.name]
+                        }));
+                    }
+                    else{
+                        alert('Only photo and videos are allowed.');
+                    }
                 }
             }
         } else {
