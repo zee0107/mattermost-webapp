@@ -128,8 +128,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
         const {photoValue} = this.state;
         Object.keys(photoValue).map((item) => {
             if (photoValue[item].name === name) {
-                const data = photoValue.indexOf(item);
-                console.log(data);
+                console.log(item);
                 /*this.setState((prevState) => ({
                     photoValue: [...prevState.photoValue.slice(item,1), ...prevState.photoValue.slice(item+1)]
                 }));*/
