@@ -153,7 +153,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const { currentUser } = this.props;
-        const { privacyValue, image } = this.state;
+        const { privacyValue, image, albumName } = this.state;
         let privacyView;
         if(privacyValue === 'private'){
             privacyView = (
@@ -168,6 +168,26 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
         else{
             privacyView = (
                 <a className='ms-0 storyprivacyeveryoneviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Everyone is selected go to your photos and albums'><i className='bi-globe'></i> Everyone</a>
+            );
+        }
+
+        let nameValue;
+        if (albumName) {
+            nameValue = (
+                <p>
+                    <i className='bi-images'></i>
+                    <br/>
+                    <strong><label>{albumName}</label></strong>
+                </p>
+            );
+        }
+        else{
+            nameValue = (
+                <p>
+                    <i className='bi-images'></i>
+                    <br/>
+                    <strong><label>Ready to add something?</label></strong>
+                </p>
             );
         }
         return (
@@ -241,11 +261,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className='col-lg-9 right-nav-story'>
                                     <div className='col-12 text-center p-5 uploaded-photos-or-video-goes-here'>
-                                        <p>
-                                        <i className='bi-images'></i>
-                                        <br/>
-                                        <strong><label>Ready to add something?</label></strong>
-                                        </p>
+                                        {nameValue}
                                     </div>
                                    <div className='col-12'>
                                         <div className='row'>
