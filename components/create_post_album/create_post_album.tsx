@@ -341,7 +341,7 @@ type State = {
     uploading: boolean;
 }
 
-class CreatePostProfile extends React.PureComponent<Props, State> {
+class CreatePostAlbum extends React.PureComponent<Props, State> {
     static defaultProps = {
         latestReplyablePostId: '',
     }
