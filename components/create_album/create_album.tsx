@@ -48,7 +48,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {photoValueName: [],photoValue: [],image: null,openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone',};
+        this.state = {photoValueName: [],photoValue: [],image: [],openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone',};
 
         this.selectInput = React.createRef();
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
@@ -106,7 +106,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                 //const orientation = FileUtils.getExifOrientation(e.target.result);
                 //const orientationStyles = FileUtils.getOrientationStyles(orientation);
 
-                this.setState(prevState => ({
+                this.setState((prevState) => ({
                     image: [...prevState.image, this.previewBlob],
                 }));
             };
