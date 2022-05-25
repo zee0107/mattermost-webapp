@@ -130,10 +130,10 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
         Object.keys(photoValue).map((item) => {
             const index = toInteger(item);
             if (photoValue[index].name === name) {
+                console.log('last deleted');
                 this.setState((prevState) => ({
                     photoValue: [...prevState.photoValue.slice(0, index), ...prevState.photoValue.slice(index + 1)]
                 }));
-                console.log(photoValue);
             }
         });
     }
