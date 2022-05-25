@@ -155,7 +155,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
             <>
                 <div className='createyourPhotosandyouralbums'>
                     <div className='container'>
-                        <form>
+                        <form encType='multipart/form-data'>
                             <div className='row'>
                                 <div className='col-lg-3 border-end p-4'>
                                     <p><img className='img-fluid mt-2' src={logoDark} alt='logo' title='logo' />
