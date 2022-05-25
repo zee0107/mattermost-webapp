@@ -38,6 +38,12 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
         }
     }
 
+    componentDidUpdate(){
+        if(this.props.myalbums !== undefined && this.props.myalbums !== null){
+            Promise.resolve(this.props.myalbums).then((value) => {this.setState({myalbums: value});})
+        }
+    }
+
     myAlbums = () => {
         let errorServer;
 
