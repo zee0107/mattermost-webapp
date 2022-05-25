@@ -50,7 +50,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
         super(props);
         this.state = {image: null,openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone',};
 
-        //this.selectInput = React.createRef();
+        this.selectInput = React.createRef();
         this.onChangePrivacy = this.onChangePrivacy.bind(this);
     }
 
