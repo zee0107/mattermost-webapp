@@ -200,7 +200,8 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                                 onChange={this.updatePhoto}
                                                 //disabled={this.props.loadingPicture}
                                                 aria-hidden={true}
-                                                tabIndex='-1'/>
+                                                tabIndex='-1'
+                                                multiple/>
                                             </span>
                                                 <button type='button' onClick={this.handleInputFile} className='btn-primary p-2' style={{borderRadius: 19,}}><i className='bi-file-earmark-image'></i> Upload photos or videos</button>
                                             </div>
