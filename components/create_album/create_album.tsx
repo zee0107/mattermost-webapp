@@ -85,7 +85,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                     const file = e.target.files[i];
                     this.setState((prevState) => ({
                         photoValue: [...prevState.photoValue, file],
-                        photoValueName: [...prevState.photoValueName, file.name]
+                        //photoValueName: [...prevState.photoValueName, file.name]
                     }));
                 }
                 /*for(var i = 0; i <= e.target.files.length; i++){
