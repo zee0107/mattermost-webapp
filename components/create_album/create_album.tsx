@@ -203,7 +203,6 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                                 data-testid='uploadPicture'
                                                 ref={this.selectInput}
                                                 className='hidden'
-                                                accept='image/*'
                                                 type='file'
                                                 onChange={this.updatePhoto}
                                                 //disabled={this.props.loadingPicture}
