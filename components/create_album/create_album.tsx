@@ -61,6 +61,8 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
 
     componentDidUpdate(_,prevState) {
         const {photoValue, image} = this.state;
+        console.log('current: ', image);
+        console.log('previous: ', prevState.image);
         if (image !== prevState.image) {
             photoValue.forEach((value) => {
                 this.setPicture(value);
@@ -132,7 +134,6 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const { currentUser } = this.props;
         const { privacyValue, image } = this.state;
-        console.log(image);
         let privacyView;
         if(privacyValue === 'private'){
             privacyView = (
