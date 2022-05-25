@@ -5,15 +5,18 @@ import React from 'react';
 
 import {UserProfile} from 'mattermost-redux/types/users';
 import RightSideView from 'components/right_side_view';
+import { Album } from 'mattermost-redux/types/crypto';
 
 export type Props = {
     userId: string;
     currentUser: UserProfile;
+    myalbums: Promise<Album[]>;
 }
 
 type State = {
     isDark: string;
     album_view: string;
+    myalbums: Album[];
 };
 export default class MyAlbums extends React.PureComponent<Props, State> {
     static defaultProps = {
@@ -29,6 +32,10 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
+
+        if(this.props.myalbums !== undefined && this.props.myalbums !== null){
+            Promise.resolve(this.props.myalbums).then((value) => {this.setState({myalbums: value});})
+        }
     }
 
     myAlbums = () => {
@@ -38,6 +45,21 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
             <div className='joinedcontent col-md-12'>
                 {errorServer}
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
+                    {this.state.myalbums.map((item,index) => {
+                        return(
+                            <div className='col-md-3 p-1' key={`${item}--${index}`}>
+                                <div className='box-each-groups'>
+                                    <p className='mt-4 ms-3 ml-5'>
+                                    <label className='text-name-products'><strong>{item.album_name}</strong></label><br/>{item.img_count} Images
+                                    </p>
+                                    <div className='col-md-12 mb-3 p-3 text-center'>
+                                        <div className='d-grid'><button type='button' className='btn onUnfollowsuggested'><label>View</label></button></div>
+                                    </div>
+                                    <div className='row'></div>
+                                </div>
+                            </div>
+                        );
+                    })}
                     {/*this.state.mygroups.map((item,index) => {
                         if(item.display_name !== ''  && item.display_name !== 'Town Square'){
                             return(

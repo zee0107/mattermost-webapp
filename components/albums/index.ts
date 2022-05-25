@@ -12,10 +12,11 @@ function makeMapStateToProps() {
     return function mapStateToProps(state: GlobalState) {
         const currentUser = getCurrentUser(state);
         const userId = currentUser?.id;
-        //const teamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
+        const myalbums = Client4.albumList(userId);
         return {
             userId,
             currentUser,
+            myalbums,
         };
     };
 }
