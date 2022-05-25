@@ -94,6 +94,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
 
     setPicture = (parameter) => {
         if (parameter.length > 0) {
+            this.setState({image: []}); 
             for (let i = 0; i < parameter.length; i++) {
                 if (parameter[i]) {
                     this.previewBlob = URL.createObjectURL(parameter[i]);
