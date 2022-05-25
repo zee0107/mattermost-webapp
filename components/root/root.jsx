@@ -58,6 +58,7 @@ const LazySignupProfile = React.lazy(() => import('components/signup/signup_prof
 const LazyProfilePage = React.lazy(() => import('components/profile_page'));
 const LazyNewsFeed = React.lazy(() => import('components/newsfeed'));
 const LazyGroup = React.lazy(() => import('components/groups'));
+const LazyAlbum = React.lazy(() => import('components/albums'));
 const LazyCreateStory = React.lazy(() => import('components/create_story'));
 const LazyCreateAlbum = React.lazy(() => import('components/create_album'));
 const LazyViewStory = React.lazy(() => import('components/view_story'));
@@ -120,6 +121,7 @@ import {applyLuxonDefaults} from './effects';
 
 import RootRedirect from './root_redirect';
 import landing_page from 'components/landing_page';
+import albums from 'components/albums';
 
 const CreateTeam = makeAsyncComponent('CreateTeam', LazyCreateTeam);
 const ErrorPage = makeAsyncComponent('ErrorPage', LazyErrorPage);
@@ -137,6 +139,7 @@ const SignupProfile = makeAsyncComponent('SignupProfile', LazySignupProfile);
 const ProfilePage = makeAsyncComponent('ProfilePage', LazyProfilePage);
 const NewsFeed = makeAsyncComponent('Newsfeed', LazyNewsFeed);
 const Groups = makeAsyncComponent('Group', LazyGroup);
+const Albums = makeAsyncComponent('Albums', LazyAlbum);
 const CreateStory = makeAsyncComponent('CreateStory', LazyCreateStory);
 const CreateAlbum = makeAsyncComponent('CreateAlbum', LazyCreateAlbum);
 const ViewStory = makeAsyncComponent('ViewStory', LazyViewStory);
@@ -747,6 +750,10 @@ export default class Root extends React.PureComponent {
                                 <LoginHFTRouteF
                                     path={'/mygroups'}
                                     component={Groups}
+                                />
+                                <LoginHFTRouteF
+                                    path={'/albums/myalbums'}
+                                    component={Albums}
                                 />
                                 <LoginHFTRouteF
                                     path={'/launchpadtoken'}

@@ -180,6 +180,14 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
             if (data === 'No File'){
                 this.setState({textError: 'Please select photo to upload.'});
             }
+
+            if (data === 'Already Exist'){
+                this.setState({textError: 'Album name already exist.'});
+            }
+
+            if (data === 'Failed'){
+                this.setState({textError: 'Please try again.'});
+            }
         }).catch(error => this.setState({textError: error}));
     }
 

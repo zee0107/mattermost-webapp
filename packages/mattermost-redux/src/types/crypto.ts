@@ -237,3 +237,13 @@ export type UploadBlob = {
     type: string;
     name: string;
 }
+
+export type Album = {
+    id: string;
+    user_id: string;
+    album_name: string;
+    files_names: string[];
+    privacy: string;
+    img_count: number;
+    date: string;
+}
