@@ -10,6 +10,7 @@ import postImage from 'images/post-1.png';
 import $ from 'jquery';
 import { throws } from 'assert';
 import { UploadBlob } from 'mattermost-redux/types/crypto';
+import { Item } from 'react-bootstrap/lib/Breadcrumb';
 
 type Props = {
     status?: string;
@@ -112,6 +113,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                             image: [...prevState.image, {
                                 blob: previewBlob,
                                 type: typeValue,
+                                name: value.name,
                             }],
                         }));
                     };
@@ -119,37 +121,14 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                 }
             }
         }
-        /*if (file) {
-            this.previewBlob = URL.createObjectURL(file);
-
-            var reader = new FileReader();
-            reader.onload = (e) => {
-                //const orientation = FileUtils.getExifOrientation(e.target.result);
-                //const orientationStyles = FileUtils.getOrientationStyles(orientation);
-
-                this.setState((prevState) => ({
-                    image: [...prevState.image, this.previewBlob],
-                }));
-            };
-            reader.readAsArrayBuffer(file);
-        }*/
     }
 
-   /*
-
-    renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
-        if (!this.props.profilePicture) {
-            return null;
-        }
-        
-        return (
-            <Avatar
-                size={size}
-                url={this.props.profilePicture}
-            />
-        );
+    removeItem = (name: string) => {
+        const {photoValue} = this.state;
+        photoValue.map((item, index) => {
+            console.log(item);
+        });
     }
-    }*/
 
     render= (): JSX.Element => {
         const { currentUser } = this.props;
@@ -251,9 +230,19 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                         <div className='row'>
                                             {image && image.map((item,index) => {
                                                 let render;
+                                                let options;
                                                 if(item.type === 'image'){
                                                     render = (
                                                         <img className='img-fluid rounded border border-2' src={item.blob} alt=''/>
+                                                    );
+
+                                                    options = (
+                                                        <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton2'>
+                                                            <li><a className='dropdown-item'><i className='bi-x-square-fill x-square-fill-style' onClick={() => this.removeItem(item.name)}></i> Delete photo</a></li>
+                                                            <li><a className='dropdown-item'><i className='bi-download download-style'></i> Download</a></li>
+                                                            <li><a className='dropdown-item'><i className='bi-card-image card-image-style'></i> Make profile picture</a></li>
+                                                            <li><a className='dropdown-item'><i className='bi-image-alt image-alt-style'></i> Make cover photo</a></li>
+                                                        </ul>
                                                     );
                                                 }
                                                 else{
@@ -261,6 +250,13 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                                         <video className='img-fluid rounded border border-2' width='320' height='240' controls>
                                                             <source src={item.blob} type='video/ogg' />
                                                         </video>
+                                                    );
+
+                                                    options = (
+                                                        <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton2'>
+                                                            <li><a className='dropdown-item'><i className='bi-x-square-fill x-square-fill-style' onClick={() => this.removeItem(item.name)}></i> Delete Video</a></li>
+                                                            <li><a className='dropdown-item'><i className='bi-download download-style'></i> Download</a></li>
+                                                        </ul>
                                                     );
                                                 }
                                                 return (
@@ -270,75 +266,13 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                                             <div className='dropdown' style={{zIndex: 99,}}>
                                                                 <span className='position-absolute top-0 start-100 translate-middle border-2 border-light rounded-circle padding-actions-photo'>
                                                                     <a className='onEachphotoactions' id='dropdownMenuButton2' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-pencil-fill text-white'></i></a>
-                                                                    <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuButton2'>
-                                                                        <li><a className='dropdown-item'><i className='bi-x-square-fill x-square-fill-style'></i> Delete photo</a></li>
-                                                                        <li><a className='dropdown-item'><i className='bi-download download-style'></i> Download</a></li>
-                                                                        <li><a className='dropdown-item onEditphotovideodate'><i className='bi-calendar2-date-fill calendar2-date-fill-style'></i> Edit date</a></li>
-                                                                        <li><a className='dropdown-item'><i className='bi-card-image card-image-style'></i> Make profile picture</a></li>
-                                                                        <li><a className='dropdown-item'><i className='bi-image-alt image-alt-style'></i> Make cover photo</a></li>
-                                                                    </ul>
+                                                                    {options}
                                                                 </span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 );
                                             })}
-                                            
-                                             {/*<div className='col-3 text-center mt-1 mb-1'>
-                                            <div className='position-relative'>
-                                                <img className='img-fluid rounded border border-2' src='assets/images/sample-mobile-picture-4.png' alt=''/>
-                                                <div className='dropdown' style={{zIndex: 99,}}>
-                                                <span className='position-absolute top-0 start-100 translate-middle border-2 border-light rounded-circle padding-actions-photo'>
-                                                    <a className='onEachphotoactions' id='dropdownMenuButton2' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-pencil-fill text-white'></i></a>
-                                                    <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuButton2'>
-                                                        <li><a className='dropdown-item'><i className='bi-x-square-fill x-square-fill-style'></i> Delete photo</a></li>
-                                                        <li><a className='dropdown-item'><i className='bi-download download-style'></i> Download</a></li>
-                                                        <li><a className='dropdown-item onEditphotovideodate'><i className='bi-calendar2-date-fill calendar2-date-fill-style'></i> Edit date</a></li>
-                                                        <li><a className='dropdown-item'><i className='bi-card-image card-image-style'></i> Make profile picture</a></li>
-                                                        <li><a className='dropdown-item'><i className='bi-image-alt image-alt-style'></i> Make cover photo</a></li>
-                                                    </ul>
-                                                </span>
-                                                </div>
-                                            </div>
-                                            </div>
-                                            <div className='col-3 text-center mt-1 mb-1'>
-                                            <div className='position-relative'>
-                                                <img className='img-fluid rounded border border-2' src='assets/images/sample-mobile-picture-3.png' alt=''/>
-                                                <div className='dropdown' style={{zIndex: 99,}}>
-                                                <span className='position-absolute top-0 start-100 translate-middle border-2 border-light rounded-circle padding-actions-photo'>
-                                                
-                                                    <a className='onEachphotoactions' id='dropdownMenuButton2' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-pencil-fill text-white'></i></a>
-                                                
-                                                    <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuButton2'>
-                                                        <li><a className='dropdown-item'><i className='bi-x-square-fill x-square-fill-style'></i> Delete photo</a></li>
-                                                        <li><a className='dropdown-item'><i className='bi-download download-style'></i> Download</a></li>
-                                                        <li><a className='dropdown-item onEditphotovideodate'><i className='bi-calendar2-date-fill calendar2-date-fill-style'></i> Edit date</a></li>
-                                                        <li><a className='dropdown-item'><i className='bi-card-image card-image-style'></i> Make profile picture</a></li>
-                                                        <li><a className='dropdown-item'><i className='bi-image-alt image-alt-style'></i> Make cover photo</a></li>
-                                                    </ul>
-                                                </span>
-                                                </div>
-                                            </div>
-                                            </div>
-                                            <div className='col-3 text-center mt-1 mb-1'>
-                                            <div className='position-relative'>
-                                                <img className='img-fluid rounded border border-2' src='assets/images/sample-mobile-picture-2.png' alt=''/>
-                                                <div className='dropdown' style={{zIndex: 99,}}>
-                                                <span className='position-absolute top-0 start-100 translate-middle border-2 border-light rounded-circle padding-actions-photo'>
-                                                
-                                                    <a className='onEachphotoactions' id='dropdownMenuButton2' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-pencil-fill text-white'></i></a>
-                                                
-                                                    <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuButton2'>
-                                                        <li><a className='dropdown-item'><i className='bi-x-square-fill x-square-fill-style'></i> Delete photo</a></li>
-                                                        <li><a className='dropdown-item'><i className='bi-download download-style'></i> Download</a></li>
-                                                        <li><a className='dropdown-item onEditphotovideodate'><i className='bi-calendar2-date-fill calendar2-date-fill-style'></i> Edit date</a></li>
-                                                        <li><a className='dropdown-item'><i className='bi-card-image card-image-style'></i> Make profile picture</a></li>
-                                                        <li><a className='dropdown-item'><i className='bi-image-alt image-alt-style'></i> Make cover photo</a></li>
-                                                    </ul>
-                                                </span>
-                                                </div>
-                                            </div>
-                                            </div>*/}
                                         </div>
                                     </div>
                                     <div className='photo-and-albums-menu-desktop'>

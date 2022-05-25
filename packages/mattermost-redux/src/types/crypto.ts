@@ -235,4 +235,5 @@ export type UserSettings = {
 export type UploadBlob = {
     blob: string;
     type: string;
+    name: string;
 }
