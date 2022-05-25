@@ -1633,5 +1633,5 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
     }
 }
 
-export default injectIntl(CreatePostProfile);
+export default injectIntl(CreatePostAlbum);
 /* eslint-enable react/no-string-refs */
