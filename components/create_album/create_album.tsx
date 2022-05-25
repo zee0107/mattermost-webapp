@@ -62,9 +62,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
     componentDidUpdate(_,prevState) {
         const {photoValue} = this.state;
         console.log('currrent: ',photoValue);
-        console.log('previous: ',prevState.photoValue);
         if (photoValue !== prevState.photoValue) {
-            console.log(true);
             for(var i = 0; i < photoValue.length; i++){
                 this.setPicture(photoValue[i]);
             }
@@ -133,6 +131,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
         const { currentUser } = this.props;
         const { privacyValue, image } = this.state;
         let privacyView;
+        console.log(image);
         if(privacyValue === 'private'){
             privacyView = (
                 <a className='ms-0 storyprivacyonlymeviews' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Only you is selected go to your photos and albums'><i className='bi-person'></i> Private</a>
