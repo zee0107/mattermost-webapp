@@ -265,7 +265,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                                 }
                                                 else{
                                                     render = (
-                                                        <video width='320' height='240' controls>
+                                                        <video className='img-fluid rounded border border-2' width='320' height='240' controls>
                                                             <source src={item.blob} type='video/ogg' />
                                                         </video>
                                                     );
