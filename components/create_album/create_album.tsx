@@ -259,7 +259,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                                 let render;
                                                 if(item.type === 'images'){
                                                     render = (
-                                                        <img className='img-fluid rounded border border-2' src={item} alt=''/>
+                                                        <img className='img-fluid rounded border border-2' src={item.blob} alt=''/>
                                                     );
                                                 }
                                                 else{
