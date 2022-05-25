@@ -231,3 +231,8 @@ export type UserSettings = {
     story_archive: boolean;
     dark_mode: boolean;
 }
+
+export type UploadBlob = {
+    blob: string;
+    type: string;
+}

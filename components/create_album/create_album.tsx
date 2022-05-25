@@ -9,6 +9,7 @@ import logoDark from 'images/logoBlack.png';
 import postImage from 'images/post-1.png';
 import $ from 'jquery';
 import { throws } from 'assert';
+import { UploadBlob } from 'mattermost-redux/types/crypto';
 
 type Props = {
     status?: string;
@@ -41,6 +42,7 @@ type State = {
     photoValue: string[];
     photoValueName: string[];
     prevName: string;
+    image: UploadBlob[];
 };
 
 export default class CreateAlbum extends React.PureComponent<Props, State> {
@@ -102,10 +104,21 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
             for (let i = 0; i < parameter.length; i++) {
                 if (parameter[i]) {
                     const previewBlob = URL.createObjectURL(parameter[i]);
+                    let typeValue;
+                    const value = parameterp[i];
+                    if(value.type.includes('image')){
+                        typeValue = 'image';
+                    }
+                    else{
+                        typeValue = 'video';
+                    }
                     var reader = new FileReader();
                     reader.onloadend = (e) => {
                         this.setState((prevState) => ({
-                            image: [...prevState.image, previewBlob],
+                            image: [...prevState.image, {
+                                blob: previewBlob,
+                                type: typeValue,
+                            }],
                         }));
                     };
                     reader.readAsArrayBuffer(parameter[i]);
@@ -243,10 +256,23 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                    <div className='col-12'>
                                         <div className='row'>
                                             {image && image.map((item,index) => {
+                                                let render;
+                                                if(item.type === 'images'){
+                                                    render = (
+                                                        <img className='img-fluid rounded border border-2' src={item} alt=''/>
+                                                    );
+                                                }
+                                                else{
+                                                    render = (
+                                                        <video width='320' height='240' controls>
+                                                            <source src={item.blob} type='video/ogg' />
+                                                        </video>
+                                                    );
+                                                }
                                                 return (
                                                     <div className='col-3 text-center mt-1 mb-1' key={`${item}-${index}`}>
                                                         <div className='position-relative'>
-                                                            <img className='img-fluid rounded border border-2' src={item} alt=''/>
+                                                            {render}
                                                             <div className='dropdown' style={{zIndex: 99,}}>
                                                                 <span className='position-absolute top-0 start-100 translate-middle border-2 border-light rounded-circle padding-actions-photo'>
                                                                     <a className='onEachphotoactions' id='dropdownMenuButton2' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-pencil-fill text-white'></i></a>
