@@ -160,9 +160,14 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
         const params = {user_id: userId,files: photoValueName, album_name: albumName, privacy: privacyValue};
         uri.search = new URLSearchParams(params);
 
+        const data = new FormData();
+        for (let i = 0; i < photoValue.length; i++) {
+            data.append('file', photoValue[i]);
+        }
+
         fetch(uri, {
             method: 'POST',
-            body: photoValue,
+            body: data,
         }).then((response) => response.json()).then((data)=>{
             if (data === 'Posted'){
                 window.location.href = '/crypter/channels/town-square';
