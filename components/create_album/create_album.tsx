@@ -104,15 +104,8 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
             for (let i = 0; i < parameter.length; i++) {
                 if (parameter[i]) {
                     const previewBlob = URL.createObjectURL(parameter[i]);
-                    let typeValue;
                     const value = parameter[i];
-                    if(value.type.includes('image')){
-                        console.log(true);
-                        typeValue = 'image';
-                    }
-                    else{
-                        typeValue = 'video';
-                    }
+                    const typeValue = value.type.includes('image') ? 'image' : 'video';
                     var reader = new FileReader();
                     reader.onloadend = (e) => {
                         this.setState((prevState) => ({
@@ -258,7 +251,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                         <div className='row'>
                                             {image && image.map((item,index) => {
                                                 let render;
-                                                if(item.type === 'images'){
+                                                if(item.type === 'image'){
                                                     render = (
                                                         <img className='img-fluid rounded border border-2' src={item.blob} alt=''/>
                                                     );
