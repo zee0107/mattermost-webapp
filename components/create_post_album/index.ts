@@ -71,10 +71,6 @@ function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
 
     return (state: GlobalState, ownProps: OwnProps) => {
-        if(state.entities.teams.currentTeamId === "" || state.entities.teams.currentTeamId === null || state.entities.teams.currentTeamId === undefined){
-            const stateValue = window.localStorage.getItem('GlobalState');
-            state = JSON.parse(stateValue);
-        }
         const channel = getChannelByName(state,'town-square');
         const channelId = channel?.id;
         //const channelId = 'dodurztr1fbupnpenjgxqjso3a';
