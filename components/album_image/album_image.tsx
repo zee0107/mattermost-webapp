@@ -57,20 +57,10 @@ export default class AlbumImage extends React.PureComponent<Props, State> {
         const { img_url } = this.state;
         let cover;
         if(img_url === 'unavailable'){
-            if(suggested){
-                cover = (<img width='100%' height='190' src={GroupLogo} alt=''/>);
-            }
-            else{
-                cover = (<img onClick={this.handleRedirect.bind(this,channelName,channelId)} width='100%' height='190' src={GroupLogo} alt=''/>);
-            }
+            cover = (<img width='100%' height='190' src={GroupLogo} alt=''/>);
         }
         else{
-            if(suggested){
-                cover = (<img width='100%' height='190' src={img_url} alt=''/>);
-            }
-            else{
-                cover = (<img onClick={this.handleRedirect.bind(this,channelName,channelId)} width='100%' height='190' src={img_url} alt=''/>);
-            }
+            cover = (<img width='100%' height='190' src={img_url} alt=''/>);
         }
 
         return (
