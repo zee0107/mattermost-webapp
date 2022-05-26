@@ -47,11 +47,11 @@ export default class AlbumView extends React.PureComponent<Props, State> {
 
     myAlbums = () => {
         const {album} = this.state;
-        const images = album.files_names.split(',');
         let errorServer;
         let list;
         let noList;
         if(album){
+            const images = album.files_names.split(',');
             list = (
                 <>
                     {images.map((item,index) => {
