@@ -14,7 +14,7 @@ type ownProps = {
 function makeMapStateToProps() {
     return function mapStateToProps(state: GlobalState, ownProps: ownProps) {
         const currentUser = getCurrentUser(state);
-        const searchParam = ownprops.location.search.replace('?a=','');
+        const searchParam = ownProps.location.search.replace('?a=','');
         let album;
         if (searchParam !== undefined && searchParam !== null && searchParam !== '') {
             album = Client4.getAlbum(searchParam);
