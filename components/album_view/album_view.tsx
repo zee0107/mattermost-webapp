@@ -129,7 +129,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
 
             viewImagesMobile = (
                 <>
-                    <div id='carouselVideophotosIndicators' className='carousel slide' data-bs-interval='false'>
+                    <div id='carouselVideophotosIndicatorsMobile' className='carousel slide' data-bs-interval='false'>
                         <div className='carousel-inner'>
                             {imageList.map((item,index) => {
                                 let activeClass;
@@ -147,11 +147,11 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                 );
                             })}
                         </div>
-                        <a className='carousel-control-prev' href='#carouselVideophotosIndicators' role='button' data-slide='prev'>
+                        <a className='carousel-control-prev' href='#carouselVideophotosIndicatorsMobile' role='button' data-slide='prev'>
                             <span className='carousel-control-prev-icon' aria-hidden='true'></span>
                             <span className='sr-only'>Previous</span>
                         </a>
-                        <a className='carousel-control-next' href='#carouselVideophotosIndicators' role='button' data-slide='next'>
+                        <a className='carousel-control-next' href='#carouselVideophotosIndicatorsMobile' role='button' data-slide='next'>
                             <span className='carousel-control-next-icon' aria-hidden='true'></span>
                             <span className='sr-only'>Next</span>
                         </a>
