@@ -49,6 +49,7 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
         let errorServer;
         let list;
         let noList;
+        console.log(myalbums)
         if(myalbums !== undefined && myalbums !== null && myalbums !== []){
             list = (
                 <>
@@ -72,7 +73,7 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
         }
         else{
             noList = (
-                <h2 className='text-muted'><i className='bi-image'></i><br/>There are no albums</h2>
+                <h2 className='text-muted text-center'><i className='bi-image'></i><br/>There are no albums</h2>
             );
         }
 
