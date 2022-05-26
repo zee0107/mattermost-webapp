@@ -183,23 +183,23 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                 </div>
                 <div className='modal' id='ViewImageModal' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='ViewImageModal' aria-hidden='true'>
                     <div className='modal-dialog modal-fullscreen' role='document'>
-                        <div className='modal-content'>
-                            <div className='modal-header'>
+                        <div className='modal-content' style={{background: 'transparent'}}>
+                            <div className='modal-header' style={{background: 'transparent'}}>
                                 <div className='video-photo-post-viewer-desktop'>
                                     <div className='position-absolute top-0 end-0 p-2' style={{zIndex: 99}}>
-                                        <a className='onClosevideophotosprev shadow float-end ms-2'><i className='bi-x'></i></a>
+                                        <a className='onClosevideophotosprev shadow float-end ms-2' data-bs-dismiss='modal'><i className='bi-x'></i></a>
                                     </div>
                                 </div>
                                 <div className='video-photo-post-viewer-mobile'>
                                     <div className='position-absolute top-0 end-0 p-3' style={{zIndex:350, margin:'62px 0px 0px 0px'}}>
-                                        <a className='onClosevideophotosprev shadow float-end ms-2'><i className='bi-x'></i></a>
+                                        <a className='onClosevideophotosprev shadow float-end ms-2' data-bs-dismiss='modal'><i className='bi-x'></i></a>
                                     </div>
                                 </div>
                                 <div className='position-absolute top-0 start-0 p-2' style={{zIndex: 99}}>
                                     <img className='img-fluid' src={logoWhite} alt=''/>
                                 </div>
                             </div>
-                            <div className='modal-body'>
+                            <div className='modal-body' style={{background: 'transparent',border:'transparent'}}>
                                {viewImages}
                             </div>
                         </div>
