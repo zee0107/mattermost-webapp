@@ -33,6 +33,7 @@ export default class AlbumImage extends React.PureComponent<Props, State> {
     getImage = async (channel: string) => {
         const {albumId, fileName} = this.props;
         const response = await fetch(`https://localhost:44312/api/crypter/albumfile?id=${albumId}&filename=${fileName}`);
+        console.log(response);
         const imageBlob = await response.blob();
         const textBlob = await imageBlob.text();
         if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
