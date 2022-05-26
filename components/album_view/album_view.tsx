@@ -123,11 +123,11 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                     );
                                 })}
                             </div>
-                            <a className='carousel-control-prev' href='#' data-bs-target='#carouselloopIndicators' data-bs-slide='prev' role='button'>
+                            <a className='carousel-control-prev' href='#' style={{width:'10%'}} data-bs-target='#carouselloopIndicators' data-bs-slide='prev' role='button'>
                                 <span className='carousel-control-prev-icon' aria-hidden='true'></span>
                                 <span className='sr-only'>Previous</span>
                             </a>
-                            <a className='carousel-control-next' href='#' data-bs-target='#carouselloopIndicators' data-bs-slide='next' role='button'>
+                            <a className='carousel-control-next' href='#' style={{width:'10%'}} data-bs-target='#carouselloopIndicators' data-bs-slide='next' role='button'>
                                 <span className='carousel-control-next-icon' aria-hidden='true'></span>
                                 <span className='sr-only'>Next</span>
                             </a>
