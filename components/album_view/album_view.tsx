@@ -97,7 +97,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
             const imageList = album.files_names.split(',');
             viewImagesDesktop = (
                 <>
-                    <div id='carouselVideophotosIndicators' className='carousel slide' data-ride='carousel'>
+                    <div id='carouselVideophotosIndicators' className='carousel slide' data-bs-interval='false'>
                         <div className='carousel-inner'>
                             {imageList.map((item,index) => {
                                 let activeClass;
@@ -129,7 +129,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
 
             viewImagesMobile = (
                 <>
-                    <div id='carouselVideophotosIndicators' className='carousel slide' data-ride='carousel'>
+                    <div id='carouselVideophotosIndicators' className='carousel slide' data-bs-interval='false'>
                         <div className='carousel-inner'>
                             {imageList.map((item,index) => {
                                 let activeClass;
