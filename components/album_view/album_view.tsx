@@ -192,7 +192,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className='video-photo-post-viewer-mobile'>
-                                    <div className='position-absolute top-0 end-0 p-3' style={{zIndex:350, margin:'62px 0px 0px 0px'}}>
+                                    <div className='position-absolute top-0 end-0 p-3' style={{zIndex:350}}>
                                         <a className='onClosevideophotosprev shadow float-end ms-2' data-bs-dismiss='modal'><i className='bi-x'></i></a>
                                     </div>
                                 </div>
