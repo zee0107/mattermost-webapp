@@ -48,6 +48,7 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
         const {myalbums} = this.state;
         let errorServer;
         let list;
+        let noList;
         if(myalbums !== undefined && myalbums !== null){
             list = (
                 <>
@@ -70,7 +71,7 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
             );
         }
         else{
-            list = (
+            noList = (
                 <h2 className='text-muted'><i className='bi-image'></i><br/>There are no albums</h2>
             );
         }
@@ -78,6 +79,7 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
         return (
             <div className='joinedcontent col-md-12'>
                 {errorServer}
+                {noList}
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                     {list}
                 </div>
