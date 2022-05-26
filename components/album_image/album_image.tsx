@@ -74,7 +74,7 @@ export default class AlbumImage extends React.PureComponent<Props, State> {
                 cover = (<img width='100%' src={img_url} alt='' data-bs-slide-to={index}/>);
             }else{
                 cover = (
-                    <video width='100%' control data-bs-slide-to={index}>
+                    <video width='100%' data-bs-slide-to={index} controls>
                         <source src={img_url} type='video/ogg' />
                     </video>
                 );
