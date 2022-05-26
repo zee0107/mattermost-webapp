@@ -74,7 +74,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
             <div className='joinedcontent col-md-12'>
                 {errorServer}
                 {noList}
-                <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4' data-bs-target='#ViewImageModal'>
+                <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4' data-bs-toggle='modal' data-bs-target='#ViewImageModal'>
                     {list}
                 </div>
             </div>
@@ -94,7 +94,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
             viewImages = (
                 <>
                     <div id='carouselStoryloopIndicators' className='carousel slide' data-bs-ride='carousel'>
-                        <div className="carousel-indicators" style={{width:'70%'}}>
+                        {/*<div className="carousel-indicators" style={{width:'70%'}}>
                             {imageList.map((item,index) => {
                                 let activeClass;
                                 if(index === 0){
@@ -105,7 +105,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                     <button className='hidden' type="button" data-bs-target="#carouselStoryloopIndicators" data-bs-slide-to={index} className={activeClass} aria-label={`Slide ${index}`} key={`${item.id}--${index}`}></button>
                                 );
                             })}
-                        </div>
+                        </div>*/}
                         <div className='carousel-inner text-center'>
                             {imageList.map((item,index) => {
                                 let activeClass;
