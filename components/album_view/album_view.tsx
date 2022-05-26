@@ -109,18 +109,20 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                 );
                             })}
                         </div>*/}
-                        <div className='carousel-inner text-center'>
-                            {imageList.map((item,index) => {
-                                let activeClass;
-                                if(index === 0){
-                                    activeClass = 'active';
-                                }
-                                return (
-                                    <div className={`carousel-item ${activeClass}`} key={`${item}-${index}`}>
-                                        <AlbumImage albumId={album.id} fileName={item} />
-                                    </div>
-                                );
-                            })}
+                        <div className='col-md-10'>
+                            <div className='carousel-inner text-center'>
+                                {imageList.map((item,index) => {
+                                    let activeClass;
+                                    if(index === 0){
+                                        activeClass = 'active';
+                                    }
+                                    return (
+                                        <div className={`carousel-item ${activeClass}`} key={`${item}-${index}`}>
+                                            <AlbumImage albumId={album.id} fileName={item} />
+                                        </div>
+                                    );
+                                })}
+                            </div>
                         </div>
                         <button className='carousel-control-prev' type='button' data-bs-target='#carouselloopIndicators' data-bs-slide='prev'>
                         <span className='carousel-control-prev-icon' aria-hidden='true'></span>
@@ -181,10 +183,10 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                         <RightSideView/>
                     </div>
                 </div>
-                <div className='modal' id='ViewImageModal' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='ViewImageModal' aria-hidden='true'>
+                <div className='modal' id='ViewImageModal' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='ViewImageModal' aria-hidden='true' style={{background: '#000000e2'}}>
                     <div className='modal-dialog modal-fullscreen' role='document'>
-                        <div className='modal-content' style={{background: 'transparent'}}>
-                            <div className='modal-header' style={{background: 'transparent'}}>
+                        <div className='modal-content' style={{background: 'transparent',border:'transparent'}}>
+                            <div className='modal-header' style={{background: 'transparent',border:'transparent'}}>
                                 <div className='video-photo-post-viewer-desktop'>
                                     <div className='position-absolute top-0 end-0 p-2' style={{zIndex: 99}}>
                                         <a className='onClosevideophotosprev shadow float-end ms-2' data-bs-dismiss='modal'><i className='bi-x'></i></a>
