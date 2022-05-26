@@ -6,7 +6,8 @@ import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import logoDark from 'images/logoBlack.png';
-import postImage from 'images/post-1.png';
+import HeaderImage from 'images/Page-dummy-cover.png';
+import profPic from 'images/profiles/user-profile-1.png';
 import $ from 'jquery';
 import { throws } from 'assert';
 import { UploadBlob } from 'mattermost-redux/types/crypto';
@@ -99,11 +100,11 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div>
-                                            <div className='col-12'>
+                                        <div className='col-12 mt-5'>
                                             <div className='d-grid gap-2'>
-                                                <button type='button' className='btn btn-primary btn-sm'>Create Page</button>
+                                                <button type='button' className='btn-primary'>Create Page</button>
                                             </div>
-                                            </div>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -131,8 +132,8 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='row'>
-                                        <div className='mypageheaderpreviews'>
-                                        <h3 className='text-center text-white'></h3>
+                                        <div className='mypageheaderpreviews' style={{backgroud: `url(${HeaderImage}) #222222 center bottom`}}>
+                                            <h3 className='text-center text-white'></h3>
                                         </div>
 
                                         <div className='mypagepreviews-desktop'>
@@ -184,8 +185,8 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                                 <div className='col-lg-7 mt-1 mb-1'>
                                                     <div className='mypagepreviewsabout'>
                                                         <div className='row'>
-                                                            <div className='col-2'><img className='' width='40' height='40' src='assets/images/sample-user-primary-picture.png' alt=''/></div>
-                                                            <div className='col-10'><div className='d-grid'><button type='button' className='btn btn-primary' disabled>Create post</button></div></div>
+                                                            <div className='col-2'><img className='' width='40' height='40' src={profPic} alt=''/></div>
+                                                            <div className='col-10'><div className='d-grid'><button type='button' className='btn-primary' disabled>Create post</button></div></div>
                                                         </div>
                                                         <div className='row mt-2'>
                                                         <div className='col-4 text-center'>
