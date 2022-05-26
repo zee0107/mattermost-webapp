@@ -14,6 +14,7 @@ export type Props = {
 type State = {
     isDark: string;
     img_url: string;
+    type: string;
 };
 
 export default class AlbumImage extends React.PureComponent<Props, State> {
@@ -36,7 +37,13 @@ export default class AlbumImage extends React.PureComponent<Props, State> {
         const {albumId, fileName} = this.props;
         const response = await fetch(`https://localhost:44312/api/crypter/albumfile?id=${albumId}&filename=${fileName}`);
         const imageBlob = await response.blob();
-        console.log(imageBlob);
+        if(imageBlob.type.includes('image')){
+            this.setState({type: 'image'});
+        }
+        else{
+            this.setState({type: 'video'});
+        }
+
         const textBlob = await imageBlob.text();
         if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
         {
@@ -56,13 +63,22 @@ export default class AlbumImage extends React.PureComponent<Props, State> {
     
     render= (): JSX.Element => {
         const {channelId, channelName, suggested} = this.props;
-        const { img_url } = this.state;
+        const { img_url, type } = this.state;
         let cover;
         if(img_url === 'unavailable'){
             cover = (<img width='100%' height='190' src={GroupLogo} alt=''/>);
         }
         else{
-            cover = (<img width='100%' height='190' src={img_url} alt=''/>);
+            if(type === 'image'){
+                cover = (<img width='100%' height='190' src={img_url} alt=''/>);
+            }else{
+                cover = (
+                    <video width='100%' height='190'>
+                        <source src={img_url} type='video/ogg' />
+                    </video>
+                );
+            }
+            
         }
 
         return (
