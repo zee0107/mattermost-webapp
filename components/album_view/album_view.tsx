@@ -85,8 +85,10 @@ export default class AlbumView extends React.PureComponent<Props, State> {
         const { album_view, album } = this.state;
         let viewDetails;
         let albumName;
+        let albumCount;
         if(album){
             albumName = album.album_name;
+            albumCount = album.img_count;
         }
         if(this.state.album_view === "myalbums"){
             viewDetails = this.myAlbums();
@@ -102,7 +104,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                 <div className='col-md-6'>
                                     <div className='row'>
                                         <div className='col-md-12 text-center mt-2 p-0'>
-                                            <a className='onMygroupspages text-dark' onClick={() => { this.setState({album_view: 'myalbums',})}}><h3><i className='bi-image'></i> {albumName}</h3></a>
+                                            <a className='onMygroupspages text-dark' onClick={() => { this.setState({album_view: 'myalbums',})}}><h3><i className='bi-image'></i> {albumName}</h3><br/>{albumCount} Photos and Videos<br/></a>
                                         </div>
                                     </div>
                                 </div>
@@ -122,7 +124,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                 <div className='col-md-12 text-center p-0'>
                                     <a className='onMygroupspages btn-md p-2 text-dark'
                                         onClick={() => { this.setState({album_view: 'myalbums',})}}>
-                                        <small><h3><i className='bi-image'></i> {albumName}</h3></small>
+                                        <small><h3><i className='bi-image'></i> {albumName}</h3><br/>{albumCount} Photos and Videos<br/></small>
                                     </a>
                                     <a className='float-end rounded onCreategroupsdesktop btn-sm text-center mt-3' href='/albums/create'>
                                     <i className='bi-plus'></i> Update</a>
