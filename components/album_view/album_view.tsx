@@ -109,7 +109,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                 );
                             })}
                         </div>*/}
-                        <div className='col-md-10'>
+                        <div className='col-md-12'>
                             <div className='carousel-inner text-center'>
                                 {imageList.map((item,index) => {
                                     let activeClass;
@@ -123,15 +123,16 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                     );
                                 })}
                             </div>
+                            <button className='carousel-control-prev' type='button' data-bs-target='#carouselloopIndicators' data-bs-slide='prev'>
+                                <span className='carousel-control-prev-icon' aria-hidden='true'></span>
+                                <span className='visually-hidden'>Previous</span>
+                            </button>
+                            <button className='carousel-control-next' type='button' data-bs-target='#carouselloopIndicators' data-bs-slide='next'>
+                                <span className='carousel-control-next-icon' aria-hidden='true'></span>
+                                <span className='visually-hidden'>Next</span>
+                            </button>
                         </div>
-                        <button className='carousel-control-prev' type='button' data-bs-target='#carouselloopIndicators' data-bs-slide='prev'>
-                        <span className='carousel-control-prev-icon' aria-hidden='true'></span>
-                        <span className='visually-hidden'>Previous</span>
-                        </button>
-                        <button className='carousel-control-next' type='button' data-bs-target='#carouselloopIndicators' data-bs-slide='next'>
-                        <span className='carousel-control-next-icon' aria-hidden='true'></span>
-                        <span className='visually-hidden'>Next</span>
-                        </button>
+                        
                     </div>
                 </>
             );
