@@ -50,7 +50,6 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
         let errorServer;
         let list;
         let noList;
-        console.log(myalbums)
         if(myalbums && myalbums.length){
             list = (
                 <>
