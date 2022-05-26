@@ -8,6 +8,7 @@ import RightSideView from 'components/right_side_view';
 import { Album } from 'mattermost-redux/types/crypto';
 import AlbumImageList from 'components/album_image_list';
 import AlbumImage from 'components/album_image';
+import logoWhite from 'images/logoLight.png';
 
 export type Props = {
     userId: string;
@@ -218,7 +219,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                     <div className='position-absolute top-0 start-0 p-2' style={{zIndex: 99}}>
-                        <img className='img-fluid' src='assets/images/logo-story.png' alt=''/>
+                        <img className='img-fluid' src={logoWhite} alt=''/>
                     </div>
                     <div className='container-fluid mt-4 mb-4 post-ratio'>
                         <div className='post-ratio-style'>
