@@ -6,7 +6,7 @@ import React from 'react';
 import {UserProfile} from 'mattermost-redux/types/users';
 import RightSideView from 'components/right_side_view';
 import { Album } from 'mattermost-redux/types/crypto';
-import AlbumImage from 'components/album_image';
+import AlbumImage from 'components/album_cover';
 
 export type Props = {
     userId: string;
@@ -56,7 +56,7 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
                     {this.state.myalbums.map((item,index) => {
                         const images = item.files_names.split(',');
                         return(
-                            <div className='col-md-3 p-1' key={`${item}--${index}`} onClick={() => { window.location.href = `/albums/view?a=${item.id}`;}}>
+                            <div className='col-md-3 p-1' key={`${item}--${index}`} onClick={() => { window.location.href = `/albums/view?a=${item.id.replace('-','')}`;}}>
                                 <div className='box-each-groups'>
                                     <AlbumImage albumId={item.id} fileName={images[0]} />
                                     <p className='mt-4 ms-3 ml-5'>
