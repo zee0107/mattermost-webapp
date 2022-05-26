@@ -101,8 +101,8 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                 <div className='col-md-3'></div>
                                 <div className='col-md-6'>
                                     <div className='row'>
-                                        <div className='col-md-12 text-center mt-2 mb-2 p-0'>
-                                            <a className='onMygroupspages p-6 text-dark' onClick={() => { this.setState({album_view: 'myalbums',})}}><h3><i className='bi-image'></i> {albumName}</h3></a>
+                                        <div className='col-md-12 text-center mt-2 p-0'>
+                                            <a className='onMygroupspages text-dark' onClick={() => { this.setState({album_view: 'myalbums',})}}><h3><i className='bi-image'></i> {albumName}</h3></a>
                                         </div>
                                     </div>
                                 </div>
