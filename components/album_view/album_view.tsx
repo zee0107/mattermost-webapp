@@ -96,7 +96,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
             <div className='row'>
                 <div className='col-md-9'>
                     <div className='crypter-section-desktop'>
-                        <div className='box-middle-panel-forums-menu'>
+                        <div className='box-middle-panel-albums-menu'>
                             <div className='col-12 mt-2 mx-auto row'>
                                 <div className='col-md-3'></div>
                                 <div className='col-md-6'>
@@ -117,21 +117,15 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                     </div>
                     
                     <div className='crypter-section-mobile'>
-                        <div className='position-sticky float-middle-panel'>
-                            <div className='d-flex mt-2'>
-                                <div className='col-md-7 '></div>
-                                <div className='col-md-5 '><a className='float-end rounded onCreategroupsdesktop btn-sm text-center mt-3' href='/albums/create'>
-                                    <i className='bi-plus'></i> Update</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='box-middle-panel-marketplace-mobile mt-3 col-md-12'>
+                        <div className='box-middle-panel-album-mobile mt-3 col-md-12'>
                             <div className='d-flex'>
                                 <div className='col-md-12 text-center p-0'>
                                     <a className='onMygroupspages btn-md p-2 text-dark'
                                         onClick={() => { this.setState({album_view: 'myalbums',})}}>
                                         <small><h3><i className='bi-image'></i> {albumName}</h3></small>
                                     </a>
+                                    <a className='float-end rounded onCreategroupsdesktop btn-sm text-center mt-3' href='/albums/create'>
+                                    <i className='bi-plus'></i> Update</a>
                                 </div>
                             </div>
                         </div>
