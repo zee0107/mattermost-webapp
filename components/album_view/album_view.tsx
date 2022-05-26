@@ -56,8 +56,8 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                 <>
                     {images.map((item,index) => {
                         return(
-                            <div className='col-md-3 p-1' key={`${item}--${index}`} data-bs-slide-to={index}>
-                                <AlbumImage albumId={album.id} fileName={item} />                                    
+                            <div className='col-md-3 p-1' key={`${item}--${index}`}>
+                                <AlbumImage albumId={album.id} fileName={item} index={index}/>                                    
                             </div>
                         );
                     })}
@@ -179,7 +179,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                     </div>
                 </div>
                 <div className='modal' id='ViewImageModal' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='ViewImageModal' aria-hidden='true'>
-                    <div className='modal-dialog modal-dialog-centered'>
+                    <div className='modal-dialog modal-dialog-centered' role='document'>
                         <div className='modal-content'>
                             <div className='modal-header'>
                                 <a className='btn-close-canvas shadow onClosecreatepost float-end' data-bs-dismiss='modal' aria-label='Close'><i className='bi-x-lg'></i></a>

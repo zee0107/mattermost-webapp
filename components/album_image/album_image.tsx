@@ -6,6 +6,7 @@ import GroupLogo from 'images/groupcover.png';
 import { UserProfile } from 'mattermost-redux/types/users';
 
 export type Props = {
+    index: string;
     albumId: string;
     fileName: string;
     userId: string;
@@ -62,18 +63,18 @@ export default class AlbumImage extends React.PureComponent<Props, State> {
     }
     
     render= (): JSX.Element => {
-        const {channelId, channelName, suggested} = this.props;
+        const { index } = this.props;
         const { img_url, type } = this.state;
         let cover;
         if(img_url === 'unavailable'){
-            cover = (<img width='100%' height='190' src={GroupLogo} alt=''/>);
+            cover = (<img width='100%' height='190' src={GroupLogo} alt='' data-bs-slide-to={index}/>);
         }
         else{
             if(type === 'image'){
                 cover = (<img width='100%' src={img_url} alt=''/>);
             }else{
                 cover = (
-                    <video width='100%'>
+                    <video width='100%' data-bs-slide-to={index}>
                         <source src={img_url} type='video/ogg' />
                     </video>
                 );
