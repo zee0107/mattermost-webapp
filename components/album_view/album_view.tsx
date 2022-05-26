@@ -182,7 +182,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                     <div className='modal-dialog modal-dialog-centered'>
                         <div className='modal-content'>
                             <div className='modal-header'>
-                                <a className='btn-close-canvas shadow onClosecreatepost float-end' data-bs-dismiss='modal' aria-label='Close'><img src={xIcon}/></a>
+                                <a className='btn-close-canvas shadow onClosecreatepost float-end' data-bs-dismiss='modal' aria-label='Close'><i className='bi-x-lg'></i></a>
                             </div>
                             <div className='modal-body'>
                                 {viewImages}
