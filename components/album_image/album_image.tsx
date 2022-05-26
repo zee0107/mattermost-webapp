@@ -6,7 +6,7 @@ import GroupLogo from 'images/groupcover.png';
 import { UserProfile } from 'mattermost-redux/types/users';
 
 export type Props = {
-    index: string;
+    index: number;
     albumId: string;
     fileName: string;
     userId: string;
@@ -71,7 +71,7 @@ export default class AlbumImage extends React.PureComponent<Props, State> {
         }
         else{
             if(type === 'image'){
-                cover = (<img width='100%' src={img_url} alt=''/>);
+                cover = (<img width='100%' src={img_url} alt='' data-bs-slide-to={index}/>);
             }else{
                 cover = (
                     <video width='100%' data-bs-slide-to={index}>
