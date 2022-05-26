@@ -182,8 +182,10 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                     </div>
                 </div>
                 <div className='modal' id='ViewImageModal' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='ViewImageModal' aria-hidden='true'>
-                    <div className='modal-dialog modal-dialog-centered' role='document'>
-                        {viewImages}
+                    <div className='modal-dialog modal-fullscreen' role='document'>
+                        <div className='modal-body'>
+                            {viewImages}
+                        </div>
                     </div>
                     {/*<div className='video-photo-post-viewer-desktop'>
                         <div className='position-absolute top-0 end-0 p-2' style={{zIndex: 99}}>
