@@ -207,7 +207,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                     </div>
                 </div>
 
-                <div className='modal postvideophotoviewer' id='ViewImageModal' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='ViewImageModal' aria-hidden='true'>
+                <div className='modal postvideophotoviewer' id='ViewImageModal' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='postvideophotoviewer' aria-hidden='true'>
                     <div className='video-photo-post-viewer-desktop'>
                         <div className='position-absolute top-0 end-0 p-2' style={{zIndex: 99}}>
                             <a className='onClosevideophotosprev shadow float-end ms-2'><i className='bi-x'></i></a>
