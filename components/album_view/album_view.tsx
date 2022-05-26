@@ -115,11 +115,11 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                 );
                             })}
                         </div>
-                        <a className='carousel-control-prev' href='#carouselVideophotosIndicators' role='button' data-slide='prev'>
+                        <a className='carousel-control-prev' href='#carouselVideophotosIndicators' role='button' data-bs-slide='prev'>
                             <span className='carousel-control-prev-icon' aria-hidden='true'></span>
                             <span className='sr-only'>Previous</span>
                         </a>
-                        <a className='carousel-control-next' href='#carouselVideophotosIndicators' role='button' data-slide='next'>
+                        <a className='carousel-control-next' href='#carouselVideophotosIndicators' role='button' data-bs-slide='next'>
                             <span className='carousel-control-next-icon' aria-hidden='true'></span>
                             <span className='sr-only'>Next</span>
                         </a>
@@ -147,11 +147,11 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                 );
                             })}
                         </div>
-                        <a className='carousel-control-prev' href='#carouselVideophotosIndicatorsMobile' role='button' data-slide='prev'>
+                        <a className='carousel-control-prev' href='#carouselVideophotosIndicatorsMobile' role='button' data-bs-slide='prev'>
                             <span className='carousel-control-prev-icon' aria-hidden='true'></span>
                             <span className='sr-only'>Previous</span>
                         </a>
-                        <a className='carousel-control-next' href='#carouselVideophotosIndicatorsMobile' role='button' data-slide='next'>
+                        <a className='carousel-control-next' href='#carouselVideophotosIndicatorsMobile' role='button' data-bs-slide='next'>
                             <span className='carousel-control-next-icon' aria-hidden='true'></span>
                             <span className='sr-only'>Next</span>
                         </a>
@@ -207,7 +207,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                     </div>
                 </div>
 
-                <div className='modal' id='ViewImageModal' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='ViewImageModal' aria-hidden='true'>
+                <div className='modal postvideophotoviewer' id='ViewImageModal' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='ViewImageModal' aria-hidden='true'>
                     <div className='video-photo-post-viewer-desktop'>
                         <div className='position-absolute top-0 end-0 p-2' style={{zIndex: 99}}>
                             <a className='onClosevideophotosprev shadow float-end ms-2'><i className='bi-x'></i></a>
