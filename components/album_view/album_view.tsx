@@ -93,8 +93,8 @@ export default class AlbumView extends React.PureComponent<Props, State> {
             const imageList = album.files_names.split(',');
             viewImages = (
                 <>
-                    <div id='carouselStoryloopIndicators' className='carousel slide' data-bs-ride='carousel'>
-                        {/*<div className="carousel-indicators" style={{width:'70%'}}>
+                    <div id='carouselStoryloopIndicators' className='carousel slide' data-bs-interval='false' data-bs-ride='carousel'>
+                        <div className="carousel-indicators" style={{width:'70%'}}>
                             {imageList.map((item,index) => {
                                 let activeClass;
                                 if(index === 0){
@@ -105,7 +105,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                     <button className='hidden' type="button" data-bs-target="#carouselStoryloopIndicators" data-bs-slide-to={index} className={activeClass} aria-label={`Slide ${index}`} key={`${item.id}--${index}`}></button>
                                 );
                             })}
-                        </div>*/}
+                        </div>
                         <div className='carousel-inner text-center'>
                             {imageList.map((item,index) => {
                                 let activeClass;
@@ -179,7 +179,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                     </div>
                 </div>
                 <div className='modal' id='ViewImageModal' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='ViewImageModal' aria-hidden='true'>
-                    <div className='modal-dialog modal-dialog-centered' role='document'>
+                    <div className='modal-dialog modal-lg modal-dialog-centered' role='document'>
                         <div className='modal-content'>
                             <div className='modal-header'>
                                 <a className='btn-close-canvas shadow onClosecreatepost float-end' data-bs-dismiss='modal' aria-label='Close'><i className='bi-x-lg'></i></a>
