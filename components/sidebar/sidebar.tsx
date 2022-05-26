@@ -192,7 +192,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                                 </li>
                             <li key='my-pages' className='sidemenu-padding'>
                                 <div className='d-flex'>
-                                    <a href='#' className='sidemenu-item1'>
+                                    <a href='/pages/create' className='sidemenu-item1'>
                                     <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg" className='side-menu-align'>
                                     <path d="M3.1911 12.1623H13.891C14.0377 12.1622 14.1813 12.1204 14.305 12.0417C14.4287 11.963 14.5274 11.8506 14.5896 11.7178C14.6518 11.585 14.6749 11.4373 14.6561 11.2918C14.6374 11.1464 14.5776 11.0093 14.4837 10.8967L11.68 7.53194L14.4837 4.16724C14.5776 4.05456 14.6374 3.91748 14.6561 3.77205C14.6749 3.62662 14.6518 3.47885 14.5896 3.34605C14.5274 3.21325 14.4287 3.10092 14.305 3.02221C14.1813 2.9435 14.0377 2.90167 13.891 2.90161H3.1911V16.7926" stroke="#FF8A00" strokeWidth="1.67969" strokeLinecap="round" strokeLinejoin="round"/>
                                     </svg> My Pages</a>

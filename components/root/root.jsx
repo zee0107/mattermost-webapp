@@ -62,6 +62,7 @@ const LazyAlbum = React.lazy(() => import('components/albums'));
 const LazyAlbumView = React.lazy(() => import('components/album_view'));
 const LazyCreateStory = React.lazy(() => import('components/create_story'));
 const LazyCreateAlbum = React.lazy(() => import('components/create_album'));
+const LazyCreatePage = React.lazy(() => import('components/create_page'));
 const LazyViewStory = React.lazy(() => import('components/view_story'));
 const LazyDocuments = React.lazy(() => import('components/documents'));
 const LazyDocumentsBuyPresale = React.lazy(() => import('components/documents-buy-presale'));
@@ -144,6 +145,7 @@ const Albums = makeAsyncComponent('Albums', LazyAlbum);
 const AlbumView = makeAsyncComponent('AlbumView', LazyAlbumView);
 const CreateStory = makeAsyncComponent('CreateStory', LazyCreateStory);
 const CreateAlbum = makeAsyncComponent('CreateAlbum', LazyCreateAlbum);
+const CreatePage = makeAsyncComponent('CreatePage', LazyCreatePage);
 const ViewStory = makeAsyncComponent('ViewStory', LazyViewStory);
 const Documents = makeAsyncComponent('Documents', LazyDocuments);
 const DocumentsBuyPresale = makeAsyncComponent('DocumentsBuyPresale', LazyDocumentsBuyPresale);
@@ -562,6 +564,10 @@ export default class Root extends React.PureComponent {
                     <LoginHFTRouteFNS
                         path={'/albums/create'}
                         component={CreateAlbum}
+                    />
+                    <LoginHFTRouteFNS
+                        path={'/pages/create'}
+                        component={CreatePage}
                     />
                     <LoginHFTRouteFNS
                         path={'/stories/view'}
