@@ -66,25 +66,6 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
                             </div>
                         );
                     })}
-                    {/*this.state.mygroups.map((item,index) => {
-                        if(item.display_name !== ''  && item.display_name !== 'Town Square'){
-                            return(
-                                <div className='col-md-3 p-1'>
-                                    <div className='box-each-groups'>
-                                        <GroupImage channelId={item.id} channelName={item.name} suggested={false} />
-                                        <p onClick={this.handleRedirect.bind(this,item.name,item.id)} className='mt-4 ms-3 ml-5'>
-                                        <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
-                                        </p>
-    
-                                        <div className='col-md-12 mb-3 p-3 text-center'>
-                                            <div className='d-grid'><button type='button' className='btn onUnfollowsuggested' onClick={this.leaveGroup.bind(this,item)}><label>Unfollow</label></button></div>
-                                        </div>
-                                        <div className='row'></div>
-                                    </div>
-                                </div>
-                            );
-                        }
-                    })*/}
                 </div>
             </div>
         );
