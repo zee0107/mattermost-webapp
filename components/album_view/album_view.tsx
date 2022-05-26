@@ -6,7 +6,7 @@ import React from 'react';
 import {UserProfile} from 'mattermost-redux/types/users';
 import RightSideView from 'components/right_side_view';
 import { Album } from 'mattermost-redux/types/crypto';
-import AlbumImage from 'components/album_image';
+import AlbumImage from 'components/album_cover';
 
 export type Props = {
     userId: string;
