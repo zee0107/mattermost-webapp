@@ -105,10 +105,12 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className='col-md-3 text-end'>
-                                    <a className='float-end rounded onCreategroups negative-margin-top' id='showNewChannel' href='/albums/create'>
-                                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#fff' className='bi bi-plus side-menu-align' viewBox='0 0 16 16'>
-                                        <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/>
-                                    </svg> Update Album</a>
+                                    <h3>
+                                        <a className='float-end rounded onCreategroups negative-margin-top' id='showNewChannel' href='/albums/create'>
+                                            <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#fff' className='bi bi-plus side-menu-align' viewBox='0 0 16 16'>
+                                            <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/>
+                                        </svg> Update Album</a>
+                                    </h3>
                                 </div>
                             </div>
                         </div>
@@ -126,10 +128,12 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                         <div className='box-middle-panel-marketplace-mobile mt-3 col-md-12'>
                             <div className='d-flex'>
                                 <div className='col-md-12 text-center p-0'>
-                                    <a 
-                                        className={album_view === 'myalbums' ? 'onMygroupspages btn-md p-2 active-group-menu text-success' : 'onMygroupspages btn-md p-2'}
-                                        onClick={() => { this.setState({album_view: 'myalbums',})}}
-                                    ><small>{albumName}</small></a>
+                                    <h3>
+                                        <a 
+                                            className={album_view === 'myalbums' ? 'onMygroupspages btn-md p-2 active-group-menu text-success' : 'onMygroupspages btn-md p-2'}
+                                            onClick={() => { this.setState({album_view: 'myalbums',})}}
+                                        ><small>{albumName}</small></a>
+                                    </h3>
                                 </div>
                             </div>
                         </div>
