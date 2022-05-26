@@ -110,9 +110,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className='col-md-3 text-end'>
                                     <a className='float-end rounded onCreategroups negative-margin-top' id='showNewChannel' href='/albums/create'>
-                                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#fff' className='bi bi-plus side-menu-align' viewBox='0 0 16 16'>
-                                        <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/>
-                                    </svg> Update Album</a>
+                                        <i class="bi-pencil-fill"></i> Update Album</a>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +125,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                         <small><h3><i className='bi-image'></i> {albumName}</h3>{albumCount} Photos and Videos</small>
                                     </a>
                                     <a className='float-end rounded onCreategroupsdesktop btn-sm text-center mt-3' href='/albums/create'>
-                                    <i className='bi-plus'></i> Update</a>
+                                    <i class="bi-pencil-fill"></i>  Update</a>
                                 </div>
                             </div>
                         </div>
