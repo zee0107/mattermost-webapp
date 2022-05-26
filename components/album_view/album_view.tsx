@@ -52,7 +52,6 @@ export default class AlbumView extends React.PureComponent<Props, State> {
         let list;
         let noList;
         if(album){
-            console.log(album);
             const images = album.files_names.split(',');
             list = (
                 <>
@@ -90,6 +89,8 @@ export default class AlbumView extends React.PureComponent<Props, State> {
         let albumCount;
         let viewImages;
         if(album){
+            
+            console.log(album);
             albumName = album.album_name;
             albumCount = album.img_count;
             const imageList = album.files_names.split(',');
