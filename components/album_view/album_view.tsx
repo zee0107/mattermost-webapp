@@ -8,7 +8,7 @@ import RightSideView from 'components/right_side_view';
 import { Album } from 'mattermost-redux/types/crypto';
 import AlbumImageList from 'components/album_image_list';
 import AlbumImage from 'components/album_image';
-import logoWhite from 'images/logoLight.png';
+import logoWhite from 'images/logoWhite.png';
 
 export type Props = {
     userId: string;
