@@ -45,12 +45,12 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
     }
 
     myAlbums = () => {
+        const {myalbums} = this.state;
         let errorServer;
-
-        return (
-            <div className='joinedcontent col-md-12'>
-                {errorServer}
-                <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
+        let list;
+        if(myalbums !== undefined && myalbums !== null){
+            list = (
+                <>
                     {this.state.myalbums.map((item,index) => {
                         return(
                             <div className='col-md-3 p-1' key={`${item}--${index}`}>
@@ -66,6 +66,20 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
                             </div>
                         );
                     })}
+                </>
+            );
+        }
+        else{
+            list = (
+                <h2 className='text-muted'><i className='bi-images'></i><br/>There are no albums</h2>
+            );
+        }
+
+        return (
+            <div className='joinedcontent col-md-12'>
+                {errorServer}
+                <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
+                    
                 </div>
             </div>
         );
