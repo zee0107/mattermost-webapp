@@ -96,7 +96,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
             viewImages = (
                 <>
                     <div id='carouselloopIndicators' className='carousel slide' data-bs-ride='carousel' data-interval='false'>
-                        <div className="carousel-indicators" style={{width:'70%'}}>
+                        {/*<div className="carousel-indicators" style={{width:'70%'}}>
                             {imageList.map((item,index) => {
                                 let activeClass;
                                 if(index === 0){
@@ -107,7 +107,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                     <button className='hidden' type="button" data-bs-target="#carouselloopIndicators" data-bs-slide-to={index} className={activeClass} aria-label={`Slide ${index}`} key={`${item.id}--${index}`}></button>
                                 );
                             })}
-                        </div>
+                        </div>*/}
                         <div className='carousel-inner text-center'>
                             {imageList.map((item,index) => {
                                 let activeClass;
