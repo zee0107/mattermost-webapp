@@ -49,7 +49,7 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
         let errorServer;
         let list;
         let noList;
-        if(myalbums !== undefined && myalbums !== null){
+        if(myalbums !== undefined && myalbums !== null && myalbums !== []){
             list = (
                 <>
                     {this.state.myalbums.map((item,index) => {
