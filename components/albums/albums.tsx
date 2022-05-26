@@ -71,7 +71,7 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
         }
         else{
             list = (
-                <h2 className='text-muted'><i className='bi-images'></i><br/>There are no albums</h2>
+                <h2 className='text-muted'><i className='bi-image'></i><br/>There are no albums</h2>
             );
         }
 
@@ -79,7 +79,7 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
             <div className='joinedcontent col-md-12'>
                 {errorServer}
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
-                    
+                    {list}
                 </div>
             </div>
         );
@@ -99,7 +99,7 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
                         <div className='box-middle-panel-forums-menu'>
                             <div className='col-12 mt-2 mx-auto row'>
                                 <div className='col-md-3'>
-                                    <a href='/mygroups' className='onCartmarketplaceicon onMarketplace float-start mr-5'><i className='bi-images'></i></a>
+                                    <a href='/mygroups' className='onCartmarketplaceicon onMarketplace float-start mr-5'><i className='bi-image'></i></a>
                                     <label className='ms-2 text-mygroups float-start mt-2 me-5'>Albums</label>
                                 </div>
                                 <div className='col-md-6'>
@@ -120,7 +120,7 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
                     <div className='crypter-section-mobile'>
                         <div className='position-sticky float-middle-panel'>
                             <div className='d-flex mt-2'>
-                                <div className='col-md-7 '><a className='onCartmarketplaceicon onMarketplace float-start'><i className='bi-images'></i></a>
+                                <div className='col-md-7 '><a className='onCartmarketplaceicon onMarketplace float-start'><i className='bi-image'></i></a>
                                     <strong className='float-start mt-3 ml-2 text-mygroups'>Albums</strong>
                                 </div>
                                 <div className='col-md-5 '><a className='float-end rounded onCreategroupsdesktop btn-sm text-center mt-3' href='/albums/create'>
