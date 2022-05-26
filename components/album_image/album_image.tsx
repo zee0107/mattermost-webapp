@@ -70,10 +70,10 @@ export default class AlbumImage extends React.PureComponent<Props, State> {
         }
         else{
             if(type === 'image'){
-                cover = (<img width='70%' src={img_url} alt=''/>);
+                cover = (<img width='70%' className='img-fluid translate-midddle' src={img_url} alt=''/>);
             }else{
                 cover = (
-                    <video width='80%' controls>
+                    <video width='80%' className='translate-midddle' controls>
                         <source src={img_url} type='video/ogg' />
                     </video>
                 );
