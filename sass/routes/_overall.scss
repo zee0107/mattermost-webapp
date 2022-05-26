@@ -80,6 +80,17 @@ p {
   //font-family: "Montserrat-Regular";
   font-size: 12px;
 }
+.launchpad-token-lock-info {
+  background: rgb(52,200,84);
+  background: linear-gradient(103deg, rgba(52,200,84,1) 0%, rgba(99,210,58,1) 42%, rgba(94,211,69,1) 48%, rgba(68,215,124,1) 100%);
+  padding: 0px 14px 0px 14px;
+  margin: 11px 0px 0px 0px;
+  border-top-left-radius: 19px;
+  border-top-right-radius: 19px;
+}
+.text-phar-size {
+  font-size: 13px;
+}
 .bi-plus-bolder-style {
   font-size: 24px;
 }
@@ -1837,6 +1848,10 @@ font-size: 12px;
   background: #ffffff;
   z-index: 15;
 }
+.postvideophotoviewer {
+  background: #000000e9;
+  z-index: 15;
+}
 .story-archived-content {
   display: block;
 }
@@ -1941,10 +1956,21 @@ font-size: 12px;
 }
 .onCreategroups {
   cursor: pointer;
-  background: #80CF57;
+background: rgb(52,200,84);
+background: linear-gradient(103deg, rgba(52,200,84,1) 0%, rgba(99,210,58,1) 40%, rgba(94,211,69,1) 51%, rgba(68,215,124,1) 100%);
   border-radius: 11px;
   padding: 10px 23px 10px 23px;
-  margin: 0px 0px 0px 0px;
+  margin:0px 0px 0px 0px;
+  color: #fff;
+  z-index: 99;
+}
+.onCreategroupsmobile {
+  cursor: pointer;
+background: rgb(52,200,84);
+background: linear-gradient(103deg, rgba(52,200,84,1) 0%, rgba(99,210,58,1) 40%, rgba(94,211,69,1) 51%, rgba(68,215,124,1) 100%);
+  border-radius: 11px;
+  padding: 10px 14px 10px 14px;
+  margin:0px 0px 0px 0px;
   color: #fff;
 z-index: 99;
 }
@@ -2193,6 +2219,17 @@ color: #fff;
   color: #fff;
 }
 .onClosepostviewer {
+  cursor: pointer;
+  background: #80CF57;
+  border-radius: 34px;
+  padding: 5px 11px 5px 11px;
+  margin: 0px 0px 0px 0px;
+  color: #fff;
+}
+.onClickphotosvidedos {
+  cursor: pointer;
+}
+.onClosevideophotosprev {
   cursor: pointer;
   background: #80CF57;
   border-radius: 34px;
