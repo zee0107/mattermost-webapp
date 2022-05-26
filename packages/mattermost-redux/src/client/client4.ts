@@ -4075,6 +4075,12 @@ export default class Client4 {
         );
     }
 
+    getAlbum = (id: string) => {
+        return this.doFetch<Album[]>(
+            `https://localhost:44312/api/crypter/getalbum?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
     muteUserStory = (userId: string, friendId:string) => {
         const body = {
             user_id: userId,

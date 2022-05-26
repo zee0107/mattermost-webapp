@@ -316,9 +316,9 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                                     options = (
                                                         <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton2'>
                                                             <li><a className='dropdown-item' onClick={() => this.removeItem(item.name)}><i className='bi-x-square-fill x-square-fill-style'></i> Delete photo</a></li>
-                                                            <li><a className='dropdown-item' href={item.blob} download={item.name}><i className='bi-download download-style'></i> Download</a></li>
+                                                            {/*<li><a className='dropdown-item' href={item.blob} download={item.name}><i className='bi-download download-style'></i> Download</a></li>
                                                             <li><a className='dropdown-item'><i className='bi-card-image card-image-style'></i> Make profile picture</a></li>
-                                                            <li><a className='dropdown-item'><i className='bi-image-alt image-alt-style'></i> Make cover photo</a></li>
+                                                            <li><a className='dropdown-item'><i className='bi-image-alt image-alt-style'></i> Make cover photo</a></li>*/}
                                                         </ul>
                                                     );
                                                 }
@@ -332,7 +332,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                                     options = (
                                                         <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton2'>
                                                             <li><a className='dropdown-item' onClick={() => this.removeItem(item.name)}><i className='bi-x-square-fill x-square-fill-style'></i> Delete Video</a></li>
-                                                            <li><a className='dropdown-item' href={item.blob} download={item.name}><i className='bi-download download-style'></i> Download</a></li>
+                                                            {/*<li><a className='dropdown-item' href={item.blob} download={item.name}><i className='bi-download download-style'></i> Download</a></li>*/}
                                                         </ul>
                                                     );
                                                 }

@@ -73,7 +73,7 @@ export default class AlbumImage extends React.PureComponent<Props, State> {
                 cover = (<img width='100%' height='190' src={img_url} alt=''/>);
             }else{
                 cover = (
-                    <video width='100%' height='180' style={{borderTopLeftRadius: 25,borderTopRightRadius: 25}}>
+                    <video width='100%' height='185' style={{borderTopLeftRadius: 25,borderTopRightRadius: 25}}>
                         <source src={img_url} type='video/ogg' />
                     </video>
                 );
