@@ -50,7 +50,7 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
         let list;
         let noList;
         console.log(myalbums)
-        if(myalbums){
+        if(myalbums && myalbums.length){
             list = (
                 <>
                     {this.state.myalbums.map((item,index) => {
