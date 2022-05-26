@@ -6,6 +6,7 @@ import React from 'react';
 import {UserProfile} from 'mattermost-redux/types/users';
 import RightSideView from 'components/right_side_view';
 import { Album } from 'mattermost-redux/types/crypto';
+import AlbumImage from 'components/album_image';
 
 export type Props = {
     userId: string;
@@ -54,11 +55,13 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
             list = (
                 <>
                     {this.state.myalbums.map((item,index) => {
+                        const images = item.files_names.split(',');
                         return(
                             <div className='col-md-3 p-1' key={`${item}--${index}`}>
+                                <AlbumImage albumId={item.id} fileName={images[0]} />
                                 <div className='box-each-groups'>
                                     <p className='mt-4 ms-3 ml-5'>
-                                    <label className='text-name-products'><strong>{item.album_name}</strong></label><br/>{item.img_count} Images
+                                    <label className='text-name-products'><strong>{item.album_name}</strong></label><br/>{item.img_count} Photos or Videos
                                     </p>
                                     <div className='col-md-12 mb-3 p-3 text-center'>
                                         <div className='d-grid'><button type='button' className='btn onUnfollowsuggested'><label>View</label></button></div>
@@ -73,7 +76,7 @@ export default class MyAlbums extends React.PureComponent<Props, State> {
         }
         else{
             noList = (
-                <h2 className='text-muted text-center'><i className='bi-image'></i><br/>There are no albums</h2>
+                <h2 className='text-muted text-center mt-5'><i className='bi-image'></i><br/>There are no albums</h2>
             );
         }
 

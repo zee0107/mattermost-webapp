@@ -170,7 +170,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
             body: data,
         }).then((response) => response.json()).then((data)=>{
             if (data === 'Posted'){
-                window.location.href = '/crypter/channels/town-square';
+                window.location.href = '/albums/myalbums';
             }
 
             if(data === 'NameError'){

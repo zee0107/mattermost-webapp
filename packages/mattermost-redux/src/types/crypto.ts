@@ -242,7 +242,7 @@ export type Album = {
     id: string;
     user_id: string;
     album_name: string;
-    files_names: string[];
+    files_names: string;
     privacy: string;
     img_count: number;
     date: string;
