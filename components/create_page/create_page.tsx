@@ -63,10 +63,10 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                     <div className='container'>
                         <div className='row'>
                             <div className='col-lg-3 border-end p-4'>
-                                <p className='mt-4'><img className='img-fluid mt-2' src='assets/images/logo-story.png' alt='logo' title='logo'/>
+                                <div className='mt-4'><img className='img-fluid mt-2' src={logoDark} alt='logo' title='logo'/>
                                     <a className='float-end mt-1 onClickclosecreatemypage yourphotosandalbums-desktop'><i className='bi-x-circle-fill'></i></a>
                                     <a className='float-end mt-1 onClickclosecreatemypagemobile yourphotosandalbums-mobile'><i className='bi-x-circle-fill'></i></a>
-                                </p>
+                                </div>
                                 <div className='row mt-4'>
                                     <div className='col-10'><h6 className='mt-2'>Create My Page</h6></div>
                                     <div className='col-1 float-end'>
@@ -74,7 +74,7 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                 </div>
                                 <form>
                                     <p className='mt-1'><label>Page information</label></p>
-                                    <p>
+                                    <div>
                                         <div className='row g-1'>
                                             <div className='col-12'>
                                             <input type='text' className='form-control' placeholder='Page name (Required)' aria-label='Page name (Required)'/>
@@ -97,14 +97,14 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                             </div>
                                             </div>
                                         </div>
-                                    </p>
-                                    <p>
+                                    </div>
+                                    <div>
                                             <div className='col-12'>
                                             <div className='d-grid gap-2'>
                                                 <button type='button' className='btn btn-primary btn-sm'>Create Page</button>
                                             </div>
                                             </div>
-                                    </p>
+                                    </div>
                                 </form>
                             </div>
 
@@ -166,39 +166,39 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                         <hr/>
 
                                         <div className='row mt-2'>
-                                        <div className='col-3 text-center'><small>Home</small></div>
-                                        <div className='col-3 text-center'><small>About</small></div>
-                                        <div className='col-3 text-center'><small>Photos</small></div>
-                                        <div className='col-3 text-center'><small>Videos</small></div>
+                                            <div className='col-3 text-center'><small>Home</small></div>
+                                            <div className='col-3 text-center'><small>About</small></div>
+                                            <div className='col-3 text-center'><small>Photos</small></div>
+                                            <div className='col-3 text-center'><small>Videos</small></div>
                                         </div>
 
                                         <div className='mypages-previews-content-dekstop'>
-                                        <div className='mypagecontentpreviews'>
-                                            <div className='row'>
-                                            <div className='col-lg-5 mt-1 mb-1'>
-                                                <div className='mypagepreviewsabout'>
-                                                <h6>About</h6>
-                                                <p><i className='bi-info-circle-fill info-circle-fill-style'></i> Description</p>
-                                                </div>
-                                            </div>
-                                            <div className='col-lg-7 mt-1 mb-1'>
-                                                <div className='mypagepreviewsabout'>
-                                                    <div className='row'>
-                                                        <div className='col-2'><img className='' width='40' height='40' src='assets/images/sample-user-primary-picture.png' alt=''/></div>
-                                                        <div className='col-10'><div className='d-grid'><button type='button' className='btn btn-primary' disabled>Create post</button></div></div>
-                                                    </div>
-                                                    <div className='row mt-2'>
-                                                    <div className='col-4 text-center'>
-                                                        <i className='bi-camera-video float-start'></i> <small className='float-start mt-1 ms-1'>Videos</small></div>
-                                                    <div className='col-4 text-center'>
-                                                        <i className='bi-image float-start'></i> <small className='float-start mt-1 ms-1'>Photos</small></div>
-                                                    <div className='col-4 text-center'>
-                                                        <i className='bi-geo-alt-fill float-start'></i> <small className='float-start mt-1 ms-1'>Locations</small></div>
+                                            <div className='mypagecontentpreviews'>
+                                                <div className='row'>
+                                                <div className='col-lg-5 mt-1 mb-1'>
+                                                    <div className='mypagepreviewsabout'>
+                                                    <h6>About</h6>
+                                                    <p><i className='bi-info-circle-fill info-circle-fill-style'></i> Description</p>
                                                     </div>
                                                 </div>
+                                                <div className='col-lg-7 mt-1 mb-1'>
+                                                    <div className='mypagepreviewsabout'>
+                                                        <div className='row'>
+                                                            <div className='col-2'><img className='' width='40' height='40' src='assets/images/sample-user-primary-picture.png' alt=''/></div>
+                                                            <div className='col-10'><div className='d-grid'><button type='button' className='btn btn-primary' disabled>Create post</button></div></div>
+                                                        </div>
+                                                        <div className='row mt-2'>
+                                                        <div className='col-4 text-center'>
+                                                            <i className='bi-camera-video float-start'></i> <small className='float-start mt-1 ms-1'>Videos</small></div>
+                                                        <div className='col-4 text-center'>
+                                                            <i className='bi-image float-start'></i> <small className='float-start mt-1 ms-1'>Photos</small></div>
+                                                        <div className='col-4 text-center'>
+                                                            <i className='bi-geo-alt-fill float-start'></i> <small className='float-start mt-1 ms-1'>Locations</small></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
                                             </div>
-                                            </div>
-                                        </div>
                                         </div>
 
                                         <div className='mypages-previews-content-mobile'>
