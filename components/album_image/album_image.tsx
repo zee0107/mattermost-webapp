@@ -28,9 +28,11 @@ export default class AlbumImage extends React.PureComponent<Props, State> {
     componentDidMount = () =>{
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
+
+        this.getImage();
     }
 
-    getImage = async (channel: string) => {
+    getImage = async () => {
         const {albumId, fileName} = this.props;
         const response = await fetch(`https://localhost:44312/api/crypter/albumfile?id=${albumId}&filename=${fileName}`);
         console.log(response);
