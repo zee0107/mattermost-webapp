@@ -92,7 +92,7 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                         <div className='row g-1'>
                                             <div className='col-12'>
                                             <div className='form-floating'>
-                                                <textarea style={{height: 135, border: '1px solid #ccc;'}} className='form-control' placeholder='Description'></textarea>
+                                                <textarea style={{height: 135, border: '1px solid #ccc'}} className='form-control' placeholder='Description'></textarea>
                                                 <label htmlFor='floatingTextarea'>Description</label>
                                             </div>
                                             </div>
