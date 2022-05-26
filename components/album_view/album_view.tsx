@@ -87,33 +87,58 @@ export default class AlbumView extends React.PureComponent<Props, State> {
         let viewDetails;
         let albumName;
         let albumCount;
-        let viewImages;
+        let viewImagesDesktop;
+        let viewImagesMobile;
         if(album){
             console.log(album);
             albumName = album.album_name;
             albumCount = album.img_count;
             const imageList = album.files_names.split(',');
-            viewImages = (
+            viewImagesDesktop = (
                 <>
-                    <div id='carouselloopIndicators' className='carousel slide' data-bs-interval='false'>
-                        {/*<div className="carousel-indicators" style={{width:'70%'}}>
+                    <div id='carouselVideophotosIndicators' className='carousel slide' data-ride='carousel'>
+                        <div className='carousel-inner'>
                             {imageList.map((item,index) => {
                                 let activeClass;
                                 if(index === 0){
                                     activeClass = 'active';
+                                }
+                                else{
+                                    activeClass = ''
                                 }
 
                                 return (
-                                    <button className='hidden' type="button" data-bs-target="#carouselloopIndicators" data-bs-slide-to={index} className={activeClass} aria-label={`Slide ${index}`} key={`${item.id}--${index}`}></button>
+                                    <div className={`carousel-item text-center ${activeClass}`} key={`${item}-${index}`}>
+                                        <AlbumImage albumId={album.id} fileName={item} />
+                                    </div>
                                 );
                             })}
-                        </div>*/}
-                        <div className='carousel-inner text-center'>
+                        </div>
+                        <a className='carousel-control-prev' href='#carouselVideophotosIndicators' role='button' data-slide='prev'>
+                            <span className='carousel-control-prev-icon' aria-hidden='true'></span>
+                            <span className='sr-only'>Previous</span>
+                        </a>
+                        <a className='carousel-control-next' href='#carouselVideophotosIndicators' role='button' data-slide='next'>
+                            <span className='carousel-control-next-icon' aria-hidden='true'></span>
+                            <span className='sr-only'>Next</span>
+                        </a>
+                    </div>
+                </>
+            );
+
+            viewImagesMobile = (
+                <>
+                    <div id='carouselVideophotosIndicators' className='carousel slide' data-ride='carousel'>
+                        <div className='carousel-inner'>
                             {imageList.map((item,index) => {
                                 let activeClass;
                                 if(index === 0){
                                     activeClass = 'active';
                                 }
+                                else{
+                                    activeClass = ''
+                                }
+
                                 return (
                                     <div className={`carousel-item ${activeClass}`} key={`${item}-${index}`}>
                                         <AlbumImage albumId={album.id} fileName={item} />
@@ -121,14 +146,14 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                 );
                             })}
                         </div>
-                        <button className='carousel-control-prev' type='button' data-bs-target='#carouselloopIndicators' data-bs-slide='prev'>
-                        <span className='carousel-control-prev-icon' aria-hidden='true'></span>
-                        <span className='visually-hidden'>Previous</span>
-                        </button>
-                        <button className='carousel-control-next' type='button' data-bs-target='#carouselloopIndicators' data-bs-slide='next'>
-                        <span className='carousel-control-next-icon' aria-hidden='true'></span>
-                        <span className='visually-hidden'>Next</span>
-                        </button>
+                        <a className='carousel-control-prev' href='#carouselVideophotosIndicators' role='button' data-slide='prev'>
+                            <span className='carousel-control-prev-icon' aria-hidden='true'></span>
+                            <span className='sr-only'>Previous</span>
+                        </a>
+                        <a className='carousel-control-next' href='#carouselVideophotosIndicators' role='button' data-slide='next'>
+                            <span className='carousel-control-next-icon' aria-hidden='true'></span>
+                            <span className='sr-only'>Next</span>
+                        </a>
                     </div>
                 </>
             );
@@ -180,20 +205,37 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                         <RightSideView/>
                     </div>
                 </div>
-                <div className='modal' id='ViewImageModal' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='ViewImageModal' aria-hidden='true'>
-                    <div className='modal-dialog modal-lg modal-dialog-centered' role='document'>
-                        <div className='modal-content'>
-                            <div className='modal-header'>
-                                <a className='btn-close-canvas shadow onClosecreatepost float-end' data-bs-dismiss='modal' aria-label='Close'><i className='bi-x-lg'></i></a>
-                            </div>
-                            <div className='modal-body'>
-                                {viewImages}
+
+                <div className='modal postvideophotoviewer' id='ViewImageModal' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='ViewImageModal' aria-hidden='true'>
+                    <div className='video-photo-post-viewer-desktop'>
+                        <div className='position-absolute top-0 end-0 p-2' style={{zIndex: 99}}>
+                            <a className='onClosevideophotosprev shadow float-end ms-2'><i className='bi-x'></i></a>
+                        </div>
+                    </div>
+                    <div className='video-photo-post-viewer-mobile'>
+                        <div className='position-absolute top-0 end-0 p-3' style={{zIndex:350, margin: '62px 0px 0px 0px'}}>
+                            <a className='onClosevideophotosprev shadow float-end ms-2'><i className='bi-x'></i></a>
+                        </div>
+                    </div>
+                    <div className='position-absolute top-0 start-0 p-2' style={{zIndex: 99}}>
+                        <img className='img-fluid' src='assets/images/logo-story.png' alt=''/>
+                    </div>
+                    <div className='container-fluid mt-4 mb-4 post-ratio'>
+                        <div className='post-ratio-style'>
+                            <div className='row'>
+                                <div className='col-lg-12 mt-2'>
+                                    <div className='video-photo-post-viewer-desktop'>
+                                        {viewImagesDesktop}
+                                    </div>
+                                    <div className='video-photo-post-viewer-mobile'>
+                                        {viewImagesMobile}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </>
-            
         );
     }
 }

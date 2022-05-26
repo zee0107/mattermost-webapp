@@ -71,10 +71,10 @@ export default class AlbumImageList extends React.PureComponent<Props, State> {
         }
         else{
             if(type === 'image'){
-                cover = (<img width='100%' height='190' src={img_url} alt='' data-bs-target='#carouselloopIndicators' data-bs-slide-to={index}/>);
+                cover = (<img width='100%' height='190' src={img_url} alt='' data-bs-target='#carouselVideophotosIndicators' data-bs-slide-to={index}/>);
             }else{
                 cover = (
-                    <video width='100%' height='185' data-bs-target='#carouselloopIndicators' data-bs-slide-to={index}>
+                    <video width='100%' height='185' data-bs-target='#carouselVideophotosIndicators' data-bs-slide-to={index}>
                         <source src={img_url} type='video/ogg' />
                     </video>
                 );
