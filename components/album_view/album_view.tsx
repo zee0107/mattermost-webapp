@@ -6,6 +6,7 @@ import React from 'react';
 import {UserProfile} from 'mattermost-redux/types/users';
 import RightSideView from 'components/right_side_view';
 import { Album } from 'mattermost-redux/types/crypto';
+import AlbumImageList from 'components/album_image_list';
 import AlbumImage from 'components/album_image';
 
 export type Props = {
@@ -57,7 +58,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                     {images.map((item,index) => {
                         return(
                             <div className='col-md-3 p-1' key={`${item}--${index}`}>
-                                <AlbumImage albumId={album.id} fileName={item} index={index}/>                                    
+                                <AlbumImageList albumId={album.id} fileName={item} index={index}/>                                    
                             </div>
                         );
                     })}
@@ -93,7 +94,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
             const imageList = album.files_names.split(',');
             viewImages = (
                 <>
-                    <div id='carouselStoryloopIndicators' className='carousel slide' data-bs-interval='false' data-bs-ride='carousel'>
+                    <div id='carouselloopIndicators' className='carousel slide' data-bs-interval='false' data-bs-ride='carousel'>
                         <div className="carousel-indicators" style={{width:'70%'}}>
                             {imageList.map((item,index) => {
                                 let activeClass;
@@ -102,7 +103,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                 }
 
                                 return (
-                                    <button className='hidden' type="button" data-bs-target="#carouselStoryloopIndicators" data-bs-slide-to={index} className={activeClass} aria-label={`Slide ${index}`} key={`${item.id}--${index}`}></button>
+                                    <button className='hidden' type="button" data-bs-target="#carouselloopIndicators" data-bs-slide-to={index} className={activeClass} aria-label={`Slide ${index}`} key={`${item.id}--${index}`}></button>
                                 );
                             })}
                         </div>

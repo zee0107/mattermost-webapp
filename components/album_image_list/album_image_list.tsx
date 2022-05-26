@@ -6,6 +6,7 @@ import GroupLogo from 'images/groupcover.png';
 import { UserProfile } from 'mattermost-redux/types/users';
 
 export type Props = {
+    index: number;
     albumId: string;
     fileName: string;
     userId: string;
@@ -17,7 +18,7 @@ type State = {
     type: string;
 };
 
-export default class AlbumImage extends React.PureComponent<Props, State> {
+export default class AlbumImageList extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
@@ -62,7 +63,7 @@ export default class AlbumImage extends React.PureComponent<Props, State> {
     }
     
     render= (): JSX.Element => {
-        const { index } = this.props;
+        const {index} = this.props;
         const { img_url, type } = this.state;
         let cover;
         if(img_url === 'unavailable'){
@@ -70,10 +71,10 @@ export default class AlbumImage extends React.PureComponent<Props, State> {
         }
         else{
             if(type === 'image'){
-                cover = (<img width='100%' src={img_url} alt=''/>);
+                cover = (<img width='100%' height='190' src={img_url} alt='' data-bs-target='#carouselloopIndicators' data-bs-slide-to={index}/>);
             }else{
                 cover = (
-                    <video width='100%' controls>
+                    <video width='100%' height='185' data-bs-target='#carouselloopIndicators' data-bs-slide-to={index}>
                         <source src={img_url} type='video/ogg' />
                     </video>
                 );
