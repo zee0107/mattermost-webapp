@@ -52,6 +52,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
         let list;
         let noList;
         if(album){
+            console.log(album);
             const images = album.files_names.split(',');
             list = (
                 <>
