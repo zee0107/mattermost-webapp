@@ -89,7 +89,6 @@ export default class AlbumView extends React.PureComponent<Props, State> {
         let albumCount;
         let viewImages;
         if(album){
-            
             console.log(album);
             albumName = album.album_name;
             albumCount = album.img_count;
