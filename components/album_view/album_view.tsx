@@ -95,7 +95,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
             const imageList = album.files_names.split(',');
             viewImages = (
                 <>
-                    <div id='carouselloopIndicators' className='carousel slide' data-bs-interval='false'>
+                    <div id='carouselloopIndicators' className='carousel slide' data-bs-ride='carousel' data-interval='false'>
                         <div className="carousel-indicators" style={{width:'70%'}}>
                             {imageList.map((item,index) => {
                                 let activeClass;
