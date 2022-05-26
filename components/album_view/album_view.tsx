@@ -109,7 +109,6 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                 );
                             })}
                         </div>*/}
-                                    return (
                         <div className='carousel-inner text-center'>
                             {imageList.map((item,index) => {
                                 let activeClass;
@@ -206,36 +205,6 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                             </div>
                         </div>
                     </div>
-                    {/*<div className='video-photo-post-viewer-desktop'>
-                        <div className='position-absolute top-0 end-0 p-2' style={{zIndex: 99}}>
-                            <a className='onClosevideophotosprev shadow float-end ms-2'><i className='bi-x'></i></a>
-                        </div>
-                    </div>
-                    <div className='video-photo-post-viewer-mobile'>
-                        <div className='position-absolute top-0 end-0 p-3' style={{zIndex:350, margin:'62px 0px 0px 0px'}}>
-                            <a className='onClosevideophotosprev shadow float-end ms-2'><i className='bi-x'></i></a>
-                        </div>
-                    </div>
-                    <div className='position-absolute top-0 start-0 p-2' style={{zIndex: 99}}>
-                        <img className='img-fluid' src={logoWhite} alt=''/>
-                    </div>
-                    <div className='container-fluid mt-4 mb-4 post-ratio'>
-                        <div className='post-ratio-style'>
-                            <div className='col-lg-12 mt-2'>
-                                {viewImages}
-                            </div>
-                        </div>
-                    </div>
-                    <div className='modal-dialog modal-lg modal-dialog-centered' role='document'>
-                        <div className='modal-content'>
-                            <div className='modal-header'>
-                                <a className='btn-close-canvas shadow onClosecreatepost float-end' data-bs-dismiss='modal' aria-label='Close'><i className='bi-x-lg'></i></a>
-                            </div>
-                            <div className='modal-body'>
-                               
-                            </div>
-                        </div>
-                    </div>*/}
                 </div>
             </>
             
