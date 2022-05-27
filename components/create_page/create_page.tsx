@@ -63,7 +63,7 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                 <div style={{zIndex: 180}} className='createmypage' id='staticBackdrop'>
                     <div className='container'>
                         <div className='row'>
-                            <div className='col-lg-2 border-end p-4'>
+                            <div className='col-lg-3 border-end p-4'>
                                 <div className='mt-4'><img className='img-fluid mt-2' src={logoDark} alt='logo' title='logo'/>
                                     <a className='float-end mt-1 onClickclosecreatemypage yourphotosandalbums-desktop'><i className='bi-x-circle-fill'></i></a>
                                     <a className='float-end mt-1 onClickclosecreatemypagemobile yourphotosandalbums-mobile'><i className='bi-x-circle-fill'></i></a>
@@ -109,7 +109,7 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                 </form>
                             </div>
 
-                            <div className='col-lg-9 right-nav-story'>
+                            <div className='col-lg-8 right-nav-story'>
                                 <div className='col-12 mx-auto mt-4 border border-1 p-4 rounded my-page-desktop-mobile-view'>
                                     <div className='row'>
                                         <div className='col-8'>
