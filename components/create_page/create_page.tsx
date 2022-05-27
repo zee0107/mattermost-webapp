@@ -132,7 +132,7 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='row'>
-                                        <div className='mypageheaderpreviews' style={{backgroud: `Url(${HeaderImage}) #222222 center bottom`}}>
+                                        <div className='mypageheaderpreviews' style={{backgroundImage: `url(${HeaderImage})`, backgroundPosition: 'center bottom'}}>
                                             <h3 className='text-center text-white'></h3>
                                         </div>
 
