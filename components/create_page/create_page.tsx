@@ -1,47 +1,25 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import React, {ReactNode, ReactPropTypes} from 'react';
+import React from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
-import {ActionFunc} from 'mattermost-redux/types/actions';
-import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
+import { UserProfile } from 'mattermost-redux/types/users';
 import logoDark from 'images/logoBlack.png';
 import HeaderImage from 'images/Page-dummy-cover.png';
 import ModalInfoImage from 'images/Page-dummy-cover-informations.png';
 import profPic from 'images/profiles/user-profile-1.png';
-import $ from 'jquery';
-import { throws } from 'assert';
-import { UploadBlob } from 'mattermost-redux/types/crypto';
-import { Item } from 'react-bootstrap/lib/Breadcrumb';
-import { toInteger } from 'lodash';
 
 type Props = {
-    status?: string;
     userId: string;
-    autoResetPref?: string;
-    actions: {
-        openModal: <P>(modalData: ModalData<P>) => void;
-        setStatus: (status: UserStatus) => ActionFunc;
-        unsetCustomStatus: () => ActionFunc;
-        setStatusDropdown: (open: boolean) => void;
-    };
-    customStatus?: UserCustomStatus;
     profilePicture: string;
     currentUser: UserProfile;
-    isCustomStatusEnabled: boolean;
-    isCustomStatusExpired: boolean;
-    isMilitaryTime: boolean;
-    isStatusDropdownOpen: boolean;
-    showCustomStatusPulsatingDot: boolean;
-    timezone?: string;
-    globalHeader?: boolean;
 }
 
 type State = {
-    openUp: boolean;
-    width: number;
-    isStatusSet: boolean;
     isDark: string;
+    pageName: string;
+    pageCategory: string;
+    pageDescription: string;
 };
 
 export default class CreatePage extends React.PureComponent<Props, State> {
@@ -49,16 +27,52 @@ export default class CreatePage extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light', privacyValue: 'everyone',};
+        this.state = { isDark:'light' };
     }
 
     componentDidMount = async () =>{
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
+
+        this.handleChangeName = this.handleChangeName.bind(this);
+        this.handleChangeCategory = this.handleChangeCategory.bind(this);
+        this.handleChangeDescription = this.handleChangeDescription.bind(this);
     }
 
+    handleChangeName = (e) => {
+        this.setState({pageName: e.target.value});
+    }
+
+    handleChangeCategory = (e) => {
+        this.setState({pageName: e.target.value});
+    }
+
+    handleChangeDescription = (e) => {
+        this.setState({pageName: e.target.value});
+    }
    
     render= (): JSX.Element => {
+        const {pageName, pageDescription, pageCategory} = this.state;
+
+        let name,desc,category;
+        if(pageName){
+            name = pageName;
+        }else{
+            name = 'Page name';
+        }
+
+        if(pageDescription){
+            desc = pageDescription;
+        }else{
+            desc = '';
+        }
+
+        if(pageCategory){
+            category = pageCategory;
+        }else{
+            category = 'Category';
+        }
+
         return (
             <>
                 <div style={{zIndex: 180}} className='createmypage' id='staticBackdrop'>
@@ -79,14 +93,14 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                     <div>
                                         <div className='row g-1'>
                                             <div className='col-12'>
-                                            <input type='text' className='form-control' placeholder='Page name (Required)' aria-label='Page name (Required)'/>
+                                            <input type='text' className='form-control' placeholder='Page name (Required)' onChange={this.handleChangeName} value={pageName} aria-label='Page name (Required)'/>
                                             <p><small>Use the name of your business, brand or organization, or a name that explains what the Page is about. <a>Learn more</a></small></p>
                                             </div>
                                         </div>
 
                                         <div className='row g-1'>
                                             <div className='col-12'>
-                                            <input type='text' className='form-control' placeholder='Category (Required)' aria-label='Category (Required)'/>
+                                            <input type='text' className='form-control' placeholder='Category (Required)' onChange={this.handleChangeCategory} value={pageCategory} aria-label='Category (Required)'/>
                                             <p><small>Choose a category that describes what type of business, organization or topic the Page represents.</small></p>
                                             </div>
                                         </div>
@@ -94,7 +108,7 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                         <div className='row g-1'>
                                             <div className='col-12'>
                                             <div className='form-floating'>
-                                                <textarea style={{height: 135, border: '1px solid #ccc'}} className='form-control' placeholder='Description'></textarea>
+                                                <textarea style={{height: 135, border: '1px solid #ccc'}} onChange={this.handleChangeDescription} value={pageDescription} className='form-control' placeholder='Description'></textarea>
                                                 <label htmlFor='floatingTextarea'>Description</label>
                                             </div>
                                             </div>
@@ -143,9 +157,9 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                                 <div className='col-lg-3 text-center'>
                                                 <div className='rounded-circle rounded-circle-photo border border-5'><i className='bi-flag-fill bi-flag-fill-style text-white'></i></div>
                                                 </div>
-                                                <div className='col-lg-9'>
-                                                <h4 className='mt-5'>Page name</h4>
-                                                <label>Category</label>
+                                                <div className='col-lg-9 pt-5'>
+                                                <h1 className='mt-5'>{name}</h1>
+                                                <label>{category}</label>
                                                 </div>
                                             </div>
                                             </div>
@@ -158,8 +172,8 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                                 <div className='col-3 mx-auto rounded-circle rounded-circle-photo border border-5'><i className='bi-flag-fill bi-flag-fill-style text-white'></i></div>
                                                 </div>
                                                 <div className='col-lg-12 text-center'>
-                                                <h4 className='mt-3'>Page name</h4>
-                                                <label>Category</label>
+                                                <h4 className='mt-3'>{name}</h4>
+                                                <label>{category}</label>
                                                 </div>
                                             </div>
                                             </div>
@@ -180,7 +194,7 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                                 <div className='col-lg-5 mt-1 mb-1'>
                                                     <div className='mypagepreviewsabout'>
                                                     <h6>About</h6>
-                                                    <p><i className='bi-info-circle-fill info-circle-fill-style'></i> Description</p>
+                                                    <p><i className='bi-info-circle-fill info-circle-fill-style'></i> {desc}</p>
                                                     </div>
                                                 </div>
                                                 <div className='col-lg-7 mt-1 mb-1'>
@@ -225,7 +239,7 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                                     <div className='col-lg-5 mt-1 mb-1'>
                                                         <div className='mypagepreviewsabout'>
                                                         <h6>About</h6>
-                                                        <p><i className='bi-info-circle-fill info-circle-fill-style'></i> Description</p>
+                                                        <p><i className='bi-info-circle-fill info-circle-fill-style'></i> {desc}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -322,7 +336,7 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                                 <div className='row'>
                                                     <div className='col-10'></div>
                                                     <div className='col-2 text-center'>
-                                                    
+
                                                     </div>
                                                 </div>
                                                 </div>
