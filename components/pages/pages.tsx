@@ -22,6 +22,7 @@ import {FormattedMessage} from 'react-intl';
 import {browserHistory} from 'utils/browser_history';
 import { group } from 'console';
 import GroupImage from 'components/group_image/group_image';
+import { Team } from 'mattermost-redux/types/teams';
 
 export function getChannelTypeFromProps(props: Props): ChannelType {
     let channelType = props.channelType || Constants.OPEN_CHANNEL;
@@ -40,6 +41,7 @@ export type Props = {
     currentTeamId?: string;
     teamId?: string;
     channelType: ChannelType;
+    isMember: Team[];
     closeHandler?: (callback: () => void) => void;
     actions: {
         createChannel: (channel: Channel) => Promise<{data?: Channel; error?: ServerError}>;
@@ -52,6 +54,8 @@ export type Props = {
         setStatus: (status: UserStatus) => ActionFunc;
         unsetCustomStatus: () => ActionFunc;
         setStatusDropdown: (open: boolean) => void;
+        addUserToTeam: (teamId: string, userId?: string) => any;
+        getTeamMember: (teamId: string, userId: string) => ActionFunc;
     };
     currentUser: UserProfile;
     mychannels: Promise<ServerChannel[]>;
@@ -111,7 +115,6 @@ export default class MyPages extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
-
         if(this.props.mychannels != null){
             Promise.resolve(this.props.mychannels).then(value => {this.setState({mygroups: value});})
         }
@@ -119,6 +122,8 @@ export default class MyPages extends React.PureComponent<Props, State> {
         if(this.props.suggestedChannels != null){
             Promise.resolve(this.props.suggestedChannels).then(value => {this.setState({suggestedgroup: value});})
         }
+
+        this.checkIfMember();
     }
 
     componentDidUpdate(){
@@ -131,6 +136,21 @@ export default class MyPages extends React.PureComponent<Props, State> {
         }
     }
 
+    checkIfMember = () => {
+        const { isMember, teamId, userId, actions} = this.props;
+        if(isMember){
+            let found = false;
+            isMember.map((item) => {
+                if(item.id === teamId){
+                    found = true;
+                }
+            });
+
+            if(!found){
+                actions.addUserToTeam(teamId,userId);
+            }
+        }
+    }
     onSubmit = () => {
         if (!this.state.channelDisplayName) {
             this.setState({serverError: Utils.localizeMessage('channel_flow.invalidName', 'Invalid Channel Name')});
@@ -334,7 +354,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
         window.location.href = `./pages/channels/${name}`;
     }
 
-    joinedGroup = () => {
+    likePages = () => {
         let errorServer;
         if (this.state.serverError) {
             errorServer = (<div className='alert alert-danger'>
@@ -376,7 +396,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
         );
     }
 
-    myGroupList = () => {
+    myPagesList = () => {
         let errorServer;
         if (this.state.serverError) {
             errorServer = (<div className='alert alert-danger'>
@@ -656,7 +676,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
         const { group_view } = this.state;
         let viewDetails;
         if(this.state.group_view === "joined"){
-            viewDetails = this.joinedGroup();
+            viewDetails = this.likePages();
         }
         else if(this.state.group_view === "suggested"){
             viewDetails = this.suggestedGroup();
@@ -668,7 +688,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
             viewDetails = this.updateGroup();
         }
         else{
-            viewDetails = this.myGroupList();
+            viewDetails = this.myPagesList();
         }
 
         return (

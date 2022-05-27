@@ -19,11 +19,13 @@ import {makeGetCustomStatus, isCustomStatusEnabled, showStatusDropdownPulsatingD
 import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
 import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
-import { getCurrentTeam, getTeamByName } from 'mattermost-redux/selectors/entities/teams';
+import { getCurrentTeam, getMyTeams, getTeamByName } from 'mattermost-redux/selectors/entities/teams';
+import {addUserToTeam} from 'actions/team_actions';
 import {createChannel,joinChannel,leaveChannelNew,deleteChannel,updateChannel} from 'mattermost-redux/actions/channels';
 import {switchToChannel} from 'actions/views/channel';
 
 import MyPages, {Props} from './pages'
+import { getTeamMember, getTeamMembersByIds } from 'mattermost-redux/actions/teams';
 
 
 function makeMapStateToProps() {
@@ -35,11 +37,14 @@ function makeMapStateToProps() {
         const userId = currentUser?.id;
         const team = getTeamByName(state,'pages');
         const teamId = team?.id;
+        const isMember = getMyTeams(state);
+
         return {
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
             teamId,
+            isMember,
             currentTeamId: currentTeam?.id,
             mychannels: Client4.getMyChannels(teamId),
             suggestedChannels: Client4.getChannels(teamId),
@@ -50,6 +55,7 @@ function makeMapStateToProps() {
 function mapDispatchToProps(dispatch: Dispatch) {
     return {
         actions: bindActionCreators<ActionCreatorsMapObject<Action>, Props['actions']>({
+            addUserToTeam,
             createChannel,
             updateChannel,
             switchToChannel,
