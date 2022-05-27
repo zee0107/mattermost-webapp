@@ -2,7 +2,7 @@
 // See LICENSE.txt for license information.
 
 import React, {ReactNode} from 'react';
-import GroupDetails from 'components/group_details';
+import PageDetails from 'components/page_details';
 import GroupLogo from 'images/groupcover.png';
 import { isGIFImage } from 'utils/utils';
 import { throws } from 'assert';
@@ -76,8 +76,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     handleSubmit = () => {
         'use strict';
-        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/uploadgroupcover?');
-        const params = {group_id: this.props.channelId, file_id: this.state.file_name};
+        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/uploadpagecover?');
+        const params = {page_id: this.props.channelId, file_id: this.state.file_name};
         uri.search = new URLSearchParams(params);
 
         fetch(uri, {
@@ -97,7 +97,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     getImage = async (channel: string) => {
         try{
-            const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/coverimg?id=${channel}`);
+            const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/pagecoverimg?id=${channel}`);
             const imageBlob = await response.blob();
             const textBlob = await imageBlob.text();
             if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
@@ -155,7 +155,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             window.location.href = '/mygroups';
         }
         else{
-            buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn buttonBgGreen text-white float-end btn-sm mt-4'>Joined</button>);
+            buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn buttonBgGreen text-white float-end btn-sm mt-4'>Liked</button>);
         }
         
         let upload;
@@ -223,7 +223,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                         <div className='col-md-12'>
                             <div className='float-start'>
                                 <h5 className='text-primary'>{channelDisplayName}</h5>
-                                <h6 className='text-secondary'><GroupDetails channelId={channelId}/></h6>
+                                <h6 className='text-secondary'><PageDetails channelId={channelId}/></h6>
                             </div>
                             {buttonAction}
                         </div>
@@ -238,7 +238,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                                 <div className='d-flex'>
                                     <div className='col-md-7 width-100'>
                                         <h5 className='text-primary'>{channelDisplayName}</h5>
-                                        <h6 className='text-secondary'><GroupDetails channelId={channelId}/></h6>
+                                        <h6 className='text-secondary'><PageDetails channelId={channelId}/></h6>
                                     </div>
                                     <div className='col-md-5 width-100'>
                                         {buttonAction}
