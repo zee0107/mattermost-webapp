@@ -276,7 +276,7 @@ export default class UpdateAlbum extends React.PureComponent<Props, State> {
                                                 tabIndex='-1'
                                                 multiple/>
                                             </span>
-                                                <button type='button' onClick={this.handleInputFile} className='btn-primary p-2' style={{borderRadius: 8,}}><i className='bi-file-earmark-image'></i> Upload photos or videos</button>
+                                                <button type='button' onClick={this.handleInputFile} className='btn-primary p-2' style={{borderRadius: 8,}}><i className='bi-file-earmark-image'></i> Add photos or videos to album</button>
                                             </div>
                                             </div>
                                         </div>
@@ -287,7 +287,7 @@ export default class UpdateAlbum extends React.PureComponent<Props, State> {
                                     <div>
                                         <div className='col-12'>
                                             <div className='d-grid gap-2'>
-                                                <button type='button' className='btn-primary p-2' style={{borderRadius: 8,}} onClick={() => this.onCreateAlbum()}>Post</button>
+                                                <button type='button' className='btn-primary p-2' style={{borderRadius: 8,}} onClick={() => this.onCreateAlbum()}>Update</button>
                                             </div>
                                         </div>
                                     </div>
