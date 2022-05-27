@@ -187,6 +187,10 @@ export default class UpdateAlbum extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const { currentUser } = this.props;
         const { privacyValue, image, albumName, album } = this.state;
+        let albumId;
+        if(album){
+            albumId = album.id;
+        }
 
         let privacyView;
         if(privacyValue === 'private'){
@@ -232,11 +236,11 @@ export default class UpdateAlbum extends React.PureComponent<Props, State> {
                             <div className='row'>
                                 <div className='col-lg-3 border-end p-4'>
                                     <p><img className='img-fluid mt-2' src={logoDark} alt='logo' title='logo' />
-                                        <a className='float-end mt-1 onClickcloseyourphotosandalbums yourphotosandalbums-desktop text-dark' href='/crypter/channels/town-square'><i className='bi-x-circle-fill'></i></a>
-                                        <a className='float-end mt-1 onClickcloseyourphotosandalbumsmobile yourphotosandalbums-mobile text-dark' href='/crypter/channels/town-square'><i className='bi-x-circle-fill'></i></a>
+                                        <a className='float-end mt-1 onClickcloseyourphotosandalbums yourphotosandalbums-desktop text-dark' href={`/albums/view?a=${albumId}`}><i className='bi-x-circle-fill'></i></a>
+                                        <a className='float-end mt-1 onClickcloseyourphotosandalbumsmobile yourphotosandalbums-mobile text-dark' href={`/albums/view?a=${albumId}`}><i className='bi-x-circle-fill'></i></a>
                                     </p>
                                     <div>
-                                        <h3 className='mt-4 mb-4'>Create album 
+                                        <h3 className='mt-4 mb-4'>Update album 
                                             <a className='onSelectphotosandalbums float-end' data-bs-toggle='modal' data-bs-target='#staticBackdropAudience'><i className='bi-gear' data-bs-toggle='tooltip' data-bs-placement='top' title='Photos or Albums Setting'></i></a>
                                         </h3>
                                     </div>
