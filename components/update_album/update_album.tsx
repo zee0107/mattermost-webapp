@@ -148,7 +148,7 @@ export default class UpdateAlbum extends React.PureComponent<Props, State> {
         const { userId } = this.props;
         const { photoValue, privacyValue, albumName, album} = this.state;
         if(album){
-            const uri = new URL('https://localhost:44312/api/crypter/updatealbum');
+            const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/updatealbum');
             const params = {album_id: album.id,user_id: userId, album_name: albumName, privacy: privacyValue};
             uri.search = new URLSearchParams(params);
 

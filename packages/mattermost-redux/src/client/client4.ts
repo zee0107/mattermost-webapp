@@ -4071,13 +4071,13 @@ export default class Client4 {
 
     albumList = (id: string) => {
         return this.doFetch<Album[]>(
-            `https://localhost:44312/api/crypter/albumlist?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/albumlist?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getAlbum = (id: string) => {
         return this.doFetch<Album[]>(
-            `https://localhost:44312/api/crypter/getalbum?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getalbum?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 

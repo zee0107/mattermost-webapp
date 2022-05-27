@@ -36,7 +36,7 @@ export default class AlbumImageList extends React.PureComponent<Props, State> {
 
     getImage = async () => {
         const {albumId, fileName} = this.props;
-        const response = await fetch(`https://localhost:44312/api/crypter/albumfile?id=${albumId}&filename=${fileName}`);
+        const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/albumfile?id=${albumId}&filename=${fileName}`);
         const imageBlob = await response.blob();
         if(imageBlob.type.includes('image')){
             this.setState({type: 'image'});
