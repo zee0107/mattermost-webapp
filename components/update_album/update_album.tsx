@@ -291,7 +291,7 @@ export default class UpdateAlbum extends React.PureComponent<Props, State> {
                                     <div>
                                         <div className='col-12'>
                                             <div className='d-grid gap-2'>
-                                                <button type='button' className='btn-primary p-2' style={{borderRadius: 8,}} onClick={() => this.onCreateAlbum()}>Update</button>
+                                                <button type='button' className='btn-primary p-2' style={{borderRadius: 8,}} onClick={() => this.onUpdateAlbum()}>Update</button>
                                             </div>
                                         </div>
                                     </div>
