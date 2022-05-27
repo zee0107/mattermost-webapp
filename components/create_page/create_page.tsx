@@ -169,7 +169,7 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                             <div className='mypageheadingpreviews'>
                                             <div className='row'>
                                                 <div className='col-12 text-center'>
-                                                <div className='col-3 mx-auto rounded-circle rounded-circle-photo border border-5'><i className='bi-flag-fill bi-flag-fill-style text-white'></i></div>
+                                                <div className='col-5 mx-auto rounded-circle rounded-circle-photo border border-5'><i className='bi-flag-fill bi-flag-fill-style text-white'></i></div>
                                                 </div>
                                                 <div className='col-lg-12 text-center'>
                                                 <h4 className='mt-3'>{name}</h4>
