@@ -55,7 +55,6 @@ export type Props = {
         unsetCustomStatus: () => ActionFunc;
         setStatusDropdown: (open: boolean) => void;
         addUserToTeam: (teamId: string, userId?: string) => any;
-        getTeamMember: (teamId: string, userId: string) => ActionFunc;
     };
     currentUser: UserProfile;
     mychannels: Promise<ServerChannel[]>;
