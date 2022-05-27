@@ -15,13 +15,13 @@ import {ServerError} from 'mattermost-redux/types/errors';
 import RightSideView from 'components/right_side_view';
 import {ChannelType, Channel,ServerChannel,ChannelWithTeamData} from 'mattermost-redux/types/channels';
 import {ModalIdentifiers} from 'utils/constants';
-import GroupDetail from 'components/group_details';
+import PageDetail from 'components/page_details';
 import Constants from 'utils/constants.jsx';
 import * as Utils from 'utils/utils';
 import {FormattedMessage} from 'react-intl';
 import {browserHistory} from 'utils/browser_history';
 import { group } from 'console';
-import GroupImage from 'components/group_image/group_image';
+import PageImage from 'components/page_image/page_image';
 import { Team } from 'mattermost-redux/types/teams';
 
 export function getChannelTypeFromProps(props: Props): ChannelType {
@@ -55,6 +55,8 @@ export type Props = {
         unsetCustomStatus: () => ActionFunc;
         setStatusDropdown: (open: boolean) => void;
         addUserToTeam: (teamId: string, userId?: string) => any;
+        likeThisPage: (user_id: string, page_id: string) => any;
+        unlikeThisPage: (user_id: string, page_id: string) => any;
     };
     currentUser: UserProfile;
     mychannels: Promise<ServerChannel[]>;
@@ -258,9 +260,9 @@ export default class MyPages extends React.PureComponent<Props, State> {
         this.typeSwitched(e.target.value);
     }
 
-    handleJoin = (channel: ServerChannel) => {
+    handleLike = (channel: ServerChannel) => {
         const {actions} = this.props;
-        const result = actions.joinChannel(this.props.userId, this.props.teamId, channel.id);
+        const result = actions.likeThisPage(this.props.userId, channel.id);
 
         if (result.error) {
             this.setState({serverError: result.error.message});
@@ -269,13 +271,13 @@ export default class MyPages extends React.PureComponent<Props, State> {
         }
     }
 
-    joinGroup(channel) {
-        this.handleJoin(channel);
+    likePage(channel) {
+        this.handleLike(channel);
     }
-    
-    handleLeaveChannel = (channel: ServerChannel) => {
+
+    handleUnlike = (channel: ServerChannel) => {
         const {actions} = this.props;
-        const result = actions.leaveChannelNew(channel.id);
+        const result = actions.likeThisPage(this.props.userId, channel.id);
 
         if (result.error) {
             this.setState({serverError: result.error.message});
@@ -284,8 +286,8 @@ export default class MyPages extends React.PureComponent<Props, State> {
         }
     }
 
-    leaveGroup(channel){
-        this.handleLeaveChannel(channel);
+    unlikePage(channel) {
+        this.handleUnlike(channel);
     }
 
     handleRemoveChannel = (channel: ServerChannel) => {
@@ -352,7 +354,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
 
     handleRedirect = (name: string, id: string) => {
         window.localStorage.setItem('channelId', id);
-        window.location.href = `./pages/channels/${name}`;
+        window.location.href = `./page/channels/${name}`;
     }
 
     likePages = () => {
@@ -378,13 +380,13 @@ export default class MyPages extends React.PureComponent<Props, State> {
                             return(
                                 <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
-                                        <GroupImage channelId={item.id} channelName={item.name} suggested={false} />
+                                        <PageImage channelId={item.id} channelName={item.name} suggested={false} />
                                         <p onClick={this.handleRedirect.bind(this,item.name,item.id)} className='mt-4 ms-3 ml-5'>
-                                        <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
+                                        <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><PageDetail channelId={item.id}/>
                                         </p>
     
                                         <div className='col-md-12 mb-3 p-3 text-center'>
-                                            <div className='d-grid'><button type='button' className='btn onUnfollowsuggested' onClick={this.leaveGroup.bind(this,item)}><label>Unfollow</label></button></div>
+                                            <div className='d-grid'><button type='button' className='btn onUnfollowsuggested' onClick={this.unlikePage.bind(this,item)}><label>Unlike</label></button></div>
                                         </div>
                                         <div className='row'></div>
                                     </div>
@@ -407,19 +409,19 @@ export default class MyPages extends React.PureComponent<Props, State> {
 
         if(this.state.result_create){
             errorServer = (<div className='alert alert-success'>
-                    <label>Successfully created a group.</label>
+                    <label>Successfully created a page.</label>
                 </div>);
         }
 
         if(this.state.result_update){
             errorServer = (<div className='alert alert-success'>
-                    <label>Successfully updated group.</label>
+                    <label>Successfully updated page.</label>
                 </div>);
         }
 
         if(this.state.result_remove){
             errorServer = (<div className='alert alert-success'>
-                    <label>Group has been archive.</label>
+                    <label>Page has been archive.</label>
                 </div>);
         }
 
@@ -434,9 +436,9 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                 return(
                                     <div className='col-md-3 p-1'>
                                         <div className='box-each-groups'>
-                                            <GroupImage channelId={item.id} channelName={item.name} suggested={false}/>
+                                            <PageImage channelId={item.id} channelName={item.name} suggested={false}/>
                                             <p onClick={this.handleRedirect.bind(this,item.name,item.id)} className='mt-4 ms-3 ml-5'>
-                                            <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
+                                            <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><PageDetail channelId={item.id}/>
                                             </p>
         
                                             <div className='d-flex'>
@@ -483,13 +485,13 @@ export default class MyPages extends React.PureComponent<Props, State> {
                             return(
                                 <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
-                                        <GroupImage channelId={item.id} channelName={item.name} suggested={true}/>
+                                        <PageImage channelId={item.id} channelName={item.name} suggested={true}/>
                                         <p className='mt-4 ms-3 ml-5'>
-                                        <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><GroupDetail channelId={item.id}/>
+                                        <label className='text-name-products'><strong>{item.display_name}</strong></label><br/><PageDetail channelId={item.id}/>
                                         </p>
     
                                         <div className='col-md-12 mb-3 p-3 text-center'>
-                                            <div className='d-grid'><button type='button' className='btn onFollowsuggested' onClick={this.joinGroup.bind(this,item)}><label>Follow</label></button></div>
+                                            <div className='d-grid'><button type='button' className='btn onFollowsuggested' onClick={this.likePage.bind(this,item)}><label>Like</label></button></div>
                                         </div>
                                         <div className='row'></div>
                                     </div>

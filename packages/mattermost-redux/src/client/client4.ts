@@ -4119,6 +4119,28 @@ export default class Client4 {
         );
     }
 
+    likePage = (user_id: string, page_id: string) => {
+        const body = {
+            user_id: user_id,
+            pageId: page_id,
+        }
+        return this.doFetch<string>(
+            `https://localhost:44312/api/crypter/likepage`
+            ,{method: 'post',body: JSON.stringify(body)}
+        );
+    }
+
+    unlikePage = (user_id: string, page_id: string) => {
+        const body = {
+            user_id: user_id,
+            pageId: page_id,
+        }
+        return this.doFetch<string>(
+            `https://localhost:44312/api/crypter/unlikepage`
+            ,{method: 'post',body: JSON.stringify(body)}
+        );
+    }
+
     // Client Helpers
 
     doFetch = async <T>(url: string, options: Options): Promise<T> => {

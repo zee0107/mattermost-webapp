@@ -285,6 +285,32 @@ export function patchChannel(channelId: string, patch: Partial<Channel>): Action
     };
 }
 
+export function likePage(userId: string, friend_id:string){
+    return async () => {
+        const result = await Client4.likePage(userId,friend_id);
+
+        if(result === 'liked'){
+            return {data: true};
+        }
+        else{
+            return {data: false};
+        }
+    };
+}
+
+export function unlikePage(userId: string, friend_id:string){
+    return async () => {
+        const result = await Client4.unlikePage(userId,friend_id);
+
+        if(result){
+            return {data: true};
+        }
+        else{
+            return {data: false};
+        }
+    };
+}
+
 export function updateChannel(channel: Channel): ActionFunc {
     return async (dispatch: DispatchFunc, getState: GetStateFunc) => {
         dispatch({type: ChannelTypes.UPDATE_CHANNEL_REQUEST, data: null});
