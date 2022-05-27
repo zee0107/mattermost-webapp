@@ -7,6 +7,7 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import logoDark from 'images/logoBlack.png';
 import HeaderImage from 'images/Page-dummy-cover.png';
+import ModalInfoImage from 'images/Page-dummy-cover-informations.png';
 import profPic from 'images/profiles/user-profile-1.png';
 import $ from 'jquery';
 import { throws } from 'assert';
@@ -290,9 +291,9 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                     <div className='modal-dialog modal-lg modal-dialog-center' role='document'>
                         <div className='modal-body'>
                             <div className='getstarted-information-desktop'>
-                                <div className='col-4 mx-auto mt-5'>
+                                <div className='col-10 mx-auto mt-5'>
                                     <div className='row'>
-                                        <div className='getstartedheader rounded shadow'>
+                                        <div className='getstartedheader rounded shadow' style={{backgroundImage: `url(${ModalInfoImage})`,backgroundPosition: 'center'}}>
                                             <p className='p-3'><a className='onClosegetstarted shadow float-end' style={{zIndex: 99}}><i className='bi-x'></i></a></p>
                                             <div className='row'>
                                                 <div className='col-10'></div>
@@ -315,7 +316,7 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                 <div className='getstarted-information-mobile'>
                                     <div className='col-10 mx-auto mt-5'>
                                         <div className='row'>
-                                            <div className='getstartedheader rounded shadow'>
+                                            <div className='getstartedheader rounded shadow' style={{backgroundImage: `url(${ModalInfoImage})`,backgroundPosition: 'center'}}>
                                             <p className='p-3'><a className='onClosegetstarted shadow float-end' style={{zIndex: 99}}><i className='bi-x'></i></a></p>
                                             <div className='row'>
                                                 <div className='col-10'></div>
