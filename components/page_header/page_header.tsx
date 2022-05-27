@@ -76,7 +76,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     handleSubmit = () => {
         'use strict';
-        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/uploadpagecover?');
+        const uri = new URL('https://localhost:44312/api/crypter/uploadpagecover?');
         const params = {page_id: this.props.channelId, file_id: this.state.file_name};
         uri.search = new URLSearchParams(params);
 
@@ -97,7 +97,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     getImage = async (channel: string) => {
         try{
-            const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/pagecoverimg?id=${channel}`);
+            const response = await fetch(`https://localhost:44312/api/crypter/pagecoverimg?id=${channel}`);
             const imageBlob = await response.blob();
             const textBlob = await imageBlob.text();
             if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
