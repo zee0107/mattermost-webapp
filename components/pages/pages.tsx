@@ -441,7 +441,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
         
                                             <div className='d-flex'>
                                                 <div className='col-md-6 mt-2 mb-3 '><button type='button' className='float-end onEditgroups' onClick={() => {
-                                                    this.setState({group_view: 'update_group',channelId: item.id, channelName: item.name,channelDisplayName: item.display_name,channelPurpose: item.purpose,channelHeader: item.header,channelType: item.type })
+                                                    this.setState({group_view: 'update_page',channelId: item.id, channelName: item.name,channelDisplayName: item.display_name,channelPurpose: item.purpose,channelHeader: item.header,channelType: item.type })
                                                 }}><label>Edit</label></button></div>
                                                 <div className='col-md-6 mt-2 mb-3  '><button type='button' className='float-start onDeletegroups' onClick={this.removeGroup.bind(this,item)}><label>Delete</label></button></div>
                                             </div>
@@ -502,7 +502,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
         );
     }
 
-    createGroup = () => {
+    createPage = () => {
         const prettyTeamURL = getShortenedURL();
 
         const channelData = {
@@ -549,14 +549,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                         </div>
 
                         <div className="row p-2">
-                            <div className="col-md-6">
-                                <label htmlFor="inputState" className="form-label"><small>Group type</small></label>
-                                <select id="inputState" className="form-control input-create-new-group" onChange={this.handleTypeSelect} value={this.state.channelType}>
-                                <option value='O'>Public</option>
-                                <option value='P'>Private</option>
-                                </select>
-                            </div>
-                            <div className="col-md-6">
+                            <div className="col-md-12">
                                 <label htmlFor="inputState" className="form-label"><small>Category</small></label>
                                 <select id="inputState" className="form-control input-create-new-group">
                                 <option value='Meme'>Meme</option>
@@ -586,7 +579,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
         );
     }
 
-    updateGroup = () => {
+    updatePage = () => {
         const prettyTeamURL = getShortenedURL();
 
         const channelData = {
@@ -618,11 +611,11 @@ export default class MyPages extends React.PureComponent<Props, State> {
                     <form role='form'>
                         <div className="row">
                             <div className="col-md-6">
-                                <label htmlFor="inputState" className="form-label"><small>Group name</small></label>
+                                <label htmlFor="inputState" className="form-label"><small>Page name</small></label>
                                 <input type="text" ref={this.displayNameInput} value={channelData.displayName} onChange={this.handleChange} id='newChannelName' className="form-control input-create-new-group" maxLength={Constants.MAX_CHANNELNAME_LENGTH} placeholder='E.g.: "Bugs", "Marketing", "客户支持"' aria-label="Group name"/>
                             </div>
                             <div className="col-md-6">
-                                <label htmlFor="inputState" className="form-label"><small>Group url</small></label>
+                                <label htmlFor="inputState" className="form-label"><small>Page url</small></label>
                                 <input type="text" className="form-control input-create-new-group" placeholder="Group url" value={prettyTeamURL + this.state.channelName} aria-label="Group url" readOnly/>
                             </div>
                         </div>
@@ -634,14 +627,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                         </div>
 
                         <div className="row p-2">
-                            <div className="col-md-6">
-                                <label htmlFor="inputState" className="form-label"><small>Group type</small></label>
-                                <select id="inputState" className="form-control input-create-new-group" onChange={this.handleTypeSelect} value={this.state.channelType}>
-                                <option value='O'>Public</option>
-                                <option value='P'>Private</option>
-                                </select>
-                            </div>
-                            <div className="col-md-6">
+                            <div className="col-md-12">
                                 <label htmlFor="inputState" className="form-label"><small>Category</small></label>
                                 <select id="inputState" className="form-control input-create-new-group">
                                 <option value='Meme'>Meme</option>
@@ -682,11 +668,11 @@ export default class MyPages extends React.PureComponent<Props, State> {
         else if(this.state.group_view === "suggested"){
             viewDetails = this.suggestedGroup();
         }
-        else if(this.state.group_view === "creategroup"){
-            viewDetails = this.createGroup();
+        else if(this.state.group_view === "createpage"){
+            viewDetails = this.createPage();
         }
-        else if(this.state.group_view === "update_group"){
-            viewDetails = this.updateGroup();
+        else if(this.state.group_view === "update_page"){
+            viewDetails = this.updatePage();
         }
         else{
             viewDetails = this.myPagesList();
@@ -710,7 +696,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className='col-md-3 text-end'>
-                                    <a className='float-end rounded onCreategroups negative-margin-top' id='showNewChannel' onClick={/*this.showNewChannelModal*/() => { this.setState({group_view: 'creategroup'})}}>
+                                    <a className='float-end rounded onCreategroups negative-margin-top' id='showNewChannel' onClick={/*this.showNewChannelModal*/() => { this.setState({group_view: 'createpage'})}}>
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#fff' className='bi bi-plus side-menu-align' viewBox='0 0 16 16'>
                                         <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/>
                                     </svg> Create</a>
@@ -725,7 +711,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                 <div className='col-md-7 '><a className='onCartmarketplaceicon onMarketplace float-start'><i className='bi-flag-fill'></i></a>
                                     <strong className='float-start mt-3 ml-2 text-mygroups'>Pages</strong>
                                 </div>
-                                <div className='col-md-5 '><a className='float-end rounded onCreategroupsdesktop btn-sm text-center mt-3' onClick={() => { this.setState({group_view: 'creategroup'})}}>
+                                <div className='col-md-5 '><a className='float-end rounded onCreategroupsdesktop btn-sm text-center mt-3' onClick={() => { this.setState({group_view: 'createpage'})}}>
                                     <i className='bi-plus'></i> Create</a>
                                 </div>
                             </div>
