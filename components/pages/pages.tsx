@@ -146,7 +146,9 @@ export default class MyPages extends React.PureComponent<Props, State> {
             });
 
             if(!found){
-                actions.addUserToTeam(teamId,userId);
+                if(teamId !== undefined){
+                    actions.addUserToTeam(teamId,userId);
+                }
             }
         }
     }
