@@ -40,6 +40,7 @@ import postImage2 from 'images/post-image.png';
 import postPic from 'images/profiles/user-profile-2.png';
 import postPic2 from 'images/profiles/user-profile-3.png';
 import GroupHeader from 'components/group_header';
+import PageHeader from 'components/page_header';
 
 import {browserHistory} from 'utils/browser_history';
 import { ChannelStats } from 'mattermost-redux/types/channels';
@@ -47,6 +48,7 @@ import GroupDetail from 'components/group_details';
 import { result } from 'lodash';
 import { PostList } from 'mattermost-redux/types/posts';
 import { Story } from 'mattermost-redux/types/crypto';
+import { Team } from 'mattermost-redux/types/teams';
 
 type Props = {
     channelId: string;
@@ -60,6 +62,7 @@ type Props = {
     enableOnboardingFlow: boolean;
     showNextSteps: boolean;
     currentUser: UserProfile;
+    currentTeam: Team;
     storyList: Promise<Story[]>;
     teamUrl: string;
     match: {
@@ -213,7 +216,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
     }
 
     render() {
-        const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName,channelDisplayName,channelId, currentUser} = this.props;
+        const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName,channelDisplayName,channelId, currentUser, currentTeam} = this.props;
         const { uploading, shareInfo, userLocation, feeling, storyList } = this.state;
         if (enableOnboardingFlow && showNextSteps && !showNextStepsEphemeral) {
             this.props.actions.setShowNextStepsView(true);
@@ -410,110 +413,123 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         const DeferredPostView = this.state.deferredPostView;
         let viewDetail;
         let isMounted = false;
-        if(channelName === 'town-square'){
-            let storyListDetails;
-            let emptyStories;
-            if(storyList !== undefined && storyList !== null){
-                storyListDetails = (
+        if(currentTeam){
+            if(currentTeam.name === 'page'){
+                viewDetail = (
                     <>
-                        {storyList.map((item,key) => {
-                            return (
-                                <StoryList userId={item} key={`${item}-${key}`} />
-                            );
-                        })}
+                        <PageHeader 
+                            channelId={channelId}
+                            channelDisplayName={channelDisplayName} 
+                            isMounted={true}/>
                     </>
                 );
-
-                if(storyList.length < 11){
-                    let indents = [];
-                    const lengthValue = 11 - storyList.length;
-                    for(var i = 1; i <= lengthValue; i ++){
-                        if(i <= 2 ){
-                            indents.push(
-                                <div className='col-md-1 mt-3'>
-                                    <div className='position-absolute'>
-                                        <a href="#" className='onClickstory'>
-                                            <img className="Avatar Avatar-xl border border-3 rounded-circle" src={HolderImg} alt="Username" title="Username"/>
-                                        </a>
-                                    </div>
-                                    <div className="badges-offline-plus rounded-circle position-relative"></div>
-                                    <small className="firstname-title-story mt-5 text-muted">......</small>
-                                </div>
-                            );
-                        }
-                        else{
-                            indents.push(
-                                <div id='rsvDesktop' className='col-md-1 mt-3'>
-                                    <div className='position-absolute'>
-                                        <a href="#" className='onClickstory'>
-                                            <img className="Avatar Avatar-xl border border-3 rounded-circle" src={HolderImg} alt="Username" title="Username"/>
-                                        </a>
-                                    </div>
-                                    <div className="badges-offline-plus rounded-circle position-relative"></div>
-                                    <small className="firstname-title-story mt-5 text-muted">......</small>
-                                </div>
-                            );
+            }else{
+                if(channelName === 'town-square'){
+                    let storyListDetails;
+                    let emptyStories;
+                    if(storyList !== undefined && storyList !== null){
+                        storyListDetails = (
+                            <>
+                                {storyList.map((item,key) => {
+                                    return (
+                                        <StoryList userId={item} key={`${item}-${key}`} />
+                                    );
+                                })}
+                            </>
+                        );
+        
+                        if(storyList.length < 11){
+                            let indents = [];
+                            const lengthValue = 11 - storyList.length;
+                            for(var i = 1; i <= lengthValue; i ++){
+                                if(i <= 2 ){
+                                    indents.push(
+                                        <div className='col-md-1 mt-3'>
+                                            <div className='position-absolute'>
+                                                <a href="#" className='onClickstory'>
+                                                    <img className="Avatar Avatar-xl border border-3 rounded-circle" src={HolderImg} alt="Username" title="Username"/>
+                                                </a>
+                                            </div>
+                                            <div className="badges-offline-plus rounded-circle position-relative"></div>
+                                            <small className="firstname-title-story mt-5 text-muted">......</small>
+                                        </div>
+                                    );
+                                }
+                                else{
+                                    indents.push(
+                                        <div id='rsvDesktop' className='col-md-1 mt-3'>
+                                            <div className='position-absolute'>
+                                                <a href="#" className='onClickstory'>
+                                                    <img className="Avatar Avatar-xl border border-3 rounded-circle" src={HolderImg} alt="Username" title="Username"/>
+                                                </a>
+                                            </div>
+                                            <div className="badges-offline-plus rounded-circle position-relative"></div>
+                                            <small className="firstname-title-story mt-5 text-muted">......</small>
+                                        </div>
+                                    );
+                                }
+                            }
+                            emptyStories = indents;
                         }
                     }
-                    emptyStories = indents;
+                    
+                    viewDetail = ( 
+                        <div className='mobile-margin-top'>
+                            <div className='col-md-12 chat-box mtop-10'>
+                                <div className='d-flex'>
+                                    <div className='col-md-1 mt-3'>
+                                        <div className='position-absolute'>
+                                            <a href="/stories/create" className='onClickstory'>
+                                                {this.renderProfilePicture('xl')}
+                                            </a>
+                                        </div>
+                                        <div className='badges-online-plus rounded-circle onClickstory position-relative text-center'><i className='bi bi-plus'></i></div>
+                                        <small className='firstname-title-story'>Your story</small>
+                                    </div>
+                                    {storyListDetails}
+                                    {emptyStories}
+                                    <div className="next-arrow-story">
+                                        <a className="onAllstory" href='/stories/view'><i className='bi bi-chevron-right'></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='col-md-12 profile-menu-box-mobile width-100'>
+                                <div className='d-flex'>
+                                    <div className='col-lg-2 profile-menu-icon'>
+                                        <a href='#'><img src={LayoutIcon}></img></a>
+                                    </div>
+                                    <div className='col-lg-2 profile-menu-icon'>
+                                        <a href='#'><img src={ImgIcon}></img></a>
+                                    </div>
+                                    <div className='col-lg-2 profile-menu-icon'>
+                                        <a href='#'><img src={VideoIcon}></img></a>
+                                    </div>
+                                    <div className='col-lg-2 profile-menu-icon'>
+                                        <a href='#'><img src={MusicIcon}></img></a>
+                                    </div>
+                                    <div className='col-lg-2 profile-menu-icon'>
+                                        <a href='#'><img src={AttachIcon}></img></a>
+                                    </div>
+                                    <div className='col-lg-2 profile-menu-icon'>
+                                        <a href='#'><img src={GeoIcon}></img></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                }else{
+                    isMounted = true;
+                    viewDetail = (
+                        <>{isMounted ? <GroupHeader
+                            channelId={channelId}
+                            channelDisplayName={channelDisplayName} 
+                            isMounted={true}
+                            /> : null}</>
+                    );
                 }
             }
-            
-            viewDetail = ( 
-                <div className='mobile-margin-top'>
-                    <div className='col-md-12 chat-box mtop-10'>
-                        <div className='d-flex'>
-                            <div className='col-md-1 mt-3'>
-                                <div className='position-absolute'>
-                                    <a href="/stories/create" className='onClickstory'>
-                                        {this.renderProfilePicture('xl')}
-                                    </a>
-                                </div>
-                                <div className='badges-online-plus rounded-circle onClickstory position-relative text-center'><i className='bi bi-plus'></i></div>
-                                <small className='firstname-title-story'>Your story</small>
-                            </div>
-                            {storyListDetails}
-                            {emptyStories}
-                            <div className="next-arrow-story">
-                                <a className="onAllstory" href='/stories/view'><i className='bi bi-chevron-right'></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-md-12 profile-menu-box-mobile width-100'>
-                        <div className='d-flex'>
-                            <div className='col-lg-2 profile-menu-icon'>
-                                <a href='#'><img src={LayoutIcon}></img></a>
-                            </div>
-                            <div className='col-lg-2 profile-menu-icon'>
-                                <a href='#'><img src={ImgIcon}></img></a>
-                            </div>
-                            <div className='col-lg-2 profile-menu-icon'>
-                                <a href='#'><img src={VideoIcon}></img></a>
-                            </div>
-                            <div className='col-lg-2 profile-menu-icon'>
-                                <a href='#'><img src={MusicIcon}></img></a>
-                            </div>
-                            <div className='col-lg-2 profile-menu-icon'>
-                                <a href='#'><img src={AttachIcon}></img></a>
-                            </div>
-                            <div className='col-lg-2 profile-menu-icon'>
-                                <a href='#'><img src={GeoIcon}></img></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            );
-        }else{
-            isMounted = true;
-            viewDetail = (
-                <>{isMounted ? <GroupHeader
-                    channelId={channelId}
-                    channelDisplayName={channelDisplayName} 
-                    isMounted={true}
-                    /> : null}</>
-            );
         }
-
+        
         return (
             <div>
                 <div className='col-md-9'>

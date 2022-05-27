@@ -17,7 +17,7 @@ import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
 
 import {ActionFunc, GenericAction} from 'mattermost-redux/types/actions';
 import {setShowNextStepsView} from 'actions/views/next_steps';
-import {getCurrentRelativeTeamUrl} from 'mattermost-redux/selectors/entities/teams';
+import {getCurrentRelativeTeamUrl, getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
 
 import {goToLastViewedChannel} from 'actions/views/channel';
 import {joinChannel,leaveChannelNew} from 'mattermost-redux/actions/channels';
@@ -42,6 +42,7 @@ function mapStateToProps(state: GlobalState) {
     const channel = getCurrentChannel(state);
     const currentChannelId = channel?.id;
     const currentUser = getCurrentUser(state);
+    const currentTeam = getCurrentTeam(state);
     const userId = currentUser?.id;
     const storyList = Client4.listSotries(userId);
     const config = getConfig(state);
@@ -69,6 +70,7 @@ function mapStateToProps(state: GlobalState) {
         channelName: channel ? channel.name : '',
         channelDisplayName: channel ? channel.display_name : '',
         channelPurpose: channel ? channel.purpose : '',
+        currentTeam,
         channelRolesLoading,
         storyList,
         deactivatedChannel: channel ? isDeactivatedChannel(state, channel.id) : false,
