@@ -535,11 +535,11 @@ export default class MyPages extends React.PureComponent<Props, State> {
                     <form role='form'>
                         <div className="row">
                             <div className="col-md-6">
-                                <label htmlFor="inputState" className="form-label"><small>Group name</small></label>
+                                <label htmlFor="inputState" className="form-label"><small>Page name</small></label>
                                 <input type="text" ref={this.displayNameInput} value={channelData.displayName} onChange={this.handleChange} id='newChannelName' className="form-control input-create-new-group" maxLength={Constants.MAX_CHANNELNAME_LENGTH} placeholder='E.g.: "Bugs", "Marketing", "客户支持"' aria-label="Group name"/>
                             </div>
                             <div className="col-md-6">
-                                <label htmlFor="inputState" className="form-label"><small>Group url</small></label>
+                                <label htmlFor="inputState" className="form-label"><small>Page url</small></label>
                                 <input type="text" className="form-control input-create-new-group" placeholder="Group url" value={prettyTeamURL + this.state.channelName} aria-label="Group url" readOnly/>
                             </div>
                         </div>
