@@ -162,7 +162,7 @@ export default class UpdateAlbum extends React.PureComponent<Props, State> {
                 body: data,
             }).then((response) => response.json()).then((data)=>{
                 if (data === 'Posted'){
-                    window.location.href = '/albums/myalbums';
+                    window.location.href = '/albums/view?a='+ album.id;
                 }
 
                 if(data === 'NameError'){
