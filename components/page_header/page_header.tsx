@@ -152,9 +152,17 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
         let coverUrl;
         if(img_url === 'unavailable'){
-            coverUrl = GroupLogo;
+            coverUrl = (
+                <div className='mypageheaderpreviews' style={{backgroundImage: `url(${GroupLogo})`, backgroundPosition: 'center bottom'}}>
+                    <h3 className='text-center text-white'></h3>
+                </div>
+            );
         }else{
-            coverUrl = img_url;
+            coverUrl = (
+                <div className='mypageheaderpreviews' style={{backgroundImage: `url(${this.state.img_url})`, backgroundPosition: 'center bottom'}}>
+                    <h3 className='text-center text-white'></h3>
+                </div>
+            );
         }
         let buttonJoin;
         if(result_leave){
@@ -224,9 +232,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
         return (
             <div>
-                <div className='mypageheaderpreviews' style={{backgroundImage: `url(${img_url !== 'unavailable' ? GroupLogo : img_url})`, backgroundPosition: 'center bottom'}}>
-                    <h3 className='text-center text-white'></h3>
-                </div>
+                {coverUrl}
 
                 <div className='mypagepreviews-desktop'>
                     <div className='mypageheadingpreviews'>
