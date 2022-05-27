@@ -449,6 +449,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
             </div> 
         );
     }
+
     suggestedGroup = () => {
         let errorServer;
         if (this.state.serverError) {
