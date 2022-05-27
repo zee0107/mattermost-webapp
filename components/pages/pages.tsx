@@ -263,6 +263,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
     handleLike = (channel: ServerChannel) => {
         const {actions} = this.props;
         actions.likeThisPage(this.props.userId, channel.id);
+        actions.joinChannel(this.props.userId, this.props.teamId, channel.id);
         this.setState({result_joined: true});
     }
 
@@ -273,6 +274,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
     handleUnlike = (channel: ServerChannel) => {
         const {actions} = this.props;
         actions.likeThisPage(this.props.userId, channel.id);
+        actions.leaveChannelNew(channel.id);
         this.setState({result_leave: true});
     }
 
@@ -654,7 +656,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const { group_view } = this.state;
         let viewDetails;
-        if(this.state.group_view === "joined"){
+        if(this.state.group_view === "liked"){
             viewDetails = this.likePages();
         }
         else if(this.state.group_view === "suggested"){
