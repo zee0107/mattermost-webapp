@@ -162,7 +162,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             window.location.href = '/mygroups';
         }
         else{
-            buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn buttonBgGreen text-white float-end btn-sm mt-4'>Liked</button>);
+            buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn buttonBgGreen text-white float-end mt-4'>Liked</button>);
         }
         
         let upload;
@@ -207,7 +207,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         if (data.roles === 'channel_user channel_admin') {
             buttonAction = (
                 <div>
-                    <a href='#' onClick={() => {this.setState({uploadImage: true})}} className='float-end btn-sm mt-4 ml-2' title='Upload Group cover photo'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="var(--text-primary)" className="bi bi-images" viewBox="0 0 16 16">
+                    <a href='#' onClick={() => {this.setState({uploadImage: true})}} className='float-end mt-4 ml-2' title='Upload Group cover photo'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="var(--text-primary)" className="bi bi-images" viewBox="0 0 16 16">
                         <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
                         <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"/>
                     </svg></a>
@@ -224,37 +224,44 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
         return (
             <div>
-                <div className='mypageheaderpreviews' style={{backgroundImage: `url(${coverUrl})`, backgroundPosition: 'center bottom'}}>
+                <div className='mypageheaderpreviews' style={{backgroundImage: `url(${img_url !== 'unavailable' ? GroupLogo : img_url})`, backgroundPosition: 'center bottom'}}>
                     <h3 className='text-center text-white'></h3>
                 </div>
 
                 <div className='mypagepreviews-desktop'>
                     <div className='mypageheadingpreviews'>
                     <div className='row'>
-                        <div className='col-lg-3 text-center'>
-                        <div className='rounded-circle rounded-circle-photo border border-5'><i className='bi-flag-fill bi-flag-fill-style text-white'></i></div>
+                        <div className='col-lg-2 text-center'>
+                            <div className='rounded-circle rounded-circle-photo border border-5'><i className='bi-flag-fill bi-flag-fill-style text-white'></i></div>
                         </div>
-                        <div className='col-lg-9 pt-5'>
-                        <h1 className='mt-5'>{channelDisplayName}</h1>
-                        <PageDetails channelId={channelId}/>
+                        <div className='col-lg-8 pt-5'>
+                            <h1 className='mt-5'>{channelDisplayName}</h1>
+                            <PageDetails channelId={channelId}/>
+                        </div>
+                        <div className='col-lg-2'>
+                            {buttonAction}
                         </div>
                     </div>
                     </div>
                 </div>
 
                 <div className='mypagepreviews-mobile'>
-                    <div className='mypageheadingpreviews' style={{backgroundImage: `url(${coverUrl})`, backgroundPosition: 'center bottom'}}>
+                    <div className='mypageheadingpreviews' style={{backgroundImage: `url(${img_url !== 'unavailable' ? GroupLogo : img_url})`, backgroundPosition: 'center bottom'}}>
                         <div className='row'>
                             <div className='col-12 text-center'>
                             <div className='col-5 mx-auto rounded-circle rounded-circle-photo border border-5'><i className='bi-flag-fill bi-flag-fill-style text-white'></i></div>
                             </div>
                             <div className='col-lg-12 text-center'>
-                            <h4 className='mt-3'>{channelDisplayName}</h4>
-                            <PageDetails channelId={channelId}/>
+                                <h4 className='mt-3'>{channelDisplayName}</h4>
+                                <PageDetails channelId={channelId}/>
+                            </div>
+                            <div className='col-lg-12 text-center'>
+                                {buttonAction}
                             </div>
                         </div>
                     </div>
                 </div>
+                {upload}
                 {/*<div className='crypter-section-profile-desktop'>
                     <div className='col-md-12 group-cover-box mtop-10 p-0'>
                         {cover}
