@@ -71,7 +71,7 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                 <div className='row mt-4'>
                                     <div className='col-10'><h6 className='mt-2'>Create My Page</h6></div>
                                     <div className='col-1 float-end'>
-                                    <a className='onGetstartedcreatepage' data-bs-toggle='tooltip' data-bs-placement='bottom' title='Get started'><i className='bi-info-circle bi-info-circle-style'></i></a></div>
+                                    <a className='onGetstartedcreatepage' data-bs-toggle='modal' data-bs-target='#GetStarted'><i className='bi-info-circle bi-info-circle-style'  data-bs-toggle='tooltip' data-bs-placement='bottom' title='Get started'></i></a></div>
                                 </div>
                                 <form>
                                     <p className='mt-1'><label>Page information</label></p>
@@ -279,6 +279,56 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                             <li><a className='dropdown-item onSettingsandprivacy'><i className='bi-gear-wide'></i> Settings & Privacy</a></li>
                                             </ul>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='modal getstarted' id='GetStarted' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+                    <div className='getstarted-information-desktop'>
+                        <div className='col-4 mx-auto mt-5'>
+                            <div className='row'>
+                                <div className='getstartedheader rounded shadow'>
+                                    <p className='p-3'><a className='onClosegetstarted shadow float-end' style={{zIndex: 99}}><i className='bi-x'></i></a></p>
+                                    <div className='row'>
+                                        <div className='col-10'></div>
+                                        <div className='col-2 text-center'></div>
+                                    </div>
+                                    </div>
+                                    <div className='getstartedheaderinfo p-5 shadow'>
+                                        <h3 className='mb-3'>Create My Page</h3>
+                                        <p><i className='bi-flag bi-flag-style'></i> A page is a space where people can everyone connect with your business, personal brand or organization.</p>
+                                        <p><i className='bi-box-seam bi-box-seam-style'></i> You can do things like showcase products and services, collect donations and create ads.</p>
+                                        <p><i className='bi-people-fill bi-people-fill-style'></i> Millions of people discover and connect with Pages every day.</p>
+                                        <div className='d-grid'>
+                                            <button type='button' className='btn-primary onCreatemypage'>Get Started</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div className='getstarted-information-mobile'>
+                            <div className='col-10 mx-auto mt-5'>
+                                <div className='row'>
+                                    <div className='getstartedheader rounded shadow'>
+                                    <p className='p-3'><a className='onClosegetstarted shadow float-end' style={{zIndex: 99}}><i className='bi-x'></i></a></p>
+                                    <div className='row'>
+                                        <div className='col-10'></div>
+                                        <div className='col-2 text-center'>
+                                        
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div className='getstartedheaderinfo p-5 shadow'>
+                                        <h3 className='mb-3'>Create My Page</h3>
+                                        <p><i className='bi-flag bi-flag-style'></i> A page is a space where people can everyone connect with your business, personal brand or organization.</p>
+                                        <p><i className='bi-box-seam bi-box-seam-style'></i> You can do things like showcase products and services, collect donations and create ads.</p>
+                                        <p><i className='bi-people-fill bi-people-fill-style'></i> Millions of people discover and connect with Pages every day.</p>
+                                        <div className='d-grid'>
+                                            <button type='button' className='btn-primary onCreatemypage'>Get Started</button>
                                     </div>
                                 </div>
                             </div>
