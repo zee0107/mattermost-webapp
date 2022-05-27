@@ -157,7 +157,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-md-3 text-end'>
-                                        <a className='float-end rounded onCreategroups negative-margin-top' id='showNewChannel' href={`/albums/create?a=${albumId}`}>
+                                        <a className='float-end rounded onCreategroups negative-margin-top' id='showNewChannel' href={`/albums/update?a=${albumId}`}>
                                             <i className="bi-pencil-fill"></i> Update Album</a>
                                     </div>
                                 </div>
@@ -172,7 +172,7 @@ export default class AlbumView extends React.PureComponent<Props, State> {
                                             onClick={() => { this.setState({album_view: 'myalbums',})}}>
                                             <small><h3><i className='bi-image'></i> {albumName}</h3>{albumCount} Photos and Videos</small>
                                         </a>
-                                        <a className='float-end rounded onCreategroupsdesktop btn-sm text-center mt-3' href={`/albums/create?a=${albumId}`}>
+                                        <a className='float-end rounded onCreategroupsdesktop btn-sm text-center mt-3' href={`/albums/update?a=${albumId}`}>
                                         <i className="bi-pencil-fill"></i>  Update</a>
                                     </div>
                                 </div>

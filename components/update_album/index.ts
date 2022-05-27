@@ -8,8 +8,12 @@ import {GlobalState} from 'types/store';
 
 import UpdateAlbum from './update_album'
 
+type ownProps = {
+    albumId: string;
+}
+
 function makeMapStateToProps() {
-    return function mapStateToProps(state: GlobalState) {
+    return function mapStateToProps(state: GlobalState,ownProps: ownProps) {
         if(state.entities.teams.currentTeamId === "" || state.entities.teams.currentTeamId === null || state.entities.teams.currentTeamId === undefined){
             const stateValue = window.localStorage.getItem('GlobalState');
             state = JSON.parse(stateValue);
