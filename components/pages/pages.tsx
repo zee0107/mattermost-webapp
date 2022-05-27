@@ -262,13 +262,8 @@ export default class MyPages extends React.PureComponent<Props, State> {
 
     handleLike = (channel: ServerChannel) => {
         const {actions} = this.props;
-        const result = actions.likeThisPage(this.props.userId, channel.id);
-
-        if (result.error) {
-            this.setState({serverError: result.error.message});
-        } else {
-            this.setState({result_joined: true});
-        }
+        actions.likeThisPage(this.props.userId, channel.id);
+        this.setState({result_joined: true});
     }
 
     likePage(channel) {
@@ -277,13 +272,8 @@ export default class MyPages extends React.PureComponent<Props, State> {
 
     handleUnlike = (channel: ServerChannel) => {
         const {actions} = this.props;
-        const result = actions.likeThisPage(this.props.userId, channel.id);
-
-        if (result.error) {
-            this.setState({serverError: result.error.message});
-        } else {
-            this.setState({result_leave: true});
-        }
+        actions.likeThisPage(this.props.userId, channel.id);
+        this.setState({result_leave: true});
     }
 
     unlikePage(channel) {
