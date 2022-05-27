@@ -274,7 +274,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
     handleUnlike = (channel: ServerChannel) => {
         const {actions} = this.props;
         actions.likeThisPage(this.props.userId, channel.id);
-        actions.leaveChannelNew(channel.id);
+        actions.leaveChannelNew(channel.id);5
         this.setState({result_leave: true});
     }
 
