@@ -44,11 +44,11 @@ export default class CreatePage extends React.PureComponent<Props, State> {
     }
 
     handleChangeCategory = (e) => {
-        this.setState({pageName: e.target.value});
+        this.setState({pageCategory: e.target.value});
     }
 
     handleChangeDescription = (e) => {
-        this.setState({pageName: e.target.value});
+        this.setState({pageDescription: e.target.value});
     }
    
     render= (): JSX.Element => {
@@ -64,7 +64,7 @@ export default class CreatePage extends React.PureComponent<Props, State> {
         if(pageDescription){
             desc = pageDescription;
         }else{
-            desc = '';
+            desc = 'Description';
         }
 
         if(pageCategory){
