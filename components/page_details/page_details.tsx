@@ -33,38 +33,19 @@ export default class PageDetails extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
-        
-        /*const uri = `./api/v4/channels/${this.props.channelId}/stats`;
-        const config = {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        }
-
-        fetch(uri,config).then(response => response.clone().json()).then(response => {
-            if(response != null){
-                Promise.resolve(response).then(value => {this.setState({data: value});})
-            }
-        }).catch(function(error) {
-            console.log(error);
-        }); */
-
         this.getStats();
     }
 
     getStats = () => {
-        const response = Client4.getChannelStats(this.props.channelId);
-        Promise.resolve(response).then(value => {this.setState({data: value});})
+        const response = Client4.getLikeCount(this.props.channelId);
+        Promise.resolve(response).then(value => {this.setState({likeCount: value});})
     }
 
 
     render= (): JSX.Element => {
         const {channelId} = this.props;
-        let value;
-        if(this.state.data !== null){
-            value = likeCount;
-        }
+        const { likeCount } = this.state;
+        const value = likeCount;
         return (
             <label className='text-count-members'>
                 {value}&nbsp;Likes</label>

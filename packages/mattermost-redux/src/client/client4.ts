@@ -4141,6 +4141,12 @@ export default class Client4 {
         );
     }
 
+    getLikeCount = (page_id: string){
+        return this.doFetch<number>(
+            `https://localhost:44312/api/crypter/getlikecount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
     // Client Helpers
 
     doFetch = async <T>(url: string, options: Options): Promise<T> => {
