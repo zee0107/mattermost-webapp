@@ -250,7 +250,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                             </div>
                             <div className='col-lg-12 text-center'>
                             <h4 className='mt-3'>{channelDisplayName}</h4>
-                            <label>{category}</label>
+                            <PageDetails channelId={channelId}/>
                             </div>
                         </div>
                     </div>
