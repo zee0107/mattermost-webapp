@@ -289,51 +289,49 @@ export default class CreatePage extends React.PureComponent<Props, State> {
 
                 <div className='modal getstarted' id='GetStarted' data-bs-backdrop='static' data-bs-keyboard='false' tabIndex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
                     <div className='modal-dialog modal-lg modal-dialog-center' role='document'>
-                        <div className='modal-content'>
-                            <div className='modal-body'>
-                                <div className='getstarted-information-desktop'>
-                                    <div className='col-10 mx-auto mt-5'>
-                                        <div className='row'>
-                                            <div className='getstartedheader rounded shadow' style={{backgroundImage: `url(${ModalInfoImage})`,backgroundPosition: 'center'}}>
-                                                <p className='p-3'><a className='onClosegetstarted shadow float-end' style={{zIndex: 99}} data-bs-dismiss='modal'><i className='bi-x'></i></a></p>
-                                                <div className='row'>
-                                                    <div className='col-10'></div>
-                                                    <div className='col-2 text-center'></div>
-                                                </div>
-                                                </div>
-                                                <div className='getstartedheaderinfo p-5 shadow'>
-                                                    <h3 className='mb-3'>Create My Page</h3>
-                                                    <p><i className='bi-flag bi-flag-style'></i> A page is a space where people can everyone connect with your business, personal brand or organization.</p>
-                                                    <p><i className='bi-box-seam bi-box-seam-style'></i> You can do things like showcase products and services, collect donations and create ads.</p>
-                                                    <p><i className='bi-people-fill bi-people-fill-style'></i> Millions of people discover and connect with Pages every day.</p>
-                                                    <div className='d-grid'>
-                                                        <button type='button' className='btn-primary onCreatemypage' data-bs-dismiss='modal'>Get Started</button>
-                                                    </div>
+                        <div className='modal-body'>
+                            <div className='getstarted-information-desktop'>
+                                <div className='col-10 mx-auto mt-5'>
+                                    <div className='row'>
+                                        <div className='getstartedheader rounded shadow' style={{backgroundImage: `url(${ModalInfoImage})`,backgroundPosition: 'center'}}>
+                                            <p className='p-3'><a className='onClosegetstarted shadow float-end' style={{zIndex: 99}} data-bs-dismiss='modal'><i className='bi-x'></i></a></p>
+                                            <div className='row'>
+                                                <div className='col-10'></div>
+                                                <div className='col-2 text-center'></div>
+                                            </div>
+                                            </div>
+                                            <div className='getstartedheaderinfo p-5 shadow'>
+                                                <h3 className='mb-3'>Create My Page</h3>
+                                                <p><i className='bi-flag bi-flag-style'></i> A page is a space where people can everyone connect with your business, personal brand or organization.</p>
+                                                <p><i className='bi-box-seam bi-box-seam-style'></i> You can do things like showcase products and services, collect donations and create ads.</p>
+                                                <p><i className='bi-people-fill bi-people-fill-style'></i> Millions of people discover and connect with Pages every day.</p>
+                                                <div className='d-grid'>
+                                                    <button type='button' className='btn-primary onCreatemypage' data-bs-dismiss='modal'>Get Started</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                        
-                                    <div className='getstarted-information-mobile'>
-                                        <div className='col-10 mx-auto mt-5'>
+                                </div>
+                        
+                                <div className='getstarted-information-mobile'>
+                                    <div className='col-10 mx-auto mt-5'>
+                                        <div className='row'>
+                                            <div className='getstartedheader rounded shadow' style={{backgroundImage: `url(${ModalInfoImage})`,backgroundPosition: 'center'}}>
+                                            <p className='p-3'><a className='onClosegetstarted shadow float-end' style={{zIndex: 99}} data-bs-dismiss='modal'><i className='bi-x'></i></a></p>
                                             <div className='row'>
-                                                <div className='getstartedheader rounded shadow' style={{backgroundImage: `url(${ModalInfoImage})`,backgroundPosition: 'center'}}>
-                                                <p className='p-3'><a className='onClosegetstarted shadow float-end' style={{zIndex: 99}} data-bs-dismiss='modal'><i className='bi-x'></i></a></p>
-                                                <div className='row'>
-                                                    <div className='col-10'></div>
-                                                    <div className='col-2 text-center'>
-                                                    
-                                                    </div>
+                                                <div className='col-10'></div>
+                                                <div className='col-2 text-center'>
+                                                
                                                 </div>
-                                                </div>
-                                                <div className='getstartedheaderinfo p-5 shadow'>
-                                                    <h3 className='mb-3'>Create My Page</h3>
-                                                    <p><i className='bi-flag bi-flag-style'></i> A page is a space where people can everyone connect with your business, personal brand or organization.</p>
-                                                    <p><i className='bi-box-seam bi-box-seam-style'></i> You can do things like showcase products and services, collect donations and create ads.</p>
-                                                    <p><i className='bi-people-fill bi-people-fill-style'></i> Millions of people discover and connect with Pages every day.</p>
-                                                    <div className='d-grid'>
-                                                        <button type='button' className='btn-primary onCreatemypage' data-bs-dismiss='modal'>Get Started</button>
-                                                </div>
+                                            </div>
+                                            </div>
+                                            <div className='getstartedheaderinfo p-5 shadow'>
+                                                <h3 className='mb-3'>Create My Page</h3>
+                                                <p><i className='bi-flag bi-flag-style'></i> A page is a space where people can everyone connect with your business, personal brand or organization.</p>
+                                                <p><i className='bi-box-seam bi-box-seam-style'></i> You can do things like showcase products and services, collect donations and create ads.</p>
+                                                <p><i className='bi-people-fill bi-people-fill-style'></i> Millions of people discover and connect with Pages every day.</p>
+                                                <div className='d-grid'>
+                                                    <button type='button' className='btn-primary onCreatemypage' data-bs-dismiss='modal'>Get Started</button>
                                             </div>
                                         </div>
                                     </div>
