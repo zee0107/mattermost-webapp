@@ -63,7 +63,7 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                 <div style={{zIndex: 180}} className='createmypage' id='staticBackdrop'>
                     <div className='container'>
                         <div className='row'>
-                            <div className='col-lg-3 border-end p-4'>
+                            <div className='col-lg-2 border-end p-4'>
                                 <div className='mt-4'><img className='img-fluid mt-2' src={logoDark} alt='logo' title='logo'/>
                                     <a className='float-end mt-1 onClickclosecreatemypage yourphotosandalbums-desktop'><i className='bi-x-circle-fill'></i></a>
                                     <a className='float-end mt-1 onClickclosecreatemypagemobile yourphotosandalbums-mobile'><i className='bi-x-circle-fill'></i></a>
@@ -233,21 +233,21 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
 
-                                <div className='photo-and-albums-menu-desktop'>
-                                    <div className='position-absolute top-0 end-0 mt-4 me-4'>
+                                
+
+                                <div className='photo-and-albums-menu-mobile'>
+                                    {/*<div className='position-absolute top-0 start-50 translate-middle-x mt-3'>
                                         <a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
                                         <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>39+</span>
-                                        <br/>
-                                        <br/>
-                                        <div className='mb-2'></div>
-                                        
+                                    </div>
+                                    <div className='position-absolute top-0 start-50 translate-middle-x mt-3' style={{margin:'0px 0px 0px 61px'}}>
                                         <a className='onStorymessages' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelchatdesktop' aria-controls='offcanvasRightLabelchatdesktop'><i className='bi-chat-left-text-fill'></i></a>
                                         <span className='position-absolute right-0 start-100 translate-middle badge rounded-pill bg-danger'>14+</span>
-                                        <div className='mb-4'></div>
-        
+                                    </div>*/}
+                                    <div className='position-absolute top-0 start-50 translate-middle-x mt-1' style={{margin:'0px 0px 0px -61px'}}>
                                         <div className='d-flex'>
                                             <a className='onStoryprofilesettings' id='defaultDropdown' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
-                                            <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuOffset'>
+                                            <ul className='dropdown-menu' aria-labelledby='dropdownMenuOffset'>
                                             <li><a className='dropdown-item' href='profile.html'><i className='bi-person'></i> Profile</a></li>
                                             <li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
                                             <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>
@@ -256,20 +256,23 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                 </div>
-
-                                <div className='photo-and-albums-menu-mobile'>
-                                    <div className='position-absolute top-0 start-50 translate-middle-x mt-3'>
-                                        <a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
+                            </div>
+                            <div className='col-lg-1'>
+                                <div className='photo-and-albums-menu-desktop'>
+                                    <div className='position-absolute top-0 end-0 mt-4 me-4'>
+                                        {/*<a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
                                         <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>39+</span>
-                                    </div>
-                                    <div className='position-absolute top-0 start-50 translate-middle-x mt-3' style={{margin:'0px 0px 0px 61px'}}>
+                                        <br/>
+                                        <br/>
+                                        <div className='mb-2'></div>
+                                        
                                         <a className='onStorymessages' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelchatdesktop' aria-controls='offcanvasRightLabelchatdesktop'><i className='bi-chat-left-text-fill'></i></a>
                                         <span className='position-absolute right-0 start-100 translate-middle badge rounded-pill bg-danger'>14+</span>
-                                    </div>
-                                    <div className='position-absolute top-0 start-50 translate-middle-x mt-1' style={{margin:'0px 0px 0px -61px'}}>
+                                        <div className='mb-4'></div>*/}
+        
                                         <div className='d-flex'>
                                             <a className='onStoryprofilesettings' id='defaultDropdown' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
-                                            <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuOffset'>
+                                            <ul className='dropdown-menu' aria-labelledby='dropdownMenuOffset'>
                                             <li><a className='dropdown-item' href='profile.html'><i className='bi-person'></i> Profile</a></li>
                                             <li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
                                             <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>
