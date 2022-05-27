@@ -4125,7 +4125,7 @@ export default class Client4 {
             pageId: page_id,
         }
         return this.doFetch<string>(
-            `https://localhost:44312/api/crypter/likepage`
+            `https://crypterfighter.polywickstudio.ph/api/crypter/likepage`
             ,{method: 'post',body: JSON.stringify(body)}
         );
     }
@@ -4136,14 +4136,14 @@ export default class Client4 {
             pageId: page_id,
         }
         return this.doFetch<string>(
-            `https://localhost:44312/api/crypter/unlikepage`
+            `https://crypterfighter.polywickstudio.ph/api/crypter/unlikepage`
             ,{method: 'post',body: JSON.stringify(body)}
         );
     }
 
     getLikeCount = (id: string) => {
         return this.doFetch<number>(
-            `https://localhost:44312/api/crypter/getlikecount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getlikecount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 

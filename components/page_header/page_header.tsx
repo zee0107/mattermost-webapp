@@ -76,7 +76,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     handleSubmit = () => {
         'use strict';
-        const uri = new URL('https://localhost:44312/api/crypter/uploadpagecover?');
+        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/uploadpagecover?');
         const params = {page_id: this.props.channelId, file_id: this.state.file_name};
         uri.search = new URLSearchParams(params);
 
@@ -97,7 +97,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     getImage = async (channel: string) => {
         try{
-            const response = await fetch(`https://localhost:44312/api/crypter/pagecoverimg?id=${channel}`);
+            const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/pagecoverimg?id=${channel}`);
             const imageBlob = await response.blob();
             const textBlob = await imageBlob.text();
             if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
@@ -153,13 +153,13 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         let coverUrl;
         if(img_url === 'unavailable'){
             coverUrl = (
-                <div className='mypageheaderpreviews' style={{backgroundImage: `url(${GroupLogo})`, backgroundPosition: 'center bottom'}}>
+                <div className='mypageheaderpreviews' style={{backgroundImage: `url(${GroupLogo})`, backgroundPosition: 'center bottom', backgroundSize: 'cover'}}>
                     <h3 className='text-center text-white'></h3>
                 </div>
             );
         }else{
             coverUrl = (
-                <div className='mypageheaderpreviews' style={{backgroundImage: `url(${this.state.img_url})`, backgroundPosition: 'center bottom'}}>
+                <div className='mypageheaderpreviews' style={{backgroundImage: `url(${this.state.img_url})`, backgroundPosition: 'center bottom', backgroundSize: 'cover'}}>
                     <h3 className='text-center text-white'></h3>
                 </div>
             );
@@ -170,7 +170,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             window.location.href = '/mygroups';
         }
         else{
-            buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='btn buttonBgGreen text-white float-end mt-4'>Liked</button>);
+            buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='buttonBgGreen p-2 text-white float-end mt-4'>Liked</button>);
         }
         
         let upload;
@@ -214,8 +214,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         let buttonAction;
         if (data.roles === 'channel_user channel_admin') {
             buttonAction = (
-                <div>
-                    <a href='#' onClick={() => {this.setState({uploadImage: true})}} className='float-end mt-4 ml-2' title='Upload Group cover photo'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="var(--text-primary)" className="bi bi-images" viewBox="0 0 16 16">
+                <div className='mt-5'>
+                    <a href='#' onClick={() => {this.setState({uploadImage: true})}} className='float-end mt-4 ml-2' title='Upload Group cover photo'><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="var(--text-primary)" className="bi bi-images" viewBox="0 0 16 16">
                         <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
                         <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"/>
                     </svg></a>
@@ -231,7 +231,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         }
 
         return (
-            <div>
+            <div className='group-cover-box'>
                 {coverUrl}
 
                 <div className='mypagepreviews-desktop'>
