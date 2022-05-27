@@ -364,9 +364,9 @@ export default class UpdateAlbum extends React.PureComponent<Props, State> {
                                                 <a className='onStoryprofilesettings' id='defaultDropdown' id='dropdownMenuOffset' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
                                                 <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuOffset'>
                                                 <li><a className='dropdown-item' href='profile.html'><i className='bi-person'></i> Profile</a></li>
-                                                <li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
-                                                <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>
-                                                <li><a className='dropdown-item onSettingsandprivacy'><i className='bi-gear-wide'></i> Settings & Privacy</a></li>
+                                                {/*<li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
+                                                <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>*/}
+                                                <li><a className='dropdown-item onSettingsandprivacy'><i className='bi-gear-wide'></i> Signout</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -385,9 +385,9 @@ export default class UpdateAlbum extends React.PureComponent<Props, State> {
                                                 <a className='onStoryprofilesettings' id='defaultDropdown' id='dropdownMenuOffset' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
                                                 <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuOffset'>
                                                 <li><a className='dropdown-item' href='profile.html'><i className='bi-person'></i> Profile</a></li>
-                                                <li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
-                                                <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>
-                                                <li><a className='dropdown-item onSettingsandprivacy'><i className='bi-gear-wide'></i> Settings & Privacy</a></li>
+                                                {/*<li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
+                                                <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>*/}
+                                                <li><a className='dropdown-item onSettingsandprivacy'><i className='bi-gear-wide'></i> Signout</a></li>
                                                 </ul>
                                             </div>
                                         </div>
