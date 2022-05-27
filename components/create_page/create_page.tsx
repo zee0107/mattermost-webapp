@@ -4,22 +4,31 @@
 import React from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import { UserProfile } from 'mattermost-redux/types/users';
+import {getShortenedURL,cleanUpUrlable} from 'utils/url';
+
 import logoDark from 'images/logoBlack.png';
 import HeaderImage from 'images/Page-dummy-cover.png';
 import ModalInfoImage from 'images/Page-dummy-cover-informations.png';
 import profPic from 'images/profiles/user-profile-1.png';
+import Constants from 'utils/constants';
 
 type Props = {
     userId: string;
     profilePicture: string;
     currentUser: UserProfile;
+    teamId: string;
 }
 
 type State = {
     isDark: string;
     pageName: string;
+    pageDisplayName: string;
     pageCategory: string;
     pageDescription: string;
+    pageHeader: string;
+
+    preview: boolean;
+    displayNameError: boolean;
 };
 
 export default class CreatePage extends React.PureComponent<Props, State> {
@@ -27,7 +36,7 @@ export default class CreatePage extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = { isDark:'light' };
+        this.state = { isDark:'light', preview: false,pageName: '', pageDisplayName: '', pageCategory: '', pageDescription: '', pageHeader: '', };
     }
 
     componentDidMount = async () =>{
@@ -50,11 +59,58 @@ export default class CreatePage extends React.PureComponent<Props, State> {
     handleChangeDescription = (e) => {
         this.setState({pageDescription: e.target.value});
     }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        const pageNameValue = this.state.pageName;
+        if (pageNameValue.length < Constants.MIN_CHANNELNAME_LENGTH) {
+            this.setState({displayNameError: true});
+            return;
+        }
+
+        this.onSubmit();
+    }
+
+    onSubmit = () => {
+        if (!this.state.channelDisplayName) {
+            this.setState({serverError: Utils.localizeMessage('channel_flow.invalidName', 'Invalid Channel Name')});
+            return;
+        }
+
+        const {actions} = this.props;
+        const channel: Channel = {
+            team_id: this.props.teamId,
+            name: this.state.pageName,
+            display_name: this.state.channelDisplayName,
+            purpose: this.state.channelPurpose,
+            header: this.state.channelHeader,
+            type: this.state.channelType,
+            create_at: 0,
+            creator_id: '',
+            delete_at: 0,
+            group_constrained: false,
+            id: '',
+            last_post_at: 0,
+            last_root_post_at: 0,
+            scheme_id: '',
+            update_at: 0,
+        };
+
+        actions.createChannel(channel).then(({data, error}) => {
+            if (error) {
+                this.onCreateChannelError(error);
+            } else if (data) {
+                //browserHistory.push('./mygroups');
+                this.setState({group_view: 'mygroups', result_create: true});
+            }
+        });
+    };
    
     render= (): JSX.Element => {
-        const {pageName, pageDescription, pageCategory} = this.state;
+        const {pageName, pageDescription, pageCategory, preview} = this.state;
 
-        let name,desc,category;
+        let name, desc, category, view;
         if(pageName){
             name = pageName;
         }else{
@@ -125,7 +181,7 @@ export default class CreatePage extends React.PureComponent<Props, State> {
                             </div>
 
                             <div className='col-lg-8 right-nav-story'>
-                                <div className='col-12 mx-auto mt-4 border border-1 p-4 rounded my-page-desktop-mobile-view'>
+                                <div className={preview === true ? 'col-6 mx-auto mt-4 border border-1 p-4 rounded my-page-desktop-mobile-view' : 'col-12 mx-auto mt-4 border border-1 p-4 rounded my-page-desktop-mobile-view'}>
                                     <div className='row'>
                                         <div className='col-8'>
                                             <div className='mypagetext-desktop'>

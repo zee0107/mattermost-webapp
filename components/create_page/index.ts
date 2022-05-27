@@ -14,12 +14,14 @@ function makeMapStateToProps() {
             state = JSON.parse(stateValue);
         }
         const currentUser = getCurrentUser(state);
-
+        const team = getTeamByName(state,'page');
+        const teamId = team?.id;
         const userId = currentUser?.id;
         return {
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
+            teamId,
         };
     };
 }
