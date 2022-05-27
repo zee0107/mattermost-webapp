@@ -35,7 +35,7 @@ function makeMapStateToProps() {
         const currentUser = getCurrentUser(state);
         const currentTeam = getCurrentTeam(state);
         const userId = currentUser?.id;
-        const team = getTeamByName(state,'pages');
+        const team = getTeamByName(state,'page');
         const teamId = team?.id;
         const isMember = getMyTeams(state);
 
