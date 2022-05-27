@@ -149,6 +149,13 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         else{
             cover = (<img width='100%' height='300' src={this.state.img_url} alt=''/>);
         }
+
+        let coverUrl;
+        if(img_url === 'unavailable'){
+            coverUrl = GroupLogo;
+        }else{
+            coverUrl = img_url;
+        }
         let buttonJoin;
         if(result_leave){
             /*browserHistory.push(`${teamUrl}/channels/town-square`);*/
@@ -217,13 +224,44 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
         return (
             <div>
-                <div className='crypter-section-profile-desktop'>
+                <div className='mypageheaderpreviews' style={{backgroundImage: `url(${coverUrl})`, backgroundPosition: 'center bottom'}}>
+                    <h3 className='text-center text-white'></h3>
+                </div>
+
+                <div className='mypagepreviews-desktop'>
+                    <div className='mypageheadingpreviews'>
+                    <div className='row'>
+                        <div className='col-lg-3 text-center'>
+                        <div className='rounded-circle rounded-circle-photo border border-5'><i className='bi-flag-fill bi-flag-fill-style text-white'></i></div>
+                        </div>
+                        <div className='col-lg-9 pt-5'>
+                        <h1 className='mt-5'>{channelDisplayName}</h1>
+                        <PageDetails channelId={channelId}/>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div className='mypagepreviews-mobile'>
+                    <div className='mypageheadingpreviews' style={{backgroundImage: `url(${coverUrl})`, backgroundPosition: 'center bottom'}}>
+                        <div className='row'>
+                            <div className='col-12 text-center'>
+                            <div className='col-5 mx-auto rounded-circle rounded-circle-photo border border-5'><i className='bi-flag-fill bi-flag-fill-style text-white'></i></div>
+                            </div>
+                            <div className='col-lg-12 text-center'>
+                            <h4 className='mt-3'>{channelDisplayName}</h4>
+                            <label>{category}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/*<div className='crypter-section-profile-desktop'>
                     <div className='col-md-12 group-cover-box mtop-10 p-0'>
                         {cover}
                         <div className='col-md-12'>
                             <div className='float-start'>
-                                <h5 className='text-primary'>{channelDisplayName}</h5>
-                                <h6 className='text-secondary'><PageDetails channelId={channelId}/></h6>
+                                <h5 className='text-primary'></h5>
+                                <h6 className='text-secondary'></h6>
                             </div>
                             {buttonAction}
                         </div>
@@ -248,7 +286,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                             {upload}
                         </div>
                     </div>
-                </div>
+                </div>*/}
             </div>
         );
     }
