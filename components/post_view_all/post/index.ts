@@ -4,7 +4,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators, Dispatch} from 'redux';
 
-import {getChannel} from 'mattermost-redux/selectors/entities/channels';
+import {getChannel, getMyChannelMembership} from 'mattermost-redux/selectors/entities/channels';
 import {getPost, makeIsPostCommentMention, makeGetCommentCountForPost} from 'mattermost-redux/selectors/entities/posts';
 import {get, isCollapsedThreadsEnabled} from 'mattermost-redux/selectors/entities/preferences';
 import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
@@ -20,10 +20,11 @@ import {GlobalState} from 'types/store';
 import {isArchivedChannel} from 'utils/channel_utils';
 import {Preferences} from 'utils/constants';
 import {areConsecutivePostsBySameUser} from 'utils/post_utils';
-
-import PostComponent from './post';
 import { Client4 } from 'mattermost-redux/client';
 import { getCurrentTeam } from 'mattermost-redux/selectors/entities/teams';
+
+import PostComponent from './post';
+
 
 interface OwnProps {
     post?: Post;
@@ -56,6 +57,7 @@ function makeMapStateToProps() {
         const postDetailed = Client4.getPostDetailed(ownProps.postId);
         const channel = getChannel(state, post.channel_id);
         const team = getCurrentTeam(state);
+        const channelRole = getMyChannelMembership(state,channel.id);
 
         let previousPost = null;
         if (ownProps.previousPostId) {
@@ -73,6 +75,7 @@ function makeMapStateToProps() {
         return {
             post,
             team,
+            channelRole,
             postDetailed,
             currentUserId: getCurrentUserId(state),
             isFirstReply: previousPost ? isFirstReply(post, previousPost) : false,

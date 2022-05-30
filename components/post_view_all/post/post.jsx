@@ -32,6 +32,7 @@ export default class Post extends React.PureComponent {
          */
         post: PropTypes.object.isRequired,
         team: PropTypes.object.isRequired,
+        channelRole: PropTypes.object.isRequired,
         postDetailed: PropTypes.object.isRequired,
         /**
          * The logged in user ID
@@ -382,6 +383,7 @@ export default class Post extends React.PureComponent {
             isCollapsedThreadsEnabled,
             postDetailed,
             team,
+            channelRole,
         } = this.props;
 
         const { postDetail, profile_url } = this.state;
@@ -399,11 +401,31 @@ export default class Post extends React.PureComponent {
 
         const hideProfilePicture = false;/*this.hasSameRoot(this.props) && this.props.consecutivePostByUser && (!post.root_id && !hasReplies) && !fromBot;*/
         if(team.name === 'page'){
-            profilePic = (
-                <>
-                    <img className='Avatar Avatar-md vertical-middle' src={profile_url} />
-                </>
-            );
+            if(channelRole.roles === 'channel_user channel_admin'){
+                profilePic = (
+                    <>
+                        <img className='Avatar Avatar-md vertical-middle' src={profile_url} />
+                    </>
+                );
+            }else{
+                if (!hideProfilePicture) {
+                    profilePic = (
+                        <PostProfilePicture
+                            compactDisplay={this.props.compactDisplay}
+                            post={post}
+                            userId={post.user_id}
+                        />
+                    );
+        
+                    if (fromAutoResponder) {
+                        profilePic = (
+                            <span className='auto-responder'>
+                                {profilePic}
+                            </span>
+                        );
+                    }
+                }
+            }
         }
         else{
             if (!hideProfilePicture) {
