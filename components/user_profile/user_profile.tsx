@@ -32,6 +32,9 @@ export type UserProfileProps = {
     location?: string;
     activity?: string;
     shareInfo?: string;
+    admin?: boolean;
+    pageName?: string;
+    img_src?: string;
 }
 
 export default class UserProfile extends PureComponent<UserProfileProps> {
@@ -75,29 +78,38 @@ export default class UserProfile extends PureComponent<UserProfileProps> {
             location,
             activity,
             shareInfo,
+            admin,
+            pageName,
+            img_src,
         } = this.props;
 
         let name: React.ReactNode;
-        if (user && displayUsername) {
-            name = `@${(user.username)}`;
-        } else {
-            name = overwriteName || displayName || '...';
-        }
-
-        const ariaName: string = typeof name === 'string' ? name.toLowerCase() : '';
-
-        if (disablePopover) {
-            return <div className='user-popover'>{name}</div>;
-        }
-
         let placement = 'right';
         if (isRHS && !isMobile()) {
             placement = 'left';
         }
 
         let profileImg = '';
-        if (user) {
-            profileImg = imageURLForUser(user.id, user.last_picture_update);
+        if(admin){
+            profileImg = img_src;
+            name = pageName;
+        }
+        else{
+            if (user) {
+                profileImg = imageURLForUser(user.id, user.last_picture_update);
+            }
+
+            if (user && displayUsername) {
+                name = `@${(user.username)}`;
+            } else {
+                name = overwriteName || displayName || '...';
+            }
+    
+            const ariaName: string = typeof name === 'string' ? name.toLowerCase() : '';
+    
+            if (disablePopover) {
+                return <div className='user-popover'>{name}</div>;
+            }
         }
 
         let sharedIcon;

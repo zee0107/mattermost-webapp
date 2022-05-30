@@ -16,6 +16,8 @@ import Badge from 'components/widgets/badges/badge';
 import PostHeaderCustomStatus from './post_header_custom_status';
 
 import './post_header.scss';
+import { Channel, ChannelMembership } from 'mattermost-redux/types/channels';
+import { Team } from 'mattermost-redux/types/teams';
 
 export type Props = {
 
@@ -24,6 +26,9 @@ export type Props = {
      */
     post: Post;
     postDetailed: PostDetailed;
+    channelRole: Promise<ChannelMembership>;
+    currentTeam: Team;
+    currentChannel: Channel;
     /*
      * Function called when the comment icon is clicked
      */
@@ -86,8 +91,39 @@ export type Props = {
 };
 
 export default class PostHeader extends React.PureComponent<Props> {
+    constructor(props: Props) {
+        super(props);
+        this.state = {admin: '',profile_url: ''};
+    }
+
+    componentDidMount(){
+        if(this.props.channelRole !== null && this.props.channelRole !== undefined){
+            Promise.resolve(this.props.channelRole).then((value) => { this.setState({admin: value.roles}); })
+        }
+    }
+
+    getProfileImage = async (channel: string) => {
+        try{
+            const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/pageprofileimg?id=${channel}`);
+            const imageBlob = await response.blob();
+            const textBlob = await imageBlob.text();
+            if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
+            {
+                this.setState({profile_url: 'unavailable'});
+            }
+            else
+            {
+                const imageObjectURL = URL.createObjectURL(imageBlob);
+                this.setState({profile_url: imageObjectURL});
+            }
+        }
+        catch(error){
+            conosle.log(error);
+        }
+    }
+
     render(): JSX.Element {
-        const {post, postDetailed} = this.props;
+        const {post, postDetailed, currentTeam, currentChannel} = this.props;
         const isSystemMessage = PostUtils.isSystemMessage(post);
         const fromAutoResponder = PostUtils.fromAutoResponder(post);
         const fromWebhook = post?.props?.from_webhook === 'true';
@@ -103,84 +139,104 @@ export default class PostHeader extends React.PureComponent<Props> {
         );
         let indicator;
         let colon;
-
-        if (fromWebhook) {
-            if (post.props.override_username && this.props.enablePostUsernameOverride) {
+        let pagePostHeader;
+        
+        if(currentTeam.name === 'page'){
+            if(this.state.admin === 'channel_user channel_admin')
+            {
                 userProfile = (
                     <UserProfile
-                        userId={post.user_id}
-                        hideStatus={true}
-                        overwriteName={post.props.override_username}
-                        overwriteIcon={this.props.overwriteIcon}
-                        location={postDetailed.location}
-                        activity={postDetailed.actvity}
-                        shareInfo={postDetailed.share_info}
-                    />
-                );
-            } else {
-                userProfile = (
-                    <UserProfile
-                        userId={post.user_id}
-                        hideStatus={true}
-                        location={postDetailed.location}
-                        activity={postDetailed.actvity}
-                        shareInfo={postDetailed.share_info}
-                    />
-                );
-            }
-
-            if (!this.props.isBot) {
-                indicator = (<BotBadge/>);
-            }
-        } else if (fromAutoResponder) {
-            userProfile = (
-                <UserProfile
                     userId={post.user_id}
-                    hideStatus={true}
+                    img_src={this.state.profile_url}
+                    pageName={currentChannel.display_name}
+                    admin={true}
                     hasMention={true}
                     location={postDetailed.location}
                     activity={postDetailed.actvity}
                     shareInfo={postDetailed.share_info}
                 />
-            );
-
-            indicator = (
-                <Badge>
-                    <FormattedMessage
-                        id='post_info.auto_responder'
-                        defaultMessage='AUTOMATIC REPLY'
-                    />
-                </Badge>
-            );
-        } else if (isSystemMessage && this.props.isBot) {
-            userProfile = (
-                <UserProfile
-                    userId={post.user_id}
-                    hideStatus={true}
-                    location={postDetailed.location}
-                    activity={postDetailed.actvity}
-                    shareInfo={postDetailed.share_info}
-                />
-            );
-        } else if (isSystemMessage) {
-            userProfile = (
-                <UserProfile
-                    userId=''
-                    overwriteName={
-                        <FormattedMessage
-                            id='post_info.system'
-                            defaultMessage='System'
-                        />
-                    }
-                    overwriteImage={Constants.SYSTEM_MESSAGE_PROFILE_IMAGE}
-                    disablePopover={true}
-                    location={postDetailed.location}
-                    activity={postDetailed.actvity}
-                    shareInfo={postDetailed.share_info}
-                />
-            );
+                );
+            }
         }
-
+        else{
+            if (fromWebhook) {
+                if (post.props.override_username && this.props.enablePostUsernameOverride) {
+                    userProfile = (
+                        <UserProfile
+                            userId={post.user_id}
+                            hideStatus={true}
+                            overwriteName={post.props.override_username}
+                            overwriteIcon={this.props.overwriteIcon}
+                            location={postDetailed.location}
+                            activity={postDetailed.actvity}
+                            shareInfo={postDetailed.share_info}
+                        />
+                    );
+                } else {
+                    userProfile = (
+                        <UserProfile
+                            userId={post.user_id}
+                            hideStatus={true}
+                            location={postDetailed.location}
+                            activity={postDetailed.actvity}
+                            shareInfo={postDetailed.share_info}
+                        />
+                    );
+                }
+    
+                if (!this.props.isBot) {
+                    indicator = (<BotBadge/>);
+                }
+            } else if (fromAutoResponder) {
+                userProfile = (
+                    <UserProfile
+                        userId={post.user_id}
+                        hideStatus={true}
+                        hasMention={true}
+                        location={postDetailed.location}
+                        activity={postDetailed.actvity}
+                        shareInfo={postDetailed.share_info}
+                    />
+                );
+    
+                indicator = (
+                    <Badge>
+                        <FormattedMessage
+                            id='post_info.auto_responder'
+                            defaultMessage='AUTOMATIC REPLY'
+                        />
+                    </Badge>
+                );
+            } else if (isSystemMessage && this.props.isBot) {
+                userProfile = (
+                    <UserProfile
+                        userId={post.user_id}
+                        hideStatus={true}
+                        location={postDetailed.location}
+                        activity={postDetailed.actvity}
+                        shareInfo={postDetailed.share_info}
+                    />
+                );
+            } else if (isSystemMessage) {
+                userProfile = (
+                    <UserProfile
+                        userId=''
+                        overwriteName={
+                            <FormattedMessage
+                                id='post_info.system'
+                                defaultMessage='System'
+                            />
+                        }
+                        overwriteImage={Constants.SYSTEM_MESSAGE_PROFILE_IMAGE}
+                        disablePopover={true}
+                        location={postDetailed.location}
+                        activity={postDetailed.actvity}
+                        shareInfo={postDetailed.share_info}
+                    />
+                );
+            }
+        }
+        
         if (this.props.compactDisplay) {
             colon = (<strong className='colon'>{':'}</strong>);
         }

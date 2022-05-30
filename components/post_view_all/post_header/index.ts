@@ -10,8 +10,10 @@ import {Client4} from 'mattermost-redux/client';
 
 import {GlobalState} from 'types/store';
 import {isGuest} from 'mattermost-redux/utils/user_utils';
+import { getCurrentTeam } from 'mattermost-redux/selectors/entities/teams';
 
 import PostHeader, {Props} from './post_header';
+import { getCurrentChannel } from 'mattermost-redux/selectors/entities/channels';
 
 function mapStateToProps(state: GlobalState, ownProps: Props) {
     const config = getConfig(state);
@@ -23,15 +25,19 @@ function mapStateToProps(state: GlobalState, ownProps: Props) {
     if (overrideIconUrl) {
         overwriteIcon = Client4.getAbsoluteUrl(overrideIconUrl);
     }
-
+    const currentTeam = getCurrentTeam(state);
+    const currentChannel = getCurrentChannel(state);
+    
     const user = getUser(state, ownProps.post.user_id);
     const channelRole = Client4.getChannelMember(ownProps.post.channel_id,ownProps.post.user_id);
-    console.log('Post', channelRole);
     const isBot = Boolean(user && user.is_bot);
 
     return {
         enablePostUsernameOverride,
         isBot,
+        currentTeam,
+        currentChannel,
+        channelRole,
         overwriteIcon,
         isGuest: Boolean(user && isGuest(user.roles)),
     };
