@@ -25,7 +25,8 @@ function mapStateToProps(state: GlobalState, ownProps: Props) {
     }
 
     const user = getUser(state, ownProps.post.user_id);
-    console.log('Post', ownProps.post);
+    const channelRole = Client4.getChannelMember(ownProps.post.channel_id,ownProps.post.user_id);
+    console.log('Post', channelRole);
     const isBot = Boolean(user && user.is_bot);
 
     return {
