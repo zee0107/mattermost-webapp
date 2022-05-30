@@ -472,6 +472,22 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                             isMounted={true}/>
                     </>
                 );
+                userDisplayname = channelDisplayName;
+                if(channelId){
+                    this.getProfileImage(channelId);
+                    userDisplayprofile = (
+                        <>
+                            <img className='Avatar Avatar-md user-photo vertical-align-middle' src={this.state.pageProfile} />
+                        </>
+                    );
+
+                    userDisplayprofileXl = (
+                        <>
+                            <img className='Avatar Avatar-xl user-photo vertical-align-middle' src={this.state.pageProfile} />
+                        </>
+                    );
+                }
+                
                 if(channelAdmin){
                     postBoxDesktop = (
                         <div className='box-middle-panel crypter-section-profile-desktop'>
@@ -536,26 +552,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                         </div>
                     );
                 }
-                
-
-                userDisplayname = channelDisplayName;
-                if(channelId){
-                    this.getProfileImage(channelId);
-                    userDisplayprofile = (
-                        <>
-                            <img className='Avatar Avatar-md user-photo vertical-align-middle' src={this.state.pageProfile} />
-                        </>
-                    );
-
-                    userDisplayprofileXl = (
-                        <>
-                            <img className='Avatar Avatar-xl user-photo vertical-align-middle' src={this.state.pageProfile} />
-                        </>
-                    );
-                }
-
-                
-                
             }else{
                 userDisplayname = currentUser.first_name + ' ' + currentUser.last_name;
                 userDisplayprofile = (
