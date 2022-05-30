@@ -241,7 +241,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                             <input type='file' className='form-control float-start' onChange={this.handelChange} required />
                         </div>
                         <div className='col-md-2'>
-                            <button className='btn-br text-white float-end small' type='button' onClick={() => {this.setState({uploadImage: false,uploadProfile: false})}}>Cancel</button>
+                            <button className='btn-br text-white float-end small p-2' type='button' onClick={() => {this.setState({uploadImage: false,uploadProfile: false})}}>Cancel</button>
                             {buttonSubmit}
                         </div>
                         {uploadError}
@@ -256,7 +256,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                                     <input type='file' className='form-control float-start' onChange={this.handelChange} required />
                                 </div>
                                 <div className='col-md-4'>
-                                    <button className='btn-br text-white float-end small' type='button' onClick={() => {this.setState({uploadImage: false,uploadProfile: false})}}>Cancel</button>
+                                    <button className='btn-br text-white float-end small p-2' type='button' onClick={() => {this.setState({uploadImage: false,uploadProfile: false})}}>Cancel</button>
                                     {buttonSubmit}
                                 </div>
                             </div>
@@ -296,7 +296,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                     <div className='mypageheadingpreviews'>
                     <div className='row'>
                         <div className='col-lg-2 text-center'>
-                            <div className='rounded-circle rounded-circle-photo border border-5'><img src={profile_url} /></div>
+                            <img className='rounded-circle rounded-circle-photo border border-5' src={profile_url} />
                         </div>
                         <div className='col-lg-8 pt-5'>
                             <h1 className='mt-5'>{channelDisplayName}</h1>
@@ -313,7 +313,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                     <div className='mypageheadingpreviews' style={{backgroundImage: `url(${img_url !== 'unavailable' ? GroupLogo : img_url})`, backgroundPosition: 'center bottom'}}>
                         <div className='row'>
                             <div className='col-12 text-center'>
-                            <div className='col-5 mx-auto rounded-circle rounded-circle-photo border border-5'><i className='bi-flag-fill bi-flag-fill-style text-white'></i></div>
+                            <img className='col-5 mx-auto rounded-circle rounded-circle-photo border border-5' src={profile_url}/>
                             </div>
                             <div className='col-lg-12 text-center'>
                                 <h4 className='mt-3'>{channelDisplayName}</h4>
