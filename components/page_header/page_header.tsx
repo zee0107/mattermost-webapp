@@ -177,7 +177,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {channelId, channelDisplayName} = this.props;
-        const { result_leave, uploadImage, uploadProfile, img_url, data} = this.state;
+        const { result_leave, uploadImage, uploadProfile, img_url, profile_url, data} = this.state;
 
         let uploadError;
         if(this.state.uploadError){
@@ -222,11 +222,11 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         let buttonSubmit;
         if(uploadImage){
             buttonSubmit = (
-                <button className='btn buttonBgGreen text-white float-end btn-sm mr-2' type='button' onClick={this.handleSubmit}>Upload</button>
+                <button className='btn-br text-white float-end small p-2 mr-2' type='button' onClick={this.handleSubmit}>Upload</button>
             );
         }else{
             buttonSubmit = (
-                <button className='btn buttonBgGreen text-white float-end btn-sm mr-2' type='button' onClick={this.handleSubmitProfile}>Upload</button>
+                <button className='btn-br text-white float-end small p-2  mr-2' type='button' onClick={this.handleSubmitProfile}>Upload</button>
             );
         }
         let upload;
@@ -237,11 +237,11 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                         <div className='col-md-12'>
                             <label className='text-secondary small'>Upload Group Cover Photo</label>
                         </div>
-                        <div className='col-md-8'>
+                        <div className='col-md-10'>
                             <input type='file' className='form-control float-start' onChange={this.handelChange} required />
                         </div>
-                        <div className='col-md-4'>
-                            <button className='btn buttonBgGreen text-white float-end btn-sm' type='button' onClick={() => {this.setState({uploadImage: false,uploadProfile: false})}}>Cancel</button>
+                        <div className='col-md-2'>
+                            <button className='btn-br text-white float-end small' type='button' onClick={() => {this.setState({uploadImage: false,uploadProfile: false})}}>Cancel</button>
                             {buttonSubmit}
                         </div>
                         {uploadError}
@@ -256,7 +256,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                                     <input type='file' className='form-control float-start' onChange={this.handelChange} required />
                                 </div>
                                 <div className='col-md-4'>
-                                    <button className='btn buttonBgGreen text-white float-end btn-sm' type='button' onClick={() => {this.setState({uploadImage: false,uploadProfile: false})}}>Cancel</button>
+                                    <button className='btn-br text-white float-end small' type='button' onClick={() => {this.setState({uploadImage: false,uploadProfile: false})}}>Cancel</button>
                                     {buttonSubmit}
                                 </div>
                             </div>
@@ -296,7 +296,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                     <div className='mypageheadingpreviews'>
                     <div className='row'>
                         <div className='col-lg-2 text-center'>
-                            <div className='rounded-circle rounded-circle-photo border border-5'><i className='bi-flag-fill bi-flag-fill-style text-white'></i></div>
+                            <div className='rounded-circle rounded-circle-photo border border-5'><img src={profile_url} /></div>
                         </div>
                         <div className='col-lg-8 pt-5'>
                             <h1 className='mt-5'>{channelDisplayName}</h1>
