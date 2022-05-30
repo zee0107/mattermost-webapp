@@ -129,6 +129,7 @@ export default class Post extends React.PureComponent {
             fadeOutHighlight: false,
             postDetail: {},
             profile_url: '',
+            channelRole: {},
         };
     }
 
@@ -151,6 +152,11 @@ export default class Post extends React.PureComponent {
         if(this.props.postDetailed !== null){
             Promise.resolve(this.props.postDetailed).then(value => { this.setState({postDetail: value}); });
         }
+
+        if(this.props.channelRole !== null){
+            Promise.resolve(this.props.channelRole).then(value => { this.setState({channelRole: value}); });
+        }
+
 
         if(this.props.post){
             this.getProfileImage(this.props.post.channel_id);
@@ -383,10 +389,9 @@ export default class Post extends React.PureComponent {
             isCollapsedThreadsEnabled,
             postDetailed,
             team,
-            channelRole,
         } = this.props;
 
-        const { postDetail, profile_url } = this.state;
+        const { postDetail, profile_url, channelRole } = this.state;
         if (!post.id) {
             return null;
         }

@@ -57,7 +57,8 @@ function makeMapStateToProps() {
         const postDetailed = Client4.getPostDetailed(ownProps.postId);
         const channel = getChannel(state, post.channel_id);
         const team = getCurrentTeam(state);
-        const channelRole = getMyChannelMembership(state,channel.id);
+        //const channelRole = getMyChannelMembership(state,channel.id);
+        const channelRole = Client4.getChannelMember(channel.id,post.user_id);
 
         let previousPost = null;
         if (ownProps.previousPostId) {
