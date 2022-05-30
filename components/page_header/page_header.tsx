@@ -268,6 +268,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         }
 
         let buttonAction;
+        let buttonActionMobile;
         if (data.roles === 'channel_user channel_admin') {
             buttonAction = (
                 <div className='mt-5 pt-5'>
@@ -279,6 +280,16 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                         </ul>
                     </div>
                 </div>
+            );
+
+            buttonActionMobile = (
+                <div className='dropdown'>
+                    <a className='float-end onClicksubmenu shadow' id='dropdownSubmenu' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-three-dots'></i></a>
+                    <ul className='dropdown-menu' aria-labelledby='dropdownSubmenu'>
+                        <li key='upload-profile'><a className='dropdown-item' href="#" onClick={() => {this.setState({uploadProfile: true})}}><i className='bi-upload download-style'></i> Upload Page Profile Photo</a></li>
+                        <li key='upload-cover'><a className='dropdown-item' href="#" onClick={() => {this.setState({uploadImage: true})}}><i className='bi-upload download-style'></i> Upload Page Cover Photo</a></li>
+                    </ul>
+             </div>
             );
         }
         else {
@@ -312,6 +323,9 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                 <div className='mypagepreviews-mobile'>
                     <div className='mypageheadingpreviews' style={{backgroundImage: `url(${img_url !== 'unavailable' ? GroupLogo : img_url})`, backgroundPosition: 'center bottom'}}>
                         <div className='row'>
+                            <div className='col-lg-12 text-center'>
+                                {buttonActionMobile}
+                            </div>
                             <div className='col-12 text-center'>
                                 <div className='col-5 mx-auto'>
                                     <img className=' rounded-circle rounded-circle-photo border border-5' src={profile_url}/>
@@ -320,9 +334,6 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                             <div className='col-lg-12 text-center'>
                                 <h4 className='mt-3'>{channelDisplayName}</h4>
                                 <PageDetails channelId={channelId}/>
-                            </div>
-                            <div className='col-lg-12 text-center'>
-                                {buttonAction}
                             </div>
                         </div>
                     </div>
