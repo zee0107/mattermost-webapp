@@ -3,7 +3,7 @@
 
 import React from 'react';
 
-import CreatePostAlbum from 'components/create_post_album/create_post_album';
+import CreatePost from 'components/create_post_page/create_post_page';
 
 import {Posts} from 'mattermost-redux/constants';
 

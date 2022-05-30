@@ -13,6 +13,7 @@ import GroupLogo from 'images/groupcover.png';
 import deferComponentRender from 'components/deferComponentRender';
 import ChannelHeader from 'components/channel_header';
 import CreatePost from 'components/create_post_all';
+import CreatePostPage from 'components/create_post_page';
 import FileUploadOverlay from 'components/file_upload_overlay';
 import PostView from 'components/post_view_all';
 import Post from 'components/post_view_all/post';
@@ -95,6 +96,7 @@ type State = {
     feeling: boolean;
     postList: PostList;
     storyList: Story[];
+    pageProfile: string;
 };
 
 export default class ChannelView extends React.PureComponent<Props, State> {
@@ -163,6 +165,26 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         return (<Avatar size={size} url={this.props.profilePicture} />);
     }
 
+    getProfileImage = async (channel: string) => {
+        try{
+            const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/pageprofileimg?id=${channel}`);
+            const imageBlob = await response.blob();
+            const textBlob = await imageBlob.text();
+            if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
+            {
+                this.setState({pageProfile: 'unavailable'});
+            }
+            else
+            {
+                const imageObjectURL = URL.createObjectURL(imageBlob);
+                this.setState({pageProfile: imageObjectURL});
+            }
+        }
+        catch(error){
+            conosle.log(error);
+        }
+    }
+
     getChannelView = () => {
         return this.channelViewRef.current;
     }
@@ -228,6 +250,8 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         let location;
         let feelact;
         let feelactView;
+        let userDisplayname;
+        let userDisplayprofile;
 
         let textValue;
         let icon;
@@ -342,78 +366,83 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         }else if(shareInfo === 'friends'){
             shareInfoBtn = (<button className='box-live-post btn-sm width-100 p-3' data-bs-toggle='modal' data-bs-target='#staticBackdropShare'><i className='bi bi-people-fill'></i> Friends <i className='bi bi-chevron-down'></i></button>);
             shareInfoDd = (<a className='onSelectactionfriends text-dark' data-bs-toggle='modal' data-bs-target='#staticBackdropShare' data-bs-dismiss='modal'><i className='bi-people-fill'></i> Friends <i className='bi-chevron-down'></i></a>);
-        }else{
+        }else if(shareInfo === 'everyone'){
             shareInfoBtn = (<button className='box-live-post btn-sm width-100 p-3' data-bs-toggle='modal' data-bs-target='#staticBackdropShare'><i className='bi bi-globe'></i> Everyone <i className='bi bi-chevron-down'></i></button>);
             shareInfoDd = (<a className='onSelectactionpublic text-dark' data-bs-toggle='modal' data-bs-target='#staticBackdropShare' data-bs-dismiss='modal'><i className='bi-globe'></i> Everyone <i className='bi-chevron-down'></i></a>);
+        }else{
+            shareInfoBtn = '';
+            shareInfoDd = '';
         }
 
-        let createPost;
-        if (this.props.deactivatedChannel) {
-            createPost = (
-                <div
-                    className='post-create__container'
-                    id='post-create'
-                >
-                    <div
-                        className='channel-archived__message'
-                    >
-                        <FormattedMarkdownMessage
-                            id='create_post.deactivated'
-                            defaultMessage='You are viewing an archived channel with a **deactivated user**. New messages cannot be posted.'
-                        />
-                        <button
-                            className='btn btn-primary channel-archived__close-btn'
-                            onClick={this.onClickCloseChannel}
-                        >
-                            <FormattedMessage
-                                id='center_panel.archived.closeChannel'
-                                defaultMessage='Close Channel'
-                            />
-                        </button>
-                    </div>
-                </div>
-            );
-        } else if (channelIsArchived) {
-            createPost = (
-                <div
-                    className='post-create__container'
-                    id='post-create'
-                >
-                    <div
-                        id='channelArchivedMessage'
-                        className='channel-archived__message'
-                    >
-                        <FormattedMarkdownMessage
-                            id='archivedChannelMessage'
-                            defaultMessage='You are viewing an **archived channel**. New messages cannot be posted.'
-                        />
-                        <button
-                            className='btn btn-primary channel-archived__close-btn'
-                            onClick={this.onClickCloseChannel}
-                        >
-                            <FormattedMessage
-                                id='center_panel.archived.closeChannel'
-                                defaultMessage='Close Channel'
-                            />
-                        </button>
-                    </div>
-                </div>
-            );
-        } else if (!this.props.channelRolesLoading) {
-            createPost = (
-                <>
-                    <CreatePost
-                        getChannelView={this.getChannelView}
-                        uploading={this.state.uploading} userActivity={this.state.userActivity} userLocation={this.state.userLocation} shareInfo={this.state.shareInfo}
-                    />
-                </>
-            );
-        }
+        
 
         const DeferredPostView = this.state.deferredPostView;
         let viewDetail;
         let isMounted = false;
+        let createPost;
         if(currentTeam){
+            if (this.props.deactivatedChannel) {
+                createPost = (
+                    <div
+                        className='post-create__container'
+                        id='post-create'
+                    >
+                        <div
+                            className='channel-archived__message'
+                        >
+                            <FormattedMarkdownMessage
+                                id='create_post.deactivated'
+                                defaultMessage='You are viewing an archived channel with a **deactivated user**. New messages cannot be posted.'
+                            />
+                            <button
+                                className='btn btn-primary channel-archived__close-btn'
+                                onClick={this.onClickCloseChannel}
+                            >
+                                <FormattedMessage
+                                    id='center_panel.archived.closeChannel'
+                                    defaultMessage='Close Channel'
+                                />
+                            </button>
+                        </div>
+                    </div>
+                );
+            } else if (channelIsArchived) {
+                createPost = (
+                    <div
+                        className='post-create__container'
+                        id='post-create'
+                    >
+                        <div
+                            id='channelArchivedMessage'
+                            className='channel-archived__message'
+                        >
+                            <FormattedMarkdownMessage
+                                id='archivedChannelMessage'
+                                defaultMessage='You are viewing an **archived channel**. New messages cannot be posted.'
+                            />
+                            <button
+                                className='btn btn-primary channel-archived__close-btn'
+                                onClick={this.onClickCloseChannel}
+                            >
+                                <FormattedMessage
+                                    id='center_panel.archived.closeChannel'
+                                    defaultMessage='Close Channel'
+                                />
+                            </button>
+                        </div>
+                    </div>
+                );
+            } else if (!this.props.channelRolesLoading) {
+                createPost = (
+                    <>
+                        <CreatePost
+                            getChannelView={this.getChannelView}
+                            uploading={this.state.uploading} userActivity={this.state.userActivity} userLocation={this.state.userLocation} shareInfo={this.state.shareInfo}
+                        />
+                    </>
+                );
+            }
+
             if(currentTeam.name === 'page'){
                 viewDetail = (
                     <>
@@ -423,7 +452,22 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                             isMounted={true}/>
                     </>
                 );
+                userDisplayname = channelDisplayName;
+                if(channelId){
+                    userDisplayprofile = (
+                        <>
+                            <img className='Avatar Avatar-md user-photo vertical-align-middle' src={this.getProfileImage(channelId)} />
+                        </>
+                    );
+                }
+                
             }else{
+                userDisplayname = currentUser.first_name + ' ' + currentUser.last_name;
+                userDisplayprofile = (
+                    <>
+                        {this.renderProfilePicture('md')}
+                    </>
+                );
                 if(channelName === 'town-square'){
                     let storyListDetails;
                     let emptyStories;
@@ -547,8 +591,8 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                     <div className='col-md-5 text-center removePaddingRight'>
                                         <div className='d-flex float-start width-100'>
                                             <span className='input-search-crypter-whats-going-on' id='basic-addon22'>
-                                                {this.renderProfilePicture('md')}</span>
-                                            <input type='text' className='form-control input-search-crypter-whats-going-on onCreatepost mt-1' placeholder={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-label={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-describedby='basic-addon55' data-bs-toggle='modal' data-bs-target='#staticBackdrop'/>
+                                                {userDisplayprofile}</span>
+                                            <input type='text' className='form-control input-search-crypter-whats-going-on onCreatepost mt-1' placeholder={`What's going on, ${userDisplayname}`} aria-label={`What's going on, ${userDisplayname}`} aria-describedby='basic-addon55' data-bs-toggle='modal' data-bs-target='#staticBackdrop'/>
                                             <span className='input-search-crypter-whats-going-on onPhotoaddpost mt-1' onClick={() => {this.setState({uploading: true});}} id='basic-addon33' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
                                                 <a href='#'><svg width='21' height='21' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
                                                     <path d='M13.7555 4.41165H11.7685L10.6215 3.15802H6.86061V4.41165H10.0699L11.217 5.66527H13.7555V13.187H3.72656V7.54571H2.47293V13.187C2.47293 13.8765 3.03706 14.4406 3.72656 14.4406H13.7555C14.445 14.4406 15.0092 13.8765 15.0092 13.187V5.66527C15.0092 4.97578 14.445 4.41165 13.7555 4.41165ZM5.60699 9.42614C5.60699 11.1561 7.01105 12.5602 8.74105 12.5602C10.4711 12.5602 11.8751 11.1561 11.8751 9.42614C11.8751 7.69614 10.4711 6.29208 8.74105 6.29208C7.01105 6.29208 5.60699 7.69614 5.60699 9.42614ZM8.74105 7.54571C9.77529 7.54571 10.6215 8.3919 10.6215 9.42614C10.6215 10.4604 9.77529 11.3066 8.74105 11.3066C7.70681 11.3066 6.86061 10.4604 6.86061 9.42614C6.86061 8.3919 7.70681 7.54571 8.74105 7.54571ZM3.72656 4.41165H5.60699V3.15802H3.72656V1.27759H2.47293V3.15802H0.592499V4.41165H2.47293V6.29208H3.72656V4.41165Z' fill='var(--text-primary)'/>
@@ -576,8 +620,8 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                     <div className='whats-going-on-here-style float-start'>
                                         <div className='d-flex bg-inputs-whats'>
                                             <span className='input-search-crypter-whats-going-on' id='basic-addon22'>
-                                            {this.renderProfilePicture('md')}</span>
-                                            <input type='text' className='form-control input-search-crypter-whats-going-on onCreatepost mt-1' placeholder={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-label={`What's going on, ${currentUser.first_name} ${currentUser.last_name}`} aria-describedby='basic-addon55' data-bs-toggle='modal' data-bs-target='#staticBackdrop' />
+                                            {userDisplayprofile}</span>
+                                            <input type='text' className='form-control input-search-crypter-whats-going-on onCreatepost mt-1' placeholder={`What's going on, ${userDisplayname}`} aria-label={`What's going on, ${userDisplayname}`} aria-describedby='basic-addon55' data-bs-toggle='modal' data-bs-target='#staticBackdrop' />
                                             <span className='input-search-crypter-whats-going-on onPhotoaddpost mt-1' onClick={() => { this.setState({uploading: true});}} aria-describedby='basic-addon1011' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
                                                 <a href='#'><svg width='21' height='21' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
                                                     <path d='M13.7555 4.41165H11.7685L10.6215 3.15802H6.86061V4.41165H10.0699L11.217 5.66527H13.7555V13.187H3.72656V7.54571H2.47293V13.187C2.47293 13.8765 3.03706 14.4406 3.72656 14.4406H13.7555C14.445 14.4406 15.0092 13.8765 15.0092 13.187V5.66527C15.0092 4.97578 14.445 4.41165 13.7555 4.41165ZM5.60699 9.42614C5.60699 11.1561 7.01105 12.5602 8.74105 12.5602C10.4711 12.5602 11.8751 11.1561 11.8751 9.42614C11.8751 7.69614 10.4711 6.29208 8.74105 6.29208C7.01105 6.29208 5.60699 7.69614 5.60699 9.42614ZM8.74105 7.54571C9.77529 7.54571 10.6215 8.3919 10.6215 9.42614C10.6215 10.4604 9.77529 11.3066 8.74105 11.3066C7.70681 11.3066 6.86061 10.4604 6.86061 9.42614C6.86061 8.3919 7.70681 7.54571 8.74105 7.54571ZM3.72656 4.41165H5.60699V3.15802H3.72656V1.27759H2.47293V3.15802H0.592499V4.41165H2.47293V6.29208H3.72656V4.41165Z' fill='var(--text-primary)'/>
@@ -634,7 +678,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-md-10 text-left'>
                                             <strong>
-                                                <a href='#' className='text-dark'>{currentUser.first_name} {currentUser.last_name}</a> 
+                                                <a href='#' className='text-dark'>{userDisplayname}</a> 
                                                 {feelact}
                                                 {location}
                                                 {/*<a href='#' className='tagviewpost text-dark'><small className='text-muted'>with</small> Friend name goes here</a> 

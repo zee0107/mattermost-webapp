@@ -97,11 +97,11 @@ type Props = {
   *  Data used in notifying user for @all and @channel
   */
     currentChannelMembersCount: number;
-    channelId: string;
+
     /**
   *  Data used in multiple places of the component
   */
-    currentChannel: Promise<Channel>;
+    currentChannel: Channel;
 
     /**
   *  Data used for DM prewritten messages
@@ -333,15 +333,15 @@ type State = {
     uploadsProgressPercent: {[clientID: string]: FilePreviewInfo};
     renderScrollbar: boolean;
     scrollbarWidth: number;
-    //currentChannel: Channel;
+    currentChannel: Channel;
     errorClass: string | null;
     serverError: (ServerError & {submittedMessage?: string}) | null;
     postError?: React.ReactNode;
-    channelId: string;
     uploading: boolean;
+    profile_url: string;
 }
 
-class CreatePostAlbum extends React.PureComponent<Props, State> {
+class CreatePostAll extends React.PureComponent<Props, State> {
     static defaultProps = {
         latestReplyablePostId: '',
     }
@@ -357,7 +357,7 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
     private fileUploadRef: React.RefObject<FileUploadClass>;
     private createPostControlsRef: React.RefObject<HTMLSpanElement>;
 
-    /*static getDerivedStateFromProps(props: Props, state: State): Partial<State> {
+    static getDerivedStateFromProps(props: Props, state: State): Partial<State> {
         let updatedState: Partial<State> = {currentChannel: props.currentChannel};
         if (props.currentChannel.id !== state.currentChannel.id) {
             updatedState = {
@@ -368,7 +368,7 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
             };
         }
         return updatedState;
-    }*/
+    }
 
     constructor(props: Props) {
         super(props);
@@ -380,12 +380,10 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
             uploadsProgressPercent: {},
             renderScrollbar: false,
             scrollbarWidth: 0,
+            currentChannel: props.currentChannel,
             errorClass: null,
             serverError: null,
-            currentChannel: {},
-            channelId: this.props.channelId,
-            //channelId: 'dodurztr1fbupnpenjgxqjso3a',
-            uploading: false,
+	        uploading: false, 
         };
 
         this.topDiv = React.createRef<HTMLFormElement>();
@@ -405,35 +403,22 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
         window.addEventListener('beforeunload', this.unloadHandler);
         this.setOrientationListeners();
 
-        if(currentChannel !== null){
-            Promise.resolve(currentChannel).then(value => {this.setState({currentChannel: value})});
-        }
-
         if(this.props.uploading !== null){
             this.setState({uploading: this.props.uploading});
         }
-
         if (useGroupMentions) {
-            actions.getChannelMemberCountsByGroup(this.state.currentChannel.id, isTimezoneEnabled);
+            actions.getChannelMemberCountsByGroup(currentChannel.id, isTimezoneEnabled);
         }
-        this.setState({channelId: this.props.channelId});
-        //this.setState({channelId: 'dodurztr1fbupnpenjgxqjso3a'});
     }
 
     componentDidUpdate(prevProps: Props, prevState: State) {
-        const {useGroupMentions, isTimezoneEnabled, actions, uploading} = this.props;
-        const {currentChannel} = this.state;
-        if (prevState.currentChannel.id !== currentChannel.id){
-            if(this.props.currentChannel !== null){
-                Promise.resolve(currentChannel).then(value => {this.setState({currentChannel: value})});
-            }
-        }
-
+        const {useGroupMentions, currentChannel, isTimezoneEnabled, actions, uploading} = this.props;
+	
         if(uploading !== prevProps.uploading){
             this.setState({uploading: this.props.uploading});
         }
-        
-        if(prevState.currentChannel.id !== currentChannel.id){
+
+        if (prevProps.currentChannel.id !== currentChannel.id) {
             this.lastChannelSwitchAt = Date.now();
             this.focusTextbox();
             this.saveDraft(prevProps);
@@ -442,18 +427,13 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
             }
         }
 
-        if (currentChannel.id !== prevState.currentChannel.id) {
+        if (currentChannel.id !== prevProps.currentChannel.id) {
             actions.setShowPreview(false);
         }
 
         // Focus on textbox when emoji picker is closed
         if (prevState.showEmojiPicker && !this.state.showEmojiPicker) {
             this.focusTextbox();
-        }
-
-        if (prevState.channelId !== this.state.channelId){
-            this.setState({channelId: this.props.channelId});
-            //this.setState({channelId: 'dodurztr1fbupnpenjgxqjso3a'});
         }
     }
 
@@ -469,9 +449,9 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
         this.saveDraft();
     }
 
-    saveDraft = (props = this.props, state = this.state) => {
-        if (this.saveDraftFrame && state.currentChannel) {
-            const channelId = this.state.channelId;
+    saveDraft = (props = this.props) => {
+        if (this.saveDraftFrame && props.currentChannel) {
+            const channelId = props.currentChannel.id;
             props.actions.setDraft(StoragePrefixes.DRAFT + channelId, this.draftsForChannel[channelId]);
             clearTimeout(this.saveDraftFrame);
             this.saveDraftFrame = null;
@@ -533,7 +513,7 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
     }
 
     doSubmit = async (e?: React.FormEvent) => {
-        const channelId = this.state.channelId;
+        const channelId = this.props.currentChannel.id;
         if (e) {
             e.preventDefault();
         }
@@ -626,6 +606,7 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
                 this.setState({message: ''});
             }
         }
+
         this.setState({
             submitting: false,
             postError: null,
@@ -640,7 +621,6 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
 
         const shouldCompleteTip = this.props.tutorialStep === Constants.TutorialSteps.POST_POPOVER;
         if (shouldCompleteTip) {
-            
             this.completePostTip('send_message');
         }
     }
@@ -676,6 +656,26 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
         return command === 'online' || command === 'away' ||
             command === 'dnd' || command === 'offline';
     };
+
+    getProfileImage = async (channel: string) => {
+        try{
+            const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/pageprofileimg?id=${channel}`);
+            const imageBlob = await response.blob();
+            const textBlob = await imageBlob.text();
+            if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
+            {
+                this.setState({profile_url: 'unavailable'});
+            }
+            else
+            {
+                const imageObjectURL = URL.createObjectURL(imageBlob);
+                this.setState({profile_url: imageObjectURL});
+            }
+        }
+        catch(error){
+            conosle.log(error);
+        }
+    }
 
     handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -795,7 +795,7 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
 
         let post = originalPost;
 
-        post.channel_id = this.state.currentChannel.id;
+        post.channel_id = currentChannel.id;
 
         const time = Utils.getTimestamp();
         const userId = currentUserId;
@@ -825,10 +825,12 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
 
             return hookResult;
         }
+
         post = hookResult.data;
 
         actions.onSubmitPost(post, draft.fileInfos);
         actions.scrollPostListToBottom();
+
         this.setState({
             submitting: false,
         });
@@ -837,7 +839,7 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
     }
 
     sendReaction(isReaction: RegExpExecArray) {
-        const channelId = this.state.channelId;
+        const channelId = this.props.currentChannel.id;
         const action = isReaction[1];
         const emojiName = isReaction[2];
         const postId = this.props.latestReplyablePostId;
@@ -913,13 +915,13 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
     }
 
     emitTypingEvent = () => {
-        const channelId = this.state.channelId;
+        const channelId = this.props.currentChannel.id;
         GlobalActions.emitLocalUserTypingEvent(channelId, '');
     }
 
     handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const message = e.target.value;
-        const channelId = this.state.channelId;
+        const channelId = this.props.currentChannel.id;
 
         let serverError = this.state.serverError;
         if (isErrorInvalidSlashCommand(serverError)) {
@@ -1051,7 +1053,7 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
     removePreview = (id: string) => {
         let modifiedDraft = {} as PostDraft;
         const draft = {...this.props.draft};
-        const channelId = this.state.channelId;
+        const channelId = this.props.currentChannel.id;
 
         // Clear previous errors
         this.setState({serverError: null});
@@ -1279,7 +1281,7 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
             ...this.props.draft,
             message,
         };
-        const channelId = this.state.channelId;
+        const channelId = this.props.currentChannel.id;
         this.props.actions.setDraft(StoragePrefixes.DRAFT + channelId, draft);
         this.draftsForChannel[channelId] = draft;
 
@@ -1368,7 +1370,7 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
         } = this.props;
         const readOnlyChannel = !canPost;
         const {formatMessage} = this.props.intl;
-        const {renderScrollbar, channelId, uploading} = this.state;
+        const {renderScrollbar, uploading} = this.state;
         const ariaLabelMessageInput = Utils.localizeMessage('accessibility.sections.centerFooter', 'message input complimentary region');
 
         let serverError = null;
@@ -1410,7 +1412,7 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
             tutorialTip = (
                 <CreatePostTip
                     prefillMessage={this.prefillMessage}
-                    currentChannel={this.state.currentChannel}
+                    currentChannel={this.props.currentChannel}
                     currentUserId={this.props.currentUserId}
                     currentChannelTeammateUsername={this.props.currentChannelTeammateUsername}
                 />
@@ -1458,7 +1460,7 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
                                 onUploadError={this.handleUploadError}
                                 onUploadProgress={this.handleUploadProgress}
                                 postType='post'
-                                channelId={channelId}
+                                channelId={currentChannel.id}
                             >
                                 test
                             </FileUpload>
@@ -1518,7 +1520,7 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
             createMessage = Utils.localizeMessage('create_post.read_only', 'This channel is read-only. Only members with permission can post here.');
         } else {
             createMessage = formatMessage(
-                {id: 'write', defaultMessage: `What's going on ${currentUser.first_name} ${currentUser.last_name}`},
+                {id: 'write', defaultMessage: `What's going on ${currentChannel.display_name}`},
                 {channelDisplayName: currentChannel.display_name},
             );
         }
@@ -1563,7 +1565,7 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
                                     onBlur={this.handleBlur}
                                     emojiEnabled={this.props.enableEmojiPicker}
                                     createMessage={createMessage}
-                                    channelId={channelId}
+                                    channelId={currentChannel.id}
                                     id='post_textbox'
                                     ref={this.textboxRef}
                                     disabled={readOnlyChannel}
@@ -1621,8 +1623,7 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
                                             id: t('create_post.icon'),
                                             defaultMessage: 'Create a post',
                                         }}
-                                    />
-                                    Post
+                                    />&nbsp;Post
                                 </button>
                             </div>
                         </div>
@@ -1633,5 +1634,5 @@ class CreatePostAlbum extends React.PureComponent<Props, State> {
     }
 }
 
-export default injectIntl(CreatePostAlbum);
+export default injectIntl(CreatePostAll);
 /* eslint-enable react/no-string-refs */

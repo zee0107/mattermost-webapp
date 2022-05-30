@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import {ActionCreatorsMapObject, bindActionCreators, Dispatch} from 'redux';
 
 import {GlobalState} from 'types/store/index.js';
-import {Client4} from 'mattermost-redux/client';
 
 import {Post, PostDetailed} from 'mattermost-redux/types/posts.js';
 
@@ -20,10 +19,9 @@ import {PostDraft} from 'types/store/rhs.js';
 import {ModalData} from 'types/actions.js';
 
 import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
-import {getCurrentTeamId, getTeamByName} from 'mattermost-redux/selectors/entities/teams';
-import {UserProfile} from 'mattermost-redux/types/users';
+import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
 
-import {getCurrentChannel, getCurrentChannelStats, getChannelMemberCountsByGroup as selectChannelMemberCountsByGroup, getChannelByName} from 'mattermost-redux/selectors/entities/channels';
+import {getCurrentChannel, getCurrentChannelStats, getChannelMemberCountsByGroup as selectChannelMemberCountsByGroup} from 'mattermost-redux/selectors/entities/channels';
 import {getCurrentUserId, getStatusForUserId, getUser, getCurrentUser} from 'mattermost-redux/selectors/entities/users';
 import {haveICurrentChannelPermission} from 'mattermost-redux/selectors/entities/roles';
 import {getChannelTimezones, getChannelMemberCountsByGroup} from 'mattermost-redux/actions/channels';
@@ -63,33 +61,18 @@ import {Constants, Preferences, StoragePrefixes, TutorialSteps, UserStatuses} fr
 import {canUploadFiles} from 'utils/file_utils';
 import {isFeatureEnabled} from 'utils/utils';
 
-import CreatePostAlbum from './create_post_album';
-type OwnProps = {
-    userData?: UserProfile;
-}
+import CreatePostPage from './create_post_page';
+
 function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
 
-    return (state: GlobalState, ownProps: OwnProps) => {
-        if(state.entities.teams.currentTeamId === "" || state.entities.teams.currentTeamId === null || state.entities.teams.currentTeamId === undefined){
-            const stateValue = window.localStorage.getItem('GlobalState');
-            state = JSON.parse(stateValue);
-        }
-        console.log(state);
-        const channel = getChannelByName(state,'town-square');
-        const channelId = channel?.id;
-        //const channelId = 'dodurztr1fbupnpenjgxqjso3a';
+    return (state: GlobalState) => {
         const config = getConfig(state);
-        let currentUser;
-        if (ownProps.userData === null || ownProps.userData === undefined){
-            currentUser = getCurrentUser(state);
-        }else{
-            currentUser = ownProps.userData;
-        }
+        const currentUser = getCurrentUser(state);
         const license = getLicense(state);
-        const currentChannel = Client4.getChannel(channelId);
-        const currentChannelTeammateUsername = getUser(state,'')?.username;
-        const draft = getPostDraft(state, StoragePrefixes.DRAFT, channelId);
+        const currentChannel = getCurrentChannel(state) || {};
+        const currentChannelTeammateUsername = getUser(state, currentChannel.teammate_id || '')?.username;
+        const draft = getPostDraft(state, StoragePrefixes.DRAFT, currentChannel.id);
         const latestReplyablePostId = getLatestReplyablePostId(state);
         const currentChannelMembersCount = getCurrentChannelStats(state) ? getCurrentChannelStats(state).member_count : 1;
         const tutorialStep = getInt(state, Preferences.TUTORIAL_STEP, getCurrentUserId(state), TutorialSteps.FINISHED);
@@ -105,16 +88,13 @@ function makeMapStateToProps() {
         const useChannelMentions = haveICurrentChannelPermission(state, Permissions.USE_CHANNEL_MENTIONS);
         const isLDAPEnabled = license?.IsLicensed === 'true' && license?.LDAPGroups === 'true';
         const useGroupMentions = isLDAPEnabled && haveICurrentChannelPermission(state, Permissions.USE_GROUP_MENTIONS);
-        const channelMemberCountsByGroup = selectChannelMemberCountsByGroup(state, channelId);
-        const team = getTeamByName(state,'crypter');
-        const currentTeamId = team?.id;
-        //const currentTeamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
-        const groupsWithAllowReference = useGroupMentions ? getAssociatedGroupsForReferenceByMention(state, currentTeamId, channelId) : null;
+        const channelMemberCountsByGroup = selectChannelMemberCountsByGroup(state, currentChannel.id);
+        const currentTeamId = getCurrentTeamId(state);
+        const groupsWithAllowReference = useGroupMentions ? getAssociatedGroupsForReferenceByMention(state, currentTeamId, currentChannel.id) : null;
         const enableTutorial = config.EnableTutorial === 'true';
         const showTutorialTip = enableTutorial && tutorialStep === TutorialSteps.POST_POPOVER;
-        
+
         return {
-            channelId,
             currentTeamId,
             currentChannel,
             currentChannelTeammateUsername,
@@ -232,4 +212,4 @@ function mapDispatchToProps(dispatch: Dispatch) {
     };
 }
 
-export default connect(makeMapStateToProps, mapDispatchToProps)(CreatePostAlbum);
+export default connect(makeMapStateToProps, mapDispatchToProps)(CreatePostPage);
