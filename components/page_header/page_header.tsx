@@ -328,7 +328,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                             </div>
                             <div className='col-12 text-center'>
                                 <div className='col-5 mx-auto'>
-                                    <img className='img-fluid rounded-circle rounded-circle-photo border border-5' height='140' src={profile_url}/>
+                                    <img className='img-fluid rounded-circle rounded-circle-photo border border-5' height={140} src={profile_url}/>
                                 </div>
                             </div>
                             <div className='col-lg-12 text-center'>
