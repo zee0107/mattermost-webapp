@@ -204,6 +204,10 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         this.setState({shareInfo: event.target.value});
     }
 
+    onChangePageShareInfo = (value: string) => {
+        this.setState({shareInfo: value});
+    }
+
     onChangeLocation = (event) => {
         this.setState({userLocation: event.target.value});
     }
@@ -377,8 +381,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             shareInfoBtn = (<button className='box-live-post btn-sm width-100 p-3' data-bs-toggle='modal' data-bs-target='#staticBackdropShare'><i className='bi bi-globe'></i> Everyone <i className='bi bi-chevron-down'></i></button>);
             shareInfoDd = (<a className='onSelectactionpublic text-dark' data-bs-toggle='modal' data-bs-target='#staticBackdropShare' data-bs-dismiss='modal'><i className='bi-globe'></i> Everyone <i className='bi-chevron-down'></i></a>);
         }else{
-            shareInfoBtn = '';
-            shareInfoDd = '';
         }
 
         const DeferredPostView = this.state.deferredPostView;
@@ -463,6 +465,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             }
 
             if(currentTeam.name === 'page'){
+                this.onChangePageShareInfo('');
                 viewDetail = (
                     <>
                         <PageHeader 
@@ -487,7 +490,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                         </>
                     );
                 }
-                
+
                 if(channelAdmin){
                     postBoxDesktop = (
                         <div className='box-middle-panel crypter-section-profile-desktop'>
