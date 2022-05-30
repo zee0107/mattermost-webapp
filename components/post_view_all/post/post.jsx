@@ -401,7 +401,7 @@ export default class Post extends React.PureComponent {
         if(team.name === 'page'){
             profilePic = (
                 <>
-                    <img className='Avatar Avatart-md vertical-middle' src={profile_url} />
+                    <img className='Avatar Avatar-md vertical-middle' src={profile_url} />
                 </>
             );
         }
