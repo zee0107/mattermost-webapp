@@ -219,14 +219,12 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                         <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
                         <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"/>
                     </svg></a>*/}
-                    <div className='dropdown' style={{zIndex: 99,}}>
-                        <span className='position-absolute top-0 start-100 translate-middle border-2 border-light rounded-circle padding-actions-photo'>
-                            <a className='onEachphotoactions' id='dropdownMenuButton2' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-three-dots-vertical'></i></a>
-                            <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton2'>
-                                <li><a className='dropdown-item' href="#" onClick={() => {this.setState({uploadImage: true})}}><i className='bi-x-square-fill x-square-fill-style'></i> Upload Profile Photo</a></li>
-                                <li><a className='dropdown-item' href="#" onClick={() => {this.setState({uploadImage: true})}}><i className='bi-download download-style'></i> Upload Cover Photo</a></li>
-                            </ul>
-                        </span>
+                    <div className='dropdown'>
+                        <a className='float-end onClicksubmenu shadow' id='dropdownSubmenu' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-three-dots'></i></a>
+                        <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownSubmenu'>
+                            <li key='upload-profile'><a className='dropdown-item' href="#" onClick={() => {this.setState({uploadImage: true})}}><i className='bi-upload download-style'></i> Upload Profile Photo</a></li>
+                            <li key='upload-cover'><a className='dropdown-item' href="#" onClick={() => {this.setState({uploadImage: true})}}><i className='bi-upload download-style'></i> Upload Cover Photo</a></li>
+                        </ul>
                     </div>
                     {buttonJoin}
                 </div>
