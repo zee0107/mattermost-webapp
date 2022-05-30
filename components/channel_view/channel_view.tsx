@@ -562,6 +562,12 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                         {this.renderProfilePicture('md')}
                     </>
                 );
+
+                userDisplayprofileXl = (
+                    <>
+                        {this.renderProfilePicture('xl')}
+                    </>
+                );
                 postBoxDesktop = (
                     <div className='box-middle-panel crypter-section-profile-desktop'>
                         <div className='row'>
