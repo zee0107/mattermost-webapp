@@ -25,6 +25,7 @@ function mapStateToProps(state: GlobalState, ownProps: Props) {
     }
 
     const user = getUser(state, ownProps.post.user_id);
+    console.log('Roles', user.roles);
     const isBot = Boolean(user && user.is_bot);
 
     return {
