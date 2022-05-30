@@ -221,7 +221,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                     </svg></a>*/}
                     <div className='dropdown'>
                         <a className='float-end onClicksubmenu shadow' id='dropdownSubmenu' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-three-dots'></i></a>
-                        <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownSubmenu'>
+                        <ul className='dropdown-menu' aria-labelledby='dropdownSubmenu'>
                             <li key='upload-profile'><a className='dropdown-item' href="#" onClick={() => {this.setState({uploadImage: true})}}><i className='bi-upload download-style'></i> Upload Profile Photo</a></li>
                             <li key='upload-cover'><a className='dropdown-item' href="#" onClick={() => {this.setState({uploadImage: true})}}><i className='bi-upload download-style'></i> Upload Cover Photo</a></li>
                         </ul>
