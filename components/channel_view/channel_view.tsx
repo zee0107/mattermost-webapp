@@ -454,9 +454,10 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 );
                 userDisplayname = channelDisplayName;
                 if(channelId){
+                    this.getProfileImage(channelId);
                     userDisplayprofile = (
                         <>
-                            <img className='Avatar Avatar-md user-photo vertical-align-middle' src={async () => await this.getProfileImage(channelId)} />
+                            <img className='Avatar Avatar-md user-photo vertical-align-middle' src={this.state.pageProfile} />
                         </>
                     );
                 }
