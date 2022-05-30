@@ -91,16 +91,16 @@ export default class UserProfile extends PureComponent<UserProfileProps> {
 
         let profileImg = '';
         const ariaName: string = typeof name === 'string' ? name.toLowerCase() : '';
+
+        if (user) {
+            profileImg = imageURLForUser(user.id, user.last_picture_update);
+        }
+
         if(admin){
             console.log(img_src);
-            profileImg = img_src;
             name = pageName;
         }
         else{
-            if (user) {
-                profileImg = imageURLForUser(user.id, user.last_picture_update);
-            }
-
             if (user && displayUsername) {
                 name = `@${(user.username)}`;
             } else {
