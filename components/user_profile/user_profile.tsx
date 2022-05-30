@@ -97,7 +97,6 @@ export default class UserProfile extends PureComponent<UserProfileProps> {
         }
 
         if(admin){
-            console.log(img_src);
             name = pageName;
         }
         else{

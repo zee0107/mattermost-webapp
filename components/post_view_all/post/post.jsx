@@ -31,6 +31,7 @@ export default class Post extends React.PureComponent {
          * The post to render
          */
         post: PropTypes.object.isRequired,
+        team: PropTypes.object.isRequired,
         postDetailed: PropTypes.object.isRequired,
         /**
          * The logged in user ID
@@ -126,6 +127,7 @@ export default class Post extends React.PureComponent {
             ariaHidden: true,
             fadeOutHighlight: false,
             postDetail: {},
+            profile_url: '',
         };
     }
 
@@ -147,6 +149,30 @@ export default class Post extends React.PureComponent {
 
         if(this.props.postDetailed !== null){
             Promise.resolve(this.props.postDetailed).then(value => { this.setState({postDetail: value}); });
+        }
+
+        if(this.props.post){
+            this.getProfileImage(this.props.post.channel_id);
+        }
+    }
+
+    getProfileImage = async (channel: string) => {
+        try{
+            const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/pageprofileimg?id=${channel}`);
+            const imageBlob = await response.blob();
+            const textBlob = await imageBlob.text();
+            if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
+            {
+                this.setState({profile_url: 'unavailable'});
+            }
+            else
+            {
+                const imageObjectURL = URL.createObjectURL(imageBlob);
+                this.setState({profile_url: imageObjectURL});
+            }
+        }
+        catch(error){
+            conosle.log(error);
         }
     }
 
@@ -355,9 +381,10 @@ export default class Post extends React.PureComponent {
             hasReplies,
             isCollapsedThreadsEnabled,
             postDetailed,
+            team,
         } = this.props;
 
-        const { postDetail } = this.state;
+        const { postDetail, profile_url } = this.state;
         if (!post.id) {
             return null;
         }
@@ -371,23 +398,33 @@ export default class Post extends React.PureComponent {
         let profilePic;
 
         const hideProfilePicture = false;/*this.hasSameRoot(this.props) && this.props.consecutivePostByUser && (!post.root_id && !hasReplies) && !fromBot;*/
-        if (!hideProfilePicture) {
+        if(team.name === 'page'){
             profilePic = (
-                <PostProfilePicture
-                    compactDisplay={this.props.compactDisplay}
-                    post={post}
-                    userId={post.user_id}
-                />
+                <>
+                    <img className='Avatar Avatart-md vertical-middle' src={profile_url} />
+                </>
             );
-
-            if (fromAutoResponder) {
+        }
+        else{
+            if (!hideProfilePicture) {
                 profilePic = (
-                    <span className='auto-responder'>
-                        {profilePic}
-                    </span>
+                    <PostProfilePicture
+                        compactDisplay={this.props.compactDisplay}
+                        post={post}
+                        userId={post.user_id}
+                    />
                 );
+    
+                if (fromAutoResponder) {
+                    profilePic = (
+                        <span className='auto-responder'>
+                            {profilePic}
+                        </span>
+                    );
+                }
             }
         }
+        
 
         let centerClass = '';
         if (this.props.center) {
