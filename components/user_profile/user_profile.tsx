@@ -92,6 +92,7 @@ export default class UserProfile extends PureComponent<UserProfileProps> {
         let profileImg = '';
         const ariaName: string = typeof name === 'string' ? name.toLowerCase() : '';
         if(admin){
+            console.log(img_src);
             profileImg = img_src;
             name = pageName;
         }
@@ -105,7 +106,7 @@ export default class UserProfile extends PureComponent<UserProfileProps> {
             } else {
                 name = overwriteName || displayName || '...';
             }
-            
+
             if (disablePopover) {
                 return <div className='user-popover'>{name}</div>;
             }
