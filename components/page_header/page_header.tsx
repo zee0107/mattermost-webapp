@@ -303,7 +303,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         else {
             this.handleAdminRole(false);
             buttonAction = (
-                <div>
+                <div className='mt-5'>
                     {buttonJoin}
                 </div>);
         }
