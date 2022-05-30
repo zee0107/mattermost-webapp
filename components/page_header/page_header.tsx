@@ -224,8 +224,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                         <ul className='dropdown-menu' aria-labelledby='dropdownSubmenu'>
                             <li key='upload-profile'><a className='dropdown-item' href="#" onClick={() => {this.setState({uploadImage: true})}}><i className='bi-upload download-style'></i> Upload Profile Photo</a></li>
                             <li key='upload-cover'><a className='dropdown-item' href="#" onClick={() => {this.setState({uploadImage: true})}}><i className='bi-upload download-style'></i> Upload Cover Photo</a></li>
-                        </ul>*/}
-                    </div>
+                        </ul>
+                    </div>*/}
                     {buttonJoin}
                 </div>
             );
