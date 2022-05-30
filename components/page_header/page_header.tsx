@@ -26,9 +26,11 @@ type State = {
     isDark: string;
     result_leave: boolean;
     uploadImage: boolean;
+    uploadProfile: boolean;
     selectedFile: any;
     file_name: string;
     img_url: string;
+    profile_url: string;
     id: string;
     uploadError: string;
     isMounted: boolean;
@@ -43,12 +45,14 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             data: [],
             result_leave: false,
             uploadImage: false,
+            uploadProfile: false,
             img_url: 'unavailable',
             id: '',
             isMounted: false,
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmitProfile = this.handleSubmitProfile.bind(this);
     }
 
     componentDidMount = () =>{
@@ -63,6 +67,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         if(this.props.isMounted && this.props.isMounted !== undefined && this.props.isMounted !== null){
             this.setState({isMounted: this.props.isMounted});
             this.getImage(this.props.channelId);
+            this.getProfileImage(this.props.channelId);
         }
         else{
             this.setState({isMounted: false});
@@ -95,6 +100,27 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             }).catch(error => this.setState({error, isLoading: false}));
     }
 
+    handleSubmitProfile = () => {
+        'use strict';
+        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/uploadpageprofile?');
+        const params = {page_id: this.props.channelId, file_id: this.state.file_name};
+        uri.search = new URLSearchParams(params);
+
+        fetch(uri, {
+            method: 'POST',
+            body: this.state.selectedFile,
+        }).then((response) => response.json()).then((data)=>{
+                if (data === 'Uploaded'){
+                    this.setState({uploadProfile: false});
+                    this.getProfileImage(this.props.channelId);
+                }
+
+                if (data === 'Not exist'){
+                    this.setState({uploadError: 'Please select a file to upload.'});
+                }
+            }).catch(error => this.setState({error, isLoading: false}));
+    }
+
     getImage = async (channel: string) => {
         try{
             const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/pagecoverimg?id=${channel}`);
@@ -108,6 +134,26 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             {
                 const imageObjectURL = URL.createObjectURL(imageBlob);
                 this.setState({img_url: imageObjectURL});
+            }
+        }
+        catch(error){
+            conosle.log(error);
+        }
+    }
+
+    getProfileImage = async (channel: string) => {
+        try{
+            const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/pageprofileimg?id=${channel}`);
+            const imageBlob = await response.blob();
+            const textBlob = await imageBlob.text();
+            if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
+            {
+                this.setState({profile_url: 'unavailable'});
+            }
+            else
+            {
+                const imageObjectURL = URL.createObjectURL(imageBlob);
+                this.setState({profile_url: imageObjectURL});
             }
         }
         catch(error){
@@ -131,7 +177,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {channelId, channelDisplayName} = this.props;
-        const { result_leave, uploadImage, img_url, data} = this.state;
+        const { result_leave, uploadImage, uploadProfile, img_url, data} = this.state;
 
         let uploadError;
         if(this.state.uploadError){
@@ -173,8 +219,18 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             buttonJoin = (<button type='button' onClick={() => {this.leaveGroup(channelId)}} className='buttonBgGreen p-2 text-white float-end mt-4'>Liked</button>);
         }
         
+        let buttonSubmit;
+        if(uploadImage){
+            buttonSubmit = (
+                <button className='btn buttonBgGreen text-white float-end btn-sm mr-2' type='button' onClick={this.handleSubmit}>Upload</button>
+            );
+        }else{
+            buttonSubmit = (
+                <button className='btn buttonBgGreen text-white float-end btn-sm mr-2' type='button' onClick={this.handleSubmitProfile}>Upload</button>
+            );
+        }
         let upload;
-        if (uploadImage){
+        if (uploadImage || uploadProfile){
             upload = (
                 <div className='col-md-12 chat-box mtop-10'>
                     <div className='row mt-2 crypter-section-profile-desktop'>
@@ -185,8 +241,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                             <input type='file' className='form-control float-start' onChange={this.handelChange} required />
                         </div>
                         <div className='col-md-4'>
-                            <button className='btn buttonBgGreen text-white float-end btn-sm' type='button' onClick={() => {this.setState({uploadImage: false})}}>Cancel</button>
-                            <button className='btn buttonBgGreen text-white float-end btn-sm mr-2' type='button' onClick={this.handleSubmit}>Upload</button>
+                            <button className='btn buttonBgGreen text-white float-end btn-sm' type='button' onClick={() => {this.setState({uploadImage: false,uploadProfile: false})}}>Cancel</button>
+                            {buttonSubmit}
                         </div>
                         {uploadError}
                     </div>
@@ -200,8 +256,8 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                                     <input type='file' className='form-control float-start' onChange={this.handelChange} required />
                                 </div>
                                 <div className='col-md-4'>
-                                    <button className='btn buttonBgGreen text-white float-end btn-sm' type='button' onClick={() => {this.setState({uploadImage: false})}}>Cancel</button>
-                                    <button className='btn buttonBgGreen text-white float-end btn-sm mr-2' type='button' onClick={this.handleSubmit}>Upload</button>
+                                    <button className='btn buttonBgGreen text-white float-end btn-sm' type='button' onClick={() => {this.setState({uploadImage: false,uploadProfile: false})}}>Cancel</button>
+                                    {buttonSubmit}
                                 </div>
                             </div>
                             {uploadError}
@@ -214,16 +270,12 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         let buttonAction;
         if (data.roles === 'channel_user channel_admin') {
             buttonAction = (
-                <div className='mt-5'>
-                    {/*<a href='#' onClick={() => {this.setState({uploadImage: true})}} className='float-end mt-4 ml-2' title='Upload Group cover photo'><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="var(--text-primary)" className="bi bi-images" viewBox="0 0 16 16">
-                        <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
-                        <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"/>
-                    </svg></a>*/}
+                <div className='mt-5 pt-5'>
                     <div className='dropdown'>
-                        <a className='float-end onClicksubmenu shadow' id='dropdownSubmenu' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-three-dots-vertical'></i></a>
+                        <a className='float-end onClicksubmenu shadow' id='dropdownSubmenu' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-three-dots'></i></a>
                         <ul className='dropdown-menu' aria-labelledby='dropdownSubmenu'>
-                            <li key='upload-profile'><a className='dropdown-item' href="#" onClick={() => {this.setState({uploadImage: true})}}><i className='bi-upload download-style'></i> Upload Profile Photo</a></li>
-                            <li key='upload-cover'><a className='dropdown-item' href="#" onClick={() => {this.setState({uploadImage: true})}}><i className='bi-upload download-style'></i> Upload Cover Photo</a></li>
+                            <li key='upload-profile'><a className='dropdown-item' href="#" onClick={() => {this.setState({uploadProfile: true})}}><i className='bi-upload download-style'></i> Upload Page Profile Photo</a></li>
+                            <li key='upload-cover'><a className='dropdown-item' href="#" onClick={() => {this.setState({uploadImage: true})}}><i className='bi-upload download-style'></i> Upload Page Cover Photo</a></li>
                         </ul>
                     </div>
                 </div>
@@ -274,38 +326,6 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                     </div>
                 </div>
                 {upload}
-                {/*<div className='crypter-section-profile-desktop'>
-                    <div className='col-md-12 group-cover-box mtop-10 p-0'>
-                        {cover}
-                        <div className='col-md-12'>
-                            <div className='float-start'>
-                                <h5 className='text-primary'></h5>
-                                <h6 className='text-secondary'></h6>
-                            </div>
-                            {buttonAction}
-                        </div>
-                    </div>
-                    {upload}
-                </div>
-                <div id='post-mobile'>
-                    <div className='row'>
-                        <div className='box-middle-pannel mt-13'>
-                            <div className='col-md-12 group-cover-box'>
-                                {cover}
-                                <div className='d-flex'>
-                                    <div className='col-md-7 width-100'>
-                                        <h5 className='text-primary'>{channelDisplayName}</h5>
-                                        <h6 className='text-secondary'><PageDetails channelId={channelId}/></h6>
-                                    </div>
-                                    <div className='col-md-5 width-100'>
-                                        {buttonAction}
-                                    </div>
-                                </div>
-                            </div>
-                            {upload}
-                        </div>
-                    </div>
-                </div>*/}
             </div>
         );
     }
