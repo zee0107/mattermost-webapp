@@ -100,6 +100,8 @@ export default class PostHeader extends React.PureComponent<Props> {
         if(this.props.channelRole !== null && this.props.channelRole !== undefined){
             Promise.resolve(this.props.channelRole).then((value) => { this.setState({admin: value.roles}); })
         }
+
+        
     }
 
     getProfileImage = async (channel: string) => {
@@ -142,6 +144,7 @@ export default class PostHeader extends React.PureComponent<Props> {
         let pagePostHeader;
         
         if(currentTeam.name === 'page'){
+            this.getProfileImage(post.channel_id);
             if(this.state.admin === 'channel_user channel_admin')
             {
                 userProfile = (
