@@ -321,14 +321,14 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
                 </div>
 
                 <div className='mypagepreviews-mobile'>
-                    <div className='mypageheadingpreviews' style={{backgroundImage: `url(${img_url !== 'unavailable' ? GroupLogo : img_url})`, backgroundPosition: 'center bottom'}}>
+                    <div className='mypageheadingmobilepreviews' style={{backgroundImage: `url(${img_url !== 'unavailable' ? GroupLogo : img_url})`, backgroundPosition: 'center bottom'}}>
                         <div className='row'>
                             <div className='col-lg-12 text-center'>
                                 {buttonActionMobile}
                             </div>
                             <div className='col-12 text-center'>
                                 <div className='col-5 mx-auto'>
-                                    <img className=' rounded-circle rounded-circle-photo border border-5' src={profile_url}/>
+                                    <img className='img-fluid rounded-circle rounded-circle-photo border border-5' height='140' src={profile_url}/>
                                 </div>
                             </div>
                             <div className='col-lg-12 text-center'>
