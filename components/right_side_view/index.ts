@@ -18,11 +18,11 @@ function makeMapStateToProps() {
         const socialCount = Client4.getSocialCount(currentUser.id);
         const channel = getChannelByName(state,'town-square');
         //Local Server
-        //const getPostList = Client4.getPosts('kqe4sihhdid47gprhk6dwbuc4o');
+        const getPostList = Client4.getPosts('kqe4sihhdid47gprhk6dwbuc4o');
 
         //Live Server
         const getPostList = Client4.getPosts('dodurztr1fbupnpenjgxqjso3a');
-        const userId = currentUser?.id;
+        //const userId = currentUser?.id;
         return {
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             socialCount,
