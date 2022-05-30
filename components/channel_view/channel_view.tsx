@@ -432,7 +432,18 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                 );
-            } else if (!this.props.channelRolesLoading) {
+            }
+            else if(currentTeam.name === 'page'){
+                createPost = (
+                    <>
+                        <CreatePostPage
+                            getChannelView={this.getChannelView}
+                            uploading={this.state.uploading} userActivity={this.state.userActivity} userLocation={this.state.userLocation} shareInfo={this.state.shareInfo}
+                        />
+                    </>
+                );
+            }
+             else if (!this.props.channelRolesLoading) {
                 createPost = (
                     <>
                         <CreatePost
