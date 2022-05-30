@@ -380,6 +380,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         let viewDetail;
         let isMounted = false;
         let createPost;
+        let userDisplayprofileXl;
         if(currentTeam){
             if (this.props.deactivatedChannel) {
                 createPost = (
@@ -469,6 +470,12 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     userDisplayprofile = (
                         <>
                             <img className='Avatar Avatar-md user-photo vertical-align-middle' src={this.state.pageProfile} />
+                        </>
+                    );
+
+                    userDisplayprofileXl = (
+                        <>
+                            <img className='Avatar Avatar-xl user-photo vertical-align-middle' src={this.state.pageProfile} />
                         </>
                     );
                 }
@@ -686,7 +693,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                     <FileUploadOverlay overlayType='center'/>
                                     <div className='row'>
                                         <div className='col-md-2 text-center'>
-                                            {this.renderProfilePicture('xl')}
+                                            {userDisplayprofileXl}
                                         </div>
                                         <div className='col-md-10 text-left'>
                                             <strong>
