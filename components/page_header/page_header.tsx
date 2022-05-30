@@ -10,16 +10,19 @@ import ThemeSetting from 'components/user_settings/display/user_settings_theme/u
 import { ChannelMembership } from 'mattermost-redux/types/channels';
 import ThreadsIcon from 'components/threading/global_threads_link/threads_icon';
 import { url } from 'inspector';
+import { UserProfile } from 'mattermost-redux/types/users';
 
 export type Props = {
     channelId:string;
     channelDisplayName: string;
     channelAdmin: boolean;
     channelRole: Promise<ChannelMembership>;
+    currentUser: UserProfile;
     actions: {
         leaveChannelNew: (channelId: string) => Promise<ActionResult>;
     }
     isMounted: boolean;
+    onChangeRole: any;
 }
 
 type State = {
@@ -77,6 +80,10 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
     handelChange = (e) => {
         this.setState({selectedFile: e.target.files[0],
             file_name: e.target.files[0].name});
+    }
+
+    handleAdminRole = (value: boolean) => {
+        this.props.onChangeRole(value);
     }
 
     handleSubmit = () => {
@@ -270,6 +277,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
         let buttonAction;
         let buttonActionMobile;
         if (data.roles === 'channel_user channel_admin') {
+            this.handleAdminRole(true);
             buttonAction = (
                 <div className='mt-5 pt-5'>
                     <div className='dropdown'>
@@ -293,6 +301,7 @@ export default class GroupsHeader extends React.PureComponent<Props, State> {
             );
         }
         else {
+            this.handleAdminRole(false);
             buttonAction = (
                 <div>
                     {buttonJoin}
