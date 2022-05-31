@@ -475,15 +475,12 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
                     </Menu.Group>
                     <Menu.Group>
                         <Menu.ItemLink
-                            id='Launchpad'
-                            ariaLabel='Launchpad'
-                            to='/launchpad'
-                            text={localizeMessage('navbar_dropdown', 'Launchpad')}
+                            id='forums'
+                            ariaLabel='Forums'
+                            to='/forums'
+                            text={localizeMessage('navbar_dropdown', 'Join Forums')}
                             icon={globalHeader ? (
-                                <StatusIcon
-                                    status={'offline'}
-                                    className={'status-icon'}
-                                />
+                                <i className='bi bi-flag'/>}
                             ) : <i className='fa fa-cog'/>}
                         />
                     </Menu.Group>
