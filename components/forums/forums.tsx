@@ -97,9 +97,195 @@ export default class MyPages extends React.PureComponent<Props, State> {
                 );
             }
             else{
-                memberDesktop = (<><div className='col-12 mx-auto'><h3>No members on the list</h3></div></>);
-                memberMobile = (<><div className='col-12 mx-auto'><h3>No members on the list</h3></div></>);
+                memberDesktop = (<><div className='col-12 mx-auto text-center'><h3 className='text-muted'>No members on the list</h3></div></>);
+                memberMobile = (<><div className='col-12 mx-auto text-center'><h3 className='text-muted'>No members on the list</h3></div></>);
             }
+        }
+
+        let myThreadDesktop, myThreadMobile;
+        if(myThreads && myThreads.length){
+            myThreadDesktop = (
+                <>
+                    {myThreads.map((item,index) => {
+                        return (
+                            <div className='box-middle-panel-forums'>
+                                <div className='box-middle-panel-select-forum'>
+                                    <div className='col-12 mx-auto'>
+                                        <div className='row'>
+                                            <div className='col-4 mt-2 mb-2'>
+                                            {this.renderProfilePicture('lg')}
+                                            {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
+                                            <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text.</small></p>
+                                            </div>
+                                            <div className='col-2 text-center mt-3 mb-2'><strong>8</strong></div>
+                                            <div className='col-2 text-center mt-3 mb-2'><strong>255</strong></div>
+                                            <div className='col-2 text-center mt-3 mb-2'><strong>64</strong></div>
+                                            <div className='col-2 text-center mt-3 mb-2'><strong>8</strong></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </>
+                
+            );
+            myThreadMobile = (
+                <>
+                    {myThreads.map((item,index) => {
+                        return (
+                            <div className='box-middle-panel-select-forum'>
+                                <div className='col-12 mx-auto'>
+                                    <div className='row'>
+                                        <div className='col-lg-12 mt-2 mb-2'>
+                                            {this.renderProfilePicture('lg')}
+                                            {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
+                                            <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
+                                        </div>
+                                        <hr/>
+                                        <div className='col-3 text-center mt-0 mb-2'><strong>8</strong><br/><small className='text-muted'>Posts</small></div>
+                                        <div className='col-3 text-center mt-0 mb-2'><strong>255</strong><br/><small className='text-muted'>Views</small></div>
+                                        <div className='col-3 text-center mt-0 mb-2'><strong>64</strong><br/><small className='text-muted'>Likes</small></div>
+                                        <div className='col-3 text-center mt-0 mb-2'><strong>8</strong><br/><small className='text-muted'>Comments</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </>
+            );
+        }
+        else{
+            myThreadDesktop = (<><div className='col-12 mx-auto text-center'><h3 className='text-muted'>No threads on the list</h3></div></>);
+            myThreadMobile = (<><div className='col-12 mx-auto text-center'><h3 className='text-muted'>No threads on the list</h3></div></>);
+        }
+
+        let myMessageDesktop, myMessageMobile;
+        if(myMessages && myMessages.length){
+            myMessageDesktop = (
+                <>
+                    {myMessages.map((item,index) => {
+                        return (
+                            <div className='box-middle-panel-forums'>
+                                <div className='box-middle-panel-select-forum'>
+                                    <div className='col-12 mx-auto'>
+                                        <div className='row'>
+                                            <div className='col-5 mt-2 mb-2'>
+                                            {this.renderProfilePicture('lg')}
+                                            {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt='' />*/}
+                                            <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text.</small></p>
+                                            </div>
+                                            <div className='col-3 text-left mt-3 mb-2'><small>2 Minutes ago</small></div>
+                                            <div className='col-2 text-center mt-3 mb-2'><strong><i className='bi-bookmark bi-bookmark-style'></i></strong></div>
+                                            <div className='col-2 text-center mt-3 mb-2'><strong><i className='bi-trash bi-trash-style'></i></strong></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </>
+                
+            );
+            myMessageMobile = (
+                <>
+                    {myMessages.map((item,index) => {
+                        return (
+                            <div className='box-middle-panel-forums'>
+                                <div className='box-middle-panel-select-forum'>
+                                    <div className='col-12 mx-auto'>
+                                        <div className='row'>
+                                            <div className='col-8 mt-2 mb-1'>
+                                            <img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>
+                                            <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text.</small></p>
+                                            </div>
+                                            <div className='col-4 text-center mt-2 mb-1'>
+                                            <i className='bi-bookmark bi-bookmark-style'></i>
+                                            <i className='bi-trash bi-trash-style'></i>
+                                            <br/>
+                                            <small>2 Minutes ago</small></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </>
+            );
+        }
+        else{
+            myMessageDesktop = (<><div className='col-12 mx-auto text-center'><h3 className='text-muted'>No message on the list</h3></div></>);
+            myMessageMobile = (<><div className='col-12 mx-auto text-center'><h3 className='text-muted'>No message on the list</h3></div></>);
+        }
+
+        let myBrowseDesktop, myBrowseMobile;
+        if(allThreads && allThreads.length){
+            myBrowseDesktop = (
+                <>
+                    {allThreads.map((item,index) => {
+                        return (
+                            <div className='box-middle-panel-forums'>
+                                <div className='box-middle-panel-select-forum'>
+                                    <div className='col-12 mx-auto'>
+                                        <div className='row'>
+                                            <div className='col-4 mt-2 mb-2'>
+                                                {this.renderProfilePicture('lg')}
+                                                {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
+                                                <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
+                                            </div>
+                                            <div className='col-4 mt-2 mb-2'>
+                                                {this.renderProfilePicture('lg')}
+                                                {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-5.png' alt=''/>*/}
+                                                <p><label><strong>Lorem Ipsum</strong></label><br/><small>By: <a className='text-success'>Pablo trucks</a></small>
+                                                <small className='ms-1'>1 Day ago</small></p>
+                                            </div>
+                                            <div className='col-2 text-center mt-3 mb-2'><strong>8</strong></div>
+                                            <div className='col-2 text-center mt-3 mb-2'><strong>255</strong></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </>
+                
+            );
+            myBrowseMobile = (
+                <>
+                    {allThreads.map((item,index) => {
+                        return (
+                            <div className='box-middle-panel-select-forum'>
+                                <div className='col-12 mx-auto'>
+                                    <div className='row'>
+                                    <div className='col-lg-12 mt-2 mb-0'>
+                                        {this.renderProfilePicture('lg')}
+                                        {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-2.png' alt='' />*/}
+                                        <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
+                                    </div>
+                                    </div>
+                                    <hr/>
+                                    <div className='row'>
+                                    <div className='col-6'>
+                                        {this.renderProfilePicture('lg')}
+                                        {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-4.png' alt='' />*/}
+                                        <p><label><strong>Lorem Ipsum</strong></label><br/><small>By: <a className='text-success'>Pablo trucks</a></small>
+                                        <small className='ms-1'>1 Day ago</small></p>
+                                    </div>
+                                    <div className='col-2 text-center'>
+                                        <label>8 <br/><small className='text-muted'>Topic</small></label>
+                                    </div>
+                                    <div className='col-3 text-center'><label>255</label><br/><small className='text-muted'>Posts</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </>
+            );
+        }
+        else{
+            myBrowseDesktop = (<><div className='col-12 mx-auto text-center'><h3 className='text-muted'>No threads on the list</h3></div></>);
+            myBrowseMobile = (<><div className='col-12 mx-auto text-center'><h3 className='text-muted'>No threads on the list</h3></div></>);
         }
 
         let renderViewDesktop;
@@ -319,93 +505,25 @@ export default class MyPages extends React.PureComponent<Props, State> {
                             </div>
                         </div>
                     </div>
-                    <div className='box-middle-panel-forums'>
-                        <div className='box-middle-panel-select-forum'>
-                            <div className='col-12 mx-auto'>
-                                <div className='row'>
-                                    <div className='col-4 mt-2 mb-2'>
-                                    {this.renderProfilePicture('lg')}
-                                    {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
-                                    <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text.</small></p>
-                                    </div>
-                                    <div className='col-2 text-center mt-3 mb-2'><strong>8</strong></div>
-                                    <div className='col-2 text-center mt-3 mb-2'><strong>255</strong></div>
-                                    <div className='col-2 text-center mt-3 mb-2'><strong>64</strong></div>
-                                    <div className='col-2 text-center mt-3 mb-2'><strong>8</strong></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {myThreadDesktop}
                 </div>
             );
 
             renderViewMobile = (
                 <div className='content-forums-my-threads'>
-                    <div className='box-middle-panel-select-forum'>
-                        <div className='col-12 mx-auto'>
-                            <div className='row'>
-                                <div className='col-lg-12 mt-2 mb-2'>
-                                    {this.renderProfilePicture('lg')}
-                                    {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
-                                    <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
-                                </div>
-                                <hr/>
-                                <div className='col-3 text-center mt-0 mb-2'><strong>8</strong><br/><small className='text-muted'>Posts</small></div>
-                                <div className='col-3 text-center mt-0 mb-2'><strong>255</strong><br/><small className='text-muted'>Views</small></div>
-                                <div className='col-3 text-center mt-0 mb-2'><strong>64</strong><br/><small className='text-muted'>Likes</small></div>
-                                <div className='col-3 text-center mt-0 mb-2'><strong>8</strong><br/><small className='text-muted'>Comments</small></div>
-                            </div>
-                        </div>
-                    </div>
+                    {myThreadMobile}
                 </div>
             );
         }else if(selectedMenu === 'messages'){
             renderViewDesktop = (
                 <div className='content-forums-my-messages'>
-                    <div className='box-middle-panel-forums'>
-                        <div className='box-middle-panel-select-forum'>
-                            <div className='col-12 mx-auto'>
-                                <div className='row'>
-                                    <div className='col-5 mt-2 mb-2'>
-                                    {this.renderProfilePicture('lg')}
-                                    {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt='' />*/}
-                                    <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text.</small></p>
-                                    </div>
-                                    <div className='col-3 text-left mt-3 mb-2'><small>2 Minutes ago</small></div>
-                                    <div className='col-2 text-center mt-3 mb-2'><strong><i className='bi-bookmark bi-bookmark-style'></i></strong></div>
-                                    <div className='col-2 text-center mt-3 mb-2'><strong><i className='bi-trash bi-trash-style'></i></strong></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {myMessageDesktop}
                 </div>
             );
 
             renderViewMobile = (
                 <div className='content-forums-my-messages'>
-                    <form>
-                        <div className='input-group mb-3'>
-                        <span className='input-group-text bg-white border-0' id=''><i className='bi-search text-dark'></i></span>
-                        <input type='text' className='form-control bg-white border-0 rounded' placeholder='Search products' aria-label='Search products' aria-describedby='Search products forums' />
-                        </div>
-                    </form>
-                    <div className='box-middle-panel-forums'>
-                        <div className='box-middle-panel-select-forum'>
-                            <div className='col-12 mx-auto'>
-                                <div className='row'>
-                                    <div className='col-8 mt-2 mb-1'>
-                                    <img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>
-                                    <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text.</small></p>
-                                    </div>
-                                    <div className='col-4 text-center mt-2 mb-1'>
-                                    <i className='bi-bookmark bi-bookmark-style'></i>
-                                    <i className='bi-trash bi-trash-style'></i>
-                                    <br/>
-                                    <small>2 Minutes ago</small></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {myMessageMobile}
                 </div>
             );
         }else{
@@ -420,56 +538,13 @@ export default class MyPages extends React.PureComponent<Props, State> {
                             </div>
                         </div>
                     </div>
-                    <div className='box-middle-panel-forums'>
-                        <div className='box-middle-panel-select-forum'>
-                            <div className='col-12 mx-auto'>
-                                <div className='row'>
-                                    <div className='col-4 mt-2 mb-2'>
-                                        {this.renderProfilePicture('lg')}
-                                        {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
-                                        <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
-                                    </div>
-                                    <div className='col-4 mt-2 mb-2'>
-                                        {this.renderProfilePicture('lg')}
-                                        {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-5.png' alt=''/>*/}
-                                        <p><label><strong>Lorem Ipsum</strong></label><br/><small>By: <a className='text-success'>Pablo trucks</a></small>
-                                        <small className='ms-1'>1 Day ago</small></p>
-                                    </div>
-                                    <div className='col-2 text-center mt-3 mb-2'><strong>8</strong></div>
-                                    <div className='col-2 text-center mt-3 mb-2'><strong>255</strong></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {myBrowseDesktop}
                 </div>
             );
 
             renderViewMobile = (
                 <div className='content-forums-browse'>
-                    <div className='box-middle-panel-select-forum'>
-                        <div className='col-12 mx-auto'>
-                            <div className='row'>
-                            <div className='col-lg-12 mt-2 mb-0'>
-                                {this.renderProfilePicture('lg')}
-                                {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-2.png' alt='' />*/}
-                                <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
-                            </div>
-                            </div>
-                            <hr/>
-                            <div className='row'>
-                            <div className='col-6'>
-                                {this.renderProfilePicture('lg')}
-                                {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-4.png' alt='' />*/}
-                                <p><label><strong>Lorem Ipsum</strong></label><br/><small>By: <a className='text-success'>Pablo trucks</a></small>
-                                <small className='ms-1'>1 Day ago</small></p>
-                            </div>
-                            <div className='col-2 text-center'>
-                                <label>8 <br/><small className='text-muted'>Topic</small></label>
-                            </div>
-                            <div className='col-3 text-center'><label>255</label><br/><small className='text-muted'>Posts</small></div>
-                            </div>
-                        </div>
-                    </div>
+                    {myBrowseMobile}
                 </div>
             );
         }
@@ -557,7 +632,8 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                     <div className='carousel-item'>
                                         <div className='row'>
                                             <div className='col-4 text-center'><a className={`onMythreads forum-menu-links ${selectedMenu === 'threads' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'threads'}); }}><strong>MyThreads</strong></a></div>
-                                            <div className='col-4 text-center'><a className={`onMymessages forum-menu-links ${selectedMenu === 'messages' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'messages'}); }}><strong>MyMessages</strong></a></div>
+                                            <div className='col-4 text-center'><a className={`onMymessages forum-menu-links ${selectedMenu === 'messages' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'messages'}); 
+}}><strong>MyMessages</strong></a></div>
                                             <div className='col-4 text-center'></div>
                                         </div>
                                     </div>
