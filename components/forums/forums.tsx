@@ -170,6 +170,22 @@ export default class MyPages extends React.PureComponent<Props, State> {
                             </div>
                         </div>
                     </div>
+                    <div className='box-middle-panel mt-3'>
+                        <div className='col-12 mx-auto'>
+                            <div className='row'>
+                            <div className='col-4 mt-2 mb-2'>
+                                <strong><a className='ms-2'>Name</a></strong></div>
+                            <div className='col-2 text-center mt-2 mb-2'>
+                                <a><strong>Joined</strong></a></div>
+                            <div className='col-2 text-center mt-2 mb-2'>
+                                <a><strong>Last Visit</strong></a></div>
+                            <div className='col-2 text-center mt-2 mb-2'>
+                                <a><strong>Post Count</strong></a></div>
+                            <div className='col-2 text-center mt-2 mb-2'>
+                                <a><strong>Referrals</strong></a></div>
+                            </div>
+                        </div>
+                    </div>
                     {memberDesktop}
                 </div>
             );
