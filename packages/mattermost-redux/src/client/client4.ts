@@ -119,7 +119,7 @@ import {isSystemAdmin} from 'mattermost-redux/utils/user_utils';
 import {UserThreadList, UserThread, UserThreadWithPost} from 'mattermost-redux/types/threads';
 
 import {TelemetryHandler} from './telemetry';
-import { AllListing, Coins, GainerListing, NewListing, ProjectList, ProjectsEndedList, ProjectsUpcomingList, RequestList, SocialCount, Story, TrendListing,MutedList, UserSettings, Album } from 'mattermost-redux/types/crypto';
+import { AllListing, Coins, GainerListing, NewListing, ProjectList, ProjectsEndedList, ProjectsUpcomingList, RequestList, SocialCount, Story, TrendListing,MutedList, UserSettings, Album, Thread } from 'mattermost-redux/types/crypto';
 import { type } from 'os';
 import list from 'components/more_direct_channels/list';
 import { ValidationError } from 'webpack';
@@ -4166,8 +4166,14 @@ export default class Client4 {
     }
 
     allThreads = () => {
-        return this.doFetch<string[]>(
+        return this.doFetch<Thread[]>(
             `https://localhost:44312/api/crypter/listthreads`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
+    getThread = (id: string) => {
+        return this.doFetch<ForumTopic>(
+            `https://localhost:44312/api/crypter/getthread?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 

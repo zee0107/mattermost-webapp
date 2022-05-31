@@ -247,3 +247,19 @@ export type Album = {
     img_count: number;
     date: string;
 }
+
+export type Thread = {
+    forum_id: string;
+    user_id: string;
+}
+
+export type ForumTopic = {
+    id: string;
+    post_user: string;
+    post_title: string;
+    post_text: string;
+    view_count: number;
+    like_count: number;
+    dislike_count: number;
+    date_posted: string;
+}

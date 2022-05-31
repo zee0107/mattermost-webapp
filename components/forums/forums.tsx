@@ -6,6 +6,8 @@ import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import RightSideView from 'components/right_side_view';
 import { UserProfile } from 'mattermost-redux/types/users';
 import ForumMember from 'components/forum_member';
+import ForumBrowse from 'components/forum_browse';
+import { Thread } from 'mattermost-redux/types/crypto';
 
 export type Props = {
     userId: string;
@@ -13,7 +15,7 @@ export type Props = {
     currentUser: UserProfile;
     myThreads: Promise<string[]>;
     myMessages: Promise<string[]>;
-    allThreads: Promise<string[]>;
+    allThreads: Promise<Thread[]>;
     forumMembers: Promise<string[]>;
 }
 
@@ -23,7 +25,7 @@ type State = {
     currentUser: UserProfile;
     myThreads: string[];
     myMessages: string[];
-    allThreads: string[];
+    allThreads: Thread[];
     forumMembers: string[];
 };
 
@@ -224,27 +226,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                 <>
                     {allThreads.map((item,index) => {
                         return (
-                            <div className='box-middle-panel-forums'>
-                                <div className='box-middle-panel-select-forum'>
-                                    <div className='col-12 mx-auto'>
-                                        <div className='row'>
-                                            <div className='col-4 mt-2 mb-2'>
-                                                {this.renderProfilePicture('lg')}
-                                                {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
-                                                <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
-                                            </div>
-                                            <div className='col-4 mt-2 mb-2'>
-                                                {this.renderProfilePicture('lg')}
-                                                {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-5.png' alt=''/>*/}
-                                                <p><label><strong>Lorem Ipsum</strong></label><br/><small>By: <a className='text-success'>Pablo trucks</a></small>
-                                                <small className='ms-1'>1 Day ago</small></p>
-                                            </div>
-                                            <div className='col-2 text-center mt-3 mb-2'><strong>8</strong></div>
-                                            <div className='col-2 text-center mt-3 mb-2'><strong>255</strong></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <ForumBrowse userId={item.user_id} forumId={item.forum_id} view={'desktop'} key={`${item.forum_id}--${index}`} />
                         );
                     })}
                 </>
@@ -254,30 +236,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                 <>
                     {allThreads.map((item,index) => {
                         return (
-                            <div className='box-middle-panel-select-forum'>
-                                <div className='col-12 mx-auto'>
-                                    <div className='row'>
-                                    <div className='col-lg-12 mt-2 mb-0'>
-                                        {this.renderProfilePicture('lg')}
-                                        {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-2.png' alt='' />*/}
-                                        <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
-                                    </div>
-                                    </div>
-                                    <hr/>
-                                    <div className='row'>
-                                    <div className='col-6'>
-                                        {this.renderProfilePicture('lg')}
-                                        {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-4.png' alt='' />*/}
-                                        <p><label><strong>Lorem Ipsum</strong></label><br/><small>By: <a className='text-success'>Pablo trucks</a></small>
-                                        <small className='ms-1'>1 Day ago</small></p>
-                                    </div>
-                                    <div className='col-2 text-center'>
-                                        <label>8 <br/><small className='text-muted'>Topic</small></label>
-                                    </div>
-                                    <div className='col-3 text-center'><label>255</label><br/><small className='text-muted'>Posts</small></div>
-                                    </div>
-                                </div>
-                            </div>
+                            <ForumBrowse userId={item.user_id} forumId={item.forum_id} view={'mobile'} key={`${item.forum_id}--${index}`} />
                         );
                     })}
                 </>
