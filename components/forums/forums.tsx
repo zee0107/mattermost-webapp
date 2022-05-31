@@ -97,8 +97,8 @@ export default class MyPages extends React.PureComponent<Props, State> {
                 );
             }
             else{
-                memberDesktop = (<><div className='col-12 mx-auto text-center'><h3 className='text-muted'>No members on the list</h3></div></>);
-                memberMobile = (<><div className='col-12 mx-auto text-center'><h3 className='text-muted'>No members on the list</h3></div></>);
+                memberDesktop = (<><div className='col-12 mx-auto text-center mt-5'><h3 className='text-muted'><i className='bi-journal-x'></i> No members on the list</h3></div></>);
+                memberMobile = (<><div className='col-12 mx-auto text-center mt-5'><h3 className='text-muted'><i className='bi-journal-x'></i> No members on the list</h3></div></>);
             }
         }
 
@@ -156,8 +156,8 @@ export default class MyPages extends React.PureComponent<Props, State> {
             );
         }
         else{
-            myThreadDesktop = (<><div className='col-12 mx-auto text-center'><h3 className='text-muted'>No threads on the list</h3></div></>);
-            myThreadMobile = (<><div className='col-12 mx-auto text-center'><h3 className='text-muted'>No threads on the list</h3></div></>);
+            myThreadDesktop = (<><div className='col-12 mx-auto text-center mt-5'><h3 className='text-muted'><i className='bi-journal-x'></i> No threads on the list</h3></div></>);
+            myThreadMobile = (<><div className='col-12 mx-auto text-center mt-5'><h3 className='text-muted'><i className='bi-journal-x'></i> No threads on the list</h3></div></>);
         }
 
         let myMessageDesktop, myMessageMobile;
@@ -214,8 +214,8 @@ export default class MyPages extends React.PureComponent<Props, State> {
             );
         }
         else{
-            myMessageDesktop = (<><div className='col-12 mx-auto text-center'><h3 className='text-muted'>No message on the list</h3></div></>);
-            myMessageMobile = (<><div className='col-12 mx-auto text-center'><h3 className='text-muted'>No message on the list</h3></div></>);
+            myMessageDesktop = (<><div className='col-12 mx-auto text-center mt-5'><h3 className='text-muted'><i className='bi-journal-x'></i> No message on the list</h3></div></>);
+            myMessageMobile = (<><div className='col-12 mx-auto text-center mt-5'><h3 className='text-muted'><i className='bi-journal-x'></i> No message on the list</h3></div></>);
         }
 
         let myBrowseDesktop, myBrowseMobile;
@@ -284,8 +284,8 @@ export default class MyPages extends React.PureComponent<Props, State> {
             );
         }
         else{
-            myBrowseDesktop = (<><div className='col-12 mx-auto text-center'><h3 className='text-muted'>No threads on the list</h3></div></>);
-            myBrowseMobile = (<><div className='col-12 mx-auto text-center'><h3 className='text-muted'>No threads on the list</h3></div></>);
+            myBrowseDesktop = (<><div className='col-12 mx-auto text-center mt-5'><h3 className='text-muted'><i className='bi-journal-x'></i> No threads on the list</h3></div></>);
+            myBrowseMobile = (<><div className='col-12 mx-auto text-center mt-5'><h3 className='text-muted'><i className='bi-journal-x'></i> No threads on the list</h3></div></>);
         }
 
         let renderViewDesktop;
