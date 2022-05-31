@@ -13,11 +13,19 @@ function makeMapStateToProps() {
     return function mapStateToProps(state: GlobalState) {
         const currentUser = getCurrentUser(state);
         const userId = currentUser?.id;
+        const myThreads = Client4.myThreadList(userId);
+        const myMessages = Client4.myCommentList(userId);
+        const allThreads = Client4.allThreads();
+        const forumMembers = Client4.forumMembers();
 
         return {
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
+            myThreads,
+            myMessages,
+            allThreads,
+            forumMembers,
         };
     };
 }

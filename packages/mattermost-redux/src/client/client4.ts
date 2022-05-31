@@ -4147,6 +4147,31 @@ export default class Client4 {
         );
     }
 
+    myCommentList = (id: string) => {
+        return this.doFetch<string[]>(
+            `https://localhost:44312/api/crypter/mymessages?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
+    myThreadList = (id: string) => {
+        return this.doFetch<string[]>(
+            `https://localhost:44312/api/crypter/mythreads?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
+    forumMembers = () => {
+        return this.doFetch<string[]>(
+            `https://localhost:44312/api/crypter/forummembers`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
+    allThreads = () => {
+        return this.doFetch<string[]>(
+            `https://localhost:44312/api/crypter/listthreads`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
+
     // Client Helpers
 
     doFetch = async <T>(url: string, options: Options): Promise<T> => {

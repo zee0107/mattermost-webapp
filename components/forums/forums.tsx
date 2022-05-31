@@ -10,11 +10,20 @@ export type Props = {
     userId: string;
     profilePicture: string;
     currentUser: UserProfile;
+    myThreads: Promise<string[]>;
+    myMessages: Promise<string[]>;
+    allThreads: Promise<string[]>;
+    forumMembers: Promise<string[]>;
 }
 
 type State = {
     isDark: string;
     selectedMenu: string;
+    currentUser: UserProfile;
+    myThreads: string[];
+    myMessages: string[];
+    allThreads: string[];
+    forumMembers: string[];
 };
 
 export default class MyPages extends React.PureComponent<Props, State> {
@@ -26,12 +35,25 @@ export default class MyPages extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = { isDark:'light', selectedMenu: 'browse', };
+        this.state = { isDark:'light', selectedMenu: 'browse', myThreads: [],myMessages: [],allThreads: [],forumMembers: [] };
     }
 
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
+
+        if(this.props.myThreads !== undefined && this.props.myThreads !== null){
+            Promise.resolve(this.props.myThreads).then((value) => { this.setState({myThreads: value}); });
+        }
+        if(this.props.myMessages !== undefined && this.props.myMessages !== null){
+            Promise.resolve(this.props.myMessages).then((value) => { this.setState({myMessages: value}); });
+        }
+        if(this.props.allThreads !== undefined && this.props.allThreads !== null){
+            Promise.resolve(this.props.allThreads).then((value) => { this.setState({allThreads: value}); });
+        }
+        if(this.props.forumMembers !== undefined && this.props.forumMembers !== null){
+            Promise.resolve(this.props.forumMembers).then((value) => { this.setState({forumMembers: value}); });
+        }
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -48,7 +70,61 @@ export default class MyPages extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {selectedMenu} = this.state;
+        const {selectedMenu, myThreads,myMessages,allThreads,forumMembers} = this.state;
+
+        let memberDesktop,memberMobile;
+        if(forumMembers !== undefined && forumMembers !== null){
+            if(forumMembers.length){
+                memberDesktop = (
+                    <>
+                    {forumMembers.map((item,index) => {
+                        return (
+                            <div className='col-12 mx-auto'>
+                                <div className='row'>
+                                    <div className='col-4 mt-2 mb-2'>
+                                        {this.renderProfilePicture('lg')}
+                                        {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt='' />*/}
+                                        <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
+                                    </div>
+                                    <div className='col-2 mt-3 mb-2 text-center'><strong>11M</strong></div>
+                                    <div className='col-2 text-center mt-3 mb-2'><strong>12M</strong></div>
+                                    <div className='col-2 text-center mt-3 mb-2'><strong>55</strong></div>
+                                    <div className='col-2 text-center mt-3 mb-2'><strong>254</strong></div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                    </>
+                );
+
+                memberMobile = (
+                    <>
+                    {forumMembers.map((item,index) => {
+                        return (
+                            <div className='col-12 mx-auto'>
+                                <div className='row'>
+                                    <div className='col-lg-12 mt-2 mb-2'>
+                                    {this.renderProfilePicture('lg')}
+                                    {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
+                                        <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
+                                    </div>
+                                    <hr/>
+                                    <div className='col-3 text-center mt-0 mb-2'><strong>11M</strong><br/><small className='text-muted'>Joined</small></div>
+                                    <div className='col-3 text-center mt-0 mb-2'><strong>12M</strong><br/><small className='text-muted'>Last Visit</small></div>
+                                    <div className='col-3 text-center mt-0 mb-2'><strong>55</strong><br/><small className='text-muted'>Post Count</small></div>
+                                    <div className='col-3 text-center mt-0 mb-2'><strong>254</strong><br/><small className='text-muted'>Referrals</small></div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                    </>
+                );
+            }
+            else{
+                memberDesktop = (<><div className='col-12 mx-auto'><h3>No members on the list</h3></div></>);
+                memberMobile = (<><div className='col-12 mx-auto'><h3>No members on the list</h3></div></>);
+            }
+        }
 
         let renderViewDesktop;
         let renderViewMobile;
@@ -91,37 +167,10 @@ export default class MyPages extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                     <div className='box-middle-panel mt-3'>
-                        <div className='col-12 mx-auto'>
-                            <div className='row'>
-                            <div className='col-4 mt-2 mb-2'>
-                                <strong><a className='ms-2'>Name</a></strong></div>
-                            <div className='col-2 text-center mt-2 mb-2'>
-                                <a><strong>Joined</strong></a></div>
-                            <div className='col-2 text-center mt-2 mb-2'>
-                                <a><strong>Last Visit</strong></a></div>
-                            <div className='col-2 text-center mt-2 mb-2'>
-                                <a><strong>Post Count</strong></a></div>
-                            <div className='col-2 text-center mt-2 mb-2'>
-                                <a><strong>Referrals</strong></a></div>
-                            </div>
-                        </div>
+                        {memberDesktop}
                     </div>
                     <div className='box-middle-panel-select-forum'>
-                        <div className='col-12 mx-auto'>
-                            <div className='row'>
-                                    <div className='col-4 mt-2 mb-2'>
-                                    {this.renderProfilePicture('lg')}
-                                    {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt='' />*/}
-                                    <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
-                                    </div>
-                                    <div className='col-2 mt-3 mb-2 text-center'>
-                                    <strong>11M</strong>
-                                    </div>
-                                    <div className='col-2 text-center mt-3 mb-2'><strong>12M</strong></div>
-                                    <div className='col-2 text-center mt-3 mb-2'><strong>55</strong></div>
-                                    <div className='col-2 text-center mt-3 mb-2'><strong>254</strong></div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             );
@@ -164,20 +213,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                     <div className='box-middle-panel-select-forum'>
-                        <div className='col-12 mx-auto'>
-                            <div className='row'>
-                                <div className='col-lg-12 mt-2 mb-2'>
-                                {this.renderProfilePicture('lg')}
-                                {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
-                                <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
-                                </div>
-                                <hr/>
-                                <div className='col-3 text-center mt-0 mb-2'><strong>11M</strong><br/><small className='text-muted'>Joined</small></div>
-                                <div className='col-3 text-center mt-0 mb-2'><strong>12M</strong><br/><small className='text-muted'>Last Visit</small></div>
-                                <div className='col-3 text-center mt-0 mb-2'><strong>55</strong><br/><small className='text-muted'>Post Count</small></div>
-                                <div className='col-3 text-center mt-0 mb-2'><strong>254</strong><br/><small className='text-muted'>Referrals</small></div>
-                            </div>
-                        </div>
+                        {memberMobile}
                     </div>
                 </div>
             );
