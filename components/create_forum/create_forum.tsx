@@ -52,7 +52,7 @@ export default class CreateForum extends React.PureComponent<Props, State> {
             <Avatar
                 size={size}
                 url={this.props.profilePicture}
-                text={'story'}
+                text={'forum'}
             />
         );
     }
@@ -80,7 +80,7 @@ export default class CreateForum extends React.PureComponent<Props, State> {
 
         return (
             <>
-                <div style={{zIndex: 180}} className='createmypage' id='staticBackdrop'>
+                <div style={{zIndex: 180,backgroundColor: '#F2F5F9',height: '100vh'}} className='createmypage' id='staticBackdrop'>
                     <div className='container'>
                         <div className='row'>
                             <div className='col-lg-3 border-end p-4'>
@@ -155,7 +155,7 @@ export default class CreateForum extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='box-middle-panel mt-3'>
-                                        {this.renderProfilePicture('xxl')}
+                                        {this.renderProfilePicture('xl')}
                                         <strong className='mt-2 ms-2 float-start'>@{userName}</strong>
                                         <br/>
                                         <p className='mb-0 p-3 ms-2'>
