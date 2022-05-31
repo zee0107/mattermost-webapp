@@ -62,7 +62,7 @@ export default class ForumThread extends React.PureComponent<Props, State> {
         let postDesc;
         if(post){
             postTitle = post.post_title;
-            postDesc = post.post_text.substring(0,100).toString();
+            postDesc = post.post_text.substring(0,50).toString() + '...';
         }
 
         let renderView;
