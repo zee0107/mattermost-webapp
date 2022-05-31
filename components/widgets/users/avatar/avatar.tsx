@@ -59,6 +59,17 @@ const Avatar = ({
             />
         );
     }
+    else if(text === 'forum'){
+        return (
+            <img
+                {...attrs}
+                className={classes + ' img-position float-start'}
+                tabIndex={0}
+                alt={`${username || 'user'} profile image`}
+                src={url}
+            />
+        );
+    }
     else{
         return (
             <img

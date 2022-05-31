@@ -6,10 +6,6 @@ import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import { UserProfile } from 'mattermost-redux/types/users';
 
 import logoDark from 'images/logoBlack.png';
-import HeaderImage from 'images/Page-dummy-cover.png';
-import ModalInfoImage from 'images/Page-dummy-cover-informations.png';
-import profPic from 'images/profiles/user-profile-1.png';
-import Constants from 'utils/constants';
 
 type Props = {
     userId: string;
@@ -47,8 +43,22 @@ export default class CreateForum extends React.PureComponent<Props, State> {
         this.setState({forumDetails: e.target.value});
     }
 
+    renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
+        if (!this.props.profilePicture) {
+            return null;
+        }
+        
+        return (
+            <Avatar
+                size={size}
+                url={this.props.profilePicture}
+                text={'story'}
+            />
+        );
+    }
+
     render= (): JSX.Element => {
-        const {forumTitle, forumDetails} = this.state;
+        const {forumTitle, forumDetails,currentUser} = this.state;
 
         let name, desc, category, view;
         if(forumTitle){
@@ -61,12 +71,6 @@ export default class CreateForum extends React.PureComponent<Props, State> {
             desc = forumDetails;
         }else{
             desc = 'Forum Details';
-        }
-
-        if(pageCategory){
-            category = pageCategory;
-        }else{
-            category = 'Category';
         }
 
         return (
@@ -112,7 +116,48 @@ export default class CreateForum extends React.PureComponent<Props, State> {
                             </div>
 
                             <div className='col-lg-8 right-nav-story'>
+                                <div className='col-12 mx-auto mt-4'>
+                                    <div className='box-middle-panel-forums-menu'>
+                                        <div className=''>
+                                            <a className='onForum float-start'><i className='bi-chat-left-text-fill'></i></a>
+                                            <div className='row'>
+                                            <div className='col-lg-6 mt-2 mb-0 p-0'>
+                                                <h3 className='p-0 text-start ms-2 mt-1'>
+                                                    {name}
+                                                </h3>
+                                            </div>
 
+                                            <div className='col-lg-6 mt-2 mb-0'>
+                                                <div className='dropdown bg-transparent float-end'>
+                                                <strong className='text-black-50'>
+                                                    <small className='text-black-50'>Date Posts 05/30/2022</small> 
+                                                    <i className='bi-dot'></i>
+                                                    <i className='bi-eye'></i>
+                                                    <small>0 views</small>
+                                                    <i className='bi-dot'></i>
+                                                    <i className='bi-hand-thumbs-up'></i>
+                                                    <small>0</small>
+                                                    <i className='bi-dot'></i>
+                                                    <i className='bi-hand-thumbs-down'></i>
+                                                    <small>0</small>
+                                                    <i className='bi-dot'></i>
+                                                    <i className='bi-chat-left'></i>
+                                                    <small>0</small>
+                                                </strong>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='box-middle-panel mt-3'>
+                                        {this.renderProfilePicture('xxl')}
+                                        <strong className='mt-2 ms-2 float-start'>{currentUser.username}</strong>
+                                        <br/>
+                                        <p className='mb-0 p-3 ms-2'>
+                                            {desc}
+                                        </p>
+                                    </div>
+                                </div>
                                 <div className='photo-and-albums-menu-mobile'>
                                     {/*<div className='position-absolute top-0 start-50 translate-middle-x mt-3'>
                                         <a className='onStorynotifications' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightnotificationdesktop' aria-controls='offcanvasRightnotificationdesktop'><i className='bi-bell-fill'></i></a>
