@@ -75,6 +75,7 @@ export default class CreateForum extends React.PureComponent<Props, State> {
 
         let userName;
         if(currentUser){
+            console.log(currentUser);
             userName = currentUser.username;
         }
 
@@ -154,7 +155,7 @@ export default class CreateForum extends React.PureComponent<Props, State> {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='box-middle-panel mt-3'>
+                                    <div className='box-middle-panel mt-10'>
                                         {this.renderProfilePicture('fxl')}
                                         <strong className='mt-2 ms-2 float-start'>@{userName}</strong>
                                         <br/>
