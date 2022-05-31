@@ -77,23 +77,25 @@ export default class MyPages extends React.PureComponent<Props, State> {
             if(forumMembers.length){
                 memberDesktop = (
                     <>
-                    {forumMembers.map((item,index) => {
-                        return (
-                            <div className='col-12 mx-auto'>
-                                <div className='row'>
-                                    <div className='col-4 mt-2 mb-2'>
-                                        {this.renderProfilePicture('lg')}
-                                        {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt='' />*/}
-                                        <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
+                        {forumMembers.map((item,index) => {
+                            return (
+                                <div className='box-middle-panel mt-3'>
+                                    <div className='col-12 mx-auto'>
+                                        <div className='row'>
+                                            <div className='col-4 mt-2 mb-2'>
+                                                {this.renderProfilePicture('lg')}
+                                                {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt='' />*/}
+                                                <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
+                                            </div>
+                                            <div className='col-2 mt-3 mb-2 text-center'><strong>11M</strong></div>
+                                            <div className='col-2 text-center mt-3 mb-2'><strong>12M</strong></div>
+                                            <div className='col-2 text-center mt-3 mb-2'><strong>55</strong></div>
+                                            <div className='col-2 text-center mt-3 mb-2'><strong>254</strong></div>
+                                        </div>
                                     </div>
-                                    <div className='col-2 mt-3 mb-2 text-center'><strong>11M</strong></div>
-                                    <div className='col-2 text-center mt-3 mb-2'><strong>12M</strong></div>
-                                    <div className='col-2 text-center mt-3 mb-2'><strong>55</strong></div>
-                                    <div className='col-2 text-center mt-3 mb-2'><strong>254</strong></div>
                                 </div>
-                            </div>
-                        );
-                    })}
+                            );
+                        })}
                     </>
                 );
 
@@ -101,19 +103,21 @@ export default class MyPages extends React.PureComponent<Props, State> {
                     <>
                     {forumMembers.map((item,index) => {
                         return (
-                            <div className='col-12 mx-auto'>
-                                <div className='row'>
-                                    <div className='col-lg-12 mt-2 mb-2'>
-                                    {this.renderProfilePicture('lg')}
-                                    {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
-                                        <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
+                            <div className='box-middle-panel-select-forum'>
+                                <div className='col-12 mx-auto'>
+                                    <div className='row'>
+                                        <div className='col-lg-12 mt-2 mb-2'>
+                                        {this.renderProfilePicture('lg')}
+                                        {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
+                                            <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
+                                        </div>
+                                        <hr/>
+                                        <div className='col-3 text-center mt-0 mb-2'><strong>11M</strong><br/><small className='text-muted'>Joined</small></div>
+                                        <div className='col-3 text-center mt-0 mb-2'><strong>12M</strong><br/><small className='text-muted'>Last Visit</small></div>
+                                        <div className='col-3 text-center mt-0 mb-2'><strong>55</strong><br/><small className='text-muted'>Post Count</small></div>
+                                        <div className='col-3 text-center mt-0 mb-2'><strong>254</strong><br/><small className='text-muted'>Referrals</small></div>
                                     </div>
-                                    <hr/>
-                                    <div className='col-3 text-center mt-0 mb-2'><strong>11M</strong><br/><small className='text-muted'>Joined</small></div>
-                                    <div className='col-3 text-center mt-0 mb-2'><strong>12M</strong><br/><small className='text-muted'>Last Visit</small></div>
-                                    <div className='col-3 text-center mt-0 mb-2'><strong>55</strong><br/><small className='text-muted'>Post Count</small></div>
-                                    <div className='col-3 text-center mt-0 mb-2'><strong>254</strong><br/><small className='text-muted'>Referrals</small></div>
-                                </div>
+                                </div> 
                             </div>
                         );
                     })}
@@ -166,12 +170,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                             </div>
                         </div>
                     </div>
-                    <div className='box-middle-panel mt-3'>
-                        {memberDesktop}
-                    </div>
-                    <div className='box-middle-panel-select-forum'>
-                        
-                    </div>
+                    {memberDesktop}
                 </div>
             );
 
@@ -212,9 +211,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                             </div>
                         </div>
                     </div>
-                    <div className='box-middle-panel-select-forum'>
-                        {memberMobile}
-                    </div>
+                    {memberMobile}
                 </div>
             );
         }else if(selectedMenu === 'search'){
