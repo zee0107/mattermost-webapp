@@ -572,8 +572,9 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                                     <li><a className={`dropdown-item onBrowse ${selectedMenu === 'browse' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'browse'}); }}>Browse</a></li>
                                                     <li><a className={`dropdown-item onMemebers ${selectedMenu === 'members' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'members'}); }}>Members</a></li>
                                                     <li><a className={`dropdown-item onSearch ${selectedMenu === 'search' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'search'}); }}>Search</a></li>
-                                                    <li><a className={`dropdown-item onMythreads ${selectedMenu === 'threads' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'threads'}); }}>MyTreads</a></li>
-                                                    <li><a className={`dropdown-item onMymessages ${selectedMenu === 'messages' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'messages'}); }}>MyMessages</a></li>
+                                                    <li><a className={`dropdown-item onMythreads ${selectedMenu === 'threads' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'threads'}); }}>My Threads</a></li>
+                                                    <li><a className={`dropdown-item onMymessages ${selectedMenu === 'messages' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'messages'}); }}>My Messages</a></li>
+                                                    <li><a className={`dropdown-item onMymessages`}>Create a Topic</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -609,8 +610,9 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                         <li className={`list-group-item border-0 onBrowse ${selectedMenu === 'browse' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'browse'}); }}>Browse</li>
                                         <li className={`list-group-item border-0 onMemebers ${selectedMenu === 'members' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'members'}); }}>Members</li>
                                         <li className={`list-group-item border-0 onSearch ${selectedMenu === 'search' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''} `} onClick={() => { this.setState({selectedMenu: 'search'}); }}>Search</li>
-                                        <li className={`list-group-item border-0 onMythreads ${selectedMenu === 'threads' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'threads'}); }}>MyThreads</li>
-                                        <li className={`list-group-item border-0 onMymessages ${selectedMenu === 'messages' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'messages'}); }}>MyMessages</li>
+                                        <li className={`list-group-item border-0 onMythreads ${selectedMenu === 'threads' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'threads'}); }}>My Threads</li>
+                                        <li className={`list-group-item border-0 onMymessages ${selectedMenu === 'messages' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'messages'}); }}>My Messages</li>
+                                        <li className={`list-group-item border-0 onMymessages`}>Create a Topic</li>
                                     </ul>
                                 </div>
                             </div>
@@ -631,9 +633,8 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='carousel-item'>
                                         <div className='row'>
-                                            <div className='col-4 text-center'><a className={`onMythreads forum-menu-links ${selectedMenu === 'threads' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'threads'}); }}><strong>MyThreads</strong></a></div>
-                                            <div className='col-4 text-center'><a className={`onMymessages forum-menu-links ${selectedMenu === 'messages' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'messages'}); 
-}}><strong>MyMessages</strong></a></div>
+                                            <div className='col-4 text-center'><a className={`onMythreads forum-menu-links ${selectedMenu === 'threads' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'threads'}); }}><strong>My Threads</strong></a></div>
+                                            <div className='col-4 text-center'><a className={`onMymessages forum-menu-links ${selectedMenu === 'messages' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'messages'}); }}><strong>My Messages</strong></a></div>
                                             <div className='col-4 text-center'></div>
                                         </div>
                                     </div>

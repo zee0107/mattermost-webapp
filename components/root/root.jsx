@@ -65,7 +65,7 @@ const LazyAlbumView = React.lazy(() => import('components/album_view'));
 const LazyCreateStory = React.lazy(() => import('components/create_story'));
 const LazyCreateAlbum = React.lazy(() => import('components/create_album'));
 const LazyUpdateAlbum = React.lazy(() => import('components/update_album'));
-const LazyCreatePage = React.lazy(() => import('components/create_page'));
+const LazyCreateForum = React.lazy(() => import('components/create_forum'));
 const LazyViewStory = React.lazy(() => import('components/view_story'));
 const LazyDocuments = React.lazy(() => import('components/documents'));
 const LazyDocumentsBuyPresale = React.lazy(() => import('components/documents-buy-presale'));
@@ -151,7 +151,7 @@ const AlbumView = makeAsyncComponent('AlbumView', LazyAlbumView);
 const CreateStory = makeAsyncComponent('CreateStory', LazyCreateStory);
 const CreateAlbum = makeAsyncComponent('CreateAlbum', LazyCreateAlbum);
 const UpdateAlbum = makeAsyncComponent('UpdateAlbum', LazyUpdateAlbum);
-const CreatePage = makeAsyncComponent('CreatePage', LazyCreatePage);
+const CreateForum = makeAsyncComponent('CreateForum', LazyCreateForum);
 const ViewStory = makeAsyncComponent('ViewStory', LazyViewStory);
 const Documents = makeAsyncComponent('Documents', LazyDocuments);
 const DocumentsBuyPresale = makeAsyncComponent('DocumentsBuyPresale', LazyDocumentsBuyPresale);
@@ -576,8 +576,8 @@ export default class Root extends React.PureComponent {
                         component={UpdateAlbum}
                     />
                     <LoginHFTRouteFNS
-                        path={'/pages/create'}
-                        component={CreatePage}
+                        path={'/create-forum-thread'}
+                        component={CreateForum}
                     />
                     <LoginHFTRouteFNS
                         path={'/stories/view'}
