@@ -54,7 +54,6 @@ export default class CreateForum extends React.PureComponent<Props, State> {
 
         fetch(uri, {
             method: 'POST',
-            body: data,
         }).then((response) => response.json()).then((data)=>{
             if (data === 'Posted'){
                 window.location.href = '/forums';
