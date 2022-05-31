@@ -574,7 +574,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                                     <li><a className={`dropdown-item onSearch ${selectedMenu === 'search' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'search'}); }}>Search</a></li>
                                                     <li><a className={`dropdown-item onMythreads ${selectedMenu === 'threads' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'threads'}); }}>My Threads</a></li>
                                                     <li><a className={`dropdown-item onMymessages ${selectedMenu === 'messages' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'messages'}); }}>My Messages</a></li>
-                                                    <li><a className={`dropdown-item onMymessages` href='/create-forum-thread'} >Create a Topic</a></li>
+                                                    <li><a className={`dropdown-item onMymessages`} href='/create-forum-thread'>Create a Topic</a></li>
                                                 </ul>
                                             </div>
                                         </div>
