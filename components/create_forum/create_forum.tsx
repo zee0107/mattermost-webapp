@@ -155,7 +155,7 @@ export default class CreateForum extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='box-middle-panel mt-3'>
-                                        {this.renderProfilePicture('xl')}
+                                        {this.renderProfilePicture('mxl')}
                                         <strong className='mt-2 ms-2 float-start'>@{userName}</strong>
                                         <br/>
                                         <p className='mb-0 p-3 ms-2'>
