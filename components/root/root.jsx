@@ -59,6 +59,7 @@ const LazyProfilePage = React.lazy(() => import('components/profile_page'));
 const LazyNewsFeed = React.lazy(() => import('components/newsfeed'));
 const LazyGroup = React.lazy(() => import('components/groups'));
 const LazyPage = React.lazy(() => import('components/pages'));
+const LazyForums = React.lazy(() => import('components/forums'));
 const LazyAlbum = React.lazy(() => import('components/albums'));
 const LazyAlbumView = React.lazy(() => import('components/album_view'));
 const LazyCreateStory = React.lazy(() => import('components/create_story'));
@@ -144,6 +145,7 @@ const ProfilePage = makeAsyncComponent('ProfilePage', LazyProfilePage);
 const NewsFeed = makeAsyncComponent('Newsfeed', LazyNewsFeed);
 const Groups = makeAsyncComponent('Group', LazyGroup);
 const Pages = makeAsyncComponent('Pages', LazyPage);
+const Forums = makeAsyncComponent('Forums', LazyForums);
 const Albums = makeAsyncComponent('Albums', LazyAlbum);
 const AlbumView = makeAsyncComponent('AlbumView', LazyAlbumView);
 const CreateStory = makeAsyncComponent('CreateStory', LazyCreateStory);
@@ -770,6 +772,10 @@ export default class Root extends React.PureComponent {
                                 <LoginHFTRouteF
                                     path={'/mypages'}
                                     component={Pages}
+                                />
+                                <LoginHFTRouteF
+                                    path={'/forums'}
+                                    component={Forums}
                                 />
                                 <LoginHFTRouteF
                                     path={'/albums/myalbums'}
