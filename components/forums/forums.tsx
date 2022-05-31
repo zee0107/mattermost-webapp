@@ -196,14 +196,14 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                 <div className='row mt-2 mb-2'>
                                     <div className='col-md-6'>
                                             <label htmlFor='inputState' className='form-label'><small>Search type</small></label>
-                                            <select id='inputState' className='form-select select-search-forums'>
+                                            <select id='inputState' className='form-control select-search-forums'>
                                             <option selected>Choose...</option>
                                             <option>...</option>
                                             </select>
                                     </div>
                                     <div className='col-md-6'>
                                             <label htmlFor='inputState' className='form-label'><small>Search in threads</small></label>
-                                            <select id='inputState' className='form-select select-search-forums'>
+                                            <select id='inputState' className='form-control select-search-forums'>
                                             <option selected>Choose...</option>
                                             <option>...</option>
                                             </select>
@@ -212,7 +212,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                 <div className='row mt-2 mb-2'>
                                     <div className='col-md-6'>
                                             <label htmlFor='inputState' className='form-label'><small>Search section</small></label>
-                                            <select id='inputState' className='form-select select-search-forums'>
+                                            <select id='inputState' className='form-control select-search-forums'>
                                             <option selected>Choose...</option>
                                             <option>...</option>
                                             </select>
@@ -247,14 +247,14 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                 <div className='row mt-2 mb-2'>
                                     <div className='col-md-6 mt-2 mb-2'>
                                             <label htmlFor='inputState' className='form-label'><small>Search type</small></label>
-                                            <select id='inputState' className='form-select select-search-forums'>
+                                            <select id='inputState' className='form-control select-search-forums'>
                                             <option selected>Choose...</option>
                                             <option>...</option>
                                             </select>
                                     </div>
                                     <div className='col-md-6 mt-2 mb-2'>
                                             <label htmlFor='inputState' className='form-label'><small>Search in threads</small></label>
-                                            <select id='inputState' className='form-select select-search-forums'>
+                                            <select id='inputState' className='form-control select-search-forums'>
                                             <option selected>Choose...</option>
                                             <option>...</option>
                                             </select>
@@ -263,7 +263,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                 <div className='row mt-2 mb-2'>
                                     <div className='col-md-6 mt-2 mb-2'>
                                             <label htmlFor='inputState' className='form-label'><small>Search section</small></label>
-                                            <select id='inputState' className='form-select select-search-forums'>
+                                            <select id='inputState' className='form-control select-search-forums'>
                                             <option selected>Choose...</option>
                                             <option>...</option>
                                             </select>
