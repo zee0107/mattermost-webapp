@@ -101,7 +101,7 @@ export default class CreateForum extends React.PureComponent<Props, State> {
                                             </div>
                                         </div>
 
-                                        <div className='row g-1'>
+                                        <div className='row g-1 mt-3'>
                                             <div className='col-12'>
                                             <div className='form-floating'>
                                                 <textarea style={{height: 135, border: '1px solid #ccc'}} onChange={this.handleChangeDetails} value={forumDetails} className='form-control' placeholder='Forum Details'></textarea>
