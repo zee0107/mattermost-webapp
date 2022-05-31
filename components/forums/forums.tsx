@@ -42,13 +42,14 @@ export default class MyPages extends React.PureComponent<Props, State> {
             <Avatar
                 size={size}
                 url={this.props.profilePicture}
+                text={'story'}
             />
         );
     }
 
     render= (): JSX.Element => {
         const {selectedMenu} = this.state;
-        
+
         let renderViewDesktop;
         if(selectedMenu === 'members'){
             renderViewDesktop = (
@@ -244,14 +245,15 @@ export default class MyPages extends React.PureComponent<Props, State> {
                             <div className='col-12 mx-auto'>
                                 <div className='row'>
                                     <div className='col-4 mt-2 mb-2'>
-                                    {this.renderProfilePicture('md')}
-                                    {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
-                                    <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
+                                        {this.renderProfilePicture('md')}
+                                        {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
+                                        <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
                                     </div>
                                     <div className='col-4 mt-2 mb-2'>
-                                    {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-5.png' alt=''/>*/}
-                                    <p><label><strong>Lorem Ipsum</strong></label><br/><small>By: <a className='text-success'>Pablo trucks</a></small>
-                                    <small className='ms-1'>1 Day ago</small></p>
+                                        {this.renderProfilePicture('md')}
+                                        {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-5.png' alt=''/>*/}
+                                        <p><label><strong>Lorem Ipsum</strong></label><br/><small>By: <a className='text-success'>Pablo trucks</a></small>
+                                        <small className='ms-1'>1 Day ago</small></p>
                                     </div>
                                     <div className='col-2 text-center mt-3 mb-2'><strong>8</strong></div>
                                     <div className='col-2 text-center mt-3 mb-2'><strong>255</strong></div>
