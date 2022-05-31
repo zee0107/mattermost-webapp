@@ -31,6 +31,7 @@ export default class CreateForum extends React.PureComponent<Props, State> {
 
         this.handleChangeTitle = this.handleChangeTitle.bind(this);
         this.handleChangeDetails = this.handleChangeDetails.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount = async () =>{
@@ -149,7 +150,7 @@ export default class CreateForum extends React.PureComponent<Props, State> {
                                     <div>
                                         <div className='col-12 mt-5'>
                                             <div className='d-grid gap-2'>
-                                                <button type='button' className='btn-primary p-2' onClick={() => this.handleSubmit}>Create Topic</button>
+                                                <button type='button' className='btn-primary p-2' onClick={() => this.handleSubmit()}>Create Topic</button>
                                             </div>
                                         </div>
                                     </div>

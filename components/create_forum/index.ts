@@ -10,7 +10,6 @@ import CreateForum from './create_forum'
 function makeMapStateToProps() {
     return function mapStateToProps(state: GlobalState) {
         const currentUser = getCurrentUser(state);
-        console.log(currentUser);
         const userId = currentUser?.id;
         return {
             userId,
