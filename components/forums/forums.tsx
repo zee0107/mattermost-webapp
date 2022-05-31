@@ -473,11 +473,11 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                                 <small>JumpTo</small>
                                                 </button>
                                                 <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
-                                                    <li><a className='dropdown-item onBrowse' onClick={() => { this.setState({selectedMenu: 'browse'}); }}>Browse</a></li>
-                                                    <li><a className='dropdown-item onMemebers' onClick={() => { this.setState({selectedMenu: 'members'}); }}>Members</a></li>
-                                                    <li><a className='dropdown-item onSearch' onClick={() => { this.setState({selectedMenu: 'search'}); }}>Search</a></li>
-                                                    <li><a className='dropdown-item onMythreads' onClick={() => { this.setState({selectedMenu: 'threads'}); }}>MyTreads</a></li>
-                                                    <li><a className='dropdown-item onMymessages' onClick={() => { this.setState({selectedMenu: 'messages'}); }}>MyMessages</a></li>
+                                                    <li><a className={`dropdown-item onBrowse ${selectedMenu === 'browse' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'browse'}); }}>Browse</a></li>
+                                                    <li><a className={`dropdown-item onMemebers ${selectedMenu === 'members' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'members'}); }}>Members</a></li>
+                                                    <li><a className={`dropdown-item onSearch ${selectedMenu === 'search' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'search'}); }}>Search</a></li>
+                                                    <li><a className={`dropdown-item onMythreads ${selectedMenu === 'threads' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'threads'}); }}>MyTreads</a></li>
+                                                    <li><a className={`dropdown-item onMymessages ${selectedMenu === 'messages' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'messages'}); }}>MyMessages</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -510,11 +510,11 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className='collapse mt-1' id='collapseJumpto'>
                                     <ul className='list-group'>
-                                    <li className='list-group-item border-0 onBrowse' onClick={() => { this.setState({selectedMenu: 'browse'}); }}>Browse</li>
-                                    <li className='list-group-item border-0 onMemebers' onClick={() => { this.setState({selectedMenu: 'members'}); }}>Members</li>
-                                    <li className='list-group-item border-0 onSearch' onClick={() => { this.setState({selectedMenu: 'search'}); }}>Search</li>
-                                    <li className='list-group-item border-0 onMythreads' onClick={() => { this.setState({selectedMenu: 'threads'}); }}>MyThreads</li>
-                                    <li className='list-group-item border-0 onMymessages' onClick={() => { this.setState({selectedMenu: 'messages'}); }}>MyMessages</li>
+                                        <li className={`list-group-item border-0 onBrowse ${selectedMenu === 'browse' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'browse'}); }}>Browse</li>
+                                        <li className={`list-group-item border-0 onMemebers ${selectedMenu === 'members' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'members'}); }}>Members</li>
+                                        <li className={`list-group-item border-0 onSearch ${selectedMenu === 'search' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''} `} onClick={() => { this.setState({selectedMenu: 'search'}); }}>Search</li>
+                                        <li className={`list-group-item border-0 onMythreads ${selectedMenu === 'threads' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'threads'}); }}>MyThreads</li>
+                                        <li className={`list-group-item border-0 onMymessages ${selectedMenu === 'messages' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'messages'}); }}>MyMessages</li>
                                     </ul>
                                 </div>
                             </div>
