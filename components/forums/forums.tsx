@@ -48,6 +48,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {selectedMenu} = this.state;
+        
         let renderViewDesktop;
         if(selectedMenu === 'members'){
             renderViewDesktop = (
