@@ -7,6 +7,7 @@ import RightSideView from 'components/right_side_view';
 import { UserProfile } from 'mattermost-redux/types/users';
 import ForumMember from 'components/forum_member';
 import ForumBrowse from 'components/forum_browse';
+import ForumThread from 'components/forum_threads';
 import { Thread } from 'mattermost-redux/types/crypto';
 
 export type Props = {
@@ -110,23 +111,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                 <>
                     {myThreads.map((item,index) => {
                         return (
-                            <div className='box-middle-panel-forums'>
-                                <div className='box-middle-panel-select-forum'>
-                                    <div className='col-12 mx-auto'>
-                                        <div className='row'>
-                                            <div className='col-4 mt-2 mb-2'>
-                                            {this.renderProfilePicture('lg')}
-                                            {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
-                                            <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text.</small></p>
-                                            </div>
-                                            <div className='col-2 text-center mt-3 mb-2'><strong>8</strong></div>
-                                            <div className='col-2 text-center mt-3 mb-2'><strong>255</strong></div>
-                                            <div className='col-2 text-center mt-3 mb-2'><strong>64</strong></div>
-                                            <div className='col-2 text-center mt-3 mb-2'><strong>8</strong></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <ForumThread forumId={item} view={'desktop'} key={`${item}--${index}`} />
                         );
                     })}
                 </>
@@ -136,22 +121,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                 <>
                     {myThreads.map((item,index) => {
                         return (
-                            <div className='box-middle-panel-select-forum'>
-                                <div className='col-12 mx-auto'>
-                                    <div className='row'>
-                                        <div className='col-lg-12 mt-2 mb-2'>
-                                            {this.renderProfilePicture('lg')}
-                                            {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
-                                            <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
-                                        </div>
-                                        <hr/>
-                                        <div className='col-3 text-center mt-0 mb-2'><strong>8</strong><br/><small className='text-muted'>Posts</small></div>
-                                        <div className='col-3 text-center mt-0 mb-2'><strong>255</strong><br/><small className='text-muted'>Views</small></div>
-                                        <div className='col-3 text-center mt-0 mb-2'><strong>64</strong><br/><small className='text-muted'>Likes</small></div>
-                                        <div className='col-3 text-center mt-0 mb-2'><strong>8</strong><br/><small className='text-muted'>Comments</small></div>
-                                    </div>
-                                </div>
-                            </div>
+                            <ForumThread forumId={item} view={'mobile'} key={`${item}--${index}`} />
                         );
                     })}
                 </>
