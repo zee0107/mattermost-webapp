@@ -72,8 +72,7 @@ export default class CreateForum extends React.PureComponent<Props, State> {
         }else{
             desc = 'Forum Details';
         }
-        console.log(currentUser);
-        let userName = currentUser.username;
+        let userName = 'UserName';
 
         return (
             <>
