@@ -222,7 +222,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className='row mt-4 mb-4'>
                                     <div className='col-12 text-center'>
-                                    <a className='btn btn-sm onSearchforums text-white'>Search</a>
+                                    <a className='onSearchforums text-white'>Search</a>
                                     </div>
                                 </div>
                             </form>
@@ -274,7 +274,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className='row mt-4 mb-4'>
                                     <div className='col-12 text-center'>
-                                    <a className='btn btn-sm onSearchforums text-white'>Search</a>
+                                    <a className='onSearchforums text-white'>Search</a>
                                     </div>
                                 </div>
                             </form>
