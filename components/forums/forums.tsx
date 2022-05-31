@@ -108,7 +108,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                         <div className='col-12 mx-auto'>
                             <div className='row'>
                                     <div className='col-4 mt-2 mb-2'>
-                                    {this.renderProfilePicture('md')}
+                                    {this.renderProfilePicture('lg')}
                                     {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt='' />*/}
                                     <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
                                     </div>
@@ -193,7 +193,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                             <div className='col-12 mx-auto'>
                                 <div className='row'>
                                     <div className='col-4 mt-2 mb-2'>
-                                    {this.renderProfilePicture('md')}
+                                    {this.renderProfilePicture('lg')}
                                     {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
                                     <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text.</small></p>
                                     </div>
@@ -215,7 +215,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                             <div className='col-12 mx-auto'>
                                 <div className='row'>
                                     <div className='col-5 mt-2 mb-2'>
-                                    {this.renderProfilePicture('md')}
+                                    {this.renderProfilePicture('lg')}
                                     {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt='' />*/}
                                     <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text.</small></p>
                                     </div>
@@ -245,12 +245,12 @@ export default class MyPages extends React.PureComponent<Props, State> {
                             <div className='col-12 mx-auto'>
                                 <div className='row'>
                                     <div className='col-4 mt-2 mb-2'>
-                                        {this.renderProfilePicture('md')}
+                                        {this.renderProfilePicture('lg')}
                                         {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
                                         <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text of the printing</small></p>
                                     </div>
                                     <div className='col-4 mt-2 mb-2'>
-                                        {this.renderProfilePicture('md')}
+                                        {this.renderProfilePicture('lg')}
                                         {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-5.png' alt=''/>*/}
                                         <p><label><strong>Lorem Ipsum</strong></label><br/><small>By: <a className='text-success'>Pablo trucks</a></small>
                                         <small className='ms-1'>1 Day ago</small></p>
