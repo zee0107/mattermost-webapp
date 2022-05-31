@@ -175,6 +175,18 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
         );
     }
 
+    goToForums = () => {
+        const uri = new URL('https://localhost:44312/api/crypter/CreateStories');
+        const params = {user_id: this.props.userId, location: this.props.currentUser.position};
+        fetch(uri, {
+            method: 'POST',
+        }).then((response) => response.json()).then((data)=>{
+            if (data === 'Posted'){
+                window.location.href = '/forums';
+            }
+        }).catch(error => this.setState({textError: error}));
+    }
+
     renderDropdownIcon = (): ReactNode => {
         return (
             <LocalizedIcon
@@ -474,15 +486,26 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
                         />
                     </Menu.Group>
                     <Menu.Group>
-                        <Menu.ItemLink
+                        <Menu.ItemAction
+                            onClick={() => this.goToForums()}
+                            ariaLabel={localizeMessage('navbar_dropdown', 'Join Forums').toLowerCase()}
+                            text={localizeMessage('navbar_dropdown', 'Join Forums')}
+                            icon={(
+                                <i className='bi bi-flag'/>
+                            )}
+                            rightDecorator={status === 'forums' && selectedIndicator}
+                            id={'forums'}
+                        />
+                        {/*<Menu.ItemLink
                             id='forums'
                             ariaLabel='Forums'
                             to='/forums'
+                            o
                             text={localizeMessage('navbar_dropdown', 'Join Forums')}
                             icon={globalHeader ? (
                                 <i className='bi bi-flag'/>}
                             ) : <i className='fa fa-cog'/>}
-                        />
+                            />*/}
                     </Menu.Group>
                     <Menu.Group>
                         <Menu.ItemLink
