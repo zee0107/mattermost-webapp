@@ -487,7 +487,7 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
                     </Menu.Group>
                     <Menu.Group>
                         <Menu.ItemAction
-                            onClick={() => this.goToForums()}
+                            onClick={this.goToForums}
                             ariaLabel={localizeMessage('navbar_dropdown', 'Join Forums').toLowerCase()}
                             text={localizeMessage('navbar_dropdown', 'Join Forums')}
                             icon={(
