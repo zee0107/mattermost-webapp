@@ -73,6 +73,11 @@ export default class CreateForum extends React.PureComponent<Props, State> {
             desc = 'Forum Details';
         }
 
+        let userName;
+        if(currentUser){
+            userName = currentUser.username;
+        }
+
         return (
             <>
                 <div style={{zIndex: 180}} className='createmypage' id='staticBackdrop'>
@@ -151,7 +156,7 @@ export default class CreateForum extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='box-middle-panel mt-3'>
                                         {this.renderProfilePicture('xxl')}
-                                        <strong className='mt-2 ms-2 float-start'>{currentUser.username}</strong>
+                                        <strong className='mt-2 ms-2 float-start'>@{userName}</strong>
                                         <br/>
                                         <p className='mb-0 p-3 ms-2'>
                                             {desc}
