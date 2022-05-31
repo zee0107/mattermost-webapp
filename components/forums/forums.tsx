@@ -574,7 +574,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                                     <li><a className={`dropdown-item onSearch ${selectedMenu === 'search' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'search'}); }}>Search</a></li>
                                                     <li><a className={`dropdown-item onMythreads ${selectedMenu === 'threads' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'threads'}); }}>My Threads</a></li>
                                                     <li><a className={`dropdown-item onMymessages ${selectedMenu === 'messages' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'messages'}); }}>My Messages</a></li>
-                                                    <li><a className={`dropdown-item onMymessages`}>Create a Topic</a></li>
+                                                    <li><a className={`dropdown-item onMymessages` href='/create-forum-thread'} >Create a Topic</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -612,7 +612,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                         <li className={`list-group-item border-0 onSearch ${selectedMenu === 'search' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''} `} onClick={() => { this.setState({selectedMenu: 'search'}); }}>Search</li>
                                         <li className={`list-group-item border-0 onMythreads ${selectedMenu === 'threads' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'threads'}); }}>My Threads</li>
                                         <li className={`list-group-item border-0 onMymessages ${selectedMenu === 'messages' ? 'border-bottom border-success border-3 fw-bold forums-text-menu-color':''}`} onClick={() => { this.setState({selectedMenu: 'messages'}); }}>My Messages</li>
-                                        <li className={`list-group-item border-0 onMymessages`}>Create a Topic</li>
+                                        <li className={`list-group-item border-0 onMymessages`}><a href='/create-forum-thread'>Create a Topic</a></li>
                                     </ul>
                                 </div>
                             </div>
