@@ -60,31 +60,31 @@ export default class MyPages extends React.PureComponent<Props, State> {
                             <div className='row'>
                                 <div className='col-8 mt-2 mb-2'><strong><a className='ms-2'>List of Users</a></strong></div>
                                 <div className='col-4 mt-2 mb-2'>
-                                    <a className='float-start ms-1'><strong>A</strong></a>
-                                    <a className='float-start ms-1'><strong>B</strong></a>
-                                    <a className='float-start ms-1'><strong>C</strong></a>
-                                    <a className='float-start ms-1'><strong>D</strong></a>
-                                    <a className='float-start ms-1'><strong>E</strong></a>
-                                    <a className='float-start ms-1'><strong>F</strong></a>
-                                    <a className='float-start ms-1'><strong>G</strong></a>
-                                    <a className='float-start ms-1'><strong>H</strong></a>
-                                    <a className='float-start ms-1'><strong>I</strong></a>
-                                    <a className='float-start ms-1'><strong>J</strong></a>
-                                    <a className='float-start ms-1'><strong>K</strong></a>
-                                    <a className='float-start ms-1'><strong>L</strong></a>
-                                    <a className='float-start ms-1'><strong>M</strong></a>
-                                    <a className='float-start ms-1'><strong>N</strong></a>
-                                    <a className='float-start ms-1'><strong>O</strong></a>
-                                    <a className='float-start ms-1'><strong>P</strong></a>
-                                    <a className='float-start ms-1'><strong>Q</strong></a>
-                                    <a className='float-start ms-1'><strong>R</strong></a>
-                                    <a className='float-start ms-1'><strong>S</strong></a>
-                                    <a className='float-start ms-1'><strong>T</strong></a>
-                                    <a className='float-start ms-1'><strong>U</strong></a>
-                                    <a className='float-start ms-1'><strong>V</strong></a>
-                                    <a className='float-start ms-1'><strong>W</strong></a>
-                                    <a className='float-start ms-1'><strong>X</strong></a>
-                                    <a className='float-start ms-1'><strong>Y</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>Y</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>X</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>W</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>V</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>U</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>T</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>S</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>R</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>Q</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>P</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>O</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>N</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>M</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>L</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>K</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>J</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>I</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>H</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>G</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>F</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>E</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>D</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>C</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>B</strong></a>
+                                    <a className='float-end ms-1 forum-menu-links'><strong>A</strong></a>
                                 </div>
                             </div>
                         </div>
@@ -132,31 +132,31 @@ export default class MyPages extends React.PureComponent<Props, State> {
                             <div className='row'>
                             <div className='col-12 mt-2'><strong><a>List of Users</a></strong></div>
                             <div className='col-12 mb-2'>
-                                <a className='float-start'><strong>A</strong></a>
-                                <a className='float-start ms-1'><strong>B</strong></a>
-                                <a className='float-start ms-1'><strong>C</strong></a>
-                                <a className='float-start ms-1'><strong>D</strong></a>
-                                <a className='float-start ms-1'><strong>E</strong></a>
-                                <a className='float-start ms-1'><strong>F</strong></a>
-                                <a className='float-start ms-1'><strong>G</strong></a>
-                                <a className='float-start ms-1'><strong>H</strong></a>
-                                <a className='float-start ms-1'><strong>I</strong></a>
-                                <a className='float-start ms-1'><strong>J</strong></a>
-                                <a className='float-start ms-1'><strong>K</strong></a>
-                                <a className='float-start ms-1'><strong>L</strong></a>
-                                <a className='float-start ms-1'><strong>M</strong></a>
-                                <a className='float-start ms-1'><strong>N</strong></a>
-                                <a className='float-start ms-1'><strong>O</strong></a>
-                                <a className='float-start ms-1'><strong>P</strong></a>
-                                <a className='float-start ms-1'><strong>Q</strong></a>
-                                <a className='float-start ms-1'><strong>R</strong></a>
-                                <a className='float-start ms-1'><strong>S</strong></a>
-                                <a className='float-start ms-1'><strong>T</strong></a>
-                                <a className='float-start ms-1'><strong>U</strong></a>
-                                <a className='float-start ms-1'><strong>V</strong></a>
-                                <a className='float-start ms-1'><strong>W</strong></a>
-                                <a className='float-start ms-1'><strong>X</strong></a>
-                                <a className='float-start ms-1'><strong>Y</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>Y</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>X</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>W</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>V</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>U</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>T</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>S</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>R</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>Q</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>P</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>O</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>N</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>M</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>L</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>K</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>J</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>I</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>H</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>G</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>F</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>E</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>D</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>C</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>B</strong></a>
+                                <a className='float-end ms-1 forum-menu-links'><strong>A</strong></a>
                             </div>
                             </div>
                         </div>
@@ -460,11 +460,11 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                 <div className='col-12 mx-auto'>
                                     <a className='onForum float-start'><i className='bi-chat-left-text-fill'></i></a>
                                     <div className='row'>
-                                        <div className='col-2 text-center mt-2 mb-2 p-0'><a className='onBrowse p-4' onClick={() => { this.setState({selectedMenu: 'browse'}); }}>Browse</a></div>
-                                        <div className='col-2 text-center mt-2 mb-2 p-0'><a className='onMemebers p-4' onClick={() => { this.setState({selectedMenu: 'members'}); }}>Members</a></div>
-                                        <div className='col-2 text-center mt-2 mb-2 p-0'><a className='onSearch p-4' onClick={() => { this.setState({selectedMenu: 'search'}); }}>Search</a></div>
-                                        <div className='col-2 text-center mt-2 mb-2 p-0'><a className='onMythreads p-4' onClick={() => { this.setState({selectedMenu: 'threads'}); }}>MyThreads</a></div>
-                                        <div className='col-2 text-center mt-2 mb-2 p-0'><a className='onMymessages p-4' onClick={() => { this.setState({selectedMenu: 'messages'}); }}>MyMessages</a></div>
+                                        <div className='col-2 text-center mt-2 mb-2 p-0'><a className='onBrowse p-4 forum-menu-links' onClick={() => { this.setState({selectedMenu: 'browse'}); }}>Browse</a></div>
+                                        <div className='col-2 text-center mt-2 mb-2 p-0'><a className='onMemebers p-4 forum-menu-links' onClick={() => { this.setState({selectedMenu: 'members'}); }}>Members</a></div>
+                                        <div className='col-2 text-center mt-2 mb-2 p-0'><a className='onSearch p-4 forum-menu-links' onClick={() => { this.setState({selectedMenu: 'search'}); }}>Search</a></div>
+                                        <div className='col-2 text-center mt-2 mb-2 p-0'><a className='onMythreads p-4 forum-menu-links' onClick={() => { this.setState({selectedMenu: 'threads'}); }}>MyThreads</a></div>
+                                        <div className='col-2 text-center mt-2 mb-2 p-0'><a className='onMymessages p-4 forum-menu-links' onClick={() => { this.setState({selectedMenu: 'messages'}); }}>MyMessages</a></div>
                                         <div className='col-2 text-center mt-2 mb-0'>
                                             <div className='dropdown float-end bg-transparent'>
                                                 <button className='btn-secondary dropdown-toggle dropdown-toggle-forum' type='button' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='true'>
@@ -526,15 +526,15 @@ export default class MyPages extends React.PureComponent<Props, State> {
                                 <div className='carousel-inner'>
                                     <div className='carousel-item active'>
                                         <div className='row'>
-                                            <div className='col-4 text-center'><a className='onBrowse' onClick={() => { this.setState({selectedMenu: 'browse'}); }}><strong>Browse</strong></a></div>
-                                            <div className='col-4 text-center'><a className='onMemebers' onClick={() => { this.setState({selectedMenu: 'members'}); }}><strong>Members</strong></a></div>
-                                            <div className='col-4 text-center'><a className='onSearch' onClick={() => { this.setState({selectedMenu: 'search'}); }}><strong>Search</strong></a></div>
+                                            <div className='col-4 text-center'><a className='onBrowse forum-menu-links' onClick={() => { this.setState({selectedMenu: 'browse'}); }}><strong>Browse</strong></a></div>
+                                            <div className='col-4 text-center'><a className='onMemebers forum-menu-links' onClick={() => { this.setState({selectedMenu: 'members'}); }}><strong>Members</strong></a></div>
+                                            <div className='col-4 text-center'><a className='onSearch forum-menu-links' onClick={() => { this.setState({selectedMenu: 'search'}); }}><strong>Search</strong></a></div>
                                         </div>
                                     </div>
                                     <div className='carousel-item'>
                                         <div className='row'>
-                                            <div className='col-4 text-center'><a className='onMythreads' onClick={() => { this.setState({selectedMenu: 'threads'}); }}><strong>MyThreads</strong></a></div>
-                                            <div className='col-4 text-center'><a className='onMymessages' onClick={() => { this.setState({selectedMenu: 'messages'}); }}><strong>MyMessages</strong></a></div>
+                                            <div className='col-4 text-center'><a className='onMythreads forum-menu-links' onClick={() => { this.setState({selectedMenu: 'threads'}); }}><strong>MyThreads</strong></a></div>
+                                            <div className='col-4 text-center'><a className='onMymessages forum-menu-links' onClick={() => { this.setState({selectedMenu: 'messages'}); }}><strong>MyMessages</strong></a></div>
                                             <div className='col-4 text-center'></div>
                                         </div>
                                     </div>

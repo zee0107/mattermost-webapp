@@ -7,6 +7,19 @@
   border-width: 0 0 1px !important;
 }
 
+.forum-menu-links{
+  color: var(--text-primary);
+}
+
+.forum-menu-links:hover{
+  text-decoration: none;
+}
+
+.forum-menu-links:focus{
+  text-decoration: none;
+}
+
+
 .icon-border{
   border-top: 1px solid #cccccc;
   border-bottom: 1px solid #cccccc;
