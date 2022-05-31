@@ -179,11 +179,11 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
         const uri = new URL('https://localhost:44312/api/crypter/joinforum');
         const params = {user_id: this.props.userId, location: this.props.currentUser.position};
         uri.search = new URLSearchParams(params);
-        
+
         fetch(uri, {
             method: 'POST',
         }).then((response) => response.json()).then((data)=>{
-            if (data === 'Posted'){
+            if (data === 'Joined'){
                 window.location.href = '/forums';
             }
         }).catch(error => this.setState({textError: error}));
