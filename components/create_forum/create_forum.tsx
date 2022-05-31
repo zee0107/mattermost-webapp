@@ -6,6 +6,7 @@ import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import { UserProfile } from 'mattermost-redux/types/users';
 
 import logoDark from 'images/logoBlack.png';
+import { StripeAuBankAccountElementChangeEvent } from '@stripe/stripe-js';
 
 type Props = {
     userId: string;
@@ -17,6 +18,8 @@ type State = {
     isDark: string;
     forumTitle: string;
     forumDetails: string;
+    topicError: string;
+    textError: string;
 };
 
 export default class CreateForum extends React.PureComponent<Props, State> {
@@ -43,6 +46,37 @@ export default class CreateForum extends React.PureComponent<Props, State> {
         this.setState({forumDetails: e.target.value});
     }
 
+    handleSubmit = () => {
+        const uri = new URL('https://localhost:44312/api/crypter/createalbum');
+        const params = {user_id: this.props.userId, topic: this.state.forumTitle, description: this.state.forumDetails};
+        uri.search = new URLSearchParams(params);
+
+        fetch(uri, {
+            method: 'POST',
+            body: data,
+        }).then((response) => response.json()).then((data)=>{
+            if (data === 'Posted'){
+                window.location.href = '/forums';
+            }
+
+            if(data === 'InvalidId'){
+                this.setState({topicError: 'Please sign in.'});
+            }
+
+            if (data === 'EmptyTopic'){
+                this.setState({textError: 'Please add a Topic.'});
+            }
+
+            if (data === 'EmptyDesc'){
+                this.setState({textError: 'Please add details of the topic.'});
+            }
+
+            if (data === 'Failed'){
+                this.setState({textError: 'Please try again.'});
+            }
+        }).catch(error => this.setState({textError: error}));
+    }
+
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
             return null;
@@ -58,7 +92,8 @@ export default class CreateForum extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {forumTitle, forumDetails,currentUser} = this.state;
+        const {currentUser} = this.props;
+        const {forumTitle, forumDetails, textError, topicError} = this.state;
 
         let name, desc, category, view;
         if(forumTitle){
@@ -72,8 +107,11 @@ export default class CreateForum extends React.PureComponent<Props, State> {
         }else{
             desc = 'Forum Details';
         }
-        let userName = 'UserName';
 
+        let userName;
+        if(currentUser){
+            userName = currentUser.username;
+        }
         return (
             <>
                 <div style={{zIndex: 180,backgroundColor: '#F2F5F9',height: '100vh'}} className='createmypage' id='staticBackdrop'>
@@ -93,23 +131,25 @@ export default class CreateForum extends React.PureComponent<Props, State> {
                                     <div>
                                         <div className='row g-1'>
                                             <div className='col-12'>
-                                            <input type='text' className='form-control' placeholder='Thread name (Required)' onChange={this.handleChangeTitle} value={forumTitle} aria-label='Thread name (Required)'/>
+                                                <input type='text' className='form-control' placeholder='Thread name (Required)' onChange={this.handleChangeTitle} value={forumTitle} aria-label='Thread name (Required)'/>
+                                                <span className='text-danger small'>{topicError}</span>
                                             </div>
                                         </div>
 
                                         <div className='row g-1 mt-3'>
                                             <div className='col-12'>
-                                            <div className='form-floating'>
-                                                <textarea style={{height: 135, border: '1px solid #ccc'}} onChange={this.handleChangeDetails} value={forumDetails} className='form-control' placeholder='Forum Details'></textarea>
-                                                <label htmlFor='floatingTextarea'>Details</label>
-                                            </div>
+                                                <div className='form-floating'>
+                                                    <textarea style={{height: 135, border: '1px solid #ccc'}} onChange={this.handleChangeDetails} value={forumDetails} className='form-control' placeholder='Forum Details'></textarea>
+                                                    <label htmlFor='floatingTextarea'>Details</label>
+                                                </div>
+                                                <span className='text-danger small'>{textError}</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div>
                                         <div className='col-12 mt-5'>
                                             <div className='d-grid gap-2'>
-                                                <button type='button' className='btn-primary'>Create Thread</button>
+                                                <button type='button' className='btn-primary p-2' onClick={() => this.handleSubmit}>Create Topic</button>
                                             </div>
                                         </div>
                                     </div>
