@@ -71,6 +71,15 @@
         border: 1px solid rgba(0, 0, 255, 0.808);
     }
 
+    &.Avatar-fxl {
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        font-size: 44px;
+        border-radius: 50%;
+        border: 2px solid #ffffff;
+    }
+
     &.Avatar-plain {
         position: relative;
         display: inline-flex;
