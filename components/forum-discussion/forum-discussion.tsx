@@ -80,14 +80,10 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
     handleJoindThread = () => {
         const {userId} = this.props;
         const {post} = this.state;
-
-        const uri = new URL('https://localhost:44312/api/crypter/jointhread');
-        const params = {user_id: userId, forum_id: post.id};
-        uri.search = new URLSearchParams(params);
-
+        
         if(post){
-            const uri = new URL('https://localhost:44312/api/crypter/createreply');
-            const params = {user_id: userId, forum_id: post.id, comment: commentText};
+            const uri = new URL('https://localhost:44312/api/crypter/jointhread');
+            const params = {user_id: userId, forum_id: post.id};
             uri.search = new URLSearchParams(params);
 
             fetch(uri, {
