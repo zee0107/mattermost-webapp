@@ -28,6 +28,7 @@ type State = {
     post: ForumTopic;
     comments: Comment[];
     commentText?: string;
+    textError: string;
 };
 
 export default class ForumDiscussion extends React.PureComponent<Props, State> {
@@ -115,7 +116,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {currentUser, userId} = this.props;
-        const {post,comments} = this.state;
+        const {post,comments, textError} = this.state;
 
         let name;
         if(currentUser){
@@ -256,18 +257,22 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                                         <strong className='ms-2 text-end'>Topic name</strong>
                                                     </p>
                                                 </div>
-                                            </div>
+                                            </div>*/}
                                             <div className='d-grid mt-2'>
                                                 <button type='button' className='btn btn-creative btn-sm text-white onJoinus'>
-                                                    JOIN US
+                                                    JOIN DISCUSSION
                                                 </button>
                                                 <button type='button' className='btn btn-creative btn-sm text-white onApproval' disabled>
                                                     JOINED
                                                 </button>
-                                            </div>*/}
+                                            </div>
                                             <hr/>
                                             <strong>Related Topics</strong>
-                                            <p className='mt-4 mb-4'>
+                                            <p className='mt-5 mb-4 text-muted'>
+                                                <i className='bi-journal-x'></i>
+                                                <strong>No Related Topic</strong>
+                                            </p>
+                                            {/*<p className='mt-4 mb-4'>
                                                 <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-2.png' />
                                                 <strong className='ms-2 text-end'>Topic name</strong>
                                                 <i className='bi-dot'></i>
@@ -296,7 +301,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                                 <strong className='ms-2 text-end'>Topic name</strong>
                                                 <i className='bi-dot'></i>
                                             <small>5/29/2022</small>
-                                            </p>
+                                            </p>*/}
                                         </div>
                                     </div>
                                 </div>
