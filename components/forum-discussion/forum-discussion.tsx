@@ -95,6 +95,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
         if(comments){
             commentCount = comments.length;
+            console.log(comments);
             renderComments = (
                 <>
                     {comments.map((item,index) => {
