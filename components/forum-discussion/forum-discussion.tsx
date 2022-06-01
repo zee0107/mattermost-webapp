@@ -94,7 +94,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                 <div className='row'>
                                     <div className='col-lg-8'>
                                         <div className='box-middle-panel mt-3'>
-                                            {this.renderProfilePicture(fxl)}
+                                            {this.renderProfilePicture('fxl')}
                                             <strong className='mt-2 ms-2 float-start'>Name of user group</strong>
                                             <br/>
                                             <p className='mb-0 p-3 ms-2'>
@@ -106,7 +106,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                         </div>
 
                                         <div className='box-middle-panel mt-4'>
-                                            {this.renderProfilePicture(fxl)}
+                                            {this.renderProfilePicture('fxl')}
                                             <strong className='mt-2 ms-2 float-start'>Group member comment</strong>
                                             <br/>
                                             <p className='mb-0 p-3 ms-2'>
@@ -115,7 +115,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                         </div>
 
                                         <div className='box-middle-panel mt-4'>
-                                            {this.renderProfilePicture(fxl)}
+                                            {this.renderProfilePicture('fxl')}
                                             <strong className='mt-2 ms-2 float-start'>Group member comment</strong>
                                             <br/>
                                             <p className='mb-0 p-3 ms-2'>
@@ -124,7 +124,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                         </div>
 
                                         <div className='box-middle-panel mt-4'>
-                                            {this.renderProfilePicture(fxl)}
+                                            {this.renderProfilePicture('fxl')}
                                             <strong className='mt-2 ms-2 float-start'>NGroup member comment</strong>
                                             <br/>
                                             <p className='mb-0 p-3 ms-2'>
