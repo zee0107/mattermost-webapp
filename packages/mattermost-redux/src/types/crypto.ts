@@ -269,7 +269,7 @@ export type ForumTopic = {
     date_posted: string;
 }
 
-export type ForumTopic = {
+export type ForumReply = {
     id: string;
     forum_id: string;
     post_user: string;
