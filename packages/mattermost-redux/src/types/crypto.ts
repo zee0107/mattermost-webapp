@@ -253,6 +253,11 @@ export type Thread = {
     user_id: string;
 }
 
+export type Comment = {
+    commentID: string;
+    userId: string;
+}
+
 export type ForumTopic = {
     id: string;
     post_user: string;

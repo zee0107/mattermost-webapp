@@ -8,7 +8,7 @@ import { UserProfile } from 'mattermost-redux/types/users';
 import ForumMember from 'components/forum_member';
 import ForumBrowse from 'components/forum_browse';
 import ForumThread from 'components/forum_threads';
-import { ForumTopic, Thread } from 'mattermost-redux/types/crypto';
+import { Comment, ForumTopic, Thread } from 'mattermost-redux/types/crypto';
 import ForumComments from 'components/forum_comments';
 
 export type Props = {
@@ -16,7 +16,7 @@ export type Props = {
     profilePicture: string;
     currentUser: UserProfile;
     post: Promise<ForumTopic>;
-    comments: Promise<string[]>;
+    comments: Promise<Comment[]>;
 }
 
 type State = {
@@ -25,7 +25,7 @@ type State = {
     currentUser: UserProfile;
     joined: boolean;
     post: ForumTopic;
-    comments: string[];
+    comments: Comment[];
 };
 
 export default class ForumDiscussion extends React.PureComponent<Props, State> {
@@ -77,6 +77,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
         let postTopic, postDetails, date, viewCount,likeCount,disLikeCount,commentCount;
         let renderPost;
+        let renderComments;
         if(post){
             postTopic = post.post_title;
             postDetails = post.post_text;
@@ -90,6 +91,16 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                     <ForumComments userId={post.post_user} forumId={post.id} postType={'post'} view={'desktop'} />
                 </>
             )
+
+            renderComments = (
+                <>
+                    {comments.map((item,index) => {
+                        return (
+                            <ForumComments userId={item.userId} forumId={item.commentID} postType={'comment'} view={'desktop'} key={`${item.commentID}--${index}`} />
+                        );
+                    })}
+                </>
+            );
         }
 
         if(comments){
@@ -139,7 +150,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                 <div className='row'>
                                     <div className='col-lg-8'>
                                         {renderPost}
-
+                                        {renderComments}
                                         <div className='box-middle-panel mt-4 p-4'>
                                             <strong>Comments</strong>
                                             <div className='form-floating mt-2 mb-2'>
@@ -211,33 +222,33 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                             <hr/>
                                             <strong>Related Topics</strong>
                                             <p className='mt-4 mb-4'>
-                                            <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-2.png' />
-                                            <strong className='ms-2 text-end'>Topic name</strong>
-                                            <i className='bi-dot'></i>
-                                            <small>5/31/2022</small>
+                                                <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-2.png' />
+                                                <strong className='ms-2 text-end'>Topic name</strong>
+                                                <i className='bi-dot'></i>
+                                                <small>5/31/2022</small>
                                             </p>
                                             <p className='mt-4 mb-4'>
-                                            <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-3.png' />
-                                            <strong className='ms-2 text-end'>Topic name</strong>
-                                            <i className='bi-dot'></i>
-                                            <small>5/29/2022</small>
+                                                <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-3.png' />
+                                                <strong className='ms-2 text-end'>Topic name</strong>
+                                                <i className='bi-dot'></i>
+                                                <small>5/29/2022</small>
                                             </p>
                                             <p className='mt-4 mb-4'>
-                                            <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-4.png' />
-                                            <strong className='ms-2 text-end'>Topic name</strong>
-                                            <i className='bi-dot'></i>
-                                            <small>5/29/2022</small>
+                                                <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-4.png' />
+                                                <strong className='ms-2 text-end'>Topic name</strong>
+                                                <i className='bi-dot'></i>
+                                                <small>5/29/2022</small>
                                             </p>
                                             <p className='mt-4 mb-4'>
-                                            <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-5.png' />
-                                            <strong className='ms-2 text-end'>Topic name</strong>
-                                            <i className='bi-dot'></i>
-                                            <small>5/29/2022</small>
+                                                <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-5.png' />
+                                                <strong className='ms-2 text-end'>Topic name</strong>
+                                                <i className='bi-dot'></i>
+                                                <small>5/29/2022</small>
                                             </p>
                                             <p className='mt-4 mb-4'>
-                                            <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-6.png' />
-                                            <strong className='ms-2 text-end'>Topic name</strong>
-                                            <i className='bi-dot'></i>
+                                                <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-6.png' />
+                                                <strong className='ms-2 text-end'>Topic name</strong>
+                                                <i className='bi-dot'></i>
                                             <small>5/29/2022</small>
                                             </p>
                                         </div>
