@@ -91,7 +91,10 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                     <ForumComments userId={post.post_user} forumId={post.id} postType={'post'} view={'desktop'} />
                 </>
             )
+        }
 
+        if(comments){
+            commentCount = comments.length;
             renderComments = (
                 <>
                     {comments.map((item,index) => {
@@ -101,10 +104,6 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                     })}
                 </>
             );
-        }
-
-        if(comments){
-            commentCount = comments.length;
         }
         else{
             commentCount = 0;
