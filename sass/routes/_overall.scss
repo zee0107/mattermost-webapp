@@ -93,6 +93,58 @@ p {
   //font-family: "Montserrat-Regular";
   font-size: 12px;
 }
+.insetlayoutmobile {
+  display: none;
+}
+.onInsetreverseback {
+  display: none;
+  cursor: pointer;
+  color: rgb(127,207,87);
+  color: -moz-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+  color: -webkit-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+  color: linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+}
+.onInsetreverse {
+  cursor: pointer;
+  color: rgb(127,207,87);
+  color: -moz-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+  color: -webkit-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+  color: linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+}
+.onInsetreversebackmobile {
+  display: none;
+  cursor: pointer;
+  color: rgb(127,207,87);
+  color: -moz-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+  color: -webkit-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+  color: linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+}
+.onInsetreversemobile {
+  cursor: pointer;
+  color: rgb(127,207,87);
+  color: -moz-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+  color: -webkit-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+  color: linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+}
+.bi-layout-sidebar-inset-reverse-style {
+  font-size: 21px;
+}
+.onApproval {
+  display: none;
+  pointer-events: none;
+}
+.onClosememberslist {
+  cursor: pointer;
+}
+.showmembers {
+  display: none;
+}
+.onShowmembers {
+  cursor: pointer;
+}
+.img-position {
+  margin: -27px 0px 0px 0px;
+}
 .launchpad-token-lock-info {
   background: rgb(52,200,84);
   background: linear-gradient(103deg, rgba(52,200,84,1) 0%, rgba(99,210,58,1) 42%, rgba(94,211,69,1) 48%, rgba(68,215,124,1) 100%);
@@ -997,9 +1049,6 @@ color: #F9D556;
   //background: url('../../assets/images/Page-dummy-cover-my-groups.png') #DDDDDD center no-repeat;
   padding: 1px 0px 115px 0px;
   margin: 14px 0px 0px 0px;
-}
-.img-position {
-  margin: -27px 0px 0px 0px;
 }
 .groups-discover-2 {
   //background: url('../../assets/images/maisy-the-crazy-pug-and-daisy-with-paisley-meta.png') #DDDDDD center;
@@ -2138,6 +2187,15 @@ z-index: 1;
   background: #80CF57;
   border-radius: 34px;
   padding: 12px 0px 7px 0px;
+  margin: 0px 0px 0px 0px;
+  color: #fff;
+}
+.onForummmobile {
+  cursor: pointer;
+  background: rgb(52,200,84);
+  background: linear-gradient(103deg, rgba(52,200,84,1) 0%, rgba(99,210,58,1) 42%, rgba(94,211,69,1) 48%, rgba(68,215,124,1) 100%);
+  border-radius: 34px;
+  padding: 18px 0px 12px 0px;
   margin: 0px 0px 0px 0px;
   color: #fff;
 }
