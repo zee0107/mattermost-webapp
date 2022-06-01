@@ -66,7 +66,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
         const {post, commentText, comments} = this.state;
 
         if(post){
-            const uri = new URL('https://localhost:44312/api/crypter/createthread');
+            const uri = new URL('https://localhost:44312/api/crypter/createreply');
             const params = {user_id: userId, forum_id: post.id, comment: commentText};
             uri.search = new URLSearchParams(params);
 
