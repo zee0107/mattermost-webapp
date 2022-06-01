@@ -4149,61 +4149,61 @@ export default class Client4 {
 
     myCommentList = (id: string) => {
         return this.doFetch<string[]>(
-            `https://localhost:44312/api/crypter/mymessages?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/mymessages?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     myThreadList = (id: string) => {
         return this.doFetch<string[]>(
-            `https://localhost:44312/api/crypter/mythreads?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/mythreads?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     forumMembers = () => {
         return this.doFetch<string[]>(
-            `https://localhost:44312/api/crypter/forummembers`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/forummembers`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     allThreads = () => {
         return this.doFetch<Thread[]>(
-            `https://localhost:44312/api/crypter/listthreads`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/listthreads`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getThread = (id: string) => {
         return this.doFetch<ForumTopic>(
-            `https://localhost:44312/api/crypter/getthread?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getthread?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     listComments = (id: string) => {
         return this.doFetch<Comment[]>(
-            `https://localhost:44312/api/crypter/listcomments?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/listcomments?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getComment = (id: string) => {
         return this.doFetch<ForumReply>(
-            `https://localhost:44312/api/crypter/getcomment?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getcomment?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getThreadMeber = (fid: string,id: string) => {
         return this.doFetch<ForumReply>(
-            `https://localhost:44312/api/crypter/threadmembership?fid=${fid}&id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/threadmembership?fid=${fid}&id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getThreadMeberCount = (fid: string,id: string) => {
         return this.doFetch<ForumReply>(
-            `https://localhost:44312/api/crypter/threadmembercount?fid=${fid}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/threadmembercount?fid=${fid}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getThreadCommentCount = (fid: string,id: string) => {
         return this.doFetch<ForumReply>(
-            `https://localhost:44312/api/crypter/threadcommentcount?fid=${fid}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/threadcommentcount?fid=${fid}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
