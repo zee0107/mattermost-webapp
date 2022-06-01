@@ -33,12 +33,14 @@ function makeMapStateToProps() {
             userId = ownprops.userId;
         }
         const post = Client4.getThread(ownprops.forumId);
+        const memberCount = Client4.getThreadMeberCount(ownprops.forumId);
         return {
             userId,
             userData,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
             post,
+            memberCount,
         };
     };
 }

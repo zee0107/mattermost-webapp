@@ -4,7 +4,7 @@ import React, {ReactNode} from 'react';
 
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import { UserProfile } from 'mattermost-redux/types/users';
-import { ForumTopic } from 'mattermost-redux/types/crypto';
+import { Comment, ForumTopic } from 'mattermost-redux/types/crypto';
 
 
 type Props = {
@@ -15,11 +15,13 @@ type Props = {
     view: string;
     forumId: string;
     post: Promise<ForumTopic>;
+    comments: Promise<Comment>;
 }
 
 type State = {
     isDark: string;
     post: ForumTopic;
+    comments: Comment;
 };
 
 export default class ForumThread extends React.PureComponent<Props, State> {
@@ -36,6 +38,10 @@ export default class ForumThread extends React.PureComponent<Props, State> {
 
         if(this.props.post !== undefined && this.props.post !== null){
             Promise.resolve(this.props.post).then((value) => { this.setState({post: value}); });
+        }
+
+        if(this.props.comments !== undefined && this.props.comments !== null){
+            Promise.resolve(this.props.comments).then((value) => { this.setState({comments: value}); });
         }
     }
 
@@ -70,15 +76,22 @@ export default class ForumThread extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {currentUser, profilePicture, userData, view} = this.props;
-        const {post} = this.state;
+        const {post, comments} = this.state;
 
         let postTitle;
         let postDesc;
         let postId;
+        let viewCount;
+        let commentCount;
         if(post){
             postId = post.id;
             postTitle = post.post_title;
             postDesc = post.post_text.substring(0,50).toString() + '...';
+            viewCount = post.view_count;
+        }
+
+        if(comments){
+            commentCount = comments.length;
         }
 
         let renderView;
@@ -94,9 +107,9 @@ export default class ForumThread extends React.PureComponent<Props, State> {
                                 <p><a href='#' onClick={() => this.handleRedirect(postId)}><label><strong>{postTitle}</strong></label></a><br/><small>{postDesc}</small></p>
                                 </div>
                                 <div className='col-2 text-center mt-3 mb-2'><strong>0</strong></div>
+                                <div className='col-2 text-center mt-3 mb-2'><strong>{viewCount}</strong></div>
                                 <div className='col-2 text-center mt-3 mb-2'><strong>0</strong></div>
-                                <div className='col-2 text-center mt-3 mb-2'><strong>0</strong></div>
-                                <div className='col-2 text-center mt-3 mb-2'><strong>0</strong></div>
+                                <div className='col-2 text-center mt-3 mb-2'><strong>{commentCount}</strong></div>
                             </div>
                         </div>
                     </div>
@@ -114,9 +127,9 @@ export default class ForumThread extends React.PureComponent<Props, State> {
                             </div>
                             <hr/>
                             <div className='col-3 text-center mt-0 mb-2'><strong>0</strong><br/><small className='text-muted'>Posts</small></div>
-                            <div className='col-3 text-center mt-0 mb-2'><strong>0</strong><br/><small className='text-muted'>Views</small></div>
+                            <div className='col-3 text-center mt-0 mb-2'><strong>{viewCount}</strong><br/><small className='text-muted'>Views</small></div>
                             <div className='col-3 text-center mt-0 mb-2'><strong>0</strong><br/><small className='text-muted'>Likes</small></div>
-                            <div className='col-3 text-center mt-0 mb-2'><strong>0</strong><br/><small className='text-muted'>Comments</small></div>
+                            <div className='col-3 text-center mt-0 mb-2'><strong>{commentCount}</strong><br/><small className='text-muted'>Comments</small></div>
                         </div>
                     </div>
                 </div>

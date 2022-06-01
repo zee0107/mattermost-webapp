@@ -15,11 +15,13 @@ type Props = {
     view: string;
     forumId: string;
     post: Promise<ForumTopic>;
+    memberCount: Promise<number>;
 }
 
 type State = {
     isDark: string;
     post: ForumTopic;
+    memberCount: number;
 };
 
 export default class ForumBrowse extends React.PureComponent<Props, State> {
@@ -37,6 +39,10 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
         if(this.props.post !== undefined && this.props.post !== null){
             Promise.resolve(this.props.post).then((value) => { this.setState({post: value}); });
         }
+
+        if(this.props.memberCount !== undefined && this.props.memberCount !== null){
+            Promise.resolve(this.props.memberCount).then((value) => { this.setState({memberCount: value}); });
+        }
     }
 
     handleRedirect = (id: string) => {
@@ -52,7 +58,7 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
             }
         }).catch(error => this.setState({textError: error}));
     }
-    
+
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
             return null;
@@ -69,7 +75,7 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {currentUser, profilePicture, userData, view} = this.props;
-        const {post} = this.state;
+        const {post,memberCount} = this.state;
         let name;
         if(currentUser){
             if(currentUser.first_name !== ''){
@@ -83,10 +89,12 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
         let postTitle;
         let postDesc;
         let postId;
+        let viewCount;
         if(post){
             postTitle = post.post_title;
             postDesc = post.post_text.substring(0,50).toString()+'...';
             postId = post.id;
+            viewCount = post.view_count;
         }
 
         let renderView;
@@ -107,8 +115,8 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
                                     <p><label><strong>@{currentUser.username}</strong></label><br/><small>By: <a className='text-success'>{name}</a></small>
                                     <small className='ms-1'>1 Day ago</small></p>
                                 </div>
-                                <div className='col-2 text-center mt-3 mb-2'><strong>0</strong></div>
-                                <div className='col-2 text-center mt-3 mb-2'><strong>0</strong></div>
+                                <div className='col-2 text-center mt-3 mb-2'><strong>{memberCount}</strong></div>
+                                <div className='col-2 text-center mt-3 mb-2'><strong>{viewCount{</strong></div>
                             </div>
                         </div>
                     </div>
@@ -134,9 +142,9 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
                             <small className='ms-1'>1 Day ago</small></p>
                         </div>
                         <div className='col-2 text-center'>
-                            <label>0 <br/><small className='text-muted'>Topic</small></label>
+                            <label>{memberCount} <br/><small className='text-muted'>Member</small></label>
                         </div>
-                        <div className='col-3 text-center'><label>0</label><br/><small className='text-muted'>Posts</small></div>
+                        <div className='col-3 text-center'><label>{viewCount}</label><br/><small className='text-muted'>Search</small></div>
                         </div>
                     </div>
                 </div>
