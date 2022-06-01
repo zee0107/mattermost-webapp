@@ -89,7 +89,7 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
                                 <div className='col-4 mt-2 mb-2'>
                                     {this.renderProfilePicture('lg')}
                                     {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-5.png' alt=''/>*/}
-                                    <p><label><strong>{currentUser.username}</strong></label><br/><small>By: <a className='text-success'>{name}</a></small>
+                                    <p><label><strong>@{currentUser.username}</strong></label><br/><small>By: <a className='text-success'>{name}</a></small>
                                     <small className='ms-1'>1 Day ago</small></p>
                                 </div>
                                 <div className='col-2 text-center mt-3 mb-2'><strong>0</strong></div>
@@ -115,7 +115,7 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
                         <div className='col-6'>
                             {this.renderProfilePicture('lg')}
                             {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-4.png' alt='' />*/}
-                            <p><label><strong>{currentUser.username}</strong></label><br/><small>By: <a className='text-success'>{name}</a></small>
+                            <p><label><strong>@{currentUser.username}</strong></label><br/><small>By: <a className='text-success'>{name}</a></small>
                             <small className='ms-1'>1 Day ago</small></p>
                         </div>
                         <div className='col-2 text-center'>
