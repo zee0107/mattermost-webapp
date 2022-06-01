@@ -4201,6 +4201,12 @@ export default class Client4 {
         );
     }
 
+    getThreadCommentCount = (fid: string,id: string) => {
+        return this.doFetch<ForumReply>(
+            `https://localhost:44312/api/crypter/threadcommentcount?fid=${fid}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
 
     // Client Helpers
 

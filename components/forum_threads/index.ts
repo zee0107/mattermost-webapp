@@ -29,14 +29,14 @@ function makeMapStateToProps() {
         userId = currentUser.id;
         
         const post = Client4.getThread(ownprops.forumId);
-        const comments = Client4.listComments(ownprops.forumId);
+        const commentCount = Client4.getThreadCommentCount(ownprops.forumId);
         return {
             userId,
             userData,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
             post,
-            comments,
+            commentCount,
         };
     };
 }

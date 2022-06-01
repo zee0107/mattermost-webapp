@@ -15,13 +15,13 @@ type Props = {
     view: string;
     forumId: string;
     post: Promise<ForumTopic>;
-    comments: Promise<Comment>;
+    commentCount: Promise<number>;
 }
 
 type State = {
     isDark: string;
     post: ForumTopic;
-    comments: Comment;
+    commentCount: number;
 };
 
 export default class ForumThread extends React.PureComponent<Props, State> {
@@ -40,8 +40,8 @@ export default class ForumThread extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.post).then((value) => { this.setState({post: value}); });
         }
 
-        if(this.props.comments !== undefined && this.props.comments !== null){
-            Promise.resolve(this.props.comments).then((value) => { this.setState({comments: value}); });
+        if(this.props.commentCount !== undefined && this.props.commentCount !== null){
+            Promise.resolve(this.props.commentCount).then((value) => { this.setState({commentCount: value}); });
         }
     }
 
@@ -76,22 +76,17 @@ export default class ForumThread extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {currentUser, profilePicture, userData, view} = this.props;
-        const {post, comments} = this.state;
+        const {post, commentCount} = this.state;
 
         let postTitle;
         let postDesc;
         let postId;
         let viewCount;
-        let commentCount;
         if(post){
             postId = post.id;
             postTitle = post.post_title;
             postDesc = post.post_text.substring(0,50).toString() + '...';
             viewCount = post.view_count;
-        }
-
-        if(comments){
-            commentCount = comments.length;
         }
 
         let renderView;
