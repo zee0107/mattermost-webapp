@@ -18,6 +18,7 @@ export type Props = {
     currentUser: UserProfile;
     post: Promise<ForumTopic>;
     comments: Promise<Comment[]>;
+    isMember: Promise<boolean>;
 }
 
 type State = {
@@ -29,6 +30,7 @@ type State = {
     comments: Comment[];
     commentText?: string;
     textError: string;
+    isMember: boolean;
 };
 
 export default class ForumDiscussion extends React.PureComponent<Props, State> {
@@ -56,10 +58,16 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
         if(this.props.post !== undefined && this.props.post !== null){
             Promise.resolve(this.props.post).then((value) => {this.setState({post: value});});
         }
+
+        if(this.props.isMember !== undefined && this.props.isMember !== null){
+            Promise.resolve(this.props.isMember).then((value) => {this.setState({isMember: value});});
+        }
+        this.setDefaultMember();
     }
 
     handleChangeComment = (e) => {
         this.setState({commentText: e.target.value});
+
     }
 
     componentDidUpdate(_,prevState) {
@@ -69,6 +77,26 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
         }
     }
 
+    handleJoindThread = () => {
+        const {userId} = this.props;
+        const {post} = this.state;
+
+        const uri = new URL('https://localhost:44312/api/crypter/jointhread');
+        const params = {user_id: userId, forum_id: post.id};
+        uri.search = new URLSearchParams(params);
+
+        if(post){
+            const uri = new URL('https://localhost:44312/api/crypter/createreply');
+            const params = {user_id: userId, forum_id: post.id, comment: commentText};
+            uri.search = new URLSearchParams(params);
+
+            fetch(uri, {
+                method: 'POST',
+            }).then((response) => response.json()).then((data)=>{    
+                this.setState({isMember: data});
+            }).catch(error => this.setState({textError: error}));
+        }
+    }
 
     handleSubmit = () => {
         const {userId} = this.props;
@@ -93,7 +121,17 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                 }
             }).catch(error => this.setState({textError: error}));
         }
+    }
 
+    setDefaultMember = () => {
+        const {userId} = this.props;
+        const {post} = this.state;
+
+        if(post){
+            if(userId === post.post_user){
+                this.setState({isMember: true});
+            }
+        }
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -111,11 +149,40 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {currentUser, userId} = this.props;
-        const {post,comments, textError} = this.state;
+        const {post,comments, textError, isMember} = this.state;
 
         let name;
         if(currentUser){
             name = currentUser.username;
+        }
+
+        let btnJoin;
+        let inputReplyDesktop;
+        if(isMember){
+            btnJoin = (
+                <button type='button' className='btn-add-post text-white onApproval' disabled>
+                    JOINED
+                </button>
+            );
+
+            inputReplyDesktop = (
+                <div className='box-middle-panel mt-4 p-4'>
+                    <strong>Comments</strong>
+                    <div className='form-floating mt-2 mb-2'>
+                        <textarea className='form-control' placeholder='Leave a comment here' onChange={this.handleChangeComment} value={this.state.commentText} id='floatingTextarea' style={{height: '100px'}}></textarea>
+                        <label htmlFor='floatingTextarea'>Leave a comment here</label>
+                    </div>
+                    <div className='d-grid gap-2'>
+                        <button className='btn-add-post text-white' onClick={() => this.handleSubmit()} type='button'>SUBMIT</button>
+                    </div>
+                </div>
+            );
+        }else{
+            btnJoin = (
+                <button type='button' onClick={() => this.handleJoindThread() } className='btn-add-post text-white onJoinus'>
+                    JOIN DISCUSSION
+                </button>
+            );
         }
 
         let postTopic, postDetails, date, viewCount,likeCount,disLikeCount,commentCount;
@@ -193,16 +260,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                     <div className='col-lg-8'>
                                         {renderPost}
                                         {renderComments}
-                                        <div className='box-middle-panel mt-4 p-4'>
-                                            <strong>Comments</strong>
-                                            <div className='form-floating mt-2 mb-2'>
-                                                <textarea className='form-control' placeholder='Leave a comment here' onChange={this.handleChangeComment} value={this.state.commentText} id='floatingTextarea' style={{height: '100px'}}></textarea>
-                                                <label htmlFor='floatingTextarea'>Leave a comment here</label>
-                                            </div>
-                                            <div className='d-grid gap-2'>
-                                                <button className='btn-add-post text-white' onClick={() => this.handleSubmit()} type='button'>SUBMIT</button>
-                                            </div>
-                                        </div>
+                                        {inputReplyDesktop}
                                     </div>
                                 <div className='col-lg-4'>
                                     <div className='position-sticky float-right-panel'>
@@ -254,12 +312,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                                 </div>
                                             </div>*/}
                                             <div className='d-grid mt-2'>
-                                                <button type='button' className='btn-add-post text-white onJoinus'>
-                                                    JOIN DISCUSSION
-                                                </button>
-                                                <button type='button' className='btn-add-post text-white onApproval' disabled>
-                                                    JOINED
-                                                </button>
+                                                {btnJoin}
                                             </div>
                                             <hr/>
                                             <strong>Related Topics</strong>
