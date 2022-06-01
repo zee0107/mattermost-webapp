@@ -10,6 +10,7 @@ import ForumBrowse from 'components/forum_browse';
 import ForumThread from 'components/forum_threads';
 import { Comment, ForumTopic, Thread } from 'mattermost-redux/types/crypto';
 import ForumComments from 'components/forum_comments';
+import { getItem } from 'localforage';
 
 export type Props = {
     userId: string;
@@ -99,9 +100,9 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
             renderComments = (
                 <>
                     {comments.map((item,index) => {
-                        console.log(item[index].commentID);
+                        console.log(item.commentID);
                         return (
-                            <ForumComments userId={item[index].userId} forumId={item[index].commentID} postType={'comment'} view={'desktop'} key={`${item.commentID}--${index}`} />
+                            <ForumComments userId={item.userId} forumId={item.commentID} postType={'comment'} view={'desktop'} key={`${item.commentID}--${index}`} />
                         );
                     })}
                 </>
