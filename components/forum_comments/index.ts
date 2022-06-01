@@ -33,8 +33,6 @@ function makeMapStateToProps() {
             currentUser = getOhterUser(state,ownprops.userId);
             userId = ownprops.userId;
         }
-        console.log(ownprops.forumId);
-        console.log(ownprops.postType);
         let post;
         if(ownprops.postType === 'post'){
             post = Client4.getThread(ownprops.forumId);

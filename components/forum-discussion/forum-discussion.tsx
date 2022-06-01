@@ -99,6 +99,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
             renderComments = (
                 <>
                     {comments.map((item,index) => {
+                        console.log(item.commentID);
                         return (
                             <ForumComments userId={item.userId} forumId={item.commentID} postType={'comment'} view={'desktop'} key={`${item.commentID}--${index}`} />
                         );
