@@ -27,7 +27,7 @@ type State = {
     joined: boolean;
     post: ForumTopic;
     comments: Comment[];
-    commentText: string;
+    commentText?: string;
 };
 
 export default class ForumDiscussion extends React.PureComponent<Props, State> {
@@ -61,6 +61,14 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
         this.setState({commentText: e.target.value});
     }
 
+    componentDidUpdate(_,prevState) {
+        const {comments} = this.state;
+        if (comments !== prevState.comments) {
+            this.setState({comments: comments, commentText: undefined});
+        }
+    }
+
+
     handleSubmit = () => {
         const {userId} = this.props;
         const {post, commentText, comments} = this.state;
@@ -78,6 +86,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                 }else if (data === 'Failed'){
                     this.setState({textError: 'Please try again.'});
                 }else{
+                    console.log(true);
                     Object.keys(comments).map((item) => {
                         const index = toInteger(item);
                         this.setState((prevState) => ({
