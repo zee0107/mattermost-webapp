@@ -93,7 +93,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                             <div className='content-forums-browse'>
                                 <div className='row'>
                                     <div className='col-lg-8'>
-                                        <div className='box-middle-panel mt-3'>
+                                        <div className='box-middle-panel mt-6'>
                                             {this.renderProfilePicture('fxl')}
                                             <strong className='mt-2 ms-2 float-start'>Name of user group</strong>
                                             <br/>
@@ -105,7 +105,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                             </p>
                                         </div>
 
-                                        <div className='box-middle-panel mt-4'>
+                                        <div className='box-middle-panel mt-7'>
                                             {this.renderProfilePicture('fxl')}
                                             <strong className='mt-2 ms-2 float-start'>Group member comment</strong>
                                             <br/>
@@ -114,7 +114,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                             </p>
                                         </div>
 
-                                        <div className='box-middle-panel mt-4'>
+                                        <div className='box-middle-panel mt-7'>
                                             {this.renderProfilePicture('fxl')}
                                             <strong className='mt-2 ms-2 float-start'>Group member comment</strong>
                                             <br/>
@@ -123,7 +123,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                             </p>
                                         </div>
 
-                                        <div className='box-middle-panel mt-4'>
+                                        <div className='box-middle-panel mt-7'>
                                             {this.renderProfilePicture('fxl')}
                                             <strong className='mt-2 ms-2 float-start'>NGroup member comment</strong>
                                             <br/>
@@ -156,7 +156,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                                     </small>
                                                 </strong>
                                             </div>
-                                            <div className='showmembers'>
+                                            {/*<div className='showmembers'>
                                                 <div className='d-grid mt-0 mb-0'>
                                                     <hr/>
                                                     <p>
@@ -199,7 +199,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                                 <button type='button' className='btn btn-creative btn-sm text-white onApproval' disabled>
                                                     JOINED
                                                 </button>
-                                            </div>
+                                            </div>*/}
                                             <hr/>
                                             <strong>Related Topics</strong>
                                             <p className='mt-4 mb-4'>
