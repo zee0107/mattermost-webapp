@@ -68,7 +68,6 @@ export default class ForumComments extends React.PureComponent<Props, State> {
         if(postType === 'post'){
 
             if(post){
-                console.log(post);
                 postDesc = post.post_text;
                 postId = post.id;
             }
