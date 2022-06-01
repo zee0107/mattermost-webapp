@@ -75,10 +75,9 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
             name = currentUser.username;
         }
 
-        let postId,postTopic, postDetails, date, viewCount,likeCount,disLikeCount,commentCount;
+        let postTopic, postDetails, date, viewCount,likeCount,disLikeCount,commentCount;
         let renderPost;
         if(post){
-            postId = post.id;
             postTopic = post.post_title;
             postDetails = post.post_text;
             date = new Date(post.date_posted).toDateString();
@@ -88,7 +87,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
             renderPost = (
                 <>
-                    <ForumComments userId={userId} forumId={post.post_user} postType={'post'} view={'desktop'} />
+                    <ForumComments userId={post.post_user} forumId={post.id} postType={'post'} view={'desktop'} />
                 </>
             )
         }
