@@ -53,7 +53,6 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
         );
     }
 
-
     render= (): JSX.Element => {
         const {currentUser, profilePicture, userData, view} = this.props;
         const {post} = this.state;

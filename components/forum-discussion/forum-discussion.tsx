@@ -9,6 +9,7 @@ import ForumMember from 'components/forum_member';
 import ForumBrowse from 'components/forum_browse';
 import ForumThread from 'components/forum_threads';
 import { ForumTopic, Thread } from 'mattermost-redux/types/crypto';
+import ForumComments from 'components/forum_comments';
 
 export type Props = {
     userId: string;
@@ -66,7 +67,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {currentUser} = this.props;
+        const {currentUser, userId} = this.props;
         const {post,comments} = this.state;
 
         let name;
@@ -74,8 +75,9 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
             name = currentUser.username;
         }
 
-        let postTopic, postDetails, date, viewCount,likeCount,disLikeCount,commentCount;
+        let postId,postTopic, postDetails, date, viewCount,likeCount,disLikeCount,commentCount;
         if(post){
+            postId = post.id;
             postTopic = post.post_title;
             postDetails = post.post_text;
             date = new Date(post.date_posted).toDateString();
@@ -130,23 +132,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                             <div className='content-forums-browse'>
                                 <div className='row'>
                                     <div className='col-lg-8'>
-                                        <div className='box-middle-panel mt-6'>
-                                            {this.renderProfilePicture('fxl')}
-                                            <strong className='mt-2 ms-2 float-start'>@{name}</strong>
-                                            <br/>
-                                            <p className='mb-0 p-3 ms-2'>
-                                                {postDetails}
-                                            </p>
-                                        </div>
-
-                                        <div className='box-middle-panel mt-7'>
-                                            {this.renderProfilePicture('fxl')}
-                                            <strong className='mt-2 ms-2 float-start'>Group member comment</strong>
-                                            <br/>
-                                            <p className='mb-0 p-3 ms-2'>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                                            </p>
-                                        </div>
+                                        <ForumComments userId={userId} forumId={postId} postType={'post'} view={'desktop'} />
 
                                         <div className='box-middle-panel mt-4 p-4'>
                                             <strong>Comments</strong>
