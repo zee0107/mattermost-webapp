@@ -88,7 +88,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
             renderPost = (
                 <>
-                    <ForumComments userId={userId} forumId={postId} postType={'post'} view={'desktop'} />
+                    <ForumComments userId={userId} forumId={post.post_user} postType={'post'} view={'desktop'} />
                 </>
             )
         }

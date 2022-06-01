@@ -28,7 +28,7 @@ export default class ForumComments extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {isDark:'light', post: []};
+        this.state = {isDark:'light',};
     }
 
     componentDidMount(){
