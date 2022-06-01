@@ -66,7 +66,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
         console.log('c: ',comments);
         console.log('p: ',prevState.comments);
         if (comments !== prevState.comments) {
-            this.setState({comments: comments, commentText: undefined});
+            this.setState({comments: comments, commentText: ''});
         }
     }
 
@@ -90,7 +90,10 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                 }else{
                     this.setState(prevState => ({
                         comments: [...prevState.comments, {commentId: data.commentId, userId: data.userId}]
-                      }))
+                      }));
+                    
+                      this.setState({});
+                    
                 }
             }).catch(error => this.setState({textError: error}));
         }
