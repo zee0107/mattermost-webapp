@@ -4189,6 +4189,12 @@ export default class Client4 {
         );
     }
 
+    getThreadMeber = (fid: string,id: string) => {
+        return this.doFetch<ForumReply>(
+            `https://localhost:44312/api/crypter/threadmembership?fid=${fid}&id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
 
     // Client Helpers
 
