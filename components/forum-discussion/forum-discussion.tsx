@@ -19,6 +19,7 @@ export type Props = {
     post: Promise<ForumTopic>;
     comments: Promise<Comment[]>;
     isMember: Promise<boolean>;
+    memberCount: Promise<number>;
 }
 
 type State = {
@@ -31,6 +32,7 @@ type State = {
     commentText?: string;
     textError: string;
     isMember: boolean;
+    memberCount: number;
 };
 
 export default class ForumDiscussion extends React.PureComponent<Props, State> {
@@ -61,6 +63,10 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
         if(this.props.isMember !== undefined && this.props.isMember !== null){
             Promise.resolve(this.props.isMember).then((value) => {this.setState({isMember: value});});
+        }
+
+        if(this.props.memberCount !== undefined && this.props.memberCount !== null){
+            Promise.resolve(this.props.memberCount).then((value) => {this.setState({memberCount: value});});
         }
         this.setDefaultMember();
     }
@@ -145,7 +151,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {currentUser, userId} = this.props;
-        const {post,comments, textError, isMember} = this.state;
+        const {post,comments, textError, isMember,memberCount} = this.state;
 
         let name;
         if(currentUser){
@@ -278,7 +284,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                                     <i className='bi-people-fill'></i> 
                                                     People joined
                                                     <i className='bi-dot'></i> 
-                                                    <a className='onShowmembers'>10.11K</a>
+                                                    <a className='onShowmembers'>{memberCount}</a>
                                                     </small>
                                                 </strong>
                                             </div>

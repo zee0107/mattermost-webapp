@@ -39,6 +39,20 @@ export default class ForumThread extends React.PureComponent<Props, State> {
         }
     }
 
+    handleRedirect = (id: string) => {
+        const uri = new URL('https://localhost:44312/api/crypter/addviewcount');
+        const params = {forum_id: id};
+        uri.search = new URLSearchParams(params);
+
+        fetch(uri, {
+            method: 'POST',
+        }).then((response) => response.json()).then((data)=>{    
+            if(data === 'Proceed'){
+                window.location.href = '/threads/discusion?u=' + id;
+            }
+        }).catch(error => this.setState({textError: error}));
+    }
+
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
             return null;
@@ -60,7 +74,9 @@ export default class ForumThread extends React.PureComponent<Props, State> {
 
         let postTitle;
         let postDesc;
+        let postId;
         if(post){
+            postId = post.id;
             postTitle = post.post_title;
             postDesc = post.post_text.substring(0,50).toString() + '...';
         }
@@ -75,7 +91,7 @@ export default class ForumThread extends React.PureComponent<Props, State> {
                                 <div className='col-4 mt-2 mb-2'>
                                 {this.renderProfilePicture('lg')}
                                 {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
-                                <p><label><strong>{postTitle}</strong></label><br/><small>{postDesc}</small></p>
+                                <p><a href='#' onClick={() => this.handleRedirect(postId)}><label><strong>{postTitle}</strong></label></a><br/><small>{postDesc}</small></p>
                                 </div>
                                 <div className='col-2 text-center mt-3 mb-2'><strong>0</strong></div>
                                 <div className='col-2 text-center mt-3 mb-2'><strong>0</strong></div>
@@ -94,7 +110,7 @@ export default class ForumThread extends React.PureComponent<Props, State> {
                             <div className='col-lg-12 mt-2 mb-2'>
                                 {this.renderProfilePicture('lg')}
                                 {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
-                                <p><label><strong>{postTitle}</strong></label><br/><small>{postDesc}</small></p>
+                                <p><a href='#' onClick={() => this.handleRedirect(postId)}><label><strong>{postTitle}</strong></label></a><br/><small>{postDesc}</small></p>
                             </div>
                             <hr/>
                             <div className='col-3 text-center mt-0 mb-2'><strong>0</strong><br/><small className='text-muted'>Posts</small></div>

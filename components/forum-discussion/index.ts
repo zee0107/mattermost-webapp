@@ -19,7 +19,7 @@ function makeMapStateToProps() {
         const post = Client4.getThread(searchParam);
         const comments = Client4.listComments(searchParam);
         const isMember = Client4.getThreadMeber(searchParam,userId);
-
+        const memberCount = Client4.getThreadMeberCount(searchParam);
         return {
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
@@ -27,6 +27,7 @@ function makeMapStateToProps() {
             post,
             comments,
             isMember,
+            memberCount,
         };
     };
 }
