@@ -41,6 +41,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
         this.state = { isDark:'light',};
         this.handleChangeComment = this.handleChangeComment.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount(){
