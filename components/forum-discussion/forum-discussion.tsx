@@ -193,7 +193,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                                 <label htmlFor='floatingTextarea'>Leave a comment here</label>
                                             </div>
                                             <div className='d-grid gap-2'>
-                                                <button className='btn btn-primary p-2 text-white' type='button'>SUBMIT</button>
+                                                <button className='btn btn-primary p-2 text-white' onClick={() => { this.handleSubmit() }} type='button'>SUBMIT</button>
                                             </div>
                                         </div>
                                     </div>
