@@ -63,12 +63,10 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
     componentDidUpdate(_,prevState) {
         const {comments} = this.state;
-        if (comments.length !== prevState.comments.length) {
-            console.log(true);
+        console.log('c: ',comments);
+        console.log('p: ',prevState.comments);
+        if (comments !== prevState.comments) {
             this.setState({comments: comments, commentText: undefined});
-        }
-        else{
-            console.log(false);
         }
     }
 
