@@ -254,7 +254,7 @@ export type Thread = {
 }
 
 export type Comment = {
-    commentID: string;
+    commentId: string;
     userId: string;
 }
 
