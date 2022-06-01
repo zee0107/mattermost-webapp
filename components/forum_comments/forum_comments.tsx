@@ -80,7 +80,7 @@ export default class ForumComments extends React.PureComponent<Props, State> {
                         <strong className='mt-2 ms-2 float-start'>@{name}</strong>
                         <br/>
                         <p className='mb-0 p-3 ms-2'>
-                            {postDetails}
+                            {postDesc}
                         </p>
                     </div>
                 );
