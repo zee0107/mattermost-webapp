@@ -135,8 +135,8 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                         <div className='box-middle-panel mt-4 p-4'>
                                             <strong>Comments</strong>
                                             <div className='form-floating mt-2 mb-2'>
-                                                <textarea className='form-control' placeholder='Leave a comment here' id='floatingTextarea' style='height: 100px'></textarea>
-                                                <label for='floatingTextarea'>Leave a comment here</label>
+                                                <textarea className='form-control' placeholder='Leave a comment here' id='floatingTextarea' style={{height: '100px'}}></textarea>
+                                                <label htmlFor='floatingTextarea'>Leave a comment here</label>
                                             </div>
                                             <div className='d-grid gap-2'>
                                                 <button className='btn btn-creative btn-sm text-white' type='button'>SUBMIT</button>
