@@ -88,12 +88,9 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                 }else if (data === 'Failed'){
                     this.setState({textError: 'Please try again.'});
                 }else{
-                    Object.keys(comments).map((item) => {
-                        const index = toInteger(item);
-                        this.setState((prevState) => ({
-                            comments: [...prevState.comments.slice(0, index), ...prevState.comments.slice(index + 1)]
-                        }));
-                    });
+                    this.setState(prevState => ({
+                        comments: [...prevState.comments, {commentId: data.commentId, userId: data.userId}]
+                      }))
                 }
             }).catch(error => this.setState({textError: error}));
         }
