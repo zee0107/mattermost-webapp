@@ -205,7 +205,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                                 <label htmlFor='floatingTextarea'>Leave a comment here</label>
                                             </div>
                                             <div className='d-grid gap-2'>
-                                                <button className='btn btn-primary p-2 text-white' onClick={() => this.handleSubmit()} type='button'>SUBMIT</button>
+                                                <button className='btn-add-post text-white' onClick={() => this.handleSubmit()} type='button'>SUBMIT</button>
                                             </div>
                                         </div>
                                     </div>
@@ -259,10 +259,10 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                                 </div>
                                             </div>*/}
                                             <div className='d-grid mt-2'>
-                                                <button type='button' className='btn btn-creative btn-sm text-white onJoinus'>
+                                                <button type='button' className='btn-add-post text-white onJoinus'>
                                                     JOIN DISCUSSION
                                                 </button>
-                                                <button type='button' className='btn btn-creative btn-sm text-white onApproval' disabled>
+                                                <button type='button' className='btn-add-post text-white onApproval' disabled>
                                                     JOINED
                                                 </button>
                                             </div>
