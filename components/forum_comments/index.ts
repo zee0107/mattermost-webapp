@@ -40,7 +40,7 @@ function makeMapStateToProps() {
             post = Client4.getThread(ownprops.forumId);
         }
         else{
-            post = Client4.getComment(ownpropst.forumId);
+            post = Client4.getComment(ownprops.forumId);
         }
 
         return {
