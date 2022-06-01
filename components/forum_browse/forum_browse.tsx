@@ -69,9 +69,11 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
 
         let postTitle;
         let postDesc;
+        let postId;
         if(post){
             postTitle = post.post_title;
             postDesc = post.post_text.substring(0,50).toString()+'...';
+            postId = post.id;
         }
 
         let renderView;
@@ -84,7 +86,7 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
                                 <div className='col-4 mt-2 mb-2'>
                                     {this.renderProfilePicture('lg')}
                                     {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
-                                    <p><a href='/threads/discusion' className='forum-menu-links'><label><strong>{postTitle}</strong></label><br/><small>{postDesc}</small></a></p>
+                                    <p><a href={`/threads/discusion?u=${postId}`} className='forum-menu-links'><label><strong>{postTitle}</strong></label></a><br/><small>{postDesc}</small></p>
                                 </div>
                                 <div className='col-4 mt-2 mb-2'>
                                     {this.renderProfilePicture('lg')}
@@ -107,7 +109,7 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
                         <div className='col-lg-12 mt-2 mb-0'>
                             {this.renderProfilePicture('lg')}
                             {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-2.png' alt='' />*/}
-                            <p><a href='/threads/discusion' className='forum-menu-links'><label><strong>{postTitle}</strong></label><br/><small>{postDesc}</small></a></p>
+                            <p><a href={`/threads/discusion?u=${postId}`} className='forum-menu-links'><label><strong>{postTitle}</strong></label></a><br/><small>{postDesc}</small></p>
                         </div>
                         </div>
                         <hr/>   
