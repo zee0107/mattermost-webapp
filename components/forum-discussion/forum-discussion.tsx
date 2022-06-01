@@ -8,18 +8,23 @@ import { UserProfile } from 'mattermost-redux/types/users';
 import ForumMember from 'components/forum_member';
 import ForumBrowse from 'components/forum_browse';
 import ForumThread from 'components/forum_threads';
-import { Thread } from 'mattermost-redux/types/crypto';
+import { ForumTopic, Thread } from 'mattermost-redux/types/crypto';
 
 export type Props = {
     userId: string;
     profilePicture: string;
     currentUser: UserProfile;
+    post: Promise<ForumTopic>;
+    comments: Promise<string[]>;
 }
 
 type State = {
     isDark: string;
     selectedMenu: string;
     currentUser: UserProfile;
+    joined: boolean;
+    post: ForumTopic;
+    comments: string[];
 };
 
 export default class ForumDiscussion extends React.PureComponent<Props, State> {
@@ -37,6 +42,14 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
+
+        if(this.props.comments !== undefined && this.props.comments !== null){
+            Promise.resolve(this.props.comments).then((value) => {this.setState({comments: value});});
+        }
+
+        if(this.props.post !== undefined && this.props.post !== null){
+            Promise.resolve(this.props.post).then((value) => {this.setState({post: value});});
+        }
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -53,6 +66,30 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
+        const {currentUser} = this.props;
+        const {post,comments} = this.state;
+
+        let name;
+        if(currentUser){
+            name = currentUser.username;
+        }
+
+        let postTopic, postDetails, date, viewCount,likeCount,disLikeCount,commentCount;
+        if(post){
+            postTopic = post.post_title;
+            postDetails = post.post_text;
+            date = new Date(post.date_posted).toDateString();
+            viewCount = post.view_count;
+            likeCount = post.like_count;
+            disLikeCount = post.dislike_count;
+        }
+
+        if(comments){
+            commentCount = comments.length;
+        }
+        else{
+            commentCount = 0;
+        }
         return (
             <>
                 <section className='crypter-section-desktop'>
@@ -63,27 +100,27 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                     <a className='onForum float-start'><i className='bi-chat-left-text-fill'></i></a>
                                     <div className='row'>
                                         <div className='col-lg-6 mt-2 mb-0 p-0'>
-                                            <h6 className='p-0 text-start ms-2 mt-1'>
-                                            Topic title goes here
-                                            </h6>
+                                            <h3 className='p-0 text-start ms-2 mt-1'>
+                                            {postTopic}
+                                            </h3>
                                         </div>
 
                                         <div className='col-lg-6 mt-2 mb-0'>
                                             <div className='dropdown bg-transparent float-end'>
                                                 <strong className='text-black-50'>
-                                                    <small className='text-black-50'>Date Posts 05/30/2022</small> 
+                                                    <small className='text-black-50'>Date Posts {date}</small> 
                                                     <i className='bi-dot'></i>
                                                     <i className='bi-eye'></i>
-                                                    <small>0 views</small>
+                                                    <small>{viewCount} views</small>
                                                     <i className='bi-dot'></i>
                                                     <i className='bi-hand-thumbs-up'></i>
-                                                    <small>0</small>
+                                                    <small>{likeCount}</small>
                                                     <i className='bi-dot'></i>
                                                     <i className='bi-hand-thumbs-down'></i>
-                                                    <small>0</small>
+                                                    <small>{disLikeCount}</small>
                                                     <i className='bi-dot'></i>
                                                     <i className='bi-chat-left'></i>
-                                                    <small>0</small>
+                                                    <small>{commentCount}</small>
                                                 </strong>
                                             </div>
                                         </div>
@@ -95,37 +132,16 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                     <div className='col-lg-8'>
                                         <div className='box-middle-panel mt-6'>
                                             {this.renderProfilePicture('fxl')}
-                                            <strong className='mt-2 ms-2 float-start'>Name of user group</strong>
+                                            <strong className='mt-2 ms-2 float-start'>@{name}</strong>
                                             <br/>
                                             <p className='mb-0 p-3 ms-2'>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                            </p>
-                                            <p className='mb-0 p-3 ms-2'>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                                {postDetails}
                                             </p>
                                         </div>
 
                                         <div className='box-middle-panel mt-7'>
                                             {this.renderProfilePicture('fxl')}
                                             <strong className='mt-2 ms-2 float-start'>Group member comment</strong>
-                                            <br/>
-                                            <p className='mb-0 p-3 ms-2'>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                                            </p>
-                                        </div>
-
-                                        <div className='box-middle-panel mt-7'>
-                                            {this.renderProfilePicture('fxl')}
-                                            <strong className='mt-2 ms-2 float-start'>Group member comment</strong>
-                                            <br/>
-                                            <p className='mb-0 p-3 ms-2'>
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                                            </p>
-                                        </div>
-
-                                        <div className='box-middle-panel mt-7'>
-                                            {this.renderProfilePicture('fxl')}
-                                            <strong className='mt-2 ms-2 float-start'>NGroup member comment</strong>
                                             <br/>
                                             <p className='mb-0 p-3 ms-2'>
                                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.

@@ -4177,6 +4177,18 @@ export default class Client4 {
         );
     }
 
+    listComments = (id: string) => {
+        return this.doFetch<string[]>(
+            `https://localhost:44312/api/crypter/listcomments?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
+    getComment = (id: string) => {
+        return this.doFetch<ForumTopic>(
+            `https://localhost:44312/api/crypter/getcomment?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
 
     // Client Helpers
 

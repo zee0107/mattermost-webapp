@@ -8,16 +8,23 @@ import {GlobalState} from 'types/store';
 
 import ForumDiscussion from './forum-discussion'
 
-
+type ownProps = {
+    forumId: string;
+}
 function makeMapStateToProps() {
-    return function mapStateToProps(state: GlobalState) {
+    return function mapStateToProps(state: GlobalState, ownProps: ownProps) {
+        const searchParam = ownProps.location.search.replace('?u=','');
         const currentUser = getCurrentUser(state);
         const userId = currentUser?.id;
+        const post = Client4.getThread(searchParam);
+        const comments = Client4.listComments(searchParam);
 
         return {
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
+            post,
+            comments,
         };
     };
 }

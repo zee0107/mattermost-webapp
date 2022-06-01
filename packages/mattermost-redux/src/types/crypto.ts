@@ -263,3 +263,11 @@ export type ForumTopic = {
     dislike_count: number;
     date_posted: string;
 }
+
+export type ForumTopic = {
+    id: string;
+    forum_id: string;
+    post_user: string;
+    comment: string;
+    date_posted: string;
+}
