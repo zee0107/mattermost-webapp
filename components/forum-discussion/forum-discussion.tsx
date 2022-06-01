@@ -27,6 +27,7 @@ type State = {
     joined: boolean;
     post: ForumTopic;
     comments: Comment[];
+    commentText: string;
 };
 
 export default class ForumDiscussion extends React.PureComponent<Props, State> {
@@ -39,6 +40,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
         super(props);
 
         this.state = { isDark:'light',};
+        this.handleChangeComment = this.handleChangeComment.bind(this);
     }
 
     componentDidMount(){
@@ -52,6 +54,39 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
         if(this.props.post !== undefined && this.props.post !== null){
             Promise.resolve(this.props.post).then((value) => {this.setState({post: value});});
         }
+    }
+
+    handleChangeComment = (e) => {
+        this.setState({commentText: e.target.value});
+    }
+
+    handleSubmit = () => {
+        const {userId} = this.props;
+        const {post, commentText, comments} = this.state;
+
+        if(post){
+            const uri = new URL('https://localhost:44312/api/crypter/createthread');
+            const params = {user_id: userId, forum_id: post.id, comment: commentText};
+            uri.search = new URLSearchParams(params);
+
+            fetch(uri, {
+                method: 'POST',
+            }).then((response) => response.json()).then((data)=>{    
+                if(data === 'EmptyComment'){
+                    this.setState({topicError: 'Please add your comment.'});
+                }else if (data === 'Failed'){
+                    this.setState({textError: 'Please try again.'});
+                }else{
+                    Object.keys(comments).map((item) => {
+                        const index = toInteger(item);
+                        this.setState((prevState) => ({
+                            comments: [...prevState.comments.slice(0, index), ...prevState.comments.slice(index + 1)]
+                        }));
+                    });
+                }
+            }).catch(error => this.setState({textError: error}));
+        }
+
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -154,11 +189,11 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                         <div className='box-middle-panel mt-4 p-4'>
                                             <strong>Comments</strong>
                                             <div className='form-floating mt-2 mb-2'>
-                                                <textarea className='form-control' placeholder='Leave a comment here' id='floatingTextarea' style={{height: '100px'}}></textarea>
+                                                <textarea className='form-control' placeholder='Leave a comment here' onChange={this.handleChangeComment} value={this.state.commentText} id='floatingTextarea' style={{height: '100px'}}></textarea>
                                                 <label htmlFor='floatingTextarea'>Leave a comment here</label>
                                             </div>
                                             <div className='d-grid gap-2'>
-                                                <button className='btn btn-creative btn-sm text-white' type='button'>SUBMIT</button>
+                                                <button className='btn btn-primary p-2 text-white' type='button'>SUBMIT</button>
                                             </div>
                                         </div>
                                     </div>
