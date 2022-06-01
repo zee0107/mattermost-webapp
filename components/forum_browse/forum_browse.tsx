@@ -116,7 +116,7 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
                                     <small className='ms-1'>1 Day ago</small></p>
                                 </div>
                                 <div className='col-2 text-center mt-3 mb-2'><strong>{memberCount}</strong></div>
-                                <div className='col-2 text-center mt-3 mb-2'><strong>{viewCount{</strong></div>
+                                <div className='col-2 text-center mt-3 mb-2'><strong>{viewCount}</strong></div>
                             </div>
                         </div>
                     </div>
