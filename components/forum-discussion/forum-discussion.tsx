@@ -76,6 +76,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
         }
 
         let postId,postTopic, postDetails, date, viewCount,likeCount,disLikeCount,commentCount;
+        let renderPost;
         if(post){
             postId = post.id;
             postTopic = post.post_title;
@@ -84,6 +85,12 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
             viewCount = post.view_count;
             likeCount = post.like_count;
             disLikeCount = post.dislike_count;
+
+            renderPost = (
+                <>
+                    <ForumComments userId={userId} forumId={postId} postType={'post'} view={'desktop'} />
+                </>
+            )
         }
 
         if(comments){
@@ -132,7 +139,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                             <div className='content-forums-browse'>
                                 <div className='row'>
                                     <div className='col-lg-8'>
-                                        <ForumComments userId={userId} forumId={postId} postType={'post'} view={'desktop'} />
+                                        {renderPost}
 
                                         <div className='box-middle-panel mt-4 p-4'>
                                             <strong>Comments</strong>
