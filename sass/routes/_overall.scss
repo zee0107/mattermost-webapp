@@ -130,8 +130,8 @@ p {
   font-size: 21px;
 }
 .onApproval {
-  display: none;
-  pointer-events: none;
+  display: block;
+  pointer-events: block;
 }
 .onClosememberslist {
   cursor: pointer;
