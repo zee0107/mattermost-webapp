@@ -63,8 +63,12 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
     componentDidUpdate(_,prevState) {
         const {comments} = this.state;
-        if (comments !== prevState.comments) {
+        if (comments.length !== prevState.comments.length) {
+            console.log(true);
             this.setState({comments: comments, commentText: undefined});
+        }
+        else{
+            console.log(false);
         }
     }
 
@@ -86,7 +90,6 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                 }else if (data === 'Failed'){
                     this.setState({textError: 'Please try again.'});
                 }else{
-                    console.log(true);
                     Object.keys(comments).map((item) => {
                         const index = toInteger(item);
                         this.setState((prevState) => ({
