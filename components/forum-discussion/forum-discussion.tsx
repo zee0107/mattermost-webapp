@@ -80,7 +80,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
     handleJoindThread = () => {
         const {userId} = this.props;
         const {post} = this.state;
-        
+
         if(post){
             const uri = new URL('https://localhost:44312/api/crypter/jointhread');
             const params = {user_id: userId, forum_id: post.id};
@@ -201,15 +201,26 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
         if(comments){
             commentCount = comments.length;
-            renderComments = (
-                <>
-                    {comments.map((item,index) => {
-                        return (
-                            <ForumComments userId={item.userId} forumId={item.commentId} postType={'comment'} view={'desktop'} key={`${item.commentID}--${index}`} />
-                        );
-                    })}
-                </>
-            );
+            if(comments.length){
+                renderComments = (
+                    <>
+                        {comments.map((item,index) => {
+                            return (
+                                <ForumComments userId={item.userId} forumId={item.commentId} postType={'comment'} view={'desktop'} key={`${item.commentID}--${index}`} />
+                            );
+                        })}
+                    </>
+                );
+            }else{
+                renderComments = (
+                    <>
+                        <div className='box-middle-panel mt-7 text-center'>
+                            <h4 className='text-muted'><i className='bi-journal-x'></i> No comments on this thread.</h4>
+                        </div>
+                    </>
+                );
+            }
+            
         }
         else{
             commentCount = 0;
