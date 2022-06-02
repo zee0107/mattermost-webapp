@@ -577,16 +577,19 @@
     }
   }
 
+  .active-profile-menu-icon{
+    border-bottom: 3px solid rgb(127,207,87);
+    border-bottom: 3px solid  -moz-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);;
+    border-bottom: 3px solid  -webkit-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+    border-bottom: 3px solid  linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
+  }
+
   .profile-menu-icon{
     padding-top: 10px;
     padding-bottom: 10px;
 
-    .active{
-      border-bottom: 3px solid rgb(127,207,87);
-      border-bottom: 3px solid  -moz-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);;
-      border-bottom: 3px solid  -webkit-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
-      border-bottom: 3px solid  linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);
-    }
+    
+
     @media (max-width: 768px) {
       width: 100%;
     }
