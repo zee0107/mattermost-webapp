@@ -101,8 +101,10 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
         let renderView;
         let commentText;
         let timePast;
+        let commentId;
         if(comments){
             commentText = comments.comment.substring(0, 50) + '...';
+            commentId = comments.id;
             var today = new Date();
             var startTime = new Date(comments.date + 'Z');
             var diffMs = (today - startTime); // milliseconds between now & startTime
@@ -137,7 +139,7 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-3 text-left mt-3 mb-2'><small>{timePast} ago</small></div>
                                         <div className='col-2 text-center mt-3 mb-2'><strong><i className='bi-bookmark bi-bookmark-style'></i></strong></div>
-                                        <div className='col-2 text-center mt-3 mb-2'><strong><i className='bi-trash bi-trash-style'></i></strong></div>
+                                        <div className='col-2 text-center mt-3 mb-2'><strong><i className='bi-trash bi-trash-style' onClick={() => this.handleArchive(commentId) } style={{cursor: 'pointer'}}></i></strong></div>
                                     </div>
                                 </div>
                             </div>
@@ -155,7 +157,7 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
                                         </div>
                                         <div className='col-4 text-center mt-2 mb-1'>
                                         <i className='bi-bookmark bi-bookmark-style'></i>
-                                        <i className='bi-trash bi-trash-style'></i>
+                                        <i className='bi-trash bi-trash-style' onClick={() => this.handleArchive(commentId) } style={{cursor: 'pointer'}}></i>
                                         <br/>
                                         <small>{timePast} ago</small></div>
                                     </div>
