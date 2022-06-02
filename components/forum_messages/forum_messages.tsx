@@ -118,13 +118,13 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
                             <div className='row'>
                                 <div className='col-8 mt-2 mb-1'>
                                 {this.renderProfilePicture('lg')}
-                                <p><label><strong>{diffDays}</strong></label><br/><small>{commentText}</small></p>
+                                <p><label><strong>{userName}</strong></label><br/><small>{commentText}</small></p>
                                 </div>
                                 <div className='col-4 text-center mt-2 mb-1'>
                                 <i className='bi-bookmark bi-bookmark-style'></i>
                                 <i className='bi-trash bi-trash-style'></i>
                                 <br/>
-                                <small>{resultInMinutes} Minutes ago</small></div>
+                                <small>{diffDays} Minutes ago</small></div>
                             </div>
                         </div>
                     </div>
