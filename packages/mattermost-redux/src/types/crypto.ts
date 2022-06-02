@@ -274,7 +274,7 @@ export type ForumReply = {
     forum_id: string;
     post_user: string;
     comment: string;
-    date_posted: string;
+    date: string;
 }
 
 export type LikeData = {
@@ -282,5 +282,5 @@ export type LikeData = {
     forum_id: string;
     user_id: string;
     status: number;
-    data: string;
+    date: string;
 }
