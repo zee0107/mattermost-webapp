@@ -14,6 +14,7 @@ export default class PostViewAll extends React.PureComponent {
         channelLoading: PropTypes.bool,
         channelId: PropTypes.string,
         focusedPostId: PropTypes.string,
+        filter: PropTypes.string,
     }
 
     constructor(props) {
@@ -76,6 +77,7 @@ export default class PostViewAll extends React.PureComponent {
                     channelId={this.props.channelId}
                     changeUnreadChunkTimeStamp={this.changeUnreadChunkTimeStamp}
                     focusedPostId={this.props.focusedPostId}
+                    filter={this.props.filter}
                 />
             </div>
         );

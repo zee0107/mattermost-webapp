@@ -40,7 +40,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = { isDark:'light', selectedMenu: 'browse', myThreads: [],myMessages: [],allThreads: [],forumMembers: [] };
+        this.state = { isDark:'light', selectedMenu: 'browse', myThreads: [],myMessages: [],allThreads: [],forumMembers: [], };
     }
 
     componentDidMount(){

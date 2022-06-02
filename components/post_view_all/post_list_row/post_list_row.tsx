@@ -22,6 +22,7 @@ export type PostListRowProps = {
     listId: string;
     previousListId?: string;
     fullWidth?: boolean;
+    filter: string;
     shouldHighlight?: boolean;
     loadOlderPosts: () => void;
     loadNewerPosts: () => void;
@@ -154,6 +155,7 @@ export default class PostListRow extends React.PureComponent<PostListRowProps> {
             shouldHighlight: this.props.shouldHighlight,
             togglePostMenu: this.props.togglePostMenu,
             isLastPost: this.props.isLastPost,
+            filter: this.props.filter,
         };
 
         if (PostListUtils.isCombinedUserActivityPost(listId)) {

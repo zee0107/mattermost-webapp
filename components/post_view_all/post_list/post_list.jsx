@@ -81,6 +81,8 @@ export default class PostList extends React.PureComponent {
 
         isMobileView: PropTypes.bool.isRequired,
 
+        filter: PropTypes.string.isRequired,
+
         actions: PropTypes.shape({
 
             /*
@@ -311,6 +313,7 @@ export default class PostList extends React.PureComponent {
                             atOldestPost={this.props.atOldestPost}
                             atLatestPost={this.props.atLatestPost}
                             focusedPostId={this.props.focusedPostId}
+                            filter={this.props.filter}
                             channelId={this.props.channelId}
                             autoRetryEnable={this.state.autoRetryEnable}
                             actions={this.actionsForPostList}

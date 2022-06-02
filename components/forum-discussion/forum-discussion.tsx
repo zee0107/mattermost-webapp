@@ -7,8 +7,6 @@ import RightSideView from 'components/right_side_view';
 import { UserProfile } from 'mattermost-redux/types/users';
 import { Comment, ForumTopic, LikeData, Thread } from 'mattermost-redux/types/crypto';
 import ForumComments from 'components/forum_comments';
-import { BooleanLiteral, createFalse } from 'typescript';
-import { valueEventAriaMessage } from 'react-select/src/accessibility';
 
 export type Props = {
     userId: string;

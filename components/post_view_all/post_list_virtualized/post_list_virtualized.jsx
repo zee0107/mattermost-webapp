@@ -90,6 +90,8 @@ export default class PostList extends React.PureComponent {
 
         lastViewedAt: PropTypes.string,
 
+        filter: PropTypes.string,
+
         isMobileView: PropTypes.bool.isRequired,
 
         actions: PropTypes.shape({
@@ -331,6 +333,7 @@ export default class PostList extends React.PureComponent {
                     listId={itemId}
                     previousListId={getPreviousPostId(data, index)}
                     shouldHighlight={itemId === this.props.focusedPostId}
+                    filter={this.props.filter}
                     loadOlderPosts={this.props.actions.loadNewerPosts}
                     loadNewerPosts={this.props.actions.loadOlderPosts}
                     togglePostMenu={this.togglePostMenu}
