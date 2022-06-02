@@ -490,7 +490,7 @@ export default class Post extends React.PureComponent {
         }else{
             letRender = true;
         }
-
+        console.log(letRender);
         if(letRender){
             if(postDetail.share_info !== 'private'){
                 postView = (
