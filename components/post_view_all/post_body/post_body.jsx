@@ -85,7 +85,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
          * The post to render the body of
          */
         post: PropTypes.object.isRequired,
-
+        filter: PropTypes.string,
         /**
          * The parent post of the thread this post is in
          */
@@ -417,6 +417,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
 
         let fileAttachmentHolder = null;
         if (((post.file_ids && post.file_ids.length > 0) || (post.filenames && post.filenames.length > 0)) && this.props.post.state !== Posts.POST_DELETED) {
+            console.log(post);
             fileAttachmentHolder = (
                 <FileAttachmentListContainer
                     post={post}
