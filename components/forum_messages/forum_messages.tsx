@@ -80,10 +80,11 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
             commentText = comments.comment.substring(0, 50) + '...';
             var startTime = new Date(comments.date);
             console.log('s: ',startTime);
-            var endTime = new Date();
+            const utcString = new Date().toUTCString();
+            var endTime = new Date(utcString);
             console.log('e: ',endTime);
             var difference = endTime.getTime() - startTime.getTime();
-            var resultInMinutes = Math.round(difference / 600000);
+            var resultInMinutes = Math.round(difference / 60000);
         }
 
         let userName;
