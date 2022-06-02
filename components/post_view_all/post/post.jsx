@@ -469,24 +469,39 @@ export default class Post extends React.PureComponent {
             Object.keys(fileInfos).map((item) => {
                 if(fileInfos[item].mime_type.includes('image')){
                     this.handleLetRender(true);
+                    break;
+                }
+                else{
+                    this.handleLetRender(false);
                 }
             });
         }else if(filter === 'video'){
             Object.keys(fileInfos).map((item) => {
                 if(fileInfos[item].mime_type.includes('video')){
                     this.handleLetRender(true);
+                    break;
+                }
+                else{
+                    this.handleLetRender(false);
                 }
             });
         }else if(filter === 'audio'){
             Object.keys(fileInfos).map((item) => {
                 if(fileInfos[item].mime_type.includes('audio')){
                     this.handleLetRender(true);
+                    break;
+                }
+                else{
+                    this.handleLetRender(false);
                 }
             });
         }else if(filter === 'file'){
             Object.keys(fileInfos).map((item) => {
                 if(!fileInfos[item].mime_type.includes('image') && !fileInfos[item].mime_type.includes('video') && !fileInfos[item].mime_type.includes('audio')){
                     this.handleLetRender(true);
+                }
+                else{
+                    this.handleLetRender(false);
                 }
             });
         }else if(filter === 'location'){
