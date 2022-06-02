@@ -78,13 +78,13 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
         let commentText;
         if(comments){
             commentText = comments.comment.substring(0, 50) + '...';
+            var today = new Date();
             var startTime = new Date(comments.date);
-            console.log('s: ',startTime);
-            const utcString = new Date().toUTCString();
-            var endTime = new Date(utcString);
-            console.log('e: ',endTime);
-            var difference = endTime.getTime() - startTime.getTime();
-            var resultInMinutes = Math.round(difference / 60000);
+            var diffMs = (startTime - today); // milliseconds between now & Christmas
+            var diffDays = Math.floor(diffMs / 86400000); // days
+            var diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
+            var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
+            console.log(diffDays + " days, " + diffHrs + " hours, " + diffMins + " minutes until Christmas =)");
         }
 
         let userName;
@@ -102,7 +102,7 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
                                 {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt='' />*/}
                                 <p><label><strong>{userName}</strong></label><br/><small>{commentText}</small></p>
                                 </div>
-                                <div className='col-3 text-left mt-3 mb-2'><small>{resultInMinutes} Minutes ago</small></div>
+                                <div className='col-3 text-left mt-3 mb-2'><small>{diffDays} Minutes ago</small></div>
                                 <div className='col-2 text-center mt-3 mb-2'><strong><i className='bi-bookmark bi-bookmark-style'></i></strong></div>
                                 <div className='col-2 text-center mt-3 mb-2'><strong><i className='bi-trash bi-trash-style'></i></strong></div>
                             </div>
@@ -118,7 +118,7 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
                             <div className='row'>
                                 <div className='col-8 mt-2 mb-1'>
                                 {this.renderProfilePicture('lg')}
-                                <p><label><strong>{userName}</strong></label><br/><small>{commentText}</small></p>
+                                <p><label><strong>{diffDays}</strong></label><br/><small>{commentText}</small></p>
                                 </div>
                                 <div className='col-4 text-center mt-2 mb-1'>
                                 <i className='bi-bookmark bi-bookmark-style'></i>
