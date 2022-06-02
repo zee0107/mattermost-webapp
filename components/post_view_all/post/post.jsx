@@ -460,6 +460,7 @@ export default class Post extends React.PureComponent {
 
         let postView;
         if(postDetail.share_info !== 'private'){
+            console.log(post);
             postView = (
                 <div className='mbot-20 chat-box'>
                     <PostContext.Provider value={{handlePopupOpened: this.handleDropdownOpened}}>
