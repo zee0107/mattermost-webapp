@@ -702,22 +702,22 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                             </div>
                             <div className='col-md-12 profile-menu-box-mobile width-100'>
                                 <div className='d-flex'>
-                                    <div className='col-lg-2 profile-menu-icon'>
+                                    <div className={`col-lg-2 profile-menu-icon ${this.state.filter === 'all' ? 'active' : ''}`}>
                                         <a href='#all' onClick={() => this.onChangeFilter('all')}><img src={LayoutIcon}></img></a>
                                     </div>
-                                    <div className='col-lg-2 profile-menu-icon'>
+                                    <div className={`col-lg-2 profile-menu-icon ${this.state.filter === 'image' ? 'active' : ''}`}>
                                         <a href='#images' onClick={() => this.onChangeFilter('image')}><img src={ImgIcon}></img></a>
                                     </div>
-                                    <div className='col-lg-2 profile-menu-icon'>
+                                    <div className={`col-lg-2 profile-menu-icon ${this.state.filter === 'video' ? 'active' : ''}`}>
                                         <a href='#videos' onClick={() => this.onChangeFilter('video')}><img src={VideoIcon}></img></a>
                                     </div>
-                                    <div className='col-lg-2 profile-menu-icon'>
+                                    <div className={`col-lg-2 profile-menu-icon ${this.state.filter === 'audio' ? 'active' : ''}`}>
                                         <a href='#music' onClick={() => this.onChangeFilter('audio')}><img src={MusicIcon}></img></a>
                                     </div>
-                                    <div className='col-lg-2 profile-menu-icon'>
+                                    <div className={`col-lg-2 profile-menu-icon ${this.state.filter === 'file' ? 'active' : ''}`}>
                                         <a href='#file' onClick={() => this.onChangeFilter('file')}><img src={AttachIcon}></img></a>
                                     </div>
-                                    <div className='col-lg-2 profile-menu-icon'>
+                                    <div className={`col-lg-2 profile-menu-icon ${this.state.filter === 'location' ? 'active' : ''}`}>
                                         <a href='#location' onClick={() => this.onChangeFilter('location')}><img src={GeoIcon}></img></a>
                                     </div>
                                 </div>
