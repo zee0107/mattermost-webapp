@@ -88,7 +88,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
         const {post} = this.state;
 
         if(post){
-            const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/jointhread');
+            const uri = new URL('https://localhost:44312/api/crypter/jointhread');
             const params = {user_id: userId, forum_id: post.id};
             uri.search = new URLSearchParams(params);
 
@@ -105,7 +105,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
         const {post, commentText, comments} = this.state;
 
         if(post){
-            const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/createreply');
+            const uri = new URL('https://localhost:44312/api/crypter/createreply');
             const params = {user_id: userId, forum_id: post.id, comment: commentText};
             uri.search = new URLSearchParams(params);
 
