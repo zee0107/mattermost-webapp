@@ -77,7 +77,8 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
         let commentText;
         if(comments){
             commentText = comments.comment.substring(0, 50) + '...';
-            var startTime = new Date(comments.date);
+            var dateToLocal = new Date(comments.date).toLocaleDateString();
+            var startTime = new Date(dateToLocal);
             var endTime = new Date();
             var difference = endTime.getTime() - startTime.getTime();
             var resultInMinutes = Math.round(difference / 600000);
