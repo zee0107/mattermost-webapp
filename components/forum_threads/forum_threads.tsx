@@ -82,11 +82,13 @@ export default class ForumThread extends React.PureComponent<Props, State> {
         let postDesc;
         let postId;
         let viewCount;
+        let likeCount;
         if(post){
             postId = post.id;
             postTitle = post.post_title;
             postDesc = post.post_text.substring(0,50).toString() + '...';
             viewCount = post.view_count;
+            likeCount = post.like_count;
         }
 
         let renderView;
@@ -103,7 +105,7 @@ export default class ForumThread extends React.PureComponent<Props, State> {
                                 </div>
                                 <div className='col-2 text-center mt-3 mb-2'><strong>0</strong></div>
                                 <div className='col-2 text-center mt-3 mb-2'><strong>{viewCount}</strong></div>
-                                <div className='col-2 text-center mt-3 mb-2'><strong>0</strong></div>
+                                <div className='col-2 text-center mt-3 mb-2'><strong>{likeCount}</strong></div>
                                 <div className='col-2 text-center mt-3 mb-2'><strong>{commentCount}</strong></div>
                             </div>
                         </div>
@@ -123,7 +125,7 @@ export default class ForumThread extends React.PureComponent<Props, State> {
                             <hr/>
                             <div className='col-3 text-center mt-0 mb-2'><strong>0</strong><br/><small className='text-muted'>Posts</small></div>
                             <div className='col-3 text-center mt-0 mb-2'><strong>{viewCount}</strong><br/><small className='text-muted'>Views</small></div>
-                            <div className='col-3 text-center mt-0 mb-2'><strong>0</strong><br/><small className='text-muted'>Likes</small></div>
+                            <div className='col-3 text-center mt-0 mb-2'><strong>{likeCount}</strong><br/><small className='text-muted'>Likes</small></div>
                             <div className='col-3 text-center mt-0 mb-2'><strong>{commentCount}</strong><br/><small className='text-muted'>Comments</small></div>
                         </div>
                     </div>
