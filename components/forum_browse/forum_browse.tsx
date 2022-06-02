@@ -98,7 +98,7 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
             viewCount = post.view_count;
 
             var today = new Date();
-            var startTime = new Date(comments.date + 'Z');
+            var startTime = new Date(post.date_posted + 'Z');
             var diffMs = (today - startTime); // milliseconds between now & startTime
             var diffDays = Math.floor(diffMs / 86400000); // days
             var diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
