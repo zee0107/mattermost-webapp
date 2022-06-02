@@ -469,7 +469,7 @@ export default class Post extends React.PureComponent {
             Object.keys(fileInfos).map((item) => {
                 if(fileInfos[item].mime_type.includes('image')){
                     this.handleLetRender(true);
-                    break;
+                    return;
                 }
                 else{
                     this.handleLetRender(false);
@@ -479,7 +479,7 @@ export default class Post extends React.PureComponent {
             Object.keys(fileInfos).map((item) => {
                 if(fileInfos[item].mime_type.includes('video')){
                     this.handleLetRender(true);
-                    break;
+                    return;
                 }
                 else{
                     this.handleLetRender(false);
@@ -489,7 +489,7 @@ export default class Post extends React.PureComponent {
             Object.keys(fileInfos).map((item) => {
                 if(fileInfos[item].mime_type.includes('audio')){
                     this.handleLetRender(true);
-                    break;
+                    return;
                 }
                 else{
                     this.handleLetRender(false);
@@ -499,6 +499,7 @@ export default class Post extends React.PureComponent {
             Object.keys(fileInfos).map((item) => {
                 if(!fileInfos[item].mime_type.includes('image') && !fileInfos[item].mime_type.includes('video') && !fileInfos[item].mime_type.includes('audio')){
                     this.handleLetRender(true);
+                    return;
                 }
                 else{
                     this.handleLetRender(false);
