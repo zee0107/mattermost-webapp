@@ -214,6 +214,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
         let likeIcon;
         let dislikeIcon;
         if(likeData){
+            console.log(likeData);
             if(liked){
                 likeIcon = (
                     <i className='bi-hand-thumbs-up-fill text-primary'></i>
