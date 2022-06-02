@@ -59,7 +59,7 @@ function mapDispatchToProps(dispatch: Dispatch){
         actions: bindActionCreators<ActionCreatorsMapObject<Actions>, Actions>({
             forumLike,
             forumdisLike
-        }, dispatch);
-    }
+        }, dispatch),
+    };
 }
 export default connect(makeMapStateToProps,mapDispatchToProps)(ForumDiscussion);
