@@ -4209,7 +4209,7 @@ export default class Client4 {
 
     getLikeData = (fid: string,id: string) => {
         return this.doFetch<LikeData>(
-            `https://localhost:44312/api/crypter/getlikedata?fid=${fid}&id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://localhost:44312/api/crypter/getlikedata?fid=${fid}&uid=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
