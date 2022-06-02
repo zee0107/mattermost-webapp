@@ -4235,13 +4235,13 @@ export default class Client4 {
 
     userJoinedCount = (id: string) => {
         return this.doFetch<number>(
-            `https://localhost:44312/api/crypter/userjoinedcount&uid=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://localhost:44312/api/crypter/userjoinedcount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     userPostCount = (id: string) => {
         return this.doFetch<number>(
-            `https://localhost:44312/api/crypter/userpostcount&uid=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://localhost:44312/api/crypter/userpostcount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
