@@ -78,6 +78,7 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
         if(comments){
             commentText = comments.comment.substring(0, 50) + '...';
             console.log(comments);
+            var startDate = new Date(comments.date);
         }
 
         let userName;
