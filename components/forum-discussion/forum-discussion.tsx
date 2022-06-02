@@ -82,7 +82,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
         const {post} = this.state;
 
         if(post){
-            const data = actions.forumLike(post.id,userId);
+            const data = actions.forumLike(post.id,userId).then((value => value));
             console.log(data);
         }
     }
