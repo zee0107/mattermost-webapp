@@ -97,33 +97,37 @@ export default class ForumComments extends React.PureComponent<Props, State> {
             }
         }
         else{
+            let postArchive;
             if(post){
                 postDesc = post.comment;
                 postId = post.id;
+                postArchive = post.archive;
             }
 
-            if(view === 'desktop'){
-                renderView = (
-                    <div className='box-middle-panel mt-7'>
-                        {this.renderProfilePicture('fxl')}
-                        <strong className='mt-2 ms-2 float-start'>@{name}</strong>
-                        <br/>
-                        <p className='mb-0 p-3 ms-2'>
-                            {postDesc}
-                        </p>
-                    </div>
-                );
-            }else{
-                renderView = (
-                    <div className='box-middle-panel mt-7'>
-                        {this.renderProfilePicture('fxl')}
-                        <strong className='mt-2 ms-2 float-start'>@{name}</strong>
-                        <br/>
-                        <p className='mb-0 p-3 ms-2'>
-                            {postDesc}
-                        </p>
-                    </div>
-                );
+            if(postArchive !== 1){
+                if(view === 'desktop'){
+                    renderView = (
+                        <div className='box-middle-panel mt-7'>
+                            {this.renderProfilePicture('fxl')}
+                            <strong className='mt-2 ms-2 float-start'>@{name}</strong>
+                            <br/>
+                            <p className='mb-0 p-3 ms-2'>
+                                {postDesc}
+                            </p>
+                        </div>
+                    );
+                }else{
+                    renderView = (
+                        <div className='box-middle-panel mt-7'>
+                            {this.renderProfilePicture('fxl')}
+                            <strong className='mt-2 ms-2 float-start'>@{name}</strong>
+                            <br/>
+                            <p className='mb-0 p-3 ms-2'>
+                                {postDesc}
+                            </p>
+                        </div>
+                    );
+                }
             }
         }
 
