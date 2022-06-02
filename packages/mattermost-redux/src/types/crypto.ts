@@ -274,6 +274,7 @@ export type ForumReply = {
     forum_id: string;
     post_user: string;
     comment: string;
+    archive: number;
     date: string;
 }
 
