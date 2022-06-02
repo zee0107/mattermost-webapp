@@ -119,7 +119,7 @@ import {isSystemAdmin} from 'mattermost-redux/utils/user_utils';
 import {UserThreadList, UserThread, UserThreadWithPost} from 'mattermost-redux/types/threads';
 
 import {TelemetryHandler} from './telemetry';
-import { AllListing, Coins, GainerListing, NewListing, ProjectList, ProjectsEndedList, ProjectsUpcomingList, RequestList, SocialCount, Story, TrendListing,MutedList, UserSettings, Album, Thread, Comment, ForumReply } from 'mattermost-redux/types/crypto';
+import { AllListing, Coins, GainerListing, NewListing, ProjectList, ProjectsEndedList, ProjectsUpcomingList, RequestList, SocialCount, Story, TrendListing,MutedList, UserSettings, Album, Thread, Comment, ForumReply, ForumTopic } from 'mattermost-redux/types/crypto';
 import { type } from 'os';
 import list from 'components/more_direct_channels/list';
 import { ValidationError } from 'webpack';
@@ -4204,6 +4204,26 @@ export default class Client4 {
     getThreadCommentCount = (fid: string,id: string) => {
         return this.doFetch<ForumReply>(
             `https://localhost:44312/api/crypter/threadcommentcount?fid=${fid}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+        );
+    }
+
+    likeForum = (fid: string, id: string) => {
+        const uri = new URL('https://localhost:44312/api/crypter/likeforum');
+        const param = {forum_id: fid, user_id: id};
+        uri.search = new URLSearchParams(param);
+
+        return this.doFetch<ForumTopic>(
+            uri.toString(),{method: 'post'}
+        );
+    }
+
+    dislikeForum = (fid: string, id: string) => {
+        const uri = new URL('https://localhost:44312/api/crypter/dislikeforum');
+        const param = {forum_id: fid, user_id: id};
+        uri.search = new URLSearchParams(param);
+
+        return this.doFetch<ForumTopic>(
+            uri.toString(),{method: 'post'}
         );
     }
 

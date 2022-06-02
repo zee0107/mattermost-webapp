@@ -6,7 +6,12 @@ import {Client4} from 'mattermost-redux/client';
 import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
 import {GlobalState} from 'types/store';
 
+import { dislikeForum, likeForum } from 'mattermost-redux/actions/forums';
+
 import ForumDiscussion from './forum-discussion'
+import { ForumTopic } from 'mattermost-redux/types/crypto';
+import { ActionFunc } from 'mattermost-redux/types/actions';
+import { bindActionCreators, ActionCreatorsMapObject , Dispatch } from 'redux';
 
 type ownProps = {
     forumId: string;
@@ -32,4 +37,29 @@ function makeMapStateToProps() {
     };
 }
 
-export default connect(makeMapStateToProps)(ForumDiscussion);
+function forumLike(user_id: string, forum_id: string) {
+    return (dispatch: Dispatch) => {
+        dispatch(likeForum(forum_id,user_id) as any);
+    };
+}
+
+function forumdisLike(user_id: string, forum_id: string) {
+    return (dispatch: Dispatch) => {
+        dispatch(dislikeForum(forum_id,user_id) as any);
+    };
+}
+
+type Actions = {
+    forumLike: (user_id: string, forum_id: string) => ActionFunc;
+    forumdisLike: (user_id: string, forum_id: string) => ActionFunc;
+}
+
+function mapDispatchToProps(dispatch: Dispatch){
+    return {
+        actions: bindActionCreators<ActionCreatorsMapObject<Actions>, Actions>({
+            forumLike,
+            forumdisLike
+        }, dispatch);
+    }
+}
+export default connect(makeMapStateToProps,mapDispatchToProps)(ForumDiscussion);

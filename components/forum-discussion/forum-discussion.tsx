@@ -5,12 +5,9 @@ import React, {ReactNode} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import RightSideView from 'components/right_side_view';
 import { UserProfile } from 'mattermost-redux/types/users';
-import ForumMember from 'components/forum_member';
-import ForumBrowse from 'components/forum_browse';
-import ForumThread from 'components/forum_threads';
 import { Comment, ForumTopic, Thread } from 'mattermost-redux/types/crypto';
 import ForumComments from 'components/forum_comments';
-import { getItem } from 'localforage';
+import { ActionFunc } from 'mattermost-redux/types/actions';
 
 export type Props = {
     userId: string;
@@ -20,6 +17,10 @@ export type Props = {
     comments: Promise<Comment[]>;
     isMember: Promise<boolean>;
     memberCount: Promise<number>;
+    actions: {
+        forumLike: (user_id: string, forum_id: string) => ActionFunc;
+        forumdisLike: (user_id: string, forum_id: string) => ActionFunc;
+    }
 }
 
 type State = {
@@ -47,6 +48,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
         this.state = { isDark:'light',};
         this.handleChangeComment = this.handleChangeComment.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleLikeForum = this.handleLikeForum.bind(this);
     }
 
     componentDidMount(){
@@ -73,7 +75,16 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
     handleChangeComment = (e) => {
         this.setState({commentText: e.target.value});
+    }
 
+    handleLikeForum = () => {
+        const {actions,userId} = this.props;
+        const {post} = this.state;
+
+        if(post){
+            const data = actions.forumLike(post.id,userId);
+            console.log(data);
+        }
     }
 
     componentDidUpdate(_,prevState) {
@@ -254,7 +265,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                                     <i className='bi-eye'></i>
                                                     <small>{viewCount} views</small>
                                                     <i className='bi-dot'></i>
-                                                    <i className='bi-hand-thumbs-up'></i>
+                                                    <i className='bi-hand-thumbs-up' onClick={() => this.handleLikeForum()}></i>
                                                     <small>{likeCount}</small>
                                                     <i className='bi-dot'></i>
                                                     <i className='bi-hand-thumbs-down'></i>
