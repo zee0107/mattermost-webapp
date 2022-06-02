@@ -318,6 +318,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                         <div className='col-md-9'>
                             <div className='box-middle-panel-forums-menu'>
                                 <div className=''>
+                                    <a href='/forums' className='float-start'><i className='bi-chevron-left'></i></a>
                                     <a className='onForum float-start'><i className='bi-chat-left-text-fill'></i></a>
                                     <div className='row'>
                                         <div className='col-lg-6 mt-2 mb-0 p-0'>
