@@ -31,6 +31,7 @@ export default class Post extends React.PureComponent {
          * The post to render
          */
         post: PropTypes.object.isRequired,
+        fileInfos: PropTypes.array.isRequired,
         team: PropTypes.object.isRequired,
         channelRole: PropTypes.object.isRequired,
         postDetailed: PropTypes.object.isRequired,
@@ -385,10 +386,12 @@ export default class Post extends React.PureComponent {
     render() {
         const {
             post,
+            fileInfos,
             hasReplies,
             isCollapsedThreadsEnabled,
             postDetailed,
             team,
+            filter,
         } = this.props;
 
         const { postDetail, profile_url, channelRole } = this.state;
@@ -451,80 +454,110 @@ export default class Post extends React.PureComponent {
                 }
             }
         }
-        
 
         let centerClass = '';
         if (this.props.center) {
             centerClass = 'center';
         }
-
+        let letRender = false;
         let postView;
-        if(postDetail.share_info !== 'private'){
-            postView = (
-                <div className='mbot-20 chat-box'>
-                    <PostContext.Provider value={{handlePopupOpened: this.handleDropdownOpened}}>
-                        <PostAriaLabelDiv
-                            ref={this.postRef}
-                            id={'post_' + post.id}
-                            data-testid='postView'
-                            role='listitem'
-                            className={`a11y__section ${this.getClassName(post, isSystemMessage, isMeMessage, fromWebhook, fromAutoResponder, fromBot)}`}
-                            tabIndex='0'
-                            onMouseOver={this.setHover}
-                            onMouseLeave={this.unsetHover}
-                            onTouchStart={this.setHover}
-                            onClick={this.handlePostClick}
-                            aria-atomic={true}
-                            post={post}
-                        >
-                            <PostPreHeader
-                                isFlagged={this.props.isFlagged}
-                                isPinned={post.is_pinned}
-                                channelId={post.channel_id}
-                            />
-                            <div
-                                role='application'
-                                data-testid='postContent'
-                                className={'post__content ' + centerClass}
-                                aria-hidden={this.state.ariaHidden}
-                            >
-                                <div className='post__img'>
-                                    {profilePic}
-                                </div>
-                                <div>
-                                    <PostHeader
-                                        post={post}
-                                        postDetailed={postDetail}
-                                        handleCommentClick={this.handleCommentClick}
-                                        handleCardClick={this.handleCardClick}
-                                        handleDropdownOpened={this.handleDropdownOpened}
-                                        compactDisplay={this.props.compactDisplay}
-                                        isFirstReply={this.props.isFirstReply}
-                                        showTimeWithoutHover={!hideProfilePicture}
-                                        hover={this.state.hover || this.state.a11yActive || this.state.fileDropdownOpened}
-                                        isLastPost={this.props.isLastPost}
-                                    />
-                                    <PostBody
-                                        post={post}
-                                        handleCommentClick={this.handleCommentClick}
-                                        compactDisplay={this.props.compactDisplay}
-                                        isCommentMention={this.props.isCommentMention}
-                                        filter={this.props.filter}
-                                        isFirstReply={this.props.isFirstReply}
-                                        handleFileDropdownOpened={this.handleFileDropdownOpened}
-                                    />
-                                    {isCollapsedThreadsEnabled && !post.root_id && (hasReplies || post.is_following) ? (
-                                        <ThreadFooter threadId={post.id}/>
-                                    ) : null}
+        if(filter === 'image'){
+            Object.keys(fileInfos).map((item) => {
+                if(fileInfos[item].mime_type.includes('image')){
+                    letRender = true;
+                }
+            });
+        }else if(filter === 'video'){
+            Object.keys(fileInfos).map((item) => {
+                if(fileInfos[item].mime_type.includes('video')){
+                    letRender = true;
+                }
+            });
+        }else if(filter === 'audio'){
+            Object.keys(fileInfos).map((item) => {
+                if(fileInfos[item].mime_type.includes('audio')){
+                    letRender = true;
+                }
+            });
+        }else if(filter === 'file'){
+            Object.keys(fileInfos).map((item) => {
+                if(!fileInfos[item].mime_type.includes('image') && !fileInfos[item].mime_type.includes('video') && !fileInfos[item].mime_type.includes('audio')){
+                    letRender = true;
+                }
+            });
+        }else if(filter === 'location'){
 
-                                </div>
-                            </div>
-                        </PostAriaLabelDiv>
-                    </PostContext.Provider>
-                </div>
-            );
+        }else{
+            letRender = true;
         }
 
+        if(letRender){
+            if(postDetail.share_info !== 'private'){
+                postView = (
+                    <div className='mbot-20 chat-box'>
+                        <PostContext.Provider value={{handlePopupOpened: this.handleDropdownOpened}}>
+                            <PostAriaLabelDiv
+                                ref={this.postRef}
+                                id={'post_' + post.id}
+                                data-testid='postView'
+                                role='listitem'
+                                className={`a11y__section ${this.getClassName(post, isSystemMessage, isMeMessage, fromWebhook, fromAutoResponder, fromBot)}`}
+                                tabIndex='0'
+                                onMouseOver={this.setHover}
+                                onMouseLeave={this.unsetHover}
+                                onTouchStart={this.setHover}
+                                onClick={this.handlePostClick}
+                                aria-atomic={true}
+                                post={post}
+                            >
+                                <PostPreHeader
+                                    isFlagged={this.props.isFlagged}
+                                    isPinned={post.is_pinned}
+                                    channelId={post.channel_id}
+                                />
+                                <div
+                                    role='application'
+                                    data-testid='postContent'
+                                    className={'post__content ' + centerClass}
+                                    aria-hidden={this.state.ariaHidden}
+                                >
+                                    <div className='post__img'>
+                                        {profilePic}
+                                    </div>
+                                    <div>
+                                        <PostHeader
+                                            post={post}
+                                            postDetailed={postDetail}
+                                            handleCommentClick={this.handleCommentClick}
+                                            handleCardClick={this.handleCardClick}
+                                            handleDropdownOpened={this.handleDropdownOpened}
+                                            compactDisplay={this.props.compactDisplay}
+                                            isFirstReply={this.props.isFirstReply}
+                                            showTimeWithoutHover={!hideProfilePicture}
+                                            hover={this.state.hover || this.state.a11yActive || this.state.fileDropdownOpened}
+                                            isLastPost={this.props.isLastPost}
+                                        />
+                                        <PostBody
+                                            post={post}
+                                            handleCommentClick={this.handleCommentClick}
+                                            compactDisplay={this.props.compactDisplay}
+                                            isCommentMention={this.props.isCommentMention}
+                                            filter={this.props.filter}
+                                            isFirstReply={this.props.isFirstReply}
+                                            handleFileDropdownOpened={this.handleFileDropdownOpened}
+                                        />
+                                        {isCollapsedThreadsEnabled && !post.root_id && (hasReplies || post.is_following) ? (
+                                            <ThreadFooter threadId={post.id}/>
+                                        ) : null}
+    
+                                    </div>
+                                </div>
+                            </PostAriaLabelDiv>
+                        </PostContext.Provider>
+                    </div>
+                );
+            }
+        }
         return (
             <>
                 {postView}
