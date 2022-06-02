@@ -37,21 +37,21 @@ function makeMapStateToProps() {
     };
 }
 
-function forumLike(user_id: string, forum_id: string) {
+function forumLike(forum_id: string,user_id: string) {
     return (dispatch: Dispatch) => {
-        dispatch(likeForum(forum_id,user_id) as any);
+        dispatch(likeForum(forum_id, user_id) as any);
     };
 }
 
-function forumdisLike(user_id: string, forum_id: string) {
+function forumdisLike(forum_id: string,user_id: string) {
     return (dispatch: Dispatch) => {
-        dispatch(dislikeForum(forum_id,user_id) as any);
+        dispatch(dislikeForum(forum_id, user_id) as any);
     };
 }
 
 type Actions = {
-    forumLike: (user_id: string, forum_id: string) => ActionFunc;
-    forumdisLike: (user_id: string, forum_id: string) => ActionFunc;
+    forumLike: (forum_id: string, user_id: string) => ActionFunc;
+    forumdisLike: (forum_id: string, user_id: string) => ActionFunc;
 }
 
 function mapDispatchToProps(dispatch: Dispatch){
