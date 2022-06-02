@@ -59,13 +59,13 @@ type Props = {
     currentUser: UserProfile;
     view: string;
     userJoinedCount: Promise<number>;
-    userPostCount: Promise<number>;
+    userPostcount: Promise<number>;
 }
 
 type State = {
     isDark: string;
     userJoinedCount: number;
-    userPostCount: number;
+    userPostcount: number;
 };
 
 export default class ProfilPage extends React.PureComponent<Props, State> {
@@ -84,8 +84,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.userJoinedCount).then((value) => {this.setState({userJoinedCount: value});});
         }
 
-        if(this.props.userPostCount !== undefined && this.props.userPostCount !== null){
-            Promise.resolve(this.props.userPostCount).then((value) => {this.setState({userPostCount: value});});
+        if(this.props.userPostcount !== undefined && this.props.userPostcount !== null){
+            Promise.resolve(this.props.userPostcount).then((value) => {this.setState({userPostcount: value});});
         }
     }
 
@@ -106,7 +106,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {currentUser, profilePicture, userData, view} = this.props;
-        const {userJoinedCount, userPostCount} = this.state;
+        const {userJoinedCount, userPostcount} = this.state;
         let name;
         if(currentUser){
             if(currentUser.first_name !== ''){
@@ -130,7 +130,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             </div>
                             <div className='col-2 mt-3 mb-2 text-center'><strong>{userJoinedCount}</strong></div>
                             <div className='col-2 text-center mt-3 mb-2'><strong>0</strong></div>
-                            <div className='col-2 text-center mt-3 mb-2'><strong>{userPostCount}</strong></div>
+                            <div className='col-2 text-center mt-3 mb-2'><strong>{userPostcount}</strong></div>
                             <div className='col-2 text-center mt-3 mb-2'><strong>0</strong></div>
                         </div>
                     </div>
@@ -149,7 +149,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <hr/>
                             <div className='col-3 text-center mt-0 mb-2'><strong>{userJoinedCount}</strong><br/><small className='text-muted'>Joined</small></div>
                             <div className='col-3 text-center mt-0 mb-2'><strong>0</strong><br/><small className='text-muted'>Last Visit</small></div>
-                            <div className='col-3 text-center mt-0 mb-2'><strong>{userPostCount}</strong><br/><small className='text-muted'>Post Count</small></div>
+                            <div className='col-3 text-center mt-0 mb-2'><strong>{userPostcount}</strong><br/><small className='text-muted'>Post Count</small></div>
                             <div className='col-3 text-center mt-0 mb-2'><strong>0</strong><br/><small className='text-muted'>Referrals</small></div>
                         </div>
                     </div> 
