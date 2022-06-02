@@ -466,51 +466,67 @@ export default class Post extends React.PureComponent {
         }
         let postView;
         if(filter === 'image'){
-            Object.keys(fileInfos).map((item) => {
-                if(fileInfos[item].mime_type.includes('image')){
-                    this.handleLetRender(true);
-                    return;
-                }
-                else{
-                    this.handleLetRender(false);
-                }
-            });
+            if(fileInfos.length){
+                Object.keys(fileInfos).map((item) => {
+                    if(fileInfos[item].mime_type.includes('image')){
+                        this.handleLetRender(true);
+                        return;
+                    }
+                    else{
+                        this.handleLetRender(false);
+                    }
+                });
+            }else{
+                this.handleLetRender(false);
+            }
         }else if(filter === 'video'){
-            Object.keys(fileInfos).map((item) => {
-                if(fileInfos[item].mime_type.includes('video')){
-                    this.handleLetRender(true);
-                    return;
-                }
-                else{
-                    this.handleLetRender(false);
-                }
-            });
+            if(fileInfos.length){
+                Object.keys(fileInfos).map((item) => {
+                    if(fileInfos[item].mime_type.includes('video')){
+                        this.handleLetRender(true);
+                        return;
+                    }
+                    else{
+                        this.handleLetRender(false);
+                    }
+                });
+            }else{
+                this.handleLetRender(false);
+            }
         }else if(filter === 'audio'){
-            Object.keys(fileInfos).map((item) => {
-                if(fileInfos[item].mime_type.includes('audio')){
-                    this.handleLetRender(true);
-                    return;
-                }
-                else{
-                    this.handleLetRender(false);
-                }
-            });
+            if(fileInfos.length){
+                Object.keys(fileInfos).map((item) => {
+                    if(fileInfos[item].mime_type.includes('audio')){
+                        this.handleLetRender(true);
+                        return;
+                    }
+                    else{
+                        this.handleLetRender(false);
+                    }
+                });
+            }else{
+                this.handleLetRender(false);
+            }
         }else if(filter === 'file'){
-            Object.keys(fileInfos).map((item) => {
-                if(!fileInfos[item].mime_type.includes('image') && !fileInfos[item].mime_type.includes('video') && !fileInfos[item].mime_type.includes('audio')){
-                    this.handleLetRender(true);
-                    return;
-                }
-                else{
-                    this.handleLetRender(false);
-                }
-            });
+            if(fileInfos.length){
+                Object.keys(fileInfos).map((item) => {
+                    if(!fileInfos[item].mime_type.includes('image') && !fileInfos[item].mime_type.includes('video') && !fileInfos[item].mime_type.includes('audio')){
+                        this.handleLetRender(true);
+                        return;
+                    }
+                    else{
+                        this.handleLetRender(false);
+                    }
+                });
+            }else{
+                this.handleLetRender(false);
+            }
         }else if(filter === 'location'){
 
         }else{
             this.handleLetRender(true);
         }
-        console.log(filter);
+
         if(letRender){
             if(postDetail.share_info !== 'private'){
                 postView = (
