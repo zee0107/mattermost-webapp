@@ -8,6 +8,7 @@ import { UserProfile } from 'mattermost-redux/types/users';
 import ForumMember from 'components/forum_member';
 import ForumBrowse from 'components/forum_browse';
 import ForumThread from 'components/forum_threads';
+import ForumMessage from 'components/forum_messages';
 import { Thread } from 'mattermost-redux/types/crypto';
 
 export type Props = {
@@ -138,22 +139,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                 <>
                     {myMessages.map((item,index) => {
                         return (
-                            <div className='box-middle-panel-forums'>
-                                <div className='box-middle-panel-select-forum'>
-                                    <div className='col-12 mx-auto'>
-                                        <div className='row'>
-                                            <div className='col-5 mt-2 mb-2'>
-                                            {this.renderProfilePicture('lg')}
-                                            {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt='' />*/}
-                                            <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text.</small></p>
-                                            </div>
-                                            <div className='col-3 text-left mt-3 mb-2'><small>2 Minutes ago</small></div>
-                                            <div className='col-2 text-center mt-3 mb-2'><strong><i className='bi-bookmark bi-bookmark-style'></i></strong></div>
-                                            <div className='col-2 text-center mt-3 mb-2'><strong><i className='bi-trash bi-trash-style'></i></strong></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <ForumMessage commentId={item} view='desktop' />
                         );
                     })}
                 </>
@@ -163,23 +149,7 @@ export default class MyPages extends React.PureComponent<Props, State> {
                 <>
                     {myMessages.map((item,index) => {
                         return (
-                            <div className='box-middle-panel-forums'>
-                                <div className='box-middle-panel-select-forum'>
-                                    <div className='col-12 mx-auto'>
-                                        <div className='row'>
-                                            <div className='col-8 mt-2 mb-1'>
-                                            <img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>
-                                            <p><label><strong>Lorem Ipsum</strong></label><br/><small>Lorem Ipsum is simply dummy text.</small></p>
-                                            </div>
-                                            <div className='col-4 text-center mt-2 mb-1'>
-                                            <i className='bi-bookmark bi-bookmark-style'></i>
-                                            <i className='bi-trash bi-trash-style'></i>
-                                            <br/>
-                                            <small>2 Minutes ago</small></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <ForumMessage commentId={item} view='mobile' />
                         );
                     })}
                 </>
