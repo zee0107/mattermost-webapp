@@ -204,7 +204,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {currentUser, userId} = this.props;
-        const {post,comments, textError, isMember,memberCount, liked, disliked, likeData} = this.state;
+        const {post,comments, textError, topicError, isMember,memberCount, liked, disliked, likeData} = this.state;
 
         let name;
         if(currentUser){
@@ -251,6 +251,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                         <textarea className='form-control' placeholder='Leave a comment here' onChange={this.handleChangeComment} value={this.state.commentText} id='floatingTextarea' style={{height: '100px'}}></textarea>
                         <label htmlFor='floatingTextarea'>Leave a comment here</label>
                     </div>
+                    <span className='text-danger small'>{topicError}</span>
                     <span className='text-danger small'>{textError}</span>
                     <div className='d-grid gap-2'>
                         <button className='btn-add-post text-white' onClick={() => this.handleSubmit()} type='button'>SUBMIT</button>
