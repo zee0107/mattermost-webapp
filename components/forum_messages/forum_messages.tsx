@@ -5,6 +5,7 @@ import React, {ReactNode} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import { UserProfile } from 'mattermost-redux/types/users';
 import { ForumReply, ForumTopic } from 'mattermost-redux/types/crypto';
+import { start } from 'repl';
 
 
 type Props = {
@@ -77,9 +78,10 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
         let commentText;
         if(comments){
             commentText = comments.comment.substring(0, 50) + '...';
-            var dateToLocal = new Date(comments.date).toLocaleDateString();
-            var startTime = new Date(dateToLocal);
+            var startTime = new Date(comments.date);
+            console.log('s: ',startTime);
             var endTime = new Date();
+            console.log('e: ',endTime);
             var difference = endTime.getTime() - startTime.getTime();
             var resultInMinutes = Math.round(difference / 600000);
         }
