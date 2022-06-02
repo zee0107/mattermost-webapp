@@ -60,7 +60,7 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
 
     handleArchive = (id: string) => {
         const {baseUri} = this.state;
-        const uri = new URL(baseUri + 'addviewcount');
+        const uri = new URL(baseUri + 'archivecomment');
         const params = {comment_id: id};
         uri.search = new URLSearchParams(params);
 
