@@ -24,6 +24,7 @@ import { Client4 } from 'mattermost-redux/client';
 import { getCurrentTeam } from 'mattermost-redux/selectors/entities/teams';
 
 import PostComponent from './post';
+import { makeGetFilesForPost } from 'mattermost-redux/selectors/entities/files';
 
 
 interface OwnProps {
@@ -50,7 +51,8 @@ export function isFirstReply(post: Post, previousPost: Post): boolean {
 
 function makeMapStateToProps() {
     const getReplyCount = makeGetCommentCountForPost();
-    const isPostCommentMention = makeIsPostCommentMention();
+    const isPostCommentMention = makeIsPostCommentMention();+
+    const selectFilesForPost = makeGetFilesForPost();
 
     return (state: GlobalState, ownProps: OwnProps) => {
         const post = ownProps.post || getPost(state, ownProps.postId);
@@ -59,10 +61,15 @@ function makeMapStateToProps() {
         const team = getCurrentTeam(state);
         //const channelRole = getMyChannelMembership(state,channel.id);
         const channelRole = Client4.getChannelMember(channel.id,post.user_id);
-
+        const fileInfos = selectFilesForPost(state, post.id);
+        console.log(fileInfos);
         let previousPost = null;
         if (ownProps.previousPostId) {
             previousPost = getPost(state, ownProps.previousPostId);
+        }
+
+        if(post.file_ids?.length){
+
         }
 
         let consecutivePostByUser = false;
