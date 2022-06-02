@@ -49,11 +49,15 @@ function makeMapStateToProps() {
             userId = ownprops.userId;
         }
         
+        const userPostcount = Client4.userPostCount(userId);
+        const userJoinedCount = Client4.userJoinedCount(userId);
         return {
             userId,
             userData,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
+            userPostcount,
+            userJoinedCount,
         };
     };
 }

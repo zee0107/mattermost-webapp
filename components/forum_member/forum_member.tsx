@@ -58,10 +58,14 @@ type Props = {
     userData: UserProfile;
     currentUser: UserProfile;
     view: string;
+    userJoinedCount: Promise<number>;
+    userPostCount: Promise<number>;
 }
 
 type State = {
     isDark: string;
+    userJoinedCount: number;
+    userPostCount: number;
 };
 
 export default class ProfilPage extends React.PureComponent<Props, State> {
@@ -75,6 +79,14 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
+
+        if(this.props.userJoinedCount !== undefined && this.props.userJoinedCount !== null){
+            Promise.resolve(this.props.userJoinedCount).then((value) => {this.setState({userJoinedCount: value});});
+        }
+
+        if(this.props.userPostCount !== undefined && this.props.userPostCount !== null){
+            Promise.resolve(this.props.userPostCount).then((value) => {this.setState({userPostCount: value});});
+        }
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -94,6 +106,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {currentUser, profilePicture, userData, view} = this.props;
+        const {userJoinedCount, userPostCount} = this.state;
         let name;
         if(currentUser){
             if(currentUser.first_name !== ''){
@@ -115,9 +128,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt='' />*/}
                                 <p><label><strong>{name}</strong></label><br/><small>{currentUser.position}</small></p>
                             </div>
-                            <div className='col-2 mt-3 mb-2 text-center'><strong>0</strong></div>
+                            <div className='col-2 mt-3 mb-2 text-center'><strong>{userJoinedCount}</strong></div>
                             <div className='col-2 text-center mt-3 mb-2'><strong>0</strong></div>
-                            <div className='col-2 text-center mt-3 mb-2'><strong>0</strong></div>
+                            <div className='col-2 text-center mt-3 mb-2'><strong>{userPostCount}</strong></div>
                             <div className='col-2 text-center mt-3 mb-2'><strong>0</strong></div>
                         </div>
                     </div>
@@ -134,9 +147,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 <p><label><strong>{name}</strong></label><br/><small>{currentUser.position}</small></p>
                             </div>
                             <hr/>
-                            <div className='col-3 text-center mt-0 mb-2'><strong>0</strong><br/><small className='text-muted'>Joined</small></div>
+                            <div className='col-3 text-center mt-0 mb-2'><strong>{userJoinedCount}</strong><br/><small className='text-muted'>Joined</small></div>
                             <div className='col-3 text-center mt-0 mb-2'><strong>0</strong><br/><small className='text-muted'>Last Visit</small></div>
-                            <div className='col-3 text-center mt-0 mb-2'><strong>0</strong><br/><small className='text-muted'>Post Count</small></div>
+                            <div className='col-3 text-center mt-0 mb-2'><strong>{userPostCount}</strong><br/><small className='text-muted'>Post Count</small></div>
                             <div className='col-3 text-center mt-0 mb-2'><strong>0</strong><br/><small className='text-muted'>Referrals</small></div>
                         </div>
                     </div> 
