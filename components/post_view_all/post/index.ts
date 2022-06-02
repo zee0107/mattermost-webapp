@@ -51,7 +51,7 @@ export function isFirstReply(post: Post, previousPost: Post): boolean {
 
 function makeMapStateToProps() {
     const getReplyCount = makeGetCommentCountForPost();
-    const isPostCommentMention = makeIsPostCommentMention();+
+    const isPostCommentMention = makeIsPostCommentMention();
     const selectFilesForPost = makeGetFilesForPost();
 
     return (state: GlobalState, ownProps: OwnProps) => {
