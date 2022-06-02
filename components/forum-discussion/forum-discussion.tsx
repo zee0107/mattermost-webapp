@@ -8,6 +8,7 @@ import { UserProfile } from 'mattermost-redux/types/users';
 import { Comment, ForumTopic, LikeData, Thread } from 'mattermost-redux/types/crypto';
 import ForumComments from 'components/forum_comments';
 import { BooleanLiteral, createFalse } from 'typescript';
+import { valueEventAriaMessage } from 'react-select/src/accessibility';
 
 export type Props = {
     userId: string;
@@ -37,6 +38,7 @@ type State = {
     memberCount: number;
     liked: boolean;
     disliked: boolean;
+    likeData: LikeData;
 };
 
 export default class ForumDiscussion extends React.PureComponent<Props, State> {
@@ -76,15 +78,14 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
         }
         if(this.props.likeData !== undefined && this.props.likeData !== null){
             Promise.resolve(this.props.likeData).then((value) => {
+                this.setState({likeData: value});
                 if(value.status === 1){
                     this.setState({liked: true, disliked: false});
-                }
-                else if(value.status === 2){
+                }else if(value.status === 2){
                     this.setState({liked: false, disliked: true});
-                }
-                else{
+                }else{
                     this.setState({liked: false, disliked: false});
-                }   
+                }
             });
         }
         this.setDefaultMember();
@@ -203,7 +204,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {currentUser, userId} = this.props;
-        const {post,comments, textError, isMember,memberCount, liked, disliked} = this.state;
+        const {post,comments, textError, isMember,memberCount, liked, disliked, likeData} = this.state;
 
         let name;
         if(currentUser){
@@ -212,25 +213,28 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
         let likeIcon;
         let dislikeIcon;
-        if(liked){
-            likeIcon = (
-                <i className='bi-hand-thumbs-up-fill text-primary'></i>
-            );
-        }else{
-            likeIcon = (
-                <i className='bi-hand-thumbs-up' onClick={() => this.handleLikeForum()} style={{cursor: 'pointer'}}></i>
-            );
+        if(likeData){
+            if(liked){
+                likeIcon = (
+                    <i className='bi-hand-thumbs-up-fill text-primary'></i>
+                );
+            }else{
+                likeIcon = (
+                    <i className='bi-hand-thumbs-up' onClick={() => this.handleLikeForum()} style={{cursor: 'pointer'}}></i>
+                );
+            }
+    
+            if(disliked){
+                dislikeIcon = (
+                    <i className='bi-hand-thumbs-down-fill'></i>
+                );
+            }else{
+                dislikeIcon = (
+                    <i className='bi-hand-thumbs-down' onClick={() => this.handleDislikeForum()} style={{cursor: 'pointer'}}></i>
+                );
+            }
         }
-
-        if(disliked){
-            dislikeIcon = (
-                <i className='bi-hand-thumbs-down-fill'></i>
-            );
-        }else{
-            dislikeIcon = (
-                <i className='bi-hand-thumbs-down' onClick={() => this.handleDislikeForum()} style={{cursor: 'pointer'}}></i>
-            );
-        }
+        
         let btnJoin;
         let inputReplyDesktop;
         if(isMember){
