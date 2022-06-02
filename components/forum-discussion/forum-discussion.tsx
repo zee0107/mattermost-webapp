@@ -7,7 +7,6 @@ import RightSideView from 'components/right_side_view';
 import { UserProfile } from 'mattermost-redux/types/users';
 import { Comment, ForumTopic, Thread } from 'mattermost-redux/types/crypto';
 import ForumComments from 'components/forum_comments';
-import { ActionFunc } from 'mattermost-redux/types/actions';
 
 export type Props = {
     userId: string;
@@ -18,8 +17,8 @@ export type Props = {
     isMember: Promise<boolean>;
     memberCount: Promise<number>;
     actions: {
-        forumLike: (user_id: string, forum_id: string) => ActionFunc;
-        forumdisLike: (user_id: string, forum_id: string) => ActionFunc;
+        forumLike: (user_id: string, forum_id: string) => Promise<ForumTopic>;
+        forumdisLike: (user_id: string, forum_id: string) => Promise<ForumTopic>;
     }
 }
 

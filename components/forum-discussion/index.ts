@@ -39,19 +39,19 @@ function makeMapStateToProps() {
 
 function forumLike(forum_id: string,user_id: string) {
     return (dispatch: Dispatch) => {
-        dispatch(likeForum(forum_id, user_id) as any);
+        dispatch(likeForum(forum_id, user_id) as Promise<ForumTopic>);
     };
 }
 
 function forumdisLike(forum_id: string,user_id: string) {
     return (dispatch: Dispatch) => {
-        dispatch(dislikeForum(forum_id, user_id) as any);
+        dispatch(dislikeForum(forum_id, user_id) as Promise<ForumTopic>);
     };
 }
 
 type Actions = {
-    forumLike: (forum_id: string, user_id: string) => ActionFunc;
-    forumdisLike: (forum_id: string, user_id: string) => ActionFunc;
+    forumLike: (forum_id: string, user_id: string) => Promise<ForumTopic>;
+    forumdisLike: (forum_id: string, user_id: string) => Promise<ForumTopic>;
 }
 
 function mapDispatchToProps(dispatch: Dispatch){
