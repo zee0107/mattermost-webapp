@@ -78,8 +78,11 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
         if(comments){
             commentText = comments.comment.substring(0, 50) + '...';
 
-            comments.date_posted
-            console.log(comments.date_posted);
+            var startTime = new Date(comments.date_posted);
+            console.log(startTime);
+            var endTime = new Date();
+            var differrence = endTime.getTime - startTime.getTime();
+            var resultInMinutes = Math.round(differrence / 60000);
         }
 
         let userName;
@@ -97,7 +100,7 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
                                 {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt='' />*/}
                                 <p><label><strong>{userName}</strong></label><br/><small>{commentText}</small></p>
                                 </div>
-                                <div className='col-3 text-left mt-3 mb-2'><small>2 Minutes ago</small></div>
+                                <div className='col-3 text-left mt-3 mb-2'><small>{resultInMinutes} Minutes ago</small></div>
                                 <div className='col-2 text-center mt-3 mb-2'><strong><i className='bi-bookmark bi-bookmark-style'></i></strong></div>
                                 <div className='col-2 text-center mt-3 mb-2'><strong><i className='bi-trash bi-trash-style'></i></strong></div>
                             </div>
@@ -119,7 +122,7 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
                                 <i className='bi-bookmark bi-bookmark-style'></i>
                                 <i className='bi-trash bi-trash-style'></i>
                                 <br/>
-                                <small>2 Minutes ago</small></div>
+                                <small>{resultInMinutes} Minutes ago</small></div>
                             </div>
                         </div>
                     </div>
