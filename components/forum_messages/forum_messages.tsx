@@ -6,6 +6,7 @@ import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import { UserProfile } from 'mattermost-redux/types/users';
 import { ForumReply, ForumTopic } from 'mattermost-redux/types/crypto';
 import { start } from 'repl';
+import { diff } from 'semver';
 
 
 type Props = {
@@ -76,16 +77,25 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
 
         let renderView;
         let commentText;
+        let timePast;
         if(comments){
             commentText = comments.comment.substring(0, 50) + '...';
             var today = new Date();
             var startTime = new Date(comments.date);
-            console.log(startTime.toLocaleDateString);
             var diffMs = (today - startTime); // milliseconds between now & Christmas
             var diffDays = Math.floor(diffMs / 86400000); // days
             var diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
             var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
-            console.log(diffDays + " days, " + diffHrs + " hours, " + diffMins + " minutes until Christmas =)");
+
+            if(diffDays > 0){
+                timePast = diffDays+ ' day(s)';
+            }
+            if(diffHrs > 0 && diffDays <= 0){
+                timePast = diffHrs+ ' hour(s)';
+            }
+            if(diffMins > 0 && diffHrs <= 0){
+                timePast = diffMins + ' minute(s)';
+            }
         }
 
         let userName;
@@ -103,7 +113,7 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
                                 {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt='' />*/}
                                 <p><label><strong>{userName}</strong></label><br/><small>{commentText}</small></p>
                                 </div>
-                                <div className='col-3 text-left mt-3 mb-2'><small>{diffDays} Minutes ago</small></div>
+                                <div className='col-3 text-left mt-3 mb-2'><small>{timePast} ago</small></div>
                                 <div className='col-2 text-center mt-3 mb-2'><strong><i className='bi-bookmark bi-bookmark-style'></i></strong></div>
                                 <div className='col-2 text-center mt-3 mb-2'><strong><i className='bi-trash bi-trash-style'></i></strong></div>
                             </div>
@@ -125,7 +135,7 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
                                 <i className='bi-bookmark bi-bookmark-style'></i>
                                 <i className='bi-trash bi-trash-style'></i>
                                 <br/>
-                                <small>{diffDays} Minutes ago</small></div>
+                                <small>{timePast} ago</small></div>
                             </div>
                         </div>
                     </div>
