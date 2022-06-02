@@ -214,7 +214,6 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
         let likeIcon;
         let dislikeIcon;
         if(likeData){
-            console.log(likeData);
             if(liked){
                 likeIcon = (
                     <i className='bi-hand-thumbs-up-fill text-primary'></i>
@@ -252,6 +251,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                         <textarea className='form-control' placeholder='Leave a comment here' onChange={this.handleChangeComment} value={this.state.commentText} id='floatingTextarea' style={{height: '100px'}}></textarea>
                         <label htmlFor='floatingTextarea'>Leave a comment here</label>
                     </div>
+                    <span className='text-danger small'>{textError}</span>
                     <div className='d-grid gap-2'>
                         <button className='btn-add-post text-white' onClick={() => this.handleSubmit()} type='button'>SUBMIT</button>
                     </div>
@@ -309,6 +309,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
         else{
             commentCount = 0;
         }
+
         return (
             <>
                 <section className='crypter-section-desktop'>
