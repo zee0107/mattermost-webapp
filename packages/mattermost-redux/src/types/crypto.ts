@@ -276,3 +276,11 @@ export type ForumReply = {
     comment: string;
     date_posted: string;
 }
+
+export type LikeData = {
+    id: string;
+    forum_id: string;
+    user_id: string;
+    status: number;
+    data: string;
+}

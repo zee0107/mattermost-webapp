@@ -25,6 +25,7 @@ function makeMapStateToProps() {
         const comments = Client4.listComments(searchParam);
         const isMember = Client4.getThreadMeber(searchParam,userId);
         const memberCount = Client4.getThreadMeberCount(searchParam);
+        const likeData = Client4.getLikeData(searchParam, userId);
         return {
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
@@ -33,6 +34,7 @@ function makeMapStateToProps() {
             comments,
             isMember,
             memberCount,
+            likeData
         };
     };
 }

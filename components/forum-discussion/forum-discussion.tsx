@@ -5,8 +5,9 @@ import React, {ReactNode} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import RightSideView from 'components/right_side_view';
 import { UserProfile } from 'mattermost-redux/types/users';
-import { Comment, ForumTopic, Thread } from 'mattermost-redux/types/crypto';
+import { Comment, ForumTopic, LikeData, Thread } from 'mattermost-redux/types/crypto';
 import ForumComments from 'components/forum_comments';
+import { BooleanLiteral, createFalse } from 'typescript';
 
 export type Props = {
     userId: string;
@@ -16,6 +17,7 @@ export type Props = {
     comments: Promise<Comment[]>;
     isMember: Promise<boolean>;
     memberCount: Promise<number>;
+    likeData: Promise<LikeData>;
     actions: {
         forumLike: (user_id: string, forum_id: string) => Promise<ForumTopic>;
         forumdisLike: (user_id: string, forum_id: string) => Promise<ForumTopic>;
@@ -33,6 +35,8 @@ type State = {
     textError: string;
     isMember: boolean;
     memberCount: number;
+    liked: boolean;
+    disliked: boolean;
 };
 
 export default class ForumDiscussion extends React.PureComponent<Props, State> {
@@ -44,10 +48,11 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = { isDark:'light',};
+        this.state = { isDark:'light', baseUri: 'https://localhost:44312/api/crypter/'};
         this.handleChangeComment = this.handleChangeComment.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleLikeForum = this.handleLikeForum.bind(this);
+        this.handleDislikeForum = this.handleDislikeForum.bind(this);
     }
 
     componentDidMount(){
@@ -69,6 +74,19 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
         if(this.props.memberCount !== undefined && this.props.memberCount !== null){
             Promise.resolve(this.props.memberCount).then((value) => {this.setState({memberCount: value});});
         }
+        if(this.props.likeData !== undefined && this.props.likeData !== null){
+            Promise.resolve(this.props.likeData).then((value) => {
+                if(value.status === 1){
+                    this.setState({liked: true, disliked: false});
+                }
+                else if(value.status === 2){
+                    this.setState({liked: false, disliked: true});
+                }
+                else{
+                    this.setState({liked: false, disliked: false});
+                }   
+            });
+        }
         this.setDefaultMember();
     }
 
@@ -78,11 +96,35 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
     handleLikeForum = () => {
         const {actions,userId} = this.props;
-        const {post} = this.state;
+        const {post, baseUri} = this.state;
 
         if(post){
-            const data = actions.forumLike(post.id,userId);
-            console.log(data);
+            const uri = new URL(baseUri + 'likeforum');
+            const params = {user_id: userId, forum_id: post.id};
+            uri.search = new URLSearchParams(params);
+
+            fetch(uri, {
+                method: 'POST',
+            }).then((response) => response.json()).then((data)=>{    
+                this.setState({post: data,liked: true, disliked: false});
+            }).catch(error => this.setState({textError: error}));
+        }
+    }
+
+    handleDislikeForum = () => {
+        const {actions,userId} = this.props;
+        const {post, baseUri} = this.state;
+
+        if(post){
+            const uri = new URL(baseUri + 'dislikeforum');
+            const params = {user_id: userId, forum_id: post.id};
+            uri.search = new URLSearchParams(params);
+
+            fetch(uri, {
+                method: 'POST',
+            }).then((response) => response.json()).then((data)=>{    
+                this.setState({post: data,liked: false, disliked: true});
+            }).catch(error => this.setState({textError: error}));
         }
     }
 
@@ -95,10 +137,10 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
     handleJoindThread = () => {
         const {userId} = this.props;
-        const {post} = this.state;
+        const {post, baseUri} = this.state;
 
         if(post){
-            const uri = new URL('https://localhost:44312/api/crypter/jointhread');
+            const uri = new URL(baseUri + 'jointhread');
             const params = {user_id: userId, forum_id: post.id};
             uri.search = new URLSearchParams(params);
 
@@ -112,10 +154,10 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
     handleSubmit = () => {
         const {userId} = this.props;
-        const {post, commentText, comments} = this.state;
+        const {post, commentText, baseUri} = this.state;
 
         if(post){
-            const uri = new URL('https://localhost:44312/api/crypter/createreply');
+            const uri = new URL(baseUri + 'createreply');
             const params = {user_id: userId, forum_id: post.id, comment: commentText};
             uri.search = new URLSearchParams(params);
 
@@ -161,13 +203,34 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {currentUser, userId} = this.props;
-        const {post,comments, textError, isMember,memberCount} = this.state;
+        const {post,comments, textError, isMember,memberCount, liked, disliked} = this.state;
 
         let name;
         if(currentUser){
             name = currentUser.username;
         }
 
+        let likeIcon;
+        let dislikeIcon;
+        if(liked){
+            likeIcon = (
+                <i className='bi-hand-thumbs-up-fill text-primary'></i>
+            );
+        }else{
+            likeIcon = (
+                <i className='bi-hand-thumbs-up' onClick={() => this.handleLikeForum()} style={{cursor: 'pointer'}}></i>
+            );
+        }
+
+        if(disliked){
+            dislikeIcon = (
+                <i className='bi-hand-thumbs-down-fill'></i>
+            );
+        }else{
+            dislikeIcon = (
+                <i className='bi-hand-thumbs-down' onClick={() => this.handleDislikeForum()} style={{cursor: 'pointer'}}></i>
+            );
+        }
         let btnJoin;
         let inputReplyDesktop;
         if(isMember){
@@ -264,10 +327,10 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                                     <i className='bi-eye'></i>
                                                     <small>{viewCount} views</small>
                                                     <i className='bi-dot'></i>
-                                                    <i className='bi-hand-thumbs-up' onClick={() => this.handleLikeForum()}></i>
+                                                    {likeIcon}
                                                     <small>{likeCount}</small>
                                                     <i className='bi-dot'></i>
-                                                    <i className='bi-hand-thumbs-down'></i>
+                                                    {dislikeIcon}
                                                     <small>{disLikeCount}</small>
                                                     <i className='bi-dot'></i>
                                                     <i className='bi-chat-left'></i>
@@ -315,23 +378,6 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                                         New people and Pages who join this group will appear here. <a className='text-success'><strong>Learn More</strong></a>
                                                         </small>
                                                     </p>
-
-                                                    <p className='mt-0 mb-4'>
-                                                        <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-2.png' />
-                                                        <strong className='ms-2 text-end'>Topic name</strong>
-                                                    </p>
-                                                    <p className='mt-0 mb-4'>
-                                                        <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-3.png' />
-                                                        <strong className='ms-2 text-end'>Topic name</strong>
-                                                    </p>
-                                                    <p className='mt-0 mb-4'>
-                                                        <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-4.png' />
-                                                        <strong className='ms-2 text-end'>Topic name</strong>
-                                                    </p>
-                                                    <p className='mt-0 mb-0'>
-                                                        <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-5.png' />
-                                                        <strong className='ms-2 text-end'>Topic name</strong>
-                                                    </p>
                                                 </div>
                                             </div>*/}
                                             <div className='d-grid mt-2'>
@@ -348,30 +394,6 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                                 <strong className='ms-2 text-end'>Topic name</strong>
                                                 <i className='bi-dot'></i>
                                                 <small>5/31/2022</small>
-                                            </p>
-                                            <p className='mt-4 mb-4'>
-                                                <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-3.png' />
-                                                <strong className='ms-2 text-end'>Topic name</strong>
-                                                <i className='bi-dot'></i>
-                                                <small>5/29/2022</small>
-                                            </p>
-                                            <p className='mt-4 mb-4'>
-                                                <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-4.png' />
-                                                <strong className='ms-2 text-end'>Topic name</strong>
-                                                <i className='bi-dot'></i>
-                                                <small>5/29/2022</small>
-                                            </p>
-                                            <p className='mt-4 mb-4'>
-                                                <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-5.png' />
-                                                <strong className='ms-2 text-end'>Topic name</strong>
-                                                <i className='bi-dot'></i>
-                                                <small>5/29/2022</small>
-                                            </p>
-                                            <p className='mt-4 mb-4'>
-                                                <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-6.png' />
-                                                <strong className='ms-2 text-end'>Topic name</strong>
-                                                <i className='bi-dot'></i>
-                                            <small>5/29/2022</small>
                                             </p>*/}
                                         </div>
                                     </div>
