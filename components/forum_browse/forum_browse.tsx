@@ -90,11 +90,29 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
         let postDesc;
         let postId;
         let viewCount;
+        let timePast;
         if(post){
             postTitle = post.post_title;
             postDesc = post.post_text.substring(0,50).toString()+'...';
             postId = post.id;
             viewCount = post.view_count;
+
+            var today = new Date();
+            var startTime = new Date(comments.date + 'Z');
+            var diffMs = (today - startTime); // milliseconds between now & startTime
+            var diffDays = Math.floor(diffMs / 86400000); // days
+            var diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
+            var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
+
+            if(diffDays > 0){
+                timePast = diffDays+ ' day(s)';
+            }
+            if(diffHrs > 0 && diffDays <= 0){
+                timePast = diffHrs+ ' hour(s)';
+            }
+            if(diffMins > 0 && diffHrs <= 0){
+                timePast = diffMins + ' minute(s)';
+            }
         }
 
         let renderView;
@@ -113,7 +131,7 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
                                     {this.renderProfilePicture('lg')}
                                     {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-5.png' alt=''/>*/}
                                     <p><label><strong>@{currentUser.username}</strong></label><br/><small>By: <a className='text-success'>{name}</a></small>
-                                    <small className='ms-1'>1 Day ago</small></p>
+                                    <small className='ms-1'>{timePast} ago</small></p>
                                 </div>
                                 <div className='col-2 text-center mt-3 mb-2'><strong>{memberCount}</strong></div>
                                 <div className='col-2 text-center mt-3 mb-2'><strong>{viewCount}</strong></div>
@@ -139,7 +157,7 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
                             {this.renderProfilePicture('lg')}
                             {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-4.png' alt='' />*/}
                             <p><label><strong>@{currentUser.username}</strong></label><br/><small>By: <a className='text-success'>{name}</a></small>
-                            <small className='ms-1'>1 Day ago</small></p>
+                            <small className='ms-1'>{timePast} ago</small></p>
                         </div>
                         <div className='col-2 text-center'>
                             <label>{memberCount} <br/><small className='text-muted'>Member</small></label>
