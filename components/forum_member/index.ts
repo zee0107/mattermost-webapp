@@ -51,6 +51,7 @@ function makeMapStateToProps() {
         
         const userPostcount = Client4.userPostCount(userId);
         const userJoinedCount = Client4.userJoinedCount(userId);
+        const forumUserData = Client4.forumUserData(userId);
         return {
             userId,
             userData,
@@ -58,6 +59,7 @@ function makeMapStateToProps() {
             currentUser,
             userPostcount,
             userJoinedCount,
+            forumUserData,
         };
     };
 }

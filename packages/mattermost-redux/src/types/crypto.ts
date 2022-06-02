@@ -284,3 +284,8 @@ export type LikeData = {
     status: number;
     date: string;
 }
+
+export type ForumUser = {
+    user_id: string;
+    last_visit: string;
+}
