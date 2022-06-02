@@ -459,7 +459,7 @@ export default class Post extends React.PureComponent {
         if (this.props.center) {
             centerClass = 'center';
         }
-        let letRender = false;
+        let letRender;
         let postView;
         if(filter === 'image'){
             Object.keys(fileInfos).map((item) => {
