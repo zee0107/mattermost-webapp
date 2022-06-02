@@ -81,8 +81,8 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
         if(comments){
             commentText = comments.comment.substring(0, 50) + '...';
             var today = new Date();
-            var startTime = new Date(comments.date);
-            console.log(startTime.toString());
+            var startTime = new Date(comments.date + 'Z');
+            console.log(startTime.toLocaleString());
             var diffMs = (today - startTime); // milliseconds between now & startTime
             var diffDays = Math.floor(diffMs / 86400000); // days
             var diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
