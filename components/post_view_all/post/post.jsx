@@ -128,6 +128,7 @@ export default class Post extends React.PureComponent {
             a11yActive: false,
             ariaHidden: true,
             fadeOutHighlight: false,
+            letRender: false,
             postDetail: {},
             profile_url: '',
             channelRole: {},
@@ -182,6 +183,10 @@ export default class Post extends React.PureComponent {
         catch(error){
             conosle.log(error);
         }
+    }
+
+    handleLetRender = (value) => {
+        this.setState({letRender: value});
     }
 
     componentWillUnmount() {
@@ -394,7 +399,7 @@ export default class Post extends React.PureComponent {
             filter,
         } = this.props;
 
-        const { postDetail, profile_url, channelRole } = this.state;
+        const { postDetail, profile_url, channelRole, letRender } = this.state;
         if (!post.id) {
             return null;
         }
@@ -459,36 +464,35 @@ export default class Post extends React.PureComponent {
         if (this.props.center) {
             centerClass = 'center';
         }
-        let letRender;
         let postView;
         if(filter === 'image'){
             Object.keys(fileInfos).map((item) => {
                 if(fileInfos[item].mime_type.includes('image')){
-                    letRender = true;
+                    this.handleLetRender(true);
                 }
             });
         }else if(filter === 'video'){
             Object.keys(fileInfos).map((item) => {
                 if(fileInfos[item].mime_type.includes('video')){
-                    letRender = true;
+                    this.handleLetRender(true);
                 }
             });
         }else if(filter === 'audio'){
             Object.keys(fileInfos).map((item) => {
                 if(fileInfos[item].mime_type.includes('audio')){
-                    letRender = true;
+                    this.handleLetRender(true);
                 }
             });
         }else if(filter === 'file'){
             Object.keys(fileInfos).map((item) => {
                 if(!fileInfos[item].mime_type.includes('image') && !fileInfos[item].mime_type.includes('video') && !fileInfos[item].mime_type.includes('audio')){
-                    letRender = true;
+                    this.handleLetRender(true);
                 }
             });
         }else if(filter === 'location'){
 
         }else{
-            letRender = true;
+            this.handleLetRender(true);
         }
         console.log(letRender);
         if(letRender){
