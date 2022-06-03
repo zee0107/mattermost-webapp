@@ -126,13 +126,17 @@ export default class MyGroups extends React.PureComponent<Props, State> {
         }
     }
 
-    componentDidUpdate(){
+    componentDidUpdate(prevProps,prevState){
         if(this.props.mychannels != null){
             Promise.resolve(this.props.mychannels).then(value => {this.setState({mygroups: value});})
         }
 
         if(this.props.suggestedChannels != null){
             Promise.resolve(this.props.suggestedChannels).then(value => {this.setState({suggestedgroup: value});})
+        }
+
+        if(this.props.goToPage !== prevProps.goToPage){
+            this.setState({group_view: this.props.goToPage});
         }
     }
 

@@ -27,11 +27,15 @@ import {switchToChannel} from 'actions/views/channel';
 import MyPages, {Props} from './pages'
 import { getTeamMember, getTeamMembersByIds } from 'mattermost-redux/actions/teams';
 
+type ownProps = {
+    goTo: string;
+}
 
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
 
-    return function mapStateToProps(state: GlobalState) {
+    return function mapStateToProps(state: GlobalState, ownProps: ownProps) {
+        const goToPage = ownProps.location.hash.replace('#','');
         const currentUser = getCurrentUser(state);
         const currentTeam = getCurrentTeam(state);
         const userId = currentUser?.id;
@@ -40,6 +44,7 @@ function makeMapStateToProps() {
         const isMember = getMyTeams(state);
 
         return {
+            goToPage,
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
