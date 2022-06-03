@@ -159,7 +159,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                             <label className='text-primary'>Trending Groups</label>
                         </div>
                         <div className='col-md-4 text-end'>
-                            <label className='text-secondary'><a href='/mygroups' style={{textDecoration: 'none'}}>View All</a></label>
+                            <a href='/mygroups' className='text-secondary' style={{textDecoration: 'none'}}><label className='text-secondary'>View All</label></a>
                         </div>
                     </div>
                     <hr className='removeMarginHr'></hr>
