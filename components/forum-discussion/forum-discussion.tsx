@@ -490,7 +490,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                         {renderComments}
                                         {inputReplyDesktop}
                                     </div>
-                                    <div className={`col-lg-4 insetlayoutmobile ${this.state.fullWidth ? 'hide' : ''}`}>
+                                    <div className={`col-lg-4 insetlayoutmobile ${this.state.fullWidth ? '' : 'hide'}`}>
                                         <div className='position-sticky float-right-panel-forum'>
                                             <div className='box-middle-panel mt-3'>
                                                 <div className='position-relative'>
