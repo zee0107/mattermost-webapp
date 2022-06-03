@@ -280,16 +280,6 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                 </div>
-                <div className='col-sm-12'>
-                    <div className='side-menu-box'>
-                        <SidebarChannelList
-                            handleOpenMoreDirectChannelsModal={this.handleOpenMoreDirectChannelsModal}
-                            onDragStart={this.onDragStart}
-                            onDragEnd={this.onDragEnd}
-                        />
-                        {this.renderModals()}
-                    </div>
-                </div>
             </div>
         );
     }
