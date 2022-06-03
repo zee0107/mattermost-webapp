@@ -143,7 +143,7 @@ export default class ForumComments extends React.PureComponent<Props, State> {
                             </p>
                             <form className='p-2 editcomments'>
                                 <div className='form-floating'>
-                                    <textarea className='form-control' placeholder='Edit comment' id='floatingTextarea2' style='height: 100px'></textarea>
+                                    <textarea className='form-control' placeholder='Edit comment' id='floatingTextarea2' style={{height: '100px',}}></textarea>
                                     <label htmlFor='floatingTextarea2'>
                                         Edit comment
                                     </label>
