@@ -97,6 +97,50 @@ p {
   //font-family: "Montserrat-Regular";
   font-size: 12px;
 }
+.submenurightcol {
+  margin:0px 30px 0px 0px;
+}
+.showrightcol {
+  display: none;
+}
+.onShowrightcol {
+  cursor: pointer;
+}
+.bi-menu-app-fill-style {
+  font-size: 20px;
+}
+.joined-people {
+  height: 215px;
+  overflow-y: hidden;
+}
+.joined-people:hover {
+  height: 215px;
+  overflow-y: scroll;
+}
+.onDeletecommentundo {
+  cursor: pointer;
+}
+.undocommnets {
+  display: none;
+}
+.onUndocomments {
+  cursor: pointer;
+}
+.onEditcomments {
+  cursor: pointer;
+}
+.editcomments {
+  display: none;
+}
+.bi-trash-fill-style {
+  font-size: 12px;
+}
+.onDeletecomment {
+  cursor: pointer;
+}
+.onActioncomment {
+  cursor: pointer;
+}
 .insetlayoutmobile {
   display: none;
 }
@@ -3606,6 +3650,9 @@ overflow-y: scroll;
   font-size: 24px;
 }
 /* Icon sizes  */
+.bi-x-style-comments {
+  font-size: 10px;
+}
 .bi-x {
   font-size: 24px;
 }
@@ -4271,6 +4318,13 @@ background: linear-gradient(103deg, rgba(52,200,84,1) 0%, rgba(99,210,58,1) 42%,
 }
 .person-heart-fill-style {
   font-size: 13px;
+}
+.box-middle-panel-extra {
+  background: #ffffff;
+  border-radius: 19px;
+  padding: 10px 14px 10px 14px;
+  margin: 8px 0px 8px 0px;
+  width: 100%;
 }
 .box-middle-panel {
   background: #ffffff;
@@ -5423,6 +5477,14 @@ display: none;
 .float-top-trendings-panel {
     background: #DAFDC4;
     margin: 0px 0px 0px 0px;
+}
+.float-right-panel-dropdown {
+    top: 150rem; 
+    z-index: 1;
+}
+.float-right-panel-forum {
+    top: 6rem; 
+    z-index: 0;
 }
 .float-right-panel {
   top: 6rem; 
