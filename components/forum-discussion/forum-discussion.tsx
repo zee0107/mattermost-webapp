@@ -494,7 +494,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                         <div className='position-sticky float-right-panel-forum'>
                                             <div className='box-middle-panel mt-3'>
                                                 <div className='position-relative'>
-                                                    <a className='position-absolute top-0 end-0 onInsetreversebackmobile'>
+                                                    <a className='position-absolute top-0 end-0 onInsetreversebackmobile' onClick={() => this.handleFullWidth(true)}>
                                                         <i className='bi-layout-sidebar-inset bi-layout-sidebar-inset-reverse-style'></i>
                                                     </a>
                                                 </div>
@@ -507,7 +507,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                                         People joined
                                                         <i className='bi-dot'></i> 
                                                         <a className='onShowmembers'>
-                                                        10.11K
+                                                        {memberCount}
                                                         </a>
 
                                                     </small>
@@ -555,7 +555,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                                 </div>
 
                                                 <strong className='mt-0'>My Topics</strong>
-                                                <p className='mt-4 mb-2'>
+                                                {/*<p className='mt-4 mb-2'>
                                                     <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-2.png' />
                                                     <strong className='ms-2 text-end'>
                                                     Topic name
@@ -564,6 +564,10 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                                     <small>
                                                     5/31/2022
                                                     </small>
+                                                </p>*/}
+                                                <p className='mt-4 mb-2'>
+                                                    <i className='bi-journal-x'></i>
+                                                    <strong>No Related Topic</strong>
                                                 </p>
                                             </div>
                                         </div>
