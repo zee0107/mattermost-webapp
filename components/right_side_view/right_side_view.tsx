@@ -159,7 +159,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                             <label className='text-primary'>Trending Groups</label>
                         </div>
                         <div className='col-md-4 text-end'>
-                            <a href='/mygroups' className='text-secondary' style={{textDecoration: 'none'}}><label className='text-secondary'>View All</label></a>
+                            <a href='/mygroups#suggested' className='text-secondary' style={{textDecoration: 'none',cursor:'pointer'}}><label className='text-secondary'>View All</label></a>
                         </div>
                     </div>
                     <hr className='removeMarginHr'></hr>
@@ -225,7 +225,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                     <br />
                     <div className='col-lg-12 chat-hover removePadding'>
                         <div className='d-flex'>
-                            <div className='col-lg-3 marginTopImg'>
+                            <div className='col-lg-3'>
                                 <img src={profPic} className='chat-img'></img>
                             </div>
                             <div className='col-lg-9 removePaddingLeft'>
@@ -243,7 +243,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                     </div>
                     <div className='col-lg-12 chat-hover removePadding'>
                         <div className='d-flex'>
-                            <div className='col-lg-3 marginTopImg'>
+                            <div className='col-lg-3'>
                                 <img src={profPic} className='chat-img'></img>
                             </div>
                             <div className='col-lg-9 removePaddingLeft'>
@@ -261,7 +261,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                     </div>
                     <div className='col-lg-12 chat-hover removePadding'>
                         <div className='d-flex'>
-                            <div className='col-lg-3 marginTopImg'>
+                            <div className='col-lg-3'>
                                 <img src={profPic} className='chat-img'></img>
                             </div>
                             <div className='col-lg-9 removePaddingLeft'>
