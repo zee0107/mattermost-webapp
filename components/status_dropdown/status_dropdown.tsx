@@ -176,7 +176,7 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
     }
 
     goToForums = () => {
-        const uri = new URL('https://localhost:44312/api/crypter/joinforum');
+        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/joinforum');
         //const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/joinforum');
         const params = {user_id: this.props.userId, location: this.props.currentUser.position};
         uri.search = new URLSearchParams(params);
@@ -499,7 +499,7 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
                             rightDecorator={status === 'forums' && selectedIndicator}
                             id={'forums'}
                         />
-                        <Menu.ItemLink
+                        {/*<Menu.ItemLink
                             id='messages'
                             ariaLabel='messages'
                             to='/messages'
@@ -508,7 +508,7 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
                             icon={globalHeader ? (
                                 <i className='bi bi-messages-left'/>
                             ) : <i className='fa fa-cog'/>}
-                            />
+                            />*/}
                     </Menu.Group>
                     <Menu.Group>
                         <Menu.ItemLink

@@ -49,7 +49,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = { isDark:'light',fullWidth: false, baseUri: 'https://localhost:44312/api/crypter/'};
+        this.state = { isDark:'light',fullWidth: false, baseUri: 'https://crypterfighter.polywickstudio.ph/api/crypter/'};
 
         this.handleChangeComment = this.handleChangeComment.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
