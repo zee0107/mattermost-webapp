@@ -114,7 +114,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
 
         return (
             <>
-                <div className='col-md-12 chat-box removePadding mtop-10'>
+                <div className='col-md-12 chat-box p-2 mtop-10'>
                     <div className='d-flex mtop-10'>
                         <div className='col-md-3 profile-img-div-new'>
                             {this.renderProfilePicture('xl')}
@@ -153,7 +153,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                 </div>
-                <div className='col-md-12 chat-box removePadding mtop-10'>
+                <div className='col-md-12 chat-box p-2 mtop-10'>
                     <div className='d-flex mtop-10'>
                         <div className='col-md-8'>
                             <label className='text-primary'>Trending Groups</label>
@@ -191,7 +191,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                 </div>
-                <div className='col-md-12 chat-box removePadding mtop-10'>
+                <div className='col-md-12 chat-box p-2 mtop-10'>
                     <div className='d-flex'>
                         <div className='col-lg-4 '>
                             <div className='d-flex'>
