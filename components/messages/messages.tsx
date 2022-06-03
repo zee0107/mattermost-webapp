@@ -3,7 +3,6 @@
 
 import React, {ReactNode} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
-import RightSideView from 'components/right_side_view';
 import { UserProfile } from 'mattermost-redux/types/users';
 
 export type Props = {
@@ -118,7 +117,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                 <a className='onChatus'>
                                                 <div className='row'>
                                                         <div className='col-2 text-center p-1 mt-1'>
-                                                        <img width='100%' className='img-fluid' src='assets/images/group-cover.png' alt=''/>
+                                                            {this.renderProfilePicture('xl')}
                                                         </div>
                                                         <div className='col-lg-8 mt-2'>
                                                         <strong><label>Group name</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small>
@@ -153,7 +152,9 @@ export default class Messages extends React.PureComponent<Props, State> {
                                             <div className='collapse' id='collapseDirectmsg'>
                                                 <a className='onChatus'>
                                                 <div className='row'>
-                                                    <div className='col-2 text-center p-1 mt-1'><img width='100%' className='img-fluid' src='assets/images/chat-msg-picture.png' alt=''/></div>
+                                                    <div className='col-2 text-center p-1 mt-1'>
+                                                        {this.renderProfilePicture('xl')}
+                                                    </div>
                                                     <div className='col-lg-8 mt-2'><strong><label>Garrett Watson</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
                                                     <div className='col-2 text-start p-2'>
                                                     <small>12:04</small>
@@ -162,7 +163,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                 </a>
                                                 <a className='onChatus'>
                                                 <div className='row'>
-                                                    <div className='col-2 text-center p-1 mt-1'><img width='100%' className='img-fluid' src='assets/images/chat-msg-picture-2.png' alt=''/></div>
+                                                    <div className='col-2 text-center p-1 mt-1'> {this.renderProfilePicture('xl')}</div>
                                                     <div className='col-lg-8 mt-2'><strong><label>Caroline Watson</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
                                                     <div className='col-2 text-start p-2'>
                                                     <small>12:04</small>
@@ -171,7 +172,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                 </a>
                                                 <a className='onChatus'>
                                                 <div className='row'>
-                                                    <div className='col-2 text-center p-1 mt-1'><img width='100%' className='img-fluid' src='assets/images/chat-msg-picture-3.png' alt=''/></div>
+                                                    <div className='col-2 text-center p-1 mt-1'>{this.renderProfilePicture('xl')}</div>
                                                     <div className='col-lg-8 mt-2'><strong><label>Leon Nunez</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
                                                     <div className='col-2 text-start p-2'>
                                                     <small>12:04</small>
@@ -180,7 +181,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                 </a>
                                                 <a className='onChatus'>
                                                 <div className='row'>
-                                                    <div className='col-2 text-center p-1 mt-1'><img width='100%' className='img-fluid' src='assets/images/chat-msg-picture-4.png' alt=''/></div>
+                                                    <div className='col-2 text-center p-1 mt-1'>{this.renderProfilePicture('xl')}</div>
                                                     <div className='col-lg-8 mt-2'><strong><label>Ralph Harris</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
                                                     <div className='col-2 text-start p-2'>
                                                     <small>12:04</small>
@@ -189,7 +190,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                 </a>
                                                 <a className='onChatus'>
                                                 <div className='row'>
-                                                    <div className='col-2 text-center p-1 mt-1'><img width='100%' className='img-fluid' src='assets/images/chat-msg-picture.png' alt=''/></div>
+                                                    <div className='col-2 text-center p-1 mt-1'>{this.renderProfilePicture('xl')}</div>
                                                     <div className='col-lg-8 mt-2'><strong><label>Garrett Watson</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
                                                     <div className='col-2 text-start p-2'>
                                                     <small>12:04</small>
@@ -198,7 +199,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                 </a>
                                                 <a className='onChatus'>
                                                 <div className='row'>
-                                                    <div className='col-2 text-center p-1 mt-1'><img width='100%' className='img-fluid' src='assets/images/chat-msg-picture-2.png' alt=''/></div>
+                                                    <div className='col-2 text-center p-1 mt-1'>{this.renderProfilePicture('xl')}</div>
                                                     <div className='col-lg-8 mt-2'><strong><label>Caroline Watson</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
                                                     <div className='col-2 text-start p-2'>
                                                     <small>12:04</small>
@@ -213,7 +214,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                             <div className='text-center'><small className='date-chats'>Tuesday, March 22</small></div>
                                             <div className='row mt-3 mb-3'>
                                                 <div className='col-1 text-center'>
-                                                <img width='60' className='float-start' src='assets/images/chat-msg-picture-5.png' alt=''/>
+                                                {this.renderProfilePicture('xl')}
                                                 </div>
                                                 <div className='col-11 mt-1'>
                                                 <p className='name-of-chat-title'><strong><label className='float-start'>Olive Dixon</label></strong>
@@ -224,7 +225,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                             </div>
                                             <div className='row mt-3 mb-3'>
                                                 <div className='col-1 text-center'>
-                                                <img width='60' className='float-start' src='assets/images/evan-yates-photos.png' alt=''/>
+                                                {this.renderProfilePicture('xl')}
                                                 </div>
                                                 <div className='col-11 mt-1'>
                                                 <p className='name-of-chat-title'><strong><label className='float-start'>You</label></strong>
@@ -235,7 +236,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                             </div>
                                             <div className='row mt-3 mb-3'>
                                                 <div className='col-1 text-center'>
-                                                <img width='60' className='float-start' src='assets/images/chat-msg-picture-5.png' alt=''/>
+                                                {this.renderProfilePicture('xl')}
                                                 </div>
                                                 <div className='col-11 mt-1'>
                                                 <p className='name-of-chat-title'><strong><label className='float-start'>Olive Dixon</label></strong>
@@ -249,7 +250,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                             </div>
                                             <div className='row mt-3 mb-3'>
                                                 <div className='col-1 text-center'>
-                                                <img width='60' className='float-start' src='assets/images/evan-yates-photos.png' alt=''/>
+                                                {this.renderProfilePicture('xl')}
                                                 </div>
                                                 <div className='col-11 mt-1'>
                                                 <p className='name-of-chat-title'><strong><label className='float-start'>You</label></strong>
@@ -260,7 +261,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                             </div>
                                             <div className='row mt-3 mb-3'>
                                                 <div className='col-1 text-center'>
-                                                <img width='60' className='float-start' src='assets/images/chat-msg-picture-5.png' alt=''/>
+                                                {this.renderProfilePicture('xl')}
                                                 </div>
                                                 <div className='col-11 mt-1'>
                                                 <p className='name-of-reply-title'><strong><label className='float-start mt-3'>Olive Dixon</label></strong>
