@@ -284,7 +284,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
             renderPost = (
                 <>
-                    <ForumComments userId={post.post_user} forumId={post.id} postType={'post'} view={'desktop'} handleFullWidth={this.handleFullWidth} fullWidth={this.handleFullWidth}/>
+                    <ForumComments userId={post.post_user} forumId={post.id} postType={'post'} view={'desktop'} handleFullWidth={this.handleFullWidth} fullWidth={this.state.fullWidth}/>
                 </>
             )
         }
@@ -296,7 +296,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                     <>
                         {comments.map((item,index) => {
                             return (
-                                <ForumComments userId={item.userId} forumId={item.commentId} postType={'comment'} view={'desktop'} key={`${item.commentID}--${index}`} handleFullWidth={this.handleFullWidth} fullWidth={this.handleFullWidth} />
+                                <ForumComments userId={item.userId} forumId={item.commentId} postType={'comment'} view={'desktop'} key={`${item.commentID}--${index}`} handleFullWidth={this.handleFullWidth} fullWidth={this.state.fullWidth} />
                             );
                         })}
                     </>
