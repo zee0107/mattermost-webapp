@@ -69,7 +69,7 @@ export default class Messages extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const DeferredPostView = this.state.deferredPostView;
+        //const DeferredPostView = this.state.deferredPostView;
         return (
             <>
                 <section id="crypter-section" className='crypter-section-desktop'>
@@ -176,13 +176,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-9'>
-                                        <div className='right-chat-panel'>
-                                            <DeferredPostView
-                                            channelId={this.props.channelId}
-                                            focusedPostId={this.state.focusedPostId}
-                                            filter={this.state.filter}
-                                    />
-                                            {/*<div className='text-center'><small className='date-chats'>Tuesday, March 22</small></div>
+                                            <div className='text-center'><small className='date-chats'>Tuesday, March 22</small></div>
                                                 <div className='row mt-3 mb-3'>
                                                     <div className='col-1 text-center'>
                                                     {this.renderProfilePicture('xl')}
@@ -241,7 +235,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                     <p className='col-12 name-of-reply-title mt-3'><label>Ok</label></p>
                                                     </div>
                                                 </div>
-                                            </div>*/}
+                                            </div>
                                             </div>
                                             <div className='input-group mb-3'>
                                                 <span className='input-group-text group-text-actions bg-transparent'>
