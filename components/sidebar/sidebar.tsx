@@ -222,12 +222,12 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                 </div>
                 <div className='col-sm-12'>
                     <div className='menu-wrapper-collapse sidemenuBox'>
-                        <input type="checkbox" id="list-item-1"></input>
+                        <input type="checkbox" id="list-item-1" checked></input>
                         <label htmlFor="list-item-1" className="first collapsible-label-title"><img src={rocketImage} className="sidemenu-title-img"></img>Launchpad</label>
                             <ul className='ul-collapse'>
                                 <li key='create-launchpad' className='sidemenu-padding'><div className={'list-sidemenu-a ' + `${this.state.middleView === 'create-launchpad' ? 'active-item' : ''}`}><a href="/launchpad"  onClick={() => this.setState({middleView: 'create-launchpad'})} className='side-menu-item'>Create Launchpad</a></div></li>
                                 <li key='projects' className='sidemenu-padding'>
-                                    <input type="checkbox" id="list-item-2"></input>
+                                    <input type="checkbox" id="list-item-2" checked></input>
                                     <label htmlFor="list-item-2" className="first collapsible-label">Projects</label>
                                     <ul className='ul-collapse'>
                                         <li key='live'><div className={'list-sidemenu-b ' + `${this.state.middleView === 'projects-live' ? 'active-item' : ''}`}><a href="/launchpad-live" onClick={() => this.setState({middleView: 'projects-live'})} className='side-menu-item'>Live</a></div></li>
