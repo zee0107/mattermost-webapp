@@ -356,7 +356,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                             </div>
                             <div className='content-forums-browse'>
                                 <div className='row'>
-                                    <div className={this.state.fullWidth ? 'col-md-8' : 'col-md-12'}>
+                                    <div className={this.state.fullWidth ? 'col-md-12' : 'col-md-8'}>
                                         {renderPost}
                                         {renderComments}
                                         {inputReplyDesktop}
