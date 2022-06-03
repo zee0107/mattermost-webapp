@@ -101,6 +101,24 @@ export default class Sidebar extends React.PureComponent<Props, State> {
         this.setState({isDragging: false});
     }
 
+    renderModals = () => {
+        let moreDirectChannelsModal;
+        if (this.state.showDirectChannelsModal) {
+            moreDirectChannelsModal = (
+                <MoreDirectChannels
+                    onModalDismissed={this.hideMoreDirectChannelsModal}
+                    isExistingChannel={false}
+                />
+            );
+        }
+
+        return (
+            <React.Fragment>
+                {moreDirectChannelsModal}
+            </React.Fragment>
+        );
+    }
+
     render_percent = (percent) =>{
         if(parseFloat(percent) > 0){
             return (<label className='currency-value-text currency-percent-change' key={percent+"-trend-percent"}><img src={triangleupImage}></img>&nbsp;{parseFloat(percent).toFixed(2)}%</label>);
@@ -271,6 +289,7 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                         />
                     </div>
                 </div>
+                {this.renderModals()}
             </div>
         );
     }
