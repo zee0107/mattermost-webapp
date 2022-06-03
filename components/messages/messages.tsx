@@ -176,83 +176,83 @@ export default class Messages extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-9'>
-                                        <div className='text-center'><small className='date-chats'>Tuesday, March 22</small></div>
-                                                <div className='row mt-3 mb-3'>
-                                                    <div className='col-1 text-center'>
-                                                    {this.renderProfilePicture('xl')}
-                                                    </div>
-                                                    <div className='col-11 mt-1'>
-                                                    <p className='name-of-chat-title'><strong><label className='float-start'>Olive Dixon</label></strong>
-                                                        <small className='float-end'>10:04AM</small></p>
-                                                    <br/>
-                                                    <p className='col-12 name-of-reply-title'><label>Hi Evan</label></p>
-                                                    </div>
+                                        <div clssName='text-center'><small className='date-chats'>Tuesday, March 22</small></div>
+                                            <div className='row mt-3 mb-3'>
+                                                <div className='col-1 text-center'>
+                                                {this.renderProfilePicture('xl')}
                                                 </div>
-                                                <div className='row mt-3 mb-3'>
-                                                    <div className='col-1 text-center'>
-                                                    {this.renderProfilePicture('xl')}
-                                                    </div>
-                                                    <div className='col-11 mt-1'>
-                                                    <p className='name-of-chat-title'><strong><label className='float-start'>You</label></strong>
-                                                        <small className='float-end'>10:04AM</small></p>
-                                                    <br/>
-                                                    <p className='col-12 name-of-reply-title'><label>Hi Oscar, Nice to meet you, <br/> we will work with new project together.</label></p>
-                                                    </div>
+                                                <div className='col-11 mt-1'>
+                                                <p className='name-of-chat-title'><strong><label className='float-start'>Olive Dixon</label></strong>
+                                                    <small className='float-end'>10:04AM</small></p>
+                                                <br/>
+                                                <p className='col-12 name-of-reply-title'><label>Hi Evan</label></p>
                                                 </div>
-                                                <div className='row mt-3 mb-3'>
-                                                    <div className='col-1 text-center'>
-                                                    {this.renderProfilePicture('xl')}
-                                                    </div>
-                                                    <div className='col-11 mt-1'>
-                                                    <p className='name-of-chat-title'><strong><label className='float-start'>Olive Dixon</label></strong>
-                                                        <small className='float-end'>10:04AM</small></p>
-                                                    <br/>
-                                                    <p className='col-12 name-of-reply-title'><label>Hi! Please, change the status in this task </label></p>
-                                                    <a className='onLinkchats float-start'><i className='bi-link-45deg'></i>
-                                                        <label>UX Login + Registration</label>
-                                                    </a>
-                                                    </div>
+                                            </div>
+                                            <div className='row mt-3 mb-3'>
+                                                <div className='col-1 text-center'>
+                                                {this.renderProfilePicture('xl')}
                                                 </div>
-                                                <div className='row mt-3 mb-3'>
-                                                    <div className='col-1 text-center'>
-                                                    {this.renderProfilePicture('xl')}
-                                                    </div>
-                                                    <div className='col-11 mt-1'>
-                                                    <p className='name-of-chat-title'><strong><label className='float-start'>You</label></strong>
-                                                        <small className='float-end'>10:04AM</small></p>
-                                                    <br/>
-                                                    <p className='col-12 name-of-reply-title'><label>Hi Oscar, Nice to meet you, <br/> we will work with new project together.</label></p>
-                                                    </div>
+                                                <div className='col-11 mt-1'>
+                                                <p className='name-of-chat-title'><strong><label className='float-start'>You</label></strong>
+                                                    <small className='float-end'>10:04AM</small></p>
+                                                <br/>
+                                                <p className='col-12 name-of-reply-title'><label>Hi Oscar, Nice to meet you, <br/> we will work with new project together.</label></p>
                                                 </div>
-                                                <div className='row mt-3 mb-3'>
-                                                    <div className='col-1 text-center'>
-                                                    {this.renderProfilePicture('xl')}
-                                                    </div>
-                                                    <div className='col-11 mt-1'>
-                                                    <p className='name-of-reply-title'><strong><label className='float-start mt-3'>Olive Dixon</label></strong>
-                                                        <small className='float-end'>10:04AM</small></p>
-                                                    <br/>
-                                                    <p className='col-12 name-of-reply-title mt-3'><label>Ok</label></p>
-                                                    </div>
+                                            </div>
+                                            <div className='row mt-3 mb-3'>
+                                                <div className='col-1 text-center'>
+                                                {this.renderProfilePicture('xl')}
+                                                </div>
+                                                <div className='col-11 mt-1'>
+                                                <p className='name-of-chat-title'><strong><label className='float-start'>Olive Dixon</label></strong>
+                                                    <small className='float-end'>10:04AM</small></p>
+                                                <br/>
+                                                <p className='col-12 name-of-reply-title'><label>Hi! Please, change the status in this task </label></p>
+                                                <a className='onLinkchats float-start'><i className='bi-link-45deg'></i>
+                                                    <label>UX Login + Registration</label>
+                                                </a>
+                                                </div>
+                                            </div>
+                                            <div className='row mt-3 mb-3'>
+                                                <div className='col-1 text-center'>
+                                                {this.renderProfilePicture('xl')}
+                                                </div>
+                                                <div className='col-11 mt-1'>
+                                                <p className='name-of-chat-title'><strong><label className='float-start'>You</label></strong>
+                                                    <small className='float-end'>10:04AM</small></p>
+                                                <br/>
+                                                <p className='col-12 name-of-reply-title'><label>Hi Oscar, Nice to meet you, <br/> we will work with new project together.</label></p>
+                                                </div>
+                                            </div>
+                                            <div className='row mt-3 mb-3'>
+                                                <div className='col-1 text-center'>
+                                                {this.renderProfilePicture('xl')}
+                                                </div>
+                                                <div className='col-11 mt-1'>
+                                                <p className='name-of-reply-title'><strong><label className='float-start mt-3'>Olive Dixon</label></strong>
+                                                    <small className='float-end'>10:04AM</small></p>
+                                                <br/>
+                                                <p className='col-12 name-of-reply-title mt-3'><label>Ok</label></p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='input-group mb-3'>
-                                            <span className='input-group-text group-text-actions bg-transparent'>
-                                                <img width='20' src='assets/images/icon-browse.png' alt=''/>
-                                                <img width='20' src='assets/images/icon-url.png' alt=''/>
-                                                <img width='20' src='assets/images/icon-at.png' alt=''/>
-                                            </span>
-                                            <input type='text' className='form-control write-message-inputs' aria-label='Type your message here' placeholder='Type your message here...'/>
-                                            <span className='input-group-text group-text-actions bg-transparent'>
-                                                <img width='20' src='assets/images/icon-emoji.png' alt=''/>
-                                                <button className='btn ms-2 onSendmessagewrite'><img width='20' src='assets/images/icon-arrow-search.png'/></button>
-                                            </span>
-                                        </div>
+                                    </div>
+                                    <div className='input-group mb-3'>
+                                        <span className='input-group-text group-text-actions bg-transparent'>
+                                            <img width='20' src='assets/images/icon-browse.png' alt=''/>
+                                            <img width='20' src='assets/images/icon-url.png' alt=''/>
+                                            <img width='20' src='assets/images/icon-at.png' alt=''/>
+                                        </span>
+                                        <input type='text' className='form-control write-message-inputs' aria-label='Type your message here' placeholder='Type your message here...'/>
+                                        <span className='input-group-text group-text-actions bg-transparent'>
+                                            <img width='20' src='assets/images/icon-emoji.png' alt=''/>
+                                            <button className='btn ms-2 onSendmessagewrite'><img width='20' src='assets/images/icon-arrow-search.png'/></button>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </section>
                 <section id="crypter-section-mobile" className='crypter-section-mobile'>
                 </section>
