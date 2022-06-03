@@ -87,7 +87,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                             <div className='row'>
                                                 <div className='col-4'>
                                                         <a className='position-relative float-start mt-3'>
-                                                        <img width='40' className='' src='assets/images/chat-msg-picture-6.png'/>
+                                                        {this.renderProfilePicture('xl')}
                                                         <span className='position-absolute bottom-0 end-0 p-1 bg-success border border-light rounded-circle'></span>
                                                         </a>
                                                         <p className='float-start text-wrap mt-3 name-of-user-position'>
@@ -115,32 +115,20 @@ export default class Messages extends React.PureComponent<Props, State> {
                                             </div>
                                             <div className='collapse show' id='collapseGroupschats'>
                                                 <a className='onChatus'>
-                                                <div className='row'>
-                                                        <div className='col-2 text-center p-1 mt-1'>
-                                                            {this.renderProfilePicture('xl')}
-                                                        </div>
-                                                        <div className='col-lg-8 mt-2'>
-                                                        <strong><label>Group name</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small>
-                                                        </div>
-                                                        <div className='col-2 text-start p-2'>
-                                                        <small>12:04</small>
-                                                        <span className='badge rounded-pill bg-danger'>
-                                                            12+
-                                                        </span>
-                                                        </div>
-                                                </div>
-                                                </a>
-                                                <a className='onChatus'>
-                                                <div className='row'>
-                                                    <div className='col-2 text-center p-1 mt-1'><img width='100%' className='img-fluid' src='assets/images/group-cover-2.png' alt=''/></div>
-                                                    <div className='col-lg-8 mt-2'><strong><label>Group name</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
-                                                    <div className='col-2 text-start p-2'>
-                                                    <small>12:04</small>
-                                                    <span className='badge rounded-pill bg-danger'>
-                                                        6+
-                                                    </span>
+                                                    <div className='row'>
+                                                            <div className='col-2 text-center p-1 mt-1'>
+                                                                {this.renderProfilePicture('lg')}
+                                                            </div>
+                                                            <div className='col-lg-8 mt-2'>
+                                                            <strong><label>Group name</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small>
+                                                            </div>
+                                                            <div className='col-2 text-start p-2'>
+                                                            <small>12:04</small>
+                                                            <span className='badge rounded-pill bg-danger'>
+                                                                12+
+                                                            </span>
+                                                            </div>
                                                     </div>
-                                                </div>
                                                 </a>
                                             </div> 
                                         </div>
@@ -151,60 +139,15 @@ export default class Messages extends React.PureComponent<Props, State> {
                                             </div>
                                             <div className='collapse' id='collapseDirectmsg'>
                                                 <a className='onChatus'>
-                                                <div className='row'>
-                                                    <div className='col-2 text-center p-1 mt-1'>
-                                                        {this.renderProfilePicture('xl')}
+                                                    <div className='row'>
+                                                        <div className='col-2 text-center p-1 mt-1'>
+                                                            {this.renderProfilePicture('lg')}
+                                                        </div>
+                                                        <div className='col-lg-8 mt-2'><strong><label>Garrett Watson</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
+                                                        <div className='col-2 text-start p-2'>
+                                                            <small>12:04</small>
+                                                        </div>
                                                     </div>
-                                                    <div className='col-lg-8 mt-2'><strong><label>Garrett Watson</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
-                                                    <div className='col-2 text-start p-2'>
-                                                    <small>12:04</small>
-                                                    </div>
-                                                </div>
-                                                </a>
-                                                <a className='onChatus'>
-                                                <div className='row'>
-                                                    <div className='col-2 text-center p-1 mt-1'> {this.renderProfilePicture('xl')}</div>
-                                                    <div className='col-lg-8 mt-2'><strong><label>Caroline Watson</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
-                                                    <div className='col-2 text-start p-2'>
-                                                    <small>12:04</small>
-                                                    </div>
-                                                </div>
-                                                </a>
-                                                <a className='onChatus'>
-                                                <div className='row'>
-                                                    <div className='col-2 text-center p-1 mt-1'>{this.renderProfilePicture('xl')}</div>
-                                                    <div className='col-lg-8 mt-2'><strong><label>Leon Nunez</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
-                                                    <div className='col-2 text-start p-2'>
-                                                    <small>12:04</small>
-                                                    </div>
-                                                </div>
-                                                </a>
-                                                <a className='onChatus'>
-                                                <div className='row'>
-                                                    <div className='col-2 text-center p-1 mt-1'>{this.renderProfilePicture('xl')}</div>
-                                                    <div className='col-lg-8 mt-2'><strong><label>Ralph Harris</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
-                                                    <div className='col-2 text-start p-2'>
-                                                    <small>12:04</small>
-                                                    </div>
-                                                </div>
-                                                </a>
-                                                <a className='onChatus'>
-                                                <div className='row'>
-                                                    <div className='col-2 text-center p-1 mt-1'>{this.renderProfilePicture('xl')}</div>
-                                                    <div className='col-lg-8 mt-2'><strong><label>Garrett Watson</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
-                                                    <div className='col-2 text-start p-2'>
-                                                    <small>12:04</small>
-                                                    </div>
-                                                </div>
-                                                </a>
-                                                <a className='onChatus'>
-                                                <div className='row'>
-                                                    <div className='col-2 text-center p-1 mt-1'>{this.renderProfilePicture('xl')}</div>
-                                                    <div className='col-lg-8 mt-2'><strong><label>Caroline Watson</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
-                                                    <div className='col-2 text-start p-2'>
-                                                    <small>12:04</small>
-                                                    </div>
-                                                </div>
                                                 </a>
                                             </div> 
                                         </div>
@@ -212,65 +155,65 @@ export default class Messages extends React.PureComponent<Props, State> {
                                     <div className='col-9'>
                                         <div className='right-chat-panel'>
                                             <div className='text-center'><small className='date-chats'>Tuesday, March 22</small></div>
-                                            <div className='row mt-3 mb-3'>
-                                                <div className='col-1 text-center'>
-                                                {this.renderProfilePicture('xl')}
+                                                <div className='row mt-3 mb-3'>
+                                                    <div className='col-1 text-center'>
+                                                    {this.renderProfilePicture('xl')}
+                                                    </div>
+                                                    <div className='col-11 mt-1'>
+                                                    <p className='name-of-chat-title'><strong><label className='float-start'>Olive Dixon</label></strong>
+                                                        <small className='float-end'>10:04AM</small></p>
+                                                    <br/>
+                                                    <p className='col-12 name-of-reply-title'><label>Hi Evan</label></p>
+                                                    </div>
                                                 </div>
-                                                <div className='col-11 mt-1'>
-                                                <p className='name-of-chat-title'><strong><label className='float-start'>Olive Dixon</label></strong>
-                                                    <small className='float-end'>10:04AM</small></p>
-                                                <br/>
-                                                <p className='col-12 name-of-reply-title'><label>Hi Evan</label></p>
+                                                <div className='row mt-3 mb-3'>
+                                                    <div className='col-1 text-center'>
+                                                    {this.renderProfilePicture('xl')}
+                                                    </div>
+                                                    <div className='col-11 mt-1'>
+                                                    <p className='name-of-chat-title'><strong><label className='float-start'>You</label></strong>
+                                                        <small className='float-end'>10:04AM</small></p>
+                                                    <br/>
+                                                    <p className='col-12 name-of-reply-title'><label>Hi Oscar, Nice to meet you, <br/> we will work with new project together.</label></p>
+                                                    </div>
+                                                </div>
+                                                <div className='row mt-3 mb-3'>
+                                                    <div className='col-1 text-center'>
+                                                    {this.renderProfilePicture('xl')}
+                                                    </div>
+                                                    <div className='col-11 mt-1'>
+                                                    <p className='name-of-chat-title'><strong><label className='float-start'>Olive Dixon</label></strong>
+                                                        <small className='float-end'>10:04AM</small></p>
+                                                    <br/>
+                                                    <p className='col-12 name-of-reply-title'><label>Hi! Please, change the status in this task </label></p>
+                                                    <a className='onLinkchats float-start'><i className='bi-link-45deg'></i>
+                                                        <label>UX Login + Registration</label>
+                                                    </a>
+                                                    </div>
+                                                </div>
+                                                <div className='row mt-3 mb-3'>
+                                                    <div className='col-1 text-center'>
+                                                    {this.renderProfilePicture('xl')}
+                                                    </div>
+                                                    <div className='col-11 mt-1'>
+                                                    <p className='name-of-chat-title'><strong><label className='float-start'>You</label></strong>
+                                                        <small className='float-end'>10:04AM</small></p>
+                                                    <br/>
+                                                    <p className='col-12 name-of-reply-title'><label>Hi Oscar, Nice to meet you, <br/> we will work with new project together.</label></p>
+                                                    </div>
+                                                </div>
+                                                <div className='row mt-3 mb-3'>
+                                                    <div className='col-1 text-center'>
+                                                    {this.renderProfilePicture('xl')}
+                                                    </div>
+                                                    <div className='col-11 mt-1'>
+                                                    <p className='name-of-reply-title'><strong><label className='float-start mt-3'>Olive Dixon</label></strong>
+                                                        <small className='float-end'>10:04AM</small></p>
+                                                    <br/>
+                                                    <p className='col-12 name-of-reply-title mt-3'><label>Ok</label></p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div className='row mt-3 mb-3'>
-                                                <div className='col-1 text-center'>
-                                                {this.renderProfilePicture('xl')}
-                                                </div>
-                                                <div className='col-11 mt-1'>
-                                                <p className='name-of-chat-title'><strong><label className='float-start'>You</label></strong>
-                                                    <small className='float-end'>10:04AM</small></p>
-                                                <br/>
-                                                <p className='col-12 name-of-reply-title'><label>Hi Oscar, Nice to meet you, <br/> we will work with new project together.</label></p>
-                                                </div>
-                                            </div>
-                                            <div className='row mt-3 mb-3'>
-                                                <div className='col-1 text-center'>
-                                                {this.renderProfilePicture('xl')}
-                                                </div>
-                                                <div className='col-11 mt-1'>
-                                                <p className='name-of-chat-title'><strong><label className='float-start'>Olive Dixon</label></strong>
-                                                    <small className='float-end'>10:04AM</small></p>
-                                                <br/>
-                                                <p className='col-12 name-of-reply-title'><label>Hi! Please, change the status in this task </label></p>
-                                                <a className='onLinkchats float-start'><i className='bi-link-45deg'></i>
-                                                    <label>UX Login + Registration</label>
-                                                </a>
-                                                </div>
-                                            </div>
-                                            <div className='row mt-3 mb-3'>
-                                                <div className='col-1 text-center'>
-                                                {this.renderProfilePicture('xl')}
-                                                </div>
-                                                <div className='col-11 mt-1'>
-                                                <p className='name-of-chat-title'><strong><label className='float-start'>You</label></strong>
-                                                    <small className='float-end'>10:04AM</small></p>
-                                                <br/>
-                                                <p className='col-12 name-of-reply-title'><label>Hi Oscar, Nice to meet you, <br/> we will work with new project together.</label></p>
-                                                </div>
-                                            </div>
-                                            <div className='row mt-3 mb-3'>
-                                                <div className='col-1 text-center'>
-                                                {this.renderProfilePicture('xl')}
-                                                </div>
-                                                <div className='col-11 mt-1'>
-                                                <p className='name-of-reply-title'><strong><label className='float-start mt-3'>Olive Dixon</label></strong>
-                                                    <small className='float-end'>10:04AM</small></p>
-                                                <br/>
-                                                <p className='col-12 name-of-reply-title mt-3'><label>Ok</label></p>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div className='input-group mb-3'>
                                             <span className='input-group-text group-text-actions bg-transparent'>
                                             <img width='20' src='assets/images/icon-browse.png' alt=''/>
