@@ -37,6 +37,7 @@ type State = {
     liked: boolean;
     disliked: boolean;
     likeData: LikeData;
+    fullWidth: boolean;
 };
 
 export default class ForumDiscussion extends React.PureComponent<Props, State> {
@@ -48,11 +49,13 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = { isDark:'light', baseUri: 'https://localhost:44312/api/crypter/'};
+        this.state = { isDark:'light',fullWidth: false, baseUri: 'https://localhost:44312/api/crypter/'};
+
         this.handleChangeComment = this.handleChangeComment.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleLikeForum = this.handleLikeForum.bind(this);
         this.handleDislikeForum = this.handleDislikeForum.bind(this);
+        this.handleFullWidth = this.handleFullWidth.bind(this);
     }
 
     componentDidMount(){
@@ -91,6 +94,10 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
     handleChangeComment = (e) => {
         this.setState({commentText: e.target.value});
+    }
+
+    handleFullWidth = (value: boolean) => {
+        this.setState({fullWidth: value});
     }
 
     handleLikeForum = () => {
@@ -277,7 +284,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
 
             renderPost = (
                 <>
-                    <ForumComments userId={post.post_user} forumId={post.id} postType={'post'} view={'desktop'} />
+                    <ForumComments userId={post.post_user} forumId={post.id} postType={'post'} view={'desktop'} handleFullWidth={this.handleFullWidth} fullWidth={this.handleFullWidth}/>
                 </>
             )
         }
@@ -289,7 +296,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                     <>
                         {comments.map((item,index) => {
                             return (
-                                <ForumComments userId={item.userId} forumId={item.commentId} postType={'comment'} view={'desktop'} key={`${item.commentID}--${index}`} />
+                                <ForumComments userId={item.userId} forumId={item.commentId} postType={'comment'} view={'desktop'} key={`${item.commentID}--${index}`} handleFullWidth={this.handleFullWidth} fullWidth={this.handleFullWidth} />
                             );
                         })}
                     </>
@@ -349,12 +356,12 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                             </div>
                             <div className='content-forums-browse'>
                                 <div className='row'>
-                                    <div className='col-lg-8'>
+                                    <div className={this.state.fullWidth ? 'col-md-8' : 'col-md-12'}>
                                         {renderPost}
                                         {renderComments}
                                         {inputReplyDesktop}
                                     </div>
-                                <div className='col-lg-4'>
+                                <div className={`col-lg-4 ${this.state.fullWidth ? 'hide' : ''}`}>
                                     <div className='position-sticky float-right-panel'>
                                         <div className='box-middle-panel mt-3'>
                                             <div className='d-grid mt-2 mb-0 text-center'>
@@ -461,7 +468,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                             </div>
                             <div className='content-forums-browse'>
                                 <div className='row'>
-                                    <div className='col-lg-8 insetlayoutcolmobile'>
+                                    <div className={`col-lg-8 insetlayoutcolmobile ${this.state.fullWidth ? 'hide' : ''}`}>
                                        {renderPost}
                                         <div className='undocommnets'>
                                             <div className='position-relative text-center'>
@@ -483,7 +490,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                         {renderComments}
                                         {inputReplyDesktop}
                                     </div>
-                                    <div className='col-lg-4 insetlayoutmobile'>
+                                    <div className={`col-lg-4 insetlayoutmobile ${this.state.fullWidth ? 'hide' : ''}`}>
                                         <div className='position-sticky float-right-panel-forum'>
                                             <div className='box-middle-panel mt-3'>
                                                 <div className='position-relative'>

@@ -56,8 +56,6 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
         }).catch(error => this.setState({textError: error}));
     }
 
-    
-
     handleArchive = (id: string) => {
         const {baseUri} = this.state;
         const uri = new URL(baseUri + 'archivecomment');

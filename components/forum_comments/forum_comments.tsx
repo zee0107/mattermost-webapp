@@ -16,6 +16,8 @@ type Props = {
     forumId: string;
     post: any;
     postType: string;
+    handleFullWidth: any;
+    fullWidth: boolean;
 }
 
 type State = {
@@ -40,6 +42,14 @@ export default class ForumComments extends React.PureComponent<Props, State> {
         }
     }
 
+    onFullWidth = () => {
+        this.props.handleFullWidth(true);
+    }
+
+    onHalfWidth = () => {
+        this.props.handleFullWidth(false);
+    }
+
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
             return null;
@@ -55,7 +65,7 @@ export default class ForumComments extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {currentUser, userData, view, postType} = this.props;
+        const {currentUser, userData, view, postType, fullWidth} = this.props;
         const {post} = this.state;
         let name;
         if(currentUser){
@@ -65,6 +75,7 @@ export default class ForumComments extends React.PureComponent<Props, State> {
         let postDesc;
         let postId;
         let renderView;
+        let widthBtn;
         if(postType === 'post'){
 
             if(post){
@@ -72,16 +83,26 @@ export default class ForumComments extends React.PureComponent<Props, State> {
                 postId = post.id;
             }
 
+            if(fullWidth){
+                widthBtn = (
+                    <a className='position-absolute top-0 end-0 onInsetreversebackmobile' onClick={() => this.onHalfWidth()}>
+                        <i className='bi-layout-sidebar-inset bi-layout-sidebar-inset-reverse-style'></i>
+                    </a>
+                );
+            }
+            else{
+                widthBtn = (
+                    <a className='position-absolute top-0 end-0 onInsetreversemobile' onClick={() => this.onFullWidth()}>
+                        <i className='bi-layout-sidebar-inset-reverse bi-layout-sidebar-inset-reverse-style'></i>
+                    </a>
+                );
+            }
+
             if(view === 'desktop'){
                 renderView = (
                     <div className='box-middle-panel mt-6'>
                         <div className='position-relative'>
-                            <a className='position-absolute top-0 end-0 onInsetreversemobile'>
-                                <i className='bi-layout-sidebar-inset-reverse bi-layout-sidebar-inset-reverse-style'></i>
-                            </a>
-                            <a className='position-absolute top-0 end-0 onInsetreversebackmobile'>
-                                <i className='bi-layout-sidebar-inset bi-layout-sidebar-inset-reverse-style'></i>
-                            </a>
+                        {widthBtn}
                         </div>
                         {this.renderProfilePicture('fxl')}
                         <strong className='mt-2 ms-2 float-start'>@{name}</strong>
@@ -95,12 +116,7 @@ export default class ForumComments extends React.PureComponent<Props, State> {
                 renderView = (
                     <div className='box-middle-panel mt-6'>
                         <div className='position-relative'>
-                            <a className='position-absolute top-0 end-0 onInsetreversemobile'>
-                                <i className='bi-layout-sidebar-inset-reverse bi-layout-sidebar-inset-reverse-style'></i>
-                            </a>
-                            <a className='position-absolute top-0 end-0 onInsetreversebackmobile'>
-                                <i className='bi-layout-sidebar-inset bi-layout-sidebar-inset-reverse-style'></i>
-                            </a>
+                            {widthBtn}
                         </div>
                         {this.renderProfilePicture('fxl')}
                         <strong className='mt-2 ms-2 float-start'>@{name}</strong>
@@ -126,12 +142,12 @@ export default class ForumComments extends React.PureComponent<Props, State> {
                         <div className='box-middle-panel mt-7'>
                             <div className='position-relative'>
                                 <div className='dropdown'>
-                                    <a className='position-absolute top-0 end-0 onActioncomment' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>
+                                    <a className='position-absolute top-0 end-0 onActioncomment text-dark' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>
                                         <i className='bi-three-dots-vertical bi-layout-sidebar-inset-reverse-style'></i>
                                     </a>
-                                    <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuButton1'>
-                                    <li><a className='dropdown-item onDeletecomment'>Delete</a></li>
-                                    <li><a className='dropdown-item onEditcomments'>Edit comment</a></li>
+                                    <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
+                                        <li><a className='dropdown-item onDeletecomment'>Delete</a></li>
+                                        <li><a className='dropdown-item onEditcomments'>Edit comment</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -165,12 +181,12 @@ export default class ForumComments extends React.PureComponent<Props, State> {
                         <div className='box-middle-panel mt-7'>
                             <div className='position-relative'>
                                 <div className='dropdown'>
-                                    <a className='position-absolute top-0 end-0 onActioncomment' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>
+                                    <a className='position-absolute top-0 end-0 onActioncomment text-dark' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>
                                         <i className='bi-three-dots-vertical bi-layout-sidebar-inset-reverse-style'></i>
                                     </a>
                                     <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuButton1'>
-                                    <li><a className='dropdown-item onDeletecomment'>Delete</a></li>
-                                    <li><a className='dropdown-item onEditcomments'>Edit comment</a></li>
+                                        <li><a className='dropdown-item onDeletecomment'>Delete</a></li>
+                                        <li><a className='dropdown-item onEditcomments'>Edit comment</a></li>
                                     </ul>
                                 </div>
                             </div>
