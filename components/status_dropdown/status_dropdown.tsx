@@ -176,7 +176,8 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
     }
 
     goToForums = () => {
-        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/joinforum');
+        const uri = new URL('https://localhost:44312/api/crypter/joinforum');
+        //const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/joinforum');
         const params = {user_id: this.props.userId, location: this.props.currentUser.position};
         uri.search = new URLSearchParams(params);
 
