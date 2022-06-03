@@ -25,11 +25,14 @@ import {switchToChannel} from 'actions/views/channel';
 
 import MyGroups, {Props} from './groups'
 
-
+type ownProps = {
+    goTo: string;
+}
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
 
-    return function mapStateToProps(state: GlobalState) {
+    return function mapStateToProps(state: GlobalState, ownProps: ownProps) {
+        console.log(ownProps);
         const currentUser = getCurrentUser(state);
         const currentTeam = getCurrentTeam(state);
         const userId = currentUser?.id;
