@@ -287,9 +287,9 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                             onDragStart={this.onDragStart}
                             onDragEnd={this.onDragEnd}
                         />
+                        {this.renderModals()}
                     </div>
                 </div>
-                {this.renderModals()}
             </div>
         );
     }
