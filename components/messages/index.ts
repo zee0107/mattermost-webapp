@@ -13,10 +13,11 @@ function makeMapStateToProps() {
     return function mapStateToProps(state: GlobalState) {
         const currentUser = getCurrentUser(state);
         const userId = currentUser?.id;
-
+        const channelId = 'd1f12b6ac937b6a8fea4247aeeedfd6d85746c65';
         return {
             userId,
             currentUser,
+            channelId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
         };
     };

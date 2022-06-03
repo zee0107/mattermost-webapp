@@ -4,19 +4,41 @@
 import React, {ReactNode} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import { UserProfile } from 'mattermost-redux/types/users';
+import deferComponentRender from 'components/deferComponentRender';
+
+import PostView from 'components/post_view';
 
 export type Props = {
     userId: string;
     profilePicture: string;
     currentUser: UserProfile;
+    channelId: string;
 }
 
 type State = {
     isDark: string;
     currentUser: UserProfile;
+    channelId: string;
+    deferredPostView: any;
+    filter: string;
 };
 
 export default class Messages extends React.PureComponent<Props, State> {
+    public static createDeferredPostView = () => {
+        return deferComponentRender(
+            PostView,
+            <div
+                id='post-list'
+                className='a11y__region'
+                data-a11y-sort-order='1'
+                data-a11y-focus-child={true}
+                data-a11y-order-reversed={false}
+            />,
+
+
+        );
+    }
+
     static defaultProps = {
         userId: '',
         profilePicture: '',
@@ -25,7 +47,7 @@ export default class Messages extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = { isDark:'light'};
+        this.state = { isDark:'light',filter: 'all', deferredPostView: Messages.createDeferredPostView()};
     }
 
     componentDidMount(){
@@ -47,6 +69,7 @@ export default class Messages extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
+        const DeferredPostView = this.state.deferredPostView;
         return (
             <>
                 <section id="crypter-section" className='crypter-section-desktop'>
@@ -154,7 +177,12 @@ export default class Messages extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='col-9'>
                                         <div className='right-chat-panel'>
-                                            <div className='text-center'><small className='date-chats'>Tuesday, March 22</small></div>
+                                            <DeferredPostView
+                                            channelId={this.props.channelId}
+                                            focusedPostId={this.state.focusedPostId}
+                                            filter={this.state.filter}
+                                    />
+                                            {/*<div className='text-center'><small className='date-chats'>Tuesday, March 22</small></div>
                                                 <div className='row mt-3 mb-3'>
                                                     <div className='col-1 text-center'>
                                                     {this.renderProfilePicture('xl')}
@@ -213,19 +241,20 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                     <p className='col-12 name-of-reply-title mt-3'><label>Ok</label></p>
                                                     </div>
                                                 </div>
+                                            </div>*/}
                                             </div>
-                                        <div className='input-group mb-3'>
-                                            <span className='input-group-text group-text-actions bg-transparent'>
-                                            <img width='20' src='assets/images/icon-browse.png' alt=''/>
-                                            <img width='20' src='assets/images/icon-url.png' alt=''/>
-                                            <img width='20' src='assets/images/icon-at.png' alt=''/>
-                                            </span>
-                                            <input type='text' className='form-control write-message-inputs' aria-label='Type your message here' placeholder='Type your message here...'/>
-                                            <span className='input-group-text group-text-actions bg-transparent'>
-                                            <img width='20' src='assets/images/icon-emoji.png' alt=''/>
-                                            <button className='btn ms-2 onSendmessagewrite'><img width='20' src='assets/images/icon-arrow-search.png'/></button>
-                                            </span>
-                                        </div>
+                                            <div className='input-group mb-3'>
+                                                <span className='input-group-text group-text-actions bg-transparent'>
+                                                <img width='20' src='assets/images/icon-browse.png' alt=''/>
+                                                <img width='20' src='assets/images/icon-url.png' alt=''/>
+                                                <img width='20' src='assets/images/icon-at.png' alt=''/>
+                                                </span>
+                                                <input type='text' className='form-control write-message-inputs' aria-label='Type your message here' placeholder='Type your message here...'/>
+                                                <span className='input-group-text group-text-actions bg-transparent'>
+                                                <img width='20' src='assets/images/icon-emoji.png' alt=''/>
+                                                <button className='btn ms-2 onSendmessagewrite'><img width='20' src='assets/images/icon-arrow-search.png'/></button>
+                                                </span>
+                                            </div>
                                     </div>
                                 </div>
                             </div>
