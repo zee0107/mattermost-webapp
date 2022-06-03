@@ -468,7 +468,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                             </div>
                             <div className='content-forums-browse'>
                                 <div className='row'>
-                                    <div className={`col-lg-8 insetlayoutcolmobile ${this.state.fullWidth ? 'hide' : ''}`}>
+                                    <div className={`col-lg-8 insetlayoutcolmobile ${this.state.fullWidth ? '' : 'hide'}`}>
                                        {renderPost}
                                         <div className='undocommnets'>
                                             <div className='position-relative text-center'>
@@ -490,7 +490,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                         {renderComments}
                                         {inputReplyDesktop}
                                     </div>
-                                    <div className={`col-lg-4 insetlayoutmobile ${this.state.fullWidth ? '' : 'hide'}`}>
+                                    <div className={`col-lg-4 insetlayoutmobile ${this.state.fullWidth ? 'hide' : ''}`}>
                                         <div className='position-sticky float-right-panel-forum'>
                                             <div className='box-middle-panel mt-3'>
                                                 <div className='position-relative'>
