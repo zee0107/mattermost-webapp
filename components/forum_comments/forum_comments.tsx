@@ -188,13 +188,13 @@ export default class ForumComments extends React.PureComponent<Props, State> {
                                 Edit comment
                             </label>
                         </div>
-                        <button type='button' className='btn btn-creative btn-sm mt-2 mb-0 text-white'>
+                        <button type='button' className='btn-sm mt-2 p-2 me-2 mb-0 text-white'>
                             Update
                         </button>
-                        <button type='button' className='btn btn-creative btn-sm mt-2 mb-0 text-white onCanceledit' onClick={() => this.handleEditComment(false)}>
+                        <button type='button' className='btn-sm mt-2 p-2 me-2 mb-0 text-white onCanceledit' onClick={() => this.handleEditComment(false)}>
                             Cancel
                         </button>
-                        <button type='button' className='btn btn-creative btn-sm mt-2 mb-0 text-white onDeletecomment' onClick={() => this.handleArchive(postId)}>
+                        <button type='button' className='btn-sm mt-2 p-2 mb-0 text-white onDeletecomment' onClick={() => this.handleArchive(postId)}>
                             <i className='bi-trash-fill bi-trash-fill-style'></i>
                         </button>
                     </form>
