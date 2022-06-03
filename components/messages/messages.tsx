@@ -53,7 +53,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                     <div className='col-md-12'>
                         <div className='position-sticky float-right-panel'>
                             <div className='row'>
-                                <div className='col-3'><a className='btn onChatmessages'><i className='bi-chat-left'></i> <small>Messages</small></a></div>
+                                <div className='col-3 pt-2'><a className='onChatmessages p-4'><i className='bi-chat-left'></i> <small>Messages</small></a></div>
                                 <div className='col-9'><a className='float-end onGobacklinks'><i className='bi-arrow-left'></i> <small>Go Back</small></a></div>
                             </div>
                             <div className='col-12 text-center reload-loading'>
