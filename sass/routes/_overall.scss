@@ -142,10 +142,10 @@ p {
   cursor: pointer;
 }
 .insetlayoutmobile {
-  display: none;
+  display: block;
 }
 .onInsetreverseback {
-  display: none;
+  display: block;
   cursor: pointer;
   color: rgb(127,207,87);
   color: -moz-linear-gradient(90deg, rgba(127,207,87,1) 47%, rgba(131,218,147,1) 100%);

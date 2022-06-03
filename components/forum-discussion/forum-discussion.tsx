@@ -474,7 +474,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                             <div className='position-relative text-center'>
                                                 <div className='position-absolute top-50 start-50 translate-middle bg-success shadow p-2 rounded text-white'>
                                                     <small>
-                                                    <a className='text-white onDeletecommentundo'>
+                                                    <a className='text-white onDeletecommentundo' onClick={() => this.handleFullWidth(false)}>
                                                         <i className='bi-archive-fill bi-x-style-comments'></i>
                                                     </a>
                                                     1 comment archived
@@ -495,7 +495,7 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                                             <div className='box-middle-panel mt-3'>
                                                 <div className='position-relative'>
                                                     <a className='position-absolute top-0 end-0 onInsetreversebackmobile'>
-                                                    <i className='bi-layout-sidebar-inset bi-layout-sidebar-inset-reverse-style'></i>
+                                                        <i className='bi-layout-sidebar-inset bi-layout-sidebar-inset-reverse-style'></i>
                                                     </a>
                                                 </div>
 
