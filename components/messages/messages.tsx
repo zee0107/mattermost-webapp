@@ -86,14 +86,14 @@ export default class Messages extends React.PureComponent<Props, State> {
                                         <div className='right-chat-panel'>
                                             <div className='row'>
                                                 <div className='col-4'>
-                                                        <a className='position-relative float-start mt-3'>
+                                                    <a className='position-relative float-start mt-3'>
                                                         {this.renderProfilePicture('xl')}
                                                         <span className='position-absolute bottom-0 end-0 p-1 bg-success border border-light rounded-circle'></span>
-                                                        </a>
-                                                        <p className='float-start text-wrap mt-3 name-of-user-position'>
+                                                    </a>
+                                                    <p className='float-start text-wrap mt-3 name-of-user-position'>
                                                         <strong><label className='float-start ms-2 text-chat-title'>Oscar Holloway</label></strong>
                                                         <small className='ms-2'>UI/UX Designer</small>
-                                                        </p>
+                                                    </p>
                                                 </div>
                                                 <div className='col-8'>
                                                     <a className='float-end mt-3 ms-1 onVerticaldropdownmenu'><i className='bi-three-dots-vertical'></i></a>
@@ -114,7 +114,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                 <a className='onGroupschatsup' data-bs-toggle='collapse' href='#collapseGroupschats' role='button' aria-expanded='true' aria-controls='collapseGroupschats'><i className='bi-chevron-up'></i> Groups</a>
                                             </div>
                                             <div className='collapse show' id='collapseGroupschats'>
-                                                <a className='onChatus'>
+                                                <a className='onChatus text-dark'>
                                                     <div className='row'>
                                                             <div className='col-2 text-center p-1 mt-1'>
                                                                 {this.renderProfilePicture('lg')}
@@ -138,7 +138,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                 <a className='onDirectmsgup' data-bs-toggle='collapse' href='#collapseDirectmsg' role='button' aria-expanded='true' aria-controls='collapseDirectmsg'><i className='bi-chevron-up'></i> Direct Message</a>
                                             </div>
                                             <div className='collapse' id='collapseDirectmsg'>
-                                                <a className='onChatus'>
+                                                <a className='onChatus text-dark'>
                                                     <div className='row'>
                                                         <div className='col-2 text-center p-1 mt-1'>
                                                             {this.renderProfilePicture('lg')}
