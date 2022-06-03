@@ -35,6 +35,7 @@ export function getChannelTypeFromProps(props: Props): ChannelType {
 }
 
 export type Props = {
+    goToPage: string;
     userId: string;
     profilePicture: string;
     currentTeamId?: string;
@@ -118,6 +119,10 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
         if(this.props.suggestedChannels != null){
             Promise.resolve(this.props.suggestedChannels).then(value => {this.setState({suggestedgroup: value});})
+        }
+
+        if(this.props.goToPage){
+            this.setState({group_view: this.props.goToPage});
         }
     }
 

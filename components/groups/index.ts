@@ -32,7 +32,7 @@ function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
 
     return function mapStateToProps(state: GlobalState, ownProps: ownProps) {
-        console.log(ownProps);
+        const goToPage = ownProps.location.hash.replace('#','');
         const currentUser = getCurrentUser(state);
         const currentTeam = getCurrentTeam(state);
         const userId = currentUser?.id;
@@ -40,6 +40,7 @@ function makeMapStateToProps() {
         const teamId = team?.id;
         //const teamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
         return {
+            goToPage,
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
