@@ -413,7 +413,158 @@ export default class ForumDiscussion extends React.PureComponent<Props, State> {
                     </div>
                 </section>
                 <section className='crypter-section-mobile'>
-                    
+                    <div className='container-fluid'>
+                        <div className=''>
+                            <div className='box-middle-panel-forums-menu'>
+                                <div className='col-lg-12 text-center mt-3 mb-2'>
+                                    <a className='onForummmobile'>
+                                    <i className='bi-chat-left-text-fill'></i>
+                                    </a>
+
+                                    <div className='row'>
+                                    <div className='col-12 mt-2 mb-0 p-0'>
+                                        <h6 className='p-0 ms-2 mt-3'>
+                                        Topic title goes here
+                                        </h6>
+                                    </div>
+
+                                    <div className='col-lg-12 mt-2 mb-0'>
+                                        <strong className='text-black-50'>
+                                            <small className='text-black-50'>
+                                                Date Topic 05/30/2022
+                                            </small> 
+                                            <br/>
+                                            <i className='bi-eye'></i>
+                                            <small>
+                                                {viewCount} views
+                                            </small>
+                                            <i className='bi-dot'></i>
+                                            {likeIcon}
+                                            <small>
+                                                {likeCount}
+                                            </small>
+                                            <i className='bi-dot'></i>
+                                            {dislikeIcon}
+                                            <small>
+                                                {disLikeCount}
+                                            </small>
+                                            <i className='bi-dot'></i>
+                                            <i className='bi-chat-left'></i>
+                                            <small>
+                                                {commentCount}
+                                            </small>
+                                        </strong>
+                                    </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='content-forums-browse'>
+                                <div className='row'>
+                                    <div className='col-lg-8 insetlayoutcolmobile'>
+                                       {renderPost}
+                                        <div className='undocommnets'>
+                                            <div className='position-relative text-center'>
+                                                <div className='position-absolute top-50 start-50 translate-middle bg-success shadow p-2 rounded text-white'>
+                                                    <small>
+                                                    <a className='text-white onDeletecommentundo'>
+                                                        <i className='bi-archive-fill bi-x-style-comments'></i>
+                                                    </a>
+                                                    1 comment archived
+                                                    <a className='text-dark onUndocomments'>
+                                                        <strong>
+                                                        UNDO
+                                                        </strong>
+                                                    </a>
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {renderComments}
+                                        {inputReplyDesktop}
+                                    </div>
+                                    <div className='col-lg-4 insetlayoutmobile'>
+                                        <div className='position-sticky float-right-panel-forum'>
+                                            <div className='box-middle-panel mt-3'>
+                                                <div className='position-relative'>
+                                                    <a className='position-absolute top-0 end-0 onInsetreversebackmobile'>
+                                                    <i className='bi-layout-sidebar-inset bi-layout-sidebar-inset-reverse-style'></i>
+                                                    </a>
+                                                </div>
+
+                                                <div className='d-grid mt-2 mb-0 text-center'>
+                                                    <strong className='text-secondary'>
+                                                    <small>
+                                                        
+                                                        <i className='bi-people-fill'></i> 
+                                                        People joined
+                                                        <i className='bi-dot'></i> 
+                                                        <a className='onShowmembers'>
+                                                        10.11K
+                                                        </a>
+
+                                                    </small>
+                                                    </strong>
+                                                </div>
+                                                {/*<div className='showmembers'>
+                                                    <div className='d-grid mt-0 mb-0'>
+                                                        <hr/>
+                                                        <p>
+                                                        <strong className='mb-0 float-start mt-1'>
+                                                            <i className='bi-people-fill'></i> 
+                                                            People 
+                                                            <i className='bi-dot'></i> 
+                                                            10.11K
+                                                        </strong>
+                                                        
+                                                        <a className='onClosememberslist'>
+                                                            <i className='bi-arrow-up-short bi-arrow-up-short-style float-end'></i>
+                                                        </a>
+                                                        </p>
+
+                                                        <p className='mt-0'>
+                                                        <label>
+                                                            New people and Pages who join this Crypter forum will appear here.
+                                                            <a className='text-success'>
+                                                            <strong>
+                                                                Learn More
+                                                            </strong>
+                                                            </a>
+                                                        </label>
+                                                        </p>
+
+                                                        <div className='joined-people'>
+                                                            <p className='mt-0 mb-2'>
+                                                                <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-2.png' />
+                                                                <strong className='ms-2 text-end'>
+                                                                    Topic name
+                                                                </strong>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>*/}
+                                                <div className='d-grid mt-2 mb-3'>
+                                                   {btnJoin}
+                                                </div>
+
+                                                <strong className='mt-0'>My Topics</strong>
+                                                <p className='mt-4 mb-2'>
+                                                    <img className='img-fluid text-start' width='50' src='assets/images/chat-msg-picture-2.png' />
+                                                    <strong className='ms-2 text-end'>
+                                                    Topic name
+                                                    </strong>
+                                                    <i className='bi-dot'></i>
+                                                    <small>
+                                                    5/31/2022
+                                                    </small>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </>
         );
