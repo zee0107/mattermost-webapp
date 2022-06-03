@@ -176,7 +176,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-9'>
-                                            <div className='text-center'><small className='date-chats'>Tuesday, March 22</small></div>
+                                        <div className='text-center'><small className='date-chats'>Tuesday, March 22</small></div>
                                                 <div className='row mt-3 mb-3'>
                                                     <div className='col-1 text-center'>
                                                     {this.renderProfilePicture('xl')}
@@ -236,23 +236,23 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                     </div>
                                                 </div>
                                             </div>
-                                            </div>
-                                            <div className='input-group mb-3'>
-                                                <span className='input-group-text group-text-actions bg-transparent'>
+                                        </div>
+                                        <div className='input-group mb-3'>
+                                            <span className='input-group-text group-text-actions bg-transparent'>
                                                 <img width='20' src='assets/images/icon-browse.png' alt=''/>
                                                 <img width='20' src='assets/images/icon-url.png' alt=''/>
                                                 <img width='20' src='assets/images/icon-at.png' alt=''/>
-                                                </span>
-                                                <input type='text' className='form-control write-message-inputs' aria-label='Type your message here' placeholder='Type your message here...'/>
-                                                <span className='input-group-text group-text-actions bg-transparent'>
+                                            </span>
+                                            <input type='text' className='form-control write-message-inputs' aria-label='Type your message here' placeholder='Type your message here...'/>
+                                            <span className='input-group-text group-text-actions bg-transparent'>
                                                 <img width='20' src='assets/images/icon-emoji.png' alt=''/>
                                                 <button className='btn ms-2 onSendmessagewrite'><img width='20' src='assets/images/icon-arrow-search.png'/></button>
-                                                </span>
-                                            </div>
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </section>
                 <section id="crypter-section-mobile" className='crypter-section-mobile'>
                 </section>
