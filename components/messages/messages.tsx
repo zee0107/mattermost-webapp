@@ -257,7 +257,6 @@ export default class Messages extends React.PureComponent<Props, State> {
                                             <button className='btn ms-2 onSendmessagewrite'><img width='20' src='assets/images/icon-arrow-search.png'/></button>
                                             </span>
                                         </div>*/}
-                                        </div>
                                     </div>
                                 </div>
                             </div>
