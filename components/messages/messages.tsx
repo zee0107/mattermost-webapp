@@ -9,6 +9,7 @@ import CreatePost from 'components/create_post';
 import PostView from 'components/post_view';
 import { ChannelCategory, OrderedChannelCategories } from 'mattermost-redux/types/channel_categories';
 import MessageSidebar from 'components/messages_sidebar';
+import MessageSidebarGroup from 'components/messages_sidebar_group';
 
 export type Props = {
     userId: string;
@@ -113,6 +114,30 @@ export default class Messages extends React.PureComponent<Props, State> {
             );
         }
 
+        let gmDesktop;
+        let gmMobile;
+        if (messagesList && messagesList.length) {
+            gmDesktop = (
+                <>
+                    {messagesList.map((item,index) => {
+                        return (
+                            <MessageSidebarGroup channelId={item} view='desktop' key={`${item}--${index}`} />
+                        );
+                    })}
+                </>
+            );
+
+            gmMobile = (
+                <>
+                    {messagesList.map((item,index) => {
+                        return (
+                            <MessageSidebarGroup channelId={item} view='mobile' key={`${item}--${index}`} />
+                        );
+                    })}
+                </>
+            );
+        }
+
         return (
             <>
                 <section id="crypter-section" className='crypter-section-desktop'>
@@ -180,22 +205,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                 <a className='onGroupschatsup' data-bs-toggle='collapse' href='#collapseGroupschats' role='button' aria-expanded='true' aria-controls='collapseGroupschats'><i className='bi-chevron-up'></i> Groups</a>
                                             </div>
                                             <div className='collapse show' id='collapseGroupschats'>
-                                                <a className='onChatus text-dark'>
-                                                    <div className='row'>
-                                                            <div className='col-2 text-center p-1 mt-1'>
-                                                                {this.renderProfilePicture('lg')}
-                                                            </div>
-                                                            <div className='col-lg-8 mt-2'>
-                                                            <strong><label>Group name</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small>
-                                                            </div>
-                                                            <div className='col-2 text-start p-2'>
-                                                            <small>12:04</small>
-                                                            <span className='badge rounded-pill bg-danger'>
-                                                                12+
-                                                            </span>
-                                                            </div>
-                                                    </div>
-                                                </a>
+                                               {gmDesktop}
                                             </div> 
                                         </div>
                                         <div className='left-chat-groups-message-panel'>
@@ -326,20 +336,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                 <strong><label>Groups</label></strong>
                             </div>
                             <hr />
-                            <div className='row'>
-                                <div className='col-2 text-center p-1 mt-1'>
-                                    {this.renderProfilePicture('xl')}
-                                </div>
-                                <div className='col-8 mt-2'>
-                                    <strong><label>Group name</label></strong>
-                                    <br/>
-                                    <small className='text-muted'>2Caroline: Hi Guys! I've...</small>
-                                </div>
-                                <div className='col-2 text-start p-2'>
-                                    <small>12:04</small>
-                                    <span className='badge rounded-pill bg-danger'>12+</span>
-                                </div>
-                            </div>
+                            {gmMobile}
                         </div>
                     </div>
                     <div className='box-middle-panel mt-2 mobilechatconversation'>

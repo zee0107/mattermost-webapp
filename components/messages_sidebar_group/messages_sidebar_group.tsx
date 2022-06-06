@@ -22,6 +22,7 @@ export type Props = {
     unreadMessages: number;
     isUnread: boolean;
     teammateUsername?: string;
+    membersCount: number;
     view: string;
 }
 
@@ -30,7 +31,7 @@ type State = {
     posts: PostList;
 };
 
-export default class MessagesSidebar extends React.PureComponent<Props, State> {
+export default class MessagesSidebarGroup extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
@@ -47,38 +48,8 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
     }
 
     getIcon = () => {
-        const {channel, teammate} = this.props;
-
-        if (!teammate) {
-            return null;
-        }
-
-        if (teammate.id && teammate.delete_at) {
-            return (
-                <i className='icon icon-archive-outline'/>
-            );
-        }
-
-        let className = '';
-        if (channel.status === 'online') {
-            className = 'status-online';
-        } else if (channel.status === 'away') {
-            className = 'status-away';
-        } else if (channel.status === 'dnd') {
-            className = 'status-dnd';
-        }else{
-            className = 'status-away';
-        }
-
         return (
-            <ProfilePicture
-                src={Client4.getProfilePictureUrl(teammate.id, teammate.last_picture_update)}
-                size={'lg'}
-                status={teammate.is_bot ? '' : channel.status}
-                wrapperClass='DirectChannel__profile-picture'
-                newStatusIcon={true}
-                statusClass={`DirectChannel__status-icon ${className}`}
-            />
+            <div className='status status--group'>{this.props.membersCount}</div>
         );
     }
 
@@ -86,11 +57,6 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
         const {channel,currentTeam,unreadMentions,unreadMessages,isUnread,teammateUsername,teammate,currentUser, view} = this.props;
         const {posts} = this.state;
         let displayName = channel.display_name;
-        if(teammate && currentUser){
-                if (currentUser.id === teammate.id) {
-                    displayName = `${displayName} (you)`;
-                }
-        }
 
         let unreadNotif;
         if(isUnread){
@@ -126,47 +92,49 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
                 <small className='text-muted'>Send a message.</small>
             );
         }
-        let DirectMessageDesktop;
-        let DirectMessageMobile;
-        if(channel.type === Constants.DM_CHANNEL){
-                DirectMessageDesktop = (
-                    <a className='onChatus text-dark'>
-                        <div className='row'>
-                            <div className='col-2 text-center p-1 mt-1'>
-                                {this.getIcon()}
-                            </div>
-                            <div className='col-lg-8 mt-2'><strong><label>{displayName}</label></strong><br/>{lastMessage}</div>
-                            <div className='col-2 text-start p-2'>
-                                <small>12:04</small>
-                                {unreadNotif}
-                            </div>
-                        </div>
-                    </a>
-                );
-
-                DirectMessageMobile = (
+        let GroupMessageDesktop;
+        let GroupMessageMobile;
+        if(channel.type === Constants.GM_CHANNEL){
+            GroupMessageDesktop = (
+                <a className='onChatus text-dark'>
                     <div className='row'>
-                        <div className='col-2 p-1'>
+                        <div className='col-2 text-center p-1 mt-1'>
                             {this.getIcon()}
                         </div>
-                        <div className='col-8 mt-2'>
-                            <strong><label>{displayName}</label></strong>
-                            <br />
-                            {lastMessage}
-                        </div>      
-                        <div className='col-2 text-end mt-4'>
+                        <div className='col-lg-8 mt-2'>
+                            <strong><label>{displayName}</label></strong><br/><small className='text-muted'>{lastMessage}</small>
+                            </div>
+                            <div className='col-2 text-start p-2'>
                             <small>12:04</small>
                             {unreadNotif}
                         </div>
                     </div>
-                );
+                </a>
+            );
+
+            GroupMessageMobile = (
+                <div className='row'>
+                    <div className='col-2 text-center p-1 mt-1'>
+                        {this.getIcon()}
+                    </div>
+                    <div className='col-8 mt-2'>
+                        <strong><label>{displayName}</label></strong>
+                        <br/>
+                        <small className='text-muted'>{lastMessage}</small>
+                    </div>
+                    <div className='col-2 text-start p-2'>
+                        <small>12:04</small>
+                        {unreadNotif}
+                    </div>
+                </div>
+            );
         }
 
         let renderView;
         if(view === 'desktop'){
-                renderView = DirectMessageDesktop;
+                renderView = GroupMessageDesktop;
         }else{
-                renderView = DirectMessageMobile;
+                renderView = GroupMessageMobile;
         }
 
         return (
