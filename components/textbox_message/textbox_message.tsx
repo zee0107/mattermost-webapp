@@ -247,7 +247,7 @@ export default class Textbox extends React.PureComponent<Props> {
     render() {
         let preview = null;
 
-        let textboxClassName = 'form-control custom-textarea pe-5';
+        let textboxClassName = 'form-control custom-textarea text-area-message';
         let textWrapperClass = 'textarea-wrapper';
         if (this.props.emojiEnabled) {
             textboxClassName += ' custom-textarea--emoji-picker';
