@@ -235,6 +235,195 @@ export default class Messages extends React.PureComponent<Props, State> {
                     </div>
                 </section>
                 <section id="crypter-section-mobile" className='crypter-section-mobile'>
+                    <div className='container-fluid'>
+                        <div className='row'>
+                            <div className='col-md-12'>
+                                <div className='row'>
+                                    <div className='col-6'>
+                                        <a className='btn onChatmessagesmobile'><i className='bi-chat-left'></i></a>
+                                        <strong><small className='ms-1 text-success'>Messages</small></strong>
+                                    </div>
+                                    <div className='col-6 mt-2'>
+                                        <a className='float-end onMobilepeople'><i className='bi-people'></i></a>
+                                        <a className='float-end onMobileperson'><i className='bi-person'></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='box-middle-panel mt-3 mobilechatconversationperson'>
+                            <div className='row'>
+                                <strong><label>Direct Message</label></strong>
+                            </div>
+                            <hr />
+                            <div className='row'>
+                                <div className='col-2 p-1'>
+                                    {this.renderProfilePicture('xl')}
+                                </div>
+                                <div className='col-8 mt-2'>
+                                    <strong><label>Garrett Watson</label></strong>
+                                    <br />
+                                    <small className='text-muted'>2Caroline: Hi Guys! I've...</small>
+                                </div>      
+                                <div className='col-2 text-end mt-4'>
+                                    <small>12:04</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='box-middle-panel mt-3 mobilechatconversationgroup'>
+                            <div className='row'>
+                                <strong><label>Groups</label></strong>
+                            </div>
+                            <hr />
+                            <div className='row'>
+                                <div className='col-2 text-center p-1 mt-1'>
+                                    {this.renderProfilePicture('xl')}
+                                </div>
+                                <div className='col-8 mt-2'>
+                                    <strong><label>Group name</label></strong>
+                                    <br/>
+                                    <small className='text-muted'>2Caroline: Hi Guys! I've...</small>
+                                </div>
+                                <div className='col-2 text-start p-2'>
+                                    <small>12:04</small>
+                                    <span className='badge rounded-pill bg-danger'>12+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='box-middle-panel mt-2 mobilechatconversation'>
+                        <div className='row'>
+                            <div className='col-8'>
+                                <form>
+                                    <div className='input-group'>
+                                        <span className='input-group-text bg-transparent border-1'><a className='onClosesearchchatconversation'></a></span>
+                                            <input type='text' className='form-control search-show-style' aria-label='Search' placeholder='Search...' />
+                                            <span className='input-group-text bg-transparent'>
+                                            <a><i className='bi-chat-square-text text-dark'></i></a>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div className='col-2 text-center mt-1'>
+                                <a className='onVerticaldropdownmenu'><i className='bi-pin'></i></a>
+                            </div>
+                            <div className='col-2 text-center'>
+                                <div className='dropdown bg-transparent mt-1'>
+                                    <a id='dropdownMenuChatAction' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-three-dots-vertical'></i></a>
+                                    <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuChatAction'>
+                                        <li>
+                                            <a className='dropdown-item onDeleteconversations'>Delete conversation</a>
+                                        </li>
+                                        <li>
+                                            <a className='dropdown-item onChatsettings' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelaccounts' aria-controls='offcanvasRightLabelaccounts'>Settings</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='box-middle-panel mt-2 mobilechatconversation'>
+                            <div className='row'>
+                                <div className='right-chat-panel'>
+                                    <div className='text-center mb-4'>
+                                        <small className='date-chats'>Tuesday, March 22</small>
+                                    </div>
+                                    <div className='row mt-3 mb-3'>
+                                        <div className='col-3 text-center'>
+                                            {this.renderProfilePicture('xl')}
+                                        </div>
+                                        <div className='col-9 mt-1'>
+                                            <p className='name-of-chat-title-mobile'><strong><label className=''>Olive Dixon</label></strong>
+                                                <small className='float-end'>10:04AM</small></p>
+                                            <br />
+                                            <p className='col-12 name-of-reply-title-mobile'><label>Hi Evan</label></p>
+                                        </div>
+                                    </div>
+                                    <div className='row mt-4 mb-3'>
+                                        <div className='col-3 text-center'>
+                                            {this.renderProfilePicture('xl')}
+                                        </div>
+                                        <div className='col-9 mt-1'>
+                                            <p className='name-of-chat-title-mobile'><strong><label className='float-start'>You</label></strong>
+                                                <small className='float-end'>10:04AM</small></p>
+                                            <br />
+                                            <p className='col-12 name-of-reply-title-mobile'><label>Hi Oscar, Nice to meet you, <br /> we will work with new project together.</label></p>
+                                        </div>
+                                    </div>
+                                    <div className='row mt-4 mb-3'>
+                                        <div className='col-3 text-center'>
+                                            {this.renderProfilePicture('xl')}
+                                        </div>
+                                        <div className='col-9 mt-1'>
+                                            <p className='name-of-chat-title-mobile'><strong><label className='float-start'>Olive Dixon</label></strong>
+                                                <small className='float-end'>10:04AM</small></p>
+                                            <br />
+                                            <p className='col-12 name-of-reply-title-mobile'><label>Hi! Please, change the status in this task </label></p>
+                                            <a className='onLinkchats float-start'><i className='bi-link-45deg' style={{fontSize: '17px', color: '#40D782'}}></i>
+                                                <label>UX Login + Registration</label>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div className='row mt-3 mb-3'>
+                                        <div className='col-3 text-center'>
+                                            {this.renderProfilePicture('xl')}
+                                        </div>
+
+                                        <div className='col-9 mt-1'>
+                                            <p className='name-of-chat-title-mobile'><strong><label className='float-start'>You</label></strong>
+                                                <small className='float-end'>10:04AM</small></p>
+                                            <br />
+                                            <p className='col-12 name-of-reply-title-mobile'><label>Hi Oscar, Nice to meet you, <br /> we will work with new project together.</label></p>
+                                        </div>
+                                    </div>
+                                    <div className='row mt-3 mb-3'>
+                                        <div className='col-3 text-center'>
+                                            {this.renderProfilePicture('xl')}
+                                        </div>
+
+                                        <div className='col-9 mt-1'>
+                                            <p className='name-of-chat-title-mobile'><strong><label className='float-start mt-3'>Olive Dixon</label></strong>
+                                                <small className='float-end mt-4'>10:04AM</small></p>
+                                            <br />
+                                            <p className='col-12 name-of-reply-title-mobile'><label>Ok</label></p>
+                                        </div>
+                                    </div>
+                                    <div className='row mt-3 mb-3'>
+                                        <div className='col-3 text-center'>
+                                            {this.renderProfilePicture('xl')}
+                                        </div>
+
+                                        <div className='col-9 mt-1'>
+                                            <p className='name-of-chat-title-mobile'><strong><label className='float-start'>You</label></strong>
+                                                <small className='float-end'>10:04AM</small></p>
+                                            <br />
+                                            <p className='col-12 name-of-reply-title-mobile'><label>Good to chat you...</label></p>
+                                        </div>
+                                    </div>
+                                    <div className='row mt-3 mb-3'>
+                                        <div className='col-3 text-center'>
+                                            {this.renderProfilePicture('xl')}
+                                        </div>
+                                        <div className='col-9 mt-1'>
+                                            <p className='name-of-chat-title-mobile'><strong><label className='float-start mt-3'>Olive Dixon</label></strong>
+                                                <small className='float-end mt-4'>10:04AM</small></p>
+                                            <br />
+                                            <p className='col-12 name-of-reply-title-mobile'><label>Yeah, well done  . ...</label></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='input-group mb-3'>
+                                    <input type='text' className='form-control write-message-inputs-mobile' aria-label='Type your message here' placeholder='Type your message here...' />
+                                    <span className='input-group-text group-text-actions bg-transparent'>
+                                        <img width='20' src='assets/images/icon-browse.png' alt=''/>
+                                        <img width='20' src='assets/images/icon-url.png' alt=''/>
+                                        <img width='20' src='assets/images/icon-at.png' alt=''/>
+                                        <img width='20' src='assets/images/icon-emoji.png' alt=''/>
+                                        <button className='btn ms-2 onSendmessagewrite'><img width='20' src='assets/images/icon-arrow-search.png'/></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </>
         );
