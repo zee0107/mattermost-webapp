@@ -11,6 +11,11 @@ import Messages from './messages'
 
 function makeMapStateToProps() {
     return function mapStateToProps(state: GlobalState) {
+        if(state.entities.teams.currentTeamId === "" || state.entities.teams.currentTeamId === null || state.entities.teams.currentTeamId === undefined){
+            const stateValue = window.localStorage.getItem('GlobalState');
+            state = JSON.parse(stateValue);
+        }
+        
         const currentUser = getCurrentUser(state);
         const userId = currentUser?.id;
         const channelId = 'd1f12b6ac937b6a8fea4247aeeedfd6d85746c65';
