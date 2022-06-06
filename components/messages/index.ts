@@ -25,6 +25,7 @@ function makeMapStateToProps() {
         return {
             categories,
             userId,
+            focusedPostId: state.views.channel.focusedPostId,
             currentUser,
             channelId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),

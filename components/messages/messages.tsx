@@ -17,6 +17,7 @@ export type Props = {
     currentUser: UserProfile;
     channelId: string;
     categories: Promise<OrderedChannelCategories>;
+    focusedPostId: string;
 }
 
 type State = {
@@ -155,8 +156,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                     <div className='right-chat-panel'>
                         <DeferredPostView
                             channelId={selectedMessage}
-                            focusedPostId={''}
-                            filter={''}
+                            focusedPostId={this.props.focusedPostId}
                         />
                     </div>
                     <div className='col-md-12 mt-3 mb-3 removePadding'>
@@ -202,8 +202,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                     <div className='right-chat-panel'>
                         <DeferredPostView
                             channelId={selectedMessage}
-                            focusedPostId={''}
-                            filter={''}
+                            focusedPostId={this.props.focusedPostId}
                         />
                     </div>
                     <div className='col-md-12 mt-3 mb-3 removePadding'>
