@@ -224,6 +224,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
     }
 
     componentDidUpdate(prevProps: Props) {
+        console.log(this.props.channelId);
         if (prevProps.channelId !== this.props.channelId || prevProps.channelIsArchived !== this.props.channelIsArchived) {
             window.localStorage.setItem('focusedPostId',this.state.focusedPostId);
             mark('ChannelView#componentDidUpdate');
