@@ -99,7 +99,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                     {posts.posts.map((item,index) => {
                         if(index === 0){
                             let message;
-                            if(item[0].message){
+                            if(item[0].message === ''){
                                 message = 'Sent a file.';
                             }else{
                                 message = item[0].message.substring(0,30).toString();
