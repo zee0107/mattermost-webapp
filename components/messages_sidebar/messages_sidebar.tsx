@@ -23,6 +23,7 @@ export type Props = {
     isUnread: boolean;
     teammateUsername?: string;
     view: string;
+    onChangeSelected: any;
 }
 
 type State = {
@@ -44,6 +45,10 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
         if(this.props.posts){
             Promise.resolve(this.props.posts).then((value) => {this.setState({posts: value});});
         }
+    }
+
+    handleChangeSelected = (id: string) => {
+        this.props.onChangeSelected(id);
     }
 
     getIcon = () => {
@@ -130,7 +135,7 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
         let DirectMessageMobile;
         if(channel.type === Constants.DM_CHANNEL){
                 DirectMessageDesktop = (
-                    <a className='onChatus text-dark'>
+                    <a className='onChatus text-dark' onClick={() => this.handleChangeSelected(channel.id)}>
                         <div className='row'>
                             <div className='col-2 text-center p-1 mt-1'>
                                 {this.getIcon()}
@@ -145,7 +150,7 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
                 );
 
                 DirectMessageMobile = (
-                    <div className='row'>
+                    <div className='row' onClick={() => this.handleChangeSelected(channel.id)}>
                         <div className='col-2 p-1'>
                             {this.getIcon()}
                         </div>

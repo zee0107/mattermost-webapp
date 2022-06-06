@@ -52,6 +52,8 @@ export default class Messages extends React.PureComponent<Props, State> {
         super(props);
 
         this.state = { isDark:'light',deferredPostView: Messages.createDeferredPostView(), messagesList: [], selectedMessage: ''};
+
+        this.onChangeSelected = this.onChangeSelected.bind(this);
     }
 
     componentDidMount(){
@@ -61,6 +63,10 @@ export default class Messages extends React.PureComponent<Props, State> {
         if(this.props.categories){
             Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
         }
+    }
+
+    onChangeSelected = (id: string) => {
+        this.setState({selectedMessage: id});
     }
 
     setMessageList = (list: string[]) => {
@@ -107,7 +113,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                     <div className='row'>
                         <div className='col-4'></div>
                         <div className='col-8'>
-                            <a className='float-end mt-3 ms-1 onSearchchatmessages'><i className='bi-search text-dark'></i></a>
+                            <a className='float-end mt-3 ms-1 onVerticaldropdownmenu'><i className='bi-three-dots-vertical'></i></a>
                         </div>
                     </div>
                 </div>
@@ -222,7 +228,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                 <>
                     {messagesList.map((item,index) => {
                         return (
-                            <MessageSidebar channelId={item} view='desktop' key={`${item}--${index}`} />
+                            <MessageSidebar channelId={item} view='desktop' onChangeSelected={this.onChangeSelected} key={`${item}--${index}`} />
                         );
                     })}
                 </>
@@ -232,7 +238,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                 <>
                     {messagesList.map((item,index) => {
                         return (
-                            <MessageSidebar channelId={item} view='mobile' key={`${item}--${index}`} />
+                            <MessageSidebar channelId={item} view='mobile' onChangeSelected={this.onChangeSelected} key={`${item}--${index}`} />
                         );
                     })}
                 </>
@@ -246,7 +252,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                 <>
                     {messagesList.map((item,index) => {
                         return (
-                            <MessageSidebarGroup channelId={item} view='desktop' key={`${item}--${index}`} />
+                            <MessageSidebarGroup channelId={item} view='desktop' onChangeSelected={this.onChangeSelected} key={`${item}--${index}`} />
                         );
                     })}
                 </>
@@ -256,7 +262,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                 <>
                     {messagesList.map((item,index) => {
                         return (
-                            <MessageSidebarGroup channelId={item} view='mobile' key={`${item}--${index}`} />
+                            <MessageSidebarGroup channelId={item} view='mobile' onChangeSelected={this.onChangeSelected} key={`${item}--${index}`} />
                         );
                     })}
                 </>

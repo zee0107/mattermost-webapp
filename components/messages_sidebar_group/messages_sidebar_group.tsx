@@ -24,6 +24,7 @@ export type Props = {
     teammateUsername?: string;
     membersCount: number;
     view: string;
+    onChangeSelected: any;
 }
 
 type State = {
@@ -45,6 +46,10 @@ export default class MessagesSidebarGroup extends React.PureComponent<Props, Sta
         if(this.props.posts){
             Promise.resolve(this.props.posts).then((value) => {this.setState({posts: value});});
         }
+    }
+
+    handleChangeSelected = (id: string) => {
+        this.props.onChangeSelected(id);
     }
 
     getIcon = () => {
@@ -96,7 +101,7 @@ export default class MessagesSidebarGroup extends React.PureComponent<Props, Sta
         let GroupMessageMobile;
         if(channel.type === Constants.GM_CHANNEL){
             GroupMessageDesktop = (
-                <a className='onChatus text-dark'>
+                <a className='onChatus text-dark' onClick={() => this.handleChangeSelected(channel.id)}>
                     <div className='row'>
                         <div className='col-2 text-center p-1 mt-1'>
                             {this.getIcon()}
@@ -113,7 +118,7 @@ export default class MessagesSidebarGroup extends React.PureComponent<Props, Sta
             );
 
             GroupMessageMobile = (
-                <div className='row'>
+                <div className='row' onClick={() => this.handleChangeSelected(channel.id)}>
                     <div className='col-2 text-center p-1 mt-1'>
                         {this.getIcon()}
                     </div>
