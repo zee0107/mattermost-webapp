@@ -92,6 +92,18 @@ export default class Messages extends React.PureComponent<Props, State> {
                 }
         }
 
+        let unreadNotif;
+        if(isUnread){
+            if(unreadMessages > 20){
+                unreadNotif = (
+                    <span className='badge rounded-pill bg-danger'>20+</span>
+                );
+            }else{
+                unreadNotif = (
+                    <span className='badge rounded-pill bg-danger'>{unreadMessages}</span>
+                );
+            }
+        }
         let lastMessage;
         if(posts){
             lastMessage = (
@@ -126,6 +138,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                             <div className='col-lg-8 mt-2'><strong><label>{displayName}</label></strong><br/>{lastMessage}</div>
                             <div className='col-2 text-start p-2'>
                                 <small>12:04</small>
+                                {unreadNotif}
                             </div>
                         </div>
                     </a>
@@ -143,6 +156,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                         </div>      
                         <div className='col-2 text-end mt-4'>
                             <small>12:04</small>
+                            {unreadNotif}
                         </div>
                     </div>
                 );
