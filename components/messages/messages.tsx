@@ -7,7 +7,7 @@ import { UserProfile } from 'mattermost-redux/types/users';
 import deferComponentRender from 'components/deferComponentRender';
 import CreatePost from 'components/create_post';
 import PostView from 'components/post_view';
-import { OrderedChannelCategories } from 'mattermost-redux/types/channel_categories';
+import { ChannelCategory, OrderedChannelCategories } from 'mattermost-redux/types/channel_categories';
 
 export type Props = {
     userId: string;
@@ -22,7 +22,7 @@ type State = {
     currentUser: UserProfile;
     channelId: string;
     deferredPostView: any;
-    categories: OrderedChannelCategories;
+    categories: ChannelCategory;
 };
 
 export default class Messages extends React.PureComponent<Props, State> {
@@ -55,7 +55,7 @@ export default class Messages extends React.PureComponent<Props, State> {
         this.setState({isDark: ThemeValue});
 
         if(this.props.categories){
-            Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value});})
+            Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
         }
 
         this.setMessageList();
@@ -64,8 +64,9 @@ export default class Messages extends React.PureComponent<Props, State> {
     setMessageList = () => {
         const {categories} = this.state;
         if(categories){
+            console.log(categories);
             Object.keys(categories).map((item) => {
-                if(categories.categories[item].type === 'direct_messages'){
+                if(categories[item].type === 'direct_messages'){
                     this.setState({messagesList: categories.categories[item].channel_ids});
                 }
             });
