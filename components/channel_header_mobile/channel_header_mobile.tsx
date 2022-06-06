@@ -96,7 +96,7 @@ export default class ChannelHeaderMobile extends React.PureComponent<Props> {
                 role='navigation'
             >
                 <div className='container-fluid theme'>
-                    <div className={'navbar-header width-100' + `${this.props.classes}`}>
+                    <div className={'navbar-header width-100 ' + `${this.props.classes}`}>
                         <CollapseLhsButton/>
                         <div className='spacer'/>
                         <div className={classNames('navbar-brand text-center', {GlobalThreads___title: inGlobalThreads})}>
