@@ -88,7 +88,7 @@ export default class ChannelController extends React.PureComponent<Props> {
                                 <Sidebar/>
                             </div>
                             <div className='col-md-10 removePadding'>
-                                <div className='col-md-12'>
+                                <div className='col-md-12 removePadding'>
                                     {!this.props.fetchingChannels && <Route component={CenterChannel}/>}
                                     {this.props.fetchingChannels && <LoadingScreen/>}
                                     <Pluggable pluggableName='Root'/>
