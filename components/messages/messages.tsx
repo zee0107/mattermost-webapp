@@ -23,6 +23,7 @@ type State = {
     channelId: string;
     deferredPostView: any;
     categories: ChannelCategory;
+    messagesList: string[];
 };
 
 export default class Messages extends React.PureComponent<Props, State> {
@@ -59,6 +60,10 @@ export default class Messages extends React.PureComponent<Props, State> {
         }
     }
 
+    setMessageList = (list: string[]) => {
+        this.setState({messagesList: list});
+    }
+
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
             return null;
@@ -74,15 +79,17 @@ export default class Messages extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const DeferredPostView = this.state.deferredPostView;
-        const {categories} = this.state;
+        const {categories, messagesList} = this.state;
         if(categories){
             console.log('base: ',categories);
             Object.keys(categories).map((item) => {
                 if(categories[item].type === 'direct_messages'){
-                    console.log(categories[item].channel_ids);
+                    this.setMessageList(categories[item].channel_ids);
                 }
             });
         }
+
+        console.log();
 
         return (
             <>
