@@ -22,7 +22,7 @@ import {autocompleteUsersInChannel} from 'actions/views/channel';
 import {searchAssociatedGroupsForReference} from 'actions/views/group';
 import {autocompleteChannels} from 'actions/channel_actions';
 
-import TextboxMesage ./textbox_messageextbox_message';
+import TextboxMesage from './textbox_message';
 
 type Props = {
     channelId: string;
