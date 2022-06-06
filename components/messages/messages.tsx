@@ -217,11 +217,10 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        
-                                        <div className='input-group mb-3'>
                                             <CreatePost />
-                                            {/*<span className='input-group-text group-text-actions bg-transparent'>
+                                        {/*<div className='input-group mb-3'>
+                                            
+                                            <span className='input-group-text group-text-actions bg-transparent'>
                                             <img width='20' src='assets/images/icon-browse.png' alt=''/>
                                             <img width='20' src='assets/images/icon-url.png' alt=''/>
                                             <img width='20' src='assets/images/icon-at.png' alt=''/>
@@ -230,8 +229,8 @@ export default class Messages extends React.PureComponent<Props, State> {
                                             <span className='input-group-text group-text-actions bg-transparent'>
                                             <img width='20' src='assets/images/icon-emoji.png' alt=''/>
                                             <button className='btn ms-2 onSendmessagewrite'><img width='20' src='assets/images/icon-arrow-search.png'/></button>
-                                            </span>*/}
-                                        </div>
+                                            </span>
+                                        </div>*/}
                                     </div>
                                 </div>
                             </div>
