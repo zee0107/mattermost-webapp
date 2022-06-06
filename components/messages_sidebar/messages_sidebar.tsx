@@ -10,6 +10,7 @@ import UserProfile from 'components/user_profile/user_profile';
 import {Client4} from 'mattermost-redux/client';
 import ProfilePicture from 'components/profile_picture';
 import { PostList } from 'mattermost-redux/types/posts';
+import { object } from 'prop-types';
 
 export type Props = {
     posts: Promise<PostList>;
@@ -93,7 +94,16 @@ export default class Messages extends React.PureComponent<Props, State> {
 
         let lastMessage;
         if(posts){
-            console.log(posts.order);
+            console.log(posts.posts);
+            /*lastMessage = (
+                <>
+                    {Object.keys(posts.posts).map((item) => {
+                        let name;
+                        if(posts.posts[item])
+                        return ();
+                    });}
+                </>
+            );*/
         }
         let DirectMessageDesktop;
         let DirectMessageMobile;
