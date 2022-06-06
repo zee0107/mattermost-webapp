@@ -9,8 +9,10 @@ import Constants from 'utils/constants';
 import UserProfile from 'components/user_profile/user_profile';
 import {Client4} from 'mattermost-redux/client';
 import ProfilePicture from 'components/profile_picture';
+import { PostList } from 'mattermost-redux/types/posts';
 
 export type Props = {
+    posts: Promise<PostList>;
     channel: Channel;
     currentTeam: Team;
     currentUser: UserProfile;
@@ -24,6 +26,7 @@ export type Props = {
 
 type State = {
     isDark: string;
+    posts: PostList;
 };
 
 export default class Messages extends React.PureComponent<Props, State> {
@@ -36,6 +39,10 @@ export default class Messages extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
+
+        if(this.props.posts){
+            Promise.resolve(this.props.posts).then((value) => {this.setState({posts: value});});
+        }
     }
 
     getIcon = () => {
@@ -75,54 +82,59 @@ export default class Messages extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-       const {channel,currentTeam,unreadMentions,unreadMessages,isUnread,teammateUsername,teammate,currentUser, view} = this.props;
+        const {channel,currentTeam,unreadMentions,unreadMessages,isUnread,teammateUsername,teammate,currentUser, view} = this.props;
+        const {posts} = this.state;
+        let displayName = channel.display_name;
+        if(teammate && currentUser){
+                if (currentUser.id === teammate.id) {
+                    displayName = `${displayName} (you)`;
+                }
+        }
 
-       let displayName = channel.display_name;
-       if(teammate && currentUser){
-            if (currentUser.id === teammate.id) {
-                displayName = `${displayName} (you)`;
-            }
-       }
-       let DirectMessageDesktop;
-       let DirectMessageMobile;
-       if(channel.type === Constants.DM_CHANNEL){
-            DirectMessageDesktop = (
-                <a className='onChatus text-dark'>
+        let lastMessage;
+        if(posts){
+            console.log(posts.order);
+        }
+        let DirectMessageDesktop;
+        let DirectMessageMobile;
+        if(channel.type === Constants.DM_CHANNEL){
+                DirectMessageDesktop = (
+                    <a className='onChatus text-dark'>
+                        <div className='row'>
+                            <div className='col-2 text-center p-1 mt-1'>
+                                {this.getIcon()}
+                            </div>
+                            <div className='col-lg-8 mt-2'><strong><label>{displayName}</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
+                            <div className='col-2 text-start p-2'>
+                                <small>12:04</small>
+                            </div>
+                        </div>
+                    </a>
+                );
+
+                DirectMessageMobile = (
                     <div className='row'>
-                        <div className='col-2 text-center p-1 mt-1'>
+                        <div className='col-2 p-1'>
                             {this.getIcon()}
                         </div>
-                        <div className='col-lg-8 mt-2'><strong><label>{displayName}</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
-                        <div className='col-2 text-start p-2'>
+                        <div className='col-8 mt-2'>
+                            <strong><label>{displayName}</label></strong>
+                            <br />
+                            <small className='text-muted'>2Caroline: Hi Guys! I've...</small>
+                        </div>      
+                        <div className='col-2 text-end mt-4'>
                             <small>12:04</small>
                         </div>
                     </div>
-                </a>
-            );
+                );
+        }
 
-            DirectMessageMobile = (
-                <div className='row'>
-                    <div className='col-2 p-1'>
-                        {this.getIcon()}
-                    </div>
-                    <div className='col-8 mt-2'>
-                        <strong><label>{displayName}</label></strong>
-                        <br />
-                        <small className='text-muted'>2Caroline: Hi Guys! I've...</small>
-                    </div>      
-                    <div className='col-2 text-end mt-4'>
-                        <small>12:04</small>
-                    </div>
-                </div>
-            );
-       }
-
-       let renderView;
-       if(view === 'desktop'){
-            renderView = DirectMessageDesktop;
-       }else{
-            renderView = DirectMessageMobile;
-       }
+        let renderView;
+        if(view === 'desktop'){
+                renderView = DirectMessageDesktop;
+        }else{
+                renderView = DirectMessageMobile;
+        }
 
         return (
             <>

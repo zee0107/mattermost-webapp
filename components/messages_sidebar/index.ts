@@ -29,9 +29,11 @@ function makeMapStateToProps() {
         const unreadCount = getUnreadCount(state, channel.id);
         const teammate = getUser(state, channel.teammate_id!);
         const currentTeam = getTeamByName(state,'crypter');
+        const posts = Client4.getPosts(channel.id);
 
         return {
             channel,
+            posts,
             currentUser,
             teammate,
             unreadMentions: unreadCount.mentions,
