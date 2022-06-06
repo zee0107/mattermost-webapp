@@ -4,6 +4,7 @@
 import React, {ReactNode} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import { UserProfile } from 'mattermost-redux/types/users';
+import deferComponentRender from 'components/deferComponentRender';
 import CreatePost from 'components/create_post';
 import PostView from 'components/post_view';
 
