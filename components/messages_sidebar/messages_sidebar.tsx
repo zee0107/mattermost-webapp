@@ -7,7 +7,7 @@ import { Team } from 'mattermost-redux/types/teams';
 import { Channel } from 'mattermost-redux/types/channels';
 import Constants from 'utils/constants';
 import UserProfile from 'components/user_profile/user_profile';
-import Client4 from 'mattermost-redux/client/client4';
+import {Client4} from 'mattermost-redux/client';
 import ProfilePicture from 'components/profile_picture';
 
 export type Props = {
