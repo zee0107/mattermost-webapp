@@ -8,6 +8,7 @@ import deferComponentRender from 'components/deferComponentRender';
 import CreatePost from 'components/create_post';
 import PostView from 'components/post_view';
 import { ChannelCategory, OrderedChannelCategories } from 'mattermost-redux/types/channel_categories';
+import MessageSidebar from 'components/messages_sidebar';
 
 export type Props = {
     userId: string;
@@ -87,10 +88,29 @@ export default class Messages extends React.PureComponent<Props, State> {
                 }
             });
         }
-        
+
+        let dmDesktop;
+        let dmMobile;
         if (messagesList && messagesList.length) {
-            
-            console.log(messagesList);
+            dmDesktop = (
+                <>
+                    {messagesList.map((item,index) => {
+                        return (
+                            <MessageSidebar channelId={item} view='desktop' key={`${item}--${index}`} />
+                        );
+                    })}
+                </>
+            );
+
+            dmMobile = (
+                <>
+                    {messagesList.map((item,index) => {
+                        return (
+                            <MessageSidebar channelId={item} view='mobile' key={`${item}--${index}`} />
+                        );
+                    })}
+                </>
+            );
         }
 
         return (
@@ -184,17 +204,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                 <a className='onDirectmsgup' data-bs-toggle='collapse' href='#collapseDirectmsg' role='button' aria-expanded='true' aria-controls='collapseDirectmsg'><i className='bi-chevron-up'></i> Direct Message</a>
                                             </div>
                                             <div className='collapse' id='collapseDirectmsg'>
-                                                <a className='onChatus text-dark'>
-                                                    <div className='row'>
-                                                        <div className='col-2 text-center p-1 mt-1'>
-                                                            {this.renderProfilePicture('lg')}
-                                                        </div>
-                                                        <div className='col-lg-8 mt-2'><strong><label>Garrett Watson</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
-                                                        <div className='col-2 text-start p-2'>
-                                                            <small>12:04</small>
-                                                        </div>
-                                                    </div>
-                                                </a>
+                                                {dmDesktop}
                                             </div> 
                                         </div>
                                     </div>
@@ -309,19 +319,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                 <strong><label>Direct Message</label></strong>
                             </div>
                             <hr />
-                            <div className='row'>
-                                <div className='col-2 p-1'>
-                                    {this.renderProfilePicture('xl')}
-                                </div>
-                                <div className='col-8 mt-2'>
-                                    <strong><label>Garrett Watson</label></strong>
-                                    <br />
-                                    <small className='text-muted'>2Caroline: Hi Guys! I've...</small>
-                                </div>      
-                                <div className='col-2 text-end mt-4'>
-                                    <small>12:04</small>
-                                </div>
-                            </div>
+                            {dmMobile}
                         </div>
                         <div className='box-middle-panel mt-3 mobilechatconversationgroup'>
                             <div className='row'>
