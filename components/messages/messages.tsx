@@ -175,11 +175,11 @@ export default class Messages extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='col-9'>
                                         <div className='right-chat-panel'>
-                                            <DeferredPostView
+                                            {/*<DeferredPostView
                                                 channelId={this.props.channelId}
                                                 focusedPostId={''}
                                                 filter={''}
-                                            />
+                                            />*/}
                                             {/*<div className='text-center'>
                                                 <small className='date-chats'>Tuesday, March 22</small></div>
                                                 <div className='row mt-3 mb-3'>
