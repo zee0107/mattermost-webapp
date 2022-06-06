@@ -91,25 +91,59 @@ export default class Messages extends React.PureComponent<Props, State> {
             });
         }
 
-        let messageHeader;
+        let messageHeaderDesktop;
+        let messageHeaderMobile;
         let messageBodyDesktop;
         let messageBodyMobile;
         if(!selectedMessage){
            messageBodyDesktop = (
-            <div className='right-chat-panel'>
+            <div className='right-chat-panel text-center text-muted mt-5'>
                 <h3><i className='bi-chat-left'></i><br></br>Select Message.</h3>
             </div>
            );
 
+           messageHeaderDesktop = (
+                <div className='right-chat-panel'>
+                    <div className='row'>
+                        <div className='col-4'></div>
+                        <div className='col-8'>
+                            <a className='float-end mt-3 ms-1 onSearchchatmessages'><i className='bi-search text-dark'></i></a>
+                        </div>
+                    </div>
+                </div>
+            );
+            
            messageBodyMobile = (
                 <div className='row'>
-                    <div className='right-chat-panel'>
+                    <div className='right-chat-panel text-center text-muted mt-5'>
                         <h3><i className='bi-chat-left'></i><br></br>Select Message.</h3>
                     </div>
                 </div>
            );
         }
         else{
+            messageHeaderDesktop = (
+                <div className='right-chat-panel'>
+                    <div className='row'>
+                        <div className='col-4'>
+                            <a className='position-relative float-start mt-3'>
+                                {this.renderProfilePicture('xl')}
+                                <span className='position-absolute bottom-0 end-0 p-1 bg-success border border-light rounded-circle'></span>
+                            </a>
+                            <p className='float-start text-wrap mt-3 name-of-user-position'>
+                                <strong><label className='float-start ms-2 text-chat-title'>Oscar Holloway</label></strong>
+                                <small className='ms-2'>UI/UX Designer</small>
+                            </p>
+                        </div>
+                        <div className='col-8'>
+                            <a className='float-end mt-3 ms-1 onVerticaldropdownmenu'><i className='bi-three-dots-vertical'></i></a>
+                            <a className='float-end mt-3 ms-1 onVerticaldropdownmenu'><i className='bi-pin'></i></a>
+                            <a className='float-end mt-3 ms-1 onSearchchatmessages'><i className='bi-search text-dark'></i></a>
+                        </div>
+                    </div>
+                </div>
+            );
+
             messageBodyDesktop = (
                 <>
                     <div className='right-chat-panel'>
@@ -123,6 +157,38 @@ export default class Messages extends React.PureComponent<Props, State> {
                             <CreatePost />
                     </div>
                 </>
+            );
+
+            messageHeaderMobile = (
+                <div className='row'>
+                    <div className='col-8'>
+                        <form>
+                            <div className='input-group'>
+                                <span className='input-group-text bg-transparent border-1'><a className='onClosesearchchatconversation'></a></span>
+                                    <input type='text' className='form-control search-show-style' aria-label='Search' placeholder='Search...' />
+                                    <span className='input-group-text bg-transparent'>
+                                    <a><i className='bi-chat-square-text text-dark'></i></a>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <div className='col-2 text-center mt-1'>
+                        <a className='onVerticaldropdownmenu'><i className='bi-pin'></i></a>
+                    </div>
+                    <div className='col-2 text-center'>
+                        <div className='dropdown bg-transparent mt-1'>
+                            <a id='dropdownMenuChatAction' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-three-dots-vertical'></i></a>
+                            <ul className='dropdown-menu' aria-labelledby='dropdownMenuChatAction'>
+                                <li>
+                                    <a className='dropdown-item onDeleteconversations'>Delete conversation</a>
+                                </li>
+                                <li>
+                                    <a className='dropdown-item onChatsettings' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelaccounts' aria-controls='offcanvasRightLabelaccounts'>Settings</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             );
 
             messageBodyMobile = (
@@ -233,25 +299,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <div className='col-9'>
-                                        <div className='right-chat-panel'>
-                                            <div className='row'>
-                                                <div className='col-4'>
-                                                    <a className='position-relative float-start mt-3'>
-                                                        {this.renderProfilePicture('xl')}
-                                                        <span className='position-absolute bottom-0 end-0 p-1 bg-success border border-light rounded-circle'></span>
-                                                    </a>
-                                                    <p className='float-start text-wrap mt-3 name-of-user-position'>
-                                                        <strong><label className='float-start ms-2 text-chat-title'>Oscar Holloway</label></strong>
-                                                        <small className='ms-2'>UI/UX Designer</small>
-                                                    </p>
-                                                </div>
-                                                <div className='col-8'>
-                                                    <a className='float-end mt-3 ms-1 onVerticaldropdownmenu'><i className='bi-three-dots-vertical'></i></a>
-                                                    <a className='float-end mt-3 ms-1 onVerticaldropdownmenu'><i className='bi-pin'></i></a>
-                                                    <a className='float-end mt-3 ms-1 onSearchchatmessages'><i className='bi-search text-dark'></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        {messageHeaderDesktop}
                                     </div>
                                 </div>
                             </div>
@@ -317,35 +365,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                     <div className='box-middle-panel mt-2 mobilechatconversation'>
-                        <div className='row'>
-                            <div className='col-8'>
-                                <form>
-                                    <div className='input-group'>
-                                        <span className='input-group-text bg-transparent border-1'><a className='onClosesearchchatconversation'></a></span>
-                                            <input type='text' className='form-control search-show-style' aria-label='Search' placeholder='Search...' />
-                                            <span className='input-group-text bg-transparent'>
-                                            <a><i className='bi-chat-square-text text-dark'></i></a>
-                                        </span>
-                                    </div>
-                                </form>
-                            </div>
-                            <div className='col-2 text-center mt-1'>
-                                <a className='onVerticaldropdownmenu'><i className='bi-pin'></i></a>
-                            </div>
-                            <div className='col-2 text-center'>
-                                <div className='dropdown bg-transparent mt-1'>
-                                    <a id='dropdownMenuChatAction' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-three-dots-vertical'></i></a>
-                                    <ul className='dropdown-menu' aria-labelledby='dropdownMenuChatAction'>
-                                        <li>
-                                            <a className='dropdown-item onDeleteconversations'>Delete conversation</a>
-                                        </li>
-                                        <li>
-                                            <a className='dropdown-item onChatsettings' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelaccounts' aria-controls='offcanvasRightLabelaccounts'>Settings</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        {messageHeaderMobile}
                         <div className='box-middle-panel mt-2 mobilechatconversation'>
                             {messageBodyMobile}
                         </div>
