@@ -49,7 +49,7 @@ export default class MessagesSidebarGroup extends React.PureComponent<Props, Sta
 
     getIcon = () => {
         return (
-            <div className='status status--group'>{this.props.membersCount}</div>
+            <div className='status status--group' style={{height: 36, width: 36, borderRadius: '50%'}}><label>{this.props.membersCount}</label></div>
         );
     }
 
