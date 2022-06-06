@@ -77,7 +77,7 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
                 status={teammate.is_bot ? '' : channel.status}
                 wrapperClass='DirectChannel__profile-picture'
                 newStatusIcon={true}
-                statusClass={`DirectChannel__status-icon ${className}`}
+                statusClass={`DirectChannel__status-icon ${className} hide`}
             />
         );
     }
