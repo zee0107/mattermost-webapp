@@ -5,6 +5,7 @@ import React, {ReactNode} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import { UserProfile } from 'mattermost-redux/types/users';
 import CreatePost from 'components/create_post';
+import PostView from 'components/post_view';
 
 export type Props = {
     userId: string;
@@ -17,9 +18,23 @@ type State = {
     isDark: string;
     currentUser: UserProfile;
     channelId: string;
+    deferredPostView: any;
 };
 
 export default class Messages extends React.PureComponent<Props, State> {
+    public static createDeferredPostView = () => {
+        return deferComponentRender(
+            PostView,
+            <div
+                id='post-list'
+                className='a11y__region'
+                data-a11y-sort-order='1'
+                data-a11y-focus-child={true}
+                data-a11y-order-reversed={false}
+            />,
+        );
+    }
+
     static defaultProps = {
         userId: '',
         profilePicture: '',
@@ -28,7 +43,7 @@ export default class Messages extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = { isDark:'light'};
+        this.state = { isDark:'light',deferredPostView: Messages.createDeferredPostView(),};
     }
 
     componentDidMount(){
@@ -48,6 +63,8 @@ export default class Messages extends React.PureComponent<Props, State> {
             />
         );
     }
+
+    const DeferredPostView = this.state.deferredPostView;
 
     render= (): JSX.Element => {
         return (
@@ -157,7 +174,13 @@ export default class Messages extends React.PureComponent<Props, State> {
                                     </div>
                                     <div className='col-9'>
                                         <div className='right-chat-panel'>
-                                            <div className='text-center'><small className='date-chats'>Tuesday, March 22</small></div>
+                                            <DeferredPostView
+                                                channelId={this.props.channelId}
+                                                focusedPostId={''}
+                                                filter={''}
+                                            />
+                                            {/*<div className='text-center'>
+                                                <small className='date-chats'>Tuesday, March 22</small></div>
                                                 <div className='row mt-3 mb-3'>
                                                     <div className='col-1 text-center'>
                                                     {this.renderProfilePicture('xl')}
@@ -216,7 +239,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                     <p className='col-12 name-of-reply-title mt-3'><label>Ok</label></p>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>}*/}
                                             <div className='col-md-12 mt-3 mb-3 removePadding'>
                                                 <CreatePost />
                                             </div>
