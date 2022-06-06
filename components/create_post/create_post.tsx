@@ -1506,7 +1506,7 @@ class CreatePost extends React.PureComponent<Props, State> {
                                         id: 'create_post.send_message',
                                         defaultMessage: 'Send a message',
                                     })}
-                                    className={sendButtonClass}
+                                    className={sendButtonClass + 'pt-2'}
                                     onClick={this.handleSubmit}
                                 >
                                     <LocalizedIcon

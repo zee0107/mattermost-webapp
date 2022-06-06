@@ -217,6 +217,8 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        
                                         <div className='input-group mb-3'>
                                             <CreatePost />
                                             {/*<span className='input-group-text group-text-actions bg-transparent'>
