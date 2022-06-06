@@ -7,6 +7,7 @@ import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
 import {GlobalState} from 'types/store';
 
 import Messages from './messages'
+import { getTeamByName } from 'mattermost-redux/selectors/entities/teams';
 
 
 function makeMapStateToProps() {
@@ -15,10 +16,13 @@ function makeMapStateToProps() {
             const stateValue = window.localStorage.getItem('GlobalState');
             state = JSON.parse(stateValue);
         }
-        
+
         const currentUser = getCurrentUser(state);
         const userId = currentUser?.id;
         const channelId = 'd1f12b6ac937b6a8fea4247aeeedfd6d85746c65';
+        const teamId = getTeamByName(state,'crypter');
+        const categories = Client4.getChannelCategoriesRoute('me',teamId);
+        console.log(categories);
         return {
             userId,
             currentUser,
