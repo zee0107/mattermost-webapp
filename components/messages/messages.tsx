@@ -180,7 +180,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                 focusedPostId={''}
                                                 filter={''}
                                             />*/}
-                                            {/*<div className='text-center'>
+                                            <div className='text-center'>
                                                 <small className='date-chats'>Tuesday, March 22</small></div>
                                                 <div className='row mt-3 mb-3'>
                                                     <div className='col-1 text-center'>
@@ -240,7 +240,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                     <p className='col-12 name-of-reply-title mt-3'><label>Ok</label></p>
                                                     </div>
                                                 </div>
-                                            </div>}*/}
+                                            </div>
                                             <div className='col-md-12 mt-3 mb-3 removePadding'>
                                                 <CreatePost />
                                             </div>
