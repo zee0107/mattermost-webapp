@@ -499,16 +499,16 @@ export default class StatusDropdown extends React.PureComponent<Props, State> {
                             rightDecorator={status === 'forums' && selectedIndicator}
                             id={'forums'}
                         />
-                        {/*<Menu.ItemLink
+                        <Menu.ItemLink
                             id='messages'
                             ariaLabel='messages'
                             to='/messages'
                             o
-                            text={localizeMessage('navbar_dropdown', 'Join Forums')}
+                            text={localizeMessage('navbar_dropdown', 'Messages')}
                             icon={globalHeader ? (
-                                <i className='bi bi-messages-left'/>
+                                <i className='bi bi-chat-left'/>
                             ) : <i className='fa fa-cog'/>}
-                            />*/}
+                            />
                     </Menu.Group>
                     <Menu.Group>
                         <Menu.ItemLink
