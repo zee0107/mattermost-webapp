@@ -76,9 +76,11 @@ export default class Messages extends React.PureComponent<Props, State> {
        const {channel,currentTeam,unreadMentions,unreadMessages,isUnread,teammateUsername,teammate,currentUser, view} = this.props;
 
        let displayName = channel.display_name;
-       if (currentUser.id === teammate.id) {
-            displayName = `${displayName} (you)`;
-        }
+       if(teammate && currentUser){
+            if (currentUser.id === teammate.id) {
+                displayName = `${displayName} (you)`;
+            }
+       }
        let DirectMessageDesktop;
        let DirectMessageMobile;
        if(channel.type === Constants.DM_CHANNEL){
