@@ -64,9 +64,9 @@ export default class Messages extends React.PureComponent<Props, State> {
         );
     }
 
-    const DeferredPostView = this.state.deferredPostView;
-
     render= (): JSX.Element => {
+        const DeferredPostView = this.state.deferredPostView;
+
         return (
             <>
                 <section id="crypter-section" className='crypter-section-desktop'>
