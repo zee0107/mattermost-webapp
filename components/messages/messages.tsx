@@ -77,6 +77,11 @@ export default class Messages extends React.PureComponent<Props, State> {
         const {categories} = this.state;
         if(categories){
             console.log('base: ',categories);
+            Object.keys(categories).map((item) => {
+                if(categories[item].type === 'direct_messages'){
+                    console.log(categories[item].channel_ids);
+                }
+            });
         }
 
         return (
