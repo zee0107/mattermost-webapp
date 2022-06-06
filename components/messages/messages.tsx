@@ -28,6 +28,7 @@ type State = {
     categories: ChannelCategory;
     messagesList: string[];
     selectedMessage: string;
+    mobileView: string;
 };
 
 export default class Messages extends React.PureComponent<Props, State> {
@@ -52,9 +53,10 @@ export default class Messages extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = { isDark:'light',deferredPostView: Messages.createDeferredPostView(), messagesList: [], selectedMessage: ''};
+        this.state = { isDark:'light',deferredPostView: Messages.createDeferredPostView(), messagesList: [], selectedMessage: '', mobileView: 'messages'};
 
         this.onChangeSelected = this.onChangeSelected.bind(this);
+        this.onMobileView = this.onMobileView.bind(this);
     }
 
     componentDidMount(){
@@ -66,6 +68,9 @@ export default class Messages extends React.PureComponent<Props, State> {
         }
     }
 
+    onMobileView = (value: string) =>{
+        this.setState({mobileView: value});
+    }
     onChangeSelected = (id: string) => {
         this.setState({selectedMessage: id});
     }
@@ -348,20 +353,20 @@ export default class Messages extends React.PureComponent<Props, State> {
                                         <strong><small className='ms-1 text-success'>Messages</small></strong>
                                     </div>
                                     <div className='col-6 mt-2'>
-                                        <a className='float-end onMobilepeople'><i className='bi-people'></i></a>
-                                        <a className='float-end onMobileperson'><i className='bi-person'></i></a>
+                                        <a className='float-end onMobilepeople' onClick={() => this.onMobileView('chats')}><i className='bi-people'></i></a>
+                                        <a className='float-end onMobileperson'  onClick={() => this.onMobileView('groups')}><i className='bi-person'></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className='box-middle-panel mt-3 mobilechatconversationperson'>
+                        <div className={`box-middle-panel mt-3 mobilechatconversationperson ${this.state.mobileView === 'chats' ? '' : 'hide'}`}>
                             <div className='row'>
                                 <strong><label>Direct Message</label></strong>
                             </div>
                             <hr />
                             {dmMobile}
                         </div>
-                        <div className='box-middle-panel mt-3 mobilechatconversationgroup'>
+                        <div className={`box-middle-panel mt-3 mobilechatconversationgroup ${this.state.mobileView === 'groups' ? '' : 'hide'}`}>
                             <div className='row'>
                                 <strong><label>Groups</label></strong>
                             </div>
@@ -369,7 +374,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                             {gmMobile}
                         </div>
                     </div>
-                    <div className='box-middle-panel mt-2 mobilechatconversation'>
+                    <div className={`box-middle-panel mt-2 mobilechatconversation ${this.state.mobileView === 'messages' ? '' : 'hide'}`}>
                         {messageHeaderMobile}
                         <div className='box-middle-panel mt-2 mobilechatconversation'>
                             {messageBodyMobile}
