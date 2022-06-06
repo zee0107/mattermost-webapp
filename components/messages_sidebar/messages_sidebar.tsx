@@ -94,16 +94,15 @@ export default class Messages extends React.PureComponent<Props, State> {
 
         let lastMessage;
         if(posts){
-            console.log(posts.posts);
-            /*lastMessage = (
+            lastMessage = (
                 <>
                     {Object.keys(posts.posts).map((item) => {
-                        let name;
-                        if(posts.posts[item])
-                        return ();
-                    });}
+                        return (
+                            <small className='text-muted'>{posts.posts[item].message}</small>
+                        );
+                    })}
                 </>
-            );*/
+            );
         }
         let DirectMessageDesktop;
         let DirectMessageMobile;
@@ -114,7 +113,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                             <div className='col-2 text-center p-1 mt-1'>
                                 {this.getIcon()}
                             </div>
-                            <div className='col-lg-8 mt-2'><strong><label>{displayName}</label></strong><br/><small className='text-muted'>2Caroline: Hi Guys! I've...</small></div>
+                            <div className='col-lg-8 mt-2'><strong><label>{displayName}</label></strong><br/>{lastMessage}</div>
                             <div className='col-2 text-start p-2'>
                                 <small>12:04</small>
                             </div>
@@ -130,7 +129,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                         <div className='col-8 mt-2'>
                             <strong><label>{displayName}</label></strong>
                             <br />
-                            <small className='text-muted'>2Caroline: Hi Guys! I've...</small>
+                            {lastMessage}
                         </div>      
                         <div className='col-2 text-end mt-4'>
                             <small>12:04</small>
