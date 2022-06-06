@@ -58,6 +58,8 @@ export default class Messages extends React.PureComponent<Props, State> {
         if(this.props.categories){
             Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
         }
+
+        this.setMessageList();
     }
 
     setMessageList = () => {
