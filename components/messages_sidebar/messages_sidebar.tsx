@@ -109,6 +109,10 @@ export default class Messages extends React.PureComponent<Props, State> {
                     })}
                 </>
             );
+        }else{
+            lastMessage = (
+                <small className='text-muted'>Send a message.</small>
+            );
         }
         let DirectMessageDesktop;
         let DirectMessageMobile;
