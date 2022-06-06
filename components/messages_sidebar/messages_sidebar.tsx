@@ -58,12 +58,14 @@ export default class Messages extends React.PureComponent<Props, State> {
             className = 'status-away';
         } else if (channel.status === 'dnd') {
             className = 'status-dnd';
+        }else{
+            className = 'status-away';
         }
 
         return (
             <ProfilePicture
                 src={Client4.getProfilePictureUrl(teammate.id, teammate.last_picture_update)}
-                size={'xl'}
+                size={'lg'}
                 status={teammate.is_bot ? '' : channel.status}
                 wrapperClass='DirectChannel__profile-picture'
                 newStatusIcon={true}
@@ -104,7 +106,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                         {this.getIcon()}
                     </div>
                     <div className='col-8 mt-2'>
-                        <strong><label>Garrett Watson</label></strong>
+                        <strong><label>{displayName}</label></strong>
                         <br />
                         <small className='text-muted'>2Caroline: Hi Guys! I've...</small>
                     </div>      
