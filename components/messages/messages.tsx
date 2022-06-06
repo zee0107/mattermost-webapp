@@ -76,7 +76,7 @@ export default class Messages extends React.PureComponent<Props, State> {
         const DeferredPostView = this.state.deferredPostView;
         const {categories} = this.state;
         if(categories){
-            console.log('base: ',categories.channel_ids);
+            console.log('base: ',categories);
         }
 
         return (
