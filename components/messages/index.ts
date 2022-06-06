@@ -24,6 +24,7 @@ function makeMapStateToProps() {
         const categories = Client4.getChannelCategories('me',team?.id);
         console.log(categories);
         return {
+            categories,
             userId,
             currentUser,
             channelId,

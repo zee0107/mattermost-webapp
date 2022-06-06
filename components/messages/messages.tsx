@@ -7,12 +7,14 @@ import { UserProfile } from 'mattermost-redux/types/users';
 import deferComponentRender from 'components/deferComponentRender';
 import CreatePost from 'components/create_post';
 import PostView from 'components/post_view';
+import { OrderedChannelCategories } from 'mattermost-redux/types/channel_categories';
 
 export type Props = {
     userId: string;
     profilePicture: string;
     currentUser: UserProfile;
     channelId: string;
+    categories: Promise<OrderedChannelCategories>;
 }
 
 type State = {
@@ -20,6 +22,7 @@ type State = {
     currentUser: UserProfile;
     channelId: string;
     deferredPostView: any;
+    categories: OrderedChannelCategories;
 };
 
 export default class Messages extends React.PureComponent<Props, State> {
@@ -44,12 +47,29 @@ export default class Messages extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = { isDark:'light',deferredPostView: Messages.createDeferredPostView(),};
+        this.state = { isDark:'light',deferredPostView: Messages.createDeferredPostView(), messagesList: []};
     }
 
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
+
+        if(this.props.categories){
+            Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value});})
+        }
+
+        this.setMessageList();
+    }
+
+    setMessageList = () => {
+        const {categories} = this.state;
+        if(categories){
+            Object.keys(categories).map((item) => {
+                if(categories.categories[item].type === 'direct_messages'){
+                    this.setState({messagesList: categories.categories[item].channel_ids});
+                }
+            });
+        }
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -67,6 +87,10 @@ export default class Messages extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const DeferredPostView = this.state.deferredPostView;
+        const {messagesList} = this.state;
+        if(messagesList){
+            console.log(messagesList);
+        }   
 
         return (
             <>
