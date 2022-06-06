@@ -97,8 +97,14 @@ export default class Messages extends React.PureComponent<Props, State> {
             lastMessage = (
                 <>
                     {Object.keys(posts.posts).map((item) => {
+                        let message;
+                        if(posts.posts[item].message}){
+                            message = 'Sent a file.';
+                        }else{
+                            message = posts.posts[item].message.substring(0,30).toString();
+                        }
                         return (
-                            <small className='text-muted'>{posts.posts[item].message}</small>
+                            <small className='text-muted'>{message}</small>
                         );
                     })}
                 </>
