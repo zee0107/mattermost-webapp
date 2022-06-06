@@ -57,20 +57,6 @@ export default class Messages extends React.PureComponent<Props, State> {
         if(this.props.categories){
             Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
         }
-
-        this.setMessageList();
-    }
-
-    setMessageList = () => {
-        const {categories} = this.state;
-        if(categories){
-            console.log(categories);
-            Object.keys(categories).map((item) => {
-                if(categories[item].type === 'direct_messages'){
-                    this.setState({messagesList: categories.categories[item].channel_ids});
-                }
-            });
-        }
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -88,10 +74,10 @@ export default class Messages extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const DeferredPostView = this.state.deferredPostView;
-        const {messagesList} = this.state;
-        if(messagesList){
-            console.log(messagesList);
-        }   
+        const {categories} = this.state;
+        if(categories){
+            console.log('base: ',categories.channel_ids);
+        }
 
         return (
             <>
