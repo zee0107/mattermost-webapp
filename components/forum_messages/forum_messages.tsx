@@ -29,7 +29,7 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {isDark:'light', baseUri: 'https://localhost:44312/',};//baseUri: 'https://crypterfighter.polywickstudio.ph/api/crypter/',};
+        this.state = {isDark:'light', baseUri: 'https://crypterfighter.polywickstudio.ph/',};//baseUri: 'https://crypterfighter.polywickstudio.ph/api/crypter/',};
     }
 
     componentDidMount(){

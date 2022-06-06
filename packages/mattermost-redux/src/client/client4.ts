@@ -4145,78 +4145,78 @@ export default class Client4 {
 
     getLikeCount = (id: string) => {
         return this.doFetch<number>(
-            `https://localhost:44312/api/crypter/getlikecount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getlikecount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     myCommentList = (id: string) => {
         return this.doFetch<string[]>(
-            `https://localhost:44312/api/crypter/mymessages?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/mymessages?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     myThreadList = (id: string) => {
         return this.doFetch<string[]>(
-            `https://localhost:44312/api/crypter/mythreads?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/mythreads?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     forumMembers = () => {
         return this.doFetch<string[]>(
-            `https://localhost:44312/api/crypter/forummembers`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/forummembers`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     allThreads = () => {
         return this.doFetch<Thread[]>(
-            `https://localhost:44312/api/crypter/listthreads`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/listthreads`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getThread = (id: string) => {
         return this.doFetch<ForumTopic>(
-            `https://localhost:44312/api/crypter/getthread?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getthread?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     listComments = (id: string) => {
         return this.doFetch<Comment[]>(
-            `https://localhost:44312/api/crypter/listcomments?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/listcomments?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getComment = (id: string) => {
         return this.doFetch<ForumReply>(
-            `https://localhost:44312/api/crypter/getcomment?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getcomment?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getThreadMeber = (fid: string,id: string) => {
         return this.doFetch<ForumReply>(
-            `https://localhost:44312/api/crypter/threadmembership?fid=${fid}&id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/threadmembership?fid=${fid}&id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getThreadMeberCount = (fid: string,id: string) => {
         return this.doFetch<ForumReply>(
-            `https://localhost:44312/api/crypter/threadmembercount?fid=${fid}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/threadmembercount?fid=${fid}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getThreadCommentCount = (fid: string,id: string) => {
         return this.doFetch<ForumReply>(
-            `https://localhost:44312/api/crypter/threadcommentcount?fid=${fid}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/threadcommentcount?fid=${fid}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getLikeData = (fid: string,id: string) => {
         return this.doFetch<LikeData>(
-            `https://localhost:44312/api/crypter/getlikedata?fid=${fid}&uid=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/getlikedata?fid=${fid}&uid=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     likeForum = (fid: string, id: string) => {
-        const uri = new URL('https://localhost:44312/api/crypter/likeforum');
+        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/likeforum');
         const param = {forum_id: fid, user_id: id};
         uri.search = new URLSearchParams(param);
 
@@ -4226,7 +4226,7 @@ export default class Client4 {
     }
 
     dislikeForum = (fid: string, id: string) => {
-        const uri = new URL('https://localhost:44312/api/crypter/dislikeforum');
+        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/dislikeforum');
         const param = {forum_id: fid, user_id: id};
         uri.search = new URLSearchParams(param);
 
@@ -4237,19 +4237,19 @@ export default class Client4 {
 
     userJoinedCount = (id: string) => {
         return this.doFetch<number>(
-            `apiUrl: 'https://localhost:44312/api/crypter/userjoinedcount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `apiUrl: 'https://crypterfighter.polywickstudio.ph/api/crypter/userjoinedcount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     userPostCount = (id: string) => {
         return this.doFetch<number>(
-            `apiUrl: 'https://localhost:44312/api/crypter/userpostcount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `apiUrl: 'https://crypterfighter.polywickstudio.ph/api/crypter/userpostcount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     forumUserData = (id: string) => {
         return this.doFetch<ForumUser>(
-            `apiUrl: 'https://localhost:44312/api/crypter/userlastvisit?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `apiUrl: 'https://crypterfighter.polywickstudio.ph/api/crypter/userlastvisit?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 

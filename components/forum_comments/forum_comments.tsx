@@ -32,7 +32,7 @@ export default class ForumComments extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {isDark:'light',editComment: false, baseUri: 'https://localhost:44312/'};
+        this.state = {isDark:'light',editComment: false, baseUri: 'https://crypterfighter.polywickstudio.ph/'};
         
     }
 
