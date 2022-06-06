@@ -4,6 +4,7 @@
 import React, {ReactNode} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import { UserProfile } from 'mattermost-redux/types/users';
+import CreatePost from 'components/create_post';
 
 export type Props = {
     userId: string;
@@ -217,7 +218,8 @@ export default class Messages extends React.PureComponent<Props, State> {
                                                 </div>
                                             </div>
                                         <div className='input-group mb-3'>
-                                            <span className='input-group-text group-text-actions bg-transparent'>
+                                            <CreatePost />
+                                            {/*<span className='input-group-text group-text-actions bg-transparent'>
                                             <img width='20' src='assets/images/icon-browse.png' alt=''/>
                                             <img width='20' src='assets/images/icon-url.png' alt=''/>
                                             <img width='20' src='assets/images/icon-at.png' alt=''/>
@@ -226,7 +228,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                             <span className='input-group-text group-text-actions bg-transparent'>
                                             <img width='20' src='assets/images/icon-emoji.png' alt=''/>
                                             <button className='btn ms-2 onSendmessagewrite'><img width='20' src='assets/images/icon-arrow-search.png'/></button>
-                                            </span>
+                                            </span>*/}
                                         </div>
                                     </div>
                                 </div>
@@ -309,7 +311,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                             <div className='col-2 text-center'>
                                 <div className='dropdown bg-transparent mt-1'>
                                     <a id='dropdownMenuChatAction' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-three-dots-vertical'></i></a>
-                                    <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuChatAction'>
+                                    <ul className='dropdown-menu' aria-labelledby='dropdownMenuChatAction'>
                                         <li>
                                             <a className='dropdown-item onDeleteconversations'>Delete conversation</a>
                                         </li>
@@ -412,14 +414,15 @@ export default class Messages extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                                 <div className='input-group mb-3'>
-                                    <input type='text' className='form-control write-message-inputs-mobile' aria-label='Type your message here' placeholder='Type your message here...' />
+                                    <CreatePost />
+                                    {/*<input type='text' className='form-control write-message-inputs-mobile' aria-label='Type your message here' placeholder='Type your message here...' />
                                     <span className='input-group-text group-text-actions bg-transparent'>
                                         <img width='20' src='assets/images/icon-browse.png' alt=''/>
                                         <img width='20' src='assets/images/icon-url.png' alt=''/>
                                         <img width='20' src='assets/images/icon-at.png' alt=''/>
                                         <img width='20' src='assets/images/icon-emoji.png' alt=''/>
                                         <button className='btn ms-2 onSendmessagewrite'><img width='20' src='assets/images/icon-arrow-search.png'/></button>
-                                    </span>
+                                    </span>*/}
                                 </div>
                             </div>
                         </div>
