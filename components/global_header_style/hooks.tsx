@@ -64,14 +64,6 @@ export const useCurrentProductId = (products?: ProductComponent[]): string | nul
     return getCurrentProductId(products, useLocation().pathname);
 };
 
-export const defaultTeam = async (): Promise<string> => {
-    const data = await Client4.getTeamByName('crypter');
-    return data.id;
-}
-export const defaultChannel = async (teamId: string): Promise<ServerChannel> => {
-    const data = await Client4.getChannelByName(teamId, 'town-square');
-    return data;
-}
 
 export const useShowTutorialStep = (stepToShow: number): boolean => {
     const currentUserId = useSelector<GlobalState, string>(getCurrentUserId);
