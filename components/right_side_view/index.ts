@@ -11,13 +11,21 @@ import {GlobalState} from 'types/store';
 import { getTeamByName } from 'mattermost-redux/selectors/entities/teams';
 
 import RightSideView from './right_side_view'
+import { getChannelByName } from 'mattermost-redux/selectors/entities/channels';
 
 function makeMapStateToProps() {
     return function mapStateToProps(state: GlobalState) {
+        if(state.entities.teams.currentTeamId === "" || state.entities.teams.currentTeamId === null || state.entities.teams.currentTeamId === undefined){
+            const stateValue = window.localStorage.getItem('GlobalState');
+            state = JSON.parse(stateValue);
+        }
+
         const currentUser = getCurrentUser(state);
         const socialCount = Client4.getSocialCount(currentUser.id);
+        const channel = getChannelByName(state,'town-square');
+        const getPostList = Client4.getPosts(channel?.id);
         //Local Server
-        const getPostList = Client4.getPosts('kqe4sihhdid47gprhk6dwbuc4o');
+        //const getPostList = Client4.getPosts('kqe4sihhdid47gprhk6dwbuc4o');
 
         //Live Server
         //const getPostList = Client4.getPosts('dodurztr1fbupnpenjgxqjso3a');

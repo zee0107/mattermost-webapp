@@ -94,8 +94,8 @@ export default class MessagesGroup extends React.PureComponent<Props, State> {
         let renderView;
         if(channel.type === Constants.GM_CHANNEL){
             renderView = (
-                <div className='col-lg-12 chat-hover removePadding'>
-                    <div className='row'>
+                <div className='col-lg-12 removePadding'>
+                    <div className='row chat-hover'>
                         <div className='col-2 text-center p-1 mt-1'>
                             {this.getIcon()}
                         </div>
