@@ -601,13 +601,13 @@ export default class PostList extends React.PureComponent {
                             <AutoSizer>
                                 {({height, width}) => (
                                     <React.Fragment>
-                                        {/*<div>
+                                        <div>
                                             <Pluggable
                                                 pluggableName='ChannelToast'
                                             />
 
                                             {this.renderToasts(width)}
-                                        </div>*/}
+                                        </div>
 
                                         <DynamicSizeList
                                             ref={this.listRef}
