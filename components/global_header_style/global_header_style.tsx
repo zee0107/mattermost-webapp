@@ -38,9 +38,6 @@ const GlobalHeaderStyle = (): JSX.Element | null => {
     const currentProductID = useCurrentProductId(products);
     const user = currentUser();
     const teamId = defaultTeam();
-    const channel = defaultChannel(teamId);
-    console.log('team',teamId);
-    console.log('channel',channel);
 
     if (!isLoggedIn) {
         return null;
@@ -49,11 +46,16 @@ const GlobalHeaderStyle = (): JSX.Element | null => {
         <GlobalHeaderContainer id='global-header'>
             <LeftControls/>
             <CenterControls productId={currentProductID}/>
-            <RightControls 
-                productId={currentProductID} 
-                currentUser={user}
-                channelId={channel.id}
-            />
+            {teamId.then((value) => {
+                const channel = defaultChannel(value);
+                channel.then((data) => {
+                    <RightControls 
+                    productId={currentProductID} 
+                    currentUser={user}
+                    channelId={data.id}
+                />
+                })
+            })}
         </GlobalHeaderContainer>
     );
 };
