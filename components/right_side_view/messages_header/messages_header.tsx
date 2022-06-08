@@ -19,6 +19,7 @@ export type Props = {
     teammate?: UserProfile;
     teammateUsername?: string;
     membersCount: number;
+    onChangeSelected: any;
 }
 
 type State = {
@@ -38,6 +39,9 @@ export default class MessagesHeader extends React.PureComponent<Props, State> {
         this.setState({isDark: ThemeValue});
     }
 
+    handleChangeSelected = (id: string) => {
+        this.props.onChangeSelected(id);
+    }
     getIconGroup = () => {
         return (
             <div className='status status--group' style={{height: 25, width: 25, borderRadius: '50%', background: '#cccccc'}}><label className='pt-2'>{this.props.membersCount}</label></div>
@@ -108,7 +112,7 @@ export default class MessagesHeader extends React.PureComponent<Props, State> {
         renderView = (
             <>
                 <h6 className='offcanvas-title' id='offcanvasBottomreadychatdesktop'>{profilePic} {displayName}</h6>
-                <a href='#' className='text-reset' aria-label='Close' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelchatdesktop' aria-controls='offcanvasRightLabelchatdesktop'><i className='bi-list-nested'></i></a>
+                <a onClick={() => this.handleChangeSelected('')} className='text-reset' aria-label='Close' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelchatdesktop' aria-controls='offcanvasRightLabelchatdesktop'><i className='bi-list-nested'></i></a>
             </>
         );
 
