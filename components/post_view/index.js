@@ -39,6 +39,9 @@ function makeMapStateToProps() {
     return function mapStateToProps(state, ownProps) {
         ownProps.match.params.team = 'crypter';
         ownProps.match.params.path = 'messages';
+        ownProps.match.params.identifier = 'town-square';
+        ownProps.match.params.channel = 'town-square';
+        console.log(ownProps);
         const team = getTeamByName(state, ownProps.match.params.team);
         let teammate;
         const channel = getChannel(state, ownProps.channelId);
@@ -46,6 +49,7 @@ function makeMapStateToProps() {
         if (channel) {
             if (channel.type === Constants.DM_CHANNEL && channel.teammate_id) {
                 teammate = getUser(state, channel.teammate_id);
+                console.log('Teammate: ', teammate);
             }
             lastViewedAt = channel.last_post_at ? lastViewedAt : channel.last_post_at;
         }
