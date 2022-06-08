@@ -49,13 +49,9 @@ export default class MessagesSidebarGroup extends React.PureComponent<Props, Sta
         }
     }
 
-    handleOnMobileView = (id: string, value: string) => {
-        this.props.onChangeSelected(id);
-        this.props.onMobileView(value);
-    }
-
     handleChangeSelected = (id: string) => {
         this.props.onChangeSelected(id);
+        this.props.onMobileView('messages');
     }
 
     getIcon = () => {
@@ -124,7 +120,7 @@ export default class MessagesSidebarGroup extends React.PureComponent<Props, Sta
             );
 
             GroupMessageMobile = (
-                <div className='row' onClick={() => this.handleOnMobileView(channel.id,'messages') }>
+                <div className='row' onClick={() => this.handleChangeSelected(channel.id)}>
                     <div className='col-2 text-center p-1 mt-1'>
                         {this.getIcon()}
                     </div>
