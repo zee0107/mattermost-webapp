@@ -13,6 +13,7 @@ import {Constants} from 'utils/constants';
 import PostView from './post_view.jsx';
 
 export const isChannelLoading = (params, channel, team, teammate, teamMemberships) => {
+    console.log(params);
     if (params.postid) {
         return false;
     }
@@ -47,7 +48,7 @@ function makeMapStateToProps() {
         if (channel) {
             if (channel.type === Constants.DM_CHANNEL && channel.teammate_id) {
                 teammate = getUser(state, channel.teammate_id);
-                console.log('Teammate: ', teammate);
+                console.log(true);
             }
             ownProps.match.params.identifier = channel.name;
             lastViewedAt = channel.last_post_at ? lastViewedAt : channel.last_post_at;
