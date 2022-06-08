@@ -9,7 +9,7 @@ import CenterControls from './center_controls/center_controls_style';
 import LeftControls from './left_controls/left_controls_Style';
 import RightControls from './right_controls/right_controls_style';
 
-import {useCurrentProductId, useIsLoggedIn, useProducts,currentUser,currentChannel} from './hooks';
+import {useCurrentProductId, useIsLoggedIn, useProducts,currentUser,defaultChannel, defaultTeam} from './hooks';
 
 const GlobalHeaderContainer = styled.header`
     position: fixed;
@@ -37,7 +37,8 @@ const GlobalHeaderStyle = (): JSX.Element | null => {
     const products = useProducts();
     const currentProductID = useCurrentProductId(products);
     const user = currentUser();
-    const channel = currentChannel();
+    const teamId = defaultTeam();
+    const channel = defaultChannel(teamId);
 
     if (!isLoggedIn) {
         return null;
@@ -49,7 +50,7 @@ const GlobalHeaderStyle = (): JSX.Element | null => {
             <RightControls 
                 productId={currentProductID} 
                 currentUser={user}
-                //channelId={channel.id}
+                channelId={channel.id}
             />
         </GlobalHeaderContainer>
     );

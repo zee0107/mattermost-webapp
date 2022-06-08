@@ -15,8 +15,11 @@ import {getInt} from 'mattermost-redux/selectors/entities/preferences';
 
 import {isModalOpen} from 'selectors/views/modals';
 import {getCurrentProductId} from '../../utils/products';
-import { Channel } from 'mattermost-redux/types/channels';
+import { Channel, ServerChannel } from 'mattermost-redux/types/channels';
 import { getChannelByName } from 'mattermost-redux/selectors/entities/channels';
+import { Client4 } from 'mattermost-redux/client';
+import { Team } from 'mattermost-redux/types/teams';
+import async from 'react-select/async';
 const selectProducts = (state: GlobalState) => state.plugins.components.Product;
 
 export const useProducts = (): ProductComponent[] | undefined => {
@@ -60,6 +63,15 @@ export const useCurrentProductId = (products?: ProductComponent[]): string | nul
 
     return getCurrentProductId(products, useLocation().pathname);
 };
+
+export const defaultTeam = async (): string => {
+    const data = await Client4.getTeamByName('crypter');
+    return data.id;
+}
+export const defaultChannel = async (teamId: string): ServerChannel => {
+    const data = await Client4.getChannelByName(teamId, 'town-square');
+    return data;
+}
 
 export const useShowTutorialStep = (stepToShow: number): boolean => {
     const currentUserId = useSelector<GlobalState, string>(getCurrentUserId);
