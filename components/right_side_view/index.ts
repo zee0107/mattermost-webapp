@@ -8,9 +8,9 @@ import {Client4} from 'mattermost-redux/client';
 import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
 
 import {GlobalState} from 'types/store';
+import { getTeamByName } from 'mattermost-redux/selectors/entities/teams';
 
 import RightSideView from './right_side_view'
-import { getChannelByName } from 'mattermost-redux/utils/channel_utils';
 
 function makeMapStateToProps() {
     return function mapStateToProps(state: GlobalState) {
