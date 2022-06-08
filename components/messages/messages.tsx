@@ -15,7 +15,6 @@ export type Props = {
     userId: string;
     profilePicture: string;
     currentUser: UserProfile;
-    channelId: string;
     categories: Promise<OrderedChannelCategories>;
     focusedPostId: string;
 }
