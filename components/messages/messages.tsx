@@ -10,6 +10,7 @@ import PostView from 'components/post_view';
 import { ChannelCategory, OrderedChannelCategories } from 'mattermost-redux/types/channel_categories';
 import MessageSidebar from 'components/messages_sidebar';
 import MessageSidebarGroup from 'components/messages_sidebar_group';
+import MessageHeader from 'components/messages_header';
 
 export type Props = {
     userId: string;
@@ -134,25 +135,7 @@ export default class Messages extends React.PureComponent<Props, State> {
         }
         else{
             messageHeaderDesktop = (
-                <div className='right-chat-panel'>
-                    <div className='row'>
-                        <div className='col-4'>
-                            <a className='position-relative float-start mt-3'>
-                                {this.renderProfilePicture('xl')}
-                                <span className='position-absolute bottom-0 end-0 p-1 bg-success border border-light rounded-circle'></span>
-                            </a>
-                            <p className='float-start text-wrap mt-3 name-of-user-position'>
-                                <strong><label className='float-start ms-2 text-chat-title'>Oscar Holloway</label></strong>
-                                <small className='ms-2'>UI/UX Designer</small>
-                            </p>
-                        </div>
-                        <div className='col-8'>
-                            <a className='float-end mt-3 ms-1 onVerticaldropdownmenu'><i className='bi-three-dots-vertical'></i></a>
-                            <a className='float-end mt-3 ms-1 onVerticaldropdownmenu'><i className='bi-pin'></i></a>
-                            <a className='float-end mt-3 ms-1 onSearchchatmessages'><i className='bi-search text-dark'></i></a>
-                        </div>
-                    </div>
-                </div>
+                <MessageHeader channelId={selectedMessage} view='desktop' />
             );
 
             messageBodyDesktop = (
@@ -170,35 +153,7 @@ export default class Messages extends React.PureComponent<Props, State> {
             );
 
             messageHeaderMobile = (
-                <div className='row'>
-                    <div className='col-8'>
-                        <form>
-                            <div className='input-group'>
-                                <span className='input-group-text bg-transparent border-1'><a className='onClosesearchchatconversation'></a></span>
-                                    <input type='text' className='form-control search-show-style' aria-label='Search' placeholder='Search...' />
-                                    <span className='input-group-text bg-transparent'>
-                                    <a><i className='bi-chat-square-text text-dark'></i></a>
-                                </span>
-                            </div>
-                        </form>
-                    </div>
-                    <div className='col-2 text-center mt-1'>
-                        <a className='onVerticaldropdownmenu'><i className='bi-pin'></i></a>
-                    </div>
-                    <div className='col-2 text-center'>
-                        <div className='dropdown bg-transparent mt-1'>
-                            <a id='dropdownMenuChatAction' data-bs-toggle='dropdown' aria-expanded='true'><i className='bi-three-dots-vertical'></i></a>
-                            <ul className='dropdown-menu' aria-labelledby='dropdownMenuChatAction'>
-                                <li>
-                                    <a className='dropdown-item onDeleteconversations'>Delete conversation</a>
-                                </li>
-                                <li>
-                                    <a className='dropdown-item onChatsettings' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelaccounts' aria-controls='offcanvasRightLabelaccounts'>Settings</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <MessageHeader channelId={selectedMessage} view='mobile' />
             );
 
             messageBodyMobile = (
