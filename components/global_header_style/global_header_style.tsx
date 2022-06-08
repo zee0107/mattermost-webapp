@@ -47,7 +47,7 @@ const GlobalHeaderStyle = (): JSX.Element | null => {
     const [teamId, setTeamId] = useState();
     const [channel, setChannel] = useState();
 
-    userEffect (
+    useEffect (
         () => {
             async function getTeamId(){
                 const data = await Client4.getTeamByName('crypter');
