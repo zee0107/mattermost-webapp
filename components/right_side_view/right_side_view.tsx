@@ -159,6 +159,77 @@ export default class RightSideView extends React.PureComponent<Props, State> {
             }
         }
 
+        let offCanvasView;
+        if(selectedMessage){
+            offCanvasView = (
+                <>
+                    <div className='offcanvas-header'>
+                        <MessageHeader channelId={selectedMessage} />
+                    </div>
+                    <div className='offcanvas-body offcanvas-body-bg'>
+                        <form className='mt-0'>
+                            <div className='mb-0'>
+                                <div className='chat-fields'>
+                                    <DeferredPostView
+                                        channelId={selectedMessage}
+                                        focusedPostId={this.props.focusedPostId}
+                                    />
+                                    {/*<div className='row'>
+                                        <div className='col-lg-12'>
+                                            <a>
+                                            <p className='float-start receiver-msg shadow-sm'><img width='25' className='img-fluid user-photo' src={profPic1} alt='Username' title='Username'/>Hello how are you, message. I know your brain is well and cute.</p>
+                                            </a>
+                                        </div>
+                                        <div className='col-lg-12'>
+                                            <a>
+                                            <p className='float-end receiver-msg-user shadow-sm'><i className='bi-hand-thumbs-up-fill'></i> I'm fine<img width='25' className='img-fluid user-photo ms-1' src={profPic2} alt='Username' title='Username'/></p>
+                                            </a>
+                                        </div>
+                                        <div className='col-lg-12'>
+                                            <a>
+                                            <p className='float-start receiver-msg shadow-sm'><img width='25' className='img-fluid user-photo' src={profPic1} alt='Username' title='Username'/>Well done... <i className='bi-hand-thumbs-up-fill'></i></p>
+                                            </a>
+                                        </div>
+                                        <div className='col-lg-12'>
+                                            <a>
+                                            <p className='float-end receiver-msg-user shadow-sm'><i className='bi-hand-thumbs-up-fill'></i> Do not mess up my updates everytime.<img width='25' className='img-fluid user-photo ms-1' src={profPic2} alt='Username' title='Username'/></p>
+                                            </a>
+                                        </div>
+                                        <div className='col-lg-12'>
+                                            <div className='action-icons float-end mt-0 mb-0'>
+                                                <div className='row'>
+                                                    <div className='btn-group gap-2' role='group' aria-label='Reactions icon'>
+                                                    <a className='onClickthumbsup'><i className='bi-hand-thumbs-up text-white'></i></a>
+                                                    <a className='onClickthumbsdown'><i className='bi-heart text-white'></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='col-lg-12'>
+                                            <div className='row float-end'>
+                                                <a className='hidden-hide text-white'>Reactions</a>
+                                            </div>
+                                        </div>
+                                        <div className='col-lg-12'>
+                                            <a>
+                                            <p className='float-end receiver-msg-user shadow-sm'>Well done.<img width='25' className='img-fluid user-photo ms-1' src={profPic2} alt='Username' title='Username'/>
+                                            <label className='reactions-show float-start'><i className='bi-hand-thumbs-up text-white'></i></label>
+                                            <label className='reactions-show-down float-start'><i className='bi-heart text-white'></i></label>
+                                            </p>
+                                            </a>
+                                        </div>
+                                    </div>*/}
+                                </div>
+                            </div>
+                            <div className='input-group mb-3 mt-2'>
+                                <CreatePostMessage channelId={selectedMessage} />
+                            </div>
+                        </form>
+                    </div>
+                </>
+            );
+        }
+
         let followerView;
         let followingView;
         let postCount = 0 as number;
@@ -294,69 +365,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                 </div>
 
                 <div style={{zIndex: 999}} className='offcanvas offcanvas-end shadow-lg' data-bs-scroll='true' data-bs-backdrop='false' tabIndex='-1' id='ChatDesktop' aria-labelledby='ChatDesktop'>
-                    <div className='offcanvas-header'>
-                        <MessageHeader channelId={selectedMessage} />
-                    </div>
-                    <div className='offcanvas-body offcanvas-body-bg'>
-                        <form className='mt-0'>
-                            <div className='mb-0'>
-                                <div className='chat-fields'>
-                                    <DeferredPostView
-                                        channelId={selectedMessage}
-                                        focusedPostId={this.props.focusedPostId}
-                                    />
-                                    {/*<div className='row'>
-                                        <div className='col-lg-12'>
-                                            <a>
-                                            <p className='float-start receiver-msg shadow-sm'><img width='25' className='img-fluid user-photo' src={profPic1} alt='Username' title='Username'/>Hello how are you, message. I know your brain is well and cute.</p>
-                                            </a>
-                                        </div>
-                                        <div className='col-lg-12'>
-                                            <a>
-                                            <p className='float-end receiver-msg-user shadow-sm'><i className='bi-hand-thumbs-up-fill'></i> I'm fine<img width='25' className='img-fluid user-photo ms-1' src={profPic2} alt='Username' title='Username'/></p>
-                                            </a>
-                                        </div>
-                                        <div className='col-lg-12'>
-                                            <a>
-                                            <p className='float-start receiver-msg shadow-sm'><img width='25' className='img-fluid user-photo' src={profPic1} alt='Username' title='Username'/>Well done... <i className='bi-hand-thumbs-up-fill'></i></p>
-                                            </a>
-                                        </div>
-                                        <div className='col-lg-12'>
-                                            <a>
-                                            <p className='float-end receiver-msg-user shadow-sm'><i className='bi-hand-thumbs-up-fill'></i> Do not mess up my updates everytime.<img width='25' className='img-fluid user-photo ms-1' src={profPic2} alt='Username' title='Username'/></p>
-                                            </a>
-                                        </div>
-                                        <div className='col-lg-12'>
-                                            <div className='action-icons float-end mt-0 mb-0'>
-                                                <div className='row'>
-                                                    <div className='btn-group gap-2' role='group' aria-label='Reactions icon'>
-                                                    <a className='onClickthumbsup'><i className='bi-hand-thumbs-up text-white'></i></a>
-                                                    <a className='onClickthumbsdown'><i className='bi-heart text-white'></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className='col-lg-12'>
-                                            <div className='row float-end'>
-                                                <a className='hidden-hide text-white'>Reactions</a>
-                                            </div>
-                                        </div>
-                                        <div className='col-lg-12'>
-                                            <a>
-                                            <p className='float-end receiver-msg-user shadow-sm'>Well done.<img width='25' className='img-fluid user-photo ms-1' src={profPic2} alt='Username' title='Username'/>
-                                            <label className='reactions-show float-start'><i className='bi-hand-thumbs-up text-white'></i></label>
-                                            <label className='reactions-show-down float-start'><i className='bi-heart text-white'></i></label>
-                                            </p>
-                                            </a>
-                                        </div>
-                                    </div>*/}
-                                </div>
-                            </div>
-                            <div className='input-group mb-3 mt-2'>
-                                <CreatePostMessage channelId={selectedMessage} />
-                            </div>
-                        </form>
-                    </div>
+                    {offCanvasView}
                 </div>
             </>
         );
