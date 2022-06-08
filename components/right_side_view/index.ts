@@ -35,6 +35,7 @@ function makeMapStateToProps() {
         const categories = Client4.getChannelCategories('me',team?.id);
         return {
             categories,
+            focusedPostId: state.views.channel.focusedPostId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             socialCount,
             getPostList,
