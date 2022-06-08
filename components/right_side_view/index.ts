@@ -25,6 +25,7 @@ function makeMapStateToProps() {
         
         const team = getTeamByName(state,'crypter');
         const categories = Client4.getChannelCategories('me',team?.id);
+        console.log(categories);
         return {
             categories,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
