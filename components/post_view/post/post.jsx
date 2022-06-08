@@ -231,12 +231,12 @@ export default class Post extends React.PureComponent {
         if (props.isFirstReply) {
             return false;
         } else if (!post.root_id && !props.previousPostIsComment && props.consecutivePostByUser) {
-            return false;
+            return true;
         } else if (post.root_id) {
-            return false;
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     getClassName = (post, isSystemMessage, isMeMessage, fromWebhook, fromAutoResponder, fromBot) => {
