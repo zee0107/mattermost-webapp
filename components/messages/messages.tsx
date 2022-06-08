@@ -199,7 +199,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                 <>
                     {messagesList.map((item,index) => {
                         return (
-                            <MessageSidebar channelId={item} view='desktop' onChangeSelected={this.onChangeSelected} key={`${item}-${index}`} />
+                            <MessageSidebar channelId={item} view='desktop' onChangeSelected={this.onChangeSelected} onMobileView={this.onMobileView} key={`${item}-${index}`} />
                         );
                     })}
                 </>
@@ -209,7 +209,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                 <>
                     {messagesList.map((item,index) => {
                         return (
-                            <MessageSidebar channelId={item} view='mobile' onChangeSelected={this.onChangeSelected} key={`${item}--${index}`} />
+                            <MessageSidebar channelId={item} view='mobile' onChangeSelected={this.onChangeSelected} onMobileView={this.onMobileView} key={`${item}--${index}`} />
                         );
                     })}
                 </>
@@ -223,7 +223,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                 <>
                     {messagesList.map((item,index) => {
                         return (
-                            <MessageSidebarGroup channelId={item} view='desktop' onChangeSelected={this.onChangeSelected} key={`${item}---${index}`} />
+                            <MessageSidebarGroup channelId={item} view='desktop' onChangeSelected={this.onChangeSelected} onMobileView={this.onMobileView} key={`${item}---${index}`} />
                         );
                     })}
                 </>
@@ -233,7 +233,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                 <>
                     {messagesList.map((item,index) => {
                         return (
-                            <MessageSidebarGroup channelId={item} view='mobile' onChangeSelected={this.onChangeSelected} key={`${item}---${index}`} />
+                            <MessageSidebarGroup channelId={item} view='mobile' onChangeSelected={this.onChangeSelected} onMobileView={this.onMobileView} key={`${item}---${index}`} />
                         );
                     })}
                 </>
