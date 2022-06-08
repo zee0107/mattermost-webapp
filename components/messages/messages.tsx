@@ -160,7 +160,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                         />
                     </div>
                     <div className='col-md-12 mt-3 mb-3 removePadding'>
-                            <CreatePost getChannelView={this.getMessageView} channelId={selectedMessage}/>
+                            <CreatePost channelId={selectedMessage}/>
                     </div>
                 </>
             );
@@ -178,7 +178,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                         />
                     </div>
                     <div className='col-md-12 mt-3 mb-3 removePadding'>
-                        <CreatePost getChannelView={this.getMessageViewMobile} channelId={selectedMessage}/>
+                        <CreatePost channelId={selectedMessage}/>
                         {/*<input type='text' className='form-control write-message-inputs-mobile' aria-label='Type your message here' placeholder='Type your message here...' />
                         <span className='input-group-text group-text-actions bg-transparent'>
                             <img width='20' src='assets/images/icon-browse.png' alt=''/>
