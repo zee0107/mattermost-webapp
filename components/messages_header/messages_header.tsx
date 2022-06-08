@@ -113,10 +113,10 @@ export default class MessagesHeader extends React.PureComponent<Props, State> {
                         <div className='col-8'>
                             <a className='position-relative float-start mt-3'>
                                 {profilePic}
-                                <span className='position-absolute bottom-0 end-0 p-1 bg-success border border-light rounded-circle'></span>
                             </a>
                             <p className='float-start text-wrap mt-3 name-of-user-position'>
                                 <strong><label className='float-start ms-2 text-chat-title'>{displayName}</label></strong>
+                                <br />
                                 <small className='ms-2'>{location}</small>
                             </p>
                         </div>
