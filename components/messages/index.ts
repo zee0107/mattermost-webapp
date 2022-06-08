@@ -18,8 +18,7 @@ function makeMapStateToProps() {
         }
 
         const currentUser = getCurrentUser(state);
-        const userId = currentUser?.id;
-        const channelId = 'd1f12b6ac937b6a8fea4247aeeedfd6d85746c65';
+        const userId = currentUser?.id
         const team = getTeamByName(state,'crypter');
         const categories = Client4.getChannelCategories('me',team?.id);
         return {
@@ -27,7 +26,6 @@ function makeMapStateToProps() {
             userId,
             focusedPostId: state.views.channel.focusedPostId,
             currentUser,
-            channelId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
         };
     };
