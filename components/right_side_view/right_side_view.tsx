@@ -74,7 +74,6 @@ export default class RightSideView extends React.PureComponent<Props, State> {
         super(props);
         this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light',img_path: homeImage,logo_url: [], data: [],messagesList: [], view: 'direct',deferredPostView: RightSideView.createDeferredPostView()};
 
-        this.handleChangeSelected = this.handleChangeSelected.bind(this);
         this.channelViewRef = React.createRef();
     }
     
