@@ -50,6 +50,9 @@ export default class Messages extends React.PureComponent<Props, State> {
         profilePicture: '',
     }
 
+    messageViewRef: React.RefObject<HTMLDivElement>;
+    messageViewMobileRef: React.RefObject<HTMLDivElement>;
+
     constructor(props: Props) {
         super(props);
 
@@ -57,6 +60,8 @@ export default class Messages extends React.PureComponent<Props, State> {
 
         this.onChangeSelected = this.onChangeSelected.bind(this);
         this.onMobileView = this.onMobileView.bind(this);
+        this.messageViewRef = React.createRef();
+        this.messageViewMobileRef = React.createRef();
     }
 
     componentDidMount(){
@@ -66,6 +71,14 @@ export default class Messages extends React.PureComponent<Props, State> {
         if(this.props.categories){
             Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
         }
+    }
+
+    getMessageView = () => {
+        return this.messageViewRef.current;
+    }
+
+    getMessageViewMobile = () => {
+        return this.messageViewMobileRef.current;
     }
 
     onMobileView = (value: string) =>{
@@ -140,14 +153,14 @@ export default class Messages extends React.PureComponent<Props, State> {
 
             messageBodyDesktop = (
                 <>
-                    <div className='right-chat-panel'>
+                    <div className='right-chat-panel' ref={this.messageViewRef}>
                         <DeferredPostView
                             channelId={selectedMessage}
                             focusedPostId={this.props.focusedPostId}
                         />
                     </div>
                     <div className='col-md-12 mt-3 mb-3 removePadding'>
-                            <CreatePost channelId={selectedMessage}/>
+                            <CreatePost getChannelView={this.getMessageView} channelId={selectedMessage}/>
                     </div>
                 </>
             );
@@ -158,14 +171,14 @@ export default class Messages extends React.PureComponent<Props, State> {
 
             messageBodyMobile = (
                 <div className='row'>
-                    <div className='right-chat-panel'>
+                    <div className='right-chat-panel' ref={this.messageViewMobileRef}>
                         <DeferredPostView
                             channelId={selectedMessage}
                             focusedPostId={this.props.focusedPostId}
                         />
                     </div>
                     <div className='col-md-12 mt-3 mb-3 removePadding'>
-                        <CreatePost channelId={selectedMessage}/>
+                        <CreatePost getChannelView={this.getMessageViewMobile} channelId={selectedMessage}/>
                         {/*<input type='text' className='form-control write-message-inputs-mobile' aria-label='Type your message here' placeholder='Type your message here...' />
                         <span className='input-group-text group-text-actions bg-transparent'>
                             <img width='20' src='assets/images/icon-browse.png' alt=''/>
