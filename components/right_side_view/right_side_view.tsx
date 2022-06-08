@@ -9,15 +9,6 @@ import CreatePost from 'components/create_post/create_post';
 
 import homeImage from 'images/homeFeed.png';
 import profPic from 'images/profiles/user-profile-1.png';
-import ImgIcon from 'images/profiles/image.svg';
-import LayoutIcon from 'images/profiles/columns-gap.svg';
-import MusicIcon from 'images/profiles/music-note-beamed.svg';
-import VideoIcon from 'images/profiles/camera-video.svg';
-import GeoIcon from 'images/profiles/geo-alt.svg';
-import AttachIcon from 'images/profiles/paperclip.svg';
-import SplitIcon from 'images/profiles/menu-icon.svg';
-import postImage from 'images/post-1.png';
-import postImage2 from 'images/post-image.png';
 import trendImage from 'images/trending-up.svg';
 import postPic from 'images/profiles/user-profile-2.png';
 import postPic2 from 'images/profiles/user-profile-3.png';
@@ -27,12 +18,16 @@ import {ModalData} from 'types/actions';
 import {ModalIdentifiers} from 'utils/constants';
 import { SocialCount } from 'mattermost-redux/types/crypto';
 import { PostList } from 'mattermost-redux/types/posts';
+import { ChannelCategory } from 'mattermost-redux/types/channel_categories';
+import MessageDirect from 'components/right_side_view/messages_direct';
+import MessageGroup from 'components/right_side_view/messages_group';
 
 type Props = {
     profilePicture: string;
     currentUser: UserProfile;
     socialCount: Promise<SocialCount>;
     getPostList: Promise<PostList>;
+    categories: Promise<ChannelCategory>;
  }
 
 
@@ -45,6 +40,10 @@ type State = {
     middleView: string;
     socialCount: SocialCount;
     postList: PostList;
+    categories: ChannelCategory;
+    messagesList: string[];
+    selectedMessage: string;
+    view: string;
 };
 
 export default class RightSideView extends React.PureComponent<Props, State> {
@@ -54,7 +53,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light',img_path: homeImage,logo_url: [], data: []};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light',img_path: homeImage,logo_url: [], data: [], view: 'direct'};
 
         this.channelViewRef = React.createRef();
     }
@@ -74,12 +73,24 @@ export default class RightSideView extends React.PureComponent<Props, State> {
         if(this.props.getPostList !== null){
             Promise.resolve(this.props.getPostList).then(value => {this.setState({postList: value});});
         }
+
+        if(this.props.categories){
+            Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
+        }
     }
 
     setDocumentTitle = (siteName: string) => {
         if (siteName) {
             document.title = 'Crypter';
         }
+    }
+
+    handleChangeView = (value: string) => { 
+        this.setState({view: value});
+    }
+
+    setMessageList = (list: string[]) => {
+        this.setState({messagesList: list});
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -89,7 +100,38 @@ export default class RightSideView extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
-        const {socialCount, postList} = this.state;
+        const {socialCount, postList, categories, messagesList, selectedMessage, view} = this.state;
+
+        if (categories) {
+            Object.keys(categories).map((item) => {
+                if(categories[item].type === 'direct_messages'){
+                    this.setMessageList(categories[item].channel_ids);
+                }
+            });
+        }
+
+        let chatList;
+        if(view === 'direct'){
+            chatList = (
+                <>
+                    {messagesList.map((item, index) => {
+                        return (
+                            <MessageDirect channelId={item} key={`${item}-${index}`} />
+                        );
+                    })}
+                </>
+            );
+        }else{
+            chatList = (
+                <>
+                    {messagesList.map((item, index) => {
+                        return (
+                            <MessageGroup channelId={item} key={`${item}-${index}`} />
+                        );
+                    })}
+                </>
+            );
+        }
 
         let followerView;
         let followingView;
@@ -197,14 +239,14 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                             <div className='d-flex'>
                                 <div className='col-sm-3'>
                                     <h4>
-                                        <a href='#' title='Personal Chat'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-person" viewBox="0 0 16 16">
+                                        <a onClick={() => this.handleChangeView('direct')} title='Personal Chat'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-person" viewBox="0 0 16 16">
                                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                                         </svg></a>
                                     </h4>
                                 </div>
                                 <div className='col-sm-3'>
                                     <h4>
-                                        <a href='#' title='Group Chat'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-people" viewBox="0 0 16 16">
+                                        <a onClick={() => this.handleChangeView('group')} title='Group Chat'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--text-primary)" className="bi bi-people" viewBox="0 0 16 16">
                                             <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
                                         </svg></a>
                                     </h4>
@@ -223,60 +265,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                     <br />
-                    <div className='col-lg-12 chat-hover removePadding'>
-                        <div className='d-flex'>
-                            <div className='col-lg-3'>
-                                <img src={profPic} className='chat-img'></img>
-                            </div>
-                            <div className='col-lg-9 removePaddingLeft'>
-                                <div className='d-flex'>
-                                    <div className='col-sm-6 removePaddingLeft'>
-                                        <h6 className='getStartPrimaryText'>Allysa Kate</h6>
-                                    </div>
-                                    <div className='col-sm-6 removePaddingLeft chat-text'>
-                                        <h6 className='getStartPrimaryText'>Today, 12:04</h6>
-                                    </div>
-                                </div>
-                                <h6 className='getSecondaryText'>A Facebook-like platform...</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-lg-12 chat-hover removePadding'>
-                        <div className='d-flex'>
-                            <div className='col-lg-3'>
-                                <img src={profPic} className='chat-img'></img>
-                            </div>
-                            <div className='col-lg-9 removePaddingLeft'>
-                                <div className='d-flex'>
-                                    <div className='col-sm-6 removePaddingLeft'>
-                                        <h6 className='getStartPrimaryText'>Mark Olympus</h6>
-                                    </div>
-                                    <div className='col-sm-6 removePaddingLeft chat-text'>
-                                        <h6 className='getStartPrimaryText'>Today, 12:04</h6>
-                                    </div>
-                                </div>
-                                <h6 className='getSecondaryText'>A Facebook-like platform...</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-lg-12 chat-hover removePadding'>
-                        <div className='d-flex'>
-                            <div className='col-lg-3'>
-                                <img src={profPic} className='chat-img'></img>
-                            </div>
-                            <div className='col-lg-9 removePaddingLeft'>
-                                <div className='d-flex'>
-                                    <div className='col-sm-6 removePaddingLeft'>
-                                        <h6 className='getStartPrimaryText'>Janine Tenoso</h6>
-                                    </div>
-                                    <div className='col-sm-6 removePaddingLeft chat-text'>
-                                        <h6 className='getStartPrimaryText'>Today, 12:04</h6>
-                                    </div>
-                                </div>
-                                <h6 className='getSecondaryText'>A Facebook-like platform...</h6>
-                            </div>
-                        </div>
-                    </div>
+                    {chatList}
                 </div>
             </>
         );
