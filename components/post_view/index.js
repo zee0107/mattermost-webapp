@@ -13,7 +13,6 @@ import {Constants} from 'utils/constants';
 import PostView from './post_view.jsx';
 
 export const isChannelLoading = (params, channel, team, teammate, teamMemberships) => {
-    console.log(params);
     if (params.postid) {
         return false;
     }
@@ -38,11 +37,6 @@ export const isChannelLoading = (params, channel, team, teammate, teamMembership
 
 function makeMapStateToProps() {
     return function mapStateToProps(state, ownProps) {
-        if(state.entities.teams.currentTeamId === "" || state.entities.teams.currentTeamId === null || state.entities.teams.currentTeamId === undefined){
-            const stateValue = window.localStorage.getItem('GlobalState');
-            state = JSON.parse(stateValue);
-        }
-        console.log(state);
         ownProps.match.params.team = 'crypter';
         ownProps.match.params.path = 'messages';
         
