@@ -124,7 +124,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
             lastMessage = (
                 <small className='text-muted'>Send a message.</small>
             );
-        }W
+        }
         let renderView;
         if(channel.type === Constants.DM_CHANNEL){
             renderView = (
