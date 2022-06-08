@@ -331,15 +331,12 @@ export default class PostBody extends React.PureComponent<Props,State> {
                 data-testid={`post-menu-${post.id}`}
                 className={'col-md-12 removePadding'}
             >
-                {/*!collapsedThreadsEnabled && !showRecentlyUsedReactions && dotMenu*/}
-                {/*{showRecentReacions}*/}
+                {!collapsedThreadsEnabled && !showRecentlyUsedReactions && dotMenu}
+                {showRecentReacions}
                 {postReaction}
                 {commentIcon}
-                <a href='#' className='post-menu__item'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" clipRule="evenodd" d="M14.3725 1.67834L7.73697 13.0138C7.52806 13.3707 6.99231 13.2986 6.88518 12.8992L5.1772 6.53044L5.16311 6.51054C5.15043 6.48856 5.13974 6.46599 5.13098 6.44301L0.461145 1.77238C0.167737 1.47898 0.37554 0.977295 0.790481 0.977295H13.9706C14.3303 0.977295 14.5543 1.36785 14.3725 1.67834ZM12.6955 2.69866L6.13054 6.48895L7.49599 11.5813L12.6955 2.69866ZM1.91545 1.90879L12.2025 1.90821L5.68053 5.67366L1.91545 1.90879Z" fill="#3e425080"/>
-                </svg></a>
                 {postFlagIcon}
-                {/*(collapsedThreadsEnabled || showRecentlyUsedReactions) && dotMenu*/}
+                {(collapsedThreadsEnabled || showRecentlyUsedReactions) && dotMenu}
             </div>
         );
     };
@@ -474,20 +471,14 @@ export default class PostBody extends React.PureComponent<Props,State> {
 
         return (
             <div>
-                {chevronMenu}
                 {comment}
                 <div
                     id={`${post.id}_message`}
                     className={`post__body ${mentionHighlightClass} ${ephemeralPostClass} ${postClass}`}
                 >
-                    {fileAttachmentHolder}
                     {messageWithAdditionalContent}
-                    <div className='col-lg-12 mtop-10 removePadding'>
-                        {options}
-                    </div>
-                    <div className='col-lg-12 mtop-10 removePadding'>
-                        <ReactionList post={post}/>
-                    </div>
+                    {fileAttachmentHolder}
+                    <ReactionList post={post}/>
                 </div>
             </div>
         );
