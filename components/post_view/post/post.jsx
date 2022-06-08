@@ -236,7 +236,7 @@ export default class Post extends React.PureComponent {
             return false;
         }
 
-        return false;
+        return true;
     }
 
     getClassName = (post, isSystemMessage, isMeMessage, fromWebhook, fromAutoResponder, fromBot) => {
