@@ -164,7 +164,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
             offCanvasView = (
                 <>
                     <div className='offcanvas-header'>
-                        <MessageHeader channelId={selectedMessage} />
+                        <MessageHeader channelId={selectedMessage} onChangeSelected={this.onChangeSelected} />
                     </div>
                     <div className='offcanvas-body offcanvas-body-bg'>
                         <form className='mt-0'>
