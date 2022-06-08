@@ -39,6 +39,7 @@ const GlobalHeaderStyle = (): JSX.Element | null => {
     const user = currentUser();
     const teamId = defaultTeam();
     const channel = defaultChannel(teamId);
+    console.log(channel);
 
     if (!isLoggedIn) {
         return null;
