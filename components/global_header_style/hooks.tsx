@@ -16,8 +16,7 @@ import {getInt} from 'mattermost-redux/selectors/entities/preferences';
 import {isModalOpen} from 'selectors/views/modals';
 import {getCurrentProductId} from '../../utils/products';
 import { Channel } from 'mattermost-redux/types/channels';
-import { getChannelByName } from 'mattermost-redux/utils/channel_utils';
-
+import { getChannelByName } from 'mattermost-redux/selectors/entities/channels';
 const selectProducts = (state: GlobalState) => state.plugins.components.Product;
 
 export const useProducts = (): ProductComponent[] | undefined => {
@@ -26,6 +25,11 @@ export const useProducts = (): ProductComponent[] | undefined => {
 
 export const currentUser = (): UserProfile => {
     return useSelector<GlobalState, UserProfile>(getCurrentUser)
+}
+
+export const currentChannel = (): Channel => {
+    const currentChannel = (state: GlobalState) => getChannelByName(state, 'town-square');
+    return useSelector<GlobalState, Channel>(currentChannel);
 }
 
 /**
