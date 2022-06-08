@@ -70,6 +70,7 @@ export default class PostView extends React.PureComponent {
             <div
                 id='post-list'
                 role='main'
+                style={{height: '60vh'}}
             >
                 <PostList
                     unreadChunkTimeStamp={this.state.unreadChunkTimeStamp}
