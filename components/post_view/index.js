@@ -46,8 +46,6 @@ function makeMapStateToProps() {
         if (channel) {
             if (channel.type === Constants.DM_CHANNEL && channel.teammate_id) {
                 teammate = getUser(state, channel.teammate_id);
-                ownProps.match.params.identifier = `@${teammate.username}`;
-                ownProps.match.params.channel = `@${teammate.username}`;
                 console.log('Teammate: ', teammate);
             }
             lastViewedAt = channel.last_post_at ? lastViewedAt : channel.last_post_at;
