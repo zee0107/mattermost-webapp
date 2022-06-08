@@ -21,7 +21,7 @@ import {ModalData} from 'types/actions.js';
 import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
 import {getCurrentTeamId, getTeamByName} from 'mattermost-redux/selectors/entities/teams';
 
-import {getCurrentChannel, getCurrentChannelStats, getChannelMemberCountsByGroup as selectChannelMemberCountsByGroup, getChannelByName} from 'mattermost-redux/selectors/entities/channels';
+import {getCurrentChannel, getCurrentChannelStats, getChannelMemberCountsByGroup as selectChannelMemberCountsByGroup, getChannelByName, makeGetChannel} from 'mattermost-redux/selectors/entities/channels';
 import {getCurrentUserId, getStatusForUserId, getUser} from 'mattermost-redux/selectors/entities/users';
 import {haveICurrentChannelPermission} from 'mattermost-redux/selectors/entities/roles';
 import {getChannelTimezones, getChannelMemberCountsByGroup} from 'mattermost-redux/actions/channels';
@@ -67,21 +67,13 @@ type ownProps = {
     channelId: string; 
 }
 
-function getChannelById (){
-    return ( async (ownProps: ownProps) => {
-        const channelData = await Client4.getChannel(ownProps.channelId);
-        return channelData;
-    });
-}
 function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
-
+    const getChannel = makeGetChannel();
     return (state: GlobalState,ownProps: ownProps) => {
-        const data = getChannelById();
-        console.log(data);
         const config = getConfig(state);
         const license = getLicense(state);
-        const currentChannel = getCurrentChannel(state) || {};
+        const currentChannel = getChannel(state, {id: ownProps.channelId}) || {};
         const currentChannelTeammateUsername = getUser(state, currentChannel.teammate_id || '')?.username;
         const draft = getPostDraft(state, StoragePrefixes.DRAFT, currentChannel.id);
         const latestReplyablePostId = getLatestReplyablePostId(state);
