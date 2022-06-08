@@ -49,7 +49,7 @@ const GlobalHeaderStyle = (): JSX.Element | null => {
             <RightControls 
                 productId={currentProductID} 
                 currentUser={user}
-                channelId={channel.id}
+                //channelId={channel.id}
             />
         </GlobalHeaderContainer>
     );

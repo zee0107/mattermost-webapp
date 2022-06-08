@@ -27,9 +27,9 @@ export const currentUser = (): UserProfile => {
     return useSelector<GlobalState, UserProfile>(getCurrentUser)
 }
 
-export const currentChannel = (): Channel => {
-    const currentChannel = (state: GlobalState) => getChannelByName(state, 'town-square');
-    return useSelector<GlobalState, Channel>(currentChannel);
+export const currentChannel = (): Channel | null | undefined => {
+    const channelValue = (state: GlobalState) => getChannelByName(state, 'town-square');
+    return useSelector<GlobalState, Channel>(channelValue);
 }
 
 /**
