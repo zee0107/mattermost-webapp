@@ -25,6 +25,7 @@ import ProfilPage from './profile_page'
 import { ModalData } from 'types/actions';
 import { UserStatus } from 'mattermost-redux/types/users';
 import { getChannelByName } from '../../packages/mattermost-redux/src/selectors/entities/channels';
+import { getTeamByName } from 'mattermost-redux/selectors/entities/teams';
 
 
 type OwnProps = {
