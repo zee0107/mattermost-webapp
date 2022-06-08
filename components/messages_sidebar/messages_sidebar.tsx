@@ -24,6 +24,7 @@ export type Props = {
     teammateUsername?: string;
     view: string;
     onChangeSelected: any;
+    onMobileView: any;
 }
 
 type State = {
@@ -49,8 +50,9 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
 
     handleChangeSelected = (id: string) => {
         this.props.onChangeSelected(id);
+        this.props.onMobileView('messages');
     }
-
+    
     getIcon = () => {
         const {channel, teammate} = this.props;
 

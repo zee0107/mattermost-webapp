@@ -25,6 +25,7 @@ export type Props = {
     membersCount: number;
     view: string;
     onChangeSelected: any;
+    onMobileView: any;
 }
 
 type State = {
@@ -50,6 +51,7 @@ export default class MessagesSidebarGroup extends React.PureComponent<Props, Sta
 
     handleChangeSelected = (id: string) => {
         this.props.onChangeSelected(id);
+        this.props.onMobileView('messages');
     }
 
     getIcon = () => {

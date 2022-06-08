@@ -160,7 +160,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                         />
                     </div>
                     <div className='col-md-12 mt-3 mb-3 removePadding'>
-                            <CreatePost channelId={selectedMessage}/>
+                            <CreatePost getChannelView={this.getMessageView} channelId={selectedMessage}/>
                     </div>
                 </>
             );
@@ -178,7 +178,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                         />
                     </div>
                     <div className='col-md-12 mt-3 mb-3 removePadding'>
-                        <CreatePost channelId={selectedMessage}/>
+                        <CreatePost getChannelView={this.getMessageViewMobile} channelId={selectedMessage}/>
                         {/*<input type='text' className='form-control write-message-inputs-mobile' aria-label='Type your message here' placeholder='Type your message here...' />
                         <span className='input-group-text group-text-actions bg-transparent'>
                             <img width='20' src='assets/images/icon-browse.png' alt=''/>
@@ -247,7 +247,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                         <div className='position-sticky float-right-panel'>
                             <div className='row'>
                                 <div className='col-3 pt-2'><a className='onChatmessages p-4'><i className='bi-chat-left'></i> <small>Messages</small></a></div>
-                                <div className='col-9'><a className='float-end onGobacklinks' onClick={this.onChangeSelected('')}><i className='bi-arrow-left'></i> <small>Go Back</small></a></div>
+                                <div className='col-9'><a className='float-end onGobacklinks' onClick={() => this.onChangeSelected('')}><i className='bi-arrow-left'></i> <small>Go Back</small></a></div>
                             </div>
                             <div className='col-12 text-center reload-loading'>
                                 <div className='spinner-border' role='status'>
