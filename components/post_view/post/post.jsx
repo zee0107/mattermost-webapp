@@ -387,66 +387,63 @@ export default class Post extends React.PureComponent {
         }
 
         return (
-            <div className='mbot-20 chat-box'>
-                <PostContext.Provider value={{handlePopupOpened: this.handleDropdownOpened}}>
-                    <PostAriaLabelDiv
-                        ref={this.postRef}
-                        id={'post_' + post.id}
-                        data-testid='postView'
-                        role='listitem'
-                        className={`a11y__section ${this.getClassName(post, isSystemMessage, isMeMessage, fromWebhook, fromAutoResponder, fromBot)}`}
-                        tabIndex='0'
-                        onMouseOver={this.setHover}
-                        onMouseLeave={this.unsetHover}
-                        onTouchStart={this.setHover}
-                        onClick={this.handlePostClick}
-                        aria-atomic={true}
-                        post={post}
+            <PostContext.Provider value={{handlePopupOpened: this.handleDropdownOpened}}>
+                <PostAriaLabelDiv
+                    ref={this.postRef}
+                    id={'post_' + post.id}
+                    data-testid='postView'
+                    role='listitem'
+                    className={`a11y__section ${this.getClassName(post, isSystemMessage, isMeMessage, fromWebhook, fromAutoResponder, fromBot)}`}
+                    tabIndex='0'
+                    onMouseOver={this.setHover}
+                    onMouseLeave={this.unsetHover}
+                    onTouchStart={this.setHover}
+                    onClick={this.handlePostClick}
+                    aria-atomic={true}
+                    post={post}
+                >
+                    <PostPreHeader
+                        isFlagged={this.props.isFlagged}
+                        isPinned={post.is_pinned}
+                        channelId={post.channel_id}
+                    />
+                    <div
+                        role='application'
+                        data-testid='postContent'
+                        className={'post__content ' + centerClass}
+                        aria-hidden={this.state.ariaHidden}
                     >
-                        <PostPreHeader
-                            isFlagged={this.props.isFlagged}
-                            isPinned={post.is_pinned}
-                            channelId={post.channel_id}
-                        />
-                        <div
-                            role='application'
-                            data-testid='postContent'
-                            className={'post__content ' + centerClass}
-                            aria-hidden={this.state.ariaHidden}
-                        >
-                            <div className='post__img'>
-                                {profilePic}
-                            </div>
-                            <div>
-                                <PostHeader
-                                    post={post}
-                                    handleCommentClick={this.handleCommentClick}
-                                    handleCardClick={this.handleCardClick}
-                                    handleDropdownOpened={this.handleDropdownOpened}
-                                    compactDisplay={this.props.compactDisplay}
-                                    isFirstReply={this.props.isFirstReply}
-                                    showTimeWithoutHover={!hideProfilePicture}
-                                    hover={this.state.hover || this.state.a11yActive || this.state.fileDropdownOpened}
-                                    isLastPost={this.props.isLastPost}
-                                />
-                                <PostBody
-                                    post={post}
-                                    handleCommentClick={this.handleCommentClick}
-                                    compactDisplay={this.props.compactDisplay}
-                                    isCommentMention={this.props.isCommentMention}
-                                    isFirstReply={this.props.isFirstReply}
-                                    handleFileDropdownOpened={this.handleFileDropdownOpened}
-                                />
-                                {isCollapsedThreadsEnabled && !post.root_id && (hasReplies || post.is_following) ? (
-                                    <ThreadFooter threadId={post.id}/>
-                                ) : null}
-
-                            </div>
+                        <div className='post__img'>
+                            {profilePic}
                         </div>
-                    </PostAriaLabelDiv>
-                </PostContext.Provider>
-            </div>
-            
+                        <div>
+                            <PostHeader
+                                post={post}
+                                handleCommentClick={this.handleCommentClick}
+                                handleCardClick={this.handleCardClick}
+                                handleDropdownOpened={this.handleDropdownOpened}
+                                compactDisplay={this.props.compactDisplay}
+                                isFirstReply={this.props.isFirstReply}
+                                showTimeWithoutHover={!hideProfilePicture}
+                                hover={this.state.hover || this.state.a11yActive || this.state.fileDropdownOpened}
+                                isLastPost={this.props.isLastPost}
+                            />
+                            <PostBody
+                                post={post}
+                                handleCommentClick={this.handleCommentClick}
+                                compactDisplay={this.props.compactDisplay}
+                                isCommentMention={this.props.isCommentMention}
+                                isFirstReply={this.props.isFirstReply}
+                                handleFileDropdownOpened={this.handleFileDropdownOpened}
+                            />
+                            {isCollapsedThreadsEnabled && !post.root_id && (hasReplies || post.is_following) ? (
+                                <ThreadFooter threadId={post.id}/>
+                            ) : null}
+
+                        </div>
+                    </div>
+                </PostAriaLabelDiv>
+            </PostContext.Provider>
         );
     }
 }
