@@ -38,6 +38,10 @@ export const isChannelLoading = (params, channel, team, teammate, teamMembership
 
 function makeMapStateToProps() {
     return function mapStateToProps(state, ownProps) {
+        if(state.entities.teams.currentTeamId === "" || state.entities.teams.currentTeamId === null || state.entities.teams.currentTeamId === undefined){
+            const stateValue = window.localStorage.getItem('GlobalState');
+            state = JSON.parse(stateValue);
+        }
         console.log(state);
         ownProps.match.params.team = 'crypter';
         ownProps.match.params.path = 'messages';
