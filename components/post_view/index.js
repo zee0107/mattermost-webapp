@@ -39,16 +39,17 @@ function makeMapStateToProps() {
     return function mapStateToProps(state, ownProps) {
         ownProps.match.params.team = 'crypter';
         ownProps.match.params.path = 'messages';
+        
         const team = getTeamByName(state, ownProps.match.params.team);
         let teammate;
         const channel = getChannel(state, ownProps.channelId);
-        console.log(channel);
         let lastViewedAt = state.views.channel.lastChannelViewTime[ownProps.channelId];
         if (channel) {
             if (channel.type === Constants.DM_CHANNEL && channel.teammate_id) {
                 teammate = getUser(state, channel.teammate_id);
                 console.log('Teammate: ', teammate);
             }
+            ownProps.match.params.identifier = channel.name;
             lastViewedAt = channel.last_post_at ? lastViewedAt : channel.last_post_at;
         }
 
