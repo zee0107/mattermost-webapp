@@ -121,7 +121,7 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
                             message = posts.posts[item].message.substring(0,30).toString();
                         }
                         return (
-                            <small className='text-muted'>{message}</small>
+                            <small className='text-muted' key={posts.posts[item].id}>{message}</small>
                         );
                     })}
                 </>

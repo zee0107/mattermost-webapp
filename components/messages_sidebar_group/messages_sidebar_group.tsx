@@ -87,7 +87,7 @@ export default class MessagesSidebarGroup extends React.PureComponent<Props, Sta
                             message = posts.posts[item].message.substring(0,30).toString();
                         }
                         return (
-                            <small className='text-muted'>{message}</small>
+                            <small className='text-muted' key={posts.posts[item].id}>{message}</small>
                         );
                     })}
                 </>
