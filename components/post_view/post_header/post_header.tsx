@@ -9,7 +9,7 @@ import {Post} from 'mattermost-redux/types/posts';
 import Constants from 'utils/constants';
 import * as PostUtils from 'utils/post_utils';
 import PostInfo from 'components/post_view/post_info';
-import UserProfile from 'components/user_profile_message';
+import UserProlfileMessage from 'components/user_profile_message';
 import BotBadge from 'components/widgets/badges/bot_badge';
 import Badge from 'components/widgets/badges/badge';
 
@@ -93,7 +93,7 @@ export default class PostHeader extends React.PureComponent<Props> {
         const fromWebhook = post?.props?.from_webhook === 'true';
 
         let userProfile = (
-            <UserProfile
+            <UserProlfileMessage
                 userId={post.user_id}
                 hasMention={true}
             />
@@ -104,7 +104,7 @@ export default class PostHeader extends React.PureComponent<Props> {
         if (fromWebhook) {
             if (post.props.override_username && this.props.enablePostUsernameOverride) {
                 userProfile = (
-                    <UserProfile
+                    <UserProlfileMessage
                         userId={post.user_id}
                         hideStatus={true}
                         overwriteName={post.props.override_username}
@@ -113,7 +113,7 @@ export default class PostHeader extends React.PureComponent<Props> {
                 );
             } else {
                 userProfile = (
-                    <UserProfile
+                    <UserProlfileMessage
                         userId={post.user_id}
                         hideStatus={true}
                     />
@@ -125,7 +125,7 @@ export default class PostHeader extends React.PureComponent<Props> {
             }
         } else if (fromAutoResponder) {
             userProfile = (
-                <UserProfile
+                <UserProlfileMessage
                     userId={post.user_id}
                     hideStatus={true}
                     hasMention={true}
@@ -142,14 +142,14 @@ export default class PostHeader extends React.PureComponent<Props> {
             );
         } else if (isSystemMessage && this.props.isBot) {
             userProfile = (
-                <UserProfile
+                <UserProlfileMessage
                     userId={post.user_id}
                     hideStatus={true}
                 />
             );
         } else if (isSystemMessage) {
             userProfile = (
-                <UserProfile
+                <UserProlfileMessage
                     userId=''
                     overwriteName={
                         <FormattedMessage

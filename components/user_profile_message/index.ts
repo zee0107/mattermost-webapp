@@ -7,7 +7,7 @@ import {getUser, makeGetDisplayName} from 'mattermost-redux/selectors/entities/u
 
 import {GlobalState} from 'mattermost-redux/types/store';
 
-import UserProfileMessage from './user_profile';
+import UserProfileMessage from './user_profile_message';
 
 type OwnProps = {
     userId: string;
