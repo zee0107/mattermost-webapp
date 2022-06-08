@@ -112,7 +112,7 @@ export default class MessagesHeader extends React.PureComponent<Props, State> {
         renderView = (
             <>
                 <h6 className='offcanvas-title' id='offcanvasBottomreadychatdesktop'>{profilePic} {displayName}</h6>
-                <a onClick={() => this.handleChangeSelected('')} className='text-reset' aria-label='Close' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelchatdesktop' aria-controls='offcanvasRightLabelchatdesktop'><i className='bi-list-nested'></i></a>
+                <a onClick={() => this.handleChangeSelected('')} className='text-reset' aria-label='Close' data-bs-dismiss='offcanvas'><i className='bi-list-nested'></i></a>
             </>
         );
 
