@@ -160,7 +160,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
         }
 
         let offCanvasView;
-        if(selectedMessage){
+        if(selectedMessage && selectedMessage.length){
             offCanvasView = (
                 <>
                     <div className='offcanvas-header'>
