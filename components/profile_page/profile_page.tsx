@@ -41,6 +41,8 @@ import {ModalData} from 'types/actions';
 import {ModalIdentifiers} from 'utils/constants';
 import ChannelHeaderMobile from 'components/channel_header_mobile';
 
+import MessageDirect from 'components/right_side_view/messages_direct';
+import MessageGroup from 'components/right_side_view/messages_group';
 import Sidebar from 'components/sidebar';
 import SidebarRight from 'components/sidebar_right';
 import SidebarRightMenu from 'components/sidebar_right_menu';
@@ -51,6 +53,7 @@ import { PostList } from 'mattermost-redux/types/posts';
 import { post } from 'jquery';
 import { profile } from 'console';
 import { unreadFilterEnabled } from 'reducers/views/channel_sidebar';
+import { ChannelCategory } from 'mattermost-redux/types/channel_categories';
 
 type Props = {
     status?: string;
@@ -85,6 +88,7 @@ type Props = {
     rhsMenuOpen: boolean;
     getPostList: Promise<PostList>;
     followData?: Promise<RequestList>;
+    categories: Promise<ChannelCategory>;
 }
 
 type State = {
@@ -106,6 +110,11 @@ type State = {
     postList: PostList;
     followData: RequestList;
     followStatus: number;
+    categories: ChannelCategory;
+    messagesList: string[];
+    selectedMessage: string;
+    view: string;
+    deferredPostView: any;
 };
 
 export default class ProfilPage extends React.PureComponent<Props, State> {
@@ -126,7 +135,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {followStatus: 0,postValues:[],listId:[],feeling: true,userActivity: '',userLocation: '',shareInfo: 'everyone',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
+        this.state = {followStatus: 0,postValues:[],listId:[],feeling: true,userActivity: '',userLocation: '',shareInfo: 'everyone', messagesList: [], view: 'direct',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
         
         this.onChangeShareInfo = this.onChangeShareInfo.bind(this);
         this.onChangeLocation = this.onChangeLocation.bind(this);
@@ -165,9 +174,21 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             });
         }
 
+        if(this.props.categories){
+            Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
+        }
+
         if(this.props.followData !== null && this.props.followData !== undefined){
             Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
         }
+    }
+
+    handleChangeView = (value: string) => { 
+        this.setState({view: value});
+    }
+
+    onChangeSelected = (id: string) => {
+        this.setState({selectedMessage: id});
     }
 
     componentDidUpdate(prevProps: Props,prevState: State){
@@ -310,7 +331,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser, profilePicture, userData} = this.props;
-        const { coverUrl,completionResult, uploading, shareInfo, userLocation, feeling, socialCount, postList, postValues, listId, followData,followStatus} = this.state;
+        const { coverUrl,completionResult, uploading, shareInfo, userLocation, feeling, socialCount, postList, postValues, listId, followData,followStatus, messagesList, selectedMessage, view} = this.state;
 
         let photoAvailable;
         let nameAvailable;
@@ -322,6 +343,31 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let feelactView;
         let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src={UndoneIcon} alt=''/>);
         
+        let chatList;
+        if (messagesList && messagesList.length){
+            if(view === 'direct'){
+                chatList = (
+                    <>
+                        {messagesList.map((item, index) => {
+                            return (
+                                <MessageDirect channelId={item} onChangeSelected={this.onChangeSelected} key={`${item}-${index}`} />
+                            );
+                        })}
+                    </>
+                );
+            }else{
+                chatList = (
+                    <>
+                        {messagesList.map((item, index) => {
+                            return (
+                                <MessageGroup channelId={item} onChangeSelected={this.onChangeSelected} key={`${item}-${index}`} />
+                            );
+                        })}
+                    </>
+                );
+            }
+        }
+
         let profileBtn;
         if(userData.id === currentUser.id){
             profileBtn = (<ToggleModalButtonRedux
@@ -784,14 +830,14 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             <div className='d-flex'>
                                                 <div className='col-sm-3'>
                                                     <h4>
-                                                        <a href='#' title='Personal Chat'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='var(--text-primary)' className='bi bi-person' viewBox='0 0 16 16'>
+                                                        <a onClick={() => this.handleChangeView('direct')} title='Personal Chat'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='var(--text-primary)' className='bi bi-person' viewBox='0 0 16 16'>
                                                             <path d='M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z'/>
                                                         </svg></a>
                                                     </h4>
                                                 </div>
                                                 <div className='col-sm-3'>
                                                     <h4>
-                                                        <a href='#' title='Group Chat'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='var(--text-primary)' className='bi bi-people' viewBox='0 0 16 16'>
+                                                        <a onClick={() => this.handleChangeView('group')} title='Group Chat'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='var(--text-primary)' className='bi bi-people' viewBox='0 0 16 16'>
                                                             <path d='M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z'/>
                                                         </svg></a>
                                                     </h4>
@@ -810,60 +856,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         </div>
                                     </div>
                                     <br />
-                                    <div className='col-lg-12 chat-hover removePadding'>
-                                        <div className='d-flex'>
-                                            <div className='col-lg-3 marginTopImg'>
-                                                <img src={profPic} className='chat-img'></img>
-                                            </div>
-                                            <div className='col-lg-9  removePaddingLeft'>
-                                                <div className='d-flex'>
-                                                    <div className='col-sm-6  removePaddingLeft'>
-                                                        <h6 className='getStartPrimaryText'>Allysa Kate</h6>
-                                                    </div>
-                                                    <div className='col-sm-6 removePaddingLeft chat-text'>
-                                                        <h6 className='getStartPrimaryText'>Today, 12:04</h6>
-                                                    </div>
-                                                </div>
-                                                <h6 className='getSecondaryText'>A Facebook-like platform...</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='col-lg-12 chat-hover removePadding'>
-                                        <div className='d-flex'>
-                                            <div className='col-lg-3 marginTopImg'>
-                                                <img src={profPic} className='chat-img'></img>
-                                            </div>
-                                            <div className='col-lg-9  removePaddingLeft'>
-                                                <div className='d-flex'>
-                                                    <div className='col-sm-6  removePaddingLeft'>
-                                                        <h6 className='getStartPrimaryText'>Mark Olympus</h6>
-                                                    </div>
-                                                    <div className='col-sm-6 removePaddingLeft chat-text'>
-                                                        <h6 className='getStartPrimaryText'>Today, 12:04</h6>
-                                                    </div>
-                                                </div>
-                                                <h6 className='getSecondaryText'>A Facebook-like platform...</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='col-lg-12 chat-hover removePadding'>
-                                        <div className='d-flex'>
-                                            <div className='col-lg-3 marginTopImg'>
-                                                <img src={profPic} className='chat-img'></img>
-                                            </div>
-                                            <div className='col-lg-9  removePaddingLeft'>
-                                                <div className='d-flex'>
-                                                    <div className='col-sm-6  removePaddingLeft'>
-                                                        <h6 className='getStartPrimaryText'>Janine Tenoso</h6>
-                                                    </div>
-                                                    <div className='col-sm-6 removePaddingLeft chat-text'>
-                                                        <h6 className='getStartPrimaryText'>Today, 12:04</h6>
-                                                    </div>
-                                                </div>
-                                                <h6 className='getSecondaryText'>A Facebook-like platform...</h6>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {chatList}
                                 </div>
                             </div>
                         </div>

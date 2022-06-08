@@ -59,9 +59,13 @@ function makeMapStateToProps() {
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
         const socialCount = Client4.getSocialCount(userId);
         const getPostList = Client4.getPosts(channel?.id);
+
+        const team = getTeamByName(state,'crypter');
+        const categories = Client4.getChannelCategories('me',team?.id);
         
         return {
             userId,
+            categories,
             userData,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             profilePictureLoggedin: Client4.getProfilePictureUrl(userData.id, userData?.last_picture_update),
