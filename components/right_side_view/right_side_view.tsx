@@ -53,7 +53,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light',img_path: homeImage,logo_url: [], data: [], view: 'direct'};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light',img_path: homeImage,logo_url: [], data: [],messagesList: [], view: 'direct'};
 
         this.channelViewRef = React.createRef();
     }
@@ -111,27 +111,31 @@ export default class RightSideView extends React.PureComponent<Props, State> {
         }
 
         let chatList;
-        if(view === 'direct'){
-            chatList = (
-                <>
-                    {messagesList.map((item, index) => {
-                        return (
-                            <MessageDirect channelId={item} key={`${item}-${index}`} />
-                        );
-                    })}
-                </>
-            );
-        }else{
-            chatList = (
-                <>
-                    {messagesList.map((item, index) => {
-                        return (
-                            <MessageGroup channelId={item} key={`${item}-${index}`} />
-                        );
-                    })}
-                </>
-            );
+        if (messagesList && messagesList.length){
+            if(view === 'direct'){
+                chatList = (
+                    <>
+                        {messagesList.map((item, index) => {
+                            return (
+                                <MessageDirect channelId={item} key={`${item}-${index}`} />
+                            );
+                        })}
+                    </>
+                );
+            }else{
+                chatList = (
+                    <>
+                        {messagesList.map((item, index) => {
+                            return (
+                                <MessageGroup channelId={item} key={`${item}-${index}`} />
+                            );
+                        })}
+                    </>
+                );
+            }
         }
+
+        
 
         let followerView;
         let followingView;
