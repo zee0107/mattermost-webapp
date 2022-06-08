@@ -55,7 +55,7 @@ const GlobalHeaderStyle = (): JSX.Element | null => {
             }
 
             async function getChannel(id){
-                const data = await Client4.getChannelByName(id,'crypter');
+                const data = await Client4.getChannelByName(id,'town-square');
                 return data;
             }
 
