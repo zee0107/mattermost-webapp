@@ -67,7 +67,6 @@ const GlobalHeaderStyle = (): JSX.Element | null => {
     const products = useProducts();
     const currentProductID = useCurrentProductId(products);
     const user = currentUser();
-    const teamId = getTeamId();
 
     if (!isLoggedIn) {
         return null;
