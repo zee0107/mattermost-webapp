@@ -113,7 +113,7 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
         if(posts){
             lastMessage = (
                 <>
-                    {Object.keys(posts.posts).map((item) => {
+                    {Object.keys(posts.posts).slice(0,1).map((item) => {
                         let message;
                         if(posts.posts[item].message === ''){
                             message = 'Sent a file.';
