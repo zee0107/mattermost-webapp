@@ -21,6 +21,10 @@ import { PostList } from 'mattermost-redux/types/posts';
 import { ChannelCategory } from 'mattermost-redux/types/channel_categories';
 import MessageDirect from 'components/right_side_view/messages_direct';
 import MessageGroup from 'components/right_side_view/messages_group';
+import MessageHeader from 'components/right_side_view/messages_header';
+import CreatePostMessage from 'components/create_post_message';
+import deferComponentRender from 'components/deferComponentRender';
+import PostView from 'components/post_view';
 
 type Props = {
     profilePicture: string;
@@ -28,6 +32,7 @@ type Props = {
     socialCount: Promise<SocialCount>;
     getPostList: Promise<PostList>;
     categories: Promise<ChannelCategory>;
+    focusedPostId: string;
  }
 
 
@@ -44,17 +49,32 @@ type State = {
     messagesList: string[];
     selectedMessage: string;
     view: string;
+    deferredPostView: any;
 };
 
 export default class RightSideView extends React.PureComponent<Props, State> {
-    static defaultProps = {profilePicture: '', allCrypto: [],trendCrypto: [],newCrypto: [],gainerCrypto: []}
+    public static createDeferredPostView = () => {
+        return deferComponentRender(
+            PostView,
+            <div
+                id='post-list'
+                className='a11y__region'
+                data-a11y-sort-order='1'
+                data-a11y-focus-child={true}
+                data-a11y-order-reversed={false}
+            />,
+        );
+    }
+
+    static defaultProps = {profilePicture: '',}
 
     channelViewRef: React.RefObject<HTMLDivElement>;
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light',img_path: homeImage,logo_url: [], data: [],messagesList: [], view: 'direct'};
+        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light',img_path: homeImage,logo_url: [], data: [],messagesList: [], view: 'direct',deferredPostView: RightSideView.createDeferredPostView()};
 
+        this.handleChangeSelected = this.handleChangeSelected.bind(this);
         this.channelViewRef = React.createRef();
     }
     
@@ -89,6 +109,10 @@ export default class RightSideView extends React.PureComponent<Props, State> {
         this.setState({view: value});
     }
 
+    onChangeSelected = (id: string) => {
+        this.setState({selectedMessage: id});
+    }
+
     setMessageList = (list: string[]) => {
         this.setState({messagesList: list});
     }
@@ -101,6 +125,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
         const {socialCount, postList, categories, messagesList, selectedMessage, view} = this.state;
+        const DeferredPostView = this.state.deferredPostView;
 
         if (categories) {
             Object.keys(categories).map((item) => {
@@ -117,7 +142,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                     <>
                         {messagesList.map((item, index) => {
                             return (
-                                <MessageDirect channelId={item} key={`${item}-${index}`} />
+                                <MessageDirect channelId={item} onChangeSelected={this.onChangeSelected} key={`${item}-${index}`} />
                             );
                         })}
                     </>
@@ -127,7 +152,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                     <>
                         {messagesList.map((item, index) => {
                             return (
-                                <MessageGroup channelId={item} key={`${item}-${index}`} />
+                                <MessageGroup channelId={item} onChangeSelected={this.onChangeSelected} key={`${item}-${index}`} />
                             );
                         })}
                     </>
@@ -135,11 +160,8 @@ export default class RightSideView extends React.PureComponent<Props, State> {
             }
         }
 
-        
-
         let followerView;
         let followingView;
-
         let postCount = 0 as number;
         if(postList !== undefined && postList !== null){
             const postVal = postList.posts;
@@ -270,6 +292,72 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                     </div>
                     <br />
                     {chatList}
+                </div>
+
+                <div style={{zIndex: 999}} className='offcanvas offcanvas-end shadow-lg' data-bs-scroll='true' data-bs-backdrop='false' tabIndex='-1' id='ChatDesktop' aria-labelledby='ChatDesktop'>
+                    <div className='offcanvas-header'>
+                        <MessageHeader channelId={selectedMessage} />
+                    </div>
+                    <div className='offcanvas-body offcanvas-body-bg'>
+                        <form className='mt-0'>
+                            <div className='mb-0'>
+                                <div className='chat-fields'>
+                                    <DeferredPostView
+                                        channelId={selectedMessage}
+                                        focusedPostId={this.props.focusedPostId}
+                                    />
+                                    {/*<div className='row'>
+                                        <div className='col-lg-12'>
+                                            <a>
+                                            <p className='float-start receiver-msg shadow-sm'><img width='25' className='img-fluid user-photo' src={profPic1} alt='Username' title='Username'/>Hello how are you, message. I know your brain is well and cute.</p>
+                                            </a>
+                                        </div>
+                                        <div className='col-lg-12'>
+                                            <a>
+                                            <p className='float-end receiver-msg-user shadow-sm'><i className='bi-hand-thumbs-up-fill'></i> I'm fine<img width='25' className='img-fluid user-photo ms-1' src={profPic2} alt='Username' title='Username'/></p>
+                                            </a>
+                                        </div>
+                                        <div className='col-lg-12'>
+                                            <a>
+                                            <p className='float-start receiver-msg shadow-sm'><img width='25' className='img-fluid user-photo' src={profPic1} alt='Username' title='Username'/>Well done... <i className='bi-hand-thumbs-up-fill'></i></p>
+                                            </a>
+                                        </div>
+                                        <div className='col-lg-12'>
+                                            <a>
+                                            <p className='float-end receiver-msg-user shadow-sm'><i className='bi-hand-thumbs-up-fill'></i> Do not mess up my updates everytime.<img width='25' className='img-fluid user-photo ms-1' src={profPic2} alt='Username' title='Username'/></p>
+                                            </a>
+                                        </div>
+                                        <div className='col-lg-12'>
+                                            <div className='action-icons float-end mt-0 mb-0'>
+                                                <div className='row'>
+                                                    <div className='btn-group gap-2' role='group' aria-label='Reactions icon'>
+                                                    <a className='onClickthumbsup'><i className='bi-hand-thumbs-up text-white'></i></a>
+                                                    <a className='onClickthumbsdown'><i className='bi-heart text-white'></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='col-lg-12'>
+                                            <div className='row float-end'>
+                                                <a className='hidden-hide text-white'>Reactions</a>
+                                            </div>
+                                        </div>
+                                        <div className='col-lg-12'>
+                                            <a>
+                                            <p className='float-end receiver-msg-user shadow-sm'>Well done.<img width='25' className='img-fluid user-photo ms-1' src={profPic2} alt='Username' title='Username'/>
+                                            <label className='reactions-show float-start'><i className='bi-hand-thumbs-up text-white'></i></label>
+                                            <label className='reactions-show-down float-start'><i className='bi-heart text-white'></i></label>
+                                            </p>
+                                            </a>
+                                        </div>
+                                    </div>*/}
+                                </div>
+                            </div>
+                            <div className='input-group mb-3 mt-2'>
+                                <CreatePostMessage channelId={selectedMessage} />
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </>
         );
