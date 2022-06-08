@@ -183,14 +183,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         }
     }
 
-    handleChangeView = (value: string) => { 
-        this.setState({view: value});
-    }
-
-    onChangeSelected = (id: string) => {
-        this.setState({selectedMessage: id});
-    }
-
     componentDidUpdate(prevProps: Props,prevState: State){
         if(this.props.followData !== prevProps.followData){
             if(this.props.followData !== null && this.props.followData !== undefined){
@@ -203,6 +195,18 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         }
         
         this.getCompletionRate();
+    }
+
+    handleChangeView = (value: string) => { 
+        this.setState({view: value});
+    }
+
+    onChangeSelected = (id: string) => {
+        this.setState({selectedMessage: id});
+    }
+
+    setMessageList = (list: string[]) => {
+        this.setState({messagesList: list});
     }
 
     getCompletionRate = () =>{
@@ -331,7 +335,15 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser, profilePicture, userData} = this.props;
-        const { coverUrl,completionResult, uploading, shareInfo, userLocation, feeling, socialCount, postList, postValues, listId, followData,followStatus, messagesList, selectedMessage, view} = this.state;
+        const { coverUrl,completionResult, uploading, shareInfo, userLocation, feeling, socialCount, postList, postValues, listId, followData,followStatus, categories, messagesList, selectedMessage, view} = this.state;
+
+        if (categories) {
+            Object.keys(categories).map((item) => {
+                if(categories[item].type === 'direct_messages'){
+                    this.setMessageList(categories[item].channel_ids);
+                }
+            });
+        }
 
         let photoAvailable;
         let nameAvailable;
