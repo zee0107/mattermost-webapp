@@ -19,9 +19,9 @@ import {PostDraft} from 'types/store/rhs.js';
 import {ModalData} from 'types/actions.js';
 
 import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
-import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
+import {getCurrentTeamId, getTeamByName} from 'mattermost-redux/selectors/entities/teams';
 
-import {getCurrentChannel, getCurrentChannelStats, getChannelMemberCountsByGroup as selectChannelMemberCountsByGroup} from 'mattermost-redux/selectors/entities/channels';
+import {getCurrentChannel, getCurrentChannelStats, getChannelMemberCountsByGroup as selectChannelMemberCountsByGroup, getChannelByName} from 'mattermost-redux/selectors/entities/channels';
 import {getCurrentUserId, getStatusForUserId, getUser} from 'mattermost-redux/selectors/entities/users';
 import {haveICurrentChannelPermission} from 'mattermost-redux/selectors/entities/roles';
 import {getChannelTimezones, getChannelMemberCountsByGroup} from 'mattermost-redux/actions/channels';
@@ -60,12 +60,25 @@ import {Constants, Preferences, StoragePrefixes, TutorialSteps, UserStatuses} fr
 import {canUploadFiles} from 'utils/file_utils';
 import {isFeatureEnabled} from 'utils/utils';
 
-import CreatePost from './create_post';
+import CreatePostMessage from './create_post_message';
+import { Client4 } from 'mattermost-redux/client';
 
+type ownProps = {
+    channelId: string; 
+}
+
+function getChannelById (){
+    return ( async (ownProps: ownProps) => {
+        const channelData = await Client4.getChannel(ownProps.channelId);
+        return channelData;
+    });
+}
 function makeMapStateToProps() {
     const getMessageInHistoryItem = makeGetMessageInHistoryItem(Posts.MESSAGE_TYPES.POST as any);
 
-    return (state: GlobalState) => {
+    return (state: GlobalState,ownProps: ownProps) => {
+        const data = getChannelById();
+        console.log(data);
         const config = getConfig(state);
         const license = getLicense(state);
         const currentChannel = getCurrentChannel(state) || {};
@@ -87,7 +100,8 @@ function makeMapStateToProps() {
         const isLDAPEnabled = license?.IsLicensed === 'true' && license?.LDAPGroups === 'true';
         const useGroupMentions = isLDAPEnabled && haveICurrentChannelPermission(state, Permissions.USE_GROUP_MENTIONS);
         const channelMemberCountsByGroup = selectChannelMemberCountsByGroup(state, currentChannel.id);
-        const currentTeamId = getCurrentTeamId(state);
+        const team = getTeamByName(state,'crypter');
+        const currentTeamId = team?.id;
         const groupsWithAllowReference = useGroupMentions ? getAssociatedGroupsForReferenceByMention(state, currentTeamId, currentChannel.id) : null;
         const enableTutorial = config.EnableTutorial === 'true';
         const showTutorialTip = enableTutorial && tutorialStep === TutorialSteps.POST_POPOVER;
@@ -209,4 +223,4 @@ function mapDispatchToProps(dispatch: Dispatch) {
     };
 }
 
-export default connect(makeMapStateToProps, mapDispatchToProps)(CreatePost);
+export default connect(makeMapStateToProps, mapDispatchToProps)(CreatePostMessage);

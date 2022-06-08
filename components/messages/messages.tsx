@@ -5,7 +5,7 @@ import React, {ReactNode} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import { UserProfile } from 'mattermost-redux/types/users';
 import deferComponentRender from 'components/deferComponentRender';
-import CreatePost from 'components/create_post';
+import CreatePost from 'components/create_post_message';
 import PostView from 'components/post_view';
 import { ChannelCategory, OrderedChannelCategories } from 'mattermost-redux/types/channel_categories';
 import MessageSidebar from 'components/messages_sidebar';
@@ -164,7 +164,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                         />
                     </div>
                     <div className='col-md-12 mt-3 mb-3 removePadding'>
-                            <CreatePost />
+                            <CreatePost channelId={selectedMessage}/>
                     </div>
                 </>
             );
@@ -210,7 +210,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                         />
                     </div>
                     <div className='col-md-12 mt-3 mb-3 removePadding'>
-                        <CreatePost />
+                        <CreatePost channelId={selectedMessage}/>
                         {/*<input type='text' className='form-control write-message-inputs-mobile' aria-label='Type your message here' placeholder='Type your message here...' />
                         <span className='input-group-text group-text-actions bg-transparent'>
                             <img width='20' src='assets/images/icon-browse.png' alt=''/>

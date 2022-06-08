@@ -320,7 +320,7 @@ type State = {
     postError?: React.ReactNode;
 }
 
-class CreatePost extends React.PureComponent<Props, State> {
+class CreatePostMessage extends React.PureComponent<Props, State> {
     static defaultProps = {
         latestReplyablePostId: '',
     }
@@ -1552,5 +1552,5 @@ class CreatePost extends React.PureComponent<Props, State> {
     }
 }
 
-export default injectIntl(CreatePost);
+export default injectIntl(CreatePostMessage);
 /* eslint-enable react/no-string-refs */
