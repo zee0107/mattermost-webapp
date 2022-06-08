@@ -587,6 +587,7 @@ export default class PostList extends React.PureComponent {
                 <div
                     role='presentation'
                     className='post-list-holder-by-time'
+                    style={{background: '#ffffff'}}
                     key={'postlist-' + channelId}
                 >
                     <div
