@@ -199,7 +199,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                 <>
                     {messagesList.map((item,index) => {
                         return (
-                            <MessageSidebar channelId={item} view='desktop' onChangeSelected={this.onChangeSelected} key={`${item}-${index}`} />
+                            <MessageSidebar channelId={item} view='desktop' onMobileView={this.onMobileView} onChangeSelected={this.onChangeSelected} key={`${item}-${index}`} />
                         );
                     })}
                 </>
@@ -209,7 +209,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                 <>
                     {messagesList.map((item,index) => {
                         return (
-                            <MessageSidebar channelId={item} view='mobile' onChangeSelected={this.onChangeSelected} key={`${item}--${index}`} />
+                            <MessageSidebar channelId={item} view='mobile' onMobileView={this.onMobileView} onChangeSelected={this.onChangeSelected} key={`${item}--${index}`} />
                         );
                     })}
                 </>
@@ -223,7 +223,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                 <>
                     {messagesList.map((item,index) => {
                         return (
-                            <MessageSidebarGroup channelId={item} view='desktop' onChangeSelected={this.onChangeSelected} key={`${item}---${index}`} />
+                            <MessageSidebarGroup channelId={item} view='desktop' onMobileView={this.onMobileView} onChangeSelected={this.onChangeSelected} key={`${item}---${index}`} />
                         );
                     })}
                 </>
@@ -233,7 +233,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                 <>
                     {messagesList.map((item,index) => {
                         return (
-                            <MessageSidebarGroup channelId={item} view='mobile' onChangeSelected={this.onChangeSelected} key={`${item}---${index}`} />
+                            <MessageSidebarGroup channelId={item} view='mobile' onMobileView={this.onMobileView} onChangeSelected={this.onChangeSelected} key={`${item}---${index}`} />
                         );
                     })}
                 </>
@@ -247,7 +247,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                         <div className='position-sticky float-right-panel'>
                             <div className='row'>
                                 <div className='col-3 pt-2'><a className='onChatmessages p-4'><i className='bi-chat-left'></i> <small>Messages</small></a></div>
-                                <div className='col-9'><a className='float-end onGobacklinks'><i className='bi-arrow-left'></i> <small>Go Back</small></a></div>
+                                <div className='col-9'><a className='float-end onGobacklinks' onClick={this.onChangeSelected('')}><i className='bi-arrow-left'></i> <small>Go Back</small></a></div>
                             </div>
                             <div className='col-12 text-center reload-loading'>
                                 <div className='spinner-border' role='status'>

@@ -24,6 +24,7 @@ export type Props = {
     teammateUsername?: string;
     view: string;
     onChangeSelected: any;
+    onMobileView: any;
 }
 
 type State = {
@@ -49,6 +50,11 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
 
     handleChangeSelected = (id: string) => {
         this.props.onChangeSelected(id);
+    }
+
+    handleOnMobileView = (id: string, value: string) => {
+        this.props.onChangeSelected(id);
+        this.props.onMobileView(value);
     }
 
     getIcon = () => {
@@ -150,7 +156,7 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
                 );
 
                 DirectMessageMobile = (
-                    <div className='row' onClick={() => this.handleChangeSelected(channel.id)}>
+                    <div className='row' onClick={() => this.handleOnMobileView(channel.id,'messages') }>
                         <div className='col-2 p-1'>
                             {this.getIcon()}
                         </div>
