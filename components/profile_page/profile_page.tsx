@@ -43,6 +43,7 @@ import ChannelHeaderMobile from 'components/channel_header_mobile';
 
 import MessageDirect from 'components/right_side_view/messages_direct';
 import MessageGroup from 'components/right_side_view/messages_group';
+import MessageHeader from 'components/right_side_view/messages_header';
 import Sidebar from 'components/sidebar';
 import SidebarRight from 'components/sidebar_right';
 import SidebarRightMenu from 'components/sidebar_right_menu';
