@@ -27,7 +27,7 @@ type Props = {
     profilePicture: string;
     currentUser: UserProfile;
     socialCount: Promise<SocialCount>;
-    //getPostList: Promise<PostList>;
+    getPostList: Promise<PostList>;
     categories: Promise<ChannelCategory>;
     focusedPostId: string;
  }
@@ -42,6 +42,7 @@ type State = {
     middleView: string;
     socialCount: SocialCount;
     postList: PostList;
+    messageBody: PostList;
     categories: ChannelCategory;
     messagesList: string[];
     selectedMessage: string;
@@ -86,6 +87,10 @@ export default class RightSideView extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.socialCount).then(value => { this.setState({socialCount: value});});
         }
 
+        if(this.props.getPostList !== null){
+            Promise.resolve(this.props.getPostList).then(value => {this.setState({postList: value});});
+        }
+
         if(this.props.categories){
             Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
         }
@@ -110,7 +115,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
         return (async () => {
             if(this.state.selectedMessage){
                 const data = await Client4.getPosts(this.state.selectedMessage);
-                this.setState({postList: data});
+                this.setState({messageBody: data});
             }
         });
     }
@@ -134,7 +139,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser} = this.props;
-        const {socialCount, postList, categories, messagesList, selectedMessage, view} = this.state;
+        const {socialCount, postList, categories, messagesList, selectedMessage, messageBody, view} = this.state;
         const DeferredPostView = this.state.deferredPostView;
 
         if (categories) {
@@ -188,8 +193,8 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                     focusedPostId={this.props.focusedPostId}
                                 />*/}
                                 <div className='row' style={{height: '60vh', overflow: 'auto'}}>
-                                    {postList && Object.keys(postList.posts).map((post,ind) => {
-                                            return (<Post postId={post} post={postList.posts[post]} userId={currentUser.id} />);
+                                    {messageBody && Object.keys(messageBody.posts).map((post,ind) => {
+                                            return (<Post postId={post} post={messageBody.posts[post]} userId={currentUser.id} />);
                                     })}
                                     {/*<PostView channelId={selectedMessage} focusedPostId={this.props.focusedPostId} />*/}
                                 </div>
