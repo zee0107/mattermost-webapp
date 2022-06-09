@@ -19,8 +19,6 @@ import profPic1 from 'images/profiles/user-profile-1.png';
 import profPic2 from 'images/profiles/user-profile-2.png';
 import profPic3 from 'images/profiles/user-profile-3.png';
 import profPic4 from 'images/profiles/user-profile-4.png';
-import profPic5 from 'images/profiles/user-profile-5.png';
-import profPic6 from 'images/profiles/user-profile-6.png';
 import postImage from 'images/post-1.png';
 import postImage2 from 'images/post-image.png';
 
@@ -34,6 +32,8 @@ import RequestList from 'components/request_list';
 import RequestListsNf from 'components/request_list_nf';
 import MessageList from './message_list';
 import * as GlobalActions from 'actions/global_actions';
+
+import MessagesDirect from './message_list/messages_direct/messages_direct';
 
 const RightControlsContainer = styled.div`
     display: flex;
@@ -80,11 +80,9 @@ const RightControlsStyle = (props: Props): JSX.Element => {
 
         async function getTeam(){
             const data = await Client4.getTeamByName('crypter');
-            console.log('Team: ', data);
             setTeamId(data.id);
             const dataCategories = await Client4.getChannelCategories('me',data.id);
-            console.log('Categories: ', dataCategories.categories);
-
+            setCategories(dataCategories.categories);
             if(dataCategories.categories && dataCategories.categories.length){
                 Object.keys(dataCategories.categories).map((item) =>{
                     if(dataCategories.categories[item].type === 'direct_messages'){
@@ -95,14 +93,7 @@ const RightControlsStyle = (props: Props): JSX.Element => {
             return data;
         }
 
-        /*async function getCategories(){
-            const data = await Client4.getChannelCategories('me',teamId);
-            console.log('Categories: ', data);
-            return data;
-        }*/
-
         getTeam().then((value) => { setTeamId(value.id)});
-        //getCategories().then((value) => { setCategories(value.categories)});
         getData().then((value) => { setProfiles(value) });
         getRequest().then((value) => { setRequest(value) });
     }, []);
@@ -205,7 +196,7 @@ const RightControlsStyle = (props: Props): JSX.Element => {
                                 {/*<MessageList />*/}
                                 {messageList.map((item,index) => {
                                     return (
-                                        <label key={index + item}>{item}</label>
+                                        <MessagesDirect channelId={item} key={`${item}-nav-${index}`}/>
                                     );
                                 })}
                                 {/*<a className='list-group-item list-group-item-action border-0 message-content' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
