@@ -19,7 +19,7 @@ function makeMapStateToProps() {
     const getUnreadCount = makeGetChannelUnreadCount();
 
     return function mapStateToProps(state: GlobalState, ownProps: OwnProps) {
-        if(state.entities.teams.currentTeamId === "" || state.entities.teams.currentTeamId === null || state.entities.teams.currentTeamId === undefined || state.entities.channels.currentChannelId === "" || state.entities.channels.currentChannelId === null || state.entities.channels.currentChannelId === undefined){
+        if(!state.entities.teams.teams && !state.entities.teams.teams.length){
             const stateValue = window.localStorage.getItem('GlobalState');
             state = JSON.parse(stateValue);
         }  
