@@ -14,10 +14,10 @@ import MessageList from './message_list'
 
 function makeMapStateToProps() {
     return function mapStateToProps(state: GlobalState) {
-        /*if(state.entities.teams.currentTeamId === "" || state.entities.teams.currentTeamId === null || state.entities.teams.currentTeamId === undefined){
+        if(state.entities.teams.currentTeamId === "" || state.entities.teams.currentTeamId === null || state.entities.teams.currentTeamId === undefined){
             const stateValue = window.localStorage.getItem('GlobalState');
             state = JSON.parse(stateValue);
-        }*/
+        }
         const currentUser = getCurrentUser(state);
         const userId = currentUser?.id;
         
