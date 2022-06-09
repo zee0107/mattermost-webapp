@@ -51,7 +51,9 @@ function mapStateToProps(state: GlobalState) {
     const enableOnboardingFlow = config.EnableOnboardingFlow === 'true';
 
     let channelRolesLoading = true;
+    let postList;
     if (channel && channel.id) {
+        postList = Client4.getPosts(channel.id);
         const roles = getRoles(state);
         const myChannelRoles = getMyChannelRoles(state);
         if (myChannelRoles[channel.id]) {
@@ -71,6 +73,7 @@ function mapStateToProps(state: GlobalState) {
         channelDisplayName: channel ? channel.display_name : '',
         channelPurpose: channel ? channel.purpose : '',
         currentTeam,
+        postList,
         channelRolesLoading,
         storyList,
         deactivatedChannel: channel ? isDeactivatedChannel(state, channel.id) : false,

@@ -61,6 +61,7 @@ type Props = {
     profilePicture: string;
     showNextStepsEphemeral: boolean;
     enableOnboardingFlow: boolean;
+    postList: Promise<PostList>;
     showNextSteps: boolean;
     currentUser: UserProfile;
     currentTeam: Team;
@@ -130,6 +131,12 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
         if (focusedPostId && focusedPostId !== state.focusedPostId) {
             updatedState = {...updatedState, focusedPostId};
+        }
+
+        if(props.postList !== null){
+            Promise.resolve(props.postList).then((value) => {
+                updatedState = {...updatedState, postList: value};
+            });
         }
 
         if (Object.keys(updatedState).length) {
@@ -257,7 +264,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
     render() {
         const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName,channelDisplayName,channelId, currentUser, currentTeam} = this.props;
-        const { uploading, shareInfo, userLocation, feeling, storyList, channelAdmin } = this.state;
+        const { uploading, shareInfo, userLocation, feeling, storyList, channelAdmin, postList } = this.state;
         if (enableOnboardingFlow && showNextSteps && !showNextStepsEphemeral) {
             this.props.actions.setShowNextStepsView(true);
             browserHistory.push(`${teamUrl}/tips`);
@@ -754,14 +761,14 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
                             <div className='col-md-12 pbot-20 bgGrey'></div>
                             <div className='col-md-12 removePadding'>
-                                <DeferredPostView
+                                {/*<DeferredPostView
                                         channelId={this.props.channelId}
                                         focusedPostId={this.state.focusedPostId}
                                         filter={this.state.filter}
-                                />
-                                {/*postList && postList.order.map((item,index) => {
-                                    Object.keys(postList.posts).map((item2,index2) => {return (<Post postId={item} post={postList.posts[item2]}></Post>);});
-                                })*/}
+                                />*/}
+                                {postList && postList.order.map((item,index) => {
+                                    Object.keys(postList.posts).map((item2,index2) => {return (<Post postId={item} post={postList.posts[item2]} />);});
+                                })}
                             </div>
                         </div>
                     </div>
