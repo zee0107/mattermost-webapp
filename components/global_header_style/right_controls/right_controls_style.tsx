@@ -101,7 +101,6 @@ const RightControlsStyle = (props: Props): JSX.Element => {
     }, []);
 
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
-    console.log(messageList);
     return (
         <RightControlsContainer>
                 {/*productId === null ? (
@@ -197,6 +196,11 @@ const RightControlsStyle = (props: Props): JSX.Element => {
                         <div id=''>
                             <div className='list-group'>
                                 {/*<MessageList />*/}
+                                {messageList.map((item,index) => {
+                                    return (
+                                        <label key={index + item}>{item}</label>
+                                    );
+                                })}
                                 {/*<a className='list-group-item list-group-item-action border-0 message-content' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
                                     <div className='d-flex w-100 justify-content-between'>
                                         <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic1} alt='User name' title='Username'/> <strong>John Lloyd</strong></label>
