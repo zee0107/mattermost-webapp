@@ -81,17 +81,20 @@ const RightControlsStyle = (props: Props): JSX.Element => {
         async function getTeam(){
             const data = await Client4.getTeamByName('crypter');
             console.log('Team: ', data);
+            setTeamId(data.id);
+            const dataCategories = await Client4.getChannelCategories('me',data.id);
+            console.log('Categories: ', dataCategories);
             return data;
         }
 
-        async function getCategories(){
+        /*async function getCategories(){
             const data = await Client4.getChannelCategories('me',teamId);
             console.log('Categories: ', data);
             return data;
-        }
+        }*/
 
         getTeam().then((value) => { setTeamId(value.id)});
-        getCategories().then((value) => { setCategories(value.categories)});
+        //getCategories().then((value) => { setCategories(value.categories)});
         getData().then((value) => { setProfiles(value) });
         getRequest().then((value) => { setRequest(value) });
 
