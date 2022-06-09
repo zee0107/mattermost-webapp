@@ -118,7 +118,7 @@ export default class MessageList extends React.PureComponent<Props, State> {
                 <>
                     {messagesList.map((item, index) => {
                         return (
-                            <MessageDirect channelId={item} onChangeSelected={this.onChangeSelected} key={`${item}----${index}`} />
+                            {/*<MessageDirect channelId={item} onChangeSelected={this.onChangeSelected} key={`${item}----${index}`} />*/}
                         );
                     })}
                 </>
