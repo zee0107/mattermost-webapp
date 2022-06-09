@@ -23,6 +23,7 @@ function makeMapStateToProps() {
         const userId = currentUser?.id;
         
         const team = getTeamByName(state,'crypter');
+        console.log(team);
         const categories = Client4.getChannelCategories('me',team?.id);
         return {
             categories,
