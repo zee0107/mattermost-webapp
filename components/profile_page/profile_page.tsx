@@ -660,7 +660,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 />
                             </div>
                         </div>
-                        <div className='input-group mb-3 mt-2'>
+                        <div className='input-group col-md-12 mb-3 mt-2'>
                             <CreatePostMessage channelId={selectedMessage} />
                         </div>
                     </div>
