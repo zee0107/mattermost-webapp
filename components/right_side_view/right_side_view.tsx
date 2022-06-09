@@ -174,7 +174,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                     channelId={selectedMessage}
                                     focusedPostId={this.props.focusedPostId}
                                 />*/}
-                                <div className='row' style={{height: '60vh', background: '#ffffff', overflow: 'auto'}}>
+                                <div className='row' style={{height: '60vh', overflow: 'auto'}}>
                                     {postList && Object.keys(postList.posts).map((post,ind) => {
                                             return (<Post postId={post} post={postList.posts[post]} userId={currentUser.id} />);
                                     })}
