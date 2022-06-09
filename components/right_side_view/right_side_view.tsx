@@ -100,7 +100,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
 
     componentDidUpdate(_,prevState){
         const {selectedMessage} = this.state;
-        if(selectedMessage !== prevState){
+        if(selectedMessage !== prevState.selectedMessage){
             if(selectedMessage){
                 this.getList();
             }
