@@ -96,6 +96,8 @@ export default class RightSideView extends React.PureComponent<Props, State> {
         if(this.props.categories){
             Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
         }
+
+        this.setMessageList();
     }
 
     setDocumentTitle = (siteName: string) => {
@@ -112,8 +114,16 @@ export default class RightSideView extends React.PureComponent<Props, State> {
         this.setState({selectedMessage: id});
     }
 
-    setMessageList = (list: string[]) => {
-        this.setState({messagesList: list});
+    setMessageList = () => {
+        const {categories} = this.state;
+        if(categories){
+            Object.keys(categories).map((item) => {
+                if(categories[item].type === 'direct_messages'){
+                    this.setState({messagesList: categories[item].channel_ids});
+                }
+            });
+        }
+        
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -126,13 +136,13 @@ export default class RightSideView extends React.PureComponent<Props, State> {
         const {socialCount, postList, categories, messagesList, selectedMessage, view} = this.state;
         const DeferredPostView = this.state.deferredPostView;
 
-        if (categories) {
+        /*if (categories) {
             Object.keys(categories).map((item) => {
                 if(categories[item].type === 'direct_messages'){
                     this.setMessageList(categories[item].channel_ids);
                 }
             });
-        }
+        }*/
 
         let chatList;
         let chatTitle;

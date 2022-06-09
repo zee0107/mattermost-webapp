@@ -87,6 +87,7 @@ export default class RequestListsNf extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
+        this._isMounted = false;
         this.state = {followStatus: 0,postValues:[],listId:[],feeling: true,userActivity: '',userLocation: '',shareInfo: 'everyone',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false};
 
         this.handleFollow = this.handleFollow.bind(this);
@@ -98,21 +99,23 @@ export default class RequestListsNf extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
-
-        if(this.props.coverPhoto != null){
-            Promise.resolve(this.props.coverPhoto).then(value => this.setState({coverUrl: value}));
-        }
-
-        if(this.state.coverUrl === undefined || this.state.coverUrl === 'unavailable' || this.state.coverUrl === ''){
-            this.setState({coverUrl: coverImage});
-        }
-
-        if(this.props.socialCount !== null){
-            Promise.resolve(this.props.socialCount).then(value => { this.setState({socialCount: value});});
-        }
-
-        if(this.props.followData !== null && this.props.followData !== undefined){
-            Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
+        this._isMounted = true;
+        if(this._isMounted){
+            if(this.props.coverPhoto != null){
+                Promise.resolve(this.props.coverPhoto).then(value => this.setState({coverUrl: value}));
+            }
+    
+            if(this.state.coverUrl === undefined || this.state.coverUrl === 'unavailable' || this.state.coverUrl === ''){
+                this.setState({coverUrl: coverImage});
+            }
+    
+            if(this.props.socialCount !== null){
+                Promise.resolve(this.props.socialCount).then(value => { this.setState({socialCount: value});});
+            }
+    
+            if(this.props.followData !== null && this.props.followData !== undefined){
+                Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
+            }
         }
     }
 
@@ -126,6 +129,10 @@ export default class RequestListsNf extends React.PureComponent<Props, State> {
             }
         }
     }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {

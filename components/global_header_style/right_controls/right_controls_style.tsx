@@ -140,13 +140,13 @@ const RightControlsStyle = (props: Props): JSX.Element => {
                         <div className='list-group mt-3 mb-3'>
                             <strong>Friend request</strong>
                             {request.length ? request.map((item,index) => {
-                                    return (<RequestList userId={item.user_id} key={`request-${item.user_id}`} />);
+                                    return (<RequestList userId={item.user_id} key={`request--${item.user_id}-${index}`} />);
                             }) : (<h4 className='mt-2 mb-2 text-center text-muted'>No pending request.</h4>)}
                         </div>
                         <div className='list-group mt-3 mb-3'>
                             <strong>People You May Know</strong>
                             {profiles.sort(() => Math.random() - 0.5).slice(0, 5).map((item,index) => {
-                                    return (<RequestListsNf userId={item.user_id} key={`requestnf-${item.user_id}`} />);
+                                    return (<RequestListsNf userId={item.user_id} key={`requestnf--${item.user_id}-${index}`} />);
                             })}
                         </div>
                     </div>

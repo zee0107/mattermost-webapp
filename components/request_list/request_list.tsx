@@ -154,7 +154,7 @@ export default class RequestLists extends React.PureComponent<Props, State> {
     }
 
     componentDidUpdate(prevProps: Props,prevState: State){
-        if(this.props.followData !== prevProps.followData){
+        if(this.state.followStatus !== prevState.followStatus){
             if(this.props.followData !== null && this.props.followData !== undefined){
                 Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
             }
