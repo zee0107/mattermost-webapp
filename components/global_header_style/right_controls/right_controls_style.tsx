@@ -58,10 +58,10 @@ function handleEmitUserLoggedOutEvent(){
 const RightControlsStyle = (props: Props): JSX.Element => {
     const [profiles, setProfiles] = useState([]);
     const [request, setRequest] = useState([]);
-    const [categories, setCategories] = useState([]);
+    /*const [categories, setCategories] = useState([]);
     const [teamId, setTeamId] = useState();
     const [messageList, setMessageList] = useState([]);
-    const [selectedMessage, setSelectedMessage] = useState();
+    const [selectedMessage, setSelectedMessage] = useState();*/
 
     useEffect (() => {
         async function getData(){
@@ -79,7 +79,7 @@ const RightControlsStyle = (props: Props): JSX.Element => {
             return data;
         }
 
-        async function getTeam(){
+        /*async function getTeam(){
             const data = await Client4.getTeamByName('crypter');
             setTeamId(data.id);
             const dataCategories = await Client4.getChannelCategories('me',data.id);
@@ -94,7 +94,7 @@ const RightControlsStyle = (props: Props): JSX.Element => {
             return data;
         }
 
-        getTeam().then((value) => { setTeamId(value.id)});
+        getTeam().then((value) => { setTeamId(value.id)});*/
         getData().then((value) => { setProfiles(value) });
         getRequest().then((value) => { setRequest(value) });
     }, []);
@@ -194,12 +194,7 @@ const RightControlsStyle = (props: Props): JSX.Element => {
                         </div>*/}
                         <div id=''>
                             <div className='list-group'>
-                                {/*<MessageList />*/}
-                                {messageList.map((item,index) => {
-                                    return (
-                                        <MessagesDirect channelId={item} onChangeSelected={selectedMessage} key={`${item}-nav-${index}`}/>
-                                    );
-                                })}
+                                <MessageList />
                                 {/*<a className='list-group-item list-group-item-action border-0 message-content' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
                                     <div className='d-flex w-100 justify-content-between'>
                                         <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic1} alt='User name' title='Username'/> <strong>John Lloyd</strong></label>
