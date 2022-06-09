@@ -227,12 +227,15 @@ export default class Post extends React.PureComponent {
 
     hasSameRoot = (props) => {
         const post = props.post;
+        const {currentUserId} = props.currentUserId;
 
         if (props.isFirstReply) {
             return false;
         } else if (!post.root_id && !props.previousPostIsComment && props.consecutivePostByUser) {
             return true;
         } else if (post.root_id) {
+            return true;
+        }else if(currentUserId === post.user_id){
             return true;
         }
 
@@ -266,7 +269,7 @@ export default class Post extends React.PureComponent {
 
         let currentUserCss = '';
         if (this.props.currentUserId === post.user_id && !fromWebhook && !isSystemMessage) {
-            currentUserCss = 'current--user';
+            currentUserCss = 'current--user float-end';
         }
 
         let sameUserClass = '';
@@ -349,6 +352,7 @@ export default class Post extends React.PureComponent {
             post,
             hasReplies,
             isCollapsedThreadsEnabled,
+            currentUserId,
         } = this.props;
         if (!post.id) {
             return null;
