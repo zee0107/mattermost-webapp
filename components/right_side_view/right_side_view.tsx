@@ -170,10 +170,10 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                     <div className='offcanvas-body offcanvas-body-bg'>
                         <div className='mt-0 mb-0'>
                             <div className='chat-fields'>
-                                <DeferredPostView
+                                {/*<DeferredPostView
                                     channelId={selectedMessage}
                                     focusedPostId={this.props.focusedPostId}
-                                />
+                                />*/}
                                 {postList && Object.keys(postList.posts).map((post,ind) => {
                                             return (<Post postId={post} post={postList.posts[post]} userId={currentUser.id} />);
                                     })}
