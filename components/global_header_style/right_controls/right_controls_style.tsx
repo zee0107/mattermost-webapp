@@ -61,6 +61,7 @@ const RightControlsStyle = (props: Props): JSX.Element => {
     const [categories, setCategories] = useState([]);
     const [teamId, setTeamId] = useState();
     const [messageList, setMessageList] = useState([]);
+    const [selectedMessage, setSelectedMessage] = useState();
 
     useEffect (() => {
         async function getData(){
@@ -196,7 +197,7 @@ const RightControlsStyle = (props: Props): JSX.Element => {
                                 {/*<MessageList />*/}
                                 {messageList.map((item,index) => {
                                     return (
-                                        <MessagesDirect channelId={item} key={`${item}-nav-${index}`}/>
+                                        <MessagesDirect channelId={item} onChangeSelected={selectedMessage} key={`${item}-nav-${index}`}/>
                                     );
                                 })}
                                 {/*<a className='list-group-item list-group-item-action border-0 message-content' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
