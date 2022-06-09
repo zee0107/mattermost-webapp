@@ -1495,6 +1495,7 @@ class CreatePostMessage extends React.PureComponent<Props, State> {
                             <span
                                 ref={this.createPostControlsRef}
                                 className='post-body__actions'
+                                style={{bottom: 5,zIndex: 999}}
                             >
                                 {callButton}
                                 {fileUpload}
