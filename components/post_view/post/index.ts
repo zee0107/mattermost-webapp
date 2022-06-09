@@ -7,7 +7,7 @@ import {bindActionCreators, Dispatch} from 'redux';
 import {getChannel} from 'mattermost-redux/selectors/entities/channels';
 import {getPost, makeIsPostCommentMention, makeGetCommentCountForPost} from 'mattermost-redux/selectors/entities/posts';
 import {get, isCollapsedThreadsEnabled} from 'mattermost-redux/selectors/entities/preferences';
-import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
+import {getCurrentUserId, getCurrentUser} from 'mattermost-redux/selectors/entities/users';
 
 import {GenericAction} from 'mattermost-redux/types/actions';
 import {Post} from 'mattermost-redux/types/posts';
@@ -66,9 +66,11 @@ function makeMapStateToProps() {
             previousPostIsComment = Boolean(previousPost.root_id);
         }
 
+        const currentUser = getCurrentUser(state);
+
         return {
             post,
-            currentUserId: getCurrentUserId(state),
+            currentUserId: currentUser.id,
             isFirstReply: previousPost ? isFirstReply(post, previousPost) : false,
             consecutivePostByUser,
             previousPostIsComment,
