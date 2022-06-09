@@ -133,7 +133,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         let renderView;
         if(channel.type === Constants.DM_CHANNEL){
             renderView = (
-                    <div className='col-lg-12 removePadding' onClick={() => this.handleChangeSelected(channel.id)}> {/*aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatDesktop' aria-controls='ChatDesktop'>*/}
+                    <div className='col-lg-12 removePadding' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatDesktop' aria-controls='ChatDesktop'>
                         <div className='row chat-hover'>
                             <div className='col-2 text-center p-1 mt-1'>
                                 {this.getIcon()}
