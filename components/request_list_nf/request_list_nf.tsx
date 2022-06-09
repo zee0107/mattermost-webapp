@@ -120,7 +120,7 @@ export default class RequestListsNf extends React.PureComponent<Props, State> {
         if(this.state.followStatus !== prevState.followStatus){
             if(this.props.followData !== null && this.props.followData !== undefined){
                 Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
-            
+            }
             if(this.state.followData !== null && this.state.followData !== undefined){
                 this.setState({followStatus: this.state.followData.status});
             }
