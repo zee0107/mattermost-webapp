@@ -199,7 +199,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                 </div>*/}
                             </div>
                         </div>
-                        <div className='col-12 mb-3 mt-2' style={{overflow: auto}}>
+                        <div className='col-12 mb-3 mt-2' style={{overflow: 'auto'}}>
                             <CreatePostMessage channelId={selectedMessage} />
                         </div>
                     </div>
