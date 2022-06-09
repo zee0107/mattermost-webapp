@@ -234,7 +234,6 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                         <div className='col-md-3 profile-img-div-new'>
                             {this.renderProfilePicture('xl')}
                         </div>
-                    
                         <div className='col-md-6 removePadding'>
                             <h4 className='fw-bold'>{`${currentUser.first_name} ${currentUser.last_name}`}</h4>
                             <h5 className='text-secondary small'>{'@' + currentUser.username}</h5>
