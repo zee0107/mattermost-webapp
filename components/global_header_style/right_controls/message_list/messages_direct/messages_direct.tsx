@@ -183,7 +183,6 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
                 </>
             );
         }
-
         return (
             <>
                 {renderView}
