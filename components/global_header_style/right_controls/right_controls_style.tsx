@@ -32,6 +32,7 @@ import SavedPostsButton from './saved_posts_button/saved_posts_button';
 import SettingsButton from './settings_button';
 import RequestList from 'components/request_list';
 import RequestListsNf from 'components/request_list_nf';
+import MessageList from './message_list/message_list';
 import * as GlobalActions from 'actions/global_actions';
 
 const RightControlsContainer = styled.div`
@@ -174,20 +175,19 @@ const RightControlsStyle = (props: Props): JSX.Element => {
                         </div>*/}
                         <div id=''>
                             <div className='list-group'>
-                                <a className='list-group-item list-group-item-action border-0 message-content' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
+                                <MessageList />
+                                {/*<a className='list-group-item list-group-item-action border-0 message-content' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
                                     <div className='d-flex w-100 justify-content-between'>
                                         <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic1} alt='User name' title='Username'/> <strong>John Lloyd</strong></label>
                                         <label className='mt-3'>3 days ago</label>
                                     </div>
                                     <label className='mt-0'>Hello how are you, message.</label>
                                 </a>
-                    
                                 <label className='label-chat-list-1'>
                                     <a href='#' data-bs-toggle='collapse' data-bs-target='#collapseActions' aria-expanded='false' aria-controls='collapseActions'>
                                     <i className='bi-three-dots float-end me-3'></i>
                                     </a>
                                 </label>
-                    
                                 <div className='collapse' id='collapseActions'>
                                     <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-archive'></i> Archive</a></strong></p>
                                     <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-x-circle'></i> Delete message</a></strong></p>
@@ -274,7 +274,7 @@ const RightControlsStyle = (props: Props): JSX.Element => {
                                         </div>
                                         <label>Hello how are you, message.</label>
                                 </a>
-                                <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
+                                <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>*/}
                             </div>
                         </div>
                     </div>
