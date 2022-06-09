@@ -61,7 +61,6 @@ type Props = {
     profilePicture: string;
     showNextStepsEphemeral: boolean;
     enableOnboardingFlow: boolean;
-    postList: Promise<PostList>;
     showNextSteps: boolean;
     currentUser: UserProfile;
     currentTeam: Team;
@@ -251,14 +250,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             if(this.props.storyList !== prevProps.storyList){
                 if(this.props.storyList !== undefined && this.props.storyList !== null){
                     Promise.resolve(this.props.storyList).then((value) => {this.setState({storyList: value});} );
-                }
-            }
-
-            if(this.props.postList !== prevProps.postList){
-                if(this.props.postList !== null && this.props.postList !== undefined){
-                    Promise.resolve(this.props.postList).then((value) => {
-                        this.setState({postList: value});
-                    });
                 }
             }
         }
@@ -763,14 +754,14 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
                             <div className='col-md-12 pbot-20 bgGrey'></div>
                             <div className='col-md-12 removePadding'>
-                                {/*<DeferredPostView
+                                <DeferredPostView
                                         channelId={this.props.channelId}
                                         focusedPostId={this.state.focusedPostId}
                                         filter={this.state.filter}
-                                />*/}
-                                {postList && postList.order.map((item,index) => {
+                                />
+                                {/*postList && postList.order.map((item,index) => {
                                     Object.keys(postList.posts).map((item2,index2) => {return (<Post postId={item} post={postList.posts[item2]} />);});
-                                })}
+                                })*/}
                             </div>
                         </div>
                     </div>
