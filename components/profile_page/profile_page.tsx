@@ -383,6 +383,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     </>
                 );
             }
+        }else{
+            chatList = (
+                <h3 className='text-center'><i className='bi-chats-left'></i> No Messages</h3>
+            );
         }
 
         let profileBtn;
