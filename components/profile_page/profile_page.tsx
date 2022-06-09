@@ -37,6 +37,7 @@ import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
 import UserSettingsModal from 'components/user_settings/modal_profile';
 import PostModal from 'components/user_settings/modal_post/post_modal';
 import CreatePostProfile from 'components/create_post_profile';
+import CreatePostMessage from 'components/create_post_message';
 import {ModalData} from 'types/actions';
 import {ModalIdentifiers} from 'utils/constants';
 import ChannelHeaderMobile from 'components/channel_header_mobile';
