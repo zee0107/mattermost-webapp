@@ -158,7 +158,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                             channelId={selectedMessage}
                             focusedPostId={this.props.focusedPostId}
                         />
-                        <div className='col-12 mt-3 mb-3 removePadding'>
+                        <div className='col-12 input-group mt-3 mb-3 removePadding'>
                             <CreatePost channelId={selectedMessage}/>
                         </div>
                     </div>
@@ -176,7 +176,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                             channelId={selectedMessage}
                             focusedPostId={this.props.focusedPostId}
                         />
-                        <div className='col-12 mt-3 mb-3 removePadding'>
+                        <div className='col-12 input-group mt-3 mb-3 removePadding'>
                             <CreatePost channelId={selectedMessage}/>
                             {/*<input type='text' className='form-control write-message-inputs-mobile' aria-label='Type your message here' placeholder='Type your message here...' />
                             <span className='input-group-text group-text-actions bg-transparent'>
