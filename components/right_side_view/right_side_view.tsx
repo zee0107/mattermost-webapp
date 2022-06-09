@@ -101,7 +101,9 @@ export default class RightSideView extends React.PureComponent<Props, State> {
     componentDidUpdate(_,prevState){
         const {selectedMessage} = this.state;
         if(selectedMessage !== prevState){
-            this.getList();
+            if(selectedMessage){
+                this.getList();
+            }
         }
     }
 
@@ -112,12 +114,10 @@ export default class RightSideView extends React.PureComponent<Props, State> {
     }
 
     getList = () => {
-        return (async () => {
-            if(this.state.selectedMessage){
-                const data = await Client4.getPosts(this.state.selectedMessage);
-                this.setState({messageBody: data});
-            }
-        });
+        if(this.state.selectedMessage){
+            const data = Client4.getPosts(this.state.selectedMessage);
+            Promise.resolve(data).then((value) => {this.setState({messageBody: value})});
+        }
     }
 
     handleChangeView = (value: string) => { 
