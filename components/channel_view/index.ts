@@ -8,7 +8,7 @@ import {withRouter} from 'react-router-dom';
 
 import {Client4} from 'mattermost-redux/client';
 
-import {getCurrentChannel, getDirectTeammate} from 'mattermost-redux/selectors/entities/channels';
+import {getChannelByName, getCurrentChannel, getDirectTeammate} from 'mattermost-redux/selectors/entities/channels';
 import {getMyChannelRoles} from 'mattermost-redux/selectors/entities/roles';
 import {getRoles} from 'mattermost-redux/selectors/entities/roles_helpers';
 import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
@@ -51,7 +51,7 @@ function mapStateToProps(state: GlobalState) {
     const enableOnboardingFlow = config.EnableOnboardingFlow === 'true';
 
     let channelRolesLoading = true;
-    const postList = Client4.getPosts(channel.id);
+    const postList = Client4.getPosts(getChannelByName(state, channel? channel.name : '')?.id);
     if (channel && channel.id) {
         const roles = getRoles(state);
         const myChannelRoles = getMyChannelRoles(state);
