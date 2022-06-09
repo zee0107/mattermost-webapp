@@ -23,13 +23,14 @@ function makeMapStateToProps() {
             const stateValue = window.localStorage.getItem('GlobalState');
             state = JSON.parse(stateValue);
         }  
+
+        console.log('State: ',state);
         
         const currentUser = getCurrentUser(state);
         const channel = getChannel(state,{id: ownProps.channelId});
-        let unreadCount;
-        if(channel){
-            unreadCount = getUnreadCount(state, channel.id);
-        } 
+        
+        console.log('Channel: ',channel);
+        const unreadCount = getUnreadCount(state, channel.id);
         const teammate = getUser(state, channel.teammate_id!);
         const currentTeam = getTeamByName(state,'crypter');
         const posts = Client4.getPosts(channel.id);

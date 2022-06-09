@@ -116,11 +116,11 @@ export default class MessageList extends React.PureComponent<Props, State> {
         if (messagesList && messagesList.length){
             chatList = (
                 <>
-                    {/*messagesList.map((item, index) => {
+                    {messagesList.map((item, index) => {
                         return (
                             <MessageDirect channelId={item} onChangeSelected={this.onChangeSelected} key={`${item}-${index}`} />
                         );
-                    })*/}
+                    })}
                 </>
             );
         }
