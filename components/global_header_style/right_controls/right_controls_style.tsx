@@ -175,7 +175,7 @@ const RightControlsStyle = (props: Props): JSX.Element => {
                         </div>*/}
                         <div id=''>
                             <div className='list-group'>
-                                <MessageList />
+                                {/*<MessageList />*/}
                                 {/*<a className='list-group-item list-group-item-action border-0 message-content' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
                                     <div className='d-flex w-100 justify-content-between'>
                                         <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic1} alt='User name' title='Username'/> <strong>John Lloyd</strong></label>
