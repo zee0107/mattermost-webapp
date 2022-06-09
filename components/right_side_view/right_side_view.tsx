@@ -20,6 +20,7 @@ import MessageHeader from 'components/right_side_view/messages_header';
 import CreatePostMessage from 'components/create_post_message';
 import deferComponentRender from 'components/deferComponentRender';
 import PostView from 'components/post_view';
+import Post from 'components/post_view/post';
 
 type Props = {
     profilePicture: string;
