@@ -21,12 +21,13 @@ import CreatePostMessage from 'components/create_post_message';
 import deferComponentRender from 'components/deferComponentRender';
 import PostView from 'components/post_view';
 import Post from 'components/post_view/post';
+import { Client4 } from 'mattermost-redux/client';
 
 type Props = {
     profilePicture: string;
     currentUser: UserProfile;
     socialCount: Promise<SocialCount>;
-    getPostList: Promise<PostList>;
+    //getPostList: Promise<PostList>;
     categories: Promise<ChannelCategory>;
     focusedPostId: string;
  }
@@ -85,15 +86,18 @@ export default class RightSideView extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.socialCount).then(value => { this.setState({socialCount: value});});
         }
 
-        if(this.props.getPostList !== null){
-            Promise.resolve(this.props.getPostList).then(value => {this.setState({postList: value});});
-        }
-
         if(this.props.categories){
             Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
         }
 
         this.setMessageList();
+    }
+
+    componentDidUpdate(_,prevState){
+        const {selectedMessage} = this.state;
+        if(selectedMessage !== prevState){
+            this.getList();
+        }
     }
 
     setDocumentTitle = (siteName: string) => {
@@ -102,7 +106,14 @@ export default class RightSideView extends React.PureComponent<Props, State> {
         }
     }
 
-
+    getList = () => {
+        return (async () => {
+            if(this.state.selectedMessage){
+                const data = await Client4.getPosts(this.state.selectedMessage);
+                this.setState({postList: data});
+            }
+        });
+    }
 
     handleChangeView = (value: string) => { 
         this.setState({view: value});
@@ -177,10 +188,10 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                     focusedPostId={this.props.focusedPostId}
                                 />*/}
                                 <div className='row' style={{height: '60vh', overflow: 'auto'}}>
-                                    {/*{postList && Object.keys(postList.posts).map((post,ind) => {
+                                    {postList && Object.keys(postList.posts).map((post,ind) => {
                                             return (<Post postId={post} post={postList.posts[post]} userId={currentUser.id} />);
-                                    })*/}
-                                    <PostView channelId={selectedMessage} focusedPostId={this.props.focusedPostId} />
+                                    })}
+                                    {/*<PostView channelId={selectedMessage} focusedPostId={this.props.focusedPostId} />*/}
                                 </div>
                                 
                                 {/*<div className='row'>
