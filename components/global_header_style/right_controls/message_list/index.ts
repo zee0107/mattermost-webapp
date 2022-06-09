@@ -15,7 +15,7 @@ import MessageList from './message_list'
 function makeMapStateToProps() {
     return function mapStateToProps(state: GlobalState) {
         console.log(state);
-        if(state.entities.teams.currentTeamId === "" || state.entities.teams.currentTeamId === null || state.entities.teams.currentTeamId === undefined){
+        if(!state.entities.teams.teams && !state.entities.teams.teams.length){
             const stateValue = window.localStorage.getItem('GlobalState');
             state = JSON.parse(stateValue);
         }
