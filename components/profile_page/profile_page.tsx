@@ -642,8 +642,32 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
         const DeferredPostView = this.state.deferredPostView;
 
+        let offCanvasView;
+        if(selectedMessage && selectedMessage.length){
+            offCanvasView = (
+                <>
+                    <div className='offcanvas-header'>
+                        <MessageHeader channelId={selectedMessage} onChangeSelected={this.onChangeSelected} />
+                    </div>
+                    <div className='offcanvas-body offcanvas-body-bg'>
+                        <div className='mt-0 mb-0'>
+                            <div className='chat-fields'>
+                                <DeferredPostView
+                                    channelId={selectedMessage}
+                                    focusedPostId={this.props.focusedPostId}
+                                />
+                            </div>
+                        </div>
+                        <div className='input-group mb-3 mt-2'>
+                            <CreatePostMessage channelId={selectedMessage} />
+                        </div>
+                    </div>
+                </>
+            );
+        }
+
         return (
-            <div>
+            <>
                 <SidebarRight topLevel={70}/>
                 <div className='profile-header-desktop'>
                     <section id='profile' className='profile-views'>
@@ -1163,7 +1187,13 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                 </div>
             </div>
             <EditPostModal/>
-        </div>
+
+            <div style={{zIndex: 999}} className='offcanvas offcanvas-end shadow-lg' data-bs-scroll='true' data-bs-backdrop='false' tabIndex='-1' id='ChatDesktop' aria-labelledby='ChatDesktop'>
+                {offCanvasView}
+            </div>
+        </>
+
+        
         );
     }
 }
