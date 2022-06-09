@@ -87,7 +87,6 @@ export default class RequestListsNf extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this._isMounted = false;
         this.state = {followStatus: 0,postValues:[],listId:[],feeling: true,userActivity: '',userLocation: '',shareInfo: 'everyone',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false};
 
         this.handleFollow = this.handleFollow.bind(this);
@@ -97,7 +96,6 @@ export default class RequestListsNf extends React.PureComponent<Props, State> {
     }
 
     componentDidMount(){
-        this._isMounted = true;
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
 
@@ -118,22 +116,15 @@ export default class RequestListsNf extends React.PureComponent<Props, State> {
         }
     }
 
-    componentDidUpdate(prevProps: Props,prevState: State){
-        if(this.props.followData !== prevProps.followData){
-            if(this._isMounted){
-                if(this.props.followData !== null && this.props.followData !== undefined){
-                    Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
-                }
-
-                if(this.state.followData !== null && this.state.followData !== undefined){
-                    this.setState({followStatus: this.state.followData.status});
-                }
+    componentDidUpdate(prevProps,prevState){
+        if(this.state.followStatus !== prevState.followStatus){
+            if(this.props.followData !== null && this.props.followData !== undefined){
+                Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
+            
+            if(this.state.followData !== null && this.state.followData !== undefined){
+                this.setState({followStatus: this.state.followData.status});
             }
         }
-    }
-
-    componentWillUnmount(){
-        this._isMounted = false;
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
