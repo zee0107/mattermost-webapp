@@ -14,9 +14,8 @@ import {ModalIdentifiers} from 'utils/constants';
 import { SocialCount } from 'mattermost-redux/types/crypto';
 import { PostList } from 'mattermost-redux/types/posts';
 import { ChannelCategory } from 'mattermost-redux/types/channel_categories';
-import MessageDirect from 'components/right_side_view/messages_direct';
-import MessageGroup from 'components/right_side_view/messages_group';
-import MessageHeader from 'components/right_side_view/messages_header';
+import MessageDirect from './messages_direct';
+import MessageHeader from './messages_header';
 import CreatePostMessage from 'components/create_post_message';
 import deferComponentRender from 'components/deferComponentRender';
 import PostView from 'components/post_view';
@@ -72,7 +71,7 @@ export default class MessageList extends React.PureComponent<Props, State> {
     componentDidMount(){
         const ThemeValue = window.localStorage.getItem("theme");
         this.setState({isDark: ThemeValue});
-        
+
         if(this.props.categories){
             Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
         }
