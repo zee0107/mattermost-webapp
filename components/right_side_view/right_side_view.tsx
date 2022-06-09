@@ -3,18 +3,13 @@
 
 import React, {ReactNode, ReactPropTypes} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
-import {ActionFunc} from 'mattermost-redux/types/actions';
-import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
-import CreatePost from 'components/create_post/create_post';
+import {UserProfile} from 'mattermost-redux/types/users';
 
 import homeImage from 'images/homeFeed.png';
 import profPic from 'images/profiles/user-profile-1.png';
 import trendImage from 'images/trending-up.svg';
-import postPic from 'images/profiles/user-profile-2.png';
-import postPic2 from 'images/profiles/user-profile-3.png';
 import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
 import UserSettingsModal from 'components/user_settings/modal_profile';
-import {ModalData} from 'types/actions';
 import {ModalIdentifiers} from 'utils/constants';
 import { SocialCount } from 'mattermost-redux/types/crypto';
 import { PostList } from 'mattermost-redux/types/posts';
@@ -72,7 +67,7 @@ export default class RightSideView extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {openUp: false, width: 0, isStatusSet: false, isDark:'light',img_path: homeImage,logo_url: [], data: [],messagesList: [], view: 'direct',deferredPostView: RightSideView.createDeferredPostView()};
+        this.state = {openUp: false, postValues: [], listId: [], width: 0, isStatusSet: false, isDark:'light',img_path: homeImage,logo_url: [], data: [],messagesList: [], view: 'direct',deferredPostView: RightSideView.createDeferredPostView()};
 
         this.channelViewRef = React.createRef();
     }
@@ -178,6 +173,9 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                     channelId={selectedMessage}
                                     focusedPostId={this.props.focusedPostId}
                                 />
+                                {postList && Object.keys(postList.posts).map((post,ind) => {
+                                            return (<Post postId={post} post={postList.posts[post]} userId={currentUser.id} />);
+                                    })}
                                 {/*<div className='row'>
                                     <div className='col-lg-12'>
                                         <a>
