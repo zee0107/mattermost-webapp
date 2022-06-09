@@ -158,11 +158,11 @@ export default class Messages extends React.PureComponent<Props, State> {
                             channelId={selectedMessage}
                             focusedPostId={this.props.focusedPostId}
                         />
-                    </div>
-                    <div className='input-group col-12 mt-3 mb-3 removePadding'>
+                        <div className='input-group col-12 mt-3 mb-3 removePadding'>
                             <CreatePost channelId={selectedMessage}/>
+                        </div>
                     </div>
-                </>
+                </>  
             );
 
             messageHeaderMobile = (
