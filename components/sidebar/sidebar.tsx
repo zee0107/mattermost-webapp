@@ -47,6 +47,8 @@ type Props = {
 type State = {
     showDirectChannelsModal: boolean;
     isDragging: boolean;
+    isCollapsed: boolean;
+    isCollapsedSub: boolean;
 };
 
 export default class Sidebar extends React.PureComponent<Props, State> {
@@ -55,10 +57,14 @@ export default class Sidebar extends React.PureComponent<Props, State> {
         this.state = {
             showDirectChannelsModal: false,
             isDragging: false,
+            isCollapsed: true,
             newListing: [],
             trendListing: [], 
             gainerListing:[],
         };
+
+        this.handleCollapsed = this.handleCollapsed.bind(this);
+        this.handleCollapsedSub = this.handleCollapsedSub.bind(this);
     }
 
     componentDidMount() {
@@ -78,6 +84,14 @@ export default class Sidebar extends React.PureComponent<Props, State> {
     showMoreDirectChannelsModal = () => {
         this.setState({showDirectChannelsModal: true});
         trackEvent('ui', 'ui_channels_more_direct_v2');
+    }
+
+    handleCollapsed = (e) => {
+        this.setState({isCollapsed: e.target.value});
+    }
+
+    handleCollapsedSub = (e) => {
+        this.setState({isCollapsedSub: e.target.value});
     }
 
     hideMoreDirectChannelsModal = () => {
@@ -222,12 +236,12 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                 </div>
                 <div className='col-sm-12'>
                     <div className='menu-wrapper-collapse sidemenuBox'>
-                        <input type="checkbox" id="list-item-1" checked></input>
+                        <input type="checkbox" id="list-item-1" onChange={this.handleCollapsed} value={this.state.isCollapsed} defaultChecked={this.state.isCollapsed}></input>
                         <label htmlFor="list-item-1" className="first collapsible-label-title"><img src={rocketImage} className="sidemenu-title-img"></img>Launchpad</label>
                             <ul className='ul-collapse'>
                                 <li key='create-launchpad' className='sidemenu-padding'><div className={'list-sidemenu-a ' + `${this.state.middleView === 'create-launchpad' ? 'active-item' : ''}`}><a href="/launchpad"  onClick={() => this.setState({middleView: 'create-launchpad'})} className='side-menu-item'>Create Launchpad</a></div></li>
                                 <li key='projects' className='sidemenu-padding'>
-                                    <input type="checkbox" id="list-item-2" checked></input>
+                                    <input type="checkbox" id="list-item-2"  onChange={this.handleCollapsedSub} value={this.state.isCollapsedSub} defaultChecked={this.state.isCollapsedSub}></input>
                                     <label htmlFor="list-item-2" className="first collapsible-label">Projects</label>
                                     <ul className='ul-collapse'>
                                         <li key='live'><div className={'list-sidemenu-b ' + `${this.state.middleView === 'projects-live' ? 'active-item' : ''}`}><a href="/launchpad-live" onClick={() => this.setState({middleView: 'projects-live'})} className='side-menu-item'>Live</a></div></li>

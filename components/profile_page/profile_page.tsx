@@ -356,8 +356,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         let WorkspaceAvailable = (<img className='bg-check-arrow-plus rounded-circle' src={UndoneIcon} alt=''/>);
         
         let chatList;
+        let chatTitle;
         if (messagesList && messagesList.length){
             if(view === 'direct'){
+                chatTitle = 'Chats';
                 chatList = (
                     <>
                         {messagesList.map((item, index) => {
@@ -368,6 +370,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     </>
                 );
             }else{
+                chatTitle = 'Group Chats';
                 chatList = (
                     <>
                         {messagesList.map((item, index) => {
@@ -836,7 +839,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             </div>
                             <div className='col-lg-4' id='rsvDesktop'>
                                 {completionView}
-                                <div className='col-lg-12 chat-box removePadding mtop-10'>
+                                <div className='col-lg-12 chat-box p-2 mtop-10'>
                                     <div className='d-flex'>
                                         <div className='col-lg-4 '>
                                             <div className='d-flex'>
@@ -857,7 +860,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                             </div>
                                         </div>
                                         <div className='col-lg-4  text-center'>
-                                            <h4 className='getStartPrimaryText'>Chat</h4>
+                                            <h4 className='getStartPrimaryText'>{chatTitle}</h4>
                                         </div>
                                         <div className='col-lg-4  chat-setting'>
                                             <h4><a href='#' title='Settings'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='var(--text-primary)' className='bi bi-gear' viewBox='0 0 16 16'>
