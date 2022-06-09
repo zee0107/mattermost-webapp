@@ -1454,6 +1454,7 @@ class CreatePostMessage extends React.PureComponent<Props, State> {
                 ref={this.topDiv}
                 className={centerClass}
                 onSubmit={this.handleSubmit}
+                style={{width: '100%'}}
             >
                 <div
                     className={'post-create' + attachmentsDisabled + scrollbarClass}
