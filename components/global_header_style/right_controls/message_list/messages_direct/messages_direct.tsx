@@ -141,7 +141,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         if(channel.type === Constants.DM_CHANNEL){
             renderView = (
                 <>
-                    <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatDesktop' aria-controls='ChatDesktop'>
+                    <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatNavbar' aria-controls='ChatNavbar'>
                         <div className='d-flex w-100 justify-content-between'>
                             <label className='mb-1'>{this.getIcon()} <strong>{displayName}</strong></label>
                             <label className='mt-3'>3 days ago</label>
@@ -163,7 +163,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         }else{
             renderView = (
                 <>
-                    <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatDesktop' aria-controls='ChatDesktop'>
+                    <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatNavbar' aria-controls='ChatNavbar'>
                         <div className='d-flex w-100 justify-content-between'>
                             <label className='mb-1'>{this.getIconGroup()} <strong>{displayName}</strong></label>
                             <label className='mt-3'>3 days ago</label>
