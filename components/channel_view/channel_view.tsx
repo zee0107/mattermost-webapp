@@ -133,7 +133,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             updatedState = {...updatedState, focusedPostId};
         }
 
-        if(props.postList !== null){
+        if(props.postList !== null && props.postList !== undefined){
             Promise.resolve(props.postList).then((value) => {
                 updatedState = {...updatedState, postList: value};
             });
