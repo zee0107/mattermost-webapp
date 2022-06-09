@@ -58,6 +58,9 @@ function handleEmitUserLoggedOutEvent(){
 const RightControlsStyle = (props: Props): JSX.Element => {
     const [profiles, setProfiles] = useState([]);
     const [request, setRequest] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [teamId, setTeamId] = useState();
+    const [messageList, setMessageList] = useState([]);
 
     useEffect (() => {
         async function getData(){
@@ -74,13 +77,31 @@ const RightControlsStyle = (props: Props): JSX.Element => {
             const data = await Client4.getRequestList(props.currentUser.id);
             return data;
         }
-        
-       getData().then((value) => { setProfiles(value) });
-       getRequest().then((value) => { setRequest(value) });
+
+        async function getTeam(){
+            const data = await Client4.getTeamByName('crypter');
+            return data;
+        }
+
+        async function getCategories(){
+            const data = await Client4.getChannelCategories('me',teamId);
+            return data;
+        }
+
+        getTeam().then((value) => { setTeamId(value.id)});
+        getCategories().then((value) => { setCategories(value.categories)});
+        getData().then((value) => { setProfiles(value) });
+        getRequest().then((value) => { setRequest(value) });
+
+        if(categories){
+            Object.keys(categories).map((item) => {
+                setMessageList(categories[item].channel_ids);
+            });
+        }
     }, []);
 
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
-
+    console.log(messageList);
     return (
         <RightControlsContainer>
                 {/*productId === null ? (
