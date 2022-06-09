@@ -84,6 +84,14 @@ const RightControlsStyle = (props: Props): JSX.Element => {
             setTeamId(data.id);
             const dataCategories = await Client4.getChannelCategories('me',data.id);
             console.log('Categories: ', dataCategories);
+
+            if(dataCategories && dataCategories.length){
+                Object.keys(dataCategories).map((item) =>{
+                    if(dataCategories[item].type === 'direct_messages'){
+                        setMessageList(dataCategories[item].channel_ids);
+                    }
+                });
+            }
             return data;
         }
 
@@ -97,12 +105,6 @@ const RightControlsStyle = (props: Props): JSX.Element => {
         //getCategories().then((value) => { setCategories(value.categories)});
         getData().then((value) => { setProfiles(value) });
         getRequest().then((value) => { setRequest(value) });
-
-        if(categories){
-            Object.keys(categories).map((item) => {
-                setMessageList(categories[item].channel_ids);
-            });
-        }
     }, []);
 
     const showSettingsTip = useShowTutorialStep(TutorialSteps.SETTINGS);
