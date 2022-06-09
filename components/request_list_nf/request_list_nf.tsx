@@ -14,10 +14,6 @@ import coverImage from 'images/cover-photo.png';
 import {ModalData} from 'types/actions';
 
 import { RequestList, SocialCount } from 'mattermost-redux/types/crypto';
-import { PostList } from 'mattermost-redux/types/posts';
-import { post } from 'jquery';
-import { profile } from 'console';
-import { unreadFilterEnabled } from 'reducers/views/channel_sidebar';
 
 type Props = {
     status?: string;
@@ -91,7 +87,7 @@ export default class RequestListsNf extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-
+        this._isMounted = false;
         this.state = {followStatus: 0,postValues:[],listId:[],feeling: true,userActivity: '',userLocation: '',shareInfo: 'everyone',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false};
 
         this.handleFollow = this.handleFollow.bind(this);
@@ -101,6 +97,7 @@ export default class RequestListsNf extends React.PureComponent<Props, State> {
     }
 
     componentDidMount(){
+        this._isMounted = true;
         const ThemeValue = window.localStorage.getItem('theme');
         this.setState({isDark: ThemeValue});
 
@@ -131,6 +128,10 @@ export default class RequestListsNf extends React.PureComponent<Props, State> {
                 this.setState({followStatus: this.state.followData.status});
             }
         }
+    }
+
+    componentWillUnmount(){
+        this._isMounted = false;
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {

@@ -639,7 +639,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                             <>
                                 {storyList.map((item,key) => {
                                     return (
-                                        <StoryList userId={item} key={`${item}-${key}`} />
+                                        <StoryList userId={item} key={`${item}--${key}`} />
                                     );
                                 })}
                             </>
