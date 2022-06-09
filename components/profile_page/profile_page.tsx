@@ -6,7 +6,7 @@ import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import deferComponentRender from 'components/deferComponentRender';
-import PostView from 'components/post_view_new';
+import PostView from 'components/post_view';
 import EditPostModal from 'components/edit_post_modal';
 import Post from 'components/post_view_new/post';
 import FileUploadOverlay from 'components/file_upload_overlay';
@@ -850,17 +850,9 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 </div>
                                 
                                 <div className='mtop-20'>
-                                    {/*<DeferredPostView
-                                        channelId='kqe4sihhdid47gprhk6dwbuc4o'
-                                        //channelId='dodurztr1fbupnpenjgxqjso3a'
-                                        focusedPostId={''}
-                                    />*/}
                                     {postList && Object.keys(postList.posts).map((post,ind) => {
                                             return (<Post postId={post} post={postList.posts[post]}  userId={currentUser.id} />);
                                     })}
-                                    {/*postList && postList.order.map((item,index) => {
-                                        return (<Post postId={post}/>);
-                                    })*/}
                                 </div>
                             </div>
                             <div className='col-lg-4' id='rsvDesktop'>
