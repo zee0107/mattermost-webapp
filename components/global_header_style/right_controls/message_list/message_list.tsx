@@ -111,21 +111,9 @@ export default class MessageList extends React.PureComponent<Props, State> {
             });
         }
 
-        let chatList;
-        if (messagesList && messagesList.length){
-            chatList = (
-                <>
-                    {messagesList.map((item, index) => {
-                        return (
-                            <MessageDirect channelId={item} onChangeSelected={this.onChangeSelected} key={`${item}----${index}`} />
-                        );
-                    })}
-                </>
-            );
-        }
-
         let offCanvasView;
         if(selectedMessage && selectedMessage.length){
+
             offCanvasView = (
                 <>
                     <div className='offcanvas-header'>
@@ -153,12 +141,26 @@ export default class MessageList extends React.PureComponent<Props, State> {
             );
         }
 
+        let chatList;
+        if (messagesList && messagesList.length){
+            chatList = (
+                <>
+                    {messagesList.map((item, index) => {
+                        return (
+                            <MessageDirect channelId={item} onChangeSelected={this.onChangeSelected} key={`${item}----${index}`} />
+                        );
+                    })}
+                    
+                    <div style={{zIndex: 999}} className='offcanvas offcanvas-end shadow-lg' data-bs-scroll='true' data-bs-backdrop='false' tabIndex='-1' id='ChatNavbar' aria-labelledby='ChatNavbar'>
+                        {offCanvasView}
+                    </div>
+                </>
+            );
+        }
+
         return (
             <>
                 {chatList}
-                <div style={{zIndex: 999}} className='offcanvas offcanvas-end shadow-lg' data-bs-scroll='true' data-bs-backdrop='false' tabIndex='-1' id='ChatNavbar' aria-labelledby='ChatNavbar'>
-                    {offCanvasView}
-                </div>
             </>
         );
     }
