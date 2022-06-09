@@ -102,6 +102,8 @@ export default class RightSideView extends React.PureComponent<Props, State> {
         }
     }
 
+
+
     handleChangeView = (value: string) => { 
         this.setState({view: value});
     }
@@ -175,9 +177,10 @@ export default class RightSideView extends React.PureComponent<Props, State> {
                                     focusedPostId={this.props.focusedPostId}
                                 />*/}
                                 <div className='row' style={{height: '60vh', overflow: 'auto'}}>
-                                    {postList && Object.keys(postList.posts).map((post,ind) => {
+                                    {/*{postList && Object.keys(postList.posts).map((post,ind) => {
                                             return (<Post postId={post} post={postList.posts[post]} userId={currentUser.id} />);
-                                    })}
+                                    })*/}
+                                    <PostView channelId={selectedMessage} focusedPostId={this.props.focusedPostId} />
                                 </div>
                                 
                                 {/*<div className='row'>
