@@ -156,7 +156,7 @@ export default class MessageList extends React.PureComponent<Props, State> {
         return (
             <>
                 {chatList}
-                <div style={{zIndex: 999}} className='offcanvas offcanvas-end shadow-lg' data-bs-scroll='true' data-bs-backdrop='false' tabIndex='-1' id='ChatDesktop' aria-labelledby='ChatDesktop'>
+                <div style={{zIndex: 999}} className='offcanvas offcanvas-end shadow-lg' data-bs-scroll='true' data-bs-backdrop='false' tabIndex='-1' id='ChatNavbar' aria-labelledby='ChatNavbar'>
                     {offCanvasView}
                 </div>
             </>

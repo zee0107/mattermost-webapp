@@ -141,19 +141,19 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         if(channel.type === Constants.DM_CHANNEL){
             renderView = (
                 <>
-                    <a className='list-group-item list-group-item-action border-0 message-content' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatDesktop' aria-controls='ChatDesktop'>
+                    <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatDesktop' aria-controls='ChatDesktop'>
                         <div className='d-flex w-100 justify-content-between'>
                             <label className='mb-1'>{this.getIcon()} <strong>{displayName}</strong></label>
                             <label className='mt-3'>3 days ago</label>
                         </div>
-                        <label className='mt-0'>{lastMessage} {unreadNotif}</label>
+                        <label className='mt-0'>{lastMessage}</label>
                     </a>
-                    <label className='label-chat-list-1'>
+                    <label className='label-chat-list-1 text-dark'>
                         <a href='#' data-bs-toggle='collapse' data-bs-target='#collapseActions' aria-expanded='false' aria-controls='collapseActions'>
                         <i className='bi-three-dots float-end me-3'></i>
                         </a>
                     </label>
-                    <div className='collapse' id='collapseActions'>
+                    <div className='collapse text-dark' id='collapseActions'>
                         <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-archive'></i> Archive</a></strong></p>
                         <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-x-circle'></i> Delete message</a></strong></p>
                         <p className='ms-3 mt-2 mb-2'><strong><a className='action-remove-msg-text'><i className='bi-dash-square'></i> Block</a></strong></p>
@@ -163,19 +163,19 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         }else{
             renderView = (
                 <>
-                    <a className='list-group-item list-group-item-action border-0 message-content' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatDesktop' aria-controls='ChatDesktop'>
+                    <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatDesktop' aria-controls='ChatDesktop'>
                         <div className='d-flex w-100 justify-content-between'>
                             <label className='mb-1'>{this.getIconGroup()} <strong>{displayName}</strong></label>
                             <label className='mt-3'>3 days ago</label>
                         </div>
-                        <label className='mt-0'>{lastMessage} {unreadNotif}</label>
+                        <label className='mt-0'>{lastMessage}</label>
                     </a>
-                    <label className='label-chat-list-1'>
+                    <label className='label-chat-list-1 text-dark'>
                         <a href='#' data-bs-toggle='collapse' data-bs-target='#collapseActions' aria-expanded='false' aria-controls='collapseActions'>
                         <i className='bi-three-dots float-end me-3'></i>
                         </a>
                     </label>
-                    <div className='collapse' id='collapseActions'>
+                    <div className='collapse text-dark' id='collapseActions'>
                         <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-archive'></i> Archive</a></strong></p>
                         <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-x-circle'></i> Delete message</a></strong></p>
                         <p className='ms-3 mt-2 mb-2'><strong><a className='action-remove-msg-text'><i className='bi-dash-square'></i> Block</a></strong></p>
