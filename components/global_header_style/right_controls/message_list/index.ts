@@ -18,11 +18,11 @@ function makeMapStateToProps() {
             const stateValue = window.localStorage.getItem('GlobalState');
             state = JSON.parse(stateValue);
         }
+        console.log(state);
         const currentUser = getCurrentUser(state);
         const userId = currentUser?.id;
         
         const team = getTeamByName(state,'crypter');
-        console.log(team);
         const categories = Client4.getChannelCategories('me',team?.id);
         return {
             categories,

@@ -32,7 +32,7 @@ import SavedPostsButton from './saved_posts_button/saved_posts_button';
 import SettingsButton from './settings_button';
 import RequestList from 'components/request_list';
 import RequestListsNf from 'components/request_list_nf';
-import MessageList from './message_list/message_list';
+import MessageList from './message_list';
 import * as GlobalActions from 'actions/global_actions';
 
 const RightControlsContainer = styled.div`
