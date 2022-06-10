@@ -62,9 +62,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         this.handleGetTeammate();
     }
 
-    handleGetTeammate = () => {
-        const {channel} = this.state;
-
+    handleGetTeammate = (channel: Channel) => {
         if(channel){
             const data = Client4.getUser(channel.teammate_id);
             Promise.resolve(data).then((value) => {this.setState({teammate: value});})
@@ -133,6 +131,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         const {posts,teammate,channel, unreadCount} = this.state;
         let displayName
         if(channel){
+            this.handleGetTeammate(channel);
             displayName = channel.display_name;
         }
         
