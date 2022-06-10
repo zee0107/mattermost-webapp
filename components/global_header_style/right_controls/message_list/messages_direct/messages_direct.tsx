@@ -11,17 +11,14 @@ import {Client4} from 'mattermost-redux/client';
 import ProfilePicture from 'components/profile_picture';
 import { PostList } from 'mattermost-redux/types/posts';
 import { object } from 'prop-types';
+import { post } from 'jquery';
 
 export type Props = {
     posts: Promise<PostList>;
-    channel: Channel;
+    unreadCount: Promise<PostList>;
+    channel: Promise<Channel>;
     currentTeam: Team;
     currentUser: UserProfile;
-    teammate?: UserProfile;
-    unreadMentions: number;
-    unreadMessages: number;
-    isUnread: boolean;
-    teammateUsername?: string;
     onChangeSelected: any;
     membersCount: number;
 }
@@ -29,6 +26,9 @@ export type Props = {
 type State = {
     isDark: string;
     posts: PostList;
+    teammate: UserProfile;
+    channel: Channel;
+    unreadCount: PostList;
 };
 
 export default class MessagesDirect extends React.PureComponent<Props, State> {
@@ -45,6 +45,25 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         if(this.props.posts){
             Promise.resolve(this.props.posts).then((value) => {this.setState({posts: value});});
         }
+
+        if(this.props.channel){
+            Promise.resolve(this.props.channel).then((value) => {this.setState({channel: value});});
+        }
+
+        if(this.props.unreadCount){
+            Promise.resolve(this.props.unreadCount).then((value) => {this.setState({unreadCount: value});});
+        }
+
+        this.handleGetTeammate();
+    }
+
+    handleGetTeammate = () => {
+        const {channel} = this.state;
+
+        if(channel){
+            const data = Client4.getUser(channel.teammate_id);
+            Promise.resolve(data).then((value) => {this.setState({teammate: value});})
+        }
     }
 
     handleChangeSelected = (id: string) => {
@@ -58,7 +77,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
     }
 
     getIcon = () => {
-        const {channel, teammate} = this.props;
+        const {channel, teammate} = this.state;
 
         if (!teammate) {
             return null;
@@ -94,8 +113,8 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {channel,unreadMessages,isUnread,teammateUsername,teammate,currentUser, view} = this.props;
-        const {posts} = this.state;
+        const {currentUser} = this.props;
+        const {posts,teammate,channel, unreadCount} = this.state;
         let displayName = channel.display_name;
         if(teammate && currentUser){
                 if (currentUser.id === teammate.id) {
@@ -103,18 +122,19 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
                 }
         }
 
-        let unreadNotif;
-        if(isUnread){
-            if(unreadMessages > 20){
+        if(unreadCount){
+            let unreadNotif;
+            if(unreadCount.order.length > 20){
                 unreadNotif = (
                     <span className='badge rounded-pill bg-danger small'>20+</span>
                 );
             }else{
                 unreadNotif = (
-                    <span className='badge rounded-pill bg-danger small'>{unreadMessages}</span>
+                    <span className='badge rounded-pill bg-danger small'>{unreadCount.order.length}</span>
                 );
             }
         }
+        
         let lastMessage;
         if(posts){
             lastMessage = (

@@ -27,11 +27,8 @@ function makeMapStateToProps() {
             state = JSON.parse(stateValue);
         }  
         const currentUser = getCurrentUser(state);
-        const channelValue = Client4.getChannel(ownProps.channelId);
-        const channel = Promise.resolve(channelValue).then(value => value);
-        const userValue = Client4.getUser(channel.teammate_id);
-        const teammate = Promise.resolve(userValue).then(value => value);
-        //const unreadCount = Client4.getPostsUnread(ownProps.channelId, currentUser.id);
+        const channel = Client4.getChannel(ownProps.channelId);
+        const unreadCount = Client4.getPostsUnread(ownProps.channelId, currentUser.id);
         const currentTeam = getTeamByName(state, 'crypter');
         const posts = Client4.getPosts(ownProps.channelId);
 
@@ -52,12 +49,9 @@ function makeMapStateToProps() {
         return {
             channel,
             posts,
+            unreadCount,
             membersCount,
             currentUser,
-            teammate,
-            unreadMentions: 0,
-            unreadMessages: 0,
-            isUnread: false,
             currentTeam,
         };
     };
