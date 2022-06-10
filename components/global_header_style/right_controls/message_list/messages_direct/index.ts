@@ -37,8 +37,6 @@ async function getTeammate(teammateid) : UserProfile{
     return value;
 }
 function makeMapStateToProps() {
-    const getChannel = channelValue();
-    const getMate = getTeammate();
     const getUnreadCount = makeGetChannelUnreadCount();
 
 
@@ -48,8 +46,8 @@ function makeMapStateToProps() {
             state = JSON.parse(stateValue);
         }  
         const currentUser = getCurrentUser(state);
-        const channel = getChannel(ownProps.channelId);
-        const teammate = getMate(channel.teammate_id);
+        const channel = channelValue(ownProps.channelId);
+        const teammate = getTeammate(channel.teammate_id);
         //const unreadCount = Client4.getPostsUnread(ownProps.channelId, currentUser.id);
         const currentTeam = getTeamByName(state, 'crypter');
         const posts = Client4.getPosts(ownProps.channelId);
