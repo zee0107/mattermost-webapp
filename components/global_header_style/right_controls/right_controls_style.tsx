@@ -173,7 +173,7 @@ const RightControlsStyle = (props: Props): JSX.Element => {
                 </div>
             </div>
             {/*Chat List*/}
-            <MessageList />
+            {/*<MessageList />*/}
 
             {/*Chat Field*/}
             <div style={{zIndex: 999}} className='offcanvas offcanvas-end shadow-lg' data-bs-scroll='true' data-bs-backdrop='false' tabIndex='-1' id='offcanvasBottomreadychatdesktop' aria-labelledby='offcanvasBottomreadychatdesktop'>
