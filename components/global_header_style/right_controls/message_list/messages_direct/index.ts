@@ -27,12 +27,12 @@ type OwnProps = {
     });
 }*/
 
-async function channelValue(channelId) : ServerChannel{
+async function channelValue(channelId){
     const value = await Client4.getChannel(channelId);
     return value;
 }
 
-async function getTeammate(teammateid) : UserProfile{
+async function getTeammate(teammateid){
     const value = await Client4.getUser(teammateid);
     return value;
 }
@@ -46,8 +46,14 @@ function makeMapStateToProps() {
             state = JSON.parse(stateValue);
         }  
         const currentUser = getCurrentUser(state);
-        const channel = channelValue(ownProps.channelId);
-        const teammate = getTeammate(channel.teammate_id);
+        let channel;
+        channelValue(ownProps.channelId).then((value) => {
+            channel = value;
+        });
+        let teammate;
+        getTeammate(channel.teammate_id).then((value) => {
+            teammate = value;
+        });
         //const unreadCount = Client4.getPostsUnread(ownProps.channelId, currentUser.id);
         const currentTeam = getTeamByName(state, 'crypter');
         const posts = Client4.getPosts(ownProps.channelId);
@@ -58,7 +64,7 @@ function makeMapStateToProps() {
 
         if (memberIds) {
             Promise.resolve(memberIds).then((data) => {
-                const groupMemberIds: Set<string> = data[channel.id] as unknown as Set<string>;
+                const groupMemberIds: Set<string> = data[ownProps.channelId] as unknown as Set<string>;
                 membersCount = groupMemberIds.size;
                 if (groupMemberIds.has(currentUser.id)) {
                     membersCount--;
