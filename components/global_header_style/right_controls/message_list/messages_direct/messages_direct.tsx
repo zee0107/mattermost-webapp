@@ -16,7 +16,8 @@ import { post } from 'jquery';
 export type Props = {
     posts: Promise<PostList>;
     unreadCount: Promise<PostList>;
-    channel: Promise<ServerChannel>;
+    channel: ServerChannel;
+    teammate: UserProfile;
     memberIds: Promise<ChannelMembership[]>;
     currentTeam: Team;
     currentUser: UserProfile;
@@ -47,9 +48,9 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.posts).then((value) => {this.setState({posts: value});});
         }
 
-        if(this.props.channel){
+        /*if(this.props.channel){
             Promise.resolve(this.props.channel).then((value) => {this.setState({channel: value});});
-        }
+        }*/
 
         if(this.props.unreadCount){
             Promise.resolve(this.props.unreadCount).then((value) => {this.setState({unreadCount: value});});
@@ -59,13 +60,13 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.memberIds).then((value) => {this.setState({memberIds: value});});
         }
 
-        this.handleGetTeammate();
+        //this.handleGetTeammate();
     }
 
-    handleGetTeammate = (id: string) => {
+    /*handleGetTeammate = (id: string) => {
         const data = Client4.getUser(id);
         Promise.resolve(data).then((value) => {this.setState({teammate: value});})
-    }
+    }*/
 
     handleChangeSelected = (id: string) => {
         this.props.onChangeSelected(id);
@@ -85,8 +86,8 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         );
     }
 
-    getIcon = (teammate: UserProfile) => {
-        const {channel} = this.state;
+    getIcon = () => {
+        const {channel,teammate} = this.props;
 
         if (!teammate) {
             return null;
@@ -122,8 +123,8 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {currentUser} = this.props;
-        const {posts,teammate,channel, unreadCount} = this.state;
+        const {currentUser,teammate,channel} = this.props;
+        const {posts, unreadCount} = this.state;
         let displayName;
 
         if(channel){
@@ -131,9 +132,9 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         }
         
         if(teammate && currentUser){
-                if (currentUser.id === teammate.id) {
-                    displayName = `${displayName} (you)`;
-                }
+            if (currentUser.id === teammate.id) {
+                displayName = `${displayName} (you)`;
+            }
         }
 
         if(unreadCount){

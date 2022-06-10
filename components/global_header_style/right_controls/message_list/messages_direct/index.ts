@@ -21,17 +21,29 @@ type OwnProps = {
 function makeMapStateToProps() {
     const getUnreadCount = makeGetChannelUnreadCount();
     let resultValue;
+    let undreadPost;
+    let teamMate;
     const getChannel = (result: ServerChannel) => {resultValue = result};
+    const getTeamMate = (result: UserProfile) => {teamMate = result};
+
     return function mapStateToProps(state: GlobalState, ownProps: OwnProps) {
         if(!state.entities.teams.teams && !state.entities.teams.teams.length){
             const stateValue = window.localStorage.getItem('GlobalState');
             state = JSON.parse(stateValue);
         }  
         const currentUser = getCurrentUser(state);
-        const channel = Client4.getChannel(ownProps.channelId);
-        Promise.resolve(channel).then(data => { getChannel(data); });
-        const channelVale = resultValue; 
-        console.log(channelVale);
+
+        const channelVal = Client4.getChannel(ownProps.channelId);
+        Promise.resolve(channelVal).then(data => { getChannel(data); });
+        const channel = resultValue; 
+
+        if(channel){
+            const trimmedName = channel.name.replace(currentUser.id,'');
+            const id = trimmedName.replace('__','');
+            const teamValue = Client4.getUser(id);
+            Promise.resolve(teamValue).then(data => { getTeamMate(data); });
+        }
+        const teammate = teamMate;
 
         const unreadCount = Client4.getPostsUnread(ownProps.channelId, currentUser.id);
         const currentTeam = getTeamByName(state, 'crypter');
@@ -41,6 +53,7 @@ function makeMapStateToProps() {
         return {
             channel,
             posts,
+            teammate,
             unreadCount,
             memberIds,
             currentUser,
