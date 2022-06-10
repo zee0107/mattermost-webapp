@@ -18,7 +18,7 @@ type OwnProps = {
     teammate: UserProfile;
 }
 
-function channelValue(){
+function channelValue(ownProps: OwnProps){
     return new Promise((resolve,reject) => {
         const value = Client4.getChannel(ownProps.channelId);
         value.then(data => {
