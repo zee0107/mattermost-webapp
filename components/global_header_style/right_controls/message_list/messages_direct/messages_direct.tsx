@@ -183,7 +183,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
                     <>
                         <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatNavbar' aria-controls='ChatNavbar'>
                             <div className='d-flex w-100 justify-content-between'>
-                                <label className='mb-1'>{this.getIcon()} <strong>{displayName}</strong></label>
+                                <label className='mb-1'>{this.getIcon(teammate)} <strong>{displayName}</strong></label>
                                 <label className='mt-3'>3 days ago</label>
                             </div>
                             <label className='mt-0'>{lastMessage}</label>
