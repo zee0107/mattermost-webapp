@@ -20,7 +20,8 @@ type OwnProps = {
 
 function makeMapStateToProps() {
     const getUnreadCount = makeGetChannelUnreadCount();
-    const getChannel = (result: ServerChannel) => {return result};
+    let resultValue;
+    const getChannel = (result: ServerChannel) => {resultValue = result};
     return function mapStateToProps(state: GlobalState, ownProps: OwnProps) {
         if(!state.entities.teams.teams && !state.entities.teams.teams.length){
             const stateValue = window.localStorage.getItem('GlobalState');
@@ -28,8 +29,8 @@ function makeMapStateToProps() {
         }  
         const currentUser = getCurrentUser(state);
         const channel = Client4.getChannel(ownProps.channelId);
-        let channelVale; 
-        Promise.resolve(channel).then(data => { channelVale = getChannel(data); });
+        Promise.resolve(channel).then(data => { getChannel(data); });
+        const channelVale = resultValue; 
         console.log(channelVale);
 
         const unreadCount = Client4.getPostsUnread(ownProps.channelId, currentUser.id);
