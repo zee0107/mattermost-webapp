@@ -142,7 +142,7 @@ export default class MessageList extends React.PureComponent<Props, State> {
         }
 
         let chatList;
-        /*if (messagesList && messagesList.length){
+        if (messagesList && messagesList.length){
             chatList = (
                 <>
                     {messagesList.map((item, index) => {
@@ -152,11 +152,11 @@ export default class MessageList extends React.PureComponent<Props, State> {
                     })}
                 </>
             );
-        }else{*/
+        }else{
             chatList = (
                 <h3 className='text-center'><i className='bi-chats-left'></i> No Messages</h3>
             );
-        //}
+        }
 
         return (
             <>
