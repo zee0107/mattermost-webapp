@@ -59,7 +59,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.memberIds).then((value) => {this.setState({memberIds: value});});
         }
 
-        this.handleGetTeammate();
+        //this.handleGetTeammate();
     }
 
     handleGetTeammate = () => {
