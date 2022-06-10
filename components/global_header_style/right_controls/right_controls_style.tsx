@@ -89,22 +89,7 @@ const RightControlsStyle = (props: Props): JSX.Element => {
             const data = await Client4.getRequestList(props.currentUser.id);
             return data;
         }
-
-        /*async function getTeam(){
-            const data = await Client4.getTeamByName('crypter');
-            setTeamId(data.id);
-            const dataCategories = await Client4.getChannelCategories('me',data.id);
-            setCategories(dataCategories.categories);
-            if(dataCategories.categories && dataCategories.categories.length){
-                Object.keys(dataCategories.categories).map((item) =>{
-                    if(dataCategories.categories[item].type === 'direct_messages'){
-                        setMessageList(dataCategories.categories[item].channel_ids);
-                    }
-                });
-            }
-            return data;
-        }*/
-
+        
         getTeamInfo().then((value) => { setTeamId(value)});
         getChannelInfo(teamId).then((value) => { setChannelId(value)});
         getData(channelId).then((value) => { setProfiles(value) });
