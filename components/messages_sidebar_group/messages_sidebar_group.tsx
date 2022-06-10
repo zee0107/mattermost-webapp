@@ -104,7 +104,7 @@ export default class MessagesSidebarGroup extends React.PureComponent<Props, Sta
         if(channel.type === Constants.GM_CHANNEL){
             GroupMessageDesktop = (
                 <a className='onChatus text-dark' onClick={() => this.handleChangeSelected(channel.id)}>
-                    <div className='row'>
+                    <div className='row hoverRow'>
                         <div className='col-2 text-center p-1 mt-1'>
                             {this.getIcon()}
                         </div>

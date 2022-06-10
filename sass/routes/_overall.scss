@@ -3914,6 +3914,16 @@ overflow-y: scroll;
   padding: 11px 11px 11px 11px;
 
 }
+
+.hoverRow {
+    border-right: 5px solid #ffffff;
+    background: #ffffff;
+    padding: 0px 11px 0px 23px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    margin: 0px 0px 0px 0px;
+}
+
 .bi-list-nested {
   font-size: 24px;
 }

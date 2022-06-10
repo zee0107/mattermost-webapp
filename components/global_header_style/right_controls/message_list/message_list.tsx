@@ -126,11 +126,6 @@ export default class MessageList extends React.PureComponent<Props, State> {
                                     channelId={selectedMessage}
                                     focusedPostId={this.props.focusedPostId}
                                 />
-                                {/*<div className='row' style={{height: '60vh', overflow: 'auto'}}>
-                                    {messageBody && Object.keys(messageBody.posts).map((post,ind) => {
-                                            return (<Post postId={post} post={messageBody.posts[post]} userId={currentUser.id} />);
-                                    })}
-                                </div>*/}
                             </div>
                         </div>
                         <div className='input-group mb-3 mt-2'>
@@ -171,116 +166,9 @@ export default class MessageList extends React.PureComponent<Props, State> {
                             <div className='position-absolute bottom-0 start-0 p-2'>
                                 <a className='chat-mobile-settings' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelaccounts' aria-controls='offcanvasRightLabelaccounts'><i className='bi-gear-fill float-end'></i></a>
                             </div>
-                            {/*<div className='container'>
-                                <div className='row'>
-                                        <div className='input-group mb-1'>
-                                            <span className='input-group-text input-search-crypter-span' id='basic-addon1'><i className='bi-search'></i></span>
-                                            <input id='' type='text' className='form-control form-control-dark input-search-crypter' placeholder='Search' aria-label='Search'/>
-                                        </div>
-                                </div>
-                            </div>*/}
                             <div id=''>
                                 <div className='list-group'>
                                     {chatList}
-                                    {/*<a className='list-group-item list-group-item-action border-0 message-content' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasBottomreadychatdesktop' aria-controls='offcanvasBottomreadychatdesktop'>
-                                        <div className='d-flex w-100 justify-content-between'>
-                                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic1} alt='User name' title='Username'/> <strong>John Lloyd</strong></label>
-                                            <label className='mt-3'>3 days ago</label>
-                                        </div>
-                                        <label className='mt-0'>Hello how are you, message.</label>
-                                    </a>
-                                    <label className='label-chat-list-1'>
-                                        <a href='#' data-bs-toggle='collapse' data-bs-target='#collapseActions' aria-expanded='false' aria-controls='collapseActions'>
-                                        <i className='bi-three-dots float-end me-3'></i>
-                                        </a>
-                                    </label>
-                                    <div className='collapse' id='collapseActions'>
-                                        <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-archive'></i> Archive</a></strong></p>
-                                        <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-x-circle'></i> Delete message</a></strong></p>
-                                        <p className='ms-3 mt-2 mb-2'><strong><a className='action-remove-msg-text'><i className='bi-dash-square'></i> Block</a></strong></p>
-                                    </div>
-                        
-                                    <a className='list-group-item list-group-item-action border-0'>
-                                        <div className='d-flex w-100 justify-content-between'>
-                                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic2} alt='User name' title='Username'/> <strong>Group name</strong></label>
-                                            <label className='mt-3'>3 days ago</label>
-                                        </div>
-                                        <label>Hello how are you, message.</label>
-                                    </a>
-                                    <label className='label-chat-list-2'>
-                                        <a href='#' data-bs-toggle='collapse' data-bs-target='#collapseActions02' aria-expanded='false' aria-controls='collapseActions02'>
-                                        <i className='bi-three-dots float-end me-3'></i>
-                                        </a>
-                                    </label>
-                                    <div className='collapse' id='collapseActions02'>
-                                        <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-archive'></i> Archive</a></strong></p>
-                                        <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-x-circle'></i> Delete message</a></strong></p>
-                                        <p className='ms-3 mt-2 mb-2'><strong><a className='action-remove-msg-text'><i className='bi-dash-square'></i> Block</a></strong></p>
-                                    </div>
-                                    <a className='list-group-item list-group-item-action border-0'>
-                                        <div className='d-flex w-100 justify-content-between'>
-                                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic3} alt='User name' title='Username'/> <strong>Group name</strong></label>
-                                            <label className='mt-3'>3 days ago</label>
-                                        </div>
-                                        <label>Hello how are you, message.</label>
-                                    </a>
-                                    <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
-                                    <a className='list-group-item list-group-item-action border-0'>
-                                        <div className='d-flex w-100 justify-content-between'>
-                                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic4} alt='User name' title='Username'/> <strong>Firstname</strong></label>
-                                            <label className='mt-3'>3 days ago</label>
-                                        </div>
-                                        <label>Hello how are you, message.</label>
-                                    </a>
-                                    <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
-                                    <a className='list-group-item list-group-item-action border-0'>
-                                            <div className='d-flex w-100 justify-content-between'>
-                                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic5} alt='User name' title='Username'/> <strong>Firstname</strong></label>
-                                            <label className='mt-3'>3 days ago</label>
-                                            </div>
-                                            <label>Hello how are you, message.</label>
-                                    </a>
-                                    <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
-                                    <a className='list-group-item list-group-item-action border-0'>
-                                            <div className='d-flex w-100 justify-content-between'>
-                                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic6} alt='User name' title='Username'/> <strong>Firstname</strong></label>
-                                            <label className='mt-3'>3 days ago</label>
-                                            </div>
-                                            <label>Hello how are you, message.</label>
-                                    </a>
-                                    <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
-                                    <a className='list-group-item list-group-item-action border-0'>
-                                            <div className='d-flex w-100 justify-content-between'>
-                                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic1} alt='User name' title='Username'/> <strong>Group name</strong></label>
-                                            <label className='mt-3'>3 days ago</label>
-                                            </div>
-                                            <label>Hello how are you, message.</label>
-                                    </a>
-                                    <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
-                                    <a className='list-group-item list-group-item-action border-0'>
-                                            <div className='d-flex w-100 justify-content-between'>
-                                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic2} alt='User name' title='Username'/> <strong>Group name</strong></label>
-                                            <label className='mt-3'>3 days ago</label>
-                                            </div>
-                                            <label>Hello how are you, message.</label>
-                                    </a>
-                                    <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
-                                    <a className='list-group-item list-group-item-action border-0'>
-                                            <div className='d-flex w-100 justify-content-between'>
-                                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic3} alt='User name' title='Username'/> <strong>Firstname</strong></label>
-                                            <label className='mt-3'>3 days ago</label>
-                                            </div>
-                                            <label>Hello how are you, message.</label>
-                                    </a>
-                                    <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>
-                                    <a className='list-group-item list-group-item-action border-0'>
-                                            <div className='d-flex w-100 justify-content-between'>
-                                            <label className='mb-1'><img width='40' className='img-fluid user-photo' src={profPic4} alt='User name' title='Username'/> <strong>Firstname</strong></label>
-                                            <label className='mt-3'>3 days ago</label>
-                                            </div>
-                                            <label>Hello how are you, message.</label>
-                                    </a>
-                                    <label className='label-chat-list-2'><i className='bi-three-dots float-end me-3'></i></label>*/}
                                 </div>
                             </div>
                         </div>

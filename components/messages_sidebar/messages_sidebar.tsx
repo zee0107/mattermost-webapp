@@ -138,7 +138,7 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
         if(channel.type === Constants.DM_CHANNEL){
                 DirectMessageDesktop = (
                     <a className='onChatus text-dark' onClick={() => this.handleChangeSelected(channel.id)}>
-                        <div className='row'>
+                        <div className='row hoverRow'>
                             <div className='col-2 text-center p-1 mt-1'>
                                 {this.getIcon()}
                             </div>
