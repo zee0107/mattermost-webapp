@@ -9,9 +9,13 @@ import {GlobalState} from 'types/store';
 import MessagesDirect from './messages_direct'
 import { getTeamByName } from 'mattermost-redux/selectors/entities/teams';
 import { makeGetChannel, makeGetChannelUnreadCount } from 'mattermost-redux/selectors/entities/channels';
+import { ServerChannel } from 'mattermost-redux/types/channels';
+import { UserProfile } from 'mattermost-redux/types/users';
 
 type OwnProps = {
     channelId: string;
+    channel: ServerChannel;
+    teammate: UserProfile;
 }
 
 function makeMapStateToProps() {
@@ -24,21 +28,36 @@ function makeMapStateToProps() {
             state = JSON.parse(stateValue);
         }  
         const currentUser = getCurrentUser(state);
-        const channel = getChannel(state,{id: ownProps.channelId});
-        const unreadCount = getUnreadCount(state, ownProps.channelId);
-        const teammate = getUser(state, channel.teammate_id!);
-        const currentTeam = getTeamByName(state,'crypter');
+        const value = Client4.getChannel(ownProps.channelId);
+        if(value){
+            Promise.resolve(value).then((data) => {
+                ownProps.channel = data;
+            });
+        }
+        const channel = ownProps.channel;
+        const user = Client4.getUser(channel.teammate_id);
+        if(user){
+            Promise.resolve(user).then((data) => {
+                ownProps.teammate = data;
+            });
+        }
+        const teammate = ownProps.teammate;
+        const unreadCount = Client4.getPostsUnread(ownProps.channelId, currentUser.id);
+        const currentTeam = getTeamByName(state, 'crypter');
         const posts = Client4.getPosts(ownProps.channelId);
 
-        const memberIds = getUserIdsInChannels(state);
+        const memberIds = Client4.getChannelMembers(ownProps.channelId);
 
         let membersCount = 0;
-        if (memberIds && memberIds[channel.id]) {
-            const groupMemberIds: Set<string> = memberIds[channel.id] as unknown as Set<string>;
-            membersCount = groupMemberIds.size;
-            if (groupMemberIds.has(currentUser.id)) {
-                membersCount--;
-            }
+
+        if (memberIds) {
+            Promise.resolve(memberIds).then((data) => {
+                const groupMemberIds: Set<string> = data[channel.id] as unknown as Set<string>;
+                membersCount = groupMemberIds.size;
+                if (groupMemberIds.has(currentUser.id)) {
+                    membersCount--;
+                }
+            });
         }
 
         return {
@@ -47,9 +66,9 @@ function makeMapStateToProps() {
             membersCount,
             currentUser,
             teammate,
-            unreadMentions: unreadCount.mentions,
-            unreadMessages: unreadCount.messages,
-            isUnread: unreadCount.showUnread,
+            unreadMentions: 0,
+            unreadMessages: 0,
+            isUnread: false,
             currentTeam,
         };
     };
