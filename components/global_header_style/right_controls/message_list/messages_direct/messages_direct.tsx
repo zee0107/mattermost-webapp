@@ -177,9 +177,11 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
                 const trimmedName = channel.name.replace(currentUser.id,'');
                 const id = trimmedName.replace('__','');
                 this.handleGetTeammate(id);
-                /*if(!displayName){
-                    displayName = teammate.first_name + ' ' + teammate.last_name;
-                }*/
+                if(teammate){
+                    if(!displayName){
+                        displayName = teammate.first_name + ' ' + teammate.last_name;
+                    }
+                }
                 renderView = (
                     <>
                         <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatNavbar' aria-controls='ChatNavbar'>
