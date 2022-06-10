@@ -31,26 +31,13 @@ function makeMapStateToProps() {
         const unreadCount = Client4.getPostsUnread(ownProps.channelId, currentUser.id);
         const currentTeam = getTeamByName(state, 'crypter');
         const posts = Client4.getPosts(ownProps.channelId);
-
         const memberIds = Client4.getChannelMembers(ownProps.channelId);
-
-        let membersCount = 0;
-
-        if (memberIds) {
-            Promise.resolve(memberIds).then((data) => {
-                const groupMemberIds: Set<string> = data[ownProps.channelId] as unknown as Set<string>;
-                membersCount = groupMemberIds.size;
-                if (groupMemberIds.has(currentUser.id)) {
-                    membersCount--;
-                }
-            });
-        }
 
         return {
             channel,
             posts,
             unreadCount,
-            membersCount,
+            memberIds,
             currentUser,
             currentTeam,
         };

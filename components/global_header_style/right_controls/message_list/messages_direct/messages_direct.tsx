@@ -4,7 +4,7 @@
 import React, {ReactNode} from 'react';
 import CreatePost from 'components/create_post';
 import { Team } from 'mattermost-redux/types/teams';
-import { Channel } from 'mattermost-redux/types/channels';
+import { Channel, ChannelMembership } from 'mattermost-redux/types/channels';
 import Constants from 'utils/constants';
 import UserProfile from 'components/user_profile/user_profile';
 import {Client4} from 'mattermost-redux/client';
@@ -17,6 +17,7 @@ export type Props = {
     posts: Promise<PostList>;
     unreadCount: Promise<PostList>;
     channel: Promise<Channel>;
+    memberIds: Promise<ChannelMembership[]>
     currentTeam: Team;
     currentUser: UserProfile;
     onChangeSelected: any;
@@ -29,6 +30,7 @@ type State = {
     teammate: UserProfile;
     channel: Channel;
     unreadCount: PostList;
+    memberIds: ChannelMembership[];
 };
 
 export default class MessagesDirect extends React.PureComponent<Props, State> {
@@ -54,6 +56,10 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.unreadCount).then((value) => {this.setState({unreadCount: value});});
         }
 
+        if(this.props.memberIds){
+            Promise.resolve(this.props.memberIds).then((value) => {this.setState({memberIds: value});});
+        }
+
         this.handleGetTeammate();
     }
 
@@ -71,8 +77,16 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
     }
 
     getIconGroup = () => {
+        const {memberIds} = this.state;
+        let count;
+        if(memberIds && memberIds.length){
+            count = memberIds.length;
+        }else{
+            count = 0;
+        }
+
         return (
-            <div className='status status--group' style={{height: 36, width: 36, borderRadius: '50%', background: '#cccccc'}}><label className='pt-2'>{this.props.membersCount}</label></div>
+            <div className='status status--group' style={{height: 36, width: 36, borderRadius: '50%', background: '#cccccc'}}><label className='pt-2'>{count}</label></div>
         );
     }
 
