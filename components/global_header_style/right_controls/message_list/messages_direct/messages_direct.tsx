@@ -180,7 +180,12 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
                 //this.handleGetTeammate(id);
                 if(teammate){
                     if(!displayName){
-                        displayName = teammate.first_name + ' ' + teammate.last_name;
+                        if(teammate.first_name){
+                            displayName = teammate.first_name + ' ' + teammate.last_name;
+                        }
+                        else{
+                            displayName = teammate.user_name;
+                        }
                     }
                 }
                 renderView = (
