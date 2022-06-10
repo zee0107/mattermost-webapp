@@ -129,9 +129,6 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         let displayName;
 
         if(channel){
-            const teamateId = channel.name.replace(currentUser.id,'');
-            console.log(teamateId.replace('__',''));
-            //this.handleGetTeammate(channel.teammate_id);
             displayName = channel.display_name;
         }
         
@@ -179,6 +176,9 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         let renderView;
         if(channel){
             if(channel.type === Constants.DM_CHANNEL){
+                const trimmedName = channel.name.replace(currentUser.id,'');
+                const id = trimmedName.replace('__','');
+                this.handleGetTeammate(id);
                 renderView = (
                     <>
                         <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatNavbar' aria-controls='ChatNavbar'>
