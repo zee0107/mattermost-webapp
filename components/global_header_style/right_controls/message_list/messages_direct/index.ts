@@ -28,6 +28,12 @@ function makeMapStateToProps() {
         }  
         const currentUser = getCurrentUser(state);
         const channel = Client4.getChannel(ownProps.channelId);
+        let value;
+        channel.then(function(resData){
+            value = resData.id;
+        });
+        console.log(value);
+
         const unreadCount = Client4.getPostsUnread(ownProps.channelId, currentUser.id);
         const currentTeam = getTeamByName(state, 'crypter');
         const posts = Client4.getPosts(ownProps.channelId);
