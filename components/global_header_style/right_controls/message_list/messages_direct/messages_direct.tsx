@@ -17,11 +17,10 @@ export type Props = {
     posts: Promise<PostList>;
     unreadCount: Promise<PostList>;
     channel: Promise<Channel>;
-    memberIds: Promise<ChannelMembership[]>
+    memberIds: Promise<ChannelMembership[]>;
     currentTeam: Team;
     currentUser: UserProfile;
     onChangeSelected: any;
-    membersCount: number;
 }
 
 type State = {
@@ -70,6 +69,9 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
             const data = Client4.getUser(channel.teammate_id);
             Promise.resolve(data).then((value) => {this.setState({teammate: value});})
         }
+        else{
+            console.log(false);
+        }
     }
 
     handleChangeSelected = (id: string) => {
@@ -90,8 +92,8 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         );
     }
 
-    getIcon = () => {
-        const {channel, teammate} = this.state;
+    getIcon = (teammate: UserProfile) => {
+        const {channel} = this.state;
 
         if (!teammate) {
             return null;
