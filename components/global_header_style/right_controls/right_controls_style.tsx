@@ -58,15 +58,17 @@ function handleEmitUserLoggedOutEvent(){
 const RightControlsStyle = (props: Props): JSX.Element => {
     const [profiles, setProfiles] = useState([]);
     const [request, setRequest] = useState([]);
-    const [channelId, setChannelId] = useState();
+    /*const [channelId, setChannelId] = useState();
     const [teamId, setTeamId] = useState();
-    /*const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState([]);
     const [messageList, setMessageList] = useState([]);
     const [selectedMessage, setSelectedMessage] = useState();*/
 
     useEffect (() => {
-        async function getData(channelId: string){
-            const data = await Client4.getChannelMembers(channelId);
+        async function getData(){
+            const teamInfo = await Client4.getTeamByName('crypter');
+            const channelInfo = await Client4.getChannelByName(teamInfo.id,'town-square');
+            const data = await Client4.getChannelMembers(channelInfo.id);
             //Local Server
             //const data = await Client4.getChannelMembers('kqe4sihhdid47gprhk6dwbuc4o');
 
@@ -75,24 +77,12 @@ const RightControlsStyle = (props: Props): JSX.Element => {
             return data;
         }
 
-        async function getTeamInfo() {
-            const data = await Client4.getTeamByName('crypter');
-            return data.id;
-        }
-
-        async function getChannelInfo(teamId: string) {
-            const data = await Client4.getChannelByName(teamId,'town-square');
-            return data.id;
-        }
-
         async function getRequest(){
             const data = await Client4.getRequestList(props.currentUser.id);
             return data;
         }
         
-        getTeamInfo().then((value) => { setTeamId(value)});
-        getChannelInfo(teamId).then((value) => { setChannelId(value)});
-        getData(channelId).then((value) => { setProfiles(value) });
+        getData().then((value) => { setProfiles(value) });
         getRequest().then((value) => { setRequest(value) });
     }, []);
 
