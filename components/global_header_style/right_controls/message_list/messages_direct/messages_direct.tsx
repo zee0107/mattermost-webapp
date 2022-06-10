@@ -6,7 +6,7 @@ import CreatePost from 'components/create_post';
 import { Team } from 'mattermost-redux/types/teams';
 import { Channel, ChannelMembership, ServerChannel } from 'mattermost-redux/types/channels';
 import Constants from 'utils/constants';
-import UserProfile from 'components/user_profile/user_profile';
+import { UserProfile } from 'mattermost-redux/types/users';
 import {Client4} from 'mattermost-redux/client';
 import ProfilePicture from 'components/profile_picture';
 import { PostList } from 'mattermost-redux/types/posts';
@@ -184,7 +184,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
                             displayName = teammate.first_name + ' ' + teammate.last_name;
                         }
                         else{
-                            displayName = teammate.user_name;
+                            displayName = teammate.username;
                         }
                     }
                 }
