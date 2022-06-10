@@ -129,7 +129,8 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         let displayName;
 
         if(channel){
-            console.log(channel);
+            const teamateId = channel.name.replace(currentUser.id,'');
+            console.log(teamateId.replace('__',''));
             //this.handleGetTeammate(channel.teammate_id);
             displayName = channel.display_name;
         }
