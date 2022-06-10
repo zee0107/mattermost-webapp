@@ -18,7 +18,6 @@ type OwnProps = {
     teammate: UserProfile;
 }
 
-function returnP
 function makeMapStateToProps() {
     const getUnreadCount = makeGetChannelUnreadCount();
     let valueChannel: ServerChannel;
