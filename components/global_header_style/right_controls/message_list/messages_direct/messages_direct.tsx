@@ -72,6 +72,11 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         }
     }
 
+    componentDidUpdate(_,prevState){
+        if(this.state.teammate !== prevState.teammate){
+            this.handleGetTeammate();
+        }
+    }
     handleChangeSelected = (id: string) => {
         this.props.onChangeSelected(id);
     }
