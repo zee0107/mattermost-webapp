@@ -62,21 +62,11 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         this.handleGetTeammate();
     }
 
-    handleGetTeammate = () => {
-        const {channel} = this.state;
-        if(channel){
-            const trimmedName = channel.name.replace(currentUser.id,'');
-            const id = trimmedName.replace('__','');
-            const data = Client4.getUser(id);
-            Promise.resolve(data).then((value) => {this.setState({teammate: value});})
-        }
+    handleGetTeammate = (id: string) => {
+        const data = Client4.getUser(id);
+        Promise.resolve(data).then((value) => {this.setState({teammate: value});})
     }
 
-    componentDidUpdate(_,prevState){
-        if(this.state.teammate !== prevState.teammate){
-            this.handleGetTeammate();
-        }
-    }
     handleChangeSelected = (id: string) => {
         this.props.onChangeSelected(id);
     }
@@ -137,7 +127,11 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         let displayName;
 
         if(channel){
-            displayName = channel.display_name;
+            if(channel.display_name){
+                displayName = teammate.user_name;
+            }else{
+                displayName = channel.display_name;
+            }
         }
         
         if(teammate && currentUser){
@@ -184,6 +178,9 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         let renderView;
         if(channel){
             if(channel.type === Constants.DM_CHANNEL){
+                const trimmedName = channel.name.replace(currentUser.id,'');
+                const id = trimmedName.replace('__','');
+                this.handleGetTeammate(id);
                 renderView = (
                     <>
                         <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatNavbar' aria-controls='ChatNavbar'>
