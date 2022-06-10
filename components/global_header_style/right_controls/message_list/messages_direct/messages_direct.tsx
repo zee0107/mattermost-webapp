@@ -115,7 +115,11 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const {currentUser} = this.props;
         const {posts,teammate,channel, unreadCount} = this.state;
-        let displayName = channel.display_name;
+        let displayName
+        if(channel){
+            displayName = channel.display_name;
+        }
+        
         if(teammate && currentUser){
                 if (currentUser.id === teammate.id) {
                     displayName = `${displayName} (you)`;
@@ -158,51 +162,54 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
             );
         }
         let renderView;
-        if(channel.type === Constants.DM_CHANNEL){
-            renderView = (
-                <>
-                    <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatNavbar' aria-controls='ChatNavbar'>
-                        <div className='d-flex w-100 justify-content-between'>
-                            <label className='mb-1'>{this.getIcon()} <strong>{displayName}</strong></label>
-                            <label className='mt-3'>3 days ago</label>
-                        </div>
-                        <label className='mt-0'>{lastMessage}</label>
-                    </a>
-                    <label className='label-chat-list-1 text-dark'>
-                        <a href='#' data-bs-toggle='collapse' data-bs-target='#collapseActions' aria-expanded='false' aria-controls='collapseActions'>
-                        <i className='bi-three-dots float-end me-3'></i>
+        if(channel){
+            if(channel.type === Constants.DM_CHANNEL){
+                renderView = (
+                    <>
+                        <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatNavbar' aria-controls='ChatNavbar'>
+                            <div className='d-flex w-100 justify-content-between'>
+                                <label className='mb-1'>{this.getIcon()} <strong>{displayName}</strong></label>
+                                <label className='mt-3'>3 days ago</label>
+                            </div>
+                            <label className='mt-0'>{lastMessage}</label>
                         </a>
-                    </label>
-                    <div className='collapse text-dark' id='collapseActions'>
-                        <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-archive'></i> Archive</a></strong></p>
-                        <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-x-circle'></i> Delete message</a></strong></p>
-                        <p className='ms-3 mt-2 mb-2'><strong><a className='action-remove-msg-text'><i className='bi-dash-square'></i> Block</a></strong></p>
-                    </div>
-                </>
+                        <label className='label-chat-list-1 text-dark'>
+                            <a href='#' data-bs-toggle='collapse' data-bs-target='#collapseActions' aria-expanded='false' aria-controls='collapseActions'>
+                            <i className='bi-three-dots float-end me-3'></i>
+                            </a>
+                        </label>
+                        <div className='collapse text-dark' id='collapseActions'>
+                            <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-archive'></i> Archive</a></strong></p>
+                            <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-x-circle'></i> Delete message</a></strong></p>
+                            <p className='ms-3 mt-2 mb-2'><strong><a className='action-remove-msg-text'><i className='bi-dash-square'></i> Block</a></strong></p>
+                        </div>
+                    </>
+                    );
+            }else{
+                renderView = (
+                    <>
+                        <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatNavbar' aria-controls='ChatNavbar'>
+                            <div className='d-flex w-100 justify-content-between'>
+                                <label className='mb-1'>{this.getIconGroup()} <strong>{displayName}</strong></label>
+                                <label className='mt-3'>3 days ago</label>
+                            </div>
+                            <label className='mt-0'>{lastMessage}</label>
+                        </a>
+                        <label className='label-chat-list-1 text-dark'>
+                            <a href='#' data-bs-toggle='collapse' data-bs-target='#collapseActions' aria-expanded='false' aria-controls='collapseActions'>
+                            <i className='bi-three-dots float-end me-3'></i>
+                            </a>
+                        </label>
+                        <div className='collapse text-dark' id='collapseActions'>
+                            <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-archive'></i> Archive</a></strong></p>
+                            <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-x-circle'></i> Delete message</a></strong></p>
+                            <p className='ms-3 mt-2 mb-2'><strong><a className='action-remove-msg-text'><i className='bi-dash-square'></i> Block</a></strong></p>
+                        </div>
+                    </>
                 );
-        }else{
-            renderView = (
-                <>
-                    <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatNavbar' aria-controls='ChatNavbar'>
-                        <div className='d-flex w-100 justify-content-between'>
-                            <label className='mb-1'>{this.getIconGroup()} <strong>{displayName}</strong></label>
-                            <label className='mt-3'>3 days ago</label>
-                        </div>
-                        <label className='mt-0'>{lastMessage}</label>
-                    </a>
-                    <label className='label-chat-list-1 text-dark'>
-                        <a href='#' data-bs-toggle='collapse' data-bs-target='#collapseActions' aria-expanded='false' aria-controls='collapseActions'>
-                        <i className='bi-three-dots float-end me-3'></i>
-                        </a>
-                    </label>
-                    <div className='collapse text-dark' id='collapseActions'>
-                        <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-archive'></i> Archive</a></strong></p>
-                        <p className='ms-3 mt-2 mb-0'><strong><a className='action-remove-msg-text'><i className='bi-x-circle'></i> Delete message</a></strong></p>
-                        <p className='ms-3 mt-2 mb-2'><strong><a className='action-remove-msg-text'><i className='bi-dash-square'></i> Block</a></strong></p>
-                    </div>
-                </>
-            );
+            }
         }
+        
         return (
             <>
                 {renderView}
