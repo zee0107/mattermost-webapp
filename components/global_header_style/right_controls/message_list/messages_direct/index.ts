@@ -18,6 +18,14 @@ type OwnProps = {
     teammate: UserProfile;
 }
 
+function channelValue(){
+    return new Promise((resolve,reject) => {
+        const value = Client4.getChannel(ownProps.channelId);
+        value.then(data => {
+            resolve(data);
+        }).catch(reject)
+    });
+}
 function makeMapStateToProps() {
     const getChannel = makeGetChannel();
     const getUnreadCount = makeGetChannelUnreadCount();
@@ -28,13 +36,7 @@ function makeMapStateToProps() {
             state = JSON.parse(stateValue);
         }  
         const currentUser = getCurrentUser(state);
-        const value = Client4.getChannel(ownProps.channelId);
-        if(value){
-            Promise.resolve(value).then((data) => {
-                ownProps.channel = data;
-            });
-        }
-        const channel = ownProps.channel;
+        const channel = channelValue();
         const user = Client4.getUser(channel.teammate_id);
         if(user){
             Promise.resolve(user).then((data) => {
@@ -42,7 +44,7 @@ function makeMapStateToProps() {
             });
         }
         const teammate = ownProps.teammate;
-        const unreadCount = Client4.getPostsUnread(ownProps.channelId, currentUser.id);
+        //const unreadCount = Client4.getPostsUnread(ownProps.channelId, currentUser.id);
         const currentTeam = getTeamByName(state, 'crypter');
         const posts = Client4.getPosts(ownProps.channelId);
 
