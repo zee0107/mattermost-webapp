@@ -33,6 +33,7 @@ class App extends React.PureComponent {
     }
 
     render() {
+        console.log(store);
         return (
             <Provider store={store}>
                 <Web3ReactProvider getLibrary={this.getLibrary}>
