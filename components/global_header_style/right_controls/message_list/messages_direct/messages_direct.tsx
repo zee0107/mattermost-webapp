@@ -4,7 +4,7 @@
 import React, {ReactNode} from 'react';
 import CreatePost from 'components/create_post';
 import { Team } from 'mattermost-redux/types/teams';
-import { Channel, ChannelMembership } from 'mattermost-redux/types/channels';
+import { Channel, ChannelMembership, ServerChannel } from 'mattermost-redux/types/channels';
 import Constants from 'utils/constants';
 import UserProfile from 'components/user_profile/user_profile';
 import {Client4} from 'mattermost-redux/client';
@@ -16,7 +16,7 @@ import { post } from 'jquery';
 export type Props = {
     posts: Promise<PostList>;
     unreadCount: Promise<PostList>;
-    channel: Promise<Channel>;
+    channel: Promise<ServerChannel>;
     memberIds: Promise<ChannelMembership[]>;
     currentTeam: Team;
     currentUser: UserProfile;
@@ -27,7 +27,7 @@ type State = {
     isDark: string;
     posts: PostList;
     teammate: UserProfile;
-    channel: Channel;
+    channel: ServerChannel;
     unreadCount: PostList;
     memberIds: ChannelMembership[];
 };
@@ -127,10 +127,10 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         const {currentUser} = this.props;
         const {posts,teammate,channel, unreadCount} = this.state;
         let displayName;
-        let teammateId;
 
         if(channel){
-            this.handleGetTeammate(channel.teammate_id);
+            console.log(channel);
+            //this.handleGetTeammate(channel.teammate_id);
             displayName = channel.display_name;
         }
         
