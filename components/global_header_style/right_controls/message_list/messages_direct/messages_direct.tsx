@@ -59,11 +59,14 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.memberIds).then((value) => {this.setState({memberIds: value});});
         }
 
-        //this.handleGetTeammate();
+        this.handleGetTeammate();
     }
 
-    handleGetTeammate = (id: string) => {
-        if(id){
+    handleGetTeammate = () => {
+        const {channel} = this.state;
+        if(channel){
+            const trimmedName = channel.name.replace(currentUser.id,'');
+            const id = trimmedName.replace('__','');
             const data = Client4.getUser(id);
             Promise.resolve(data).then((value) => {this.setState({teammate: value});})
         }
@@ -176,9 +179,6 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         let renderView;
         if(channel){
             if(channel.type === Constants.DM_CHANNEL){
-                const trimmedName = channel.name.replace(currentUser.id,'');
-                const id = trimmedName.replace('__','');
-                this.handleGetTeammate(id);
                 renderView = (
                     <>
                         <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatNavbar' aria-controls='ChatNavbar'>
