@@ -11,6 +11,7 @@ import { getTeamByName } from 'mattermost-redux/selectors/entities/teams';
 import { makeGetChannel, makeGetChannelUnreadCount } from 'mattermost-redux/selectors/entities/channels';
 import { ServerChannel } from 'mattermost-redux/types/channels';
 import { UserProfile } from 'mattermost-redux/types/users';
+import Constants from 'utils/constants';
 
 type OwnProps = {
     channelId: string;
@@ -38,10 +39,12 @@ function makeMapStateToProps() {
         const channel = resultValue; 
 
         if(channel){
-            const trimmedName = channel.name.replace(currentUser.id,'');
-            const id = trimmedName.replace('__','');
-            const teamValue = Client4.getUser(id);
-            Promise.resolve(teamValue).then(data => { getTeamMate(data); });
+            if(channel.type === Constants.DM_CHANNEL){
+                const trimmedName = channel.name.replace(currentUser.id,'');
+                const id = trimmedName.replace('__','');
+                const teamValue = Client4.getUser(id);
+                Promise.resolve(teamValue).then(data => { getTeamMate(data); });
+            }
         }
         const teammate = teamMate;
 

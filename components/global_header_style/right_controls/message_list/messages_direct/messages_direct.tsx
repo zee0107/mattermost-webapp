@@ -17,7 +17,7 @@ export type Props = {
     posts: Promise<PostList>;
     unreadCount: Promise<PostList>;
     channel: ServerChannel;
-    teammate: UserProfile;
+    teammate?: UserProfile;
     memberIds: Promise<ChannelMembership[]>;
     currentTeam: Team;
     currentUser: UserProfile;
