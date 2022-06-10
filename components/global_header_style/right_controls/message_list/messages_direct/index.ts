@@ -28,7 +28,7 @@ function makeMapStateToProps() {
         }  
         const currentUser = getCurrentUser(state);
         const channel = Client4.getChannel(ownProps.channelId);
-        const channelVale = channel.then(data => { return data; }).then(value => {return value;});
+        const channelVale = Promise.resolve(channel).then(data => {return data}).catch(err => {return err});
         console.log(channelVale);
 
         const unreadCount = Client4.getPostsUnread(ownProps.channelId, currentUser.id);
