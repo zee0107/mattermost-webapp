@@ -58,20 +58,31 @@ function handleEmitUserLoggedOutEvent(){
 const RightControlsStyle = (props: Props): JSX.Element => {
     const [profiles, setProfiles] = useState([]);
     const [request, setRequest] = useState([]);
-    /*const [categories, setCategories] = useState([]);
+    const [channelId, setChannelId] = useState();
     const [teamId, setTeamId] = useState();
+    /*const [categories, setCategories] = useState([]);
     const [messageList, setMessageList] = useState([]);
     const [selectedMessage, setSelectedMessage] = useState();*/
 
     useEffect (() => {
-        async function getData(){
-            //const data = await Client4.getChannelMembers(props.channelId);
+        async function getData(channelId: string){
+            const data = await Client4.getChannelMembers(channelId);
             //Local Server
             //const data = await Client4.getChannelMembers('kqe4sihhdid47gprhk6dwbuc4o');
 
             //Live Server
-            const data = await Client4.getChannelMembers('dodurztr1fbupnpenjgxqjso3a');
+            //const data = await Client4.getChannelMembers('dodurztr1fbupnpenjgxqjso3a');
             return data;
+        }
+
+        async function getTeamInfo() {
+            const data = await Client4.getTeamByName('crypter');
+            return data.id;
+        }
+
+        async function getChannelInfo(teamId: string) {
+            const data = await Client4.getChannelByName(teamId,'town-square');
+            return data.id;
         }
 
         async function getRequest(){
@@ -92,10 +103,11 @@ const RightControlsStyle = (props: Props): JSX.Element => {
                 });
             }
             return data;
-        }
+        }*/
 
-        getTeam().then((value) => { setTeamId(value.id)});*/
-        getData().then((value) => { setProfiles(value) });
+        getTeamInfo().then((value) => { setTeamId(value)});
+        getChannelInfo(teamId).then((value) => { setChannelId(value)});
+        getData(channelId).then((value) => { setProfiles(value) });
         getRequest().then((value) => { setRequest(value) });
     }, []);
 
