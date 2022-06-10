@@ -33,7 +33,7 @@ async function channelValue(channelId) : ServerChannel{
 }
 
 async function getTeammate(teammateid) : UserProfile{
-    const value = await Client4.getUser(channelId);
+    const value = await Client4.getUser(teammateid);
     return value;
 }
 function makeMapStateToProps() {
