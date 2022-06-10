@@ -28,7 +28,7 @@ function makeMapStateToProps() {
             state = JSON.parse(stateValue);
         }  
         const currentUser = getCurrentUser(state);
-        const channelValue = Client4.getChannel(channelId);
+        const channelValue = Client4.getChannel(ownProps.channelId);
         Promise.resolve(channelValue).then(value => { valueChannel = value });
         const channel = valueChannel;
         const userValue = Client4.getUser(valueChannel.teammate_id);
