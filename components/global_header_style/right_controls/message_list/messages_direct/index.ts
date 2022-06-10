@@ -18,9 +18,9 @@ type OwnProps = {
     teammate: UserProfile;
 }
 
-function channelValue(ownProps: OwnProps){
+function channelValue(channelId){
     return new Promise((resolve,reject) => {
-        const value = Client4.getChannel(ownProps.channelId);
+        const value = Client4.getChannel(channelId);
         value.then(data => {
             resolve(data);
         }).catch(reject)
@@ -36,7 +36,7 @@ function makeMapStateToProps() {
             state = JSON.parse(stateValue);
         }  
         const currentUser = getCurrentUser(state);
-        const channel = channelValue();
+        const channel = channelValue(ownProps.channelId);
         const user = Client4.getUser(channel.teammate_id);
         if(user){
             Promise.resolve(user).then((data) => {
