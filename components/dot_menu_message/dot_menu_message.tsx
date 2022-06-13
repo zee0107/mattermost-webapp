@@ -551,7 +551,7 @@ export class DotMenuMessage extends React.PureComponent<Props, State> {
                         text={Utils.localizeMessage('rhs_root.mobile.flag', 'Save')}
                         onClick={this.handleFlagMenuItemActivated}
                     />
-                    {<Menu.ItemAction
+                    <Menu.ItemAction
                         id={`unpin_post_${this.props.post.id}`}
                         show={!isSystemMessage && !this.props.isReadOnly && this.props.post.is_pinned}
                         text={Utils.localizeMessage('post_info.unpin', 'Unpin')}
