@@ -280,11 +280,18 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         }
         let postsView;
         if (posts) {
+            const postProps = {
+                previousPostId: '',
+                shouldHighlight: '',
+                //togglePostMenu: this.props.togglePostMenu,
+                //isLastPost: this.props.isLastPost,
+                filter: '',
+            };
             if(channel){
                 postsView = (
                     <>
                         {posts && Object.keys(posts.posts).map((post,ind) => {
-                            return (<Post postId={post} post={posts.posts[post]} userId={currentUser.id} key={`${posts.posts[post].id}`}/>);
+                            return (<Post postId={post} {...postProps} key={`${posts.posts[post].id}`}/>);
                         })}
                     </>
                 );
