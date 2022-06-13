@@ -50,6 +50,7 @@ import { result } from 'lodash';
 import { PostList } from 'mattermost-redux/types/posts';
 import { Story } from 'mattermost-redux/types/crypto';
 import { Team } from 'mattermost-redux/types/teams';
+import { getPreviousRhsState } from 'selectors/rhs';
 
 type Props = {
     channelId: string;
@@ -75,6 +76,7 @@ type Props = {
     channelIsArchived: boolean;
     viewArchivedChannels: boolean;
     isCloud: boolean;
+    posts: Promise<PostList>;
     actions: {
         goToLastViewedChannel: () => Promise<{data: boolean}>;
         setShowNextStepsView: (x: boolean) => void;
@@ -99,6 +101,7 @@ type State = {
     pageProfile: string;
     channelAdmin: boolean;
     filter: string;
+    posts: PostList;
 };
 
 export default class ChannelView extends React.PureComponent<Props, State> {
@@ -165,6 +168,12 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         this.channelViewRef = React.createRef();
     }
 
+    componentDidMount(){
+        if(this.props.posts){
+            Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
+        }
+    }
+
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {return null;}
         
@@ -223,7 +232,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         this.setState({userActivity: event.target.value});
     }
 
-    componentDidUpdate(prevProps: Props) {
+    componentDidUpdate(prevProps: Props, prevState: State) {
         if (prevProps.channelId !== this.props.channelId || prevProps.channelIsArchived !== this.props.channelIsArchived) {
             window.localStorage.setItem('focusedPostId',this.state.focusedPostId);
             mark('ChannelView#componentDidUpdate');
@@ -253,14 +262,24 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 }
             }
         }
+
+        if(this.state.posts !== prevState.posts){
+            if(this.props.posts){
+                Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
+            }
+        }
     }
 
     render() {
         const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName,channelDisplayName,channelId, currentUser, currentTeam} = this.props;
-        const { uploading, shareInfo, userLocation, feeling, storyList, channelAdmin, postList } = this.state;
+        const { uploading, shareInfo, userLocation, feeling, storyList, channelAdmin, posts } = this.state;
         if (enableOnboardingFlow && showNextSteps && !showNextStepsEphemeral) {
             this.props.actions.setShowNextStepsView(true);
             browserHistory.push(`${teamUrl}/tips`);
+        }
+
+        if(posts){
+            console.log(posts);
         }
 
         let shareInfoBtn;
