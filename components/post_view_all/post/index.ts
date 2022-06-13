@@ -55,8 +55,8 @@ function makeMapStateToProps() {
     const selectFilesForPost = makeGetFilesForPost();
 
     return (state: GlobalState, ownProps: OwnProps) => {
+        console.log('State: ', state);
         const post = ownProps.post || getPost(state, ownProps.postId);
-        console.log('Posts: ',post);
         const postDetailed = Client4.getPostDetailed(ownProps.postId);
         const channel = getChannel(state, post.channel_id);
         const team = getCurrentTeam(state);
