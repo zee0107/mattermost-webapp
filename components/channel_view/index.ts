@@ -102,4 +102,4 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelView);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ChannelView));
