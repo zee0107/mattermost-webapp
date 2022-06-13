@@ -17,6 +17,7 @@ import CreatePostPage from 'components/create_post_page';
 import FileUploadOverlay from 'components/file_upload_overlay';
 import PostView from 'components/post_view_all';
 import Post from 'components/post_view_all/post';
+import PostListRow from 'components/post_view_all/post_list_row';
 import {clearMarks, mark, measure, trackEvent} from 'actions/telemetry_actions.jsx';
 import FormattedMarkdownMessage from 'components/formatted_markdown_message';
 import StoryList from 'components/story_list';
@@ -44,7 +45,7 @@ import GroupHeader from 'components/group_header';
 import PageHeader from 'components/page_header';
 
 import {browserHistory} from 'utils/browser_history';
-import { ChannelStats } from 'mattermost-redux/types/channels';
+import { Channel, ChannelStats } from 'mattermost-redux/types/channels';
 import GroupDetail from 'components/group_details';
 import { result } from 'lodash';
 import { PostList } from 'mattermost-redux/types/posts';
@@ -66,6 +67,7 @@ type Props = {
     currentUser: UserProfile;
     currentTeam: Team;
     storyList: Promise<Story[]>;
+    channel: Channel;
     teamUrl: string;
     match: {
         url: string;
@@ -102,6 +104,7 @@ type State = {
     channelAdmin: boolean;
     filter: string;
     posts: PostList;
+    channel: Channel;
 };
 
 export default class ChannelView extends React.PureComponent<Props, State> {
@@ -260,25 +263,32 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
             }
         }
+
+        if(this.props.channel){
+            if(this.props.channel !== prevProps.channel){
+                this.setState({channel: this.props.channel});
+            }
+        }
     }
 
     render() {
         const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName,channelDisplayName,channelId, currentUser, currentTeam} = this.props;
-        const { uploading, shareInfo, userLocation, feeling, storyList, channelAdmin, posts } = this.state;
+        const { uploading, shareInfo, userLocation, feeling, storyList, channelAdmin, posts, channel } = this.state;
         if (enableOnboardingFlow && showNextSteps && !showNextStepsEphemeral) {
             this.props.actions.setShowNextStepsView(true);
             browserHistory.push(`${teamUrl}/tips`);
         }
         let postsView;
         if (posts) {
-            postsView = (
-                <>
-                    {posts && Object.keys(posts.posts).map((post,ind) => {
-                        return (<Post postId={post} post={posts.posts[post]} userId={currentUser.id} key={`${posts.posts[post].id}`}/>);
-                    })}
-                </>
-            );
-            
+            if(channel){
+                postsView = (
+                    <>
+                        {posts && Object.keys(posts.posts).map((post,ind) => {
+                            return (<PostListRow channel={channel} post={posts.posts[post]} userId={currentUser.id} key={`${posts.posts[post].id}`}/>);
+                        })}
+                    </>
+                );
+            }
         }else{
             postsView = (
                 <>

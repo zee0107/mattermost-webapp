@@ -72,6 +72,7 @@ function mapStateToProps(state: GlobalState) {
         channelName: channel ? channel.name : '',
         channelDisplayName: channel ? channel.display_name : '',
         channelPurpose: channel ? channel.purpose : '',
+        channel,
         currentTeam,
         posts,
         channelRolesLoading,
