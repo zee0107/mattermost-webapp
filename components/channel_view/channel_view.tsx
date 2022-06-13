@@ -255,7 +255,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     Promise.resolve(this.props.storyList).then((value) => {this.setState({storyList: value});} );
                 }
             }
-
                     
             if(this.props.posts){
                 Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
