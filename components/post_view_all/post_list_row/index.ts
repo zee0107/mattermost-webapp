@@ -22,7 +22,6 @@ type Props = {
 }
 
 function mapStateToProps(state: GlobalState, ownProps: Props) {
-    console.log('Row:',state);
     const shortcutReactToLastPostEmittedFrom = getShortcutReactToLastPostEmittedFrom(state);
     return {
         post: ownProps.post,

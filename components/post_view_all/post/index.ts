@@ -49,12 +49,13 @@ export function isFirstReply(post: Post, previousPost: Post): boolean {
     return false;
 }
 
-function makeMapStateToProps() {
+function mapStateToProps() {
     const getReplyCount = makeGetCommentCountForPost();
     const isPostCommentMention = makeIsPostCommentMention();
     const selectFilesForPost = makeGetFilesForPost();
 
     return (state: GlobalState, ownProps: OwnProps) => {
+        console.log(state);
         const post = ownProps.post || getPost(state, ownProps.postId);
         const postDetailed = Client4.getPostDetailed(ownProps.postId);
         const channel = getChannel(state, post.channel_id);
@@ -110,4 +111,4 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
     };
 }
 
-export default connect(makeMapStateToProps, mapDispatchToProps)(PostComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(PostComponent);
