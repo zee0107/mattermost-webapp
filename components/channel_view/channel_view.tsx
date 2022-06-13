@@ -135,10 +135,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             updatedState = {...updatedState, focusedPostId};
         }
 
-        if(props.posts){
-            Promise.resolve(props.posts).then((value) => { this.setState({posts: value});});
-        }
-
         if (Object.keys(updatedState).length) {
             return updatedState;
         }
@@ -170,12 +166,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         this.onChangeRole = this.onChangeRole.bind(this);
         this.onChangeFilter = this.onChangeFilter.bind(this);
         this.channelViewRef = React.createRef();
-    }
-
-    componentDidMount(){
-        if(this.props.posts){
-            Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
-        }
     }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
@@ -236,7 +226,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         this.setState({userActivity: event.target.value});
     }
 
-    componentDidUpdate(prevProps: Props, prevState: State) {
+    componentDidUpdate(prevProps: Props) {
         if (prevProps.channelId !== this.props.channelId || prevProps.channelIsArchived !== this.props.channelIsArchived) {
             window.localStorage.setItem('focusedPostId',this.state.focusedPostId);
             mark('ChannelView#componentDidUpdate');
@@ -265,11 +255,9 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     Promise.resolve(this.props.storyList).then((value) => {this.setState({storyList: value});} );
                 }
             }
-        }
 
-        
-        if(this.props.posts){
-            if(this.state.posts !== prevState.posts){
+                    
+            if(this.props.posts){
                 Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
             }
         }
