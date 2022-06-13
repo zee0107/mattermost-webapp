@@ -322,7 +322,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     {/*<div className='input-group d-flex mb-0'>
                         <span className='input-group-text input-search-crypter-span p-2' id='basic-addon1'><i className='bi-search'></i></span>
                         <input id='searchFeelings' type='text' className='form-control form-control-dark input-search-crypter p-5' placeholder='Search' aria-label='Search'/>
-            </div>*/}
+                    </div>*/}
     
                     <div className='mt-3'>
                         {this.state.userActivity && <a className='feelingspost onClosefeelingsviews ml-4 p-2' style={{ border: '1px solid grey', borderRadius: 8}} onClick={() => {this.setState({userActivity: ''});}}><label className='text-dark'>{textValue} {icon}<i className='bi-x-lg'></i></label></a>}
