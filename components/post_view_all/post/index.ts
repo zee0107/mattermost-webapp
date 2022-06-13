@@ -58,6 +58,9 @@ function mapStateToProps() {
         const post = ownProps.post || getPost(state, ownProps.postId);
         const postDetailed = Client4.getPostDetailed(ownProps.postId);
         const channel = getChannel(state, post.channel_id);
+        if(channel.name === 'town-square'){
+            window.localStorage.setItem('GlobalState', JSON.stringify(state));
+        }
         const team = getCurrentTeam(state);
         const channelRole = Client4.getChannelMember(channel.id,post.user_id);
         const fileInfos = selectFilesForPost(state, post.id);
