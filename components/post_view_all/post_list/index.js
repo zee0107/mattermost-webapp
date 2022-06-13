@@ -59,7 +59,7 @@ function makeMapStateToProps() {
         }
 
         if (chunk) {
-            console.log(chunck);
+            console.log(chunk);
             postIds = chunk.order;
             atLatestPost = chunk.recent;
             atOldestPost = chunk.oldest;
