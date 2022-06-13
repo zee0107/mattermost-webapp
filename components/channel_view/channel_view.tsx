@@ -139,6 +139,10 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             return updatedState;
         }
 
+        if(props.posts){
+            Promise.resolve(props.posts).then((value) => { updatedState = {...updatedState, posts: value}});
+        }
+
         return null;
     }
     channelViewRef: React.RefObject<HTMLDivElement>;
@@ -265,7 +269,9 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
         
         if(this.props.posts){
-            Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
+            if(this.state.posts !== prevState.posts){
+                Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
+            }
         }
     }
 
