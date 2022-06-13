@@ -14,7 +14,7 @@ import * as PostUtils from 'utils/post_utils';
 import * as Utils from 'utils/utils.jsx';
 import Constants, {Locations} from 'utils/constants';
 import CommentIcon from 'components/post_view/comment_icon';
-import DotMenu from 'components/dot_menu';
+import DotMenuMessage from 'components/dot_menu';
 import OverlayTrigger from 'components/overlay_trigger';
 import Tooltip from 'components/tooltip';
 import PostFlagIcon from 'components/post_view/post_flag_icon';

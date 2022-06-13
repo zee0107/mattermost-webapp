@@ -183,6 +183,16 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         if(this.props.followData !== null && this.props.followData !== undefined){
             Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
         }
+
+        if(this.state.categories){
+            if(this.state.categories !== prevState.categories){
+                Object.keys(this.state.categories).map((item) => {
+                    if(this.state.categories[item].type === 'direct_messages'){
+                        this.setMessageList(categories[item].channel_ids);
+                    }
+                });
+            }
+        }
     }
 
     componentDidUpdate(prevProps: Props,prevState: State){
@@ -193,6 +203,16 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
             if(this.state.followData !== null && this.state.followData !== undefined){
                 this.setState({followStatus: this.state.followData.status});
+            }
+        }
+
+        if(this.state.categories){
+            if(this.state.categories !== prevState.categories){
+                Object.keys(this.state.categories).map((item) => {
+                    if(this.state.categories[item].type === 'direct_messages'){
+                        this.setMessageList(categories[item].channel_ids);
+                    }
+                });
             }
         }
         
@@ -338,14 +358,6 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const {globalHeader, currentUser, profilePicture, userData} = this.props;
         const { coverUrl,completionResult, uploading, shareInfo, userLocation, feeling, socialCount, postList, postValues, listId, followData,followStatus, categories, messagesList, selectedMessage, view} = this.state;
-
-        if (categories) {
-            Object.keys(categories).map((item) => {
-                if(categories[item].type === 'direct_messages'){
-                    this.setMessageList(categories[item].channel_ids);
-                }
-            });
-        }
 
         let photoAvailable;
         let nameAvailable;
