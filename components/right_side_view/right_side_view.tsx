@@ -95,17 +95,27 @@ export default class RightSideView extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
         }
 
-        this.setMessageList();
+        if (this.state.categories) {
+            Object.keys(this.state.categories).map((item) => {
+                if(this.state.categories[item].type === 'direct_messages'){
+                    this.setMessageList(categories[item].channel_ids);
+                }
+            });
+        }
     }
 
-    /*componentDidUpdate(_,prevState){
-        const {selectedMessage} = this.state;
-        if(selectedMessage !== prevState.selectedMessage){
-            if(selectedMessage){
-                this.getList();
+    componentDidUpdate(_,prevState){
+        const {categories} = this.state;
+        if (categories) {
+            if(categories !== prevState.categories){
+                Object.keys(categories).map((item) => {
+                    if(categories[item].type === 'direct_messages'){
+                        this.setMessageList(categories[item].channel_ids);
+                    }
+                });
             }
         }
-    }*/
+    }
 
     setDocumentTitle = (siteName: string) => {
         if (siteName) {
@@ -138,17 +148,9 @@ export default class RightSideView extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {globalHeader, currentUser} = this.props;
-        const {socialCount, postList, categories, messagesList, selectedMessage, messageBody, view} = this.state;
+        const {currentUser} = this.props;
+        const {socialCount, postList,messagesList, selectedMessage, view} = this.state;
         const DeferredPostView = this.state.deferredPostView;
-
-        if (categories) {
-            Object.keys(categories).map((item) => {
-                if(categories[item].type === 'direct_messages'){
-                    this.setMessageList(categories[item].channel_ids);
-                }
-            });
-        }
 
         let chatList;
         let chatTitle;
