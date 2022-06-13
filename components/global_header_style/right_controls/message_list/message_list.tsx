@@ -77,7 +77,28 @@ export default class MessageList extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
         }
 
-        this.setMessageList();
+        if (this.state.categories) {
+            Object.keys(this.state.categories).map((item) => {
+                if(this.state.categories[item].type === 'direct_messages'){
+                    this.setMessageList(categories[item].channel_ids);
+                }
+            });
+        }
+    }
+
+    componentDidUpdate(_,prevState){
+        const {categories} = this.state;
+        if(categories){
+            if(categories !== prevState.categories){
+                if (categories) {
+                    Object.keys(categories).map((item) => {
+                        if(categories[item].type === 'direct_messages'){
+                            this.setMessageList(categories[item].channel_ids);
+                        }
+                    });
+                }
+            }
+        }
     }
 
     setDocumentTitle = (siteName: string) => {
@@ -101,17 +122,9 @@ export default class MessageList extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {currentUser} = this.props;
-        const {categories, messagesList, selectedMessage} = this.state;
+        const {messagesList, selectedMessage} = this.state;
         const DeferredPostView = this.state.deferredPostView;
-
-        if (categories) {
-            Object.keys(categories).map((item) => {
-                if(categories[item].type === 'direct_messages'){
-                    this.setMessageList(categories[item].channel_ids);
-                }
-            });
-        }
-
+        
         let offCanvasView;
         if(selectedMessage && selectedMessage.length){
 
