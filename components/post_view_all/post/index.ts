@@ -9,7 +9,7 @@ import {getPost, makeIsPostCommentMention, makeGetCommentCountForPost} from 'mat
 import {get, isCollapsedThreadsEnabled} from 'mattermost-redux/selectors/entities/preferences';
 import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
 
-import {GenericAction} from 'mattermost-redux/types/actions';
+import {ActionFunc, GenericAction} from 'mattermost-redux/types/actions';
 import {Post} from 'mattermost-redux/types/posts';
 
 import {markPostAsUnread} from 'actions/post_actions';
@@ -49,13 +49,14 @@ export function isFirstReply(post: Post, previousPost: Post): boolean {
     return false;
 }
 
-function mapStateToProps() {
+function mapStateToProps(value) {
+    console.log(value);
     const getReplyCount = makeGetCommentCountForPost();
     const isPostCommentMention = makeIsPostCommentMention();
     const selectFilesForPost = makeGetFilesForPost();
 
     return (state: GlobalState, ownProps: OwnProps) => {
-        console.log(state);
+        //console.log(state);
         const post = ownProps.post || getPost(state, ownProps.postId);
         const postDetailed = Client4.getPostDetailed(ownProps.postId);
         const channel = getChannel(state, post.channel_id);
