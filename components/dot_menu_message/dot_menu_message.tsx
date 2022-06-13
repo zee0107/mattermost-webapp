@@ -554,13 +554,13 @@ export class DotMenuMessage extends React.PureComponent<Props, State> {
                     <Menu.ItemAction
                         id={`unpin_post_${this.props.post.id}`}
                         show={!isSystemMessage && !this.props.isReadOnly && this.props.post.is_pinned}
-                        text={Utils.localizeMessage('post_info.unpin', 'Unpin')}
+                        text={'Unpin Message'}
                         onClick={this.handlePinMenuItemActivated}
                     />
                     <Menu.ItemAction
                         id={`pin_post_${this.props.post.id}`}
                         show={!isSystemMessage && !this.props.isReadOnly && !this.props.post.is_pinned}
-                        text={Utils.localizeMessage('post_info.pin', 'Pin')}
+                        text= {'Pin Message'}
                         onClick={this.handlePinMenuItemActivated}
                     />
                     {/*{!isSystemMessage && (this.state.canEdit || this.state.canDelete) && this.renderDivider('edit')}
