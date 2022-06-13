@@ -590,4 +590,4 @@ export class DotMenuMessage extends React.PureComponent<Props, State> {
     }
 }
 
-export default injectIntl(DotMenuClass);
+export default injectIntl(DotMenuMessage);
