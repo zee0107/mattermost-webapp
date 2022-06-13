@@ -55,15 +55,14 @@ function makeMapStateToProps() {
     const selectFilesForPost = makeGetFilesForPost();
 
     return (state: GlobalState, ownProps: OwnProps) => {
-        const post = getPost(state, ownProps.postId);
-        console.log(ownProps.postId);
-        console.log(post);
+        const post = ownProps.post || getPost(state, ownProps.postId);
         const postDetailed = Client4.getPostDetailed(ownProps.postId);
         const channel = getChannel(state, post.channel_id);
         const team = getCurrentTeam(state);
         //const channelRole = getMyChannelMembership(state,channel.id);
         const channelRole = Client4.getChannelMember(channel.id,post.user_id);
         const fileInfos = selectFilesForPost(state, post.id);
+        console.log(fileInfos)
         let previousPost = null;
         if (ownProps.previousPostId) {
             previousPost = getPost(state, ownProps.previousPostId);
