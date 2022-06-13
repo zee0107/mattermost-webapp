@@ -274,8 +274,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             postsView = (
                 <>
                     {posts && Object.keys(posts.posts).map((post,ind) => {
-                        console.log(posts.posts[post].id);
-                        return (/*<Post postId={post} userId={currentUser.id} />*/<></>);
+                        return (<Post postId={posts.posts[post].id} userId={currentUser.id} key={`${posts.posts[post].id}`}/>);
                     })}
                 </>
             );
