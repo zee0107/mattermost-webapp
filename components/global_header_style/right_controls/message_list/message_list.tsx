@@ -62,6 +62,7 @@ export default class MessageList extends React.PureComponent<Props, State> {
         this.state = { isDark:'light', messagesList: [], deferredPostView: MessageList.createDeferredPostView()};
 
         this.channelViewRef = React.createRef();
+        this.onChangeSelected = this.onChangeSelected.bind(this);
     }
     
     getChannelView = () => {
