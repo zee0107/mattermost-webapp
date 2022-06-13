@@ -3,8 +3,6 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators, Dispatch} from 'redux';
-import {withRouter} from 'react-router-dom';
-
 
 import {getChannel, getMyChannelMembership} from 'mattermost-redux/selectors/entities/channels';
 import {getPost, makeIsPostCommentMention, makeGetCommentCountForPost} from 'mattermost-redux/selectors/entities/posts';
@@ -56,8 +54,7 @@ function makeMapStateToProps() {
     const isPostCommentMention = makeIsPostCommentMention();
     const selectFilesForPost = makeGetFilesForPost();
 
-    return (state, ownProps) => {
-        console.log('State: ', state);
+    return (state: GlobalState, ownProps: OwnProps) => {
         const post = ownProps.post || getPost(state, ownProps.postId);
         const postDetailed = Client4.getPostDetailed(ownProps.postId);
         const channel = getChannel(state, post.channel_id);
