@@ -58,11 +58,6 @@ function handleEmitUserLoggedOutEvent(){
 const RightControlsStyle = (props: Props): JSX.Element => {
     const [profiles, setProfiles] = useState([]);
     const [request, setRequest] = useState([]);
-    /*const [channelId, setChannelId] = useState();
-    const [teamId, setTeamId] = useState();
-    const [categories, setCategories] = useState([]);
-    const [messageList, setMessageList] = useState([]);
-    const [selectedMessage, setSelectedMessage] = useState();*/
 
     useEffect (() => {
         async function getData(){
