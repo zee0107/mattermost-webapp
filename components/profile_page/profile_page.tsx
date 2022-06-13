@@ -188,7 +188,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             if(this.state.categories !== prevState.categories){
                 Object.keys(this.state.categories).map((item) => {
                     if(this.state.categories[item].type === 'direct_messages'){
-                        this.setMessageList(categories[item].channel_ids);
+                        this.setMessageList(this.state.categories[item].channel_ids);
                     }
                 });
             }
@@ -210,7 +210,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             if(this.state.categories !== prevState.categories){
                 Object.keys(this.state.categories).map((item) => {
                     if(this.state.categories[item].type === 'direct_messages'){
-                        this.setMessageList(categories[item].channel_ids);
+                        this.setMessageList(this.state.categories[item].channel_ids);
                     }
                 });
             }
