@@ -76,7 +76,7 @@ type Props = {
     channelIsArchived: boolean;
     viewArchivedChannels: boolean;
     isCloud: boolean;
-    posts: Promise<PostList>;
+    posts?: Promise<PostList>;
     actions: {
         goToLastViewedChannel: () => Promise<{data: boolean}>;
         setShowNextStepsView: (x: boolean) => void;
@@ -263,9 +263,10 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             }
         }
 
-        if(this.state.posts !== prevState.posts){
-            if(this.props.posts){
-                Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
+        
+        if(this.props.posts){
+            if(this.state.posts !== prevState.posts){
+                    Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
             }
         }
     }
