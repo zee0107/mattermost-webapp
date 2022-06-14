@@ -189,8 +189,8 @@ export default class MoreDirectChannels extends React.PureComponent<Props, State
         const done = (result: any) => {
             const {data, error} = result;
             this.setState({saving: false});
-            console.log('fromDirectModal: ',data);
             if (!error) {
+                console.log('fromDirectModal: ',data);
                 this.exitToChannel = '/messages';// + this.props.currentTeamName + '/channels/' + data.name;
                 this.handleHide();
             }
