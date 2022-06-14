@@ -38,7 +38,6 @@ function makeMapStateToProps() {
     const preparePostIdsForPostList = makePreparePostIdsForPostList();
 
     return function mapStateToProps(state, ownProps) {
-        console.log('List: ', state);
         let latestPostTimeStamp = 0;
         let postIds;
         let chunk;
@@ -73,7 +72,6 @@ function makeMapStateToProps() {
                 latestPostTimeStamp = latestPost.create_at;
             }
         }
-        console.log(postIds);
         return {
             lastViewedAt,
             isFirstLoad: isFirstLoad(state, channelId),
