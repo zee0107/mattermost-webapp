@@ -12,7 +12,7 @@ import * as Utils from 'utils/utils.jsx';
 import {stripMarkdown} from 'utils/markdown';
 
 import CommentedOnFilesMessage from 'components/post_view/commented_on_files_message';
-import UserProfile from '../../user_profile/user_profile';
+import UserProfile from '../../user_profile/user_profile_message';
 
 type Props = {
     displayName?: string;
@@ -73,8 +73,8 @@ export default class CommentedOn extends PureComponent<Props> {
             >
                 <span>
                     <FormattedMessage
-                        id='commentedOn'
-                        defaultMessage="Commented on {name}'s post: "
+                        id='repliedOn'
+                        defaultMessage="Replied on {name}'s message: "
                         values={{
                             name: <a className='theme user_name'>{parentUserProfile}</a>,
                         }}
