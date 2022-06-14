@@ -65,7 +65,6 @@ type Props = {
     showNextStepsEphemeral: boolean;
     enableOnboardingFlow: boolean;
     showNextSteps: boolean;
-    isPrefetchingInProcess: boolean;
     currentUser: UserProfile;
     currentTeam: Team;
     storyList: Promise<Story[]>;
