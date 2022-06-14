@@ -48,7 +48,6 @@ function isDeactivatedChannel(state: GlobalState, channelId: string) {
     return Boolean(teammate && teammate.delete_at);
 }
 
-const isFirstLoad = (state, channelId) => !state.entities.posts.postsInChannel[channelId];
 const memoizedGetLatestPostId = memoizeResult((postIds) => getLatestPostId(postIds));
 
 function mapStateToProps(state: GlobalState) {
@@ -63,7 +62,6 @@ function mapStateToProps(state: GlobalState) {
 
     const viewArchivedChannels = config.ExperimentalViewArchivedChannels === 'true';
     const enableOnboardingFlow = config.EnableOnboardingFlow === 'true';
-    const isPrefetchingInProcess = channelViewState.channelPrefetchStatus[currentChannelId] === RequestStatus.STARTED;
 
     let channelRolesLoading = true;
     let posts;

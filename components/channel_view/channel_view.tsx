@@ -65,7 +65,6 @@ type Props = {
     showNextStepsEphemeral: boolean;
     enableOnboardingFlow: boolean;
     showNextSteps: boolean;
-    isfirstLoad: boolean;
     isPrefetchingInProcess: boolean;
     currentUser: UserProfile;
     currentTeam: Team;
@@ -282,13 +281,9 @@ export default class ChannelView extends React.PureComponent<Props, State> {
     }
 
     postsOnLoad = async (channelId) => {
-        const {focusedPostId, isfirstLoad, isPrefetchingInProcess, actions} = this.props;
+        const {focusedPostId, actions} = this.props;
         if (focusedPostId) {
             await actions.loadPostsAround(channelId, this.props.focusedPostId);
-        } else if (isfirstLoad) {
-            if (!isPrefetchingInProcess) {
-                await actions.loadUnreads(channelId);
-            }
         } else {
             await actions.loadLatestPosts(channelId);
         }

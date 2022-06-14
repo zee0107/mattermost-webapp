@@ -24,6 +24,7 @@ import {createChannel,joinChannel,leaveChannelNew,deleteChannel,updateChannel} f
 import {switchToChannel} from 'actions/views/channel';
 
 import MyGroups, {Props} from './groups'
+import { getChannelByName } from 'mattermost-redux/selectors/entities/channels';
 
 type ownProps = {
     goTo: string;
@@ -32,6 +33,8 @@ function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
 
     return function mapStateToProps(state: GlobalState, ownProps: ownProps) {
+        const channel = getChannelByName(state,'town-square');
+        console.log(channel);
         const goToPage = ownProps.location.hash.replace('#','');
         const currentUser = getCurrentUser(state);
         const currentTeam = getCurrentTeam(state);
