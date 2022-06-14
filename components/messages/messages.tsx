@@ -171,8 +171,8 @@ export default class Messages extends React.PureComponent<Props, State> {
                     <div className='row'>
                         <div className='col-4'></div>
                         <div className='col-8'>
-                            <a className='float-end mt-3 ms-1' onClick={() => {this.showMoreDirectChannelsModal}}><i className='bi-pencil-square'></i></a>
                             <a className='float-end mt-3 ms-1 onVerticaldropdownmenu'><i className='bi-three-dots-vertical'></i></a>
+                            <a className='float-end mt-3 ms-1 onVerticaldropdownmenu' onClick={() => {this.showMoreDirectChannelsModal}}><i className='bi-pencil-square'></i></a>
                         </div>
                     </div>
                 </div>
@@ -388,6 +388,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                 </section>
+                {this.renderModals()}
             </>
         );
     }
