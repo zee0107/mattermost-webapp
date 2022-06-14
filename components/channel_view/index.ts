@@ -14,6 +14,8 @@ import {getRoles} from 'mattermost-redux/selectors/entities/roles_helpers';
 import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
 import {showNextSteps} from 'components/next_steps_view/steps';
 import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
+import {memoizeResult} from 'mattermost-redux/utils/helpers';
+import {getLatestPostId} from 'utils/post_utils';
 
 import {ActionFunc, GenericAction} from 'mattermost-redux/types/actions';
 import {setShowNextStepsView} from 'actions/views/next_steps';
@@ -21,6 +23,15 @@ import {getCurrentRelativeTeamUrl, getCurrentTeam} from 'mattermost-redux/select
 
 import {goToLastViewedChannel} from 'actions/views/channel';
 import {joinChannel,leaveChannelNew} from 'mattermost-redux/actions/channels';
+import {
+    loadPosts,
+    loadUnreads,
+    loadPostsAround,
+    syncPostsInChannel,
+    loadLatestPosts,
+} from 'actions/views/channel';
+
+import {RequestStatus} from 'mattermost-redux/constants';
 
 import {GlobalState} from 'types/store';
 
@@ -37,8 +48,12 @@ function isDeactivatedChannel(state: GlobalState, channelId: string) {
     return Boolean(teammate && teammate.delete_at);
 }
 
+const isFirstLoad = (state, channelId) => !state.entities.posts.postsInChannel[channelId];
+const memoizedGetLatestPostId = memoizeResult((postIds) => getLatestPostId(postIds));
+
 function mapStateToProps(state: GlobalState) {
     const channel = getCurrentChannel(state);
+    const channelViewState = state.views.channel;
     const currentChannelId = channel?.id;
     const currentUser = getCurrentUser(state);
     const currentTeam = getCurrentTeam(state);
@@ -48,11 +63,14 @@ function mapStateToProps(state: GlobalState) {
 
     const viewArchivedChannels = config.ExperimentalViewArchivedChannels === 'true';
     const enableOnboardingFlow = config.EnableOnboardingFlow === 'true';
+    const isPrefetchingInProcess = channelViewState.channelPrefetchStatus[currentChannelId] === RequestStatus.STARTED;
 
     let channelRolesLoading = true;
     let posts;
+    let isfirstLoad;
     if (channel && channel.id) {
         const roles = getRoles(state);
+        isfirstLoad = isFirstLoad(state, channel.id),
         posts = Client4.getPosts(channel.id);
         const myChannelRoles = getMyChannelRoles(state);
         if (myChannelRoles[channel.id]) {
@@ -71,6 +89,7 @@ function mapStateToProps(state: GlobalState) {
         channelName: channel ? channel.name : '',
         channelDisplayName: channel ? channel.display_name : '',
         channelPurpose: channel ? channel.purpose : '',
+        isfirstLoad,
         channel,
         currentTeam,
         posts,
@@ -97,6 +116,11 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
             goToLastViewedChannel,
             leaveChannelNew,
             setShowNextStepsView,
+            loadPosts,
+            loadUnreads,
+            loadPostsAround,
+            syncPostsInChannel,
+            loadLatestPosts,
         }, dispatch),
     };
 }

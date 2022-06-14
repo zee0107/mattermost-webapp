@@ -65,6 +65,8 @@ type Props = {
     showNextStepsEphemeral: boolean;
     enableOnboardingFlow: boolean;
     showNextSteps: boolean;
+    isfirstLoad: boolean;
+    isPrefetchingInProcess: boolean;
     currentUser: UserProfile;
     currentTeam: Team;
     storyList: Promise<Story[]>;
@@ -84,6 +86,11 @@ type Props = {
         goToLastViewedChannel: () => Promise<{data: boolean}>;
         setShowNextStepsView: (x: boolean) => void;
         leaveChannelNew: (channelId: string) => Promise<ActionResult>;
+        loadPosts: () => any,
+        loadUnreads: () => any,
+        loadPostsAround: () => any,
+        syncPostsInChannel: () => any,
+        loadLatestPosts: () => any,
     };
 };
 
@@ -263,6 +270,8 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             if(this.props.posts){
                 Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
             }
+
+            this.postsOnLoad(this.props.channelId);
         }
 
         if(this.props.channel){
@@ -271,6 +280,20 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             }
         }
     }
+
+    postsOnLoad = async (channelId) => {
+        const {focusedPostId, isfirstLoad, isPrefetchingInProcess, actions} = this.props;
+        if (focusedPostId) {
+            await actions.loadPostsAround(channelId, this.props.focusedPostId);
+        } else if (isfirstLoad) {
+            if (!isPrefetchingInProcess) {
+                await actions.loadUnreads(channelId);
+            }
+        } else {
+            await actions.loadLatestPosts(channelId);
+        }
+    }
+
     render() {
         const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName,channelDisplayName,channelId, currentUser, currentTeam} = this.props;
         const { uploading, shareInfo, userLocation, feeling, storyList, channelAdmin, posts, channel } = this.state;
@@ -789,16 +812,16 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
                             <div className='col-md-12 pbot-20 bgGrey'></div>
                             <div className='col-md-12 removePadding'>
-                                <DeferredPostView
+                                {/*<DeferredPostView
                                         channelId={this.props.channelId}
                                         focusedPostId={this.state.focusedPostId}
                                         filter={this.state.filter}
-                                />
+                                />*/}
                                 {/*postList && postList.order.map((item,index) => {
                                     Object.keys(postList.posts).map((item2,index2) => {return (<Post postId={item} post={postList.posts[item2]} />);});
-                                })}
+                                })*/}
 
-                                {/*postsView*/}
+                                {postsView}
                             </div>
                         </div>
                     </div>
