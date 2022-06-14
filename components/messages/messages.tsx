@@ -319,14 +319,14 @@ export default class Messages extends React.PureComponent<Props, State> {
 
         let sidebarDmHeight, sidebarGmHeight;
         if(showDm && showGm){
-            sidebarDmHeight = '50%';
-            sidebarGmHeight = '50%';
+            sidebarDmHeight = '40%';
+            sidebarGmHeight = '40%';
         }else if(showDm && !showGm){
-            sidebarDmHeight = '100%';
+            sidebarDmHeight = '90%';
             sidebarGmHeight = 'auto';
         }else if(!showDm && showGm){
             sidebarDmHeight = 'auto';
-            sidebarGmHeight = '100%';
+            sidebarGmHeight = '90%';
         }else{
             sidebarDmHeight = 'auto';
             sidebarGmHeight = 'auto';
