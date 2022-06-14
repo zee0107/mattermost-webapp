@@ -319,8 +319,8 @@ export default class Messages extends React.PureComponent<Props, State> {
 
         let sidebarDmHeight, sidebarGmHeight, chevronIconDm, chevronIconGm;
         if(showDm && showGm){
-            sidebarDmHeight = '35%';
-            sidebarGmHeight = '35%';
+            sidebarDmHeight = '40%';
+            sidebarGmHeight = '40%';
             chevronIconDm = (
                 <i className='bi-chevron-up'></i>
             );
