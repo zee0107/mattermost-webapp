@@ -18,6 +18,7 @@ import FileUploadOverlay from 'components/file_upload_overlay';
 import PostView from 'components/post_view_all';
 import Post from 'components/post_view_all/post';
 import PostListRow from 'components/post_view_all/post_list_row';
+import LatestPostReader from 'components/post_view_all/post_list_virtualized/latest_post_reader';
 import {clearMarks, mark, measure, trackEvent} from 'actions/telemetry_actions.jsx';
 import FormattedMarkdownMessage from 'components/formatted_markdown_message';
 import StoryList from 'components/story_list';
@@ -283,6 +284,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             if(channel){
                 postsView = (
                     <>
+                        <LatestPostReader postIds={posts.order}/>
                         {posts && Object.keys(posts.posts).map((post,ind) => {
                             return (<Post postId={post} post={posts.posts[post]} userId={currentUser.id} key={`${posts.posts[post].id}`}/>);
                         })}
@@ -788,16 +790,16 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
                             <div className='col-md-12 pbot-20 bgGrey'></div>
                             <div className='col-md-12 removePadding'>
-                                <DeferredPostView
+                                {/*<DeferredPostView
                                         channelId={this.props.channelId}
                                         focusedPostId={this.state.focusedPostId}
                                         filter={this.state.filter}
-                                />
+                                />*/}
                                 {/*postList && postList.order.map((item,index) => {
                                     Object.keys(postList.posts).map((item2,index2) => {return (<Post postId={item} post={postList.posts[item2]} />);});
                                 })*/}
 
-                                {/*postsView*/}
+                                {postsView}
                             </div>
                         </div>
                     </div>
