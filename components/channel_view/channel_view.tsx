@@ -271,7 +271,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
             }
         }
     }
-
     render() {
         const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName,channelDisplayName,channelId, currentUser, currentTeam} = this.props;
         const { uploading, shareInfo, userLocation, feeling, storyList, channelAdmin, posts, channel } = this.state;
