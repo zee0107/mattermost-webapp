@@ -101,6 +101,12 @@ export default class Messages extends React.PureComponent<Props, State> {
                 });
             }
         }
+
+        if(this.state.selectedMessage !== prevState.selectedMessage){
+            if(this.props.categories){
+                Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
+            }
+        }
     }
 
     showDirect = () => {
