@@ -73,7 +73,7 @@ function makeMapStateToProps() {
                 latestPostTimeStamp = latestPost.create_at;
             }
         }
-
+        console.log(postIds);
         return {
             lastViewedAt,
             isFirstLoad: isFirstLoad(state, channelId),
