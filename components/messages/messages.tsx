@@ -13,6 +13,7 @@ import MessageSidebar from 'components/messages_sidebar';
 import MessageSidebarGroup from 'components/messages_sidebar_group';
 import MessageHeader from 'components/messages_header';
 import { trackEvent } from 'actions/telemetry_actions';
+import { BooleanLiteral } from 'typescript';
 
 export type Props = {
     userId: string;
@@ -32,6 +33,8 @@ type State = {
     selectedMessage: string;
     mobileView: string;
     showDirectChannelsModal: boolean;
+    showGm: boolean;
+    showDm: boolean;
 };
 
 export default class Messages extends React.PureComponent<Props, State> {
@@ -59,7 +62,7 @@ export default class Messages extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = { isDark:'light',deferredPostView: Messages.createDeferredPostView(), messagesList: [], selectedMessage: '', mobileView: 'messages', showDirectChannelsModal: false};
+        this.state = { isDark:'light',deferredPostView: Messages.createDeferredPostView(), messagesList: [], selectedMessage: '', mobileView: 'messages', showDirectChannelsModal: false, showGm: false, showDm: false};
 
         this.onChangeSelected = this.onChangeSelected.bind(this);
         this.onMobileView = this.onMobileView.bind(this);
@@ -84,6 +87,21 @@ export default class Messages extends React.PureComponent<Props, State> {
         }
     }
 
+    showDirect = () => {
+        this.setState({showDm: true});
+    }
+
+    hideDirect = () => {
+        this.setState({showDm: false});
+    }
+
+    showGroup = () => {
+        this.setState({showGm: true});
+    }
+
+    hideGroup = () => {
+        this.setState({showGm: false});
+    }
     showMoreDirectChannelsModal = () => {
         this.setState({showDirectChannelsModal: true});
         trackEvent('ui', 'ui_channels_more_direct_v2');
@@ -134,6 +152,24 @@ export default class Messages extends React.PureComponent<Props, State> {
         }
     }
 
+    handleCollapseDm = (e: Event) => {
+        e.preventDefault();
+        if(this.state.showDm){
+            this.hideDirect();
+        }else{
+            this.showDirect();
+        }
+    }
+
+    handleCollapseGm = (e: Event) => {
+        e.preventDefault();
+        if(this.state.showGm){
+            this.hideGroup();
+        }else{
+            this.showGroup();
+        }
+    }
+
     renderModals = () => {
         let moreDirectChannelsModal;
         if (this.state.showDirectChannelsModal) {
@@ -155,7 +191,7 @@ export default class Messages extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const DeferredPostView = this.state.deferredPostView;
-        const {categories, messagesList, selectedMessage} = this.state;
+        const {categories, messagesList, selectedMessage, showDm, showGm} = this.state;
         if (categories) {
             Object.keys(categories).map((item) => {
                 if(categories[item].type === 'direct_messages'){
@@ -281,6 +317,21 @@ export default class Messages extends React.PureComponent<Props, State> {
             );
         }
 
+        let sidebarDmHeight, sidebarGmHeight;
+        if(showDm && showGm){
+            sidebarDmHeight = '50%';
+            sidebarGmHeight = '50%';
+        }else if(showDm && !showGm){
+            sidebarDmHeight = '100%';
+            sidebarGmHeight = 'auto';
+        }else if(!showDm && showGm){
+            sidebarDmHeight = 'auto';
+            sidebarGmHeight = '100%';
+        }else{
+            sidebarDmHeight = 'auto';
+            sidebarGmHeight = 'auto';
+        }
+
         return (
             <>
                 <section id="crypter-section" className='crypter-section-desktop'>
@@ -324,19 +375,19 @@ export default class Messages extends React.PureComponent<Props, State> {
                             <div className='box-middle-panel-messages-content'>
                                 <div className='row'>
                                     <div className='col-3 border-end'>
-                                        <div className='left-chat-groups-message-panel'>
+                                        <div className='left-chat-groups-message-panel' style={{height: `${sidebarGmHeight}`}}>
                                             <div className='groups-chat'>
-                                                <a className='onGroupschats' data-bs-toggle='collapse' href='#collapseGroupschats' role='button' aria-expanded='false' aria-controls='collapseGroupschats'><i className='bi-chevron-down'></i> Groups</a>
-                                                <a className='onGroupschatsup' data-bs-toggle='collapse' href='#collapseGroupschats' role='button' aria-expanded='true' aria-controls='collapseGroupschats'><i className='bi-chevron-up'></i> Groups</a>
+                                                <a className='onGroupschats' onClick={this.handleCollapseGm} data-bs-toggle='collapse' href='#collapseGroupschats' role='button' aria-expanded='false' aria-controls='collapseGroupschats'><i className='bi-chevron-down'></i> Groups</a>
+                                                <a className='onGroupschatsup' onClick={this.handleCollapseGm} data-bs-toggle='collapse' href='#collapseGroupschats' role='button' aria-expanded='true' aria-controls='collapseGroupschats'><i className='bi-chevron-up'></i> Groups</a>
                                             </div>
-                                            <div className='collapse show' id='collapseGroupschats'>
+                                            <div className='collapse' id='collapseGroupschats'>
                                                {gmDesktop}
                                             </div> 
                                         </div>
-                                        <div className='left-chat-groups-message-panel'>
+                                        <div className='left-chat-groups-message-panel' style={{height: `${sidebarDmHeight}`}}>
                                             <div className='groups-chat'>
-                                                <a className='onDirectmsg' data-bs-toggle='collapse' href='#collapseDirectmsg' role='button' aria-expanded='false' aria-controls='collapseGroupschats'><i className='bi-chevron-down'></i> Direct Message</a>
-                                                <a className='onDirectmsgup' data-bs-toggle='collapse' href='#collapseDirectmsg' role='button' aria-expanded='true' aria-controls='collapseDirectmsg'><i className='bi-chevron-up'></i> Direct Message</a>
+                                                <a className='onDirectmsg' onClick={this.handleCollapseDm} data-bs-toggle='collapse' href='#collapseDirectmsg' role='button' aria-expanded='false' aria-controls='collapseGroupschats'><i className='bi-chevron-down'></i> Direct Message</a>
+                                                <a className='onDirectmsgup' onClick={this.handleCollapseDm} data-bs-toggle='collapse' href='#collapseDirectmsg' role='button' aria-expanded='true' aria-controls='collapseDirectmsg'><i className='bi-chevron-up'></i> Direct Message</a>
                                             </div>
                                             <div className='collapse' id='collapseDirectmsg'>
                                                 {dmDesktop}
@@ -367,14 +418,14 @@ export default class Messages extends React.PureComponent<Props, State> {
                                 </div>
                             </div>
                         </div>
-                        <div className={`box-middle-panel mt-3 mobilechatconversationperson ${this.state.mobileView === 'chats' ? '' : 'hide'}`}>
+                        <div className={`box-middle-panel mt-3 mobilechatconversationperson ${this.state.mobileView === 'chats' ? '' : 'hide'}`} style={{height: '100vh'}}>
                             <div className='row'>
                                 <strong><label>Direct Message</label></strong>
                             </div>
                             <hr />
                             {dmMobile}
                         </div>
-                        <div className={`box-middle-panel mt-3 mobilechatconversationgroup ${this.state.mobileView === 'groups' ? '' : 'hide'}`}>
+                        <div className={`box-middle-panel mt-3 mobilechatconversationgroup ${this.state.mobileView === 'groups' ? '' : 'hide'}`} style={{height: '100vh'}}>
                             <div className='row'>
                                 <strong><label>Groups</label></strong>
                             </div>
