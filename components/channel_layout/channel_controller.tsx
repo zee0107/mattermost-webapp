@@ -23,7 +23,7 @@ import ResetStatusModal from 'components/reset_status_modal';
 import SidebarRight from 'components/sidebar_right';
 import SidebarRightMenu from 'components/sidebar_right_menu';
 import AppBar from 'components/app_bar/app_bar';
-import Sidebar from 'components/sidebar';
+import Sidebar from 'components/sidebar_copy';
 import * as UserAgent from 'utils/user_agent';
 import CenterChannel from 'components/channel_layout/center_channel';
 import LoadingScreen from 'components/loading_screen';
