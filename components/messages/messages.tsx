@@ -6,11 +6,13 @@ import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import { UserProfile } from 'mattermost-redux/types/users';
 import deferComponentRender from 'components/deferComponentRender';
 import CreatePost from 'components/create_post_message';
+import MoreDirectChannels from 'components/more_direct_channels';
 import PostView from 'components/post_view';
 import { ChannelCategory, OrderedChannelCategories } from 'mattermost-redux/types/channel_categories';
 import MessageSidebar from 'components/messages_sidebar';
 import MessageSidebarGroup from 'components/messages_sidebar_group';
 import MessageHeader from 'components/messages_header';
+import { trackEvent } from 'actions/telemetry_actions';
 
 export type Props = {
     userId: string;
@@ -29,6 +31,7 @@ type State = {
     messagesList: string[];
     selectedMessage: string;
     mobileView: string;
+    showDirectChannelsModal: boolean;
 };
 
 export default class Messages extends React.PureComponent<Props, State> {
@@ -56,7 +59,7 @@ export default class Messages extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = { isDark:'light',deferredPostView: Messages.createDeferredPostView(), messagesList: [], selectedMessage: '', mobileView: 'messages'};
+        this.state = { isDark:'light',deferredPostView: Messages.createDeferredPostView(), messagesList: [], selectedMessage: '', mobileView: 'messages', showDirectChannelsModal: false};
 
         this.onChangeSelected = this.onChangeSelected.bind(this);
         this.onMobileView = this.onMobileView.bind(this);
@@ -71,6 +74,15 @@ export default class Messages extends React.PureComponent<Props, State> {
         if(this.props.categories){
             Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
         }
+    }
+
+    showMoreDirectChannelsModal = () => {
+        this.setState({showDirectChannelsModal: true});
+        trackEvent('ui', 'ui_channels_more_direct_v2');
+    }
+
+    hideMoreDirectChannelsModal = () => {
+        this.setState({showDirectChannelsModal: false});
     }
 
     getMessageView = () => {
@@ -105,6 +117,33 @@ export default class Messages extends React.PureComponent<Props, State> {
         );
     }
 
+    handleOpenMoreDirectChannelsModal = (e: Event) => {
+        e.preventDefault();
+        if (this.state.showDirectChannelsModal) {
+            this.hideMoreDirectChannelsModal();
+        } else {
+            this.showMoreDirectChannelsModal();
+        }
+    }
+
+    renderModals = () => {
+        let moreDirectChannelsModal;
+        if (this.state.showDirectChannelsModal) {
+            moreDirectChannelsModal = (
+                <MoreDirectChannels
+                    onModalDismissed={this.hideMoreDirectChannelsModal}
+                    isExistingChannel={false}
+                />
+            );
+        }
+
+        return (
+            <React.Fragment>
+                {moreDirectChannelsModal}
+            </React.Fragment>
+        );
+    }
+
     render= (): JSX.Element => {
         const DeferredPostView = this.state.deferredPostView;
         const {categories, messagesList, selectedMessage} = this.state;
@@ -132,6 +171,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                     <div className='row'>
                         <div className='col-4'></div>
                         <div className='col-8'>
+                            <a className='float-end mt-3 ms-1' onClick={() => {this.showMoreDirectChannelsModal}}><i className='bi-pencil-square'></i></a>
                             <a className='float-end mt-3 ms-1 onVerticaldropdownmenu'><i className='bi-three-dots-vertical'></i></a>
                         </div>
                     </div>
@@ -166,7 +206,7 @@ export default class Messages extends React.PureComponent<Props, State> {
             );
 
             messageHeaderMobile = (
-                <MessageHeader channelId={selectedMessage} view='mobile' />
+                <MessageHeader channelId={selectedMessage}  view='mobile' />
             );
 
             messageBodyMobile = (
