@@ -76,6 +76,14 @@ export default class Messages extends React.PureComponent<Props, State> {
         }
     }
 
+    componentDidUpdate(_,prevState){
+        if(this.state.categories !== prevState.categories){
+            if(this.props.categories){
+                Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
+            }
+        }
+    }
+
     showMoreDirectChannelsModal = () => {
         this.setState({showDirectChannelsModal: true});
         trackEvent('ui', 'ui_channels_more_direct_v2');
