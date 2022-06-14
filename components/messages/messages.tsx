@@ -131,6 +131,7 @@ export default class Messages extends React.PureComponent<Props, State> {
         if (this.state.showDirectChannelsModal) {
             moreDirectChannelsModal = (
                 <MoreDirectChannels
+                    onChangeSelected={this.onChangeSelected}
                     onModalDismissed={this.hideMoreDirectChannelsModal}
                     isExistingChannel={false}
                 />

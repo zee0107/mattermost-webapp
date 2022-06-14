@@ -44,6 +44,7 @@ export type Props = {
     */
     restrictDirectMessage?: string;
     onModalDismissed: () => void;
+    onChangeSelected: () => void;
     onExited?: () => void;
     actions: {
         getProfiles: (page?: number | undefined, perPage?: number | undefined, options?: any) => Promise<any>;
@@ -190,7 +191,7 @@ export default class MoreDirectChannels extends React.PureComponent<Props, State
             const {data, error} = result;
             this.setState({saving: false});
             if (!error) {
-                console.log('fromDirectModal: ',data);
+                this.props.onChangeSelected(data.id);
                 this.exitToChannel = '/messages';// + this.props.currentTeamName + '/channels/' + data.name;
                 this.handleHide();
             }
