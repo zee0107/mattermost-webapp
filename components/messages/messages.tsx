@@ -319,8 +319,8 @@ export default class Messages extends React.PureComponent<Props, State> {
 
         let sidebarDmHeight, sidebarGmHeight, chevronIconDm, chevronIconGm;
         if(showDm && showGm){
-            sidebarDmHeight = '40%';
-            sidebarGmHeight = '40%';
+            sidebarDmHeight = '35%';
+            sidebarGmHeight = '35%';
             chevronIconDm = (
                 <i className='bi-chevron-up'></i>
             );
@@ -329,7 +329,7 @@ export default class Messages extends React.PureComponent<Props, State> {
             );
         }else if(showDm && !showGm){
             sidebarDmHeight = '90%';
-            sidebarGmHeight = 'auto';
+            sidebarGmHeight = '10%';
             chevronIconDm = (
                 <i className='bi-chevron-up'></i>
             );
@@ -337,7 +337,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                 <i className='bi-chevron-down'></i>
             );
         }else if(!showDm && showGm){
-            sidebarDmHeight = 'auto';
+            sidebarDmHeight = '10%';
             sidebarGmHeight = '90%';
             chevronIconDm = (
                 <i className='bi-chevron-down'></i>
@@ -346,8 +346,8 @@ export default class Messages extends React.PureComponent<Props, State> {
                 <i className='bi-chevron-up'></i>
             );
         }else{
-            sidebarDmHeight = 'auto';
-            sidebarGmHeight = 'auto';
+            sidebarDmHeight = '10%';
+            sidebarGmHeight = '10%';
             chevronIconDm = (
                 <i className='bi-chevron-down'></i>
             );
