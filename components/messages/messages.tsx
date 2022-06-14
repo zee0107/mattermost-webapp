@@ -77,12 +77,28 @@ export default class Messages extends React.PureComponent<Props, State> {
         if(this.props.categories){
             Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
         }
+
+        if (this.state.categories) {
+            Object.keys(this.state.categories).map((item) => {
+                if(this.state.categories[item].type === 'direct_messages'){
+                    this.setMessageList(this.state.categories[item].channel_ids);
+                }
+            });
+        }
     }
 
     componentDidUpdate(_,prevState){
         if(this.state.categories !== prevState.categories){
             if(this.props.categories){
                 Promise.resolve(this.props.categories).then((value) => {this.setState({categories: value.categories});})
+            }
+
+            if (this.state.categories) {
+                Object.keys(this.state.categories).map((item) => {
+                    if(this.state.categories[item].type === 'direct_messages'){
+                        this.setMessageList(this.state.categories[item].channel_ids);
+                    }
+                });
             }
         }
     }
@@ -192,13 +208,6 @@ export default class Messages extends React.PureComponent<Props, State> {
     render= (): JSX.Element => {
         const DeferredPostView = this.state.deferredPostView;
         const {categories, messagesList, selectedMessage, showDm, showGm} = this.state;
-        if (categories) {
-            Object.keys(categories).map((item) => {
-                if(categories[item].type === 'direct_messages'){
-                    this.setMessageList(categories[item].channel_ids);
-                }
-            });
-        }
 
         let messageHeaderDesktop;
         let messageHeaderMobile;
