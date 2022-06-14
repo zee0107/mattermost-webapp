@@ -318,9 +318,11 @@ export default class Messages extends React.PureComponent<Props, State> {
         }
 
         let sidebarDmHeight, sidebarGmHeight, chevronIconDm, chevronIconGm;
+        let sidebarHeight = 'auto';
         if(showDm && showGm){
             sidebarDmHeight = '40%';
             sidebarGmHeight = '40%';
+            sidebarHeight = '80%'
             chevronIconDm = (
                 <i className='bi-chevron-up'></i>
             );
@@ -396,7 +398,7 @@ export default class Messages extends React.PureComponent<Props, State> {
                                     </div>
                                 </div>
                             </div>
-                            <div className='box-middle-panel-messages-content'>
+                            <div className='box-middle-panel-messages-content' style={{height: `${sidebarHeight}`}}>
                                 <div className='row'>
                                     <div className='col-3 border-end'>
                                         <div className='left-chat-groups-message-panel' style={{height: `${sidebarGmHeight}`, overflow:'auto'}}>
