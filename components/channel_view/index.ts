@@ -65,10 +65,8 @@ function mapStateToProps(state: GlobalState) {
 
     let channelRolesLoading = true;
     let posts;
-    let isfirstLoad;
     if (channel && channel.id) {
         const roles = getRoles(state);
-        isfirstLoad = isFirstLoad(state, channel.id),
         posts = Client4.getPosts(channel.id);
         const myChannelRoles = getMyChannelRoles(state);
         if (myChannelRoles[channel.id]) {
@@ -87,7 +85,6 @@ function mapStateToProps(state: GlobalState) {
         channelName: channel ? channel.name : '',
         channelDisplayName: channel ? channel.display_name : '',
         channelPurpose: channel ? channel.purpose : '',
-        isfirstLoad,
         channel,
         currentTeam,
         posts,
