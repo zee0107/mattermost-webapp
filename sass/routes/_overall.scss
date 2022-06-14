@@ -3,6 +3,15 @@
   z-index: 99;
 }
 
+.selectedMessage{
+  border-right: 5px solid #06971ea1;
+  background: #EFFBED;
+  padding: 0px 11px 0px 23px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  margin: 0px 0px 0px 0px;
+}
+
 .hoverRow:hover {
   border-right: 5px solid #3F8CFF;
   background: #EFFBED;

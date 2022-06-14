@@ -25,6 +25,7 @@ export type Props = {
     view: string;
     onChangeSelected: any;
     onMobileView: any;
+    extraClass: string;
 }
 
 type State = {
@@ -138,7 +139,7 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
         if(channel.type === Constants.DM_CHANNEL){
                 DirectMessageDesktop = (
                     <a className='onChatus text-dark' onClick={() => this.handleChangeSelected(channel.id)}>
-                        <div className='row hoverRow'>
+                        <div className={`row hoverRow ${this.props.extraClass}`}>
                             <div className='col-2 text-center p-1 mt-1'>
                                 {this.getIcon()}
                             </div>
