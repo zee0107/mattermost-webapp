@@ -365,7 +365,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                 {errorServer}
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                     {this.state.mygroups.map((item,index) => {
-                        if(item.display_name !== ''  && item.display_name !== 'Town Square'){
+                        if(item.display_name !== ''  && item.display_name !== 'Town Square' && item.type !== Constants.DM_CHANNEL && item.type !== Constants.GM_CHANNEL){
                             return(
                                 <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
@@ -419,7 +419,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                 {errorServer}
                 <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                     {this.state.mygroups.map((item,index) => {
-                        if(item.display_name !== '' && item.display_name !== 'Town Square'){
+                        if(item.display_name !== '' && item.display_name !== 'Town Square'  && item.type !== Constants.DM_CHANNEL && item.type !== Constants.GM_CHANNEL){
                             if(item.creator_id === this.props.userId)
                             {
                                 return(
@@ -470,7 +470,7 @@ export default class MyGroups extends React.PureComponent<Props, State> {
                             return data1.id === data2.id;
                         })
                     }).map((item,index) => {
-                        if(item.display_name !== ''  && item.display_name !== 'Town Square'){
+                        if(item.display_name !== ''  && item.display_name !== 'Town Square'  && item.type !== Constants.DM_CHANNEL && item.type !== Constants.GM_CHANNEL){
                             return(
                                 <div className='col-md-3 p-1'>
                                     <div className='box-each-groups'>
