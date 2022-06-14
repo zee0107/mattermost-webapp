@@ -191,7 +191,7 @@ export default class MoreDirectChannels extends React.PureComponent<Props, State
             this.setState({saving: false});
 
             if (!error) {
-                this.exitToChannel = '/' + this.props.currentTeamName + '/channels/' + data.name;
+                this.exitToChannel = '/messages';// + this.props.currentTeamName + '/channels/' + data.name;
                 this.handleHide();
             }
         };
@@ -291,6 +291,7 @@ export default class MoreDirectChannels extends React.PureComponent<Props, State
                 role='dialog'
                 aria-labelledby='moreDmModalLabel'
                 id='moreDmModal'
+                style={{marginTop: 50,}}
             >
                 <Modal.Header closeButton={true}>
                     <Modal.Title

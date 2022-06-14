@@ -103,8 +103,8 @@ const List = React.forwardRef((props: Props, ref?: React.Ref<MultiSelect<OptionV
             maxValues={MAX_SELECTABLE_VALUES}
             numRemainingText={
                 <FormattedMessage
-                    id='multiselect.numPeopleRemaining'
-                    defaultMessage='Use ↑↓ to browse, ↵ to select. You can add {num, number} more {num, plural, one {person} other {people}}. '
+                    id='numPeople'
+                    defaultMessage='Use ↑↓ to browse, ↵ to select.'
                     values={{
                         num: MAX_SELECTABLE_VALUES - props.values.length,
                     }}
