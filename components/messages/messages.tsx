@@ -375,21 +375,21 @@ export default class Messages extends React.PureComponent<Props, State> {
                             <div className='box-middle-panel-messages-content'>
                                 <div className='row'>
                                     <div className='col-3 border-end'>
-                                        <div className='left-chat-groups-message-panel'>
+                                        <div className='left-chat-groups-message-panel' style={{height: `${sidebarGmHeight}`, overflow:'auto'}}>
                                             <div className='groups-chat'>
                                                 <a className='onGroupschats' onClick={this.handleCollapseGm} data-bs-toggle='collapse' href='#collapseGroupschats' role='button' aria-expanded='false' aria-controls='collapseGroupschats'><i className='bi-chevron-down'></i> Groups</a>
                                                 <a className='onGroupschatsup' onClick={this.handleCollapseGm} data-bs-toggle='collapse' href='#collapseGroupschats' role='button' aria-expanded='true' aria-controls='collapseGroupschats'><i className='bi-chevron-up'></i> Groups</a>
                                             </div>
-                                            <div className='collapse' id='collapseGroupschats' style={{height: `${sidebarGmHeight}`, overflow:'auto'}}>
+                                            <div className='collapse' id='collapseGroupschats'>
                                                {gmDesktop}
                                             </div> 
                                         </div>
-                                        <div className='left-chat-groups-message-panel'>
+                                        <div className='left-chat-groups-message-panel' style={{height: `${sidebarDmHeight}`, overflow:'auto'}}>
                                             <div className='groups-chat'>
                                                 <a className='onDirectmsg' onClick={this.handleCollapseDm} data-bs-toggle='collapse' href='#collapseDirectmsg' role='button' aria-expanded='false' aria-controls='collapseGroupschats'><i className='bi-chevron-down'></i> Direct Message</a>
                                                 <a className='onDirectmsgup' onClick={this.handleCollapseDm} data-bs-toggle='collapse' href='#collapseDirectmsg' role='button' aria-expanded='true' aria-controls='collapseDirectmsg'><i className='bi-chevron-up'></i> Direct Message</a>
                                             </div>
-                                            <div className='collapse' id='collapseDirectmsg' style={{height: `${sidebarDmHeight}`, overflow:'auto'}}>
+                                            <div className='collapse' id='collapseDirectmsg'>
                                                 {dmDesktop}
                                             </div> 
                                         </div>
