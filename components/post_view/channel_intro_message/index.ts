@@ -7,7 +7,7 @@ import {bindActionCreators, Dispatch} from 'redux';
 
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
 import {getCurrentChannel, getDirectTeammate} from 'mattermost-redux/selectors/entities/channels';
-import {getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
+import {getCurrentTeam, getTeamByName} from 'mattermost-redux/selectors/entities/teams';
 import {getProfilesInCurrentChannel, getCurrentUserId, getUser, getTotalUsersStats as getTotalUsersStatsSelector} from 'mattermost-redux/selectors/entities/users';
 import {get} from 'mattermost-redux/selectors/entities/preferences';
 
@@ -27,7 +27,7 @@ function mapStateToProps(state: GlobalState) {
     const config = getConfig(state);
     const enableUserCreation = config.EnableUserCreation === 'true';
     const isReadOnly = false;
-    const team = getCurrentTeam(state);
+    const team = getTeamByName(state,'crypter');
     const channel = getCurrentChannel(state) || {};
     const teammate = getDirectTeammate(state, channel.id);
     const creator = getUser(state, channel.creator_id);

@@ -63,7 +63,6 @@ function makeMapStateToProps() {
 function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
     return {
         actions: bindActionCreators({
-            getTeamRedirectChannelIfIsAccesible,
             openModal,
             setStatus,
             unsetCustomStatus,

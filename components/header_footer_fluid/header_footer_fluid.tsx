@@ -37,7 +37,6 @@ type Props = {
         setStatus: (status: UserStatus) => ActionFunc;
         unsetCustomStatus: () => ActionFunc;
         setStatusDropdown: (open: boolean) => void;
-        getTeamRedirectChannelIfIsAccesible: () => any;
     };
     customStatus?: UserCustomStatus;
     currentUser: UserProfile;
@@ -102,8 +101,6 @@ export default class LoggedInHFTF extends React.PureComponent<Props> {
         if (rootElement) {
             rootElement.classList.add('container-fluid');
         }
-
-        this.loadChannels();
     }
 
     componentWillUnmount() {
@@ -111,13 +108,6 @@ export default class LoggedInHFTF extends React.PureComponent<Props> {
         const rootElement: HTMLElement | null = document.getElementById('root');
         if (rootElement) {
             rootElement.classList.remove('container-fluid');
-        }
-    }
-
-    loadChannels = async () => {
-        const {currentUser, currentTeam, actions} = this.props;
-        if(currentUser && currentTeam){
-            await actions.getTeamRedirectChannelIfIsAccesible(currentUser,currentTeam);
         }
     }
     
