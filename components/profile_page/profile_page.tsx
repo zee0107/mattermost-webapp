@@ -885,9 +885,11 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 </div>
                                 
                                 <div className='mtop-20'>
-                                    {postList && Object.keys(postList.posts).map((post,ind) => {
-                                            return (<Post postId={post} post={postList.posts[post]}  userId={currentUser.id} />);
-                                    })}
+                                {postList && postList.order.map((item,index) => {
+                                    return (
+                                        <Post postId={item} post={postList.posts[item]} userId={currentUser.id} key={`${item}`}/>
+                                    );
+                                })}
                                 </div>
                             </div>
                             <div className='col-lg-4' id='rsvDesktop'>
