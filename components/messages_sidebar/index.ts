@@ -19,7 +19,6 @@ function makeMapStateToProps() {
     const getUnreadCount = makeGetChannelUnreadCount();
 
     return function mapStateToProps(state: GlobalState, ownProps: OwnProps) {
-        console.log(state);
         if(state.entities.teams.currentTeamId === "" || state.entities.teams.currentTeamId === null || state.entities.teams.currentTeamId === undefined){
             const stateValue = window.localStorage.getItem('GlobalState');
             state = JSON.parse(stateValue);
@@ -27,6 +26,7 @@ function makeMapStateToProps() {
         
         const currentUser = getCurrentUser(state);
         const channel = getChannel(state,{id: ownProps.channelId});
+        console.log(channel);
         const unreadCount = getUnreadCount(state, channel.id);
         const teammate = getUser(state, channel.teammate_id!);
         const currentTeam = getTeamByName(state,'crypter');
