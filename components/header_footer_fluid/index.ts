@@ -35,6 +35,7 @@ import {
 
 import LoggedInHFTF from './header_footer_fluid';
 import { getTeamByName } from 'mattermost-redux/selectors/entities/teams';
+import { getChannelByName } from 'mattermost-redux/selectors/entities/channels';
 
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
@@ -42,6 +43,7 @@ function makeMapStateToProps() {
     return function mapStateToProps(state: GlobalState) {
         const currentUser = getCurrentUser(state);
         const currentTeam = getTeamByName(state, 'crypter');
+        const currentChannel = getChannelByName(state,'town-square');
         const userId = currentUser?.id;
         const customStatus = getCustomStatus(state, userId);
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
@@ -71,11 +73,11 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
     return {
         actions: bindActionCreators({
             getTeamRedirectChannelIfIsAccesible,
+            loadPosts,
             openModal,
             setStatus,
             unsetCustomStatus,
             setStatusDropdown,
-            loadPosts,
         }, dispatch),
     };
 }
