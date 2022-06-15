@@ -22,7 +22,6 @@ export type Props = {
     currentTeam: Team;
     currentUser: UserProfile;
     onChangeSelected: any;
-    lastPostAt: number;
 }
 
 type State = {
