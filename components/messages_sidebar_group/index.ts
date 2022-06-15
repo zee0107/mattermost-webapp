@@ -32,23 +32,24 @@ function makeMapStateToProps() {
         let unreadCount;
         let teammate;
         let posts;
+        let membersCount = 0;
 
         if(channel && channel.id){
             unreadCount = getUnreadCount(state, channel.id)
             teammate = getUser(state, channel.teammate_id!)
             posts = Client4.getPosts(channel.id);
-        }
 
-        const memberIds = getUserIdsInChannels(state);
-
-        let membersCount = 0;
-        if (memberIds && memberIds[channel.id]) {
-            const groupMemberIds: Set<string> = memberIds[channel.id] as unknown as Set<string>;
-            membersCount = groupMemberIds.size;
-            if (groupMemberIds.has(currentUser.id)) {
-                membersCount--;
+            const memberIds = getUserIdsInChannels(state);
+            if (memberIds && memberIds[channel.id]) {
+                const groupMemberIds: Set<string> = memberIds[channel.id] as unknown as Set<string>;
+                membersCount = groupMemberIds.size;
+                if (groupMemberIds.has(currentUser.id)) {
+                    membersCount--;
+                }
             }
         }
+
+        
         
         return {
             channel,
