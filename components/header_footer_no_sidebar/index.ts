@@ -33,7 +33,6 @@ function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
 
     return function mapStateToProps(state: GlobalState) {
-        console.log(state);
         const currentUser = getCurrentUser(state);
         const currentTeam = getTeamByName(state, 'crypter');
         const userId = currentUser?.id;
