@@ -33,12 +33,12 @@ function makeMapStateToProps() {
         let teammate;
         let posts;
         let membersCount = 0;
-
+        let lastPostAt;
         if(channel && channel.id){
             unreadCount = getUnreadCount(state, channel.id)
             teammate = getUser(state, channel.teammate_id!)
             posts = Client4.getPosts(channel.id);
-
+            lastPostAt = channel.last_post_at !== 0 ? channel.last_post_at : channel.create_at;
             const memberIds = getUserIdsInChannels(state);
             if (memberIds && memberIds[channel.id]) {
                 const groupMemberIds: Set<string> = memberIds[channel.id] as unknown as Set<string>;
@@ -64,6 +64,7 @@ function makeMapStateToProps() {
         
         return {
             channel,
+            lastPostAt
             posts,
             membersCount,
             currentUser,

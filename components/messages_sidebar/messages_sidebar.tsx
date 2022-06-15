@@ -116,9 +116,9 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
 
         let timeLastPost;
         var date = new Date(lastPostAt * 1000);
-        var hours = "0" + date.getHours();
-        var minutes = "0" + date.getMinutes();
-        timeLastPost = hours.substring(-2) + ':' + minutes.substring(-2);
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        timeLastPost = hours + ':' + minutes;
         let lastMessage;
         if(posts){
             lastMessage = (
@@ -154,7 +154,7 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
                             </div>
                             <div className='col-lg-8 mt-2'><strong><label>{displayName}</label></strong><br/>{lastMessage}</div>
                             <div className='col-2 text-start p-2'>
-                                <small>12:04</small>
+                                <small>{timeLastPost}</small>
                                 {unreadNotif}
                             </div>
                         </div>

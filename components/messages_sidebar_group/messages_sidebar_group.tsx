@@ -27,6 +27,7 @@ export type Props = {
     onChangeSelected: any;
     onMobileView: any;
     extraClass: string;
+    lastPostAt: number;
 }
 
 type State = {
@@ -62,7 +63,7 @@ export default class MessagesSidebarGroup extends React.PureComponent<Props, Sta
     }
 
     render= (): JSX.Element => {
-        const {channel,currentTeam,unreadMentions,unreadMessages,isUnread,teammateUsername,teammate,currentUser, view} = this.props;
+        const {channel,currentTeam,unreadMentions,unreadMessages,isUnread,teammateUsername,teammate,currentUser, view, lastPostAt} = this.props;
         const {posts} = this.state;
         let displayName = channel.display_name;
 
@@ -78,20 +79,28 @@ export default class MessagesSidebarGroup extends React.PureComponent<Props, Sta
                 );
             }
         }
+        let timeLastPost;
+        var date = new Date(lastPostAt * 1000);
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        timeLastPost = hours + ':' + minutes;
+
         let lastMessage;
         if(posts){
             lastMessage = (
                 <>
-                    {Object.keys(posts.posts).slice(0,1).map((item) => {
+                    {Object.keys(posts.posts).map((item) => {
                         let message;
-                        if(posts.posts[item].message === ''){
-                            message = 'Sent a file.';
-                        }else{
-                            message = posts.posts[item].message.substring(0,30).toString();
+                        if (lastPostAt === posts.posts[item].create_at) {
+                            if(posts.posts[item].message !== ''){
+                                message = posts.posts[item].message.substring(0,30).toString();
+                            }else{
+                                message = 'Sent a file.';
+                            }
+                            return (
+                                <small className='text-muted' key={posts.posts[item].id}>{message}</small>
+                            );
                         }
-                        return (
-                            <small className='text-muted' key={posts.posts[item].id}>{message}</small>
-                        );
                     })}
                 </>
             );
@@ -113,7 +122,7 @@ export default class MessagesSidebarGroup extends React.PureComponent<Props, Sta
                             <strong><label>{displayName}</label></strong><br/><small className='text-muted'>{lastMessage}</small>
                             </div>
                             <div className='col-2 text-start p-2'>
-                            <small>12:04</small>
+                            <small>{timeLastPost}</small>
                             {unreadNotif}
                         </div>
                     </div>
@@ -131,7 +140,7 @@ export default class MessagesSidebarGroup extends React.PureComponent<Props, Sta
                         <small className='text-muted'>{lastMessage}</small>
                     </div>
                     <div className='col-2 text-start p-2'>
-                        <small>12:04</small>
+                        <small>{timeLastPost}</small>
                         {unreadNotif}
                     </div>
                 </div>
