@@ -64,7 +64,7 @@ function makeMapStateToProps() {
         
         return {
             channel,
-            lastPostAt
+            lastPostAt,
             posts,
             membersCount,
             currentUser,
