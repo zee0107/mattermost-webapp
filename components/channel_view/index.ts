@@ -67,7 +67,7 @@ function mapStateToProps(state: GlobalState) {
     let posts;
     if (channel && channel.id) {
         const roles = getRoles(state);
-        posts = Client4.getPosts(channel.id);
+        posts = Client4.getPosts(channel.id,1,50,true,true);
         const myChannelRoles = getMyChannelRoles(state);
         if (myChannelRoles[channel.id]) {
             const channelRoles = myChannelRoles[channel.id].values();
