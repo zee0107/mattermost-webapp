@@ -16,6 +16,7 @@ export type Props = {
     posts: Promise<PostList>;
     channel: Channel;
     currentTeam: Team;
+    lastPostAt: number;
     currentUser: UserProfile;
     teammate?: UserProfile;
     unreadMentions: number;
@@ -58,7 +59,7 @@ export default class MessagesGroup extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {channel,currentTeam,unreadMentions,unreadMessages,isUnread,teammateUsername,teammate,currentUser, view} = this.props;
+        const {channel,currentTeam,unreadMentions,unreadMessages,isUnread,teammateUsername,teammate,currentUser, view, lastPostAt} = this.props;
         const {posts} = this.state;
         let displayName = channel.display_name;
 
@@ -74,20 +75,28 @@ export default class MessagesGroup extends React.PureComponent<Props, State> {
                 );
             }
         }
+        let timeLastPost;
+        var date = new Date(lastPostAt * 1000);
+        var hours = "0" + date.getHours();
+        var minutes = "0" + date.getMinutes();
+        timeLastPost = hours.slice(-2) + ':' + minutes.slice(-2);
+
         let lastMessage;
         if(posts){
             lastMessage = (
                 <>
-                    {Object.keys(posts.posts).slice(0,1).map((item) => {
+                    {Object.keys(posts.posts).map((item) => {
                         let message;
-                        if(posts.posts[item].message === ''){
-                            message = 'Sent a file.';
-                        }else{
-                            message = posts.posts[item].message.substring(0,30).toString();
+                        if (lastPostAt === posts.posts[item].create_at) {
+                            if(posts.posts[item].message !== ''){
+                                message = posts.posts[item].message.substring(0,30).toString();
+                            }else{
+                                message = 'Sent a file.';
+                            }
+                            return (
+                                <small className='text-muted' key={posts.posts[item].id}>{message}</small>
+                            );
                         }
-                        return (
-                            <small className='text-muted' key={posts.posts[item].id}>{message}</small>
-                        );
                     })}
                 </>
             );
@@ -108,7 +117,7 @@ export default class MessagesGroup extends React.PureComponent<Props, State> {
                             <strong><label>{displayName}</label></strong><br/>{lastMessage}
                         </div>
                         <div className='col-2 text-start p-2'>
-                                <small>12:04</small>
+                                <small>{timeLastPost}</small>
                                 {unreadNotif}
                             </div>
                     </div>

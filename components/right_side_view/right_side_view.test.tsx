@@ -9,7 +9,7 @@ import {mountWithIntl} from 'tests/helpers/intl-test-helper';
 
 import RightSideView from './right_side_view';
 
-describe('components/launch_pad', () => {
+describe('components/right_side_view', () => {
     const baseProps = {
         actions: {
             sendPasswordResetEmail: jest.fn().mockResolvedValue({data: true}),

@@ -30,9 +30,11 @@ function makeMapStateToProps() {
         const teammate = getUser(state, channel.teammate_id!);
         const currentTeam = getTeamByName(state,'crypter');
         const posts = Client4.getPosts(channel.id);
+        const lastPostAt = channel.last_post_at !== 0 ? channel.last_post_at : channel.create_at;
 
         return {
             channel,
+            lastPostAt,
             posts,
             currentUser,
             teammate,
