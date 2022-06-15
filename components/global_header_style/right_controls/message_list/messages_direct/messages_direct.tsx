@@ -122,6 +122,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         let timeLastPost;
         let lastPostAt;
         if(channel){
+            console.log(true);
             displayName = channel.display_name;
             lastPostAt = channel.last_post_at !== 0 ? channel.last_post_at : channel.create_at;
             var today = new Date();
