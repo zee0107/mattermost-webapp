@@ -53,6 +53,7 @@ import { PostList } from 'mattermost-redux/types/posts';
 import { Story } from 'mattermost-redux/types/crypto';
 import { Team } from 'mattermost-redux/types/teams';
 import { getPreviousRhsState } from 'selectors/rhs';
+import { Item } from 'react-bootstrap/lib/Breadcrumb';
 
 type Props = {
     channelId: string;
@@ -301,9 +302,13 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 postsView = (
                     <>
                         <LatestPostReader postIds={posts.order}/>
-                        {posts && Object.keys(posts.posts).reverse().map((post,ind) => {
+                        {posts && posts.order.map((item,index) => {
+                            return (
+                                <Post postId={item} userId={currentUser.id} key={`${item}`}/>
+                            );
+                        })}{/*Object.keys(posts.posts).reverse().map((post,ind) => {
                             return (<Post postId={post} post={posts.posts[post]} userId={currentUser.id} key={`${posts.posts[post].id}`}/>);
-                        })}
+                        })*/}
                     </>
                 );
             }
