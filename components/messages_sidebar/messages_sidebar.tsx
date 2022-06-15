@@ -118,7 +118,7 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
         var date = new Date(lastPostAt * 1000);
         var hours = date.getHours();
         var minutes = date.getMinutes();
-        timeLastPost = hours + ':' + minutes;
+        timeLastPost = date.getTime().toLocaleString();
         let lastMessage;
         if(posts){
             lastMessage = (
