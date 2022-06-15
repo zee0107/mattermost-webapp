@@ -36,6 +36,7 @@ export function getChannelTypeFromProps(props: Props): ChannelType {
 
 export type Props = {
     goToPage: string;
+    channel: Channel;
     userId: string;
     profilePicture: string;
     currentTeamId?: string;
@@ -53,6 +54,11 @@ export type Props = {
         setStatus: (status: UserStatus) => ActionFunc;
         unsetCustomStatus: () => ActionFunc;
         setStatusDropdown: (open: boolean) => void;
+        loadPosts: () => any;
+        loadUnreads: () => any;
+        loadPostsAround: () => any;
+        syncPostsInChannel: () => any;
+        loadLatestPosts: () => any;
     };
     currentUser: UserProfile;
     mychannels: Promise<ServerChannel[]>;
@@ -123,6 +129,19 @@ export default class MyGroups extends React.PureComponent<Props, State> {
 
         if(this.props.goToPage){
             this.setState({group_view: this.props.goToPage});
+        }
+
+        if(this.props.channel){
+            this.postsOnLoad(this.props.channel.id);
+        }
+    }
+
+    postsOnLoad = async (channelId) => {
+        const {focusedPostId, actions} = this.props;
+        if (focusedPostId) {
+            await actions.loadPostsAround(channelId, this.props.focusedPostId);
+        } else {
+            await actions.loadLatestPosts(channelId);
         }
     }
 

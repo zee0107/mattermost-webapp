@@ -84,11 +84,11 @@ type Props = {
         goToLastViewedChannel: () => Promise<{data: boolean}>;
         setShowNextStepsView: (x: boolean) => void;
         leaveChannelNew: (channelId: string) => Promise<ActionResult>;
-        loadPosts: () => any,
-        loadUnreads: () => any,
-        loadPostsAround: () => any,
-        syncPostsInChannel: () => any,
-        loadLatestPosts: () => any,
+        loadPosts: () => any;
+        loadUnreads: () => any;
+        loadPostsAround: () => any;
+        syncPostsInChannel: () => any;
+        loadLatestPosts: () => any;
     };
 };
 

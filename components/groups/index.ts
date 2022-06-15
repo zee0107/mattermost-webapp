@@ -22,6 +22,13 @@ import {GlobalState} from 'types/store';
 import { getCurrentTeam, getTeamByName } from 'mattermost-redux/selectors/entities/teams';
 import {createChannel,joinChannel,leaveChannelNew,deleteChannel,updateChannel} from 'mattermost-redux/actions/channels';
 import {switchToChannel} from 'actions/views/channel';
+import {
+    loadPosts,
+    loadUnreads,
+    loadPostsAround,
+    syncPostsInChannel,
+    loadLatestPosts,
+} from 'actions/views/channel';
 
 import MyGroups, {Props} from './groups'
 import { getChannelByName } from 'mattermost-redux/selectors/entities/channels';
@@ -34,7 +41,6 @@ function makeMapStateToProps() {
 
     return function mapStateToProps(state: GlobalState, ownProps: ownProps) {
         const channel = getChannelByName(state,'town-square');
-        console.log('Group: ',state);
         const goToPage = ownProps.location.hash.replace('#','');
         const currentUser = getCurrentUser(state);
         const currentTeam = getCurrentTeam(state);
@@ -44,6 +50,7 @@ function makeMapStateToProps() {
         //const teamId = 'd7cxjgejnbdm78h4n91kqeq6ow';
         return {
             goToPage,
+            channel,
             userId,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
@@ -68,6 +75,11 @@ function mapDispatchToProps(dispatch: Dispatch) {
             deleteChannel,
             unsetCustomStatus,
             setStatusDropdown,
+            loadPosts,
+            loadUnreads,
+            loadPostsAround,
+            syncPostsInChannel,
+            loadLatestPosts,
         }, dispatch),
     };
 }

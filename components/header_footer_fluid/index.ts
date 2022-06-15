@@ -25,13 +25,7 @@ import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
 import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
 import { getTeamRedirectChannelIfIsAccesible } from 'actions/global_actions';
-import {
-    loadPosts,
-    loadUnreads,
-    loadPostsAround,
-    syncPostsInChannel,
-    loadLatestPosts,
-} from 'actions/views/channel';
+
 
 import LoggedInHFTF from './header_footer_fluid';
 import { getTeamByName } from 'mattermost-redux/selectors/entities/teams';
@@ -71,7 +65,6 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
     return {
         actions: bindActionCreators({
             getTeamRedirectChannelIfIsAccesible,
-            loadPosts,
             openModal,
             setStatus,
             unsetCustomStatus,
