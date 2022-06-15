@@ -124,6 +124,7 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
             lastMessage = (
                 <>
                     {Object.keys(posts.posts).map((item) => {
+                        console.log(posts.posts[item]);
                         let message;
                         if (lastPostAt === posts.posts[item].created_at) {
                             if(posts.posts[item].message !== ''){
