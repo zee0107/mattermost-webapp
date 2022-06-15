@@ -24,6 +24,8 @@ import {makeGetCustomStatus, isCustomStatusEnabled, showStatusDropdownPulsatingD
 import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
 import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
+import { getTeamRedirectChannelIfIsAccesible } from 'actions/global_actions';
+import { getTeamByName } from 'mattermost-redux/selectors/entities/teams';
 
 import LoggedInHFTF from './header_footer_fluid';
 
@@ -31,9 +33,8 @@ function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
 
     return function mapStateToProps(state: GlobalState) {
-        console.log('Fluid: ',state);
         const currentUser = getCurrentUser(state);
-
+        const currentTeam = getTeamByName(state, 'crypter');
         const userId = currentUser?.id;
         const customStatus = getCustomStatus(state, userId);
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
@@ -44,6 +45,7 @@ function makeMapStateToProps() {
             status: getStatusForUserId(state, userId),
             customStatus,
             currentUser,
+            currentTeam,
             isCustomStatusEnabled: isCustomStatusEnabled(state),
             isCustomStatusExpired: isCustomStatusExpired(state, customStatus),
             isMilitaryTime,
@@ -61,6 +63,7 @@ function makeMapStateToProps() {
 function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
     return {
         actions: bindActionCreators({
+            getTeamRedirectChannelIfIsAccesible,
             openModal,
             setStatus,
             unsetCustomStatus,
