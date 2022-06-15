@@ -123,16 +123,18 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
         if(posts){
             lastMessage = (
                 <>
-                    {Object.keys(posts.posts).slice(0,1).map((item) => {
+                    {Object.keys(posts.posts).map((item) => {
                         let message;
-                        if(posts.posts[item].message !== '' && lastPostAt === posts.posts[item].created_at){
-                            message = posts.posts[item].message.substring(0,30).toString();
-                        }else{
-                            message = 'Sent a file.';
+                        if (lastPostAt === posts.posts[item].created_at) {
+                            if(posts.posts[item].message !== ''){
+                                message = posts.posts[item].message.substring(0,30).toString();
+                            }else{
+                                message = 'Sent a file.';
+                            }
+                            return (
+                                <small className='text-muted' key={posts.posts[item].id}>{message}</small>
+                            );
                         }
-                        return (
-                            <small className='text-muted' key={posts.posts[item].id}>{message}</small>
-                        );
                     })}
                 </>
             );
