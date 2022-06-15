@@ -76,11 +76,11 @@ function mapDispatchToProps(dispatch: Dispatch) {
             deleteChannel,
             unsetCustomStatus,
             setStatusDropdown,
-            loadPosts,
+            /*loadPosts,
             loadUnreads,
             loadPostsAround,
             syncPostsInChannel,
-            loadLatestPosts,
+            loadLatestPosts,*/
         }, dispatch),
     };
 }
