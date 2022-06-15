@@ -304,7 +304,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                         <LatestPostReader postIds={posts.order}/>
                         {posts && posts.order.map((item,index) => {
                             return (
-                                <Post postId={item} userId={currentUser.id} key={`${item}`}/>
+                                <Post postId={item} post={posts.posts[item]} userId={currentUser.id} key={`${item}`}/>
                             );
                         })}{/*Object.keys(posts.posts).reverse().map((post,ind) => {
                             return (<Post postId={post} post={posts.posts[post]} userId={currentUser.id} key={`${posts.posts[post].id}`}/>);
