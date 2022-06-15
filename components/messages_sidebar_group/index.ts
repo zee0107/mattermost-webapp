@@ -57,8 +57,8 @@ function makeMapStateToProps() {
             membersCount,
             currentUser,
             teammate,
-            unreadMentions: unreadCount.mentions,
-            unreadMessages: unreadCount.messages,
+            unreadMentions: unreadCount.mentions || 0,
+            unreadMessages: unreadCount.messages || 0,
             isUnread: unreadCount.showUnread,
             currentTeam,
         };
