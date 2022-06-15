@@ -115,16 +115,9 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         );
     }
 
-    render= (): JSX.Element => {
-        const {currentUser,teammate,channel} = this.props;
-        const {posts, unreadCount} = this.state;
-        let displayName;
+    renderTime = (lastPostAt: number) => {
         let timeLastPost;
-        let lastPostAt;
-        if(channel){
-            
-            displayName = channel.display_name;
-            lastPostAt = channel.last_post_at !== 0 ? channel.last_post_at : channel.create_at;
+        if(lastPostAt){
             var today = new Date();
             var date = new Date(lastPostAt);
             var diffMs = (today - date); // milliseconds between now & startTime
@@ -141,6 +134,21 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
             if(diffMins > 0 && diffHrs <= 0){
                 timeLastPost = diffMins + ' minutes';
             }
+        }
+        
+        return timeLastPost;
+    }
+
+    render= (): JSX.Element => {
+        const {currentUser,teammate,channel} = this.props;
+        const {posts, unreadCount} = this.state;
+        let displayName;
+       
+        let lastPostAt;
+        if(channel){
+            
+            displayName = channel.display_name;
+            lastPostAt = channel.last_post_at !== 0 ? channel.last_post_at : channel.create_at;
         }
         
         if(teammate && currentUser){
@@ -204,7 +212,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
                         <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatNavbar' aria-controls='ChatNavbar'>
                             <div className='d-flex w-100 justify-content-between'>
                                 <label className='mb-1'>{this.getIcon()} <strong>{displayName}</strong></label>
-                                <label className='mt-3'>{timeLastPost} ago</label>
+                                <label className='mt-3'>{this.renderTime(lastPostAt)} ago</label>
                             </div>
                             <label className='mt-0'>{lastMessage}</label>
                         </a>
@@ -226,7 +234,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
                         <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatNavbar' aria-controls='ChatNavbar'>
                             <div className='d-flex w-100 justify-content-between'>
                                 <label className='mb-1'>{this.getIconGroup()} <strong>{displayName}</strong></label>
-                                <label className='mt-3'>{timeLastPost} ago</label>
+                                <label className='mt-3'>{this.renderTime(lastPostAt)} ago</label>
                             </div>
                             <label className='mt-0'>{lastMessage}</label>
                         </a>
