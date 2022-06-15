@@ -117,12 +117,30 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {currentUser,teammate,channel, lastPostAt} = this.props;
+        const {currentUser,teammate,channel} = this.props;
         const {posts, unreadCount} = this.state;
         let displayName;
+        let timeLastPost;
 
         if(channel){
             displayName = channel.display_name;
+            let lastPostAt = channel.last_post_at !== 0 ? channel.last_post_at : channel.create_at;
+            var today = new Date();
+            var date = new Date(lastPostAt * 1000);
+            var diffMs = (today - date); // milliseconds between now & startTime
+            var diffDays = Math.floor(diffMs / 86400000); // days
+            var diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
+            var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
+
+            if(diffDays > 0){
+                timeLastPost = diffDays+ ' days';
+            }
+            if(diffHrs > 0 && diffDays <= 0){
+                timeLastPost = diffHrs+ ' hours';
+            }
+            if(diffMins > 0 && diffHrs <= 0){
+                timeLastPost = diffMins + ' minutes';
+            }
         }
         
         if(teammate && currentUser){
@@ -144,24 +162,6 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
             }
         }
         
-        let timeLastPost;
-        var today = new Date();
-        var date = new Date(lastPostAt * 1000);
-        var diffMs = (today - date); // milliseconds between now & startTime
-        var diffDays = Math.floor(diffMs / 86400000); // days
-        var diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
-        var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
-
-        if(diffDays > 0){
-            timeLastPost = diffDays+ ' days';
-        }
-        if(diffHrs > 0 && diffDays <= 0){
-            timeLastPost = diffHrs+ ' hours';
-        }
-        if(diffMins > 0 && diffHrs <= 0){
-            timeLastPost = diffMins + ' minutes';
-        }
-
         let lastMessage;
         if(posts){
             lastMessage = (
