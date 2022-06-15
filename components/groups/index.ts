@@ -76,8 +76,8 @@ function mapDispatchToProps(dispatch: Dispatch) {
             deleteChannel,
             unsetCustomStatus,
             setStatusDropdown,
-            /*loadPosts,
-            loadUnreads,
+            loadPosts,
+            /*loadUnreads,
             loadPostsAround,
             syncPostsInChannel,
             loadLatestPosts,*/
