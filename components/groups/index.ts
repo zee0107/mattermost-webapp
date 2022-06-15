@@ -34,6 +34,7 @@ function makeMapStateToProps() {
 
     return function mapStateToProps(state: GlobalState, ownProps: ownProps) {
         const channel = getChannelByName(state,'town-square');
+        console.log(state);
         console.log(channel);
         const goToPage = ownProps.location.hash.replace('#','');
         const currentUser = getCurrentUser(state);
