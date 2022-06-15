@@ -123,7 +123,6 @@ type State = {
     messagesList: string[];
     selectedMessage: string;
     view: string;
-    deferredPostView: any;
 };
 
 export default class ProfilPage extends React.PureComponent<Props, State> {

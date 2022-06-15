@@ -27,7 +27,6 @@ type State = {
     isDark: string;
     currentUser: UserProfile;
     channelId: string;
-    deferredPostView: any;
     categories: ChannelCategory;
     messagesList: string[];
     selectedMessage: string;
@@ -35,6 +34,7 @@ type State = {
     showDirectChannelsModal: boolean;
     showGm: boolean;
     showDm: boolean;
+    deferredPostView: any;
 };
 
 export default class Messages extends React.PureComponent<Props, State> {
@@ -253,11 +253,13 @@ export default class Messages extends React.PureComponent<Props, State> {
 
             messageBodyDesktop = (
                 <>
-                    <div className='right-chat-panel' ref={this.messageViewRef}>
-                        <DeferredPostView
-                            channelId={selectedMessage}
-                            focusedPostId={this.props.focusedPostId}
-                        />
+                    <div className='right-chat-panel'>
+                        <div className='chat-fields'>
+                            <DeferredPostView
+                                channelId={selectedMessage}
+                                focusedPostId={this.props.focusedPostId}
+                            />
+                        </div>
                         <div className='col-12 input-group mt-3 mb-3 removePadding'>
                             <CreatePost channelId={selectedMessage}/>
                         </div>
