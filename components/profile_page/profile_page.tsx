@@ -56,10 +56,12 @@ import { post } from 'jquery';
 import { profile } from 'console';
 import { unreadFilterEnabled } from 'reducers/views/channel_sidebar';
 import { ChannelCategory } from 'mattermost-redux/types/channel_categories';
+import { Channel } from 'mattermost-redux/types/channels';
 
 type Props = {
     status?: string;
     userId: string;
+    channel: Channel;
     coverPhoto: Promise<string>;
     profilePicture: string;
     profilePictureLoggedin: string;
@@ -73,6 +75,11 @@ type Props = {
         onAcceptRequest: (request_id: string) => void;
         onUnfollowUser: (user_id: string, friend_id: string) => void;
         onCancelRequest: (request_id: string) => void;
+        loadPosts: () => any;
+        loadUnreads: () => any;
+        loadPostsAround: () => any;
+        syncPostsInChannel: () => any;
+        loadLatestPosts: () => any;
     };
     socialCount: Promise<SocialCount>;
     customStatus?: UserCustomStatus;
@@ -192,6 +199,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                     }
                 });
             }
+        }
+
+        if(this.props.channel){
+            this.postsOnLoad(this.props.channel.id);
         }
     }
 
@@ -354,6 +365,14 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         this.setState({followStatus: 4});
     }
 
+    postsOnLoad = async (channelId) => {
+        const {focusedPostId, actions} = this.props;
+        if (focusedPostId) {
+            await actions.loadPostsAround(channelId, this.props.focusedPostId);
+        } else {
+            await actions.loadLatestPosts(channelId);
+        }
+    }
 
     render= (): JSX.Element => {
         const {globalHeader, currentUser, profilePicture, userData} = this.props;

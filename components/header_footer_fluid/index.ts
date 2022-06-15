@@ -36,6 +36,7 @@ import {
 import LoggedInHFTF from './header_footer_fluid';
 import { getTeamByName } from 'mattermost-redux/selectors/entities/teams';
 import { getChannelByName } from 'mattermost-redux/selectors/entities/channels';
+import { UserProfile } from 'mattermost-redux/types/users';
 
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
@@ -69,10 +70,16 @@ function makeMapStateToProps() {
     };
 }
 
+function getTeamRedirect(user: UserProfile, team: Team){
+    return (dispatch: Dispatch) => {
+        dispatch(getTeamRedirectChannelIfIsAccesible(user, team) as any);
+    };
+}
+
 function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
     return {
         actions: bindActionCreators({
-            getTeamRedirectChannelIfIsAccesible,
+            getTeamRedirect,
             loadPosts,
             openModal,
             setStatus,

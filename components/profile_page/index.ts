@@ -20,6 +20,13 @@ import {isStatusDropdownOpen} from 'selectors/views/status_dropdown';
 import {ActionFunc, GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
 import { acceptRequest, cancelRequest, followRequest, unfollow } from 'mattermost-redux/actions/posts';
+import {
+    loadPosts,
+    loadUnreads,
+    loadPostsAround,
+    syncPostsInChannel,
+    loadLatestPosts,
+} from 'actions/views/channel';
 
 import ProfilPage from './profile_page'
 import { ModalData } from 'types/actions';
@@ -137,6 +144,11 @@ function mapDispatchToProps(dispatch: Dispatch) {
             onCancelRequest,
             unsetCustomStatus,
             setStatusDropdown,
+            loadPosts,
+            loadUnreads,
+            loadPostsAround,
+            syncPostsInChannel,
+            loadLatestPosts,
         }, dispatch),
     };
 }

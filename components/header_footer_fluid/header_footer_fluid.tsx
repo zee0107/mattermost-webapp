@@ -37,7 +37,7 @@ type Props = {
         setStatus: (status: UserStatus) => ActionFunc;
         unsetCustomStatus: () => ActionFunc;
         setStatusDropdown: (open: boolean) => void;
-        getTeamRedirectChannelIfIsAccesible: () => any;
+        getTeamRedirect: (user: UserProfile, team: Team) => any;
     };
     customStatus?: UserCustomStatus;
     currentUser: UserProfile;
@@ -117,7 +117,7 @@ export default class LoggedInHFTF extends React.PureComponent<Props> {
     loadChannels = async () => {
         const {currentUser, currentTeam, actions} = this.props;
         if(currentUser && currentTeam){
-            await actions.getTeamRedirectChannelIfIsAccesible(currentUser,currentTeam);
+            await actions.getTeamRedirect(currentUser, currentTeam);
         }
     }
     
