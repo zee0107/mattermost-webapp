@@ -48,8 +48,7 @@ function makeMapStateToProps() {
                 }
             }
         }
-
-        
+        console.log(unreadCount);
         
         return {
             channel,
