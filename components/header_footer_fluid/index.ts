@@ -44,6 +44,7 @@ function makeMapStateToProps() {
         const currentUser = getCurrentUser(state);
         const currentTeam = getTeamByName(state, 'crypter');
         const currentChannel = getChannelByName(state,'town-square');
+        console.log(currentChannel);
         const userId = currentUser?.id;
         const customStatus = getCustomStatus(state, userId);
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
