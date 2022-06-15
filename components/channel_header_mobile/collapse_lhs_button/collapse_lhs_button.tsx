@@ -29,7 +29,7 @@ const CollapseLhsButton: React.FunctionComponent<Props> = (props: Props) => (
             />
         </span>
         <MenuIcon className='style--none icon icon__menu icon--sidebarHeaderTextColor'/>
-        <NotifyCounts/>
+        {/*<NotifyCounts/>*/}
     </button>
 );
 
