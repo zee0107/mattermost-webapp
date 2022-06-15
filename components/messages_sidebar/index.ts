@@ -39,14 +39,27 @@ function makeMapStateToProps() {
             posts = Client4.getPosts(channel.id);
         }
 
+        let unreadMentions;
+        let unreadMessages;
+        let isUnread;
+        if(unreadCount){
+            unreadMentions= unreadCount.mentions;
+            unreadMessages= unreadCount.messages;
+            isUnread= unreadCount.showUnread;
+        }else{
+            unreadMentions= 0;
+            unreadMessages= 0;
+            isUnread= false;
+        }
+        
         return {
             channel,
             posts,
             currentUser,
             teammate,
-            unreadMentions: unreadCount.mentions,
-            unreadMessages: unreadCount.messages,
-            isUnread: unreadCount.showUnread,
+            unreadMentions,
+            unreadMessages,
+            isUnread,
             currentTeam,
         };
     };

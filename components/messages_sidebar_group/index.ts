@@ -48,7 +48,19 @@ function makeMapStateToProps() {
                 }
             }
         }
-        console.log(unreadCount);
+
+        let unreadMentions;
+        let unreadMessages;
+        let isUnread;
+        if(unreadCount){
+            unreadMentions= unreadCount.mentions;
+            unreadMessages= unreadCount.messages;
+            isUnread= unreadCount.showUnread;
+        }else{
+            unreadMentions= 0;
+            unreadMessages= 0;
+            isUnread= false;
+        }
         
         return {
             channel,
@@ -56,9 +68,9 @@ function makeMapStateToProps() {
             membersCount,
             currentUser,
             teammate,
-            unreadMentions: unreadCount.mentions || 0,
-            unreadMessages: unreadCount.messages || 0,
-            isUnread: unreadCount.showUnread,
+            unreadMentions,
+            unreadMessages,
+            isUnread,
             currentTeam,
         };
     };
