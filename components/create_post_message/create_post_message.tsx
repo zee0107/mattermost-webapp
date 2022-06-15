@@ -771,7 +771,7 @@ class CreatePostMessage extends React.PureComponent<Props, State> {
         post = hookResult.data;
 
         actions.onSubmitPost(post, draft.fileInfos);
-        actions.scrollPostListToBottom();
+        //actions.scrollPostListToBottom();
 
         this.setState({
             submitting: false,
