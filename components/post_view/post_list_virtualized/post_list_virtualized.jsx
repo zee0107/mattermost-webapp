@@ -18,7 +18,7 @@ import * as Utils from 'utils/utils.jsx';
 import FloatingTimestamp from 'components/post_view/floating_timestamp';
 import PostListRow from 'components/post_view/post_list_row';
 import ScrollToBottomArrows from 'components/post_view/scroll_to_bottom_arrows';
-import ToastWrapper from 'components/toast_wrapper';
+//import ToastWrapper from 'components/toast_wrapper';
 
 import Pluggable from 'plugins/pluggable';
 
@@ -536,7 +536,7 @@ export default class PostList extends React.PureComponent {
         this.props.actions.updateNewMessagesAtInChannel(this.props.channelId, lastViewedAt);
     }
 
-    renderToasts = (width) => {
+    /*renderToasts = (width) => {
         return (
             <ToastWrapper
                 atLatestPost={this.props.atLatestPost}
@@ -556,7 +556,7 @@ export default class PostList extends React.PureComponent {
                 showSearchHintToast={this.state.showSearchHint}
             />
         );
-    }
+    }*/
 
     render() {
         const {channelId} = this.props;
@@ -607,7 +607,7 @@ export default class PostList extends React.PureComponent {
                                                 pluggableName='ChannelToast'
                                             />
 
-                                            {this.renderToasts(width)}
+                                            {/*this.renderToasts(width)*/}
                                         </div>
 
                                         <DynamicSizeList
