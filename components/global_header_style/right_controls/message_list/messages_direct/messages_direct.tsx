@@ -120,10 +120,10 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         const {posts, unreadCount} = this.state;
         let displayName;
         let timeLastPost;
-
+        let lastPostAt;
         if(channel){
             displayName = channel.display_name;
-            let lastPostAt = channel.last_post_at !== 0 ? channel.last_post_at : channel.create_at;
+            lastPostAt = channel.last_post_at !== 0 ? channel.last_post_at : channel.create_at;
             var today = new Date();
             var date = new Date(lastPostAt * 1000);
             var diffMs = (today - date); // milliseconds between now & startTime
