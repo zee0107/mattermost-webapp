@@ -33,6 +33,7 @@ function makeMapStateToProps() {
         let posts;
 
         if(channel && channel.id){
+            console.log(channel);
             unreadCount = getUnreadCount(state, channel.id)
             teammate = getUser(state, channel.teammate_id!)
             posts = Client4.getPosts(channel.id);
