@@ -40,7 +40,6 @@ function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
 
     return function mapStateToProps(state: GlobalState, ownProps: ownProps) {
-        console.log('Group: ',state);
         const channel = getChannelByName(state,'town-square');
         const goToPage = ownProps.location.hash.replace('#','');
         const currentUser = getCurrentUser(state);
