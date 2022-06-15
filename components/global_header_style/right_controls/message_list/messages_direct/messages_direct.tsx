@@ -127,7 +127,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
             lastPostAt = channel.last_post_at !== 0 ? channel.last_post_at : channel.create_at;
             console.log('Time Stamp: ',lastPostAt);
             var today = new Date();
-            var date = new Date(lastPostAt * 1000);
+            var date = new Date(lastPostAt);
             //console.log('Date :', date);
             var diffMs = (today - date); // milliseconds between now & startTime
             //console.log('Difference: ',diffMs);
