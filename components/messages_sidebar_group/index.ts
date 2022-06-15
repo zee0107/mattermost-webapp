@@ -27,7 +27,6 @@ function makeMapStateToProps() {
         const currentUser = getCurrentUser(state);
         const channel = getChannel(state,{id: ownProps.channelId});
         const currentTeam = getTeamByName(state,'crypter');
-        console.log(channel);
         
         let unreadCount;
         let teammate;
