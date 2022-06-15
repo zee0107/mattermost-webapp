@@ -25,6 +25,7 @@ import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/
 import {ModalData} from 'types/actions';
 import SidebarRightMenu from 'components/sidebar_right_menu';
 import Sidebar from 'components/sidebar';
+import { Team } from 'mattermost-redux/types/teams';
 
 type Props = {
     userId: string;
@@ -36,9 +37,11 @@ type Props = {
         setStatus: (status: UserStatus) => ActionFunc;
         unsetCustomStatus: () => ActionFunc;
         setStatusDropdown: (open: boolean) => void;
+        getTeamRedirect: (user: UserProfile, team: Team) => any;
     };
     customStatus?: UserCustomStatus;
     currentUser: UserProfile;
+    currentTeam: Team;
     isCustomStatusEnabled: boolean;
     isCustomStatusExpired: boolean;
     isMilitaryTime: boolean;
@@ -99,12 +102,21 @@ export default class LoggedInHFTNS extends React.PureComponent<Props> {
         if (rootElement) {
             rootElement.classList.add('container-fluid');
         }
+
+        this.loadChannels();
     }
     componentWillUnmount() {
         document.body.classList.remove('sticky');
         const rootElement: HTMLElement | null = document.getElementById('root');
         if (rootElement) {
             rootElement.classList.remove('container-fluid');
+        }
+    }
+
+    loadChannels = async () => {
+        const {currentUser, currentTeam, actions} = this.props;
+        if(currentUser && currentTeam){
+            await actions.getTeamRedirect(currentUser, currentTeam);
         }
     }
     

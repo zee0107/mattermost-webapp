@@ -26,6 +26,7 @@ import {GenericAction} from 'mattermost-redux/types/actions';
 import {GlobalState} from 'types/store';
 
 import LoggedInHFTNS from './header_footer_no_sidebar';
+import { getTeamRedirectChannelIfIsAccesible } from 'actions/global_actions';
 
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
@@ -33,7 +34,7 @@ function makeMapStateToProps() {
     return function mapStateToProps(state: GlobalState) {
         console.log(state);
         const currentUser = getCurrentUser(state);
-
+        const currentTeam = getTeamByName(state, 'crypter');
         const userId = currentUser?.id;
         const customStatus = getCustomStatus(state, userId);
         const isMilitaryTime = getBool(state, Preferences.CATEGORY_DISPLAY_SETTINGS, Preferences.USE_MILITARY_TIME, false);
@@ -43,6 +44,7 @@ function makeMapStateToProps() {
             autoResetPref: get(state, Preferences.CATEGORY_AUTO_RESET_MANUAL_STATUS, userId, ''),
             status: getStatusForUserId(state, userId),
             customStatus,
+            currentTeam,
             currentUser,
             isCustomStatusEnabled: isCustomStatusEnabled(state),
             isCustomStatusExpired: isCustomStatusExpired(state, customStatus),
@@ -58,9 +60,16 @@ function makeMapStateToProps() {
     };
 }
 
+function getTeamRedirect(user: UserProfile, team: Team){
+    return (dispatch: Dispatch) => {
+        dispatch(getTeamRedirectChannelIfIsAccesible(user, team) as any);
+    };
+}
+
 function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
     return {
         actions: bindActionCreators({
+            getTeamRedirect,
             openModal,
             setStatus,
             unsetCustomStatus,

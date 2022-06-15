@@ -59,7 +59,6 @@ function mapStateToProps(state: GlobalState) {
     const userId = currentUser?.id;
     const storyList = Client4.listSotries(userId);
     const config = getConfig(state);
-    console.log(config);
 
     const viewArchivedChannels = config.ExperimentalViewArchivedChannels === 'true';
     const enableOnboardingFlow = config.EnableOnboardingFlow === 'true';

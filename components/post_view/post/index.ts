@@ -50,7 +50,6 @@ function makeMapStateToProps() {
     const isPostCommentMention = makeIsPostCommentMention();
 
     return (state: GlobalState, ownProps: OwnProps) => {
-        console.log('Post: ', state);
         const post = ownProps.post || getPost(state, ownProps.postId);
         const channel = getChannel(state, post.channel_id);
 
