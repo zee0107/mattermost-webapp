@@ -27,6 +27,7 @@ import {GlobalState} from 'types/store';
 
 import LoggedInHFTNS from './header_footer_no_sidebar';
 import { getTeamRedirectChannelIfIsAccesible } from 'actions/global_actions';
+import { getTeamByName } from 'mattermost-redux/selectors/entities/teams';
 
 function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
