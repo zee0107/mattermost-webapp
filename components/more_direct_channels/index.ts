@@ -22,7 +22,7 @@ import {
 } from 'mattermost-redux/selectors/entities/users';
 
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
-import {getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
+import {getCurrentTeam, getTeamByName} from 'mattermost-redux/selectors/entities/teams';
 import {ActionFunc, GenericAction} from 'mattermost-redux/types/actions';
 import {UserProfile} from 'mattermost-redux/types/users';
 
@@ -67,7 +67,7 @@ const makeMapStateToProps = () => {
             users = getProfilesInCurrentTeam(state);
         }
 
-        const team = getCurrentTeam(state);
+        const team = getCurrentTeam(state) || getTeamByName(state,'crypter');
         const stats = getTotalUsersStatsSelector(state) || {total_users_count: 0};
 
         return {
