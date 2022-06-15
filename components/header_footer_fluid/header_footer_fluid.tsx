@@ -114,10 +114,10 @@ export default class LoggedInHFTF extends React.PureComponent<Props> {
         }
     }
 
-    loadChannels = () => {
+    loadChannels = async () => {
         const {currentUser, currentTeam, actions} = this.props;
         if(currentUser && currentTeam){
-            actions.getTeamRedirectChannelIfIsAccesible(currentUser,currentTeam);
+            await actions.getTeamRedirectChannelIfIsAccesible(currentUser,currentTeam);
         }
     }
     
