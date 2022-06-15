@@ -31,6 +31,7 @@ function makeMapStateToProps() {
     const getCustomStatus = makeGetCustomStatus();
 
     return function mapStateToProps(state: GlobalState) {
+        console.log(state);
         const currentUser = getCurrentUser(state);
 
         const userId = currentUser?.id;
