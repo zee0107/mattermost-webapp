@@ -37,7 +37,7 @@ function makeMapStateToProps() {
         const channelVal = Client4.getChannel(ownProps.channelId);
         Promise.resolve(channelVal).then(data => { getChannel(data); });
         const channel = resultValue; 
-
+        let lastPostAt;
         if(channel){
             if(channel.type === Constants.DM_CHANNEL){
                 const trimmedName = channel.name.replace(currentUser.id,'');
@@ -45,6 +45,8 @@ function makeMapStateToProps() {
                 const teamValue = Client4.getUser(id);
                 Promise.resolve(teamValue).then(data => { getTeamMate(data); });
             }
+
+            lastPostAt = channel.last_post_at !== 0 ? channel.last_post_at : channel.create_at;
         }
         const teammate = teamMate;
 
@@ -55,6 +57,7 @@ function makeMapStateToProps() {
 
         return {
             channel,
+            lastPostAt,
             posts,
             teammate,
             unreadCount,

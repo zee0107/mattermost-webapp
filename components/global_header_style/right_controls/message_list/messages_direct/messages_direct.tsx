@@ -22,6 +22,7 @@ export type Props = {
     currentTeam: Team;
     currentUser: UserProfile;
     onChangeSelected: any;
+    lastPostAt: number;
 }
 
 type State = {
@@ -116,7 +117,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {currentUser,teammate,channel} = this.props;
+        const {currentUser,teammate,channel, lastPostAt} = this.props;
         const {posts, unreadCount} = this.state;
         let displayName;
 
@@ -143,20 +144,40 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
             }
         }
         
+        let timeLastPost;
+        var today = new Date();
+        var date = new Date(lastPostAt * 1000);
+        var diffMs = (today - date); // milliseconds between now & startTime
+        var diffDays = Math.floor(diffMs / 86400000); // days
+        var diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
+        var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
+
+        if(diffDays > 0){
+            timeLastPost = diffDays+ ' days';
+        }
+        if(diffHrs > 0 && diffDays <= 0){
+            timeLastPost = diffHrs+ ' hours';
+        }
+        if(diffMins > 0 && diffHrs <= 0){
+            timeLastPost = diffMins + ' minutes';
+        }
+
         let lastMessage;
         if(posts){
             lastMessage = (
                 <>
-                    {Object.keys(posts.posts).slice(0,1).map((item) => {
+                    {Object.keys(posts.posts).map((item) => {
                         let message;
-                        if(posts.posts[item].message === ''){
-                            message = 'Sent a file.';
-                        }else{
-                            message = posts.posts[item].message.substring(0,30).toString();
+                        if (lastPostAt === posts.posts[item].create_at) {
+                            if(posts.posts[item].message !== ''){
+                                message = posts.posts[item].message.substring(0,30).toString();
+                            }else{
+                                message = 'Sent a file.';
+                            }
+                            return (
+                                <small className='text-muted' key={posts.posts[item].id}>{message}</small>
+                            );
                         }
-                        return (
-                            <small className='text-muted' key={posts.posts[item].id}>{message}</small>
-                        );
                     })}
                 </>
             );
@@ -168,9 +189,6 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         let renderView;
         if(channel){
             if(channel.type === Constants.DM_CHANNEL){
-                //const trimmedName = channel.name.replace(currentUser.id,'');
-                //const id = trimmedName.replace('__','');
-                //this.handleGetTeammate(id);
                 if(teammate){
                     if(!displayName){
                         if(teammate.first_name){
@@ -186,7 +204,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
                         <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatNavbar' aria-controls='ChatNavbar'>
                             <div className='d-flex w-100 justify-content-between'>
                                 <label className='mb-1'>{this.getIcon()} <strong>{displayName}</strong></label>
-                                <label className='mt-3'>3 days ago</label>
+                                <label className='mt-3'>{timeLastPost} ago</label>
                             </div>
                             <label className='mt-0'>{lastMessage}</label>
                         </a>
@@ -208,7 +226,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
                         <a className='list-group-item list-group-item-action border-0 message-content text-dark' onClick={() => this.handleChangeSelected(channel.id)} aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#ChatNavbar' aria-controls='ChatNavbar'>
                             <div className='d-flex w-100 justify-content-between'>
                                 <label className='mb-1'>{this.getIconGroup()} <strong>{displayName}</strong></label>
-                                <label className='mt-3'>3 days ago</label>
+                                <label className='mt-3'>{timeLastPost} ago</label>
                             </div>
                             <label className='mt-0'>{lastMessage}</label>
                         </a>
