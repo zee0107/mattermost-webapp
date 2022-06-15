@@ -301,7 +301,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 postsView = (
                     <>
                         <LatestPostReader postIds={posts.order}/>
-                        {posts && Object.keys(posts.posts).map((post,ind) => {
+                        {posts && Object.keys(posts.posts.reverse()).map((post,ind) => {
                             return (<Post postId={post} post={posts.posts[post]} userId={currentUser.id} key={`${posts.posts[post].id}`}/>);
                         })}
                     </>
@@ -806,16 +806,16 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
                             <div className='col-md-12 pbot-20 bgGrey'></div>
                             <div className='col-md-12 removePadding'>
-                                <DeferredPostView
+                                {/*<DeferredPostView
                                         channelId={this.props.channelId}
                                         focusedPostId={this.state.focusedPostId}
                                         filter={this.state.filter}
-                                />
+                                />*/}
                                 {/*postList && postList.order.map((item,index) => {
                                     Object.keys(postList.posts).map((item2,index2) => {return (<Post postId={item} post={postList.posts[item2]} />);});
                                 })*/}
 
-                                {/*postsView*/}
+                                {postsView}
                             </div>
                         </div>
                     </div>
