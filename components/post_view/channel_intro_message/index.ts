@@ -27,7 +27,7 @@ function mapStateToProps(state: GlobalState) {
     const config = getConfig(state);
     const enableUserCreation = config.EnableUserCreation === 'true';
     const isReadOnly = false;
-    const team = getTeamByName(state,'crypter');
+    const team = getCurrentTeam(state);
     const channel = getCurrentChannel(state) || {};
     const teammate = getDirectTeammate(state, channel.id);
     const creator = getUser(state, channel.creator_id);
