@@ -8,7 +8,7 @@ import {GlobalState} from 'types/store';
 
 import MessagesSidebar from './messages_sidebar'
 import { getTeamByName } from 'mattermost-redux/selectors/entities/teams';
-import { makeGetChannel, makeGetChannelUnreadCount } from 'mattermost-redux/selectors/entities/channels';
+import { getChannelByName, makeGetChannel, makeGetChannelUnreadCount } from 'mattermost-redux/selectors/entities/channels';
 
 type OwnProps = {
     channelId: string;
@@ -19,6 +19,7 @@ function makeMapStateToProps() {
     const getUnreadCount = makeGetChannelUnreadCount();
 
     return function mapStateToProps(state: GlobalState, ownProps: OwnProps) {
+        console.log(state);
         if(state.entities.teams.currentTeamId === "" || state.entities.teams.currentTeamId === null || state.entities.teams.currentTeamId === undefined){
             const stateValue = window.localStorage.getItem('GlobalState');
             state = JSON.parse(stateValue);
