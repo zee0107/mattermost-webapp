@@ -125,12 +125,9 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
             
             displayName = channel.display_name;
             lastPostAt = channel.last_post_at !== 0 ? channel.last_post_at : channel.create_at;
-            console.log('Time Stamp: ',lastPostAt);
             var today = new Date();
             var date = new Date(lastPostAt);
-            //console.log('Date :', date);
             var diffMs = (today - date); // milliseconds between now & startTime
-            //console.log('Difference: ',diffMs);
             var diffDays = Math.floor(diffMs / 86400000); // days
             var diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
             var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
@@ -144,7 +141,6 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
             if(diffMins > 0 && diffHrs <= 0){
                 timeLastPost = diffMins + ' minutes';
             }
-            console.log('Last Post: ',timeLastPost);
         }
         
         if(teammate && currentUser){
