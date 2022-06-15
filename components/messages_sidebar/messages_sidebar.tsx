@@ -14,6 +14,7 @@ import { object } from 'prop-types';
 
 export type Props = {
     posts: Promise<PostList>;
+    lastPostAt: number;
     channel: Channel;
     currentTeam: Team;
     currentUser: UserProfile;
@@ -91,7 +92,7 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
     }
 
     render= (): JSX.Element => {
-        const {channel,currentTeam,unreadMentions,unreadMessages,isUnread,teammateUsername,teammate,currentUser, view} = this.props;
+        const {channel,currentTeam,unreadMentions,unreadMessages,isUnread,teammateUsername,teammate,currentUser, view, lastPostAt} = this.props;
         const {posts} = this.state;
         let displayName = channel.display_name;
         if(teammate && currentUser){
@@ -112,16 +113,22 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
                 );
             }
         }
+
+        let timeLastPost;
+        var date = new Date(lastPostAt * 1000);
+        var hours = "0" + date.getHours();
+        var minutes = "0" + date.getMinutes();
+        timeLastPost = hours.substring(-2) + ':' + minutes.substring(-2);
         let lastMessage;
         if(posts){
             lastMessage = (
                 <>
                     {Object.keys(posts.posts).slice(0,1).map((item) => {
                         let message;
-                        if(posts.posts[item].message === ''){
-                            message = 'Sent a file.';
-                        }else{
+                        if(posts.posts[item].message !== '' && lastPostAt === posts.posts[item].created_at){
                             message = posts.posts[item].message.substring(0,30).toString();
+                        }else{
+                            message = 'Sent a file.';
                         }
                         return (
                             <small className='text-muted' key={posts.posts[item].id}>{message}</small>
@@ -163,7 +170,7 @@ export default class MessagesSidebar extends React.PureComponent<Props, State> {
                             {lastMessage}
                         </div>      
                         <div className='col-2 text-end mt-4'>
-                            <small>12:04</small>
+                            <small>{timeLastPost}</small>
                             {unreadNotif}
                         </div>
                     </div>
