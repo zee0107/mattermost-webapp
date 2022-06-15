@@ -61,7 +61,7 @@ import { Channel } from 'mattermost-redux/types/channels';
 type Props = {
     status?: string;
     userId: string;
-    channel: Channel;
+    channelId: string;
     coverPhoto: Promise<string>;
     profilePicture: string;
     profilePictureLoggedin: string;
@@ -201,8 +201,8 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
             }
         }
 
-        if(this.props.channel){
-            this.postsOnLoad(this.props.channel.id);
+        if(this.props.channelId){
+            this.postsOnLoad(this.props.channelId);
         }
     }
 

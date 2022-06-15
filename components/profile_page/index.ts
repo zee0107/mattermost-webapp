@@ -75,6 +75,7 @@ function makeMapStateToProps() {
             userId,
             categories,
             userData,
+            channelId: channel.id,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             profilePictureLoggedin: Client4.getProfilePictureUrl(userData.id, userData?.last_picture_update),
             coverPhoto: Client4.getProfileCover(userId),
