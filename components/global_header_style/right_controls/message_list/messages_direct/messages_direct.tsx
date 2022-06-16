@@ -116,7 +116,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
     }
 
     renderTime = (lastPostAt: number) => {
-        let timeLastPost;
+        let timeLastPost = 'A few seconds';
         if(lastPostAt){
             var today = new Date();
             var date = new Date(lastPostAt);
@@ -196,7 +196,6 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         }
         let renderView;
         if(channel){
-            console.log(channel.type);
             if(channel.type === Constants.DM_CHANNEL){
                 if(teammate){
                     if(!displayName){
