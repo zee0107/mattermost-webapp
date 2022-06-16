@@ -312,7 +312,8 @@
     // adjust RHS position and height
     #sidebar-right {
         z-index: 20;
-        top: 0;
+        top: 70px;
+        position: fixed;
 
         .sidebar-right-container {
             height: 100%;
