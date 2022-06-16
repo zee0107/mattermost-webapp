@@ -159,8 +159,8 @@ export default class Client4 {
         unknownError: 'We received an unexpected status code from the server.',
     };
     userRoles?: string;
-    apiUrl: 'https://crypterfighter.polywickstudio.ph/';
-    //apiUrl: 'https://crypterfighter.polywickstudio.ph/';
+    https://crypterfighter.polywickstudio.ph/';
+    //https://crypterfighter.polywickstudio.ph/';
 
     telemetryHandler?: TelemetryHandler;
 
@@ -4237,19 +4237,19 @@ export default class Client4 {
 
     userJoinedCount = (id: string) => {
         return this.doFetch<number>(
-            `apiUrl: 'https://crypterfighter.polywickstudio.ph/api/crypter/userjoinedcount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/userjoinedcount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     userPostCount = (id: string) => {
         return this.doFetch<number>(
-            `apiUrl: 'https://crypterfighter.polywickstudio.ph/api/crypter/userpostcount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/userpostcount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     forumUserData = (id: string) => {
         return this.doFetch<ForumUser>(
-            `apiUrl: 'https://crypterfighter.polywickstudio.ph/api/crypter/userlastvisit?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `https://crypterfighter.polywickstudio.ph/api/crypter/userlastvisit?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
