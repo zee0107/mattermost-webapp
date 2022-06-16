@@ -758,22 +758,22 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                             <div className='col-md-12 profile-menu-box-mobile width-100'>
                                 <div className='d-flex'>
                                     <div onClick={() => this.onChangeFilter('all')} className={`col-lg-2 profile-menu-icon pointer-btn ${this.state.filter === 'all' ? 'active-profile-menu-icon' : ''}`}>
-                                        <a href='#all' onClick={() => this.onChangeFilter('all')}><img src={LayoutIcon}></img></a>
+                                        <a href='#' onClick={() => this.onChangeFilter('all')}><img src={LayoutIcon}></img></a>
                                     </div>
                                     <div onClick={() => this.onChangeFilter('image')} className={`col-lg-2 profile-menu-icon pointer-btn ${this.state.filter === 'image' ? 'active-profile-menu-icon' : ''}`}>
-                                        <a href='#images' onClick={() => this.onChangeFilter('image')}><img src={ImgIcon}></img></a>
+                                        <a href='#' onClick={() => this.onChangeFilter('image')}><img src={ImgIcon}></img></a>
                                     </div>
                                     <div onClick={() => this.onChangeFilter('video')} className={`col-lg-2 profile-menu-icon pointer-btn ${this.state.filter === 'video' ? 'active-profile-menu-icon' : ''}`}>
-                                        <a href='#videos' onClick={() => this.onChangeFilter('video')}><img src={VideoIcon}></img></a>
+                                        <a href='#' onClick={() => this.onChangeFilter('video')}><img src={VideoIcon}></img></a>
                                     </div>
                                     <div onClick={() => this.onChangeFilter('audio')} className={`col-lg-2 profile-menu-icon pointer-btn ${this.state.filter === 'audio' ? 'active-profile-menu-icon' : ''}`}>
-                                        <a href='#music' onClick={() => this.onChangeFilter('audio')}><img src={MusicIcon}></img></a>
+                                        <a href='#' onClick={() => this.onChangeFilter('audio')}><img src={MusicIcon}></img></a>
                                     </div>
                                     <div onClick={() => this.onChangeFilter('file')} className={`col-lg-2 profile-menu-icon pointer-btn ${this.state.filter === 'file' ? 'active-profile-menu-icon' : ''}`}>
-                                        <a href='#file' onClick={() => this.onChangeFilter('file')}><img src={AttachIcon}></img></a>
+                                        <a href='#' onClick={() => this.onChangeFilter('file')}><img src={AttachIcon}></img></a>
                                     </div>
                                     <div onClick={() => this.onChangeFilter('location')} className={`col-lg-2 profile-menu-icon pointer-btn ${this.state.filter === 'location' ? 'active-profile-menu-icon' : ''}`}>
-                                        <a href='#location' onClick={() => this.onChangeFilter('location')}><img src={GeoIcon}></img></a>
+                                        <a href='#' onClick={() => this.onChangeFilter('location')}><img src={GeoIcon}></img></a>
                                     </div>
                                 </div>
                             </div>
