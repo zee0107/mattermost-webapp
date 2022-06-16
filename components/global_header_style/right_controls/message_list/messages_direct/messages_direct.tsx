@@ -196,6 +196,7 @@ export default class MessagesDirect extends React.PureComponent<Props, State> {
         }
         let renderView;
         if(channel){
+            console.log(channel.type);
             if(channel.type === Constants.DM_CHANNEL){
                 if(teammate){
                     if(!displayName){
