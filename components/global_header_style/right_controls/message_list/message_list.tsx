@@ -5,13 +5,6 @@ import React, {ReactNode, ReactPropTypes} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {UserProfile} from 'mattermost-redux/types/users';
 
-import homeImage from 'images/homeFeed.png';
-import profPic from 'images/profiles/user-profile-1.png';
-import trendImage from 'images/trending-up.svg';
-import ToggleModalButtonRedux from 'components/toggle_modal_button_style';
-import UserSettingsModal from 'components/user_settings/modal_profile';
-import {ModalIdentifiers} from 'utils/constants';
-import { SocialCount } from 'mattermost-redux/types/crypto';
 import { PostList } from 'mattermost-redux/types/posts';
 import { ChannelCategory } from 'mattermost-redux/types/channel_categories';
 import MessageDirect from './messages_direct';
