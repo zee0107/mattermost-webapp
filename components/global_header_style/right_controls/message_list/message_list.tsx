@@ -92,9 +92,7 @@ export default class MessageList extends React.PureComponent<Props, State> {
             if(categories !== prevState.categories){
                 if (categories) {
                     Object.keys(categories).map((item) => {
-                        if(categories[item].type === 'direct_messages'){
-                            this.setMessageList(categories[item].channel_ids);
-                        }
+                        this.setMessageList(categories[item].channel_ids);
                     });
                 }
             }
@@ -180,7 +178,7 @@ export default class MessageList extends React.PureComponent<Props, State> {
                             <div className='position-absolute bottom-0 start-0 p-2'>
                                 <a className='chat-mobile-settings' aria-current='true' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRightLabelaccounts' aria-controls='offcanvasRightLabelaccounts'><i className='bi-gear-fill float-end'></i></a>
                             </div>
-                            <div id=''>
+                            <div style={{overflow: 'auto'}}>
                                 <div className='list-group'>
                                     {chatList}
                                 </div>
