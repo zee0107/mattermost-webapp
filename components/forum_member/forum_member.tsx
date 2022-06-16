@@ -69,12 +69,17 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         const {currentUser, profilePicture, userData, view} = this.props;
         const {userJoinedCount, userPostcount, forumUserData} = this.state;
         let name;
+        let position;
         if(currentUser){
             if(currentUser.first_name !== ''){
                 name = currentUser.first_name + ' ' + currentUser.last_name;
             }
             else{
                 name = currentUser.username;
+            }
+
+            if(currentUser.position !== '' && currentUser.position){
+                position = currentUser.position;
             }
         }
 
@@ -107,7 +112,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <div className='col-4 mt-2 mb-2'>
                                 {this.renderProfilePicture('lg')}
                                 {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt='' />*/}
-                                <p><label><strong>{name}</strong></label><br/><small>{currentUser.position}</small></p>
+                                <p><label><strong>{name}</strong></label><br/><small>{position}</small></p>
                             </div>
                             <div className='col-2 mt-3 mb-2 text-center'><strong>{userJoinedCount}</strong></div>
                             <div className='col-2 text-center mt-3 mb-2'><strong>{last_visit}</strong></div>
@@ -125,7 +130,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                             <div className='col-lg-12 mt-2 mb-2'>
                             {this.renderProfilePicture('lg')}
                             {/*<img className='img-fluid float-start me-2' src='assets/images/sample-user-primary-picture-6.png' alt=''/>*/}
-                                <p><label><strong>{name}</strong></label><br/><small>{currentUser.position}</small></p>
+                                <p><label><strong>{name}</strong></label><br/><small>{position}</small></p>
                             </div>
                             <hr/>
                             <div className='col-3 text-center mt-0 mb-2'><strong>{userJoinedCount}</strong><br/><small className='text-muted'>Joined</small></div>
