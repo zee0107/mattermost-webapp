@@ -159,8 +159,6 @@ export default class Client4 {
         unknownError: 'We received an unexpected status code from the server.',
     };
     userRoles?: string;
-    https://crypterfighter.polywickstudio.ph/';
-    //https://crypterfighter.polywickstudio.ph/';
 
     telemetryHandler?: TelemetryHandler;
 
