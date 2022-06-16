@@ -5,6 +5,7 @@ import React, {ReactNode, ReactPropTypes} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
+import * as GlobalActions from 'actions/global_actions';
 import logoDark from 'images/logoBlack.png';
 import postImage from 'images/post-1.png';
 import $ from 'jquery';
@@ -76,6 +77,10 @@ export default class CreateStory extends React.PureComponent<Props, State> {
             this.setPicture(this.state.photoValue);
         }
     }
+
+    handleEmitUserLoggedOutEvent = () =>{
+        GlobalActions.emitUserLoggedOutEvent();
+      }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
@@ -506,11 +511,11 @@ export default class CreateStory extends React.PureComponent<Props, State> {
                                         <div className='d-flex'>
                                         <a className='onStoryprofilesettings' id='defaultDropdown' id='dropdownMenuOffset' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
                     
-                                        <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuOffset'>
-                                            <li><a className='dropdown-item text-dark' href='profile.html'><i className='bi-person'></i> Profile</a></li>
+                                        <ul className='dropdown-menu' aria-labelledby='dropdownMenuOffset'>
+                                            <li><a className='dropdown-item text-dark' href='/profile'><i className='bi-person'></i> Profile</a></li>
                                             {/*<li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
                                             <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>*/}
-                                            <li><a className='dropdown-item onSettingsandprivacy text-dark'><i className='bi-gear-wide'></i> Sign out</a></li>
+                                            <li><a className='dropdown-item onSettingsandprivacy text-dark' onClick={() => this.handleEmitUserLoggedOutEvent()}><i className='bi-gear-wide'></i> Sign out</a></li>
                                         </ul>
                     
                                         </div>

@@ -369,8 +369,8 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                             <div className='mb-4'></div>*/}
                                             <div className='d-flex'>
                                                 <a className='onStoryprofilesettings' id='defaultDropdown' id='dropdownMenuOffset' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
-                                                <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuOffset'>
-                                                <li><a className='dropdown-item' href={'/profiles'}><i className='bi-person'></i> Profile</a></li>
+                                                <ul className='dropdown-menu' aria-labelledby='dropdownMenuOffset'>
+                                                <li><a className='dropdown-item' href={'/profile'}><i className='bi-person'></i> Profile</a></li>
                                                 {/*<li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
                                                 <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>*/}
                                                 <li><a className='dropdown-item onSettingsandprivacy'  onClick={() => this.handleEmitUserLoggedOutEvent()}><i className='bi-gear-wide'></i>  Sign out</a></li>
@@ -390,8 +390,8 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                         <div className='position-absolute top-0 start-50 translate-middle-x mt-1' style={{margin:'0px 0px 0px -61px',}}>
                                             <div className='d-flex'>
                                                 <a className='onStoryprofilesettings' id='defaultDropdown' id='dropdownMenuOffset' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
-                                                <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuOffset'>
-                                                <li><a className='dropdown-item'  href={'/profiles'}><i className='bi-person'></i> Profile</a></li>
+                                                <ul className='dropdown-menu' aria-labelledby='dropdownMenuOffset'>
+                                                <li><a className='dropdown-item'  href={'/profile'}><i className='bi-person'></i> Profile</a></li>
                                                 {/*<li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
                                                 <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>*/}
                                                 <li><a className='dropdown-item onSettingsandprivacy' onClick={() => this.handleEmitUserLoggedOutEvent()}><i className='bi-gear-wide'></i> Sign out</a></li>
