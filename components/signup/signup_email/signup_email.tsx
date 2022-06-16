@@ -71,6 +71,7 @@ export type State = {
     isDark?: string;
     img_path?: string;
     isMatchWidth: boolean;
+    terms: boolean;
 };
 
 export default class SignupEmail extends React.PureComponent<Props, State> {
@@ -102,7 +103,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
         const token = (new URLSearchParams(this.props.location!.search)).get('t');
         const inviteId = (new URLSearchParams(this.props.location!.search)).get('id');
 
-        this.state = {loading: false,isDark:'light',img_path:'',isMatchWidth: window.matchMedia("(min-width: 768px)").matches};
+        this.state = {terms: false,loading: false,isDark:'light',img_path:'',isMatchWidth: window.matchMedia("(min-width: 768px)").matches};
         if (token && token.length > 0) {
             this.state = this.getTokenData(token, data!);
         } else if (inviteId && inviteId.length > 0) {
@@ -112,6 +113,7 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
             };
         }
 
+        this.onChangeTerms = this.onChangeTerms.bind(this)
         this.emailRef = React.createRef();
         this.nameRef = React.createRef();
         this.passwordRef = React.createRef();
@@ -171,6 +173,10 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
 
     componentDidUpdate() {
         this.setDocumentTitle(this.props.siteName!);
+    }
+
+    onChangeTerms = (e) => {
+        this.setState({terms: e.target.value});
     }
 
     setDocumentTitle = (siteName: string) => {
@@ -335,6 +341,11 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
         e.preventDefault();
         trackEvent('signup_email', 'click_create_account');
 
+        if(!this.state.terms){
+            this.setState({serverError: 'Please accept terms and agreements before proceeding.',});
+            return;
+        }
+        
         // bail out if a submission is already in progress
         if (this.state.isSubmitting) {
             return;
@@ -520,8 +531,10 @@ export default class SignupEmail extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                     <div className='mt-8 term-div'>
-                        <input id='terms' type='checkbox' className='form-check terms-checkbox' />
-                        <label htmlFor='terms'> I agree to terms &amp; conditions</label>
+                        <div className='input-group'>
+                            <input type='checkbox' id='terms' onChange={this.onChangeTerms} value={this.state.terms} defaultChecked={this.state.terms} className='form-check terms-checkbox' />
+                            <label htmlFor='terms'> I agree to terms &amp; conditions</label>
+                        </div>
                     </div>
                     <p className='mt-8'>
                         <button
