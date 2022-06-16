@@ -4,7 +4,7 @@
 import React from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import { UserProfile } from 'mattermost-redux/types/users';
-
+import * as GlobalActions from 'actions/global_actions';
 import logoDark from 'images/logoBlack.png';
 import { StripeAuBankAccountElementChangeEvent } from '@stripe/stripe-js';
 
@@ -45,6 +45,10 @@ export default class CreateForum extends React.PureComponent<Props, State> {
 
     handleChangeDetails = (e) => {
         this.setState({forumDetails: e.target.value});
+    }
+
+    handleEmitUserLoggedOutEvent = () =>{
+      GlobalActions.emitUserLoggedOutEvent();
     }
 
     handleSubmit = () => {
@@ -212,10 +216,10 @@ export default class CreateForum extends React.PureComponent<Props, State> {
                                         <div className='d-flex'>
                                             <a className='onStoryprofilesettings' id='defaultDropdown' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
                                             <ul className='dropdown-menu' aria-labelledby='dropdownMenuOffset'>
-                                            <li><a className='dropdown-item' href='profile.html'><i className='bi-person'></i> Profile</a></li>
-                                            <li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
-                                            <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>
-                                            <li><a className='dropdown-item onSettingsandprivacy'><i className='bi-gear-wide'></i> Settings & Privacy</a></li>
+                                                <li><a className='dropdown-item' href={'/profiles'}><i className='bi-person'></i> Profile</a></li>
+                                                {/*<li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
+                                                <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>*/}
+                                                <li><a className='dropdown-item onSettingsandprivacy'  onClick={() => this.handleEmitUserLoggedOutEvent()}><i className='bi-gear-wide'></i>  Sign out</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -237,8 +241,10 @@ export default class CreateForum extends React.PureComponent<Props, State> {
                                         <div className='d-flex'>
                                             <a className='onStoryprofilesettings' id='defaultDropdown' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
                                             <ul className='dropdown-menu' aria-labelledby='dropdownMenuOffset'>
-                                            <li><a className='dropdown-item' href='profile.html'><i className='bi-person'></i> Profile</a></li>
-                                            <li><a className='dropdown-item onSettingsandprivacy'><i className='bi-gear-wide'></i> Sign out</a></li>
+                                                <li><a className='dropdown-item'  href={'/profiles'}><i className='bi-person'></i> Profile</a></li>
+                                                {/*<li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
+                                                <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>*/}
+                                                <li><a className='dropdown-item onSettingsandprivacy' onClick={() => this.handleEmitUserLoggedOutEvent()}><i className='bi-gear-wide'></i> Sign out</a></li>
                                             </ul>
                                         </div>
                                     </div>

@@ -7,6 +7,7 @@ import {ActionFunc} from 'mattermost-redux/types/actions';
 import {UserCustomStatus, UserProfile, UserStatus} from 'mattermost-redux/types/users';
 import logoDark from 'images/logoBlack.png';
 import postImage from 'images/post-1.png';
+import * as GlobalActions from 'actions/global_actions';
 import $ from 'jquery';
 import { throws } from 'assert';
 import { UploadBlob } from 'mattermost-redux/types/crypto';
@@ -72,6 +73,10 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
         if (photoValue !== prevState.photoValue) {
             this.setPicture(photoValue);
         }
+    }
+
+    handleEmitUserLoggedOutEvent = () =>{
+      GlobalActions.emitUserLoggedOutEvent();
     }
 
     onChangePrivacy = (event) => {
@@ -365,10 +370,10 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                             <div className='d-flex'>
                                                 <a className='onStoryprofilesettings' id='defaultDropdown' id='dropdownMenuOffset' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
                                                 <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuOffset'>
-                                                <li><a className='dropdown-item' href='profile.html'><i className='bi-person'></i> Profile</a></li>
+                                                <li><a className='dropdown-item' href={'/profiles'}><i className='bi-person'></i> Profile</a></li>
                                                 {/*<li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
                                                 <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>*/}
-                                                <li><a className='dropdown-item onSettingsandprivacy'><i className='bi-gear-wide'></i>  Sign out</a></li>
+                                                <li><a className='dropdown-item onSettingsandprivacy'  onClick={() => this.handleEmitUserLoggedOutEvent()}><i className='bi-gear-wide'></i>  Sign out</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -386,10 +391,10 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
                                             <div className='d-flex'>
                                                 <a className='onStoryprofilesettings' id='defaultDropdown' id='dropdownMenuOffset' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
                                                 <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuOffset'>
-                                                <li><a className='dropdown-item' href='profile.html'><i className='bi-person'></i> Profile</a></li>
+                                                <li><a className='dropdown-item'  href={'/profiles'}><i className='bi-person'></i> Profile</a></li>
                                                 {/*<li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
                                                 <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>*/}
-                                                <li><a className='dropdown-item onSettingsandprivacy'><i className='bi-gear-wide'></i> Sign out</a></li>
+                                                <li><a className='dropdown-item onSettingsandprivacy' onClick={() => this.handleEmitUserLoggedOutEvent()}><i className='bi-gear-wide'></i> Sign out</a></li>
                                                 </ul>
                                             </div>
                                         </div>
