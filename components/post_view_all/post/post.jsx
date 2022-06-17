@@ -109,6 +109,8 @@ export default class Post extends React.PureComponent {
         isCollapsedThreadsEnabled: PropTypes.bool,
 
         clickToReply: PropTypes.bool,
+
+        handleRemovePost: PropTypes.any,
     }
 
     static defaultProps = {
@@ -215,6 +217,13 @@ export default class Post extends React.PureComponent {
             return;
         }
         this.props.actions.selectPost(post);
+    }
+
+    handleRemovePostClick = (e) => {
+        e.preventDefault();
+
+        const post = this.props.post;
+        this.props.handleRemovePost(post.id);
     }
 
     handleCardClick = (post) => {
@@ -576,6 +585,7 @@ export default class Post extends React.PureComponent {
                                         <PostBody
                                             post={post}
                                             handleCommentClick={this.handleCommentClick}
+                                            handleRemovePostClick={this.handleRemovePostClick}
                                             compactDisplay={this.props.compactDisplay}
                                             isCommentMention={this.props.isCommentMention}
                                             filter={this.props.filter}

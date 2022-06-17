@@ -20,6 +20,7 @@ type Props = {
     post: Post;
     commentCount: number;
     isRHS: boolean;
+    handleCommentClick?: React.EventHandler<React.MouseEvent>;
     onExited: () => void;
     actions: {
         deleteAndRemovePost: (post: Post) => Promise<{data: boolean}>;

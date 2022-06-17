@@ -42,6 +42,8 @@ type Props = {
     teamId?: string;
     handleCommentClick: React.EventHandler<React.MouseEvent>;
 
+    handleRemovePostClick:  React.EventHandler<React.MouseEvent>;
+
     handleCardClick: (post: Post) => void;
 
     handleDropdownOpened: (e: boolean) => void;
@@ -222,6 +224,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
                     post={post}
                     isFlagged={this.props.isFlagged}
                     handleCommentClick={this.props.handleCommentClick}
+                    handleRemovePostClick={this.props.handleRemovePostClick}
                     handleDropdownOpened={this.handleDotMenuOpened}
                     handleAddReactionClick={this.toggleEmojiPicker}
                     isMenuOpen={this.state.showDotMenu}

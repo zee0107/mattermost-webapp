@@ -38,6 +38,7 @@ type Props = {
     location?: 'CENTER' | 'RHS_ROOT' | 'RHS_COMMENT' | 'SEARCH' | string;
     isFlagged?: boolean;
     handleCommentClick?: React.EventHandler<React.MouseEvent>;
+    handleRemovePostClick?:  React.EventHandler<React.MouseEvent>;
     handleDropdownOpened?: (open: boolean) => void;
     handleAddReactionClick?: () => void;
     isMenuOpen?: boolean;
@@ -252,6 +253,7 @@ export class DotMenuClass extends React.PureComponent<Props, State> {
             dialogProps: {
                 post: this.props.post,
                 isRHS: this.props.location === Locations.RHS_ROOT || this.props.location === Locations.RHS_COMMENT,
+                handleRemovePostClick: this.props.handleRemovePostClick,
             },
         };
 

@@ -12,6 +12,7 @@ type Props = {
     channelId: string;
     filter: string;
     userId: string;
+    focusedPostId: string;
     profilePicture: string;
     currentUser: UserProfile;
     posts?: Promise<PostList>;
@@ -27,6 +28,7 @@ type Props = {
 type State = {
     isDark: string;
     posts: PostList;
+    idList: string[];
 };
 
 export default class ForumMessages extends React.PureComponent<Props, State> {
@@ -45,16 +47,38 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
         }
 
+        if(this.state.posts){
+            this.setState({idList: this.state.posts.order});
+        }
+
         this.postsOnLoad(this.props.channelId);
     }
+    
 
-    componentDidUpdate(){
-        if(this.props.posts){
-            Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
+    componentDidUpdate(prevProps,prevState){
+        if(this.state.idList !== prevState.idList){
+            if(this.props.posts){
+                Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
+            }
         }
     }
+
+    handleRemovePost = (id: string) => {
+        const {idList} = this.state;
+        idList.map((item,index) => {
+            if(item === id){
+                this.setState((prevState) => ({
+                    ...prevState.idList[index].slice(slice(0, index), ...prevState.idList.slice(index + 1))
+                }));
+            }
+        });
+    }
+
+    handleAddPost(){
+
+    }
     
-    postsOnLoad = async (channelId) => {
+    postsOnLoad = async (channelId: string) => {
         const {focusedPostId, actions} = this.props;
         if (focusedPostId) {
             await actions.loadPostsAround(channelId, this.props.focusedPostId);
@@ -80,16 +104,23 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
 
     render= (): JSX.Element => {
         const {currentUser} = this.props;
-        const {posts} = this.state;
+        const {posts,idList} = this.state;
 
         let postsView;
         if (posts) {
             postsView = (
                 <>
                     <LatestPostReader postIds={posts.order}/>
-                    {posts && posts.order.map((item,index) => {
+                    {posts && idList.map((item,index) => {
                         return (
-                            <Post postId={item} post={posts.posts[item]} userId={currentUser.id} filter={this.props.filter} key={`${item}`}/>
+                            <Post
+                                postId={item}
+                                handleRemovePost={this.handleRemovePost}
+                                post={posts.posts[item]}
+                                userId={currentUser.id}
+                                filter={this.props.filter}
+                                key={`${item}--${index}`}
+                            />
                         );
                     })}
                 </>
