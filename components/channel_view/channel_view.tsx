@@ -690,10 +690,10 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     let storyListDetails;
                     let emptyStories;
                     if(storyList){
-                        console.log(storyList);
+                        console.log(storyList.length);
                         storyListDetails = (
                             <>
-                                {storyList.map((item,key) => {
+                                {storyList.length && storyList.map((item,key) => {
                                     return (
                                         <StoryList userId={item} key={`${item}-story-${key}`} />
                                     );
