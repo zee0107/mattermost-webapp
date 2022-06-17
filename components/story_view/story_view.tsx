@@ -202,7 +202,7 @@ export default class StoryView extends React.PureComponent<Props, State> {
                             </div>
                             
                             
-                            <div className='previews-content-actions'>
+                            {/*<div className='previews-content-actions'>
                                 <div className='d-flex'>
                                     <div className='col-lg-11'>
                                         <div className='form-floating'>
@@ -220,19 +220,19 @@ export default class StoryView extends React.PureComponent<Props, State> {
                                     <div className='col-lg-1 text-center'>
                                         <p>
                                             <a className='onClicklikepreviewstories position-relative me-3'><i className='bi-hand-thumbs-up style-hand-thumbs-up-fill'></i>
-                                                {/*<span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger count-likes-previews'>
+                                                <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger count-likes-previews'>
                                                     2m+
-                                                </span>*/}
+                                                </span>
                                             </a>
                                             <a className='onClickheartpreviewstories position-relative'><i className='bi-heart style-heart-fill'></i>
-                                                {/*<span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger count-heart-previews'>
+                                                <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger count-heart-previews'>
                                                     3.5k+
-                                                </span>*/}
+                                                </span>
                                             </a>
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </div>*/}
                         </div>
                     </>
                 );
