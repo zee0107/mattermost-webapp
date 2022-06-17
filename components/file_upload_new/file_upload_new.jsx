@@ -335,6 +335,7 @@ export class FileUploadNew extends PureComponent {
 
     handleChange = (e) => {
         if (e.target.files.length > 0) {
+            console.log(e.target.files);
             this.checkPluginHooksAndUploadFiles(e.target.files);
 
             clearFileInput(e.target);
