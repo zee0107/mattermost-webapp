@@ -12,7 +12,7 @@ type Props = {
     channelId: string;
     filter: string;
     userId: string;
-    focusedPostId: string;
+    focusedPostId?: string;
     profilePicture: string;
     currentUser: UserProfile;
     posts?: Promise<PostList>;
@@ -31,7 +31,7 @@ type State = {
     idList: string[];
 };
 
-export default class ForumMessages extends React.PureComponent<Props, State> {
+export default class PostListAll extends React.PureComponent<Props, State> {
     static defaultProps = {userId: '',profilePicture: '',}
 
     constructor(props: Props) {
