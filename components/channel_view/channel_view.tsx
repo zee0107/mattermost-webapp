@@ -689,7 +689,8 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                 if(channelName === 'town-square'){
                     let storyListDetails;
                     let emptyStories;
-                    if(storyList !== undefined && storyList !== null){
+                    if(storyList){
+                        console.log(storyList);
                         storyListDetails = (
                             <>
                                 {storyList.map((item,key) => {
