@@ -65,8 +65,10 @@ export default class PostListAll extends React.PureComponent<Props, State> {
             }
         }
 
-        if(this.state.posts.order !== prevState.posts.order){
-            this.handleIdList();
+        if(this.state.posts){
+            if(this.state.posts.order !== prevState.posts.order){
+                this.handleIdList();
+            }
         }
     }
 
