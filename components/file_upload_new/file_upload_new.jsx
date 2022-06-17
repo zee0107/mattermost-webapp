@@ -235,6 +235,14 @@ export class FileUploadNew extends PureComponent {
             sortedFiles = result.files;
         }
         console.log(sortedFiles);
+        if(sortedFiles){
+            sortedFiles.map((item,index) => {
+                if(item.type === '' && item.type.includes('application')){
+                    alert('Invalid File.');
+                    sortedFiles.splice(index,1);
+                }
+            });
+        }
         if (sortedFiles) {
             this.uploadFiles(sortedFiles);
         }
