@@ -39,7 +39,7 @@ export default class PostListAll extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {isDark:'light', deleted: false, edited: false, posts: []};
+        this.state = {isDark:'light', deleted: false, edited: false,};
     }
 
     componentDidMount(){
@@ -50,9 +50,9 @@ export default class PostListAll extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
         }
 
-        /*if(this.state.posts){
+        if(this.state.posts){
             this.setIdList(this.state.posts.order);
-        }*/
+        }
         
         this.postsOnLoad(this.props.channelId);
     }
@@ -63,21 +63,12 @@ export default class PostListAll extends React.PureComponent<Props, State> {
                 Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
             }
 
-            //this.setIdList(this.state.posts.order);
+            this.setIdList(this.state.posts.order);
         }
     }
 
     handleRemovePost = (id: string) => {
-        const {posts} = this.state;
-        posts.order.map((item,index) => {
-            if(item === id){
-                this.setState((prevState) => ({
-                    posts: [...prevState.posts, {
-                        order: [...prevState.posts.order.slice(0, index), ...prevState.posts.order.slice(index + 1)]
-                    }]
-                }));
-            }
-        });
+        //const {posts} = this.state;
     }
 
     setIdList = (list: string[]) => {
