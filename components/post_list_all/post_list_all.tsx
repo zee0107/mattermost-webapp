@@ -39,7 +39,41 @@ export default class PostListAll extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {isDark:'light', deleted: false, edited: false, posts: {order: [],posts: [],prev_post_id: '', next_post_id: ''}};
+        this.state = {isDark:'light', deleted: false, edited: false, 
+        posts: {
+            order: [],
+            posts: {
+                id: '',
+                create_at: 0,
+                update_at: 0,
+                edit_at: 0,
+                delete_at: 0,
+                is_pinned:  false,
+                user_id: '',
+                channel_id: '',
+                root_id: '',
+                original_id: '',
+                message: '',
+                type: '',
+                props: '',
+                hashtags: '',
+                pending_post_id: '',
+                reply_count: 0,
+                file_ids: [],
+                metadata: [],
+                failed: null,
+                user_activity_posts: [],
+                state: '',
+                filenames: [],
+                last_reply_at: null,
+                participants: null,
+                message_source: null,
+                is_following: null,
+                exists: null,
+            },
+            prev_post_id: '',
+            next_post_id: ''},
+        };
     }
 
     componentDidMount(){
