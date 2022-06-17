@@ -47,6 +47,12 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
 
         this.postsOnLoad(this.props.channelId);
     }
+
+    componentDidUpdate(){
+        if(this.props.posts){
+            Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
+        }
+    }
     
     postsOnLoad = async (channelId) => {
         const {focusedPostId, actions} = this.props;
