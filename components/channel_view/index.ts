@@ -23,13 +23,6 @@ import {getCurrentRelativeTeamUrl, getCurrentTeam} from 'mattermost-redux/select
 
 import {goToLastViewedChannel} from 'actions/views/channel';
 import {joinChannel,leaveChannelNew} from 'mattermost-redux/actions/channels';
-import {
-    loadPosts,
-    loadUnreads,
-    loadPostsAround,
-    syncPostsInChannel,
-    loadLatestPosts,
-} from 'actions/views/channel';
 
 import {RequestStatus} from 'mattermost-redux/constants';
 
@@ -64,10 +57,8 @@ function mapStateToProps(state: GlobalState) {
     const enableOnboardingFlow = config.EnableOnboardingFlow === 'true';
 
     let channelRolesLoading = true;
-    let posts;
     if (channel && channel.id) {
         const roles = getRoles(state);
-        posts = Client4.getPosts(channel.id);
         const myChannelRoles = getMyChannelRoles(state);
         if (myChannelRoles[channel.id]) {
             const channelRoles = myChannelRoles[channel.id].values();
@@ -87,7 +78,6 @@ function mapStateToProps(state: GlobalState) {
         channelPurpose: channel ? channel.purpose : '',
         channel,
         currentTeam,
-        posts,
         channelRolesLoading,
         storyList,
         deactivatedChannel: channel ? isDeactivatedChannel(state, channel.id) : false,
@@ -111,11 +101,6 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
             goToLastViewedChannel,
             leaveChannelNew,
             setShowNextStepsView,
-            loadPosts,
-            loadUnreads,
-            loadPostsAround,
-            syncPostsInChannel,
-            loadLatestPosts,
         }, dispatch),
     };
 }

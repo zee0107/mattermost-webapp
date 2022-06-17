@@ -17,7 +17,7 @@ import CreatePostPage from 'components/create_post_page';
 import FileUploadOverlay from 'components/file_upload_overlay';
 import PostView from 'components/post_view_all';
 import Post from 'components/post_view_all/post';
-import PostListRow from 'components/post_view_all/post_list_row';
+import PostListAll from 'components/post_list_all';
 import LatestPostReader from 'components/post_view_all/post_list_virtualized/latest_post_reader';
 import {clearMarks, mark, measure, trackEvent} from 'actions/telemetry_actions.jsx';
 import FormattedMarkdownMessage from 'components/formatted_markdown_message';
@@ -80,7 +80,6 @@ type Props = {
     channelIsArchived: boolean;
     viewArchivedChannels: boolean;
     isCloud: boolean;
-    posts?: Promise<PostList>;
     actions: {
         goToLastViewedChannel: () => Promise<{data: boolean}>;
         setShowNextStepsView: (x: boolean) => void;
@@ -265,12 +264,8 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     Promise.resolve(this.props.storyList).then((value) => {this.setState({storyList: value});} );
                 }
             }
-                    
-            if(this.props.posts){
-                Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
-            }
 
-            this.postsOnLoad(this.props.channelId);
+            
         }
 
         if(this.props.channel){
@@ -280,14 +275,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         }
     }
 
-    postsOnLoad = async (channelId) => {
-        const {focusedPostId, actions} = this.props;
-        if (focusedPostId) {
-            await actions.loadPostsAround(channelId, this.props.focusedPostId);
-        } else {
-            await actions.loadLatestPosts(channelId);
-        }
-    }
 
     render() {
         const {channelIsArchived, enableOnboardingFlow, showNextSteps, showNextStepsEphemeral, teamUrl, channelName,channelDisplayName,channelId, currentUser, currentTeam} = this.props;
@@ -295,27 +282,6 @@ export default class ChannelView extends React.PureComponent<Props, State> {
         if (enableOnboardingFlow && showNextSteps && !showNextStepsEphemeral) {
             this.props.actions.setShowNextStepsView(true);
             browserHistory.push(`${teamUrl}/tips`);
-        }
-        let postsView;
-        if (posts) {
-            if(channel){
-                postsView = (
-                    <>
-                        <LatestPostReader postIds={posts.order}/>
-                        {posts && posts.order.map((item,index) => {
-                            return (
-                                <Post postId={item} post={posts.posts[item]} userId={currentUser.id} filter={this.state.filter} key={`${item}`}/>
-                            );
-                        })}
-                    </>
-                );
-            }
-        }else{
-            postsView = (
-                <>
-                    <h3 className='text-muted text-center'><i className='bi bi-file-earmark-x'></i> No Posts to show.</h3>
-                </>
-            );
         }
 
         let shareInfoBtn;
@@ -823,7 +789,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                                     Object.keys(postList.posts).map((item2,index2) => {return (<Post postId={item} post={postList.posts[item2]} />);});
                                 })*/}
 
-                                {postsView}
+                                {this.props.channelId && <PostListAll channelId={this.props.channelId} filter={this.state.filter} />}
                             </div>
                         </div>
                     </div>
