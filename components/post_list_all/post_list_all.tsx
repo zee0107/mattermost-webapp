@@ -72,7 +72,7 @@ export default class PostListAll extends React.PureComponent<Props, State> {
             if(item === id){
                 this.setState((prevState) => ({
                     posts: [
-                        ...prevState.posts.order[index].slice(0, index), ...prevState.posts.order[index].slice(index + 1)
+                        ...prevState.posts.order.slice(0, index), ...prevState.posts.order.slice(index + 1)
                     ]
                 }));
             }
