@@ -107,6 +107,7 @@ export default class PostListAll extends React.PureComponent<Props, State> {
     handleIdList(){
         const {posts} = this.state;
         if(posts){
+            console.log(posts.order);
             this.setState({idList: posts.order});
         }
     }
