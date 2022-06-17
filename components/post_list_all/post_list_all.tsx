@@ -111,7 +111,7 @@ export default class ForumMessages extends React.PureComponent<Props, State> {
             postsView = (
                 <>
                     <LatestPostReader postIds={posts.order}/>
-                    {posts && idList.map((item,index) => {
+                    {idList && idList.map((item,index) => {
                         return (
                             <Post
                                 postId={item}
