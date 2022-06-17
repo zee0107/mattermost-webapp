@@ -5,7 +5,6 @@ import React, {ReactNode} from 'react';
 import Avatar, {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import { UserProfile } from 'mattermost-redux/types/users';
 import Post from 'components/post_view_all/post';
-import LatestPostReader from 'components/post_view_all/post_list_virtualized/latest_post_reader';
 import { PostList } from 'mattermost-redux/types/posts';
 import { isThisTypeNode } from 'typescript';
 import { post } from 'jquery';
@@ -116,7 +115,6 @@ export default class PostListAll extends React.PureComponent<Props, State> {
             console.log(posts);
             postsView = (
                 <>
-                    <LatestPostReader postIds={posts.order}/>
                     {posts && posts.order.map((item,index) => {
                         return (
                             <Post
