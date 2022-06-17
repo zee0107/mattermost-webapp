@@ -9,6 +9,7 @@ import deferComponentRender from 'components/deferComponentRender';
 import PostView from 'components/post_view';
 import EditPostModal from 'components/edit_post_modal';
 import Post from 'components/post_view_new/post';
+import PostListProfile from 'components/post_list_profile';
 import FileUploadOverlay from 'components/file_upload_overlay';
 
 import homeImage from 'images/homeFeed.png';
@@ -123,6 +124,7 @@ type State = {
     messagesList: string[];
     selectedMessage: string;
     view: string;
+    filter: string;
 };
 
 export default class ProfilPage extends React.PureComponent<Props, State> {
@@ -143,7 +145,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {followStatus: 0,postValues:[],listId:[],feeling: true,userActivity: '',userLocation: '',shareInfo: 'everyone', messagesList: [], view: 'direct',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
+        this.state = {filter: 'all',followStatus: 0,postValues:[],listId:[],feeling: true,userActivity: '',userLocation: '',shareInfo: 'everyone', messagesList: [], view: 'direct',openUp: false,width: 0,isStatusSet: false,isDark:'light',img_path: homeImage,completionResult: 0,uploading: false,deferredPostView: ProfilPage.createDeferredPostView()};
         
         this.onChangeShareInfo = this.onChangeShareInfo.bind(this);
         this.onChangeLocation = this.onChangeLocation.bind(this);
@@ -884,11 +886,13 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 </div>
                                 
                                 <div className='mtop-20'>
-                                {postList && postList.order.map((item,index) => {
+                                    <PostListProfile focusedPostId={this.state.focusedPostId} channelId={this.props.channelId} filter={this.state.filter} />
+                                {/*postList && postList.order.map((item,index) => {
                                     return (
                                         <Post postId={item} post={postList.posts[item]} userId={currentUser.id} key={`${item}`}/>
+                                        
                                     );
-                                })}
+                                })*/}
                                 </div>
                             </div>
                             <div className='col-lg-4' id='rsvDesktop'>

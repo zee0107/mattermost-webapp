@@ -106,6 +106,8 @@ export default class Post extends React.PureComponent {
         isCollapsedThreadsEnabled: PropTypes.bool,
 
         clickToReply: PropTypes.bool,
+
+        handleRemovePost: PropTypes.any,
     }
 
     static defaultProps = {
@@ -127,6 +129,8 @@ export default class Post extends React.PureComponent {
             fadeOutHighlight: false,
             postDetail: {},
         };
+
+        this.handleRemovePostClick = this.handleRemovePostClick.bind(this);
     }
 
     componentDidMount() {
@@ -166,6 +170,10 @@ export default class Post extends React.PureComponent {
         if (this.state.a11yActive) {
             this.postRef.current.dispatchEvent(new Event(A11yCustomEventTypes.UPDATE));
         }
+    }
+
+    handleRemovePostClick = (id) => {
+        this.props.handleRemovePost(id);
     }
 
     handleCommentClick = (e) => {
@@ -445,6 +453,7 @@ export default class Post extends React.PureComponent {
                                     post={post}
                                     handleCommentClick={this.handleCommentClick}
                                     compactDisplay={this.props.compactDisplay}
+                                    handleRemovePostClick={this.handleRemovePostClick}
                                     isCommentMention={this.props.isCommentMention}
                                     isFirstReply={this.props.isFirstReply}
                                     handleFileDropdownOpened={this.handleFileDropdownOpened}
