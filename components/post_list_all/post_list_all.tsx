@@ -39,42 +39,7 @@ export default class PostListAll extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {isDark:'light', deleted: false, edited: false, 
-        posts: {
-            order: [],
-            posts: {
-                id: '',
-                create_at: 0,
-                update_at: 0,
-                edit_at: 0,
-                delete_at: 0,
-                is_pinned: false,
-                user_id: '',
-                channel_id: '',
-                root_id: '',
-                original_id: '',
-                message: '',
-                type: '',
-                props: '',
-                hashtags: '',
-                pending_post_id: '',
-                reply_count: 0,
-                file_ids: [],
-                metadata: [],
-                failed: null,
-                user_activity_posts: [],
-                state: '',
-                filenames: [],
-                last_reply_at: null,
-                participants: null,
-                message_source: null,
-                is_following: null,
-                exists: null,
-            },
-            prev_post_id: '',
-            next_post_id: '',
-            has_next: false},
-        };
+        this.state = {isDark:'light', deleted: false, edited: false, posts: []};
     }
 
     componentDidMount(){
@@ -86,7 +51,7 @@ export default class PostListAll extends React.PureComponent<Props, State> {
         }
 
         if(this.state.posts){
-            this.setState({idList: this.state.posts.order});
+            this.setIdList(this.state.posts.order);
         }
         
         this.postsOnLoad(this.props.channelId);
@@ -97,6 +62,8 @@ export default class PostListAll extends React.PureComponent<Props, State> {
             if(this.props.posts){
                 Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
             }
+
+            this.setIdList(this.state.posts.order);
         }
     }
 
@@ -111,6 +78,10 @@ export default class PostListAll extends React.PureComponent<Props, State> {
                 }));
             }
         });
+    }
+
+    setIdList = (list: string[]) => {
+        this.setState({idList: list});
     }
 
     handleAddPost(){
@@ -147,7 +118,7 @@ export default class PostListAll extends React.PureComponent<Props, State> {
 
         let postsView;
         if (posts) {
-            console.log(posts);
+            console.log(idList);
             postsView = (
                 <>
                     {posts && posts.order.map((item,index) => {
