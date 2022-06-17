@@ -118,7 +118,9 @@ export default class PostListAll extends React.PureComponent<Props, State> {
 
         let postsView;
         if (posts) {
-            console.log(idList);
+            if(idList && idList.length){
+                console.log(idList);
+            }
             postsView = (
                 <>
                     {posts && posts.order.map((item,index) => {
