@@ -40,6 +40,8 @@ export default class PostListAll extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {isDark:'light', deleted: false, edited: false,};
+
+        this.handleRemovePost = this.handleRemovePost.bind(this);
     }
 
     componentDidMount(){
