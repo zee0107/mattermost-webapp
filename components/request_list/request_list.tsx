@@ -153,17 +153,17 @@ export default class RequestLists extends React.PureComponent<Props, State> {
         }
     }
 
-    /*componentDidUpdate(prevProps: Props,prevState: State){
+    componentDidUpdate(prevProps: Props,prevState: State){
         if(this.state.followStatus !== prevState.followStatus){
             if(this.props.followData !== null && this.props.followData !== undefined){
                 Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
             }
 
-            if(this.state.followData !== null && this.state.followData !== undefined){
+            /*if(this.state.followData !== null && this.state.followData !== undefined){
                 this.setState({followStatus: this.state.followData.status});
-            }
+            }*/
         }
-    }*/
+    }
 
     renderProfilePicture = (size: TAvatarSizeToken): ReactNode => {
         if (!this.props.profilePicture) {
