@@ -135,6 +135,8 @@ export default class Post extends React.PureComponent {
             profile_url: '',
             channelRole: {},
         };
+
+        this.handleRemovePostClick = this.handleRemovePostClick.bind(this);
     }
 
     componentDidMount() {
@@ -219,9 +221,7 @@ export default class Post extends React.PureComponent {
         this.props.actions.selectPost(post);
     }
 
-    handleRemovePostClick = (e) => {
-        e.preventDefault();
-
+    handleRemovePostClick = () => {
         const post = this.props.post;
         this.props.handleRemovePost(post.id);
     }
