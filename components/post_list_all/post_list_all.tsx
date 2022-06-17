@@ -7,6 +7,7 @@ import { UserProfile } from 'mattermost-redux/types/users';
 import Post from 'components/post_view_all/post';
 import LatestPostReader from 'components/post_view_all/post_list_virtualized/latest_post_reader';
 import { PostList } from 'mattermost-redux/types/posts';
+import { Client4 } from 'mattermost-redux/client';
 
 type Props = {
     channelId: string;
@@ -15,7 +16,6 @@ type Props = {
     focusedPostId?: string;
     profilePicture: string;
     currentUser: UserProfile;
-    posts?: Promise<PostList>;
     actions: {
         loadPosts: () => any;
         loadUnreads: () => any;
@@ -49,34 +49,30 @@ export default class PostListAll extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
         }
 
-        if(this.state.posts){
+        /*if(this.state.posts){
             this.setState({idList: this.state.posts.order});
-        }
+        }*/
 
+        this.handleGetPosts(this.props.channelId);
         this.postsOnLoad(this.props.channelId);
     }
     
 
-    componentDidUpdate(prevProps,prevState){
-        if(this.state.idList !== prevState.idList){
-            if(this.props.posts){
-                Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
-            }
-        }
-        
+    componentDidUpdate(){        
         if(this.state.deleted){
-            if(this.props.posts){
-                Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
-                this.setState({deleted: false});
-            }
+            this.handleGetPosts(this.props.channelId);
+            this.setState({edited: false});
         }
 
         if(this.state.edited){
-            if(this.props.posts){
-                Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
-                this.setState({edited: false});
-            }
+            this.handleGetPosts(this.props.channelId);
+            this.setState({edited: false});
         }
+    }
+
+    handleGetPosts = (channelId: string) => {
+        const postList = Client4.getPosts(channelId);
+        postList.then((value) => { this.setState({posts: value}); });
     }
 
     handleRemovePost = () => {
