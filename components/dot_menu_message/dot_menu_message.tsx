@@ -564,16 +564,16 @@ export class DotMenuMessage extends React.PureComponent<Props, State> {
                         onClick={this.handlePinMenuItemActivated}
                     />
                     {!isSystemMessage && (this.state.canEdit || this.state.canDelete) && this.renderDivider('edit')}
-                    <Menu.ItemAction
+                    {/*<Menu.ItemAction
                         id={`edit_post_${this.props.post.id}`}
                         show={this.state.canEdit}
                         text={Utils.localizeMessage('edit', 'Edit Post')}
                         onClick={this.handleEditMenuItemActivated}
-                    />
+                    />*/}
                     <Menu.ItemAction
                         id={`delete_post_${this.props.post.id}`}
                         show={this.state.canDelete}
-                        text={Utils.localizeMessage('del', 'Remove Post')}
+                        text={'Remove Message'}
                         onClick={this.handleDeleteMenuItemActivated}
                         isDangerous={true}
                     />
