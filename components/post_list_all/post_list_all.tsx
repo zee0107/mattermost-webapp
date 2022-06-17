@@ -67,12 +67,12 @@ export default class PostListAll extends React.PureComponent<Props, State> {
     }
 
     handleRemovePost = (id: string) => {
-        const {idList} = this.state;
-        idList.map((item,index) => {
+        const {posts} = this.state;
+        posts.order.map((item,index) => {
             if(item === id){
                 this.setState((prevState) => ({
-                    idList: [
-                        ...prevState.idList.slice(0, index), ...prevState.idList.slice(index + 1)
+                    posts: [
+                        ...prevState.posts.order[index].slice(0, index), ...prevState.posts.order[index].slice(index + 1)
                     ]
                 }));
             }
