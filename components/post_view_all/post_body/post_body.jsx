@@ -474,7 +474,8 @@ export default class PostBody extends React.PureComponent<Props,State> {
 
         return (
             <div>
-                {chevronMenu}
+                {/*chevronMenu*/}
+                {options}
                 {comment}
                 <div
                     id={`${post.id}_message`}

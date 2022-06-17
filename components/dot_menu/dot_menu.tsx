@@ -155,8 +155,8 @@ export class DotMenuClass extends React.PureComponent<Props, State> {
 
         this.state = {
             openUp: false,
-            canEdit: true,//props.canEdit && !props.isReadOnly,
-            canDelete: true, //props.canDelete && !props.isReadOnly,
+            canEdit: props.canEdit && !props.isReadOnly,
+            canDelete: props.canDelete && !props.isReadOnly,
         };
 
         this.buttonRef = React.createRef<HTMLButtonElement>();
