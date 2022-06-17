@@ -54,7 +54,7 @@ export default class PostListAll extends React.PureComponent<Props, State> {
         if(this.state.posts){
             this.setState({idList: this.state.posts.order});
         }
-        this.handleIdList();
+        
         this.postsOnLoad(this.props.channelId);
     }
 
@@ -63,6 +63,10 @@ export default class PostListAll extends React.PureComponent<Props, State> {
             if(this.props.posts){
                 Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
             }
+        }
+
+        if(this.state.posts.order !== prevState.posts.order){
+            this.handleIdList();
         }
     }
 
