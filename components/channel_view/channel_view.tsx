@@ -48,7 +48,7 @@ import PageHeader from 'components/page_header';
 import {browserHistory} from 'utils/browser_history';
 import { Channel, ChannelStats } from 'mattermost-redux/types/channels';
 import GroupDetail from 'components/group_details';
-import { result } from 'lodash';
+import { lte, result } from 'lodash';
 import { PostList } from 'mattermost-redux/types/posts';
 import { Story } from 'mattermost-redux/types/crypto';
 import { Team } from 'mattermost-redux/types/teams';
@@ -690,20 +690,24 @@ export default class ChannelView extends React.PureComponent<Props, State> {
                     let storyListDetails;
                     let emptyStories;
                     if(storyList){
-                        console.log(storyList.length);
-                        storyListDetails = (
-                            <>
-                                {storyList.length && storyList.map((item,key) => {
-                                    return (
-                                        <StoryList userId={item} key={`${item}-story-${key}`} />
-                                    );
-                                })}
-                            </>
-                        );
-        
+                        if(storyList[0]){
+                            storyListDetails = (
+                                <>
+                                    {storyList.map((item,key) => {
+                                        return (
+                                            <StoryList userId={item} key={`${item}-story-${key}`} />
+                                        );
+                                    })}
+                                </>
+                            );
+                        }
+
                         if(storyList.length < 11){
                             let indents = [];
-                            const lengthValue = 11 - storyList.length;
+                            let lengthValue = 11 - storyList.length;
+                            if(!storyList[0]){
+                                lengthValue = lengthValue + 1;
+                            }
                             for(var i = 1; i <= lengthValue; i ++){
                                 if(i <= 2 ){
                                     indents.push(
