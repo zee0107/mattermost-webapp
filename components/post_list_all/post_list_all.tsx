@@ -48,7 +48,7 @@ export default class PostListAll extends React.PureComponent<Props, State> {
                 update_at: 0,
                 edit_at: 0,
                 delete_at: 0,
-                is_pinned:  false,
+                is_pinned: false,
                 user_id: '',
                 channel_id: '',
                 root_id: '',
@@ -72,7 +72,8 @@ export default class PostListAll extends React.PureComponent<Props, State> {
                 exists: null,
             },
             prev_post_id: '',
-            next_post_id: ''},
+            next_post_id: '',
+            has_next: false},
         };
     }
 
