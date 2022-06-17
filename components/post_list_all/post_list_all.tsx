@@ -60,7 +60,9 @@ export default class PostListAll extends React.PureComponent<Props, State> {
 
     componentDidUpdate (prevProps, prevState) {
         if (this.state.posts !== prevState.posts) {
-            this.setState({posts: this.state.posts});
+            if(this.props.posts){
+                Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
+            }
         }
     }
 
