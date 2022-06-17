@@ -128,7 +128,7 @@ export default class DeletePostModal extends React.PureComponent<Props, State> {
 
         return (
             <Modal
-                dialogClassName='a11y__modal'
+                dialogClassName='a11y__modal remove-edit-modal '
                 show={this.state.show}
                 onEntered={this.handleEntered}
                 onHide={this.onHide}

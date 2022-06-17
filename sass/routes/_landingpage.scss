@@ -7,6 +7,15 @@
     align-items: center;
 }
 
+.remove-edit-modal{
+  margin-top: 70px;
+  padding-top: 70px;
+
+  @media (max-width: 768px) {
+    margin-top: 0px;
+  }
+}
+
 .mobile-margin-top{
   @media (max-width: 768px) {
     margin-top: 60px !important;

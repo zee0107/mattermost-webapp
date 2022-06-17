@@ -562,7 +562,7 @@ export class EditPostModal extends React.PureComponent<Props, State> {
         return (
             <Modal
                 id='editPostModal'
-                dialogClassName='a11y__modal edit-modal'
+                dialogClassName='a11y__modal remove-edit-modal edit-modal'
                 show={this.props.editingPost.show}
                 onHide={this.handleCheckForChangesHide}
                 onEntered={this.handleEntered}
