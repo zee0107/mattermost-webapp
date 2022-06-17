@@ -56,6 +56,12 @@ export default class PostListAll extends React.PureComponent<Props, State> {
         this.postsOnLoad(this.props.channelId);
     }
 
+    componentDidUpdate (prevProps, prevState) {
+        if (this.state.posts !== prevState.posts) {
+            this.setState({posts: this.state.posts});
+        }
+    }
+
     handleRemovePost = (id: string) => {
         const {posts} = this.state;
         posts.order.map((item,index) => {
