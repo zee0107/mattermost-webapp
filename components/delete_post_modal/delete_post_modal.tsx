@@ -54,7 +54,9 @@ export default class DeletePostModal extends React.PureComponent<Props, State> {
 
         let permalinkPostId = '';
         
-        this.props.handleRemovePostClick(post.id);
+        if(this.props.handleRemovePostClick){
+            this.props.handleRemovePostClick(post.id);
+        }
         const result = await actions.deleteAndRemovePost(post);
 
         const matchUrlForDMGM = matchPath<{postid: string}>(this.props.location.pathname, {

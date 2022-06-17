@@ -886,13 +886,12 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                 </div>
                                 
                                 <div className='mtop-20'>
-                                    <PostListProfile focusedPostId={this.state.focusedPostId} channelId={this.props.channelId} filter={this.state.filter} />
-                                {/*postList && postList.order.map((item,index) => {
-                                    return (
-                                        <Post postId={item} post={postList.posts[item]} userId={currentUser.id} key={`${item}`}/>
-                                        
-                                    );
-                                })*/}
+                                    {/*<PostListProfile focusedPostId={this.state.focusedPostId} channelId={this.props.channelId} filter={this.state.filter} />*/}
+                                    {postList && postList.order.map((item,index) => {
+                                        return (
+                                            <Post postId={item} post={postList.posts[item]} userId={currentUser.id} key={`${item}`}/>
+                                        );
+                                    })}
                                 </div>
                             </div>
                             <div className='col-lg-4' id='rsvDesktop'>

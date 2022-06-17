@@ -226,7 +226,7 @@ export default class PostBody extends React.PureComponent<Props,State> {
                     isFlagged={this.props.isFlagged}
                     handleCommentClick={this.props.handleCommentClick}
                     handleDropdownOpened={this.handleDotMenuOpened}
-                    handleRemovePostClick={this.props.handleRemovePostClick}
+                    //handleRemovePostClick={this.props.handleRemovePostClick}
                     handleAddReactionClick={this.toggleEmojiPicker}
                     isMenuOpen={this.state.showDotMenu}
                     isReadOnly={isReadOnly}

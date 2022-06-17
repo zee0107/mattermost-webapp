@@ -453,7 +453,7 @@ export default class Post extends React.PureComponent {
                                     post={post}
                                     handleCommentClick={this.handleCommentClick}
                                     compactDisplay={this.props.compactDisplay}
-                                    handleRemovePostClick={this.handleRemovePostClick}
+                                    //handleRemovePostClick={this.handleRemovePostClick}
                                     isCommentMention={this.props.isCommentMention}
                                     isFirstReply={this.props.isFirstReply}
                                     handleFileDropdownOpened={this.handleFileDropdownOpened}
