@@ -68,7 +68,14 @@ export default class PostListAll extends React.PureComponent<Props, State> {
     }
 
     handleRemovePost = (id: string) => {
-        //const {posts} = this.state;
+        const {idList} = this.state;
+        idList.map((item,index) => {
+            if(item === id){
+                this.setState((prevState) => ({
+                    idList: [...prevState.idList.slice(0, index), ...prevState.idList.slice(index + 1)]
+                }));
+            }
+        })
     }
 
     setIdList = (list: string[]) => {
@@ -108,11 +115,10 @@ export default class PostListAll extends React.PureComponent<Props, State> {
         const {posts,idList} = this.state;
 
         let postsView;
-        if (posts) {
-            console.log(idList);
+        if (posts && idList) {
             postsView = (
                 <>
-                    {posts && posts.order.map((item,index) => {
+                    {idList && idList.order.map((item,index) => {
                         return (
                             <Post
                                 postId={item}
