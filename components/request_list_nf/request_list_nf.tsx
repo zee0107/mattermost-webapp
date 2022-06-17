@@ -119,7 +119,7 @@ export default class RequestListsNf extends React.PureComponent<Props, State> {
         }
     }
 
-    componentDidUpdate(prevProps,prevState){
+    /*componentDidUpdate(prevProps,prevState){
         if(this.state.followStatus !== prevState.followStatus){
             if(this.props.followData !== null && this.props.followData !== undefined){
                 Promise.resolve(this.props.followData).then(value => { this.setState({followData: value}); });
@@ -128,7 +128,7 @@ export default class RequestListsNf extends React.PureComponent<Props, State> {
                 this.setState({followStatus: this.state.followData.status});
             }
         }
-    }
+    }*/
 
     componentWillUnmount() {
         this._isMounted = false;
