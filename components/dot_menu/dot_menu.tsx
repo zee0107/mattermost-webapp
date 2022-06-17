@@ -493,11 +493,11 @@ export class DotMenuClass extends React.PureComponent<Props, State> {
                     ariaLabel={Utils.localizeMessage('post_info.menuAriaLabel', 'Post extra options')}
                     className={'top-25'}
                 >
-                    <Menu.ItemAction
+                    {/*<Menu.ItemAction
                         show={!isSystemMessage && this.props.location === Locations.CENTER}
                         text={Utils.localizeMessage('post_info.reply', 'Reply')}
                         onClick={this.props.handleCommentClick}
-                    />
+                    />*/}
                     <ChannelPermissionGate
                         channelId={this.props.post.channel_id}
                         teamId={this.props.teamId}
@@ -529,19 +529,19 @@ export class DotMenuClass extends React.PureComponent<Props, State> {
                             extraText: Utils.localizeMessage('threading.threadMenu.followExtra', 'You will be notified about replies'),
                         }}
                     />
-                    <Menu.ItemAction
+                    {/*<Menu.ItemAction
                         id={`unread_post_${this.props.post.id}`}
                         show={!isSystemMessage && !this.props.channelIsArchived && this.props.location !== Locations.SEARCH}
                         text={Utils.localizeMessage('post_info.unread', 'Mark as Unread')}
                         onClick={this.handleUnreadMenuItemActivated}
-                    />
+                    />*/}
                     <Menu.ItemAction
                         id={`permalink_${this.props.post.id}`}
                         show={!isSystemMessage}
                         text={Utils.localizeMessage('post_info.permalink', 'Copy Link')}
                         onClick={this.copyLink}
                     />
-                    <Menu.ItemAction
+                    {/*<Menu.ItemAction
                         show={isMobile && !isSystemMessage && this.props.isFlagged}
                         text={Utils.localizeMessage('rhs_root.mobile.unflag', 'Remove from Saved')}
                         onClick={this.handleFlagMenuItemActivated}
@@ -563,7 +563,7 @@ export class DotMenuClass extends React.PureComponent<Props, State> {
                         text={Utils.localizeMessage('post_info.pin', 'Pin')}
                         onClick={this.handlePinMenuItemActivated}
                     />
-                    {!isSystemMessage && (this.state.canEdit || this.state.canDelete) && this.renderDivider('edit')}
+                    {!isSystemMessage && (this.state.canEdit || this.state.canDelete) && this.renderDivider('edit')}*/}
                     <Menu.ItemAction
                         id={`edit_post_${this.props.post.id}`}
                         show={this.state.canEdit}
