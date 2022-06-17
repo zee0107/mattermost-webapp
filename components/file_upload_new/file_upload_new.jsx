@@ -221,7 +221,6 @@ export class FileUploadNew extends PureComponent {
     checkPluginHooksAndUploadFiles = (files) => {
         // clear any existing errors
         this.props.onUploadError(null);
-
         let sortedFiles = Array.from(files).sort((a, b) => a.name.localeCompare(b.name, this.props.locale, {numeric: true}));
 
         const willUploadHooks = this.props.pluginFilesWillUploadHooks;
@@ -235,7 +234,7 @@ export class FileUploadNew extends PureComponent {
 
             sortedFiles = result.files;
         }
-
+        console.log(sortedFiles);
         if (sortedFiles) {
             this.uploadFiles(sortedFiles);
         }
@@ -335,7 +334,6 @@ export class FileUploadNew extends PureComponent {
 
     handleChange = (e) => {
         if (e.target.files.length > 0) {
-            console.log(e.target.files);
             this.checkPluginHooksAndUploadFiles(e.target.files);
 
             clearFileInput(e.target);
