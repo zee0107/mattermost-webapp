@@ -20,7 +20,7 @@ type Props = {
     post: Post;
     commentCount: number;
     isRHS: boolean;
-    handleCommentClick?: React.EventHandler<React.MouseEvent>;
+    handleRemovePostClick?: React.EventHandler<React.MouseEvent>;
     onExited: () => void;
     actions: {
         deleteAndRemovePost: (post: Post) => Promise<{data: boolean}>;
@@ -76,6 +76,7 @@ export default class DeletePostModal extends React.PureComponent<Props, State> {
         }
 
         if (result.data) {
+            this.props.handleRemovePostClick();
             this.onHide();
         }
     }
