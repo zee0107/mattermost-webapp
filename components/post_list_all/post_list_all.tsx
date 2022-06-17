@@ -64,12 +64,6 @@ export default class PostListAll extends React.PureComponent<Props, State> {
                 Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
             }
         }
-
-        if(this.state.posts){
-            if(this.state.posts.order !== prevState.posts.order){
-                this.handleIdList();
-            }
-        }
     }
 
     handleRemovePost = (id: string) => {
@@ -112,14 +106,6 @@ export default class PostListAll extends React.PureComponent<Props, State> {
         );
     }
 
-    handleIdList(){
-        const {posts} = this.state;
-        if(posts){
-            console.log(posts.order);
-            this.setState({idList: posts.order});
-        }
-    }
-
 
     render= (): JSX.Element => {
         const {currentUser} = this.props;
@@ -127,10 +113,11 @@ export default class PostListAll extends React.PureComponent<Props, State> {
 
         let postsView;
         if (posts) {
+            console.log(posts);
             postsView = (
                 <>
                     <LatestPostReader postIds={posts.order}/>
-                    {idList && idList.map((item,index) => {
+                    {posts && posts.order.map((item,index) => {
                         return (
                             <Post
                                 postId={item}
