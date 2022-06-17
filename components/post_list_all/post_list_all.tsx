@@ -7,6 +7,8 @@ import { UserProfile } from 'mattermost-redux/types/users';
 import Post from 'components/post_view_all/post';
 import LatestPostReader from 'components/post_view_all/post_list_virtualized/latest_post_reader';
 import { PostList } from 'mattermost-redux/types/posts';
+import { isThisTypeNode } from 'typescript';
+import { post } from 'jquery';
 
 type Props = {
     channelId: string;
@@ -52,7 +54,7 @@ export default class PostListAll extends React.PureComponent<Props, State> {
         if(this.state.posts){
             this.setState({idList: this.state.posts.order});
         }
-
+        this.handleIdList();
         this.postsOnLoad(this.props.channelId);
     }
 
@@ -63,12 +65,12 @@ export default class PostListAll extends React.PureComponent<Props, State> {
     }
 
     handleRemovePost = (id: string) => {
-        const {posts} = this.state;
-        posts.order.map((item,index) => {
+        const {idList} = this.state;
+        idList.map((item,index) => {
             if(item === id){
                 this.setState((prevState) => ({
-                    posts: [
-                        ...prevState.posts.order[index].slice(0, index), ...prevState.posts.order[index].slice(index + 1)
+                    idList: [
+                        ...prevState.idList.slice(0, index), ...prevState.idList.slice(index + 1)
                     ]
                 }));
             }
@@ -102,6 +104,13 @@ export default class PostListAll extends React.PureComponent<Props, State> {
         );
     }
 
+    handleIdList(){
+        const {posts} = this.state;
+        if(posts){
+            this.setState({idList: posts.order});
+        }
+    }
+
 
     render= (): JSX.Element => {
         const {currentUser} = this.props;
@@ -112,7 +121,7 @@ export default class PostListAll extends React.PureComponent<Props, State> {
             postsView = (
                 <>
                     <LatestPostReader postIds={posts.order}/>
-                    {posts && posts.order.map((item,index) => {
+                    {idList && idList.map((item,index) => {
                         return (
                             <Post
                                 postId={item}
