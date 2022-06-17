@@ -111,7 +111,7 @@ export default class PostListAll extends React.PureComponent<Props, State> {
             postsView = (
                 <>
                     <LatestPostReader postIds={posts.order}/>
-                    {idList && idList.map((item,index) => {
+                    {posts && posts.order.map((item,index) => {
                         return (
                             <Post
                                 postId={item}
