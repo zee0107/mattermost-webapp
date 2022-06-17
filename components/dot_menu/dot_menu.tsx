@@ -577,13 +577,13 @@ export class DotMenuClass extends React.PureComponent<Props, State> {
                         onClick={this.handleDeleteMenuItemActivated}
                         isDangerous={true}
                     />
-                    {/*{((typeof pluginItems !== 'undefined' && pluginItems.length > 0) || appBindings.length > 0 || (this.props.components[PLUGGABLE_COMPONENT] && this.props.components[PLUGGABLE_COMPONENT].length > 0)) && this.renderDivider('plugins')}
+                    {((typeof pluginItems !== 'undefined' && pluginItems.length > 0) || appBindings.length > 0 || (this.props.components[PLUGGABLE_COMPONENT] && this.props.components[PLUGGABLE_COMPONENT].length > 0)) && this.renderDivider('plugins')}
                     {pluginItems}
                     {appBindings}
                     <Pluggable
                         postId={this.props.post.id}
                         pluggableName={PLUGGABLE_COMPONENT}
-                    />*/}
+                    />
                 </Menu>
             </MenuWrapper>
         );
