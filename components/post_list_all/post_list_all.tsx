@@ -7,7 +7,6 @@ import { UserProfile } from 'mattermost-redux/types/users';
 import Post from 'components/post_view_all/post';
 import LatestPostReader from 'components/post_view_all/post_list_virtualized/latest_post_reader';
 import { PostList } from 'mattermost-redux/types/posts';
-import { Client4 } from 'mattermost-redux/client';
 
 type Props = {
     channelId: string;
@@ -16,6 +15,7 @@ type Props = {
     focusedPostId?: string;
     profilePicture: string;
     currentUser: UserProfile;
+    posts?: Promise<PostList>;
     actions: {
         loadPosts: () => any;
         loadUnreads: () => any;
@@ -49,34 +49,22 @@ export default class PostListAll extends React.PureComponent<Props, State> {
             Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
         }
 
-        /*if(this.state.posts){
+        if(this.state.posts){
             this.setState({idList: this.state.posts.order});
-        }*/
+        }
 
-        this.handleGetPosts(this.props.channelId);
         this.postsOnLoad(this.props.channelId);
     }
-    
 
-    componentDidUpdate(){        
-        if(this.state.deleted){
-            this.handleGetPosts(this.props.channelId);
-            this.setState({edited: false});
-        }
-
-        if(this.state.edited){
-            this.handleGetPosts(this.props.channelId);
-            this.setState({edited: false});
-        }
-    }
-
-    handleGetPosts = (channelId: string) => {
-        const postList = Client4.getPosts(channelId);
-        postList.then((value) => { this.setState({posts: value}); });
-    }
-
-    handleRemovePost = () => {
-        this.setState({deleted: true});
+    handleRemovePost = (id: string) => {
+        const {posts} = this.state;
+        posts.order.map((item,index) => {
+            if(item === id){
+                this.setState((prevState) => ({
+                    ...prevState.posts.order[index].slice(slice(0, index), ...prevState.posts.order[index].slice(index + 1))
+                }));
+            }
+        });
     }
 
     handleAddPost(){

@@ -221,8 +221,8 @@ export default class Post extends React.PureComponent {
         this.props.actions.selectPost(post);
     }
 
-    handleRemovePostClick = () => {
-        this.props.handleRemovePost();
+    handleRemovePostClick = (id) => {
+        this.props.handleRemovePost(id);
     }
 
     handleCardClick = (post) => {

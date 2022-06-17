@@ -20,7 +20,7 @@ type Props = {
     post: Post;
     commentCount: number;
     isRHS: boolean;
-    handleRemovePostClick?: React.EventHandler<React.MouseEvent>;
+    handleRemovePostClick?: any;
     onExited: () => void;
     actions: {
         deleteAndRemovePost: (post: Post) => Promise<{data: boolean}>;
@@ -54,7 +54,7 @@ export default class DeletePostModal extends React.PureComponent<Props, State> {
 
         let permalinkPostId = '';
         
-        this.props.handleRemovePostClick();
+        this.props.handleRemovePostClick(post.id);
         const result = await actions.deleteAndRemovePost(post);
 
         const matchUrlForDMGM = matchPath<{postid: string}>(this.props.location.pathname, {

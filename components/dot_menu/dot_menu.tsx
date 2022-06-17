@@ -38,7 +38,7 @@ type Props = {
     location?: 'CENTER' | 'RHS_ROOT' | 'RHS_COMMENT' | 'SEARCH' | string;
     isFlagged?: boolean;
     handleCommentClick?: React.EventHandler<React.MouseEvent>;
-    handleRemovePostClick?:  React.EventHandler<React.MouseEvent>;
+    handleRemovePostClick?:  any;
     handleDropdownOpened?: (open: boolean) => void;
     handleAddReactionClick?: () => void;
     isMenuOpen?: boolean;

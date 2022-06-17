@@ -23,10 +23,10 @@ function makeMapStateToProps() {
     return function mapStateToProps(state: GlobalState, ownProps: ownProps) {      
         const currentUser = getCurrentUser(state);
         const userId = currentUser.id;
-        //const posts = Client4.getPosts(ownProps.channelId);
+        const posts = Client4.getPosts(ownProps.channelId);
         return {
             userId,
-            //posts,
+            posts,
             profilePicture: Client4.getProfilePictureUrl(userId, currentUser?.last_picture_update),
             currentUser,
         };

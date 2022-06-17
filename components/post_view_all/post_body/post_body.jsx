@@ -42,7 +42,7 @@ type Props = {
     teamId?: string;
     handleCommentClick: React.EventHandler<React.MouseEvent>;
 
-    handleRemovePostClick:  React.EventHandler<React.MouseEvent>;
+    handleRemovePostClick: any;
 
     handleCardClick: (post: Post) => void;
 
