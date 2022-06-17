@@ -39,7 +39,7 @@ export default class PostListAll extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {isDark:'light', deleted: false, edited: false};
+        this.state = {isDark:'light', deleted: false, edited: false, posts: {order: [],posts: [],prev_post_id: '', next_post_id: ''}};
     }
 
     componentDidMount(){
