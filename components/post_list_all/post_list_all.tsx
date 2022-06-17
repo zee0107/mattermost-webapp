@@ -105,7 +105,12 @@ export default class PostListAll extends React.PureComponent<Props, State> {
         posts.order.map((item,index) => {
             if(item === id){
                 this.setState((prevState) => ({
-                    posts: [{order: [...prevState.posts.order.slice(0, index), ...prevState.posts.order.slice(index + 1)]}]
+                    posts: {
+                        order: [...prevState.posts.order.slice(0, index), ...prevState.posts.order.slice(index + 1)],
+                        posts: [...prevState.posts.posts],
+                        next_post_id: [...prevState.posts.next_post_id],
+                        prev_post_id: [...prevState.posts.prev_post_id]
+                    }
                 }));
             }
         });
