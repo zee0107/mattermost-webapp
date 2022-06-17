@@ -53,7 +53,8 @@ export default class DeletePostModal extends React.PureComponent<Props, State> {
         } = this.props;
 
         let permalinkPostId = '';
-
+        
+        this.props.handleRemovePostClick();
         const result = await actions.deleteAndRemovePost(post);
 
         const matchUrlForDMGM = matchPath<{postid: string}>(this.props.location.pathname, {
@@ -76,7 +77,6 @@ export default class DeletePostModal extends React.PureComponent<Props, State> {
         }
 
         if (result.data) {
-            this.props.handleRemovePostClick();
             this.onHide();
         }
     }
