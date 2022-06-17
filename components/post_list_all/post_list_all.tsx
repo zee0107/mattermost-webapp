@@ -29,6 +29,8 @@ type State = {
     isDark: string;
     posts: PostList;
     idList: string[];
+    deleted: boolean;
+    edited: boolean;
 };
 
 export default class PostListAll extends React.PureComponent<Props, State> {
@@ -36,7 +38,7 @@ export default class PostListAll extends React.PureComponent<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {isDark:'light', };
+        this.state = {isDark:'light', deleted: false, edited: false};
     }
 
     componentDidMount(){
@@ -61,17 +63,24 @@ export default class PostListAll extends React.PureComponent<Props, State> {
                 Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
             }
         }
+        
+        if(this.state.deleted){
+            if(this.props.posts){
+                Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
+                this.setState({deleted: false});
+            }
+        }
+
+        if(this.state.edited){
+            if(this.props.posts){
+                Promise.resolve(this.props.posts).then((value) => { this.setState({posts: value});});
+                this.setState({edited: false});
+            }
+        }
     }
 
-    handleRemovePost = (id: string) => {
-        const {idList} = this.state;
-        idList.map((item,index) => {
-            if(item === id){
-                this.setState((prevState) => ({
-                    ...prevState.idList[index].slice(slice(0, index), ...prevState.idList.slice(index + 1))
-                }));
-            }
-        });
+    handleRemovePost = () => {
+        this.setState({deleted: true});
     }
 
     handleAddPost(){
