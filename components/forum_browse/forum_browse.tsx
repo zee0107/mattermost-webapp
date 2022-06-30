@@ -46,8 +46,8 @@ export default class ForumBrowse extends React.PureComponent<Props, State> {
     }
 
     handleRedirect = (id: string) => {
-        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/addviewcount');
-        //const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/addviewcount');
+        const uri = new URL('http://95.111.219.126/api/crypter/addviewcount');
+        //const uri = new URL('http://95.111.219.126/api/crypter/addviewcount');
         const params = {forum_id: id};
         uri.search = new URLSearchParams(params);
 

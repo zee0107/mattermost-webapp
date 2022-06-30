@@ -142,7 +142,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         else{
             textData = textValue;
         }
-        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/CreateStories');
+        const uri = new URL('http://95.111.219.126/api/crypter/CreateStories');
         const params = {user_id: userId, type: 'text', text: textData, bg_color: bgColor, text_color: textColor, privacy: privacyValue};
         uri.search = new URLSearchParams(params);
 
@@ -171,7 +171,7 @@ export default class CreateStory extends React.PureComponent<Props, State> {
         else{
             textData = textValue;
         }
-        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/CreateStories');
+        const uri = new URL('http://95.111.219.126/api/crypter/CreateStories');
         const params = {user_id: userId, type: 'photo', file_id: photoValueName, text: textData, bg_color: bgColorText, text_color: textColor, privacy: privacyValue};
         uri.search = new URLSearchParams(params);
 

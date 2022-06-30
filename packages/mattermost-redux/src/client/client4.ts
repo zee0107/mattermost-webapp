@@ -1956,7 +1956,7 @@ export default class Client4 {
             share_info: post.share_info,
         }
         const resultOtherDetails = await this.doFetch<boolean>(
-            'https://crypterfighter.polywickstudio.ph/api/crypter/userpostdetailed',
+            'http://95.111.219.126/api/crypter/userpostdetailed',
             {method: 'post', body: JSON.stringify(dataToSend)},
         );
         const analyticsData = {channel_id: result.channel_id, post_id: result.id, user_actual_id: result.user_id, root_id: result.root_id};
@@ -1986,7 +1986,7 @@ export default class Client4 {
 
     getPostDetailed = async (postId: string) => {
         const otherData = await this.doFetch<OtherDetails>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getuserpost?postId=${postId}`,
+            `http://95.111.219.126/api/crypter/getuserpost?postId=${postId}`,
             {method: 'get'},
         );
 
@@ -3894,62 +3894,62 @@ export default class Client4 {
 
     getCryptoData = () => {
         return this.doFetch<AllListing[]>(
-            'https://crypterfighter.polywickstudio.ph/api/crypter/getcurrencyalldata',{method: 'get', headers: {'Content-Type':'application/json'}}
+            'http://95.111.219.126/api/crypter/getcurrencyalldata',{method: 'get', headers: {'Content-Type':'application/json'}}
         );
     }
 
     getCryptoTrend = (limit: string,sort: string) => {
         return this.doFetch<TrendListing[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/gettrendingdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Content-Type':'application/json'}}
+            `http://95.111.219.126/api/crypter/gettrendingdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Content-Type':'application/json'}}
         );
     }
 
 
     getCryptoGainer = (limit: string,sort: string) => {
         return this.doFetch<GainerListing[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getgainersdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Content-Type':'application/json'}}
+            `http://95.111.219.126/api/crypter/getgainersdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Content-Type':'application/json'}}
         );
     }
 
 
     getCryptoNew = (limit: string,sort: string) => {
         return this.doFetch<NewListing[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getnewdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/getnewdata?limit=${limit}&sort=${sort}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getCryptoProjects = () => {
         return this.doFetch<ProjectList[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getprojects?filter=ONGOING`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/getprojects?filter=ONGOING`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getCryptoProject = (id: string) => {
         return this.doFetch<ProjectList>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getproject?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/getproject?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getCryptoProjectsUpcoming = () => {
         return this.doFetch<ProjectsUpcomingList[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getprojects?filter=UPCOMING`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/getprojects?filter=UPCOMING`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getCryptoProjectsEnded = () => {
         return this.doFetch<ProjectsEndedList[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getprojects?filter=ENDED`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/getprojects?filter=ENDED`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getCryptoProjectsAll = () => {
         return this.doFetch<ProjectsEndedList[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getallprojects`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/getallprojects`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getProfileCover = async (user_id: string) => {
-        const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/profilecover?id=${user_id}`);
+        const response = await fetch(`http://95.111.219.126/api/crypter/profilecover?id=${user_id}`);
         const imageBlob = await response.blob();
         const textBlob = await imageBlob.text();
         if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')
@@ -3965,25 +3965,25 @@ export default class Client4 {
 
     getRequestList = (userId: string) => {
         return this.doFetch<RequestList[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getrequest?userId=${userId}`,{method: 'get'}
+            `http://95.111.219.126/api/crypter/getrequest?userId=${userId}`,{method: 'get'}
         );
     }
 
     getFriendList = (userId: string) => {
         return this.doFetch<RequestList[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getfriendlist?userId=${userId}`,{method: 'get'}
+            `http://95.111.219.126/api/crypter/getfriendlist?userId=${userId}`,{method: 'get'}
         );
     }
 
     getFollowDetail = (userId: string, friendId: string) => {
         return this.doFetch<RequestList>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getfollowdetail?userId=${userId}&friendId=${friendId}`,{method: 'get'}
+            `http://95.111.219.126/api/crypter/getfollowdetail?userId=${userId}&friendId=${friendId}`,{method: 'get'}
         );
     }
 
     getSocialCount = (userId: string) => {
         return this.doFetch<SocialCount>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/socialcount?userId=${userId}`,{method: 'get'}
+            `http://95.111.219.126/api/crypter/socialcount?userId=${userId}`,{method: 'get'}
         );
     } 
 
@@ -3993,7 +3993,7 @@ export default class Client4 {
             friend_id: friend_id,
         }
         return this.doFetch<string>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/followrequest`
+            `http://95.111.219.126/api/crypter/followrequest`
             ,{method: 'post',body: JSON.stringify(body)}
         );
     }
@@ -4004,7 +4004,7 @@ export default class Client4 {
             friend_id: friend_id,
         }
         return this.doFetch<boolean>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/unfollowuser`
+            `http://95.111.219.126/api/crypter/unfollowuser`
             ,{method: 'post',body: JSON.stringify(body)}
         );
     }
@@ -4014,7 +4014,7 @@ export default class Client4 {
             requestid: requestId,
         }
         return this.doFetch<boolean>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/acceptrequest`
+            `http://95.111.219.126/api/crypter/acceptrequest`
             ,{method: 'post',body: JSON.stringify(body)}
         );
     }
@@ -4024,7 +4024,7 @@ export default class Client4 {
             requestid: requestId,
         }
         return this.doFetch<boolean>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/CancelRequest`
+            `http://95.111.219.126/api/crypter/CancelRequest`
             ,{method: 'post',body: JSON.stringify(body)}
         );
     }
@@ -4034,50 +4034,50 @@ export default class Client4 {
             requestid: requestId,
         }
         return this.doFetch<boolean>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/declinerequest`
+            `http://95.111.219.126/api/crypter/declinerequest`
             ,{method: 'post',body: JSON.stringify(body)}
         );
     }
 
     listSotries = (id: string) => {
         return this.doFetch<Story[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/liststories?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/liststories?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     viewSotries = (id: string) => {
         return this.doFetch<Story[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/viewstrory?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/viewstrory?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     mutedStories = (id: string) => {
         return this.doFetch<MutedList[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/listmuted?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/listmuted?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     archiveStories = (id: string) => {
         return this.doFetch<Story[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/listarchives?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/listarchives?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     userSettings = (id: string) => {
         return this.doFetch<UserSettings>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getusersettings?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/getusersettings?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     albumList = (id: string) => {
         return this.doFetch<Album[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/albumlist?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/albumlist?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getAlbum = (id: string) => {
         return this.doFetch<Album[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getalbum?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/getalbum?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
@@ -4088,7 +4088,7 @@ export default class Client4 {
         }
 
         return this.doFetch<string>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/muteuserstory`,
+            `http://95.111.219.126/api/crypter/muteuserstory`,
             {method: 'post',body: JSON.stringify(body)}
         );
     }
@@ -4100,7 +4100,7 @@ export default class Client4 {
         }
 
         return this.doFetch<string>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/unmuteuserstory`,
+            `http://95.111.219.126/api/crypter/unmuteuserstory`,
             {method: 'post',body: JSON.stringify(body)}
         );
     }
@@ -4114,7 +4114,7 @@ export default class Client4 {
         }
 
         return this.doFetch<string>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/updateusersettings`,
+            `http://95.111.219.126/api/crypter/updateusersettings`,
             {method: 'post',body: JSON.stringify(body)}
         );
     }
@@ -4125,7 +4125,7 @@ export default class Client4 {
             pageId: page_id,
         }
         return this.doFetch<string>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/likepage`
+            `http://95.111.219.126/api/crypter/likepage`
             ,{method: 'post',body: JSON.stringify(body)}
         );
     }
@@ -4136,85 +4136,85 @@ export default class Client4 {
             pageId: page_id,
         }
         return this.doFetch<string>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/unlikepage`
+            `http://95.111.219.126/api/crypter/unlikepage`
             ,{method: 'post',body: JSON.stringify(body)}
         );
     }
 
     getLikeCount = (id: string) => {
         return this.doFetch<number>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getlikecount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/getlikecount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     myCommentList = (id: string) => {
         return this.doFetch<string[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/mymessages?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/mymessages?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     myThreadList = (id: string) => {
         return this.doFetch<string[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/mythreads?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/mythreads?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     forumMembers = () => {
         return this.doFetch<string[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/forummembers`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/forummembers`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     allThreads = () => {
         return this.doFetch<Thread[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/listthreads`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/listthreads`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getThread = (id: string) => {
         return this.doFetch<ForumTopic>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getthread?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/getthread?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     listComments = (id: string) => {
         return this.doFetch<Comment[]>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/listcomments?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/listcomments?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getComment = (id: string) => {
         return this.doFetch<ForumReply>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getcomment?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/getcomment?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getThreadMeber = (fid: string,id: string) => {
         return this.doFetch<ForumReply>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/threadmembership?fid=${fid}&id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/threadmembership?fid=${fid}&id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getThreadMeberCount = (fid: string,id: string) => {
         return this.doFetch<ForumReply>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/threadmembercount?fid=${fid}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/threadmembercount?fid=${fid}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getThreadCommentCount = (fid: string,id: string) => {
         return this.doFetch<ForumReply>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/threadcommentcount?fid=${fid}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/threadcommentcount?fid=${fid}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     getLikeData = (fid: string,id: string) => {
         return this.doFetch<LikeData>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/getlikedata?fid=${fid}&uid=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/getlikedata?fid=${fid}&uid=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     likeForum = (fid: string, id: string) => {
-        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/likeforum');
+        const uri = new URL('http://95.111.219.126/api/crypter/likeforum');
         const param = {forum_id: fid, user_id: id};
         uri.search = new URLSearchParams(param);
 
@@ -4224,7 +4224,7 @@ export default class Client4 {
     }
 
     dislikeForum = (fid: string, id: string) => {
-        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/dislikeforum');
+        const uri = new URL('http://95.111.219.126/api/crypter/dislikeforum');
         const param = {forum_id: fid, user_id: id};
         uri.search = new URLSearchParams(param);
 
@@ -4235,19 +4235,19 @@ export default class Client4 {
 
     userJoinedCount = (id: string) => {
         return this.doFetch<number>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/userjoinedcount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/userjoinedcount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     userPostCount = (id: string) => {
         return this.doFetch<number>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/userpostcount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/userpostcount?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 
     forumUserData = (id: string) => {
         return this.doFetch<ForumUser>(
-            `https://crypterfighter.polywickstudio.ph/api/crypter/userlastvisit?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
+            `http://95.111.219.126/api/crypter/userlastvisit?id=${id}`,{method: 'get', headers: {'Content-Type':'application/json,'}}
         );
     }
 

@@ -161,7 +161,7 @@ export default class CreateAlbum extends React.PureComponent<Props, State> {
     onCreateAlbum = () =>{
         const { userId } = this.props;
         const { photoValue, privacyValue, albumName } = this.state;
-        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/createalbum');
+        const uri = new URL('http://95.111.219.126/api/crypter/createalbum');
         const params = {user_id: userId, album_name: albumName, privacy: privacyValue};
         uri.search = new URLSearchParams(params);
 

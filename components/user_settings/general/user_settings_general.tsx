@@ -386,7 +386,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
 
     submitCover = () => {
         const user = Object.assign({}, this.props.user);
-        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/uploadprofilecover');
+        const uri = new URL('http://95.111.219.126/api/crypter/uploadprofilecover');
         const params = {user_id: user.id, file_id: this.state.coverFileName};
         uri.search = new URLSearchParams(params);
 
@@ -406,7 +406,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
     }
 
     getImage = async (id: string) => {
-        const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/profilecover?id=${id}`);
+        const response = await fetch(`http://95.111.219.126/api/crypter/profilecover?id=${id}`);
         const imageBlob = await response.blob();
         const textBlob = await imageBlob.text();
         if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')

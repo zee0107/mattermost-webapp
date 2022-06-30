@@ -184,7 +184,7 @@ export default class ChannelView extends React.PureComponent<Props, State> {
 
     getProfileImage = async (channel: string) => {
         try{
-            const response = await fetch(`https://crypterfighter.polywickstudio.ph/api/crypter/pageprofileimg?id=${channel}`);
+            const response = await fetch(`http://95.111.219.126/api/crypter/pageprofileimg?id=${channel}`);
             const imageBlob = await response.blob();
             const textBlob = await imageBlob.text();
             if (textBlob.toString() === '\"unavailable\"' || textBlob.toString() === 'unavailable')

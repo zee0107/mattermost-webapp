@@ -52,7 +52,7 @@ export default class CreateForum extends React.PureComponent<Props, State> {
     }
 
     handleSubmit = () => {
-        const uri = new URL('https://crypterfighter.polywickstudio.ph/api/crypter/createthread');
+        const uri = new URL('http://95.111.219.126/api/crypter/createthread');
         const params = {user_id: this.props.userId, topic: this.state.forumTitle, description: this.state.forumDetails};
         uri.search = new URLSearchParams(params);
 
