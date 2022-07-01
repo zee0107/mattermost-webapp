@@ -10,6 +10,7 @@ import StoryView from 'components/story_view';
 import MutedStoryList from 'components/muted_story_list';
 import logoDark from 'images/logoBlack.png';
 import { MutedList, Story, UserSettings } from 'mattermost-redux/types/crypto';
+import * as GlobalActions from 'actions/global_actions';
 import postImage from 'images/post-1.png';
 import { userInfo } from 'os';
 type Props = {
@@ -102,6 +103,10 @@ export default class ViewStory extends React.PureComponent<Props, State> {
             this.setDefault(this.state.userSettings.story_privacy,this.state.userSettings.story_archive);
         }
     }
+
+    handleEmitUserLoggedOutEvent = () =>{
+        GlobalActions.emitUserLoggedOutEvent();
+      }
 
     getUserSettings = () => {
         const data = Client4.userSettings(this.props.currentUser.id);
@@ -414,11 +419,11 @@ export default class ViewStory extends React.PureComponent<Props, State> {
                                             */}
                                             <div className='d-flex'>
                                                 <a className='onStoryprofilesettings' id='defaultDropdown' id='dropdownMenuOffset' data-bs-toggle='dropdown' aria-expanded='false' data-bs-offset='10,20'><i className='bi-chevron-compact-down'></i></a>
-                                                <ul className='dropdown-menu dropdown-menu-dark' aria-labelledby='dropdownMenuOffset'>
-                                                    <li><a className='dropdown-item'><i className='bi-person'></i> Profile</a></li>
-                                                    <li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
-                                                    <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>
-                                                    <li><a className='dropdown-item onSettingsandprivacy'><i className='bi-gear-wide'></i> Settings & Privacy</a></li>
+                                                <ul className='dropdown-menu' aria-labelledby='dropdownMenuOffset'>
+                                                    <li><a className='dropdown-item text-dark' href='/profile'><i className='bi-person'></i> Profile</a></li>
+                                                    {/*<li><a className='dropdown-item onGivefeedback'><i className='bi-exclamation-square'></i> Give Feedback</a></li>
+                                                    <li><a className='dropdown-item onHelpsupport'><i className='bi-question-diamond'></i> Help & Support</a></li>*/}
+                                                    <li><a className='dropdown-item onSettingsandprivacy text-dark' onClick={() => this.handleEmitUserLoggedOutEvent()}><i className='bi-gear-wide'></i> Sign out</a></li>
                                                 </ul>
                                             </div>
                                         </div>
