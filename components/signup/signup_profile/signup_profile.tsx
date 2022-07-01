@@ -116,7 +116,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
         const token = (new URLSearchParams(this.props.location!.search)).get('t');
         const inviteId = (new URLSearchParams(this.props.location!.search)).get('id');
 
-        this.state = {loading: false,isDark:'light',img_path:'',isMatchWidth: window.matchMedia("(min-width: 768px)").matches};
+        this.state = {loading: false,isDark:'light',img_path:'', location: 'PH',isMatchWidth: window.matchMedia("(min-width: 768px)").matches};
         if (token && token.length > 0) {
             this.state = this.getTokenData(token, data!);
         } else if (inviteId && inviteId.length > 0) {
@@ -296,11 +296,11 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
     }
 
     updateName(e: React.ChangeEvent<HTMLInputElement>){
-        this.setState({name: event.target.value});
+        this.setState({name: e.target.value});
     }
 
     updateAddress(e: React.ChangeEvent<HTMLInputElement>){
-        this.setState({address: event.target.value});
+        this.setState({address: e.target.value});
     }
 
     renderEmailSignup = () => {
@@ -648,7 +648,6 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                                 autoCapitalize='off'
                                 onChange={this.updateAddress}
                             />
-                            {locationError}
                         </div>
                     </div>
                     <div className='mt-8'>
@@ -831,7 +830,7 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
                                 <option value="PG">Papua New Guinea</option>
                                 <option value="PY">Paraguay</option>
                                 <option value="PE">Peru</option>
-                                <option value="PH" selected="selected">Philippines</option>
+                                <option value="PH">Philippines</option>
                                 <option value="PN">Pitcairn</option>
                                 <option value="PL">Poland</option>
                                 <option value="PT">Portugal</option>
