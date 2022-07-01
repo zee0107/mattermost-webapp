@@ -555,7 +555,7 @@ export default class SystemUsersDropdown extends React.PureComponent<Props, Stat
                             onClick={this.handleManageRoles}
                             text={Utils.localizeMessage('admin.user_item.manageRoles', 'Manage Roles')}
                         />
-                        <Menu.ItemAction
+                        {/*<Menu.ItemAction
                             show={showManageTeams}
                             onClick={this.handleManageTeams}
                             text={Utils.localizeMessage('admin.user_item.manageTeams', 'Manage Teams')}
@@ -564,7 +564,7 @@ export default class SystemUsersDropdown extends React.PureComponent<Props, Stat
                             show={this.props.enableUserAccessTokens}
                             onClick={this.handleManageTokens}
                             text={Utils.localizeMessage('admin.user_item.manageTokens', 'Manage Tokens')}
-                        />
+                        />*/}
                         <Menu.ItemAction
                             show={showMfaReset}
                             onClick={this.handleResetMfa}

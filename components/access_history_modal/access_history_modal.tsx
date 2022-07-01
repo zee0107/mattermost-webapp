@@ -58,7 +58,7 @@ export default class AccessHistoryModal extends React.PureComponent<Props, State
 
         return (
             <Modal
-                dialogClassName='a11y__modal modal--scroll'
+                dialogClassName='a11y__modal mtop-percent modal--scroll'
                 show={this.state.show}
                 onHide={this.onHide}
                 onExited={this.props.onHide}
