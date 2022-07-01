@@ -41,6 +41,14 @@ export type Actions = {
     loginById: (id: string, password: string, mfaToken?: string) => Promise<{data: boolean} | {error: ServerError}>;
     setGlobalItem: (name: string, value: string) => {data: boolean};
     getTeamInviteInfo: (inviteId: string) => Promise<{data: TeamInviteInfo} | {error: ServerError}>;
+    getMe: () => void;
+    updateMe: (user: UserProfile) => Promise<{
+        data: boolean;
+        error?: {
+            server_error_id: string;
+            message: string;
+        };
+    }>;
 };
 
 export type Props = {
@@ -234,10 +242,53 @@ export default class SignupProfile extends React.PureComponent<Props, State> {
 
     handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
-        const [first, ...last] = this.state.name.split(' ');
-        const lastName = last.join(' ');
-        console.log(`First Name: ${first}, Last Name: ${lastName}`);
+        const user = Object.assign({}, this.props.currentUser);
+        if (!this.state.name) {
+            this.setState({nameError: 'Please input your full name.'});
+            return;
+        }
+
+        if (!this.state.address) {
+            this.setState({locationError: 'Please fill in your address.'});
+            return;
+        }
+
+        if (!this.state.location) {
+            this.setState({locationError: 'Please select your country.'});
+            return;
+        }
+        const adr1 = this.state.address.trim();
+        const adr2 = this.state.location.trim();
+        const position = adr1 + ', ' + adr2;
+        const first = this.state.name.substring(0, this.state.name.indexOf(' '));
+        const last = this.state.name.substring(this.state.name.indexOf(' ') + 1);
+
+        user.position = position;
+        user.first_name = first;
+        user.last_name = last;
+
+        this.submitUser(user, false);
         browserHistory.push('/login');
+    }
+
+    submitUser = (user: UserProfile, emailUpdated: boolean) => {
+        this.props.actions.updateMe(user).
+            then(({data, error: err}) => {
+                if (data) {
+                    this.props.actions.getMe();
+                } else if (err) {
+                    let serverError;
+                    if (err.server_error_id &&
+                        err.server_error_id === 'api.user.check_user_password.invalid.app_error') {
+                        serverError = 'Incorrect Password';
+                    } else if (err.message) {
+                        serverError = err.message;
+                    } else {
+                        serverError = err;
+                    }
+                    console.log(serverError);
+                }
+            });
     }
 
     changeLocation(event) {

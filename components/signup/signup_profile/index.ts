@@ -9,7 +9,10 @@ import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
 import {createUser} from 'mattermost-redux/actions/users';
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
 import {getTeamInviteInfo} from 'mattermost-redux/actions/teams';
-
+import {
+    getMe,
+    updateMe,
+} from 'mattermost-redux/actions/users';
 import {setGlobalItem} from 'actions/storage';
 import {loginById} from 'actions/views/login';
 import {getPasswordConfig} from 'utils/utils.jsx';
@@ -29,6 +32,7 @@ function mapStateToProps(state: GlobalState) {
     const customDescriptionText = config.CustomDescriptionText;
     const hasAccounts = config.NoAccounts === 'false';
 
+
     return {
         enableSignUpWithEmail,
         siteName,
@@ -45,6 +49,8 @@ function mapDispatchToProps(dispatch: Dispatch<GenericAction>) {
     return {
         actions: bindActionCreators<ActionCreatorsMapObject<ActionFunc | GenericAction>, Actions>({
             createUser,
+            getMe,
+            updateMe,
             loginById,
             setGlobalItem,
             getTeamInviteInfo,
