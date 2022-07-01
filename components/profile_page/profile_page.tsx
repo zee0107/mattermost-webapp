@@ -154,6 +154,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
         this.handleAccept = this.handleAccept.bind(this);
         this.handleCancelRequest = this.handleCancelRequest.bind(this);
         this.handleUnfollow = this.handleUnfollow.bind(this);
+        this.onChangeFilter = this.onChangeFilter.bind(this);
     }
 
     componentDidMount(){
@@ -329,6 +330,10 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
 
     closeModal = () => {
         this.setState({uploading: false});
+    }
+
+    onChangeFilter = (value: string) => {
+        this.setState({filter: value});
     }
 
     handleFollow = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -749,7 +754,25 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                         <div className='blur-effects-menu-heading'>
                                             <div className='p-0'>
                                                 <div className='row'>
-                                                    <div className='col-md-2'>
+                                                    <div onClick={() => this.onChangeFilter('all')} className={`col-lg-2 profile-menu-icon pointer-btn ${this.state.filter === 'all' ? 'active-profile-menu-icon' : ''}`}>
+                                                        <a href='#' onClick={() => this.onChangeFilter('all')}><img src={LayoutIcon}></img></a>
+                                                    </div>
+                                                    <div onClick={() => this.onChangeFilter('image')} className={`col-lg-2 profile-menu-icon pointer-btn ${this.state.filter === 'image' ? 'active-profile-menu-icon' : ''}`}>
+                                                        <a href='#' onClick={() => this.onChangeFilter('image')}><img src={ImgIcon}></img></a>
+                                                    </div>
+                                                    <div onClick={() => this.onChangeFilter('video')} className={`col-lg-2 profile-menu-icon pointer-btn ${this.state.filter === 'video' ? 'active-profile-menu-icon' : ''}`}>
+                                                        <a href='#' onClick={() => this.onChangeFilter('video')}><img src={VideoIcon}></img></a>
+                                                    </div>
+                                                    <div onClick={() => this.onChangeFilter('audio')} className={`col-lg-2 profile-menu-icon pointer-btn ${this.state.filter === 'audio' ? 'active-profile-menu-icon' : ''}`}>
+                                                        <a href='#' onClick={() => this.onChangeFilter('audio')}><img src={MusicIcon}></img></a>
+                                                    </div>
+                                                    <div onClick={() => this.onChangeFilter('file')} className={`col-lg-2 profile-menu-icon pointer-btn ${this.state.filter === 'file' ? 'active-profile-menu-icon' : ''}`}>
+                                                        <a href='#' onClick={() => this.onChangeFilter('file')}><img src={AttachIcon}></img></a>
+                                                    </div>
+                                                    <div onClick={() => this.onChangeFilter('location')} className={`col-lg-2 profile-menu-icon pointer-btn ${this.state.filter === 'location' ? 'active-profile-menu-icon' : ''}`}>
+                                                        <a href='#' onClick={() => this.onChangeFilter('location')}><img src={GeoIcon}></img></a>
+                                                    </div>
+                                                    {/*<div className='col-md-2'>
                                                     <a className='float-start mr-5 ml-5'><img width='18' src={LayoutIcon} /></a></div>
                                                     <div className='col-md-2'>
                                                     <a className='float-start mr-5 ml-5'><img width='18' src={ImgIcon} /></a></div>
@@ -760,7 +783,7 @@ export default class ProfilPage extends React.PureComponent<Props, State> {
                                                     <div className='col-md-2'>
                                                     <a className='float-md-start mr-5 ml-5'><img width='18' src={AttachIcon} /></a></div>
                                                     <div className='col-2'>
-                                                    <a className='float-md-start mr-5 ml-5'><img width='18' src={GeoIcon} /></a></div>
+                                                    <a className='float-md-start mr-5 ml-5'><img width='18' src={GeoIcon} /></a></div>*/}
                                                 </div>
                                             </div>
                                         </div>
