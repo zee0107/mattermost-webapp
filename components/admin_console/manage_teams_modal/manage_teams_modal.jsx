@@ -215,7 +215,7 @@ export default class ManageTeamsModal extends React.PureComponent {
             <Modal
                 show={this.props.show}
                 onHide={this.props.onModalDismissed}
-                dialogClassName='a11y__modal manage-teams modal--overflow-visible'
+                dialogClassName='a11y__modal manage-teams mtop-percent modal--overflow-visible'
                 role='dialog'
                 aria-labelledby='manageTeamsModalLabel'
             >

@@ -171,7 +171,7 @@ export default class ManageTokensModal extends React.PureComponent<Props, State>
             <Modal
                 show={this.props.show}
                 onHide={this.props.onModalDismissed}
-                dialogClassName='a11y__modal manage-teams'
+                dialogClassName='a11y__modal mtop-percent manage-teams'
                 role='dialog'
                 aria-labelledby='manageTokensModalLabel'
             >

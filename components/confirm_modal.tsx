@@ -159,7 +159,7 @@ export default class ConfirmModal extends React.Component<Props, State> {
         return (
             <Modal
                 className={'modal-confirm ' + this.props.modalClass}
-                dialogClassName='a11y__modal'
+                dialogClassName='a11y__modal mtop-percent'
                 show={this.props.show}
                 onHide={this.handleCancel}
                 onExited={this.props.onExited}

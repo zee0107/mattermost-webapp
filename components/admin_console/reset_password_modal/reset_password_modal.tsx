@@ -175,7 +175,7 @@ export default class ResetPasswordModal extends React.PureComponent<Props, State
 
         return (
             <Modal
-                dialogClassName='a11y__modal'
+                dialogClassName='a11y__modal mtop-percent'
                 show={this.props.show}
                 onHide={this.doCancel}
                 role='dialog'
